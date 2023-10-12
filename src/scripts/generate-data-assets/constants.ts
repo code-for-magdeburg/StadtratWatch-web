@@ -1,0 +1,8 @@
+export const ASSETS_DIR = './src/assets';
+export const GENERATED_ASSETS_DIR = `${ASSETS_DIR}/generated`;
+export const SESSIONS_BASE_DIR = `${GENERATED_ASSETS_DIR}/sessions`;
+export const FRACTIONS_BASE_DIR = `${GENERATED_ASSETS_DIR}/fractions`;
+export const PARTIES_BASE_DIR = `${GENERATED_ASSETS_DIR}/parties`;
+export const PERSONS_BASE_DIR = `${GENERATED_ASSETS_DIR}/persons`;
+export const SESSIONS_CONFIGS_DIR = './src/scripts/generate-data-assets/configs';
+export const REGISTRY_FILENAME = `${SESSIONS_CONFIGS_DIR}/registry.json`;

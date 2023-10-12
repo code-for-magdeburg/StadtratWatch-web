@@ -1,0 +1,30 @@
+<div>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/">Startseite</a>
+    </li>
+    <li class="breadcrumb-item active">Fraktionen</li>
+  </ol>
+
+  <div class="mb-5">
+    <h1>Fraktionen</h1>
+  </div>
+
+  <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
+    <div *ngFor="let fraction of fractions" class="col">
+      <div class="card text-center" style="cursor: pointer;">
+        <div class="card-header">
+          <a class="stretched-link text-decoration-none text-body" [routerLink]="['/fraction', fraction.id]">
+            {{ fraction.name }}
+          </a>
+        </div>
+        <div class="card-body">
+          <h1>{{ fraction.membersCount }}</h1>
+          <span class="text-body-tertiary">{{ fraction.membersCount === 1 ? 'Mitglied' : 'Mitglieder' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

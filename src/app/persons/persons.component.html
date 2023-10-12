@@ -1,0 +1,48 @@
+<div>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/">Startseite</a>
+    </li>
+    <li class="breadcrumb-item active">Personen</li>
+  </ol>
+
+  <div class="mb-5">
+    <h1>Personen</h1>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-sm">
+      <thead>
+      <tr>
+        <th sortable="name" (sort)="onSort($event)">Name</th>
+        <th sortable="fraction" (sort)="onSort($event)">Fraktion</th>
+        <th sortable="party" (sort)="onSort($event)">Partei</th>
+        <th sortable="votingAttendance" (sort)="onSort($event)" style="text-align: right;">
+          abgestimmt
+          <span tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen in Bezug zur Gesamtzahl der gezählten Abstimmungen ist"><i class="bi bi-info-circle"></i></span>
+        </th>
+        <th sortable="votingSuccessRate" (sort)="onSort($event)" style="text-align: right;">
+          Abstimmungserfolg
+          <span tooltip="Gibt an, wie häufig die abgegebene Stimme mit dem Gesamtabstimmungsergebnis übereinstimmt"><i class="bi bi-info-circle"></i></span>
+        </th>
+        <th sortable="abstentionRate" (sort)="onSort($event)" style="text-align: right;">
+          Stimmenthaltungen
+          <span tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren"><i class="bi bi-info-circle"></i></span>
+        </th>
+
+      </thead>
+      <tbody>
+      <tr *ngFor="let person of persons">
+        <td><a [routerLink]="['/person', person.id]">{{ person.name }}</a></td>
+        <td>{{ person.fraction }}</td>
+        <td>{{ person.party }}</td>
+        <td style="text-align: right;">{{ person.votingAttendance * 100 | number : '1.2-2'}}%</td>
+        <td style="text-align: right;">{{ person.votingSuccessRate * 100 | number : '1.2-2'}}%</td>
+        <td style="text-align: right;">{{ person.abstentionRate * 100 | number : '1.2-2'}}%</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

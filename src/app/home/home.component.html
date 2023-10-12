@@ -1,0 +1,59 @@
+<div>
+
+  <div class="text-center mb-5">
+    <h1 class="display-6 fw-bold">Stadtrat Magdeburg - Wahlperiode VII</h1>
+    <p class="lead">
+      Daten und Analysen der Abstimmungen von Stadtratssitzungen der Landeshauptstadt Magdeburg
+      im Zeitraum {{ metadata?.sessionsPeriodFrom | date }} - {{ metadata?.sessionsPeriodUntil | date }}
+    </p>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-4 g-3">
+
+    <div class="col">
+      <div class="card text-center" style="cursor: pointer;">
+        <div class="card-header">
+          <a class="stretched-link text-decoration-none text-body" routerLink="/sessions">Sitzungen</a>
+        </div>
+        <div class="card-body">
+          <h1>{{ metadata?.sessionsCount }}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card text-center" style="cursor: pointer;">
+        <div class="card-header">
+          <a class="stretched-link text-decoration-none text-body" routerLink="/fractions">Fraktionen</a>
+        </div>
+        <div class="card-body">
+          <h1>{{ metadata?.fractionsCount }}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card text-center" style="cursor: pointer;">
+        <div class="card-header">
+          <a class="stretched-link text-decoration-none text-body" routerLink="/parties">Parteien</a>
+        </div>
+        <div class="card-body">
+          <h1>{{ metadata?.partiesCount }}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card text-center" style="cursor: pointer;">
+        <div class="card-header">
+          <a class="stretched-link text-decoration-none text-body" routerLink="/persons">Personen</a>
+        </div>
+        <div class="card-body">
+          <h1>{{ metadata?.personsCount }}</h1>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

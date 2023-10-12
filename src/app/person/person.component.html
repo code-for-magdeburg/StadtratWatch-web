@@ -1,0 +1,71 @@
+<div>
+
+  <ng-container *ngIf="person">
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/">Startseite</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/persons">Personen</a>
+      </li>
+      <li class="breadcrumb-item active">{{ person.name }}</li>
+    </ol>
+
+    <div class="mb-5">
+      <h1>{{ person.name }}</h1>
+    </div>
+
+    <div>
+      <dl class="row">
+        <dt class="col-4 col-sm-3 col-md-2 col-lg-1">Fraktion</dt>
+        <dd class="col-8 col-sm-9 col-md-10 col-lg-11">{{ person.fraction }}</dd>
+        <dt class="col-4 col-sm-3 col-md-2 col-lg-1">Partei</dt>
+        <dd class="col-8 col-sm-9 col-md-10 col-lg-11">{{ person.party }}</dd>
+      </dl>
+    </div>
+
+    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
+
+      <div class="col">
+        <div class="card text-center">
+          <div class="card-header">Abstimmungen</div>
+          <div class="card-body">
+            <h3>{{ person.votingAttendance * 100 | number : '1.2-2' }}%</h3>
+            <p class="text-body-secondary">
+              Hat an {{ didVote }} von {{ didVote + didNotVote }} Abstimmungen teilgenommen
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card text-center">
+          <div class="card-header">Abstimmungserfolg</div>
+          <div class="card-body">
+            <h3>{{ person.votingSuccessRate * 100 | number : '1.2-2' }}%</h3>
+            <p class="text-body-secondary">
+              {{ person.votingSuccessCount }} der {{ didVote }} abgegebenen Stimmen entsprachen dem Abstimmungsergebnis
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card text-center">
+          <div class="card-header">Stimmenthaltungen</div>
+          <div class="card-body">
+            <h3>{{ person.abstentionRate * 100 | number : '1.2-2' }}%</h3>
+            <p class="text-body-secondary">
+              {{ person.abstentionCount }} der {{ didVote }} abgegebenen Stimmen waren Stimmenthaltungen
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </ng-container>
+
+
+</div>

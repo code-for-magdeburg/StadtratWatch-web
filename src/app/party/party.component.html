@@ -1,0 +1,39 @@
+<div>
+
+  <ng-container *ngIf="party">
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/">Startseite</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/parties">Parteien</a>
+      </li>
+      <li class="breadcrumb-item active">{{ party.name }}</li>
+    </ol>
+
+    <div class="mb-5">
+      <h1>{{ party.name }}</h1>
+    </div>
+
+    <div class="mb-3">
+      <h2>Mitglieder</h2>
+    </div>
+
+    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
+      <div *ngFor="let member of members" class="col">
+        <div class="card text-center" style="cursor: pointer;">
+          <div class="card-body">
+            <a class="d-block h5 stretched-link text-decoration-none text-body" [routerLink]="['/person', member.personId]">
+              {{ member.name }}
+            </a>
+            <span class="text-body-tertiary">{{ member.party }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ng-container>
+
+
+</div>
