@@ -12,11 +12,11 @@
       <li class="breadcrumb-item active">{{ person.name }}</li>
     </ol>
 
-    <div class="mb-5">
+    <div class="mb-3">
       <h1>{{ person.name }}</h1>
     </div>
 
-    <div>
+    <div class="mb-3">
       <dl class="row">
         <dt class="col-4 col-sm-3 col-md-2 col-lg-1">Fraktion</dt>
         <dd class="col-8 col-sm-9 col-md-10 col-lg-11">{{ person.fraction }}</dd>
@@ -25,7 +25,9 @@
       </dl>
     </div>
 
-    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
+    <h2 class="mb-3">Abstimmungsstatistiken</h2>
+
+    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 mb-3">
 
       <div class="col">
         <div class="card text-center">
@@ -63,6 +65,29 @@
         </div>
       </div>
 
+    </div>
+
+    <h2 class="mb-3">Vergleich mit Personen</h2>
+
+    <div class="table-responsive mb-3">
+      <table class="table table-striped table-bordered table-sm">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Fraktion</th>
+          <th>Partei</th>
+          <th style="text-align: right;">Übereinstimmung</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let comparison of comparisonMatrix">
+          <td><a [routerLink]="['/person', comparison.personId]">{{ comparison.personName }}</a></td>
+          <td>{{ comparison.fraction }}</td>
+          <td>{{ comparison.party }}</td>
+          <td style="text-align: right;">{{ comparison.comparisonScore * 100 | number : '1.2-2' }}%</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
 
   </ng-container>
