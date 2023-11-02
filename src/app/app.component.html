@@ -1,14 +1,23 @@
 <header>
+
   <nav class="navbar navbar-expand-md sticky-top bg-body-tertiary border-bottom">
     <div class="container-fluid">
 
       <a routerLink="/" class="navbar-brand mb-0 h1">StadtratWatch</a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        (click)="navbarCollapsed = !navbarCollapsed"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-collapse" [class.collapse]="navbarCollapsed" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a routerLink="/sessions" class="nav-link">Sitzungen</a>
@@ -25,7 +34,7 @@
         </ul>
       </div>
 
-      <div class="collapse navbar-collapse justify-content-end">
+      <div class="navbar-collapse justify-content-end" [class.collapse]="navbarCollapsed">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a
@@ -35,6 +44,7 @@
               rel="noopener"
             >
               <i class="bi bi-github"></i>
+              <span class="d-md-none ms-2">GitHub</span>
             </a>
           </li>
         </ul>
