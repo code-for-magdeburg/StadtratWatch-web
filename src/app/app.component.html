@@ -59,8 +59,8 @@
   <router-outlet></router-outlet>
 </main>
 
-<footer class="border-top py-3 mt-auto bg-body-tertiary">
-  <ul class="nav justify-content-center">
+<footer class="border-top py-3 px-3 mt-auto bg-body-tertiary row g-0">
+  <ul class="nav col-12 col-md-4 offset-md-4 justify-content-center">
     <li class="nav-item">
       <a routerLink="/privacy" class="nav-link px-2 text-body-secondary">Datenschutz</a>
     </li>
@@ -71,4 +71,9 @@
       <a routerLink="/contact" class="nav-link px-2 text-body-secondary">Kontakt</a>
     </li>
   </ul>
+  <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end align-items-center">
+    <small class="text-body-secondary">
+      Letzte Aktualisierung: {{ metadata?.lastUpdatedTimestamp | date: 'dd.MM.yyyy HH:mm' }}
+    </small>
+  </div>
 </footer>
