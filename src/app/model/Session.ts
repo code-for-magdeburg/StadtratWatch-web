@@ -1,6 +1,3 @@
-import { FractionDto } from "./Fraction";
-import { PartyDto } from "./Party";
-
 export enum VoteResult {
   VOTE_FOR = 'J',
   VOTE_AGAINST = 'N',
@@ -53,6 +50,8 @@ export type SessionVotingDto = {
 export type SessionDetailsDto = {
   id: string;
   date: string;
+  linkInvitation: string | null;
+  linkMinutes: string | null;
   youtubeUrl: string;
   fractions: SessionFractionDto[];
   parties: SessionPartyDto[];
