@@ -9,9 +9,19 @@ import * as fs from 'fs';
 import { SESSIONS_BASE_DIR } from './constants';
 import { Registry, SessionConfig, SessionScan, SessionVote } from './model';
 import { SESSIONS_CONFIGS_DIR } from './constants';
+import { ScrapedSession } from './scraped-session';
 
 
-export function generateSessionFiles(registry: Registry): SessionDetailsDto[] {
+export function generateSessionFiles(registry: Registry, scrapedSession: ScrapedSession): SessionDetailsDto[] {
+
+  const scrapedStadtratMeetings = scrapedSession.meetings
+    .filter(meeting => meeting.organization_name === 'Stadtrat')
+    .map<{ start: string, original_id: number | null }>(meeting => ({
+      start: meeting.start ? meeting.start.slice(0, 10) : '',
+      original_id: meeting.original_id
+    }));
+  const scrapedAgendaItems = scrapedSession.agenda_items;
+  const scrapedFiles = scrapedSession.files;
 
   const personIdsByNameMap =
     new Map(registry.persons.map(person => [person.name, person.id]));
@@ -24,6 +34,13 @@ export function generateSessionFiles(registry: Registry): SessionDetailsDto[] {
 
   const sessions: SessionDetailsDto[] = registry.sessions
     .map(session => {
+      const scrapedStadtratMeeting = scrapedStadtratMeetings.find(
+        meeting => meeting.start.slice(0, 10) === session.date
+      );
+      if (!scrapedStadtratMeeting) {
+        console.warn('No scraped meeting found for session', session.date);
+      }
+
       const sessionDir = `${SESSIONS_CONFIGS_DIR}/${session.date}`;
       const sessionConfig = JSON.parse(
         fs.readFileSync(`${sessionDir}/config-${session.date}.json`, 'utf-8')
@@ -57,25 +74,47 @@ export function generateSessionFiles(registry: Registry): SessionDetailsDto[] {
           party: sessionConfigPerson.party,
           fraction: sessionConfigPerson.fraction
         })),
-        votings: sessionScan.map<SessionVotingDto>(voting => ({
-          id: +voting.votingFilename.substring(11, 14),
-          videoTimestamp: voting.videoTimestamp,
-          votingSubject: {
-            agendaItem: voting.votingSubject.agendaItem,
-            applicationId: voting.votingSubject.applicationId,
-            title: voting.votingSubject.title,
-            type: voting.votingSubject.type,
-            authors: voting.votingSubject.authors,
-            documents: {
-              applicationUrl: null
-            }
-          },
-          votes: voting.votes.map(vote => ({
-            personId: personIdsByNameMap.get(vote.name) || '',
-            vote: getVoteResult(vote.vote)
-          })),
-          votingResult: getVotingResult(voting.votes)
-        }))
+        votings: sessionScan.map<SessionVotingDto>(voting => {
+          const agendaItem = scrapedAgendaItems.find(
+            agendaItem =>
+              scrapedStadtratMeeting?.original_id &&
+              agendaItem.key === `Ö ${voting.votingSubject.agendaItem}` &&
+              agendaItem.meeting_id === scrapedStadtratMeeting.original_id
+          );
+          if (!agendaItem) {
+            console.warn('No scraped agenda item found for voting', session.date, voting.votingSubject.agendaItem);
+          }
+          const scrapedPaperOriginalId = agendaItem?.paper_original_id;
+          if (!scrapedPaperOriginalId) {
+            console.warn('No scraped paper original id found for voting', session.date, voting.votingSubject.agendaItem);
+          }
+          const files = scrapedFiles.filter(
+            file => scrapedPaperOriginalId && file.paper_original_id === scrapedPaperOriginalId
+          );
+          if (files.length === 0) {
+            console.warn('No scraped file found for voting', session.date, voting.votingSubject.agendaItem);
+          }
+
+          return {
+            id: +voting.votingFilename.substring(11, 14),
+            videoTimestamp: voting.videoTimestamp,
+            votingSubject: {
+              agendaItem: voting.votingSubject.agendaItem,
+              applicationId: voting.votingSubject.applicationId,
+              title: voting.votingSubject.title,
+              type: voting.votingSubject.type,
+              authors: voting.votingSubject.authors,
+              documents: {
+                applicationUrl: files.length > 0 ? files[0].url : null,
+              }
+            },
+            votes: voting.votes.map(vote => ({
+              personId: personIdsByNameMap.get(vote.name) || '',
+              vote: getVoteResult(vote.vote)
+            })),
+            votingResult: getVotingResult(voting.votes)
+          };
+        })
       };
     })
     .sort((a, b) => a.date.localeCompare(b.date));
