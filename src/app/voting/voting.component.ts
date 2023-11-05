@@ -27,6 +27,7 @@ type VotingViewModel = {
   votingTitle: string;
   votingType: string;
   authorNames: string[];
+  applicationUrl: string | null;
   youtubeUrl: string;
   votesFor: number;
   votesAgainst: number;
@@ -91,6 +92,7 @@ export class VotingComponent {
           votingTitle: votingDto.votingSubject.title,
           votingType: votingDto.votingSubject.type,
           authorNames: votingDto.votingSubject.authors,
+          applicationUrl: votingDto.votingSubject.documents.applicationUrl,
           youtubeUrl: this.generateYoutubeUrl(session.youtubeUrl, votingDto.videoTimestamp),
           votesFor: this.countVotes(votingDto.votes, VoteResult.VOTE_FOR),
           votesAgainst: this.countVotes(votingDto.votes, VoteResult.VOTE_AGAINST),

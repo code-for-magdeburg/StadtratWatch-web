@@ -6,3 +6,4 @@ export const PARTIES_BASE_DIR = `${GENERATED_ASSETS_DIR}/parties`;
 export const PERSONS_BASE_DIR = `${GENERATED_ASSETS_DIR}/persons`;
 export const SESSIONS_CONFIGS_DIR = './src/scripts/generate-data-assets/configs';
 export const REGISTRY_FILENAME = `${SESSIONS_CONFIGS_DIR}/registry.json`;
+export const SCRAPED_SESSION_FILENAME = `${SESSIONS_CONFIGS_DIR}/Magdeburg.json`;

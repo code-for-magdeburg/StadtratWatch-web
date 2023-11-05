@@ -1,6 +1,3 @@
-import { FractionDto } from "./Fraction";
-import { PartyDto } from "./Party";
-
 export enum VoteResult {
   VOTE_FOR = 'J',
   VOTE_AGAINST = 'N',
@@ -30,6 +27,10 @@ export type SessionPersonDto = {
   fraction: string;
 };
 
+export type VotingDocumentsDto = {
+  applicationUrl: string | null;
+};
+
 export type Vote = {
   personId: string;
   vote: VoteResult;
@@ -44,6 +45,7 @@ export type SessionVotingDto = {
     title: string;
     type: string;
     authors: string[];
+    documents: VotingDocumentsDto;
   },
   votes: Vote[]
   votingResult: VotingResult
@@ -53,6 +55,8 @@ export type SessionVotingDto = {
 export type SessionDetailsDto = {
   id: string;
   date: string;
+  linkInvitation: string | null;
+  linkMinutes: string | null;
   youtubeUrl: string;
   fractions: SessionFractionDto[];
   parties: SessionPartyDto[];
