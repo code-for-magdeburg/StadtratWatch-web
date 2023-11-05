@@ -27,6 +27,10 @@ export type SessionPersonDto = {
   fraction: string;
 };
 
+export type VotingDocumentsDto = {
+  applicationUrl: string | null;
+};
+
 export type Vote = {
   personId: string;
   vote: VoteResult;
@@ -41,6 +45,7 @@ export type SessionVotingDto = {
     title: string;
     type: string;
     authors: string[];
+    documents: VotingDocumentsDto;
   },
   votes: Vote[]
   votingResult: VotingResult

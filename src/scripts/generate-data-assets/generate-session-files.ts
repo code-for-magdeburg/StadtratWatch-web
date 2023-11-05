@@ -65,7 +65,10 @@ export function generateSessionFiles(registry: Registry): SessionDetailsDto[] {
             applicationId: voting.votingSubject.applicationId,
             title: voting.votingSubject.title,
             type: voting.votingSubject.type,
-            authors: voting.votingSubject.authors
+            authors: voting.votingSubject.authors,
+            documents: {
+              applicationUrl: null
+            }
           },
           votes: voting.votes.map(vote => ({
             personId: personIdsByNameMap.get(vote.name) || '',

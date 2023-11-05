@@ -30,8 +30,11 @@
         </div>
         <div class="col-6">
           <dl>
-            <dt>Antrag</dt>
-            <dd>{{ votingViewModel.applicationId }}</dd>
+            <dt>{{ votingViewModel.votingType }}</dt>
+            <dd *ngIf="votingViewModel.applicationUrl">
+              <a href="{{ votingViewModel.applicationUrl }}" target="_blank">{{ votingViewModel.applicationId }}</a>
+            </dd>
+            <dd *ngIf="!votingViewModel.applicationUrl">{{ votingViewModel.applicationId }}</dd>
           </dl>
         </div>
       </div>
@@ -39,10 +42,14 @@
       <dl>
         <dt>Titel</dt>
         <dd>{{ votingViewModel.votingTitle }}</dd>
-        <dt>Typ</dt>
-        <dd>{{ votingViewModel.votingType }}</dd>
         <dt>Eingebracht von</dt>
-        <dd>{{ votingViewModel.authorNames.length > 0 ? votingViewModel.authorNames.join() : 'n/a' }}</dd>
+        <dd *ngIf="votingViewModel.authorNames.length === 0">n/a</dd>
+        <dd *ngIf="votingViewModel.authorNames.length === 1">{{ votingViewModel.authorNames[0] }}</dd>
+        <dd *ngIf="votingViewModel.authorNames.length > 1">
+          <ul>
+            <li *ngFor="let author of votingViewModel.authorNames">{{ author }}</li>
+          </ul>
+        </dd>
         <dt>Youtube</dt>
         <dd>
           <a *ngIf="votingViewModel.youtubeUrl" href="{{ votingViewModel.youtubeUrl }}" target="_blank">
