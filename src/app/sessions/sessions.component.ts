@@ -24,7 +24,7 @@ export class SessionsComponent {
       .fetchSessions()
       .subscribe(sessions => {
         this.sessions = sessions;
-        this.sessions.sort((a, b) => a.date.localeCompare(b.date));
+        this.sessions.sort((a, b) => b.date.localeCompare(a.date));
       });
   }
 
