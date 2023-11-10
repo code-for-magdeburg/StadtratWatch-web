@@ -3,8 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { SessionsService } from '../services/sessions.service';
 import { DID_NOT_VOTE_COLOR, VOTED_ABSTENTION_COLOR, VOTED_AGAINST_COLOR, VOTED_FOR_COLOR } from '../utilities/ui';
 import { SessionVotingDto, Vote, VoteResult } from '../model/Session';
-import { FractionsService } from '../services/fractions.service';
-import { forkJoin } from 'rxjs';
 
 
 type FractionMember = {
@@ -49,8 +47,7 @@ export class VotingComponent {
   public VoteResult = VoteResult;
 
 
-  constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService,
-              private readonly sessionsService: SessionsService) {
+  constructor(private readonly route: ActivatedRoute, private readonly sessionsService: SessionsService) {
   }
 
 
@@ -71,53 +68,52 @@ export class VotingComponent {
         return;
       }
 
-      forkJoin([
-        this.sessionsService.fetchSession(sessionId),
-        this.fractionsService.fetchFractions()
-      ]).subscribe(([session, fractions]) => {
+      this.sessionsService
+        .fetchSession(sessionId)
+        .subscribe(session => {
 
-        const votingDto = session.votings.find(
-          (votingDto: SessionVotingDto) => votingDto.id === votingId
-        );
-        if (!votingDto) {
-          // TODO: Handle missing voting data
-          return;
-        }
+          const votingDto = session.votings.find(
+            (votingDto: SessionVotingDto) => votingDto.id === votingId
+          );
+          if (!votingDto) {
+            // TODO: Handle missing voting data
+            return;
+          }
 
-        this.votingViewModel = {
-          sessionId: session.id,
-          sessionDate: session.date,
-          agendaItem: votingDto.votingSubject.agendaItem,
-          applicationId: votingDto.votingSubject.applicationId,
-          votingTitle: votingDto.votingSubject.title,
-          votingType: votingDto.votingSubject.type,
-          authorNames: votingDto.votingSubject.authors,
-          applicationUrl: votingDto.votingSubject.documents.applicationUrl,
-          youtubeUrl: this.generateYoutubeUrl(session.youtubeUrl, votingDto.videoTimestamp),
-          votesFor: this.countVotes(votingDto.votes, VoteResult.VOTE_FOR),
-          votesAgainst: this.countVotes(votingDto.votes, VoteResult.VOTE_AGAINST),
-          votesAbstained: this.countVotes(votingDto.votes, VoteResult.VOTE_ABSTENTION)
-        }
+          this.votingViewModel = {
+            sessionId: session.id,
+            sessionDate: session.date,
+            agendaItem: votingDto.votingSubject.agendaItem,
+            applicationId: votingDto.votingSubject.applicationId,
+            votingTitle: votingDto.votingSubject.title,
+            votingType: votingDto.votingSubject.type,
+            authorNames: votingDto.votingSubject.authors,
+            applicationUrl: votingDto.votingSubject.documents.applicationUrl,
+            youtubeUrl: this.generateYoutubeUrl(session.youtubeUrl, votingDto.videoTimestamp),
+            votesFor: this.countVotes(votingDto.votes, VoteResult.VOTE_FOR),
+            votesAgainst: this.countVotes(votingDto.votes, VoteResult.VOTE_AGAINST),
+            votesAbstained: this.countVotes(votingDto.votes, VoteResult.VOTE_ABSTENTION)
+          }
 
-        const votes = new Map(votingDto.votes.map(vote => [vote.personId, vote.vote]));
-        this.fractions = fractions.map(fraction => ({
-          fractionId: fraction.id,
-          name: fraction.name,
-          members: session.persons
-            .filter(personDto => personDto.fraction === fraction.name)
-            .map(personDto => ({
-              personId: personDto.id,
-              name: personDto.name,
-              vote: votes.get(personDto.id) || VoteResult.DID_NOT_VOTE
-            }))
-        }));
+          const votes = new Map(votingDto.votes.map(vote => [vote.personId, vote.vote]));
+          this.fractions = session.fractions.map(fraction => ({
+            fractionId: fraction.id,
+            name: fraction.name,
+            members: session.persons
+              .filter(personDto => personDto.fraction === fraction.name)
+              .map(personDto => ({
+                personId: personDto.id,
+                name: personDto.name,
+                vote: votes.get(personDto.id) || VoteResult.DID_NOT_VOTE
+              }))
+          }));
 
-        this.fractions.sort((a, b) =>
-          a.members.length === b.members.length
-            ? a.name.localeCompare(b.name)
-            : b.members.length - a.members.length);
+          this.fractions.sort((a, b) =>
+            a.members.length === b.members.length
+              ? a.name.localeCompare(b.name)
+              : b.members.length - a.members.length);
 
-      });
+        });
 
     });
 
