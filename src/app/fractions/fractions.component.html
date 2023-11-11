@@ -36,4 +36,25 @@
     </div>
   </div>
 
+  <div class="table-responsive mt-5">
+    <table class="table table-striped table-bordered table-sm">
+      <thead>
+      <tr>
+        <th sortableFractions="name" (sort)="onSort($event)">Name</th>
+        <th sortableFractions="membersCount" (sort)="onSort($event)" style="text-align: right;">Mitglieder</th>
+        <th sortableFractions="uniformityScore" (sort)="onSort($event)" style="text-align: right;">
+          Geschlossenheit
+          <span tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion."><i class="bi bi-info-circle"></i></span>
+        </th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let fraction of sortedFractions">
+        <td><a [routerLink]="['/fraction', fraction.id]">{{ fraction.name }}</a></td>
+        <td style="text-align: right;">{{ fraction.membersCount }}</td>
+        <td style="text-align: right;">{{ fraction.uniformityScore | number : '0.3-3' }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
