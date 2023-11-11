@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChildren } from '@angular/core';
 import { FractionDto } from '../model/Fraction';
 import { FractionsService } from '../services/fractions.service';
+import { compare, SortableFractionsDirective, SortFractionsEvent } from '../directives/sortable-fractions.directive';
 
 
 @Component({
@@ -11,7 +12,13 @@ import { FractionsService } from '../services/fractions.service';
 export class FractionsComponent {
 
 
+  private data: FractionDto[] = [];
+
   public fractions: FractionDto[] = [];
+  public sortedFractions: FractionDto[] = [];
+
+
+  @ViewChildren(SortableFractionsDirective) headers: QueryList<SortableFractionsDirective> | undefined;
 
 
   constructor(private readonly fractionsService: FractionsService) {
@@ -23,9 +30,35 @@ export class FractionsComponent {
     this.fractionsService
       .fetchFractions()
       .subscribe(fractions => {
-        this.fractions = fractions;
-        this.fractions.sort((a, b) => b.membersCount - a.membersCount);
+        this.fractions = this.sortedFractions = this.data = fractions;
+        this.sortedFractions.sort((a, b) => b.membersCount - a.membersCount);
       });
+  }
+
+
+  onSort(sortEvent: SortFractionsEvent) {
+
+    if (!this.headers) {
+      return;
+    }
+
+    this.headers.forEach((header) => {
+      if (header.sortableFractions !== sortEvent.column) {
+        header.direction = '';
+      }
+    });
+
+    if (sortEvent.direction === '' || sortEvent.column === '') {
+      this.sortedFractions = this.data;
+    } else {
+      this.sortedFractions = [...this.data].sort((a, b) => {
+        const aValue = sortEvent.column === '' ? '' : a[sortEvent.column];
+        const bValue = sortEvent.column === '' ? '' : b[sortEvent.column];
+        const res = compare(aValue, bValue);
+        return sortEvent.direction === 'asc' ? res : -res;
+      });
+    }
+
   }
 
 

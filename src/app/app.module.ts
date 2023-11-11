@@ -21,6 +21,7 @@ import { SortablePersonsDirective } from './directives/sortable-persons.directiv
 import { ImpressumComponent } from './impressum/impressum.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
+import { SortableFractionsDirective } from './directives/sortable-fractions.directive';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -39,6 +40,7 @@ registerLocaleData(localeDe, 'de-DE');
     PartiesComponent,
     PartyComponent,
     HomeComponent,
+    SortableFractionsDirective,
     SortablePersonsDirective,
     ImpressumComponent,
     PrivacyComponent,
