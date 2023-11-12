@@ -8,6 +8,7 @@ import { forkJoin } from 'rxjs';
 type Fraction = {
   name: string;
   uniformityScore: number;
+  applicationsSuccessRate: number;
 };
 
 type FractionMember = {
@@ -50,7 +51,11 @@ export class FractionComponent {
         this.personsService.fetchPersonsByFraction(fractionId)
       ])
         .subscribe(([fraction, persons]) => {
-          this.fraction = { name: fraction.name, uniformityScore: fraction.uniformityScore };
+          this.fraction = {
+            name: fraction.name,
+            applicationsSuccessRate: fraction.applicationsSuccessRate,
+            uniformityScore: fraction.uniformityScore
+          };
           this.members = persons.map(person => ({
             personId: person.id,
             name: person.name,
