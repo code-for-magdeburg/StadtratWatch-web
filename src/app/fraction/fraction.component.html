@@ -42,9 +42,22 @@
 
       <div class="col">
         <div class="card text-center">
+          <div class="card-header">Erfolgreiche Anträge</div>
+          <div class="card-body">
+            <h3>{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</h3>
+            <p class="text-body-secondary">
+              Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen
+              wurde.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card text-center">
           <div class="card-header">Geschlossenheit</div>
           <div class="card-body">
-            <h3>{{ fraction.uniformityScore | number : '0.3-3' }}%</h3>
+            <h3>{{ fraction.uniformityScore | number : '0.3-3' }}</h3>
             <p class="text-body-secondary">
               Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der
               Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion.
@@ -52,6 +65,7 @@
           </div>
         </div>
       </div>
+
     </div>
 
   </ng-container>

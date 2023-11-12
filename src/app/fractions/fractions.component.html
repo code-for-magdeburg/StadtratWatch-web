@@ -25,6 +25,13 @@
           <span class="text-body-tertiary">{{ fraction.membersCount === 1 ? 'Mitglied' : 'Mitglieder' }}</span>
         </div>
         <div class="card-body" style="z-index: 2; cursor: default;">
+          <h2>{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</h2>
+          <span class="text-body-tertiary me-1">Erfolgreiche Anträge</span>
+          <span tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde.">
+            <i class="bi bi-question-circle"></i>
+          </span>
+        </div>
+        <div class="card-body" style="z-index: 2; cursor: default;">
           <h2 *ngIf="fraction.membersCount > 1">{{ fraction.uniformityScore | number : '0.3-3' }}</h2>
           <h2 *ngIf="fraction.membersCount === 1"><i class="bi bi-ban"></i></h2>
           <span class="text-body-tertiary me-1">Geschlossenheit</span>
@@ -42,15 +49,24 @@
       <tr>
         <th sortableFractions="name" (sort)="onSort($event)">Name</th>
         <th sortableFractions="membersCount" (sort)="onSort($event)" style="text-align: right;">Mitglieder</th>
+        <th sortableFractions="applicationsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
+          Erfolgreiche Anträge
+          <span tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde.">
+            <i class="bi bi-info-circle"></i>
+          </span>
+        </th>
         <th sortableFractions="uniformityScore" (sort)="onSort($event)" style="text-align: right;">
           Geschlossenheit
-          <span tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion."><i class="bi bi-info-circle"></i></span>
+          <span tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion.">
+            <i class="bi bi-info-circle"></i>
+          </span>
         </th>
       </thead>
       <tbody>
       <tr *ngFor="let fraction of sortedFractions">
         <td><a [routerLink]="['/fraction', fraction.id]">{{ fraction.name }}</a></td>
         <td style="text-align: right;">{{ fraction.membersCount }}</td>
+        <td style="text-align: right;">{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ fraction.uniformityScore | number : '0.3-3' }}</td>
       </tr>
       </tbody>
