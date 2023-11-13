@@ -4,9 +4,9 @@ import { generateSessionFiles } from './generate-session-files';
 import { generateFractionFiles } from './generate-fraction-files';
 import { generatePartyFiles } from './generate-party-files';
 import { REGISTRY_FILENAME, SCRAPED_SESSION_FILENAME } from './constants';
-import { Registry } from './model';
 import { generateMetadataFile } from './generate-metadata-file';
-import { ScrapedSession } from './scraped-session';
+import { ScrapedSession } from './model/scraped-session';
+import { Registry } from "./model/registry";
 
 
 const registry = JSON.parse(fs.readFileSync(REGISTRY_FILENAME, 'utf-8')) as Registry;

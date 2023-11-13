@@ -1,8 +1,9 @@
 import { SessionDetailsDto, SessionVotingDto, VoteResult, VotingResult } from '../../app/model/Session';
 import { PersonDetailsDto, PersonLightDto, PersonVoteDto, PersonVotingComparison } from '../../app/model/Person';
 import * as fs from 'fs';
-import { Registry, RegistryPerson } from './model';
+import { RegistryPerson } from './model/registry';
 import { PERSONS_BASE_DIR } from './constants';
+import { Registry } from "./model/registry";
 
 
 export function generatePersonFiles(registry: Registry, sessions: SessionDetailsDto[]) {

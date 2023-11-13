@@ -28,30 +28,3 @@ export type RegistryPerson = {
   fractionId: string;
   partyId: string;
 };
-
-export type SessionConfig = {
-  youtubeUrl: string;
-  names: {
-    name: string;
-    party: string;
-    fraction: string;
-  }[];
-};
-
-export type SessionVote = {
-  name: string;
-  vote: string;
-};
-
-export type SessionScan = {
-  votingFilename: string;
-  videoTimestamp: string;
-  votingSubject: {
-    agendaItem: string;
-    applicationId: string;
-    title: string;
-    type: string;
-    authors: string[];
-  };
-  votes: SessionVote[];
-}[];

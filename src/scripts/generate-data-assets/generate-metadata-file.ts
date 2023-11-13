@@ -1,8 +1,8 @@
-import { Registry } from './model';
 import * as fs from 'fs';
 import { GENERATED_ASSETS_DIR } from './constants';
 import { SessionDetailsDto } from '../../app/model/Session';
 import { MetadataDto } from '../../app/model/Metadata';
+import { Registry } from "./model/registry";
 
 
 export function generateMetadataFile(registry: Registry, sessions: SessionDetailsDto[]) {

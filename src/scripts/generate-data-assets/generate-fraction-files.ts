@@ -1,8 +1,9 @@
 import { FractionDto } from '../../app/model/Fraction';
 import * as fs from 'fs';
-import { Registry, RegistryFraction, RegistryPerson } from './model';
+import { RegistryFraction, RegistryPerson } from './model/registry';
 import { FRACTIONS_BASE_DIR } from './constants';
 import { SessionDetailsDto, SessionVotingDto, VoteResult, VotingResult } from '../../app/model/Session';
+import { Registry } from "./model/registry";
 
 
 export function generateFractionFiles(registry: Registry, sessions: SessionDetailsDto[]) {

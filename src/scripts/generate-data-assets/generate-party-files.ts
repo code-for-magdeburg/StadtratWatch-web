@@ -1,7 +1,7 @@
 import { PartyDto } from '../../app/model/Party';
 import * as fs from 'fs';
-import { Registry } from './model';
 import { PARTIES_BASE_DIR } from './constants';
+import { Registry } from "./model/registry";
 
 
 export function generatePartyFiles(registry: Registry) {
