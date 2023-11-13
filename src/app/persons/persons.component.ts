@@ -1,7 +1,7 @@
 import { Component, QueryList, ViewChildren } from '@angular/core';
 import { PersonsService } from '../services/persons.service';
 import { PersonLightDto } from '../model/Person';
-import { compare, SortablePersonsDirective, SortPersonsEvent } from '../directives/sortable-persons.directive';
+import { compare, SortablePersonsDirective, SortPersonsEvent } from './sortable-persons.directive';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class PersonsComponent {
 
   private data: PersonLightDto[] = [];
 
-  public persons: PersonLightDto[] = [];
+  public sortedPersons: PersonLightDto[] = [];
 
 
   @ViewChildren(SortablePersonsDirective) headers: QueryList<SortablePersonsDirective> | undefined;
@@ -29,8 +29,8 @@ export class PersonsComponent {
     this.personsService
       .fetchPersons()
       .subscribe(persons => {
-        this.persons = this.data = persons;
-        this.persons.sort((a, b) => a.name.localeCompare(b.name));
+        this.sortedPersons = this.data = persons;
+        this.sortedPersons.sort((a, b) => a.name.localeCompare(b.name));
       });
   }
 
@@ -42,15 +42,15 @@ export class PersonsComponent {
     }
 
     this.headers.forEach((header) => {
-      if (header.sortable !== sortEvent.column) {
+      if (header.sortablePersons !== sortEvent.column) {
         header.direction = '';
       }
     });
 
     if (sortEvent.direction === '' || sortEvent.column === '') {
-      this.persons = this.data;
+      this.sortedPersons = this.data;
     } else {
-      this.persons = [...this.data].sort((a, b) => {
+      this.sortedPersons = [...this.data].sort((a, b) => {
         const aValue = sortEvent.column === '' ? '' : a[sortEvent.column];
         const bValue = sortEvent.column === '' ? '' : b[sortEvent.column];
         const res = compare(aValue, bValue);

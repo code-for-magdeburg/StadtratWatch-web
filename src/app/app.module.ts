@@ -17,11 +17,11 @@ import { PartiesComponent } from './parties/parties.component';
 import { PartyComponent } from './party/party.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { HomeComponent } from './home/home.component';
-import { SortablePersonsDirective } from './directives/sortable-persons.directive';
+import { SortablePersonsDirective } from './persons/sortable-persons.directive';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
-import { SortableFractionsDirective } from './directives/sortable-fractions.directive';
+import { SortableFractionsDirective } from './fractions/sortable-fractions.directive';
 
 
 registerLocaleData(localeDe, 'de-DE');

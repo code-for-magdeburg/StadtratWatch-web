@@ -34,7 +34,7 @@ export interface SortPersonsEvent {
 
 
 @Directive({
-  selector: 'th[sortable]',
+  selector: 'th[sortablePersons]',
   host: {
     '[class.asc]': 'direction === "asc"',
     '[class.desc]': 'direction === "desc"',
@@ -44,14 +44,14 @@ export interface SortPersonsEvent {
 export class SortablePersonsDirective {
 
 
-  @Input() sortable: SortPersonsColumn = '';
+  @Input() sortablePersons: SortPersonsColumn = '';
   @Input() direction: SortDirection = '';
   @Output() sort = new EventEmitter<SortPersonsEvent>();
 
 
   rotate() {
     this.direction = rotate[this.direction];
-    this.sort.emit({ column: this.sortable, direction: this.direction });
+    this.sort.emit({ column: this.sortablePersons, direction: this.direction });
   }
 
 

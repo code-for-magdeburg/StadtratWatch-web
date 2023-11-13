@@ -1,7 +1,7 @@
 import { Component, QueryList, ViewChildren } from '@angular/core';
 import { FractionDto } from '../model/Fraction';
 import { FractionsService } from '../services/fractions.service';
-import { compare, SortableFractionsDirective, SortFractionsEvent } from '../directives/sortable-fractions.directive';
+import { compare, SortableFractionsDirective, SortFractionsEvent } from './sortable-fractions.directive';
 
 
 @Component({

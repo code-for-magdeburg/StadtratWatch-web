@@ -15,25 +15,25 @@
     <table class="table table-striped table-bordered table-sm">
       <thead>
       <tr>
-        <th sortable="name" (sort)="onSort($event)">Name</th>
-        <th sortable="fraction" (sort)="onSort($event)">Fraktion</th>
-        <th sortable="party" (sort)="onSort($event)">Partei</th>
-        <th sortable="votingAttendance" (sort)="onSort($event)" style="text-align: right;">
+        <th sortablePersons="name" (sort)="onSort($event)">Name</th>
+        <th sortablePersons="fraction" (sort)="onSort($event)">Fraktion</th>
+        <th sortablePersons="party" (sort)="onSort($event)">Partei</th>
+        <th sortablePersons="votingAttendance" (sort)="onSort($event)" style="text-align: right;">
           abgestimmt
           <span tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen in Bezug zur Gesamtzahl der gezählten Abstimmungen ist"><i class="bi bi-info-circle"></i></span>
         </th>
-        <th sortable="votingSuccessRate" (sort)="onSort($event)" style="text-align: right;">
+        <th sortablePersons="votingSuccessRate" (sort)="onSort($event)" style="text-align: right;">
           Abstimmungserfolg
           <span tooltip="Gibt an, wie häufig die abgegebene Stimme mit dem Gesamtabstimmungsergebnis übereinstimmt"><i class="bi bi-info-circle"></i></span>
         </th>
-        <th sortable="abstentionRate" (sort)="onSort($event)" style="text-align: right;">
+        <th sortablePersons="abstentionRate" (sort)="onSort($event)" style="text-align: right;">
           Stimmenthaltungen
           <span tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren"><i class="bi bi-info-circle"></i></span>
         </th>
 
       </thead>
       <tbody>
-      <tr *ngFor="let person of persons">
+      <tr *ngFor="let person of sortedPersons">
         <td><a [routerLink]="['/person', person.id]">{{ person.name }}</a></td>
         <td>{{ person.fraction }}</td>
         <td>{{ person.party }}</td>
