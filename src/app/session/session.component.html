@@ -12,8 +12,7 @@
 
   <div class="mb-5">
     <h1>Stadtratssitzung - {{ sessionDate | date }}</h1>
-    <div class="hstack gap-3">
-      <a *ngIf="linkInvitation" [href]="linkInvitation" target="_blank">Einladung</a>
+    <div>
       <a *ngIf="linkMinutes" [href]="linkMinutes" target="_blank">Niederschrift</a>
     </div>
   </div>

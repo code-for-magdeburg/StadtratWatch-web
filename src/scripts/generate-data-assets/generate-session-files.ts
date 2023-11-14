@@ -59,7 +59,6 @@ export function generateSessionFiles(registry: Registry, scrapedSession: Scraped
       return {
         id: session.id,
         date: session.date,
-        linkInvitation: session.linkInvitation,
         linkMinutes: session.linkMinutes,
         youtubeUrl: sessionConfig.youtubeUrl,
         fractions: sessionFractionNames.map<SessionFractionDto>(sessionFractionName => ({

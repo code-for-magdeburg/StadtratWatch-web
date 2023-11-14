@@ -32,7 +32,6 @@ export class SessionComponent {
 
   public sessionDate: string | null = null;
   public votings: Voting[] = [];
-  public linkInvitation: string | null = null;
   public linkMinutes: string | null = null;
 
   protected VotingResult = VotingResult;
@@ -60,7 +59,6 @@ export class SessionComponent {
         .subscribe(session => {
 
           this.sessionDate = session.date;
-          this.linkInvitation = session.linkInvitation;
           this.linkMinutes = session.linkMinutes;
           this.votings = session.votings.map((votingDto: SessionVotingDto) => ({
             id: votingDto.id,
