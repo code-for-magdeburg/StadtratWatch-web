@@ -32,7 +32,7 @@ export class SessionComponent {
 
   public sessionDate: string | null = null;
   public votings: Voting[] = [];
-  public meetingMinutesUrl: string | null = null;
+  public meetingMinutesUrl = '';
 
   protected VotingResult = VotingResult;
   protected ACCEPTED_COLOR = ACCEPTED_COLOR;
