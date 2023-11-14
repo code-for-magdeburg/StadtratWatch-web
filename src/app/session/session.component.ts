@@ -32,8 +32,7 @@ export class SessionComponent {
 
   public sessionDate: string | null = null;
   public votings: Voting[] = [];
-  public linkInvitation: string | null = null;
-  public linkMinutes: string | null = null;
+  public meetingMinutesUrl = '';
 
   protected VotingResult = VotingResult;
   protected ACCEPTED_COLOR = ACCEPTED_COLOR;
@@ -60,8 +59,7 @@ export class SessionComponent {
         .subscribe(session => {
 
           this.sessionDate = session.date;
-          this.linkInvitation = session.linkInvitation;
-          this.linkMinutes = session.linkMinutes;
+          this.meetingMinutesUrl = session.meetingMinutesUrl;
           this.votings = session.votings.map((votingDto: SessionVotingDto) => ({
             id: votingDto.id,
             agendaItem: votingDto.votingSubject.agendaItem,
