@@ -8,7 +8,7 @@ export type Registry = {
 export type RegistrySession = {
   id: string;
   date: string;
-  linkMinutes: string | null;
+  meetingMinutesUrl: string | null;
 };
 
 export type RegistryFraction = {

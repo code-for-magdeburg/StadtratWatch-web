@@ -55,7 +55,7 @@ export type SessionVotingDto = {
 export type SessionDetailsDto = {
   id: string;
   date: string;
-  linkMinutes: string | null;
+  meetingMinutesUrl: string | null;
   youtubeUrl: string;
   fractions: SessionFractionDto[];
   parties: SessionPartyDto[];
