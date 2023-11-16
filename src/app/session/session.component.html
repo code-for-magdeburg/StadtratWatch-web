@@ -39,13 +39,15 @@
           [style.background-color]="REJECTED_COLOR"
         >abgelehnt</span>
       </div>
+      <p *ngIf="voting.authorNames.length > 0" class="mb-2">
+        <span
+          *ngFor="let author of voting.authorNames"
+          class="badge border border-light-subtle text-bg-light me-1"
+        >
+          {{ author }}
+        </span>
+      </p>
       <p>{{ voting.title }}</p>
-      <span
-        *ngFor="let author of voting.authorNames"
-        class="badge border border-light-subtle text-bg-light me-1"
-      >
-        {{ author }}
-      </span>
     </a>
   </div>
 
