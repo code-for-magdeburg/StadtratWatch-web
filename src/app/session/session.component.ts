@@ -33,6 +33,7 @@ export class SessionComponent {
   public sessionDate: string | null = null;
   public votings: Voting[] = [];
   public meetingMinutesUrl = '';
+  public youtubeUrl = '';
 
   protected VotingResult = VotingResult;
   protected ACCEPTED_COLOR = ACCEPTED_COLOR;
@@ -60,6 +61,7 @@ export class SessionComponent {
 
           this.sessionDate = session.date;
           this.meetingMinutesUrl = session.meetingMinutesUrl;
+          this.youtubeUrl = `${session.youtubeUrl}?t=0`;
           this.votings = session.votings.map((votingDto: SessionVotingDto) => ({
             id: votingDto.id,
             agendaItem: votingDto.votingSubject.agendaItem,
