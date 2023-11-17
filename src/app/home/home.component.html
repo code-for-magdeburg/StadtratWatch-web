@@ -1,14 +1,97 @@
-<div>
+<div class="mt-4">
 
-  <div class="text-center mb-5">
-    <h1 class="display-6 fw-bold">Stadtrat Magdeburg - Wahlperiode VII</h1>
-    <p class="lead">
-      Daten und Analysen der Abstimmungen von Stadtratssitzungen der Landeshauptstadt Magdeburg
-      im Zeitraum {{ metadata?.sessionsPeriodFrom | date }} - {{ metadata?.sessionsPeriodUntil | date }}
-    </p>
+  <div class="row g-4 pb-5">
+
+    <div class="col-xl-6 col-12">
+      <div class="mb-5">
+        <h2 class="display-6 fw-bold">Stadtrat Magdeburg</h2>
+        <h5 class="lead">
+          Daten und Analysen der Abstimmungen von Stadtratssitzungen der Landeshauptstadt Magdeburg
+          im Zeitraum {{ metadata?.sessionsPeriodFrom | date }} - {{ metadata?.sessionsPeriodUntil | date }}
+        </h5>
+      </div>
+
+      <div class="row g-4 mb-3 align-items-center">
+
+        <div class="col-md-auto col-12">
+          <h3>{{ metadata?.votingsCount | number : '1.0-0' }}</h3>
+          <h5 class="lead">Abstimmungen</h5>
+        </div>
+
+        <div class="col-md-auto col-12">
+          <h3>{{ metadata?.votesCount | number : '1.0-0' }}</h3>
+          <h5 class="lead">Abgegebene Stimmen</h5>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-xl-6 col-12">
+      <div class="row row-cols-1 row-cols-md-2 g-3">
+
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-body">
+              <h1 class="bi bi-calendar-event"></h1>
+              <h1>{{ metadata?.sessionsCount }}</h1>
+              <p class="mb-0">
+                <a routerLink="/sessions" class="card-link text-decoration-none text-body stretched-link">
+                  Sitzungen
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-body">
+              <h1 class="bi bi-people"></h1>
+              <h1>{{ metadata?.fractionsCount }}</h1>
+              <p class="mb-0">
+                <a routerLink="/fractions" class="card-link text-decoration-none text-body stretched-link">
+                  Fraktionen
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-body">
+              <h1 class="bi bi-people-fill"></h1>
+              <h1>{{ metadata?.partiesCount }}</h1>
+              <p class="mb-0">
+                <a routerLink="/parties" class="card-link text-decoration-none text-body stretched-link">
+                  Parteien
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card text-center">
+            <div class="card-body">
+              <h1 class="bi bi-person"></h1>
+              <h1>{{ metadata?.personsCount }}</h1>
+              <p class="mb-0">
+                <a routerLink="/persons" class="card-link text-decoration-none text-body stretched-link">
+                  Personen
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
-  <div class="alert alert-info mb-5">
+  <div class="alert alert-info">
     Diese Seite bietet einen Überblick über viele (nicht alle) Abstimmungen von Magdeburger Stadtratssitzungen. Für die
     Darstellung wurden die Abstimmungen der einzelnen Sitzungen seit {{ metadata?.sessionsPeriodFrom | date }}
     ausgewertet. Bei den analysierten Abstimmungen handelt es sich um "namentliche" Abstimmungen, bei denen die
@@ -16,80 +99,6 @@
     zugänglichen <a href="https://ratsinfo.magdeburg.de" target="_blank">Ratsinformationssystem</a> und der
     Videoübertragung (verfügbar im <a href="https://youtube.com/@OttostadtMagdeburg" target="_blank">YouTube-Kanal der
     Stadt</a>) der Stadtratssitzungen gewonnen.
-  </div>
-
-  <div class="row row-cols-1 row-cols-md-2 g-3 mb-3">
-
-    <div class="col">
-      <div class="card text-center">
-        <div class="card-header">Abstimmungen</div>
-        <div class="card-body">
-          <h1>{{ metadata?.votingsCount | number : '1.0-0' }}</h1>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-center">
-        <div class="card-header">Abgegebene Stimmen</div>
-        <div class="card-body">
-          <h1>{{ metadata?.votesCount | number : '1.0-0' }}</h1>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row row-cols-1 row-cols-md-4 g-3">
-
-    <div class="col">
-      <div class="card text-center" style="cursor: pointer;">
-        <div class="card-header d-flex justify-content-between">
-          <a class="stretched-link text-decoration-none text-body" routerLink="/sessions">Sitzungen</a>
-          <i class="bi bi-chevron-right"></i>
-        </div>
-        <div class="card-body">
-          <h1>{{ metadata?.sessionsCount }}</h1>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-center" style="cursor: pointer;">
-        <div class="card-header d-flex justify-content-between">
-          <a class="stretched-link text-decoration-none text-body" routerLink="/fractions">Fraktionen</a>
-          <i class="bi bi-chevron-right"></i>
-        </div>
-        <div class="card-body">
-          <h1>{{ metadata?.fractionsCount }}</h1>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-center" style="cursor: pointer;">
-        <div class="card-header d-flex justify-content-between">
-          <a class="stretched-link text-decoration-none text-body" routerLink="/parties">Parteien</a>
-          <i class="bi bi-chevron-right"></i>
-        </div>
-        <div class="card-body">
-          <h1>{{ metadata?.partiesCount }}</h1>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card text-center" style="cursor: pointer;">
-        <div class="card-header d-flex justify-content-between">
-          <a class="stretched-link text-decoration-none text-body" routerLink="/persons">Personen</a>
-          <i class="bi bi-chevron-right"></i>
-        </div>
-        <div class="card-body">
-          <h1>{{ metadata?.personsCount }}</h1>
-        </div>
-      </div>
-    </div>
-
   </div>
 
 </div>
