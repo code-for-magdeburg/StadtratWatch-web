@@ -5,6 +5,7 @@ export interface Fraction {
   name: string;
   membersCount: number;
   applicationsSuccessRate: number;
+  votingsSuccessRate: number;
   uniformityScore: number;
 }
 
