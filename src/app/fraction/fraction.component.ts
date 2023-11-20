@@ -9,6 +9,7 @@ type Fraction = {
   name: string;
   uniformityScore: number;
   applicationsSuccessRate: number;
+  votingsSuccessRate: number;
 };
 
 type FractionMember = {
@@ -54,6 +55,7 @@ export class FractionComponent {
           this.fraction = {
             name: fraction.name,
             applicationsSuccessRate: fraction.applicationsSuccessRate,
+            votingsSuccessRate: fraction.votingsSuccessRate,
             uniformityScore: fraction.uniformityScore
           };
           this.members = persons.map(person => ({
