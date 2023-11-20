@@ -1,9 +1,8 @@
 import { FractionDto } from '../../app/model/Fraction';
 import * as fs from 'fs';
-import { RegistryFraction, RegistryPerson } from './model/registry';
+import { Registry, RegistryFraction, RegistryPerson } from './model/registry';
 import { FRACTIONS_BASE_DIR } from './constants';
 import { SessionDetailsDto, SessionVotingDto, VoteResult, VotingResult } from '../../app/model/Session';
-import { Registry } from "./model/registry";
 
 
 export function generateFractionFiles(registry: Registry, sessions: SessionDetailsDto[]) {
@@ -11,12 +10,14 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
   const fractions = registry.fractions.map<FractionDto>(fraction => {
     const members = registry.persons.filter(person => person.fractionId === fraction.id);
     const applicationsSuccessRate = calcApplicationsSuccessRate(fraction, sessions);
+    const votingsSuccessRate = calcVotingsSuccessRate(members, sessions);
     const uniformityScore = calcUniformityScore(members, sessions) || 0;
     return {
       id: fraction.id,
       name: fraction.name,
       membersCount: members.length,
       applicationsSuccessRate,
+      votingsSuccessRate,
       uniformityScore
     };
   });
@@ -50,6 +51,39 @@ function calcApplicationsSuccessRate(fraction: RegistryFraction, sessions: Sessi
     .length;
 
   return applicationsPassed / relevantApplications.length;
+}
+
+
+function calcVotingsSuccessRate(fractionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
+
+  const allVotings = sessions.map(session => session.votings).flat();
+  if (allVotings.length === 0) {
+    return 0;
+  }
+
+  const relevantVotingsResults = allVotings
+    .map(voting => {
+      const fractionVotes = voting.votes.filter(
+        vote => fractionMembers.some(member => member.id === vote.personId)
+      );
+      const votedFor = fractionVotes.filter(vote => vote.vote === VoteResult.VOTE_FOR);
+      const votedAgainstOrAbstained = fractionVotes.filter(
+        vote => vote.vote === VoteResult.VOTE_AGAINST || vote.vote === VoteResult.VOTE_ABSTENTION
+      );
+
+      const fractionResult = votedFor.length > votedAgainstOrAbstained.length
+        ? VotingResult.PASSED
+        : VotingResult.REJECTED;
+      return { totalFractionVotes: fractionVotes.length, votingResult: voting.votingResult, fractionResult };
+    })
+    .filter(voting => voting.totalFractionVotes > 0);
+
+  const fractionSuccessfulVotings = relevantVotingsResults.filter(
+    voting => voting.votingResult === voting.fractionResult
+  );
+
+  return fractionSuccessfulVotings.length / relevantVotingsResults.length;
+
 }
 
 

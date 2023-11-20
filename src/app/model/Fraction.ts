@@ -4,5 +4,6 @@ export type FractionDto = {
   name: string;
   membersCount: number;
   applicationsSuccessRate: number;
+  votingsSuccessRate: number;
   uniformityScore: number;
 };

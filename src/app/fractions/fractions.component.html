@@ -27,7 +27,14 @@
         <div class="card-body" style="z-index: 2; cursor: default;">
           <h2>{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</h2>
           <span class="text-body-tertiary me-1">Erfolgreiche Anträge</span>
-          <span tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde.">
+          <span tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurden.">
+            <i class="bi bi-question-circle"></i>
+          </span>
+        </div>
+        <div class="card-body" style="z-index: 2; cursor: default;">
+          <h2>{{ fraction.votingsSuccessRate * 100 | number : '1.1-1' }}%</h2>
+          <span class="text-body-tertiary me-1">Abstimmungserfolg</span>
+          <span tooltip="Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmt.">
             <i class="bi bi-question-circle"></i>
           </span>
         </div>
@@ -54,6 +61,12 @@
             <i class="bi bi-info-circle"></i>
           </span>
         </th>
+        <th sortableFractions="votingsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
+          Abstimmungserfolg
+          <span tooltip="Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmt.">
+            <i class="bi bi-info-circle"></i>
+          </span>
+        </th>
         <th sortableFractions="uniformityScore" (sort)="onSort($event)" style="text-align: right;">
           Geschlossenheit
           <span tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion.">
@@ -66,6 +79,7 @@
         <td><a [routerLink]="['/fraction', fraction.id]">{{ fraction.name }}</a></td>
         <td style="text-align: right;">{{ fraction.membersCount }}</td>
         <td style="text-align: right;">{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</td>
+        <td style="text-align: right;">{{ fraction.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ fraction.uniformityScore | number : '0.3-3' }}</td>
       </tr>
       </tbody>
