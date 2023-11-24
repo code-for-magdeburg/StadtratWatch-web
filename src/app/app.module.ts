@@ -22,6 +22,7 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
 import { SortableFractionsDirective } from './fractions/sortable-fractions.directive';
+import { NgChartsModule } from 'ng2-charts';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -51,7 +52,8 @@ registerLocaleData(localeDe, 'de-DE');
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    NgChartsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'de-DE' }],
   bootstrap: [AppComponent]
