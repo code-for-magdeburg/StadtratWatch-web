@@ -26,6 +26,9 @@ import { NgChartsModule } from 'ng2-charts';
 import {
   ApplicationSuccessRateChartComponent
 } from './fractions/application-success-rate-chart/application-success-rate-chart.component';
+import {
+  VotingsSuccessRateChartComponent
+} from './fractions/votings-success-rate-chart/votings-success-rate-chart.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -49,7 +52,8 @@ registerLocaleData(localeDe, 'de-DE');
     ImpressumComponent,
     PrivacyComponent,
     ContactComponent,
-    ApplicationSuccessRateChartComponent
+    ApplicationSuccessRateChartComponent,
+    VotingsSuccessRateChartComponent
   ],
   imports: [
     AppRoutingModule,
