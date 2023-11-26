@@ -11,7 +11,25 @@
     <h1>Fraktionen</h1>
   </div>
 
-  <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
+  <div class="row row-cols-1 row-cols-xl-3 row-cols-md-2 g-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          Erfolgreiche Anträge
+          <span
+            tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurden."
+          >
+            <i class="bi bi-question-circle"></i>
+          </span>
+        </div>
+        <div class="card-body">
+          <app-application-success-rate-chart [fractions]="fractions"></app-application-success-rate-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 mt-5">
     <div *ngFor="let fraction of fractions" class="col">
       <div class="card text-center" style="cursor: pointer;">
         <div class="card-header d-flex justify-content-between">
@@ -27,7 +45,9 @@
         <div class="card-body" style="z-index: 2; cursor: default;">
           <h2>{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</h2>
           <span class="text-body-tertiary me-1">Erfolgreiche Anträge</span>
-          <span tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurden.">
+          <span
+            tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurden."
+          >
             <i class="bi bi-question-circle"></i>
           </span>
         </div>
@@ -41,7 +61,9 @@
         <div class="card-body" style="z-index: 2; cursor: default;">
           <h2>{{ fraction.uniformityScore | number : '0.3-3' }}</h2>
           <span class="text-body-tertiary me-1">Geschlossenheit</span>
-          <span tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion.">
+          <span
+            tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion."
+          >
             <i class="bi bi-question-circle"></i>
           </span>
         </div>
@@ -57,7 +79,9 @@
         <th sortableFractions="membersCount" (sort)="onSort($event)" style="text-align: right;">Mitglieder</th>
         <th sortableFractions="applicationsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
           Erfolgreiche Anträge
-          <span tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde.">
+          <span
+            tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde."
+          >
             <i class="bi bi-info-circle"></i>
           </span>
         </th>
@@ -69,7 +93,9 @@
         </th>
         <th sortableFractions="uniformityScore" (sort)="onSort($event)" style="text-align: right;">
           Geschlossenheit
-          <span tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion.">
+          <span
+            tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion."
+          >
             <i class="bi bi-info-circle"></i>
           </span>
         </th>

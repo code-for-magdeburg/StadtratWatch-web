@@ -23,6 +23,9 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
 import { SortableFractionsDirective } from './fractions/sortable-fractions.directive';
 import { NgChartsModule } from 'ng2-charts';
+import {
+  ApplicationSuccessRateChartComponent
+} from './fractions/application-success-rate-chart/application-success-rate-chart.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -45,7 +48,8 @@ registerLocaleData(localeDe, 'de-DE');
     SortablePersonsDirective,
     ImpressumComponent,
     PrivacyComponent,
-    ContactComponent
+    ContactComponent,
+    ApplicationSuccessRateChartComponent
   ],
   imports: [
     AppRoutingModule,

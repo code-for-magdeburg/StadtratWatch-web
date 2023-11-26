@@ -17,7 +17,6 @@ export class FractionsComponent {
   public fractions: FractionDto[] = [];
   public sortedFractions: FractionDto[] = [];
 
-
   @ViewChildren(SortableFractionsDirective) headers: QueryList<SortableFractionsDirective> | undefined;
 
 
@@ -27,12 +26,14 @@ export class FractionsComponent {
 
   //noinspection JSUnusedGlobalSymbols
   ngOnInit() {
+
     this.fractionsService
       .fetchFractions()
       .subscribe(fractions => {
         this.fractions = this.sortedFractions = this.data = fractions;
         this.sortedFractions.sort((a, b) => b.membersCount - a.membersCount);
       });
+
   }
 
 
