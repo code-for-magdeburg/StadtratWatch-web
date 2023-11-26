@@ -22,6 +22,14 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
 import { SortableFractionsDirective } from './fractions/sortable-fractions.directive';
+import { NgChartsModule } from 'ng2-charts';
+import {
+  ApplicationSuccessRateChartComponent
+} from './fractions/application-success-rate-chart/application-success-rate-chart.component';
+import {
+  VotingsSuccessRateChartComponent
+} from './fractions/votings-success-rate-chart/votings-success-rate-chart.component';
+import { UniformityScoreChartComponent } from './fractions/uniformity-score-chart/uniformity-score-chart.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -44,14 +52,18 @@ registerLocaleData(localeDe, 'de-DE');
     SortablePersonsDirective,
     ImpressumComponent,
     PrivacyComponent,
-    ContactComponent
+    ContactComponent,
+    ApplicationSuccessRateChartComponent,
+    VotingsSuccessRateChartComponent,
+    UniformityScoreChartComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    NgChartsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'de-DE' }],
   bootstrap: [AppComponent]
