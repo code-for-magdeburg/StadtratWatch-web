@@ -23,14 +23,7 @@
           </span>
         </div>
         <div class="card-body">
-          <canvas
-            baseChart
-            height="300"
-            [data]="applicationSuccessRateChartData"
-            [options]="applicationSuccessRateChartOptions"
-            [legend]="false"
-            [type]="'bar'">
-          </canvas>
+          <app-application-success-rate-chart [fractions]="fractions"></app-application-success-rate-chart>
         </div>
       </div>
     </div>
