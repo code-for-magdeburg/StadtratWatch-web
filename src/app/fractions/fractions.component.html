@@ -63,48 +63,6 @@
 
   </div>
 
-  <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 mt-5">
-    <div *ngFor="let fraction of fractions" class="col">
-      <div class="card text-center" style="cursor: pointer;">
-        <div class="card-header d-flex justify-content-between">
-          <a class="stretched-link text-decoration-none text-body" [routerLink]="['/fraction', fraction.id]">
-            {{ fraction.name }}
-          </a>
-          <i class="bi bi-chevron-right"></i>
-        </div>
-        <div class="card-body">
-          <h2>{{ fraction.membersCount }}</h2>
-          <span class="text-body-tertiary">{{ fraction.membersCount === 1 ? 'Mitglied' : 'Mitglieder' }}</span>
-        </div>
-        <div class="card-body" style="z-index: 2; cursor: default;">
-          <h2>{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</h2>
-          <span class="text-body-tertiary me-1">Erfolgreiche Anträge</span>
-          <span
-            tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurden."
-          >
-            <i class="bi bi-question-circle"></i>
-          </span>
-        </div>
-        <div class="card-body" style="z-index: 2; cursor: default;">
-          <h2>{{ fraction.votingsSuccessRate * 100 | number : '1.1-1' }}%</h2>
-          <span class="text-body-tertiary me-1">Abstimmungserfolg</span>
-          <span tooltip="Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmte.">
-            <i class="bi bi-question-circle"></i>
-          </span>
-        </div>
-        <div class="card-body" style="z-index: 2; cursor: default;">
-          <h2>{{ fraction.uniformityScore | number : '0.3-3' }}</h2>
-          <span class="text-body-tertiary me-1">Geschlossenheit</span>
-          <span
-            tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion."
-          >
-            <i class="bi bi-question-circle"></i>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="table-responsive mt-5">
     <table class="table table-striped table-bordered table-sm">
       <thead>
