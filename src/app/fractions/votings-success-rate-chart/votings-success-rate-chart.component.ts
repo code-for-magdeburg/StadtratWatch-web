@@ -29,10 +29,7 @@ export class VotingsSuccessRateChartComponent {
   private setUpVotingsSuccessRateChart(fractions: FractionDto[]) {
 
     const votingsSuccessRateData = fractions
-      .map(f => ({
-        fraction: f.name,
-        value: f.votingsSuccessRate * 100
-      }))
+      .map(f => ({ fraction: f.name, value: f.votingsSuccessRate * 100 }))
       .sort((a, b) => b.value - a.value);
 
     this.votingsSuccessRateChartData = {
