@@ -7,6 +7,7 @@ export interface Fraction {
   applicationsSuccessRate: number;
   votingsSuccessRate: number;
   uniformityScore: number;
+  participationRate: number;
 }
 
 
