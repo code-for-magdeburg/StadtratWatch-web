@@ -12,13 +12,15 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
     const applicationsSuccessRate = calcApplicationsSuccessRate(fraction, sessions);
     const votingsSuccessRate = calcVotingsSuccessRate(members, sessions);
     const uniformityScore = calcUniformityScore(members, sessions) || 0;
+    const participationRate = calcParticipationRate(members, sessions) || 0;
     return {
       id: fraction.id,
       name: fraction.name,
       membersCount: members.length,
       applicationsSuccessRate,
       votingsSuccessRate,
-      uniformityScore
+      uniformityScore,
+      participationRate
     };
   });
   fs.writeFileSync(
@@ -148,4 +150,39 @@ function calcUniformityScoreForVoting(fractionMembers: RegistryPerson[], voting:
 
   return (max1 - max2 + Math.min(votesAbstained, max2)) / totalVotes;
 
+}
+
+
+function calcParticipationRate(fractionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number | null {
+  const participationRatesPerSession = sessions
+    .map(session => calcParticipationRateForSession(fractionMembers, session))
+    .filter(rate => rate !== null) as number[];
+
+  if (participationRatesPerSession.length === 0) {
+    return null;
+  }
+
+  return participationRatesPerSession.reduce((a, b) => a + b, 0) / participationRatesPerSession.length;
+}
+
+
+function calcParticipationRateForSession(fractionMembers: RegistryPerson[], session: SessionDetailsDto): number | null {
+  const participationRatesPerVoting = session.votings
+    .map(voting => calcParticipationRateForVoting(fractionMembers, voting))
+    .filter(rate => rate !== null) as number[];
+
+  if (participationRatesPerVoting.length === 0) {
+    return null;
+  }
+
+  return participationRatesPerVoting.reduce((a, b) => a + b, 0) / participationRatesPerVoting.length;
+}
+
+
+function calcParticipationRateForVoting(fractionMembers: RegistryPerson[], voting: SessionVotingDto): number {
+  const votes = fractionMembers.filter(member =>
+    voting.votes.some(vote => vote.personId === member.id && vote.vote !== VoteResult.DID_NOT_VOTE)
+  );
+
+  return votes.length / fractionMembers.length;
 }
