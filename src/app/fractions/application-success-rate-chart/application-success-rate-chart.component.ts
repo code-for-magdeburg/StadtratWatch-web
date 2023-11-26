@@ -29,10 +29,7 @@ export class ApplicationSuccessRateChartComponent {
   private setUpApplicationSuccessRateChart(fractions: FractionDto[]) {
 
     const applicationsSuccessRateData = fractions
-      .map(f => ({
-        fraction: f.name,
-        value: f.applicationsSuccessRate * 100
-      }))
+      .map(f => ({ fraction: f.name, value: f.applicationsSuccessRate * 100 }))
       .sort((a, b) => b.value - a.value);
 
     this.applicationSuccessRateChartData = {

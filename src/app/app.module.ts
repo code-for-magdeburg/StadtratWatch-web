@@ -29,6 +29,7 @@ import {
 import {
   VotingsSuccessRateChartComponent
 } from './fractions/votings-success-rate-chart/votings-success-rate-chart.component';
+import { UniformityScoreChartComponent } from './fractions/uniformity-score-chart/uniformity-score-chart.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -53,7 +54,8 @@ registerLocaleData(localeDe, 'de-DE');
     PrivacyComponent,
     ContactComponent,
     ApplicationSuccessRateChartComponent,
-    VotingsSuccessRateChartComponent
+    VotingsSuccessRateChartComponent,
+    UniformityScoreChartComponent
   ],
   imports: [
     AppRoutingModule,
