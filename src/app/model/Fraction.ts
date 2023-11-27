@@ -7,4 +7,5 @@ export type FractionDto = {
   votingsSuccessRate: number;
   uniformityScore: number;
   participationRate: number;
+  abstentionRate: number;
 };

@@ -13,6 +13,7 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
     const votingsSuccessRate = calcVotingsSuccessRate(members, sessions);
     const uniformityScore = calcUniformityScore(members, sessions) || 0;
     const participationRate = calcParticipationRate(members, sessions) || 0;
+    const abstentionRate = calcAbstentionRate(members, sessions) || 0;
     return {
       id: fraction.id,
       name: fraction.name,
@@ -20,7 +21,8 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
       applicationsSuccessRate,
       votingsSuccessRate,
       uniformityScore,
-      participationRate
+      participationRate,
+      abstentionRate,
     };
   });
   fs.writeFileSync(
@@ -154,28 +156,28 @@ function calcUniformityScoreForVoting(fractionMembers: RegistryPerson[], voting:
 
 
 function calcParticipationRate(fractionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number | null {
-  const participationRatesPerSession = sessions
+  const participationRatePerSession = sessions
     .map(session => calcParticipationRateForSession(fractionMembers, session))
     .filter(rate => rate !== null) as number[];
 
-  if (participationRatesPerSession.length === 0) {
+  if (participationRatePerSession.length === 0) {
     return null;
   }
 
-  return participationRatesPerSession.reduce((a, b) => a + b, 0) / participationRatesPerSession.length;
+  return participationRatePerSession.reduce((a, b) => a + b, 0) / participationRatePerSession.length;
 }
 
 
 function calcParticipationRateForSession(fractionMembers: RegistryPerson[], session: SessionDetailsDto): number | null {
-  const participationRatesPerVoting = session.votings
+  const participationRatePerVoting = session.votings
     .map(voting => calcParticipationRateForVoting(fractionMembers, voting))
     .filter(rate => rate !== null) as number[];
 
-  if (participationRatesPerVoting.length === 0) {
+  if (participationRatePerVoting.length === 0) {
     return null;
   }
 
-  return participationRatesPerVoting.reduce((a, b) => a + b, 0) / participationRatesPerVoting.length;
+  return participationRatePerVoting.reduce((a, b) => a + b, 0) / participationRatePerVoting.length;
 }
 
 
@@ -185,4 +187,44 @@ function calcParticipationRateForVoting(fractionMembers: RegistryPerson[], votin
   );
 
   return votes.length / fractionMembers.length;
+}
+
+
+function calcAbstentionRate(fractionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
+  const abstentionRatePerSession = sessions
+    .map(session => calcAbstentionRateForSession(fractionMembers, session))
+    .filter(rate => rate !== null) as number[];
+
+  if (abstentionRatePerSession.length === 0) {
+    return 0;
+  }
+
+  return abstentionRatePerSession.reduce((a, b) => a + b, 0) / abstentionRatePerSession.length;
+}
+
+
+function calcAbstentionRateForSession(fractionMembers: RegistryPerson[], session: SessionDetailsDto): number {
+  const abstentionRatePerVoting = session.votings
+    .map(voting => calcAbstentionRateForVoting(fractionMembers, voting))
+    .filter(rate => rate !== null) as number[];
+
+  if (abstentionRatePerVoting.length === 0) {
+    return 0;
+  }
+
+  return abstentionRatePerVoting.reduce((a, b) => a + b, 0) / abstentionRatePerVoting.length;
+}
+
+
+function calcAbstentionRateForVoting(fractionMembers: RegistryPerson[], voting: SessionVotingDto): number {
+  const allVotes = voting.votes.filter(vote =>
+    fractionMembers.some(member => member.id === vote.personId) && vote.vote !== VoteResult.DID_NOT_VOTE
+  );
+  const abstentions = allVotes.filter(vote => vote.vote === VoteResult.VOTE_ABSTENTION);
+
+  if (allVotes.length === 0) {
+    return 0;
+  }
+
+  return abstentions.length / allVotes.length;
 }

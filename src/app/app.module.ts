@@ -33,6 +33,7 @@ import { UniformityScoreChartComponent } from './fractions/uniformity-score-char
 import {
   ParticipationRateChartComponent
 } from './fractions/participation-rate-chart/participation-rate-chart.component';
+import { AbstentionRateChartComponent } from './fractions/abstention-rate-chart/abstention-rate-chart.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -59,7 +60,8 @@ registerLocaleData(localeDe, 'de-DE');
     ApplicationSuccessRateChartComponent,
     VotingsSuccessRateChartComponent,
     UniformityScoreChartComponent,
-    ParticipationRateChartComponent
+    ParticipationRateChartComponent,
+    AbstentionRateChartComponent
   ],
   imports: [
     AppRoutingModule,

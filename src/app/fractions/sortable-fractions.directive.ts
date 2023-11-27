@@ -8,6 +8,7 @@ export interface Fraction {
   votingsSuccessRate: number;
   uniformityScore: number;
   participationRate: number;
+  abstentionRate: number;
 }
 
 
