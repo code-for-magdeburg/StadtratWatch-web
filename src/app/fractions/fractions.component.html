@@ -77,6 +77,22 @@
       </div>
     </div>
 
+    <div class="col">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          Stimmenthaltungen
+          <span
+            tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren"
+          >
+            <i class="bi bi-question-circle"></i>
+          </span>
+        </div>
+        <div class="card-body">
+          <app-abstention-rate-chart [fractions]="fractions"></app-abstention-rate-chart>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="table-responsive mt-5">
@@ -115,6 +131,14 @@
             <i class="bi bi-info-circle"></i>
           </span>
         </th>
+        <th sortableFractions="abstentionRate" (sort)="onSort($event)" style="text-align: right;">
+          Stimmenthaltungen
+          <span
+            tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren."
+          >
+            <i class="bi bi-info-circle"></i>
+          </span>
+        </th>
       </thead>
       <tbody>
       <tr *ngFor="let fraction of sortedFractions">
@@ -124,6 +148,7 @@
         <td style="text-align: right;">{{ fraction.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ fraction.uniformityScore | number : '0.3-3' }}</td>
         <td style="text-align: right;">{{ fraction.participationRate * 100 | number : '1.1-1' }}%</td>
+        <td style="text-align: right;">{{ fraction.abstentionRate * 100 | number : '1.1-1' }}%</td>
       </tr>
       </tbody>
     </table>
