@@ -7,14 +7,11 @@ import { Registry } from "./model/registry";
 export function generatePartyFiles(registry: Registry) {
 
   console.log('Writing all-parties.json');
-  const parties = registry.parties.map<PartyDto>(party => {
-    const membersCount = registry.persons.filter(person => person.partyId === party.id).length;
-    return {
-      id: party.id,
-      name: party.name,
-      membersCount
-    };
-  });
+  const parties = registry.parties.map<PartyDto>(party => ({
+    id: party.id,
+    name: party.name,
+    membersCount: party.seats
+  }));
   fs.writeFileSync(
     `${PARTIES_BASE_DIR}/all-parties.json`,
     JSON.stringify(parties, null, 2),

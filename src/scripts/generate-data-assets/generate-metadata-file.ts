@@ -18,7 +18,7 @@ export function generateMetadataFile(registry: Registry, sessions: SessionDetail
     sessionsCount: registry.sessions.length,
     fractionsCount: registry.fractions.length,
     partiesCount: registry.parties.length,
-    personsCount: registry.persons.length
+    personsCount: registry.fractions.reduce((acc, fraction) => acc + fraction.seats, 0),
   };
 
   fs.writeFileSync(

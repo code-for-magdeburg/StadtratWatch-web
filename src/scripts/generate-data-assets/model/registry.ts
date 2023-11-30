@@ -14,11 +14,13 @@ export type RegistrySession = {
 export type RegistryFraction = {
   id: string;
   name: string;
+  seats: number;
 };
 
 export type RegistryParty = {
   id: string;
   name: string;
+  seats: number;
 };
 
 export type RegistryPerson = {
