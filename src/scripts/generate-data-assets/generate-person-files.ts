@@ -24,6 +24,7 @@ export function generatePersonFiles(registry: Registry, sessions: SessionDetails
         fraction: fraction?.name || '',
         partyId: party?.id || '',
         party: party?.name || '',
+        councilorUntil: person.end,
         votingAttendance,
         votingSuccessRate: votingSuccessStats.successRate,
         abstentionRate: abstentionStats.abstentionRate,
