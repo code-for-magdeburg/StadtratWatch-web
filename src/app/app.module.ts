@@ -34,7 +34,7 @@ import {
   ParticipationRateChartComponent
 } from './fractions/participation-rate-chart/participation-rate-chart.component';
 import { AbstentionRateChartComponent } from './fractions/abstention-rate-chart/abstention-rate-chart.component';
-import { CouncilorCardComponent } from './party/councilor-card/councilor-card.component';
+import { CouncilorCardComponent } from './components/councilor-card/councilor-card.component';
 
 
 registerLocaleData(localeDe, 'de-DE');

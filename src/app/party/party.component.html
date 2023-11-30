@@ -21,20 +21,20 @@
     </div>
 
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
-      <div *ngFor="let member of councilors" class="col">
-        <app-councilor-card [councilor]="member"></app-councilor-card>
+      <div *ngFor="let councilor of councilors" class="col">
+        <app-councilor-card [councilor]="councilor"></app-councilor-card>
       </div>
     </div>
 
     <ng-container *ngIf="formerCouncilors.length">
 
-      <div class="mb-3 mt-5">
+      <div class="mb-3 mt-3">
         <h2>Ehemalige Ratsmitglieder</h2>
       </div>
 
       <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
-        <div *ngFor="let member of formerCouncilors" class="col">
-          <app-councilor-card [councilor]="member"></app-councilor-card>
+        <div *ngFor="let councilor of formerCouncilors" class="col">
+          <app-councilor-card [councilor]="councilor"></app-councilor-card>
         </div>
       </div>
 

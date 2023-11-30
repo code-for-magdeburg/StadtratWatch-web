@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FractionsService } from '../services/fractions.service';
 import { PersonsService } from '../services/persons.service';
 import { forkJoin } from 'rxjs';
+import { Councilor, CouncilorCardComponent } from '../components/councilor-card/councilor-card.component';
 
 
 type Fraction = {
@@ -12,12 +13,6 @@ type Fraction = {
   votingsSuccessRate: number;
   participationRate: number;
   abstentionRate: number;
-};
-
-type FractionMember = {
-  personId: string;
-  name: string;
-  party: string;
 };
 
 
@@ -30,7 +25,8 @@ export class FractionComponent {
 
 
   public fraction: Fraction | null = null;
-  public members: FractionMember[] = [];
+  public councilors: Councilor[] = [];
+  public formerCouncilors: Councilor[] = [];
 
 
   constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService,
@@ -54,6 +50,9 @@ export class FractionComponent {
         this.personsService.fetchPersonsByFraction(fractionId)
       ])
         .subscribe(([fraction, persons]) => {
+
+          const today = new Date().toISOString().substring(0, 10);
+
           this.fraction = {
             name: fraction.name,
             applicationsSuccessRate: fraction.applicationsSuccessRate,
@@ -62,11 +61,13 @@ export class FractionComponent {
             participationRate: fraction.participationRate,
             abstentionRate: fraction.abstentionRate
           };
-          this.members = persons.map(person => ({
-            personId: person.id,
-            name: person.name,
-            party: person.party
-          }));
+          this.councilors = persons
+            .filter(person => !person.councilorUntil || person.councilorUntil >= today)
+            .map(CouncilorCardComponent.mapPersonToCouncilor);
+          this.formerCouncilors = persons
+            .filter(person => person.councilorUntil < today)
+            .map(CouncilorCardComponent.mapPersonToCouncilor);
+
         });
 
     });

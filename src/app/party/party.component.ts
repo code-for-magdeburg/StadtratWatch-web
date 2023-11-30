@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PartiesService } from '../services/parties.service';
 import { forkJoin } from 'rxjs';
 import { PersonsService } from '../services/persons.service';
-import { Councilor } from './councilor-card/councilor-card.component';
+import { Councilor, CouncilorCardComponent } from '../components/councilor-card/councilor-card.component';
 
 
 type Party = {
@@ -49,23 +49,12 @@ export class PartyComponent {
           const today = new Date().toISOString().substring(0, 10);
 
           this.party = { name: party.name };
-
           this.councilors = persons
-            .filter(person => !person.councilorUntil || person.councilorUntil > today)
-            .map(person => ({
-              personId: person.id,
-              name: person.name,
-              party: person.party
-            }));
-
+            .filter(person => !person.councilorUntil || person.councilorUntil >= today)
+            .map(CouncilorCardComponent.mapPersonToCouncilor);
           this.formerCouncilors = persons
             .filter(person => person.councilorUntil < today)
-            .map(person => ({
-              personId: person.id,
-              name: person.name,
-              party: person.party,
-              councilorUntil: person.councilorUntil
-            }));
+            .map(CouncilorCardComponent.mapPersonToCouncilor);
 
         });
 
