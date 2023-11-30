@@ -105,8 +105,11 @@ function calcUniformityScore(fractionMembers: RegistryPerson[], sessions: Sessio
 
 
 function calcUniformityScoreForSession(fractionMembers: RegistryPerson[], session: SessionDetailsDto): number | null {
+  const relevantFractionMembers = fractionMembers.filter(
+    member => session.persons.some(person => person.id === member.id)
+  );
   const uniformityScorePerVoting = session.votings
-    .map(voting => calcUniformityScoreForVoting(fractionMembers, voting))
+    .map(voting => calcUniformityScoreForVoting(relevantFractionMembers, voting))
     .filter(score => score !== null) as number[];
 
   if (uniformityScorePerVoting.length === 0) {
@@ -169,8 +172,12 @@ function calcParticipationRate(fractionMembers: RegistryPerson[], sessions: Sess
 
 
 function calcParticipationRateForSession(fractionMembers: RegistryPerson[], session: SessionDetailsDto): number | null {
+  const relevantFractionMembers = fractionMembers.filter(
+    member => session.persons.some(person => person.id === member.id)
+  );
+
   const participationRatePerVoting = session.votings
-    .map(voting => calcParticipationRateForVoting(fractionMembers, voting))
+    .map(voting => calcParticipationRateForVoting(relevantFractionMembers, voting))
     .filter(rate => rate !== null) as number[];
 
   if (participationRatePerVoting.length === 0) {
