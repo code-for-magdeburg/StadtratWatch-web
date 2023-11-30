@@ -26,4 +26,6 @@ export type RegistryPerson = {
   name: string;
   fractionId: string;
   partyId: string;
+  start: string;
+  end: string;
 };
