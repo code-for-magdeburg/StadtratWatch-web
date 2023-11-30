@@ -58,11 +58,12 @@ export function generatePersonFiles(registry: Registry, sessions: SessionDetails
     const abstentionStats = calcAbstentionStats(sessions, person);
     return {
       id: person.id,
+      name: person.name,
       fractionId: person.fractionId,
       fraction: fraction?.name || '',
       partyId: person.partyId,
       party: party?.name || '',
-      name: person.name,
+      councilorUntil: person.end,
       votes,
       votingMatrix,
       votingAttendance,
