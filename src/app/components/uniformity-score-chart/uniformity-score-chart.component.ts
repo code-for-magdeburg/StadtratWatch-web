@@ -1,6 +1,7 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { FractionDto } from '../../model/Fraction';
+import { PartyDto } from '../../model/Party';
 
 
 export class UniformityScoreChartData {
@@ -10,6 +11,10 @@ export class UniformityScoreChartData {
 
   public static fromFraction(fraction: FractionDto): UniformityScoreChartData {
     return new UniformityScoreChartData(fraction.name, fraction.uniformityScore);
+  }
+
+  public static fromParty(party: PartyDto): UniformityScoreChartData {
+    return new UniformityScoreChartData(party.name, party.uniformityScore);
   }
 
 }

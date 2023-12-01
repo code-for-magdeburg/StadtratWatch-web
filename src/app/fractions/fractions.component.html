@@ -16,22 +16,6 @@
     <div class="col">
       <div class="card">
         <div class="card-header d-flex justify-content-between">
-          Erfolgreiche Anträge
-          <span
-            tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurden."
-          >
-            <i class="bi bi-question-circle"></i>
-          </span>
-        </div>
-        <div class="card-body">
-          <app-applications-success-rate-chart [data]="applicationsSuccessRates"></app-applications-success-rate-chart>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card">
-        <div class="card-header d-flex justify-content-between">
           Abstimmungserfolg
           <span
             tooltip="Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmte."
@@ -93,6 +77,22 @@
       </div>
     </div>
 
+    <div class="col">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          Erfolgreiche Anträge
+          <span
+            tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurden."
+          >
+            <i class="bi bi-question-circle"></i>
+          </span>
+        </div>
+        <div class="card-body">
+          <app-applications-success-rate-chart [data]="applicationsSuccessRates"></app-applications-success-rate-chart>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="table-responsive mt-5">
@@ -101,14 +101,6 @@
       <tr>
         <th sortableFractions="name" (sort)="onSort($event)">Name</th>
         <th sortableFractions="seats" (sort)="onSort($event)" style="text-align: right;">Sitze</th>
-        <th sortableFractions="applicationsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
-          Erfolgreiche Anträge
-          <span
-            tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde."
-          >
-            <i class="bi bi-info-circle"></i>
-          </span>
-        </th>
         <th sortableFractions="votingsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
           Abstimmungserfolg
           <span tooltip="Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmte.">
@@ -139,16 +131,24 @@
             <i class="bi bi-info-circle"></i>
           </span>
         </th>
+        <th sortableFractions="applicationsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
+          Erfolgreiche Anträge
+          <span
+            tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde."
+          >
+            <i class="bi bi-info-circle"></i>
+          </span>
+        </th>
       </thead>
       <tbody>
       <tr *ngFor="let fraction of sortedFractions">
         <td><a [routerLink]="['/fraction', fraction.id]">{{ fraction.name }}</a></td>
         <td style="text-align: right;">{{ fraction.seats }}</td>
-        <td style="text-align: right;">{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ fraction.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ fraction.uniformityScore | number : '0.3-3' }}</td>
         <td style="text-align: right;">{{ fraction.participationRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ fraction.abstentionRate * 100 | number : '1.1-1' }}%</td>
+        <td style="text-align: right;">{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</td>
       </tr>
       </tbody>
     </table>
