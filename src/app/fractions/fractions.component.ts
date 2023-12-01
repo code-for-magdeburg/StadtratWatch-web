@@ -2,6 +2,15 @@ import { Component, QueryList, ViewChildren } from '@angular/core';
 import { FractionDto } from '../model/Fraction';
 import { FractionsService } from '../services/fractions.service';
 import { compare, SortableFractionsDirective, SortFractionsEvent } from './sortable-fractions.directive';
+import {
+  VotingsSuccessRateChartData
+} from '../components/votings-success-rate-chart/votings-success-rate-chart.component';
+import { UniformityScoreChartData } from '../components/uniformity-score-chart/uniformity-score-chart.component';
+import {
+  ApplicationsSuccessRateChartData
+} from '../components/application-success-rate-chart/applications-success-rate-chart.component';
+import { ParticipationRateChartData } from '../components/participation-rate-chart/participation-rate-chart.component';
+import { AbstentionRateChartData } from '../components/abstention-rate-chart/abstention-rate-chart.component';
 
 
 @Component({
@@ -14,8 +23,12 @@ export class FractionsComponent {
 
   private data: FractionDto[] = [];
 
-  public fractions: FractionDto[] = [];
   public sortedFractions: FractionDto[] = [];
+  public applicationsSuccessRates: VotingsSuccessRateChartData[] = [];
+  public votingsSuccessRates: VotingsSuccessRateChartData[] = [];
+  public uniformityScores: UniformityScoreChartData[] = [];
+  public participationRates: VotingsSuccessRateChartData[] = [];
+  public abstentionRates: AbstentionRateChartData[] = [];
 
   @ViewChildren(SortableFractionsDirective) headers: QueryList<SortableFractionsDirective> | undefined;
 
@@ -30,8 +43,13 @@ export class FractionsComponent {
     this.fractionsService
       .fetchFractions()
       .subscribe(fractions => {
-        this.fractions = this.sortedFractions = this.data = fractions;
+        this.sortedFractions = this.data = fractions;
         this.sortedFractions.sort((a, b) => b.seats - a.seats);
+        this.applicationsSuccessRates = this.data.map(ApplicationsSuccessRateChartData.fromFraction);
+        this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromFraction);
+        this.uniformityScores = this.data.map(UniformityScoreChartData.fromFraction);
+        this.participationRates = this.data.map(ParticipationRateChartData.fromFraction);
+        this.abstentionRates = this.data.map(AbstentionRateChartData.fromFraction);
       });
 
   }

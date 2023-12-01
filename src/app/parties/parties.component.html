@@ -21,45 +21,45 @@
       <tr>
         <th sortableParties="name" (sort)="onSort($event)">Name</th>
         <th sortableParties="seats" (sort)="onSort($event)" style="text-align: right;">Sitze</th>
-        <th sortableParties="votingsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
-          Abstimmungserfolg
-          <span tooltip="Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Partei übereinstimmte.">
-            <i class="bi bi-info-circle"></i>
-          </span>
-        </th>
-        <th sortableParties="uniformityScore" (sort)="onSort($event)" style="text-align: right;">
-          Geschlossenheit
-          <span
-            tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Parteimitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Partei."
-          >
-            <i class="bi bi-info-circle"></i>
-          </span>
-        </th>
-        <th sortableParties="participationRate" (sort)="onSort($event)" style="text-align: right;">
-          Abstimmungsteilnahme
-          <span
-            tooltip="Gibt an, wie häufig die Parteimitglieder an Abstimmungen teilgenommen haben."
-          >
-            <i class="bi bi-info-circle"></i>
-          </span>
-        </th>
-        <th sortableParties="abstentionRate" (sort)="onSort($event)" style="text-align: right;">
-          Stimmenthaltungen
-          <span
-            tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren."
-          >
-            <i class="bi bi-info-circle"></i>
-          </span>
-        </th>
+<!--        <th sortableParties="votingsSuccessRate" (sort)="onSort($event)" style="text-align: right;">-->
+<!--          Abstimmungserfolg-->
+<!--          <span tooltip="Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Partei übereinstimmte.">-->
+<!--            <i class="bi bi-info-circle"></i>-->
+<!--          </span>-->
+<!--        </th>-->
+<!--        <th sortableParties="uniformityScore" (sort)="onSort($event)" style="text-align: right;">-->
+<!--          Geschlossenheit-->
+<!--          <span-->
+<!--            tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Parteimitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Partei."-->
+<!--          >-->
+<!--            <i class="bi bi-info-circle"></i>-->
+<!--          </span>-->
+<!--        </th>-->
+<!--        <th sortableParties="participationRate" (sort)="onSort($event)" style="text-align: right;">-->
+<!--          Abstimmungsteilnahme-->
+<!--          <span-->
+<!--            tooltip="Gibt an, wie häufig die Parteimitglieder an Abstimmungen teilgenommen haben."-->
+<!--          >-->
+<!--            <i class="bi bi-info-circle"></i>-->
+<!--          </span>-->
+<!--        </th>-->
+<!--        <th sortableParties="abstentionRate" (sort)="onSort($event)" style="text-align: right;">-->
+<!--          Stimmenthaltungen-->
+<!--          <span-->
+<!--            tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren."-->
+<!--          >-->
+<!--            <i class="bi bi-info-circle"></i>-->
+<!--          </span>-->
+<!--        </th>-->
       </thead>
       <tbody>
       <tr *ngFor="let party of sortedParties">
         <td><a [routerLink]="['/party', party.id]">{{ party.name }}</a></td>
         <td style="text-align: right;">{{ party.seats }}</td>
-        <td style="text-align: right;">{{ party.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>
-        <td style="text-align: right;">{{ party.uniformityScore | number : '0.3-3' }}</td>
-        <td style="text-align: right;">{{ party.participationRate * 100 | number : '1.1-1' }}%</td>
-        <td style="text-align: right;">{{ party.abstentionRate * 100 | number : '1.1-1' }}%</td>
+<!--        <td style="text-align: right;">{{ party.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>-->
+<!--        <td style="text-align: right;">{{ party.uniformityScore | number : '0.3-3' }}</td>-->
+<!--        <td style="text-align: right;">{{ party.participationRate * 100 | number : '1.1-1' }}%</td>-->
+<!--        <td style="text-align: right;">{{ party.abstentionRate * 100 | number : '1.1-1' }}%</td>-->
       </tr>
       </tbody>
     </table>

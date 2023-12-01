@@ -4,10 +4,6 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
 export interface Party {
   name: string;
   seats: number;
-  votingsSuccessRate: number;
-  uniformityScore: number;
-  participationRate: number;
-  abstentionRate: number;
 }
 
 

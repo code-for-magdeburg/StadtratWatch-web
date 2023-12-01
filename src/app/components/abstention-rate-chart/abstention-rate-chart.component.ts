@@ -3,6 +3,18 @@ import { ChartConfiguration } from 'chart.js';
 import { FractionDto } from '../../model/Fraction';
 
 
+export class AbstentionRateChartData {
+
+  constructor(public readonly name: string, public readonly value: number) {
+  }
+
+  public static fromFraction(fraction: FractionDto): AbstentionRateChartData {
+    return new AbstentionRateChartData(fraction.name, fraction.abstentionRate * 100);
+  }
+
+}
+
+
 @Component({
   selector: 'app-abstention-rate-chart',
   templateUrl: './abstention-rate-chart.component.html',
@@ -15,28 +27,26 @@ export class AbstentionRateChartComponent {
   public abstentionRateChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
 
-  @Input() fractions: FractionDto[] = [];
+  @Input() data: AbstentionRateChartData[] = [];
 
 
   //noinspection JSUnusedGlobalSymbols
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['fractions']) {
-      this.setUpAbstentionRateChart(changes['fractions'].currentValue);
+    if (changes['data']) {
+      this.setUpAbstentionRateChart(changes['data'].currentValue);
     }
   }
 
 
-  private setUpAbstentionRateChart(fractions: FractionDto[]) {
+  private setUpAbstentionRateChart(data: AbstentionRateChartData[]) {
 
-    const abstentionRateData = fractions
-      .map(fraction => ({ fraction: fraction.name, value: fraction.abstentionRate * 100 }))
+    const abstentionRateData = data
+      .slice()
       .sort((a, b) => b.value - a.value);
 
     this.abstentionRateChartData = {
-      labels: abstentionRateData.map(
-        fraction => `${fraction.fraction} ${fraction.value.toFixed(1)}%`
-      ),
-      datasets: [{ data: abstentionRateData.map(fraction => fraction.value) }]
+      labels: abstentionRateData.map(d => `${d.name} ${d.value.toFixed(1)}%`),
+      datasets: [{ data: abstentionRateData.map(d => d.value) }]
     };
 
     this.abstentionRateChartOptions = {
