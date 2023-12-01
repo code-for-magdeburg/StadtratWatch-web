@@ -20,23 +20,27 @@
       <h2>Mitglieder</h2>
     </div>
 
-    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 mb-3">
-      <div *ngFor="let member of members" class="col">
-        <div class="card text-center" style="cursor: pointer;">
-          <div class="card-body">
-            <a
-              class="d-block h5 stretched-link text-decoration-none text-body"
-              [routerLink]="['/person', member.personId]"
-            >
-              {{ member.name }}
-            </a>
-            <span class="text-body-tertiary">{{ member.party }}</span>
-          </div>
-        </div>
+    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
+      <div *ngFor="let councilor of councilors" class="col">
+        <app-councilor-card [councilor]="councilor"></app-councilor-card>
       </div>
     </div>
 
-    <h2 class="mb-3">Abstimmungsstatistiken</h2>
+    <ng-container *ngIf="formerCouncilors.length">
+
+      <div class="mb-3 mt-3">
+        <h2>Ehemalige Ratsmitglieder</h2>
+      </div>
+
+      <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
+        <div *ngFor="let councilor of formerCouncilors" class="col">
+          <app-councilor-card [councilor]="councilor"></app-councilor-card>
+        </div>
+      </div>
+
+    </ng-container>
+
+    <h2 class="mb-3 mt-3">Abstimmungsstatistiken</h2>
 
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
 

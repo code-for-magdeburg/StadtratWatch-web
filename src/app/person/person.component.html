@@ -18,10 +18,12 @@
 
     <div class="mb-3">
       <dl class="row">
-        <dt class="col-4 col-sm-3 col-md-2 col-lg-1">Fraktion</dt>
-        <dd class="col-8 col-sm-9 col-md-10 col-lg-11">{{ person.fraction }}</dd>
-        <dt class="col-4 col-sm-3 col-md-2 col-lg-1">Partei</dt>
-        <dd class="col-8 col-sm-9 col-md-10 col-lg-11">{{ person.party }}</dd>
+        <dt class="col-4 col-sm-3 col-md-2">Fraktion</dt>
+        <dd class="col-8 col-sm-9 col-md-10">{{ person.fraction }}</dd>
+        <dt class="col-4 col-sm-3 col-md-2">Partei</dt>
+        <dd class="col-8 col-sm-9 col-md-10">{{ person.party }}</dd>
+        <dt *ngIf="person.councilorUntil" class="col-4 col-sm-3 col-md-2">Ratsmitglied bis</dt>
+        <dd *ngIf="person.councilorUntil" class="col-8 col-sm-9 col-md-10">{{ person.councilorUntil | date }}</dd>
       </dl>
     </div>
 

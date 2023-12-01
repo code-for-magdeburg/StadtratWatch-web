@@ -24,6 +24,7 @@ export function generatePersonFiles(registry: Registry, sessions: SessionDetails
         fraction: fraction?.name || '',
         partyId: party?.id || '',
         party: party?.name || '',
+        councilorUntil: person.end,
         votingAttendance,
         votingSuccessRate: votingSuccessStats.successRate,
         abstentionRate: abstentionStats.abstentionRate,
@@ -42,9 +43,12 @@ export function generatePersonFiles(registry: Registry, sessions: SessionDetails
 
   const persons = registry.persons.map<PersonDetailsDto>(person => {
 
+    const relevantSessions = sessions.filter(
+      session => session.persons.some(sessionPerson => sessionPerson.id === person.id)
+    );
     const fraction = registry.fractions.find(fraction => fraction.id === person.fractionId);
     const party = registry.parties.find(party => party.id === person.partyId);
-    const votes = sessions.flatMap<PersonVoteDto>(
+    const votes = relevantSessions.flatMap<PersonVoteDto>(
       session => session.votings.map(voting => ({
         sessionId: session.id,
         votingId: voting.id,
@@ -52,16 +56,17 @@ export function generatePersonFiles(registry: Registry, sessions: SessionDetails
       }))
     );
     const votingMatrix = calcVotingMatrix(registry, votings, person);
-    const votingAttendance = calcVotingAttendance(sessions, person);
-    const votingSuccess = calcVotingSuccessStats(sessions, person);
-    const abstentionStats = calcAbstentionStats(sessions, person);
+    const votingAttendance = calcVotingAttendance(relevantSessions, person);
+    const votingSuccess = calcVotingSuccessStats(relevantSessions, person);
+    const abstentionStats = calcAbstentionStats(relevantSessions, person);
     return {
       id: person.id,
+      name: person.name,
       fractionId: person.fractionId,
       fraction: fraction?.name || '',
       partyId: person.partyId,
       party: party?.name || '',
-      name: person.name,
+      councilorUntil: person.end,
       votes,
       votingMatrix,
       votingAttendance,
