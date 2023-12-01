@@ -11,21 +11,58 @@
     <h1>Parteien</h1>
   </div>
 
-  <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
-    <div *ngFor="let party of parties" class="col">
-      <div class="card text-center" style="cursor: pointer;">
-        <div class="card-header d-flex justify-content-between">
-          <a class="stretched-link text-decoration-none text-body" [routerLink]="['/party', party.id]">
-            {{ party.name }}
-          </a>
-          <i class="bi bi-chevron-right"></i>
-        </div>
-        <div class="card-body">
-          <h1>{{ party.seats }}</h1>
-          <span class="text-body-tertiary">{{ party.seats === 1 ? 'Sitz' : 'Sitze' }}</span>
-        </div>
-      </div>
-    </div>
+  <div class="row row-cols-1 row-cols-xl-3 row-cols-md-2 g-3">
+    <!-- TODO: Charts go here -->
+  </div>
+
+  <div class="table-responsive mt-5">
+    <table class="table table-striped table-bordered table-sm">
+      <thead>
+      <tr>
+        <th sortableParties="name" (sort)="onSort($event)">Name</th>
+        <th sortableParties="seats" (sort)="onSort($event)" style="text-align: right;">Sitze</th>
+        <th sortableParties="votingsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
+          Abstimmungserfolg
+          <span tooltip="Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Partei übereinstimmte.">
+            <i class="bi bi-info-circle"></i>
+          </span>
+        </th>
+        <th sortableParties="uniformityScore" (sort)="onSort($event)" style="text-align: right;">
+          Geschlossenheit
+          <span
+            tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Parteimitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Partei."
+          >
+            <i class="bi bi-info-circle"></i>
+          </span>
+        </th>
+        <th sortableParties="participationRate" (sort)="onSort($event)" style="text-align: right;">
+          Abstimmungsteilnahme
+          <span
+            tooltip="Gibt an, wie häufig die Parteimitglieder an Abstimmungen teilgenommen haben."
+          >
+            <i class="bi bi-info-circle"></i>
+          </span>
+        </th>
+        <th sortableParties="abstentionRate" (sort)="onSort($event)" style="text-align: right;">
+          Stimmenthaltungen
+          <span
+            tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren."
+          >
+            <i class="bi bi-info-circle"></i>
+          </span>
+        </th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let party of sortedParties">
+        <td><a [routerLink]="['/party', party.id]">{{ party.name }}</a></td>
+        <td style="text-align: right;">{{ party.seats }}</td>
+        <td style="text-align: right;">{{ party.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>
+        <td style="text-align: right;">{{ party.uniformityScore | number : '0.3-3' }}</td>
+        <td style="text-align: right;">{{ party.participationRate * 100 | number : '1.1-1' }}%</td>
+        <td style="text-align: right;">{{ party.abstentionRate * 100 | number : '1.1-1' }}%</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 
 </div>

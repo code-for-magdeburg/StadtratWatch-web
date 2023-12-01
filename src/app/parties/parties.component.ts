@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChildren } from '@angular/core';
 import { PartiesService } from '../services/parties.service';
 import { PartyDto } from '../model/Party';
-import { map } from "rxjs";
+import { compare, SortablePartiesDirective, SortPartiesEvent } from './sortable-parties.directive';
 
 
 @Component({
@@ -12,7 +12,12 @@ import { map } from "rxjs";
 export class PartiesComponent {
 
 
+  private data: PartyDto[] = [];
+
   public parties: PartyDto[] = [];
+  public sortedParties: PartyDto[] = [];
+
+  @ViewChildren(SortablePartiesDirective) headers: QueryList<SortablePartiesDirective> | undefined;
 
 
   constructor(private readonly partiesService: PartiesService) {
@@ -21,12 +26,40 @@ export class PartiesComponent {
 
   //noinspection JSUnusedGlobalSymbols
   ngOnInit() {
+
     this.partiesService
       .fetchParties()
       .subscribe(parties => {
-        this.parties = parties;
-        this.parties.sort((a, b) => b.seats - a.seats);
+        this.parties = this.sortedParties = this.data = parties;
+        this.sortedParties.sort((a, b) => b.seats - a.seats);
       });
+
+  }
+
+
+  onSort(sortEvent: SortPartiesEvent) {
+
+    if (!this.headers) {
+      return;
+    }
+
+    this.headers.forEach((header) => {
+      if (header.sortableParties !== sortEvent.column) {
+        header.direction = '';
+      }
+    });
+
+    if (sortEvent.direction === '' || sortEvent.column === '') {
+      this.sortedParties = this.data;
+    } else {
+      this.sortedParties = [...this.data].sort((a, b) => {
+        const aValue = sortEvent.column === '' ? '' : a[sortEvent.column];
+        const bValue = sortEvent.column === '' ? '' : b[sortEvent.column];
+        const res = compare(aValue, bValue);
+        return sortEvent.direction === 'asc' ? res : -res;
+      });
+    }
+
   }
 
 
