@@ -10,7 +10,7 @@ export function generatePartyFiles(registry: Registry) {
   const parties = registry.parties.map<PartyDto>(party => ({
     id: party.id,
     name: party.name,
-    membersCount: party.seats
+    seats: party.seats
   }));
   fs.writeFileSync(
     `${PARTIES_BASE_DIR}/all-parties.json`,

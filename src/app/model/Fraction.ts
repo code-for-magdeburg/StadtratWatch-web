@@ -2,7 +2,7 @@
 export type FractionDto = {
   id: string;
   name: string;
-  membersCount: number;
+  seats: number;
   applicationsSuccessRate: number;
   votingsSuccessRate: number;
   uniformityScore: number;

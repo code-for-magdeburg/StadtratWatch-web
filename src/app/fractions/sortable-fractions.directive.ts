@@ -3,7 +3,7 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
 export interface Fraction {
   name: string;
-  membersCount: number;
+  seats: number;
   applicationsSuccessRate: number;
   votingsSuccessRate: number;
   uniformityScore: number;

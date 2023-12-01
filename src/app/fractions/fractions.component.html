@@ -100,7 +100,7 @@
       <thead>
       <tr>
         <th sortableFractions="name" (sort)="onSort($event)">Name</th>
-        <th sortableFractions="membersCount" (sort)="onSort($event)" style="text-align: right;">Mitglieder</th>
+        <th sortableFractions="seats" (sort)="onSort($event)" style="text-align: right;">Sitze</th>
         <th sortableFractions="applicationsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
           Erfolgreiche Anträge
           <span
@@ -143,7 +143,7 @@
       <tbody>
       <tr *ngFor="let fraction of sortedFractions">
         <td><a [routerLink]="['/fraction', fraction.id]">{{ fraction.name }}</a></td>
-        <td style="text-align: right;">{{ fraction.membersCount }}</td>
+        <td style="text-align: right;">{{ fraction.seats }}</td>
         <td style="text-align: right;">{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ fraction.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ fraction.uniformityScore | number : '0.3-3' }}</td>

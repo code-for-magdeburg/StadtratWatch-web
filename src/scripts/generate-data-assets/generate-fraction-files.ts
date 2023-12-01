@@ -17,7 +17,7 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
     return {
       id: fraction.id,
       name: fraction.name,
-      membersCount: fraction.seats,
+      seats: fraction.seats,
       applicationsSuccessRate,
       votingsSuccessRate,
       uniformityScore,

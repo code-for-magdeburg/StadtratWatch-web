@@ -31,7 +31,7 @@ export class FractionsComponent {
       .fetchFractions()
       .subscribe(fractions => {
         this.fractions = this.sortedFractions = this.data = fractions;
-        this.sortedFractions.sort((a, b) => b.membersCount - a.membersCount);
+        this.sortedFractions.sort((a, b) => b.seats - a.seats);
       });
 
   }

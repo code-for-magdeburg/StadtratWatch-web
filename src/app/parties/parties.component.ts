@@ -25,9 +25,9 @@ export class PartiesComponent {
       .fetchParties()
       .subscribe(parties => {
         this.parties = parties;
-        this.parties.sort((a, b) => b.membersCount - a.membersCount);
+        this.parties.sort((a, b) => b.seats - a.seats);
       });
   }
 
-  
+
 }
