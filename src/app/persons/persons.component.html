@@ -34,7 +34,12 @@
       </thead>
       <tbody>
       <tr *ngFor="let person of sortedPersons">
-        <td><a [routerLink]="['/person', person.id]">{{ person.name }}</a></td>
+        <td class="d-flex flex-column">
+          <a [routerLink]="['/person', person.id]">{{ person.name }}</a>
+          <span *ngIf="person.councilorUntil" class="text-body-secondary">
+            Ratsmitglied bis {{ person.councilorUntil | date }}
+          </span>
+        </td>
         <td>{{ person.fraction }}</td>
         <td>{{ person.party }}</td>
         <td style="text-align: right;">{{ person.votingAttendance * 100 | number : '1.2-2'}}%</td>
