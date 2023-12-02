@@ -8,6 +8,10 @@ import { Councilor, CouncilorCardComponent } from '../components/councilor-card/
 
 type Party = {
   name: string;
+  uniformityScore: number;
+  votingsSuccessRate: number;
+  participationRate: number;
+  abstentionRate: number;
 };
 
 
@@ -48,7 +52,13 @@ export class PartyComponent {
 
           const today = new Date().toISOString().substring(0, 10);
 
-          this.party = { name: party.name };
+          this.party = {
+            name: party.name,
+            votingsSuccessRate: party.votingsSuccessRate,
+            uniformityScore: party.uniformityScore,
+            participationRate: party.participationRate,
+            abstentionRate: party.abstentionRate
+          };
           this.councilors = persons
             .filter(person => !person.councilorUntil || person.councilorUntil >= today)
             .map(CouncilorCardComponent.mapPersonToCouncilor);
