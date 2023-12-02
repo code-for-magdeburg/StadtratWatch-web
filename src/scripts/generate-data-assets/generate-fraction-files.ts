@@ -1,8 +1,14 @@
 import { FractionDto } from '../../app/model/Fraction';
 import * as fs from 'fs';
-import { Registry, RegistryFraction, RegistryPerson } from './model/registry';
+import { Registry, RegistryFraction, RegistryParty, RegistryPerson } from './model/registry';
 import { FRACTIONS_BASE_DIR } from './constants';
-import { SessionDetailsDto, SessionVotingDto, VoteResult, VotingResult } from '../../app/model/Session';
+import {
+  SessionDetailsDto,
+  SessionPersonDto,
+  SessionVotingDto,
+  VoteResult,
+  VotingResult
+} from '../../app/model/Session';
 
 
 export function generateFractionFiles(registry: Registry, sessions: SessionDetailsDto[]) {
@@ -12,7 +18,7 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
     const applicationsSuccessRate = calcApplicationsSuccessRate(fraction, sessions);
     const votingsSuccessRate = calcVotingsSuccessRate(members, sessions);
     const uniformityScore = calcUniformityScore(members, sessions) || 0;
-    const participationRate = calcParticipationRate(members, sessions) || 0;
+    const participationRate = calcParticipationRate(fraction, sessions) || 0;
     const abstentionRate = calcAbstentionRate(members, sessions) || 0;
     return {
       id: fraction.id,
@@ -80,8 +86,7 @@ function calcVotingsSuccessRate(fractionMembers: RegistryPerson[], sessions: Ses
 
       return { totalFractionVotes: fractionVotes.length, votingResult: voting.votingResult, fractionResult };
 
-    })
-    .filter(voting => voting.totalFractionVotes > 0);
+    });
 
   const fractionSuccessfulVotings = relevantVotingsResults.filter(
     voting => voting.votingResult === voting.fractionResult
@@ -159,42 +164,37 @@ function calcUniformityScoreForVoting(fractionMembers: RegistryPerson[], voting:
 }
 
 
-function calcParticipationRate(fractionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number | null {
-  const participationRatePerSession = sessions
-    .map(session => calcParticipationRateForSession(fractionMembers, session))
-    .filter(rate => rate !== null) as number[];
+function calcParticipationRate(fraction: RegistryFraction, sessions: SessionDetailsDto[]): number | null {
 
-  if (participationRatePerSession.length === 0) {
-    return null;
-  }
+  const votesPerSession = sessions.map(session => countVotesInSession(fraction, session));
+  const votes = votesPerSession.reduce((a, b) => a + b, 0);
 
-  return participationRatePerSession.reduce((a, b) => a + b, 0) / participationRatePerSession.length;
+  const totalVotesPerSession = sessions.map(session => session.votings.length * fraction.seats);
+  const totalVotes = totalVotesPerSession.reduce((a, b) => a + b, 0);
+
+  return totalVotes === 0 ? null : votes / totalVotes;
+
 }
 
 
-function calcParticipationRateForSession(fractionMembers: RegistryPerson[], session: SessionDetailsDto): number | null {
-  const relevantFractionMembers = fractionMembers.filter(
-    member => session.persons.some(person => person.id === member.id)
+function countVotesInSession(fraction: RegistryFraction, session: SessionDetailsDto): number {
+
+  const fractionMembers = session.persons.filter(person => person.fraction === fraction.name);
+  const participationPerVoting = session.votings.map(
+    voting => countVotesInVoting(fractionMembers, voting)
   );
 
-  const participationRatePerVoting = session.votings
-    .map(voting => calcParticipationRateForVoting(relevantFractionMembers, voting))
-    .filter(rate => rate !== null) as number[];
+  return participationPerVoting.reduce((a, b) => a + b, 0);
 
-  if (participationRatePerVoting.length === 0) {
-    return null;
-  }
-
-  return participationRatePerVoting.reduce((a, b) => a + b, 0) / participationRatePerVoting.length;
 }
 
 
-function calcParticipationRateForVoting(fractionMembers: RegistryPerson[], voting: SessionVotingDto): number {
-  const votes = fractionMembers.filter(member =>
-    voting.votes.some(vote => vote.personId === member.id && vote.vote !== VoteResult.DID_NOT_VOTE)
-  );
-
-  return votes.length / fractionMembers.length;
+function countVotesInVoting(fractionMembers: SessionPersonDto[], voting: SessionVotingDto): number {
+  return voting.votes
+    .filter(
+      vote => fractionMembers.some(member => member.id === vote.personId)
+        && vote.vote !== VoteResult.DID_NOT_VOTE)
+    .length;
 }
 
 
