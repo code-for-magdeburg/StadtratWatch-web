@@ -67,18 +67,19 @@ function calcVotingsSuccessRate(fractionMembers: RegistryPerson[], sessions: Ses
 
   const relevantVotingsResults = allVotings
     .map(voting => {
+
       const fractionVotes = voting.votes.filter(
         vote => fractionMembers.some(member => member.id === vote.personId)
       );
       const votedFor = fractionVotes.filter(vote => vote.vote === VoteResult.VOTE_FOR);
-      const votedAgainstOrAbstained = fractionVotes.filter(
-        vote => vote.vote === VoteResult.VOTE_AGAINST || vote.vote === VoteResult.VOTE_ABSTENTION
-      );
+      const votedAgainst = fractionVotes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST);
 
-      const fractionResult = votedFor.length > votedAgainstOrAbstained.length
+      const fractionResult = votedFor.length > votedAgainst.length
         ? VotingResult.PASSED
         : VotingResult.REJECTED;
+
       return { totalFractionVotes: fractionVotes.length, votingResult: voting.votingResult, fractionResult };
+
     })
     .filter(voting => voting.totalFractionVotes > 0);
 

@@ -48,18 +48,19 @@ function calcVotingsSuccessRate(partyMembers: RegistryPerson[], sessions: Sessio
 
   const relevantVotingsResults = allVotings
     .map(voting => {
+
       const partyVotes = voting.votes.filter(
         vote => partyMembers.some(member => member.id === vote.personId)
       );
       const votedFor = partyVotes.filter(vote => vote.vote === VoteResult.VOTE_FOR);
-      const votedAgainstOrAbstained = partyVotes.filter(
-        vote => vote.vote === VoteResult.VOTE_AGAINST || vote.vote === VoteResult.VOTE_ABSTENTION
-      );
+      const votedAgainst = partyVotes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST);
 
-      const partyResult = votedFor.length > votedAgainstOrAbstained.length
+      const partyResult = votedFor.length > votedAgainst.length
         ? VotingResult.PASSED
         : VotingResult.REJECTED;
+
       return { totalPartyVotes: partyVotes.length, votingResult: voting.votingResult, partyResult: partyResult };
+
     })
     .filter(voting => voting.totalPartyVotes > 0);
 
