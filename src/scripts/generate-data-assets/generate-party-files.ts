@@ -1,8 +1,14 @@
 import { PartyDto } from '../../app/model/Party';
 import * as fs from 'fs';
 import { PARTIES_BASE_DIR } from './constants';
-import { Registry, RegistryPerson } from './model/registry';
-import { SessionDetailsDto, SessionVotingDto, VoteResult, VotingResult } from '../../app/model/Session';
+import { Registry, RegistryParty, RegistryPerson } from './model/registry';
+import {
+  SessionDetailsDto,
+  SessionPersonDto,
+  SessionVotingDto,
+  VoteResult,
+  VotingResult
+} from '../../app/model/Session';
 
 
 export function generatePartyFiles(registry: Registry, sessions: SessionDetailsDto[]) {
@@ -12,7 +18,7 @@ export function generatePartyFiles(registry: Registry, sessions: SessionDetailsD
     const members = registry.persons.filter(person => person.partyId === party.id);
     const votingsSuccessRate = calcVotingsSuccessRate(members, sessions);
     const uniformityScore = calcUniformityScore(members, sessions) || 0;
-    const participationRate = calcParticipationRate(members, sessions) || 0;
+    const participationRate = calcParticipationRate(party, sessions) || 0;
     const abstentionRate = calcAbstentionRate(members, sessions) || 0;
     return {
       id: party.id,
@@ -140,43 +146,77 @@ function calcUniformityScoreForVoting(partyMembers: RegistryPerson[], voting: Se
 }
 
 
-function calcParticipationRate(partyMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number | null {
-  const participationRatePerSession = sessions
-    .map(session => calcParticipationRateForSession(partyMembers, session))
-    .filter(rate => rate !== null) as number[];
+function calcParticipationRate(party: RegistryParty, sessions: SessionDetailsDto[]): number | null {
 
-  if (participationRatePerSession.length === 0) {
-    return null;
-  }
+  const votesPerSession = sessions.map(session => countVotesInSession(party, session));
+  const votes = votesPerSession.reduce((a, b) => a + b, 0);
 
-  return participationRatePerSession.reduce((a, b) => a + b, 0) / participationRatePerSession.length;
+  const totalVotesPerSession = sessions.map(session => session.votings.length * party.seats);
+  const totalVotes = totalVotesPerSession.reduce((a, b) => a + b, 0);
+
+  return totalVotes === 0 ? null : votes / totalVotes;
+
 }
 
 
-function calcParticipationRateForSession(partyMembers: RegistryPerson[], session: SessionDetailsDto): number | null {
-  const relevantPartyMembers = partyMembers.filter(
-    member => session.persons.some(person => person.id === member.id)
+function countVotesInSession(party: RegistryParty, session: SessionDetailsDto): number {
+
+  const partyMembers = session.persons.filter(person => person.party === party.name);
+  const participationPerVoting = session.votings.map(
+    voting => countVotesInVoting(partyMembers, voting)
   );
 
-  const participationRatePerVoting = session.votings
-    .map(voting => calcParticipationRateForVoting(relevantPartyMembers, voting))
-    .filter(rate => rate !== null) as number[];
+  return participationPerVoting.reduce((a, b) => a + b, 0);
 
-  if (participationRatePerVoting.length === 0) {
-    return null;
-  }
-
-  return participationRatePerVoting.reduce((a, b) => a + b, 0) / participationRatePerVoting.length;
 }
 
 
-function calcParticipationRateForVoting(partyMembers: RegistryPerson[], voting: SessionVotingDto): number {
-  const votes = partyMembers.filter(member =>
-    voting.votes.some(vote => vote.personId === member.id && vote.vote !== VoteResult.DID_NOT_VOTE)
-  );
-
-  return votes.length / partyMembers.length;
+function countVotesInVoting(partyMembers: SessionPersonDto[], voting: SessionVotingDto): number {
+  return voting.votes
+    .filter(
+      vote => partyMembers.some(member => member.id === vote.personId)
+        && vote.vote !== VoteResult.DID_NOT_VOTE)
+    .length;
 }
+
+
+// function calcParticipationRate(partyMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number | null {
+//   const participationRatePerSession = sessions
+//     .map(session => calcParticipationRateForSession(partyMembers, session))
+//     .filter(rate => rate !== null) as number[];
+//
+//   if (participationRatePerSession.length === 0) {
+//     return null;
+//   }
+//
+//   return participationRatePerSession.reduce((a, b) => a + b, 0) / participationRatePerSession.length;
+// }
+
+
+// function calcParticipationRateForSession(partyMembers: RegistryPerson[], session: SessionDetailsDto): number | null {
+//   const relevantPartyMembers = partyMembers.filter(
+//     member => session.persons.some(person => person.id === member.id)
+//   );
+//
+//   const participationRatePerVoting = session.votings
+//     .map(voting => calcParticipationRateForVoting(relevantPartyMembers, voting))
+//     .filter(rate => rate !== null) as number[];
+//
+//   if (participationRatePerVoting.length === 0) {
+//     return null;
+//   }
+//
+//   return participationRatePerVoting.reduce((a, b) => a + b, 0) / participationRatePerVoting.length;
+// }
+
+
+// function calcParticipationRateForVoting(partyMembers: RegistryPerson[], voting: SessionVotingDto): number {
+//   const votes = partyMembers.filter(member =>
+//     voting.votes.some(vote => vote.personId === member.id && vote.vote !== VoteResult.DID_NOT_VOTE)
+//   );
+//
+//   return votes.length / partyMembers.length;
+// }
 
 
 function calcAbstentionRate(partyMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
