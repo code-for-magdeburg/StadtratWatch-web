@@ -1,6 +1,23 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { FractionDto } from '../../model/Fraction';
+import { PartyDto } from '../../model/Party';
+
+
+export class ParticipationRateChartData {
+
+  constructor(public readonly name: string, public readonly value: number) {
+  }
+
+  public static fromFraction(fraction: FractionDto): ParticipationRateChartData {
+    return new ParticipationRateChartData(fraction.name, fraction.participationRate * 100);
+  }
+
+  public static fromParty(party: PartyDto): ParticipationRateChartData {
+    return new ParticipationRateChartData(party.name, party.participationRate * 100);
+  }
+
+}
 
 
 @Component({
@@ -15,28 +32,26 @@ export class ParticipationRateChartComponent {
   public participationRateChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
 
-  @Input() fractions: FractionDto[] = [];
+  @Input() data: ParticipationRateChartData[] = [];
 
 
   //noinspection JSUnusedGlobalSymbols
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['fractions']) {
-      this.setUpParticipationRateChart(changes['fractions'].currentValue);
+    if (changes['data']) {
+      this.setUpParticipationRateChart(changes['data'].currentValue);
     }
   }
 
 
-  private setUpParticipationRateChart(fractions: FractionDto[]) {
+  private setUpParticipationRateChart(data: ParticipationRateChartData[]) {
 
-    const participationRateData = fractions
-      .map(fraction => ({ fraction: fraction.name, value: fraction.participationRate * 100 }))
+    const participationRateData = data
+      .slice()
       .sort((a, b) => b.value - a.value);
 
     this.participationRateChartData = {
-      labels: participationRateData.map(
-        fraction => `${fraction.fraction} ${fraction.value.toFixed(1)}%`
-      ),
-      datasets: [{ data: participationRateData.map(fraction => fraction.value) }]
+      labels: participationRateData.map(d => `${d.name} ${d.value.toFixed(1)}%`),
+      datasets: [{ data: participationRateData.map(d => d.value) }]
     };
 
     this.participationRateChartOptions = {

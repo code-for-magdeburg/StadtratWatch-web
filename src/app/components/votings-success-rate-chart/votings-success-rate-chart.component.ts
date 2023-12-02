@@ -1,6 +1,23 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { FractionDto } from '../../model/Fraction';
+import { PartyDto } from '../../model/Party';
+
+
+export class VotingsSuccessRateChartData {
+
+  constructor(public readonly name: string, public readonly value: number) {
+  }
+
+  public static fromFraction(fraction: FractionDto): VotingsSuccessRateChartData {
+    return new VotingsSuccessRateChartData(fraction.name, fraction.votingsSuccessRate * 100);
+  }
+
+  public static fromParty(party: PartyDto): VotingsSuccessRateChartData {
+    return new VotingsSuccessRateChartData(party.name, party.votingsSuccessRate * 100);
+  }
+
+}
 
 
 @Component({
@@ -15,28 +32,26 @@ export class VotingsSuccessRateChartComponent {
   public votingsSuccessRateChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
 
-  @Input() fractions: FractionDto[] = [];
+  @Input() data: VotingsSuccessRateChartData[] = [];
 
 
   //noinspection JSUnusedGlobalSymbols
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['fractions']) {
-      this.setUpVotingsSuccessRateChart(changes['fractions'].currentValue);
+    if (changes['data']) {
+      this.setUpVotingsSuccessRateChart(changes['data'].currentValue);
     }
   }
 
 
-  private setUpVotingsSuccessRateChart(fractions: FractionDto[]) {
+  private setUpVotingsSuccessRateChart(data: VotingsSuccessRateChartData[]) {
 
-    const votingsSuccessRateData = fractions
-      .map(f => ({ fraction: f.name, value: f.votingsSuccessRate * 100 }))
+    const votingsSuccessRateData = data
+      .slice()
       .sort((a, b) => b.value - a.value);
 
     this.votingsSuccessRateChartData = {
-      labels: votingsSuccessRateData.map(
-        fraction => `${fraction.fraction} ${fraction.value.toFixed(1)}%`
-      ),
-      datasets: [{ data: votingsSuccessRateData.map(fraction => fraction.value) }]
+      labels: votingsSuccessRateData.map(d => `${d.name} ${d.value.toFixed(1)}%`),
+      datasets: [{ data: votingsSuccessRateData.map(d => d.value) }]
     };
 
     this.votingsSuccessRateChartOptions = {

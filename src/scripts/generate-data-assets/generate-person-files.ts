@@ -119,7 +119,10 @@ function calcVotingComparisonScore(votings: SessionVotingDto[], person: Registry
 
 function calcVotingAttendance(sessions: SessionDetailsDto[], person: RegistryPerson): number {
 
-  const votingsAttended = sessions
+  const relevantSessions = sessions.filter(
+    session => session.persons.some(sessionPerson => sessionPerson.id === person.id)
+  );
+  const votingsAttended = relevantSessions
     .map(session =>
       session.votings.filter(
         voting => voting.votes.find(
@@ -128,9 +131,10 @@ function calcVotingAttendance(sessions: SessionDetailsDto[], person: RegistryPer
       ).length
     )
     .reduce((a, b) => a + b, 0);
-  const votingsTotal = sessions.flatMap(session => session.votings).length;
+  const votingsTotal = relevantSessions.flatMap(session => session.votings).length;
 
   return votingsAttended / votingsTotal;
+
 }
 
 

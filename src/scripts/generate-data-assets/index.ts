@@ -17,7 +17,7 @@ const scrapedSession =
 const sessions = generateSessionFiles(registry, scrapedSession);
 generatePersonFiles(registry, sessions);
 generateFractionFiles(registry, sessions);
-generatePartyFiles(registry);
+generatePartyFiles(registry, sessions);
 generateMetadataFile(registry, sessions);
 
 console.log('Done.');

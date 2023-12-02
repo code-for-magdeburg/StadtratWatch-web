@@ -1,6 +1,23 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { FractionDto } from '../../model/Fraction';
+import { PartyDto } from '../../model/Party';
+
+
+export class UniformityScoreChartData {
+
+  constructor(public readonly name: string, public readonly value: number) {
+  }
+
+  public static fromFraction(fraction: FractionDto): UniformityScoreChartData {
+    return new UniformityScoreChartData(fraction.name, fraction.uniformityScore);
+  }
+
+  public static fromParty(party: PartyDto): UniformityScoreChartData {
+    return new UniformityScoreChartData(party.name, party.uniformityScore);
+  }
+
+}
 
 
 @Component({
@@ -15,28 +32,26 @@ export class UniformityScoreChartComponent {
   public uniformityScoreChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
 
-  @Input() fractions: FractionDto[] = [];
+  @Input() data: UniformityScoreChartData[] = [];
 
 
   //noinspection JSUnusedGlobalSymbols
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['fractions']) {
-      this.setUpUniformityScoreChart(changes['fractions'].currentValue);
+    if (changes['data']) {
+      this.setUpUniformityScoreChart(changes['data'].currentValue);
     }
   }
 
 
-  private setUpUniformityScoreChart(fractions: FractionDto[]) {
+  private setUpUniformityScoreChart(data: UniformityScoreChartData[]) {
 
-    const uniformityScoreData = fractions
-      .map(f => ({ fraction: f.name, value: f.uniformityScore }))
+    const uniformityScoreData = data
+      .slice()
       .sort((a, b) => b.value - a.value);
 
     this.uniformityScoreChartData = {
-      labels: uniformityScoreData.map(
-        fraction => `${fraction.fraction} ${fraction.value.toFixed(3)}`
-      ),
-      datasets: [{ data: uniformityScoreData.map(fraction => fraction.value) }]
+      labels: uniformityScoreData.map(d => `${d.name} ${d.value.toFixed(3)}`),
+      datasets: [{ data: uniformityScoreData.map(d => d.value) }]
     };
 
     this.uniformityScoreChartOptions = {
