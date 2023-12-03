@@ -8,7 +8,7 @@ export type PersonDetailsDto = {
   fraction: string;
   partyId: string;
   party: string;
-  councilorUntil: string;
+  councilorUntil: string | null;
   votes: PersonVoteDto[];
   votingMatrix: PersonVotingComparison[];
   votingAttendance: number;
@@ -42,7 +42,7 @@ export type PersonLightDto = {
   fraction: string;
   partyId: string;
   party: string;
-  councilorUntil: string;
+  councilorUntil: string | null;
   votingAttendance: number;
   votingSuccessRate: number;
   abstentionRate: number;
