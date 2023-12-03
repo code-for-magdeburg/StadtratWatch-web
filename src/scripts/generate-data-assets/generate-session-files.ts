@@ -154,7 +154,7 @@ function getVoteResult(vote: string): VoteResult {
 
 
 function getVotingResult(votes: SessionVote[]): VotingResult {
-  const passed = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
-  const rejected = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
-  return passed > rejected ? VotingResult.PASSED : VotingResult.REJECTED;
+  const votedFor = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
+  const votedAgainst = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
+  return votedFor > votedAgainst ? VotingResult.PASSED : VotingResult.REJECTED;
 }

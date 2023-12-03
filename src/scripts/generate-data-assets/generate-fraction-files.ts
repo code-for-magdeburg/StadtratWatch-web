@@ -1,6 +1,6 @@
 import { FractionDto } from '../../app/model/Fraction';
 import * as fs from 'fs';
-import { Registry, RegistryFraction, RegistryParty, RegistryPerson } from './model/registry';
+import { Registry, RegistryFraction, RegistryPerson } from './model/registry';
 import { FRACTIONS_BASE_DIR } from './constants';
 import {
   SessionDetailsDto,
@@ -64,7 +64,7 @@ function calcApplicationsSuccessRate(fraction: RegistryFraction, sessions: Sessi
 }
 
 
-function calcVotingsSuccessRate(fractionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
+export function calcVotingsSuccessRate(fractionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
 
   const allVotings = sessions.map(session => session.votings).flat();
   if (allVotings.length === 0) {
