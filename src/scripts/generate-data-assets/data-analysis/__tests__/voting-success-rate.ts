@@ -14,8 +14,10 @@ describe('Calculating voting success rate', () => {
   describe('of a fraction', () => {
 
     it('should return 0 if there are no votings', () => {
-      const [fractionOfOne] = createFractionPersons([1]);
-      const votingsSuccessRate = calcVotingsSuccessRate(fractionOfOne[0].fraction, [])
+      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const fractionPersons = createSessionPersons(1, fraction.name, 'party1');
+      const session = createSession([], [fraction], fractionPersons);
+      const votingsSuccessRate = calcVotingsSuccessRate(fraction.id, [session])
       expect(votingsSuccessRate).toBe(0);
     });
 
@@ -124,20 +126,6 @@ function createSessionPersons(count: number, fraction: string, party: string): S
       `${fraction}-${index}`,
       fraction,
       party
-    )
-  );
-}
-
-
-function createFractionPersons(counts: number[]): SessionPersonDto[][] {
-  let personId = 1;
-  return counts.map((memberCount, fractionIndex) => Array.from(
-      { length: memberCount },
-      () => createPerson(
-        `${personId++}`,
-        `fraction${fractionIndex + 1}`,
-        `party${fractionIndex + 1}`
-      )
     )
   );
 }
