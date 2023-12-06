@@ -6,7 +6,7 @@ export type Councilor = {
   personId: string;
   name: string;
   party: string;
-  councilorUntil?: string;
+  councilorUntil: string | null;
 };
 
 

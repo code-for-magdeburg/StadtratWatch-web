@@ -15,7 +15,7 @@ type VotingsSuccessForSession = {
 
 type PersonVotingSuccessStats = {
   successCount: number;
-  successRate: number | null;
+  successRate: number;
 };
 
 
@@ -120,7 +120,7 @@ export function calcPersonVotingSuccess(sessions: SessionDetailsDto[], person: R
     });
 
   if (votingSuccess.length === 0) {
-    return { successCount: 0, successRate: null };
+    return { successCount: 0, successRate: 0 };
   }
 
   const successCount = votingSuccess

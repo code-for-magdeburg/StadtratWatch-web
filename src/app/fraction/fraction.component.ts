@@ -65,7 +65,7 @@ export class FractionComponent {
             .filter(person => !person.councilorUntil || person.councilorUntil >= today)
             .map(CouncilorCardComponent.mapPersonToCouncilor);
           this.formerCouncilors = persons
-            .filter(person => person.councilorUntil < today)
+            .filter(person => person.councilorUntil && person.councilorUntil < today)
             .map(CouncilorCardComponent.mapPersonToCouncilor);
 
         });

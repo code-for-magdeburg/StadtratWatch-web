@@ -246,7 +246,7 @@ describe('Calculating voting success rate', () => {
       const sessionPerson = createSessionPerson(person);
       const session = createSession([], [fraction], [party], [sessionPerson]);
       const votingsSuccessRate = calcPersonVotingSuccess([session], person);
-      expect(votingsSuccessRate).toEqual({ successCount: 0, successRate: null });
+      expect(votingsSuccessRate).toEqual({ successCount: 0, successRate: 0 });
     });
 
     it('should be 100% if person voted for passed voting', () => {
