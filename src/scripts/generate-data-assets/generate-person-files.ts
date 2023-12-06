@@ -1,9 +1,10 @@
-import { SessionDetailsDto, SessionVotingDto, VoteResult, VotingResult } from '../../app/model/Session';
+import { SessionDetailsDto, SessionVotingDto, VoteResult } from '../../app/model/Session';
 import { PersonDetailsDto, PersonLightDto, PersonVoteDto, PersonVotingComparison } from '../../app/model/Person';
 import * as fs from 'fs';
 import { RegistryPerson } from './model/registry';
 import { PERSONS_BASE_DIR } from './constants';
-import { Registry } from "./model/registry";
+import { Registry } from './model/registry';
+import { calcPersonVotingSuccess } from './data-analysis/voting-success-rate';
 
 
 export function generatePersonFiles(registry: Registry, sessions: SessionDetailsDto[]) {
@@ -15,7 +16,7 @@ export function generatePersonFiles(registry: Registry, sessions: SessionDetails
       const fraction = registry.fractions.find(fraction => fraction.id === person.fractionId);
       const party = registry.parties.find(party => party.id === person.partyId);
       const votingAttendance = calcVotingAttendance(sessions, person);
-      const votingSuccessStats = calcVotingSuccessStats(sessions, person);
+      const votingSuccessStats = calcPersonVotingSuccess(sessions, person);
       const abstentionStats = calcAbstentionStats(sessions, person);
       return {
         id: person.id,
@@ -57,7 +58,7 @@ export function generatePersonFiles(registry: Registry, sessions: SessionDetails
     );
     const votingMatrix = calcVotingMatrix(registry, votings, person);
     const votingAttendance = calcVotingAttendance(relevantSessions, person);
-    const votingSuccess = calcVotingSuccessStats(relevantSessions, person);
+    const votingSuccess = calcPersonVotingSuccess(relevantSessions, person);
     const abstentionStats = calcAbstentionStats(relevantSessions, person);
     return {
       id: person.id,
@@ -134,34 +135,6 @@ function calcVotingAttendance(sessions: SessionDetailsDto[], person: RegistryPer
   const votingsTotal = relevantSessions.flatMap(session => session.votings).length;
 
   return votingsAttended / votingsTotal;
-
-}
-
-
-function calcVotingSuccessStats(sessions: SessionDetailsDto[], person: RegistryPerson): {
-  successCount: number,
-  successRate: number
-} {
-
-  const votingSuccess = sessions
-    .map(session => {
-      // TODO: To be decided => Different results if the abstentions are counted as success or not
-      //  or if the they are not counted at all
-      const attendedVotings = session.votings.filter(voting =>
-        voting.votes.some(vote => vote.personId === person.id && vote.vote !== VoteResult.DID_NOT_VOTE)
-      );
-      return attendedVotings.map(voting => {
-        const personVote = voting.votes.find(vote => vote.personId === person.id)!.vote;
-        return personVote === VoteResult.VOTE_FOR && voting.votingResult === VotingResult.PASSED
-          || personVote === VoteResult.VOTE_AGAINST && voting.votingResult === VotingResult.REJECTED;
-      });
-    })
-    .flat();
-  const successCount = votingSuccess
-    .map(success => success ? 1 : 0)
-    .reduce<number>((a, b) => a + b, 0);
-  const successRate = successCount / votingSuccess.length;
-  return { successCount, successRate };
 
 }
 

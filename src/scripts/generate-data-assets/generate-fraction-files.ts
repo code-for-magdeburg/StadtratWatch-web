@@ -9,12 +9,7 @@ import {
   VoteResult,
   VotingResult
 } from '../../app/model/Session';
-
-
-type VotingsSuccessForSession = {
-  successfulVotings: number;
-  totalVotings: number;
-};
+import { calcFractionVotingSuccessRate } from './data-analysis/voting-success-rate';
 
 
 export function generateFractionFiles(registry: Registry, sessions: SessionDetailsDto[]) {
@@ -22,7 +17,7 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
   const fractions = registry.fractions.map<FractionDto>(fraction => {
     const members = registry.persons.filter(person => person.fractionId === fraction.id);
     const applicationsSuccessRate = calcApplicationsSuccessRate(fraction, sessions);
-    const votingsSuccessRate = calcVotingsSuccessRate(fraction.id, sessions);
+    const votingsSuccessRate = calcFractionVotingSuccessRate(fraction.id, sessions);
     const uniformityScore = calcUniformityScore(members, sessions) || 0;
     const participationRate = calcParticipationRate(fraction, sessions) || 0;
     const abstentionRate = calcAbstentionRate(members, sessions) || 0;
@@ -67,58 +62,6 @@ function calcApplicationsSuccessRate(fraction: RegistryFraction, sessions: Sessi
     .length;
 
   return applicationsPassed / relevantApplications.length;
-}
-
-
-export function calcVotingsSuccessRate(fractionId: string, sessions: SessionDetailsDto[]): number {
-
-  const votingsSuccessPerSession = sessions.map(
-    session => calcVotingsSuccessForSession(fractionId, session)
-  );
-
-  const successfulVotings = votingsSuccessPerSession.reduce((a, b) => a + b.successfulVotings, 0);
-  const totalVotings = votingsSuccessPerSession.reduce((a, b) => a + b.totalVotings, 0);
-
-  return totalVotings === 0 ? 0 : successfulVotings / totalVotings;
-
-}
-
-
-function calcVotingsSuccessForSession(fractionId: string, session: SessionDetailsDto): VotingsSuccessForSession {
-
-  const fraction = session.fractions.find(
-    fraction => fraction.id === fractionId
-  );
-  if (!fraction) {
-    return { successfulVotings: 0, totalVotings: session.votings.length };
-  }
-
-  const fractionMembers = session.persons.filter(
-    person => person.fraction === fraction.name
-  );
-  const successfulVotings = session.votings
-    .filter(voting => calcVotingSuccess(fractionMembers, voting))
-    .length;
-
-  return { successfulVotings, totalVotings: session.votings.length };
-
-}
-
-
-function calcVotingSuccess(persons: SessionPersonDto[], voting: SessionVotingDto): boolean {
-
-  const votes = voting.votes.filter(vote =>
-    persons.some(person => person.id === vote.personId) && vote.vote !== VoteResult.DID_NOT_VOTE
-  );
-  const votedFor = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
-  const votedAgainst = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
-
-  return votes.length > 0
-    && (
-      (votedFor > votedAgainst && voting.votingResult === VotingResult.PASSED) ||
-      (votedFor <= votedAgainst && voting.votingResult === VotingResult.REJECTED)
-    );
-
 }
 
 

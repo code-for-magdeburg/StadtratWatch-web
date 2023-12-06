@@ -2,13 +2,8 @@ import { PartyDto } from '../../app/model/Party';
 import * as fs from 'fs';
 import { PARTIES_BASE_DIR } from './constants';
 import { Registry, RegistryParty, RegistryPerson } from './model/registry';
-import {
-  SessionDetailsDto,
-  SessionPersonDto,
-  SessionVotingDto,
-  VoteResult,
-  VotingResult
-} from '../../app/model/Session';
+import { SessionDetailsDto, SessionPersonDto, SessionVotingDto, VoteResult } from '../../app/model/Session';
+import { calcPartyVotingSuccessRate } from './data-analysis/voting-success-rate';
 
 
 export function generatePartyFiles(registry: Registry, sessions: SessionDetailsDto[]) {
@@ -16,7 +11,7 @@ export function generatePartyFiles(registry: Registry, sessions: SessionDetailsD
   console.log('Writing all-parties.json');
   const parties = registry.parties.map<PartyDto>(party => {
     const members = registry.persons.filter(person => person.partyId === party.id);
-    const votingsSuccessRate = calcVotingsSuccessRate(members, sessions);
+    const votingsSuccessRate = calcPartyVotingSuccessRate(party.id, sessions);
     const uniformityScore = calcUniformityScore(members, sessions) || 0;
     const participationRate = calcParticipationRate(party, sessions) || 0;
     const abstentionRate = calcAbstentionRate(members, sessions) || 0;
@@ -41,40 +36,6 @@ export function generatePartyFiles(registry: Registry, sessions: SessionDetailsD
     const data = JSON.stringify(party, null, 2);
     fs.writeFileSync(`${PARTIES_BASE_DIR}/${party.id}.json`, data, 'utf-8');
   });
-
-}
-
-
-function calcVotingsSuccessRate(partyMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
-
-  const allVotings = sessions.map(session => session.votings).flat();
-  if (allVotings.length === 0) {
-    return 0;
-  }
-
-  const relevantVotingsResults = allVotings
-    .map(voting => {
-
-      const partyVotes = voting.votes.filter(
-        vote => partyMembers.some(member => member.id === vote.personId)
-      );
-      const votedFor = partyVotes.filter(vote => vote.vote === VoteResult.VOTE_FOR);
-      const votedAgainst = partyVotes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST);
-
-      const partyResult = votedFor.length > votedAgainst.length
-        ? VotingResult.PASSED
-        : VotingResult.REJECTED;
-
-      return { totalPartyVotes: partyVotes.length, votingResult: voting.votingResult, partyResult: partyResult };
-
-    })
-    .filter(voting => voting.totalPartyVotes > 0);
-
-  const partySuccessfulVotings = relevantVotingsResults.filter(
-    voting => voting.votingResult === voting.partyResult
-  );
-
-  return partySuccessfulVotings.length / relevantVotingsResults.length;
 
 }
 

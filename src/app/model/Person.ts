@@ -13,7 +13,7 @@ export type PersonDetailsDto = {
   votingMatrix: PersonVotingComparison[];
   votingAttendance: number;
   votingSuccessCount: number;
-  votingSuccessRate: number;
+  votingSuccessRate: number | null;
   abstentionCount: number;
   abstentionRate: number;
 };
@@ -44,6 +44,6 @@ export type PersonLightDto = {
   party: string;
   councilorUntil: string | null;
   votingAttendance: number;
-  votingSuccessRate: number;
+  votingSuccessRate: number | null;
   abstentionRate: number;
 };
