@@ -8,6 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "generate-data-assets": "ts-node --project ./tsconfig.scripts.json src/scripts/generate-data-assets/index.ts",
+    "generate-data-assets": "ts-node --project ./tsconfig.scripts.json src/scripts/generate-data-assets",
+    "download-paper-files": "ts-node --project ./tsconfig.scripts.json src/scripts/download-paper-files",
     "lab": "ts-node --project ./tsconfig.scripts.json src/scripts/lab/index.ts"
   },
   "private": true,
