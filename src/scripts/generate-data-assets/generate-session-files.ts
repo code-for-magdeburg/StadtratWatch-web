@@ -9,9 +9,9 @@ import * as fs from 'fs';
 import { SESSIONS_BASE_DIR } from './constants';
 import { SessionScan, SessionVote } from './model/session-scan';
 import { SESSIONS_CONFIGS_DIR } from './constants';
-import { ScrapedSession } from './model/scraped-session';
-import { Registry } from "./model/registry";
-import { SessionConfig } from "./model/session-config";
+import { ScrapedSession } from '../shared/model/scraped-session';
+import { Registry } from './model/registry';
+import { SessionConfig } from './model/session-config';
 
 
 export function generateSessionFiles(registry: Registry, scrapedSession: ScrapedSession): SessionDetailsDto[] {
