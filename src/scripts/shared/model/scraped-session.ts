@@ -46,6 +46,13 @@ export type ScrapedSessionMeta = any;
 
 export type ScrapedOrganization = any;
 
-export type ScrapedPaper = any;
+export type ScrapedPaper = {
+  name: string;
+  original_id: number;
+  paper_type: string | null;
+  reference: string;
+  short_name: string;
+  sort_date: string;
+};
 
 export type ScrapedPerson = any;

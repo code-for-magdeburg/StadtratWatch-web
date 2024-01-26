@@ -10,6 +10,7 @@
     "generate-data-assets": "ts-node --project ./tsconfig.scripts.json src/scripts/generate-data-assets/index.ts",
     "generate-data-assets": "ts-node --project ./tsconfig.scripts.json src/scripts/generate-data-assets",
     "download-paper-files": "ts-node --project ./tsconfig.scripts.json src/scripts/download-paper-files",
+    "parse-paper-files": "node src/scripts/parse-paper-files",
     "lab": "ts-node --project ./tsconfig.scripts.json src/scripts/lab/index.ts"
   },
   "private": true,
@@ -26,8 +27,10 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.11.1",
     "chart.js": "^3.6.0",
+    "natural": "^6.10.4",
     "ng2-charts": "^5.0.3",
     "ngx-bootstrap": "^11.0.2",
+    "pdf2json": "^3.0.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
