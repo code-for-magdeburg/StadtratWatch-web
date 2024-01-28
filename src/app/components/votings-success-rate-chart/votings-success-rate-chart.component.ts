@@ -1,6 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
-import { FractionDto } from '../../model/Fraction';
+import { FractionLightDto } from '../../model/Fraction';
 import { PartyDto } from '../../model/Party';
 
 
@@ -9,7 +9,7 @@ export class VotingsSuccessRateChartData {
   constructor(public readonly name: string, public readonly value: number) {
   }
 
-  public static fromFraction(fraction: FractionDto): VotingsSuccessRateChartData {
+  public static fromFraction(fraction: FractionLightDto): VotingsSuccessRateChartData {
     return new VotingsSuccessRateChartData(fraction.name, fraction.votingsSuccessRate * 100);
   }
 

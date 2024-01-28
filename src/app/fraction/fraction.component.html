@@ -108,7 +108,55 @@
 
     </div>
 
-  </ng-container>
+    <h2 class="mb-3 mt-3">Anträge der Fraktion</h2>
 
+    <div class="table-responsive mb-3">
+      <table class="table table-striped table-bordered table-sm">
+        <thead>
+        <tr>
+          <th>Abstimmung</th>
+          <th>Antrag</th>
+          <th>Titel</th>
+          <th>Ergebnis</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let application of fraction.applications">
+          <td>{{ application.sessionDate | date }}</td>
+          <td class="d-flex flex-column">
+            <span>{{ application.type }}</span>
+            <span *ngIf="!!application.applicationUrl">
+              <a href="{{ application.applicationUrl }}" target="_blank">{{ application.applicationId }}</a>
+            </span>
+            <span *ngIf="!application.applicationUrl">{{ application.applicationId }}</span>
+          </td>
+          <td>
+            <a [routerLink]="['/session', application.sessionId, 'voting', application.votingId]">
+              {{ application.title }}
+            </a>
+          </td>
+          <td>
+            <span
+              *ngIf="application.result === ApplicationResult.ACCEPTED"
+              class="badge rounded-pill align-self-center"
+              [style.background-color]="ACCEPTED_COLOR"
+            >angenommen</span>
+            <span
+              *ngIf="application.result === ApplicationResult.PARTIALLY_ACCEPTED"
+              class="badge rounded-pill align-self-center"
+              [style.background-color]="PARTIALLY_ACCEPTED_COLOR"
+            >teilweise</span>
+            <span
+              *ngIf="application.result === ApplicationResult.REJECTED"
+              class="badge rounded-pill align-self-start"
+              [style.background-color]="REJECTED_COLOR"
+            >abgelehnt</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </ng-container>
 
 </div>

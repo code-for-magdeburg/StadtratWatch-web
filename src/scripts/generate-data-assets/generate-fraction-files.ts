@@ -1,4 +1,4 @@
-import { FractionDto } from '../../app/model/Fraction';
+import { FractionDetailsDto, FractionLightDto } from '../../app/model/Fraction';
 import * as fs from 'fs';
 import { Registry, RegistryFraction, RegistryPerson } from './model/registry';
 import { FRACTIONS_BASE_DIR } from './constants';
@@ -10,11 +10,12 @@ import {
   VotingResult
 } from '../../app/model/Session';
 import { calcFractionVotingSuccessRate } from './data-analysis/voting-success-rate';
+import { ApplicationDto } from '../../app/model/Application';
 
 
-export function generateFractionFiles(registry: Registry, sessions: SessionDetailsDto[]) {
+export function generateFractionFiles(registry: Registry, sessions: SessionDetailsDto[]): void {
   console.log('Writing all-fractions.json');
-  const fractions = registry.fractions.map<FractionDto>(fraction => {
+  const fractions = registry.fractions.map<FractionLightDto>(fraction => {
     const members = registry.persons.filter(person => person.fractionId === fraction.id);
     const applicationsSuccessRate = calcApplicationsSuccessRate(fraction, sessions);
     const votingsSuccessRate = calcFractionVotingSuccessRate(fraction.id, sessions);
@@ -29,7 +30,7 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
       votingsSuccessRate,
       uniformityScore,
       participationRate,
-      abstentionRate,
+      abstentionRate
     };
   });
   fs.writeFileSync(
@@ -40,7 +41,11 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
 
   fractions.forEach(fraction => {
     console.log(`Writing fraction file ${fraction.id}.json`);
-    const data = JSON.stringify(fraction, null, 2);
+    const fractionDetails = {
+      ...fraction,
+      applications: getApplicationsOfFraction(fraction, sessions)
+    } satisfies FractionDetailsDto;
+    const data = JSON.stringify(fractionDetails, null, 2);
     fs.writeFileSync(`${FRACTIONS_BASE_DIR}/${fraction.id}.json`, data, 'utf-8');
   });
 
@@ -203,4 +208,55 @@ function calcAbstentionRateForVoting(fractionMembers: RegistryPerson[], voting: 
   }
 
   return abstentions.length / allVotes.length;
+}
+
+
+function getApplicationsOfFraction(fraction: FractionLightDto, sessions: SessionDetailsDto[]): ApplicationDto[] {
+  const fractionApplicationsVotings = sessions
+    .map(session => ({
+      votings: session.votings.map(voting => ({
+        voting,
+        sessionId: session.id,
+        sessionDate: session.date
+      }))
+    }))
+    .flatMap(session => session.votings)
+    .filter(voting => !!voting.voting.votingSubject.applicationId)
+    .filter(voting => voting.voting.votingSubject.authors.includes(fraction.name));
+
+  const applicationsMap = fractionApplicationsVotings.reduce((acc, curr) => {
+    const key = `${curr.voting.votingSubject.applicationId}-${curr.voting.votingSubject.type}`;
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+    acc[key].push(curr);
+    return acc;
+  }, {} as Record<string, typeof fractionApplicationsVotings>);
+
+  const applications = Object.values(applicationsMap);
+
+  return applications.map(applicationVotings => {
+    const applicationVoting = applicationVotings[0];
+    const applicationId = applicationVoting.voting.votingSubject.applicationId;
+    const applicationType = applicationVoting.voting.votingSubject.type;
+    const applicationTitle = applicationVoting.voting.votingSubject.title;
+    const applicationUrl = applicationVoting.voting.votingSubject.documents.applicationUrl;
+    const sessionId = applicationVoting.sessionId;
+    const sessionDate = applicationVoting.sessionDate;
+    const votings = applicationVotings.map(
+      applicationVoting => ({
+        votingId: applicationVoting.voting.id,
+        votingResult: applicationVoting.voting.votingResult,
+      })
+    );
+    return {
+      applicationId,
+      type: applicationType,
+      title: applicationTitle,
+      sessionId,
+      sessionDate,
+      applicationUrl,
+      votings
+    };
+  });
 }
