@@ -36,6 +36,7 @@ import {
 import { AbstentionRateChartComponent } from './components/abstention-rate-chart/abstention-rate-chart.component';
 import { CouncilorCardComponent } from './components/councilor-card/councilor-card.component';
 import { SortablePartiesDirective } from './parties/sortable-parties.directive';
+import { SortableFractionApplicationsDirective } from './fractions/sortable-fraction-applications.directive';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -54,6 +55,7 @@ registerLocaleData(localeDe, 'de-DE');
     PartiesComponent,
     PartyComponent,
     HomeComponent,
+    SortableFractionApplicationsDirective,
     SortableFractionsDirective,
     SortablePersonsDirective,
     SortablePartiesDirective,

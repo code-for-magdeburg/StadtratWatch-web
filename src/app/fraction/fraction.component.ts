@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FractionsService } from '../services/fractions.service';
 import { PersonsService } from '../services/persons.service';
@@ -7,6 +7,11 @@ import { Councilor, CouncilorCardComponent } from '../components/councilor-card/
 import { ApplicationVotingDto } from '../model/Application';
 import { ACCEPTED_COLOR, PARTIALLY_ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
 import { VotingResult } from '../model/Session';
+import {
+  compare,
+  SortableFractionApplicationsDirective,
+  SortFractionApplicationsEvent
+} from '../fractions/sortable-fraction-applications.directive';
 
 
 enum ApplicationResult {
@@ -18,10 +23,11 @@ enum ApplicationResult {
 
 type Application = {
   sessionId: string;
-  sessionDate: string;
+  votingDate: string;
   votingId: number;
   type: string;
   applicationId: string;
+  typeAndId: string;
   title: string;
   result: ApplicationResult;
   applicationUrl: string | null;
@@ -34,7 +40,6 @@ type Fraction = {
   votingsSuccessRate: number;
   participationRate: number;
   abstentionRate: number;
-  applications: Application[];
 };
 
 
@@ -46,15 +51,21 @@ type Fraction = {
 export class FractionComponent {
 
 
+  private applicationsData: Application[] = [];
+
   public fraction: Fraction | null = null;
   public councilors: Councilor[] = [];
   public formerCouncilors: Councilor[] = [];
+  public sortedApplications: Application[] = [];
 
   protected readonly ApplicationResult = ApplicationResult;
 
   protected readonly ACCEPTED_COLOR = ACCEPTED_COLOR;
   protected readonly PARTIALLY_ACCEPTED_COLOR = PARTIALLY_ACCEPTED_COLOR;
   protected readonly REJECTED_COLOR = REJECTED_COLOR;
+
+  @ViewChildren(SortableFractionApplicationsDirective) headers: QueryList<SortableFractionApplicationsDirective> | undefined;
+
 
   constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService,
               private readonly personsService: PersonsService) {
@@ -78,20 +89,6 @@ export class FractionComponent {
       ])
         .subscribe(([fraction, persons]) => {
 
-          const applications = fraction.applications.map(application => ({
-            sessionId: application.sessionId,
-            sessionDate: application.sessionDate,
-            votingId: this.getVotingId(application.votings),
-            type: application.type,
-            applicationId: application.applicationId,
-            title: application.title,
-            result: this.getApplicationResult(application.votings),
-            applicationUrl: application.applicationUrl
-          }));
-          applications.sort(
-            (a, b) =>
-              b.sessionDate.localeCompare(a.sessionDate)
-          );
           this.fraction = {
             name: fraction.name,
             applicationsSuccessRate: fraction.applicationsSuccessRate,
@@ -99,8 +96,23 @@ export class FractionComponent {
             uniformityScore: fraction.uniformityScore,
             participationRate: fraction.participationRate,
             abstentionRate: fraction.abstentionRate,
-            applications
           };
+
+          this.sortedApplications = this.applicationsData = fraction.applications.map(application => ({
+            sessionId: application.sessionId,
+            votingDate: application.sessionDate,
+            votingId: this.getVotingId(application.votings),
+            type: application.type,
+            applicationId: application.applicationId,
+            typeAndId: `${application.type} ${application.applicationId}`,
+            title: application.title,
+            result: this.getApplicationResult(application.votings),
+            applicationUrl: application.applicationUrl
+          }));
+          this.sortedApplications.sort(
+            (a, b) =>
+              b.votingDate.localeCompare(a.votingDate)
+          );
 
           const today = new Date().toISOString().substring(0, 10);
           this.councilors = persons
@@ -113,6 +125,32 @@ export class FractionComponent {
         });
 
     });
+
+  }
+
+
+  onSort(sortEvent: SortFractionApplicationsEvent) {
+
+    if (!this.headers) {
+      return;
+    }
+
+    this.headers.forEach((header) => {
+      if (header.sortableFractionApplications !== sortEvent.column) {
+        header.direction = '';
+      }
+    });
+
+    if (sortEvent.direction === '' || sortEvent.column === '') {
+      this.sortedApplications = this.applicationsData;
+    } else {
+      this.sortedApplications = [...this.applicationsData].sort((a, b) => {
+        const aValue = sortEvent.column === '' ? '' : a[sortEvent.column];
+        const bValue = sortEvent.column === '' ? '' : b[sortEvent.column];
+        const res = compare(aValue, bValue);
+        return sortEvent.direction === 'asc' ? res : -res;
+      });
+    }
 
   }
 
