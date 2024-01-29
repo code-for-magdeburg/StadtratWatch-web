@@ -1,5 +1,6 @@
 
 export const ACCEPTED_COLOR = 'rgb(0,150,0)';
+export const PARTIALLY_ACCEPTED_COLOR = 'rgb(255,180,65)';
 export const REJECTED_COLOR = 'rgb(220,0,0)';
 
 export const VOTED_FOR_COLOR = ACCEPTED_COLOR;

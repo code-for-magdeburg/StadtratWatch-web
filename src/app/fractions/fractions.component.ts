@@ -1,5 +1,5 @@
 import { Component, QueryList, ViewChildren } from '@angular/core';
-import { FractionDto } from '../model/Fraction';
+import { FractionLightDto } from '../model/Fraction';
 import { FractionsService } from '../services/fractions.service';
 import { compare, SortableFractionsDirective, SortFractionsEvent } from './sortable-fractions.directive';
 import {
@@ -21,9 +21,9 @@ import { AbstentionRateChartData } from '../components/abstention-rate-chart/abs
 export class FractionsComponent {
 
 
-  private data: FractionDto[] = [];
+  private data: FractionLightDto[] = [];
 
-  public sortedFractions: FractionDto[] = [];
+  public sortedFractions: FractionLightDto[] = [];
   public applicationsSuccessRates: VotingsSuccessRateChartData[] = [];
   public votingsSuccessRates: VotingsSuccessRateChartData[] = [];
   public uniformityScores: UniformityScoreChartData[] = [];

@@ -36,6 +36,8 @@ import {
 import { AbstentionRateChartComponent } from './components/abstention-rate-chart/abstention-rate-chart.component';
 import { CouncilorCardComponent } from './components/councilor-card/councilor-card.component';
 import { SortablePartiesDirective } from './parties/sortable-parties.directive';
+import { SortableFractionApplicationsDirective } from './fractions/sortable-fraction-applications.directive';
+import { FormsModule } from '@angular/forms';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -54,6 +56,7 @@ registerLocaleData(localeDe, 'de-DE');
     PartiesComponent,
     PartyComponent,
     HomeComponent,
+    SortableFractionApplicationsDirective,
     SortableFractionsDirective,
     SortablePersonsDirective,
     SortablePartiesDirective,
@@ -67,14 +70,15 @@ registerLocaleData(localeDe, 'de-DE');
     AbstentionRateChartComponent,
     CouncilorCardComponent
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    HttpClientModule,
-    TooltipModule.forRoot(),
-    NgChartsModule
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        HttpClientModule,
+        TooltipModule.forRoot(),
+        NgChartsModule,
+        FormsModule
+    ],
   providers: [{ provide: LOCALE_ID, useValue: 'de-DE' }],
   bootstrap: [AppComponent]
 })

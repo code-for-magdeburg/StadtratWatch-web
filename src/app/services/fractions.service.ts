@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FractionDto } from '../model/Fraction';
+import { FractionDetailsDto, FractionLightDto } from '../model/Fraction';
 
 
 @Injectable({ providedIn: 'root' })
@@ -11,12 +11,12 @@ export class FractionsService {
   }
 
 
-  public fetchFractions = (): Observable<FractionDto[]> =>
-    this.http.get<FractionDto[]>(`assets/generated/fractions/all-fractions.json`);
+  public fetchFractions = (): Observable<FractionLightDto[]> =>
+    this.http.get<FractionLightDto[]>(`assets/generated/fractions/all-fractions.json`);
 
 
-  public fetchFraction = (id: string): Observable<FractionDto> =>
-    this.http.get<FractionDto>(`assets/generated/fractions/${id}.json`);
+  public fetchFraction = (id: string): Observable<FractionDetailsDto> =>
+    this.http.get<FractionDetailsDto>(`assets/generated/fractions/${id}.json`);
 
 
 }

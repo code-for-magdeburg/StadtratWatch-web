@@ -1,6 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
-import { FractionDto } from '../../model/Fraction';
+import { FractionLightDto } from '../../model/Fraction';
 
 
 export class ApplicationsSuccessRateChartData {
@@ -8,7 +8,7 @@ export class ApplicationsSuccessRateChartData {
   constructor(public readonly name: string, public readonly value: number) {
   }
 
-  public static fromFraction(fraction: FractionDto): ApplicationsSuccessRateChartData {
+  public static fromFraction(fraction: FractionLightDto): ApplicationsSuccessRateChartData {
     return new ApplicationsSuccessRateChartData(fraction.name, fraction.applicationsSuccessRate * 100);
   }
 
