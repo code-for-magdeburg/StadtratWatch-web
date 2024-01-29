@@ -110,6 +110,59 @@
 
     <h2 class="mb-3 mt-3">Anträge der Fraktion</h2>
 
+    <div class="my-2">
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="applicationsFilterCheckbox"
+          [ngModel]="showApplications"
+          (ngModelChange)="showApplications = !showApplications; changeApplicationsFilter()"
+        >
+        <label class="form-check-label" for="applicationsFilterCheckbox">Anträge</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="changeRequestsFilterCheckbox"
+          [ngModel]="showChangeRequests"
+          (ngModelChange)="showChangeRequests = !showChangeRequests; changeApplicationsFilter()"
+        >
+        <label class="form-check-label" for="changeRequestsFilterCheckbox">Änderungsanträge</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="newApplicationsFilterCheckbox"
+          [ngModel]="showNewApplications"
+          (ngModelChange)="showNewApplications = !showNewApplications; changeApplicationsFilter()"
+        >
+        <label class="form-check-label" for="newApplicationsFilterCheckbox">Neuanträge</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="pointsOfOrderFilterCheckbox"
+          [ngModel]="showPointsOfOrder"
+          (ngModelChange)="showPointsOfOrder = !showPointsOfOrder; changeApplicationsFilter()"
+        >
+        <label class="form-check-label" for="pointsOfOrderFilterCheckbox">Geschäftsordnung</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="checkRequestsFilterCheckbox"
+          [ngModel]="showCheckRequests"
+          (ngModelChange)="showCheckRequests = !showCheckRequests; changeApplicationsFilter()"
+        >
+        <label class="form-check-label" for="checkRequestsFilterCheckbox">Prüfanträge</label>
+      </div>
+    </div>
+
     <div class="table-responsive mb-3">
       <table class="table table-striped table-bordered table-sm">
         <thead>

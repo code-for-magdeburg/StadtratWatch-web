@@ -52,11 +52,18 @@ export class FractionComponent {
 
 
   private applicationsData: Application[] = [];
+  private applicationsSorting: SortFractionApplicationsEvent = { column: '', direction: '' };
 
   public fraction: Fraction | null = null;
   public councilors: Councilor[] = [];
   public formerCouncilors: Councilor[] = [];
   public sortedApplications: Application[] = [];
+
+  public showApplications = true;
+  public showChangeRequests = true;
+  public showNewApplications = true;
+  public showPointsOfOrder = true;
+  public showCheckRequests = true;
 
   protected readonly ApplicationResult = ApplicationResult;
 
@@ -129,7 +136,14 @@ export class FractionComponent {
   }
 
 
+  changeApplicationsFilter() {
+    this.filterAndSortApplications();
+  }
+
+
   onSort(sortEvent: SortFractionApplicationsEvent) {
+
+    this.applicationsSorting = sortEvent;
 
     if (!this.headers) {
       return;
@@ -141,16 +155,7 @@ export class FractionComponent {
       }
     });
 
-    if (sortEvent.direction === '' || sortEvent.column === '') {
-      this.sortedApplications = this.applicationsData;
-    } else {
-      this.sortedApplications = [...this.applicationsData].sort((a, b) => {
-        const aValue = sortEvent.column === '' ? '' : a[sortEvent.column];
-        const bValue = sortEvent.column === '' ? '' : b[sortEvent.column];
-        const res = compare(aValue, bValue);
-        return sortEvent.direction === 'asc' ? res : -res;
-      });
-    }
+    this.filterAndSortApplications();
 
   }
 
@@ -172,6 +177,40 @@ export class FractionComponent {
       : passedVotings === votings.length
         ? ApplicationResult.ACCEPTED
         : ApplicationResult.PARTIALLY_ACCEPTED;
+  }
+
+
+  private filterAndSortApplications() {
+
+    const filtered = this.applicationsData
+      .filter(application => {
+        switch (application.type) {
+          case 'Antrag':
+            return this.showApplications;
+          case 'Änderungsantrag':
+            return this.showChangeRequests;
+          case 'Neuantrag':
+            return this.showNewApplications;
+          case 'Geschäftsordnung':
+            return this.showPointsOfOrder;
+          case 'Prüfantrag':
+            return this.showCheckRequests;
+          default:
+            return false;
+        }
+      });
+
+    if (this.applicationsSorting.direction === '' || this.applicationsSorting.column === '') {
+      this.sortedApplications = filtered;
+    } else {
+      this.sortedApplications = [...filtered].sort((a, b) => {
+        const aValue = this.applicationsSorting.column === '' ? '' : a[this.applicationsSorting.column];
+        const bValue = this.applicationsSorting.column === '' ? '' : b[this.applicationsSorting.column];
+        const res = compare(aValue, bValue);
+        return this.applicationsSorting.direction === 'asc' ? res : -res;
+      });
+    }
+
   }
 
 
