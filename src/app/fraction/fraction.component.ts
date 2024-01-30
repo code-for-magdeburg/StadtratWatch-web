@@ -61,9 +61,7 @@ export class FractionComponent {
 
   public showApplications = true;
   public showChangeRequests = true;
-  public showNewApplications = true;
   public showPointsOfOrder = true;
-  public showCheckRequests = true;
 
   protected readonly ApplicationResult = ApplicationResult;
 
@@ -189,12 +187,8 @@ export class FractionComponent {
             return this.showApplications;
           case 'Änderungsantrag':
             return this.showChangeRequests;
-          case 'Neuantrag':
-            return this.showNewApplications;
           case 'Geschäftsordnung':
             return this.showPointsOfOrder;
-          case 'Prüfantrag':
-            return this.showCheckRequests;
           default:
             return false;
         }
