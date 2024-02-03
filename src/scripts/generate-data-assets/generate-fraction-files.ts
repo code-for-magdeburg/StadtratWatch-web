@@ -229,7 +229,10 @@ function calcStatsHistory(registry: Registry, fraction: FractionLightDto, sessio
       date: session.date,
       value: calcUniformityScore(members, sessions.filter(s => s.date <= session.date))
     })),
-    participationRate: [],
+    participationRate: sessions.map(session => ({
+      date: session.date,
+      value: calcParticipationRate(fraction, sessions.filter(s => s.date <= session.date))
+    })),
     abstentionRate: []
   };
 
