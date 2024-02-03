@@ -38,5 +38,5 @@ export type StatsHistoryDto = {
 
 export type HistoryValue = {
   date: string;
-  value: number;
+  value: number | null;
 };

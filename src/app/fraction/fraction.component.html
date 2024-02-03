@@ -53,16 +53,7 @@
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Geschlossenheit</div>
-          <div class="card-body">
-            <h3>{{ fraction.uniformityScore | number : '0.3-3' }}</h3>
-            <p class="text-body-secondary">
-              Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der
-              Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion.
-            </p>
-          </div>
-        </div>
+        <app-fraction-uniformity-score [fraction]="fraction"></app-fraction-uniformity-score>
       </div>
 
       <div class="col">

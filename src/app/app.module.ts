@@ -40,6 +40,7 @@ import { SortableFractionApplicationsDirective } from './fractions/sortable-frac
 import { FormsModule } from '@angular/forms';
 import { FractionApplicationSuccessRateComponent } from './fraction/fraction-application-success-rate/fraction-application-success-rate.component';
 import { FractionVotingsSuccessRateComponent } from './fraction/fraction-votings-success-rate/fraction-votings-success-rate.component';
+import { FractionUniformityScoreComponent } from './fraction/fraction-uniformity-score/fraction-uniformity-score.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -72,7 +73,8 @@ registerLocaleData(localeDe, 'de-DE');
     AbstentionRateChartComponent,
     CouncilorCardComponent,
     FractionApplicationSuccessRateComponent,
-    FractionVotingsSuccessRateComponent
+    FractionVotingsSuccessRateComponent,
+    FractionUniformityScoreComponent
   ],
     imports: [
         AppRoutingModule,

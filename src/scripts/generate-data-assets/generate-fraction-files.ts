@@ -43,7 +43,7 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
     console.log(`Writing fraction file ${fraction.id}.json`);
     const fractionDetails = {
       ...fraction,
-      statsHistory: calcStatsHistory(fraction, sessions),
+      statsHistory: calcStatsHistory(registry, fraction, sessions),
       applications: getApplicationsOfFraction(fraction, sessions)
     } satisfies FractionDetailsDto;
     const data = JSON.stringify(fractionDetails, null, 2);
@@ -212,7 +212,9 @@ function calcAbstentionRateForVoting(fractionMembers: RegistryPerson[], voting: 
 }
 
 
-function calcStatsHistory(fraction: FractionLightDto, sessions: SessionDetailsDto[]): StatsHistoryDto {
+function calcStatsHistory(registry: Registry, fraction: FractionLightDto, sessions: SessionDetailsDto[]): StatsHistoryDto {
+
+  const members = registry.persons.filter(person => person.fractionId === fraction.id);
 
   return {
     applicationsSuccessRate: sessions.map(session => ({
@@ -223,7 +225,10 @@ function calcStatsHistory(fraction: FractionLightDto, sessions: SessionDetailsDt
       date: session.date,
       value: calcFractionVotingSuccessRate(fraction.id, sessions.filter(s => s.date <= session.date))
     })),
-    uniformityScore: [],
+    uniformityScore: sessions.map(session => ({
+      date: session.date,
+      value: calcUniformityScore(members, sessions.filter(s => s.date <= session.date))
+    })),
     participationRate: [],
     abstentionRate: []
   };
