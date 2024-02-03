@@ -219,7 +219,10 @@ function calcStatsHistory(fraction: FractionLightDto, sessions: SessionDetailsDt
       date: session.date,
       value: calcApplicationsSuccessRate(fraction, sessions.filter(s => s.date <= session.date))
     })),
-    votingsSuccessRate: [],
+    votingsSuccessRate: sessions.map(session => ({
+      date: session.date,
+      value: calcFractionVotingSuccessRate(fraction.id, sessions.filter(s => s.date <= session.date))
+    })),
     uniformityScore: [],
     participationRate: [],
     abstentionRate: []

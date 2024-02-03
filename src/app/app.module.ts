@@ -39,6 +39,7 @@ import { SortablePartiesDirective } from './parties/sortable-parties.directive';
 import { SortableFractionApplicationsDirective } from './fractions/sortable-fraction-applications.directive';
 import { FormsModule } from '@angular/forms';
 import { FractionApplicationSuccessRateComponent } from './fraction/fraction-application-success-rate/fraction-application-success-rate.component';
+import { FractionVotingsSuccessRateComponent } from './fraction/fraction-votings-success-rate/fraction-votings-success-rate.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -70,7 +71,8 @@ registerLocaleData(localeDe, 'de-DE');
     ParticipationRateChartComponent,
     AbstentionRateChartComponent,
     CouncilorCardComponent,
-    FractionApplicationSuccessRateComponent
+    FractionApplicationSuccessRateComponent,
+    FractionVotingsSuccessRateComponent
   ],
     imports: [
         AppRoutingModule,
