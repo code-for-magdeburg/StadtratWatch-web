@@ -233,7 +233,10 @@ function calcStatsHistory(registry: Registry, fraction: FractionLightDto, sessio
       date: session.date,
       value: calcParticipationRate(fraction, sessions.filter(s => s.date <= session.date))
     })),
-    abstentionRate: []
+    abstentionRate: sessions.map(session => ({
+      date: session.date,
+      value: calcAbstentionRate(members, sessions.filter(s => s.date <= session.date))
+    }))
   };
 
 }

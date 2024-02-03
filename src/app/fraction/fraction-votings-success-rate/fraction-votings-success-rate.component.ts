@@ -47,7 +47,7 @@ export class FractionVotingsSuccessRateComponent implements OnChanges {
     return {
       elements: { line: { tension: 0.5 } },
       scales: {
-        x: { type: 'time', display: false },
+        x: { type: 'time' },
         y: {
           ticks: {
             callback:

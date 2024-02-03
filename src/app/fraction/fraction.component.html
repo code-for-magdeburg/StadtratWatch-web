@@ -61,15 +61,7 @@
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Stimmenthaltungen</div>
-          <div class="card-body">
-            <h3>{{ fraction.abstentionRate * 100 | number : '1.1-1' }}%</h3>
-            <p class="text-body-secondary">
-              Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren.
-            </p>
-          </div>
-        </div>
+        <app-fraction-abstention-rate [fraction]="fraction"></app-fraction-abstention-rate>
       </div>
 
     </div>

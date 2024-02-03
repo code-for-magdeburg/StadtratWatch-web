@@ -6,11 +6,11 @@ import 'chartjs-adapter-date-fns';
 
 
 @Component({
-  selector: 'app-fraction-uniformity-score',
-  templateUrl: './fraction-uniformity-score.component.html',
-  styleUrls: ['./fraction-uniformity-score.component.scss']
+  selector: 'app-fraction-abstention-rate',
+  templateUrl: './fraction-abstention-rate.component.html',
+  styleUrls: ['./fraction-abstention-rate.component.scss']
 })
-export class FractionUniformityScoreComponent implements OnChanges {
+export class FractionAbstentionRateComponent implements OnChanges {
 
 
   @Input() fraction!: Fraction;
@@ -18,8 +18,8 @@ export class FractionUniformityScoreComponent implements OnChanges {
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
 
-  public chartData: ChartConfiguration['data'] = FractionUniformityScoreComponent.initialChartData();
-  public chartOptions: ChartConfiguration['options'] = FractionUniformityScoreComponent.initialChartOptions();
+  public chartData: ChartConfiguration['data'] = FractionAbstentionRateComponent.initialChartData();
+  public chartOptions: ChartConfiguration['options'] = FractionAbstentionRateComponent.initialChartOptions();
 
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -27,11 +27,11 @@ export class FractionUniformityScoreComponent implements OnChanges {
     if (changes['fraction']) {
       this.chartData.datasets = [
         {
-          data: this.fraction.statsHistory.uniformityScore.map(value => value.value),
+          data: this.fraction.statsHistory.abstentionRate.map(value => value.value),
           fill: 'origin',
         }
       ];
-      this.chartData.labels = this.fraction.statsHistory.uniformityScore.map(value => value.date);
+      this.chartData.labels = this.fraction.statsHistory.abstentionRate.map(value => value.date);
     }
 
   }
@@ -50,7 +50,8 @@ export class FractionUniformityScoreComponent implements OnChanges {
         x: { type: 'time' },
         y: {
           ticks: {
-            callback: (val) => val === +val ? val.toFixed(3) : val,
+            callback:
+              (val) => val === +val ? `${(val * 100).toFixed(0)}%` : val,
           }
         }
       },
