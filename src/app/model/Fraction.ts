@@ -10,6 +10,7 @@ export type FractionDetailsDto = {
   uniformityScore: number;
   participationRate: number;
   abstentionRate: number;
+  statsHistory: StatsHistoryDto;
   applications: ApplicationDto[];
 };
 
@@ -23,4 +24,19 @@ export type FractionLightDto = {
   uniformityScore: number;
   participationRate: number;
   abstentionRate: number;
+};
+
+
+export type StatsHistoryDto = {
+  applicationsSuccessRate: HistoryValue[];
+  votingsSuccessRate: HistoryValue[];
+  uniformityScore: HistoryValue[];
+  participationRate: HistoryValue[];
+  abstentionRate: HistoryValue[];
+};
+
+
+export type HistoryValue = {
+  date: string;
+  value: number;
 };

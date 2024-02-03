@@ -1,4 +1,4 @@
-import { FractionDetailsDto, FractionLightDto } from '../../app/model/Fraction';
+import { FractionDetailsDto, FractionLightDto, StatsHistoryDto } from '../../app/model/Fraction';
 import * as fs from 'fs';
 import { Registry, RegistryFraction, RegistryPerson } from './model/registry';
 import { FRACTIONS_BASE_DIR } from './constants';
@@ -43,6 +43,7 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
     console.log(`Writing fraction file ${fraction.id}.json`);
     const fractionDetails = {
       ...fraction,
+      statsHistory: calcStatsHistory(fraction, sessions),
       applications: getApplicationsOfFraction(fraction, sessions)
     } satisfies FractionDetailsDto;
     const data = JSON.stringify(fractionDetails, null, 2);
@@ -208,6 +209,22 @@ function calcAbstentionRateForVoting(fractionMembers: RegistryPerson[], voting: 
   }
 
   return abstentions.length / allVotes.length;
+}
+
+
+function calcStatsHistory(fraction: FractionLightDto, sessions: SessionDetailsDto[]): StatsHistoryDto {
+
+  return {
+    applicationsSuccessRate: sessions.map(session => ({
+      date: session.date,
+      value: calcApplicationsSuccessRate(fraction, sessions.filter(s => s.date <= session.date))
+    })),
+    votingsSuccessRate: [],
+    uniformityScore: [],
+    participationRate: [],
+    abstentionRate: []
+  };
+
 }
 
 

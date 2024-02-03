@@ -4,7 +4,7 @@ import { FractionsService } from '../services/fractions.service';
 import { PersonsService } from '../services/persons.service';
 import { forkJoin } from 'rxjs';
 import { Councilor, CouncilorCardComponent } from '../components/councilor-card/councilor-card.component';
-import { ApplicationVotingDto } from '../model/Application';
+import { ApplicationDto, ApplicationVotingDto } from '../model/Application';
 import { ACCEPTED_COLOR, PARTIALLY_ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
 import { VotingResult } from '../model/Session';
 import {
@@ -12,6 +12,7 @@ import {
   SortableFractionApplicationsDirective,
   SortFractionApplicationsEvent
 } from '../fractions/sortable-fraction-applications.directive';
+import { StatsHistoryDto } from '../model/Fraction';
 
 
 enum ApplicationResult {
@@ -33,13 +34,15 @@ type Application = {
   applicationUrl: string | null;
 };
 
-type Fraction = {
+export type Fraction = {
   name: string;
   uniformityScore: number;
   applicationsSuccessRate: number;
   votingsSuccessRate: number;
   participationRate: number;
   abstentionRate: number;
+  statsHistory: StatsHistoryDto;
+  applications: Application[];
 };
 
 
@@ -51,7 +54,6 @@ type Fraction = {
 export class FractionComponent {
 
 
-  private applicationsData: Application[] = [];
   private applicationsSorting: SortFractionApplicationsEvent = { column: '', direction: '' };
 
   public fraction: Fraction | null = null;
@@ -101,23 +103,9 @@ export class FractionComponent {
             uniformityScore: fraction.uniformityScore,
             participationRate: fraction.participationRate,
             abstentionRate: fraction.abstentionRate,
+            statsHistory: fraction.statsHistory,
+            applications: this.mapApplications(fraction.applications)
           };
-
-          this.sortedApplications = this.applicationsData = fraction.applications.map(application => ({
-            sessionId: application.sessionId,
-            votingDate: application.sessionDate,
-            votingId: this.getVotingId(application.votings),
-            type: application.type,
-            applicationId: application.applicationId,
-            typeAndId: `${application.type} ${application.applicationId}`,
-            title: application.title,
-            result: this.getApplicationResult(application.votings),
-            applicationUrl: application.applicationUrl
-          }));
-          this.sortedApplications.sort(
-            (a, b) =>
-              b.votingDate.localeCompare(a.votingDate)
-          );
 
           const today = new Date().toISOString().substring(0, 10);
           this.councilors = persons
@@ -127,6 +115,8 @@ export class FractionComponent {
             .filter(person => person.councilorUntil && person.councilorUntil < today)
             .map(CouncilorCardComponent.mapPersonToCouncilor);
 
+          this.applicationsSorting = { column: 'votingDate', direction: 'desc' };
+          this.filterAndSortApplications();
         });
 
     });
@@ -166,6 +156,25 @@ export class FractionComponent {
   }
 
 
+  private mapApplications(applications: ApplicationDto[]): Application[] {
+
+    return applications
+      .sort((a, b) => b.sessionDate.localeCompare(a.sessionDate))
+      .map(application => ({
+        sessionId: application.sessionId,
+        votingDate: application.sessionDate,
+        votingId: this.getVotingId(application.votings),
+        type: application.type,
+        applicationId: application.applicationId,
+        typeAndId: `${application.type} ${application.applicationId}`,
+        title: application.title,
+        result: this.getApplicationResult(application.votings),
+        applicationUrl: application.applicationUrl
+      }));
+
+  }
+
+
   private getApplicationResult(votings: ApplicationVotingDto[]): ApplicationResult {
     const passedVotings = votings
       .filter(voting => voting.votingResult === VotingResult.PASSED)
@@ -180,7 +189,7 @@ export class FractionComponent {
 
   private filterAndSortApplications() {
 
-    const filtered = this.applicationsData
+    const filtered = (this.fraction?.applications || [])
       .filter(application => {
         switch (application.type) {
           case 'Antrag':

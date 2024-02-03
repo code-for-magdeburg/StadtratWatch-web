@@ -38,6 +38,7 @@ import { CouncilorCardComponent } from './components/councilor-card/councilor-ca
 import { SortablePartiesDirective } from './parties/sortable-parties.directive';
 import { SortableFractionApplicationsDirective } from './fractions/sortable-fraction-applications.directive';
 import { FormsModule } from '@angular/forms';
+import { FractionApplicationSuccessRateComponent } from './fraction/fraction-application-success-rate/fraction-application-success-rate.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -68,7 +69,8 @@ registerLocaleData(localeDe, 'de-DE');
     UniformityScoreChartComponent,
     ParticipationRateChartComponent,
     AbstentionRateChartComponent,
-    CouncilorCardComponent
+    CouncilorCardComponent,
+    FractionApplicationSuccessRateComponent
   ],
     imports: [
         AppRoutingModule,
