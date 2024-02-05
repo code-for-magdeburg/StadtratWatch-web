@@ -38,6 +38,7 @@ export type PersonVotingComparison = {
 
 export type PersonStatsHistoryDto = {
   votingAttendance: HistoryValue[];
+  votingSuccessRate: HistoryValue[];
 };
 
 

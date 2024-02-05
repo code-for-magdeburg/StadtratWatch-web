@@ -177,6 +177,10 @@ function calcStatsHistory(sessions: SessionDetailsDto[], person: RegistryPerson)
     votingAttendance: sessions.map(session => ({
       date: session.date,
       value: calcVotingAttendance(sessions.filter(s => s.date <= session.date), person)
+    })),
+    votingSuccessRate: sessions.map(session => ({
+      date: session.date,
+      value: calcPersonVotingSuccess(sessions.filter(s => s.date <= session.date), person).successRate
     }))
   };
 

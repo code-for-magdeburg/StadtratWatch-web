@@ -44,6 +44,7 @@ import { FractionUniformityScoreComponent } from './fraction/fraction-uniformity
 import { FractionParticipationRateComponent } from './fraction/fraction-participation-rate/fraction-participation-rate.component';
 import { FractionAbstentionRateComponent } from './fraction/fraction-abstention-rate/fraction-abstention-rate.component';
 import { PersonVotingAttendanceComponent } from './person/person-voting-attendance/person-voting-attendance.component';
+import { PersonVotingSuccessRateComponent } from './person/person-voting-success-rate/person-voting-success-rate.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -80,7 +81,8 @@ registerLocaleData(localeDe, 'de-DE');
     FractionUniformityScoreComponent,
     FractionParticipationRateComponent,
     FractionAbstentionRateComponent,
-    PersonVotingAttendanceComponent
+    PersonVotingAttendanceComponent,
+    PersonVotingSuccessRateComponent
   ],
     imports: [
         AppRoutingModule,

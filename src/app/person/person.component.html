@@ -40,15 +40,7 @@
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Abstimmungserfolg</div>
-          <div class="card-body">
-            <h3>{{ person.votingSuccessRate * 100 | number : '1.2-2' }}%</h3>
-            <p class="text-body-secondary">
-              {{ person.votingSuccessCount }} der {{ didVote }} abgegebenen Stimmen entsprachen dem Abstimmungsergebnis
-            </p>
-          </div>
-        </div>
+        <app-person-voting-success-rate [person]="person" [didVote]="didVote"></app-person-voting-success-rate>
       </div>
 
       <div class="col">
