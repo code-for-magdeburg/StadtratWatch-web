@@ -15,7 +15,6 @@ export class PersonComponent {
 
   public person: PersonDetailsDto | null = null;
   public didVote = 0;
-  public didNotVote = 0;
   public comparisonMatrix: PersonVotingComparison[] = [];
 
 
@@ -38,9 +37,11 @@ export class PersonComponent {
         .fetchPerson(personId)
         .subscribe(person => {
           this.person = person;
-          this.comparisonMatrix = person.votingMatrix.sort((a, b) => b.comparisonScore - a.comparisonScore);
-          this.didNotVote = person.votes.filter(vote => vote.vote === VoteResult.DID_NOT_VOTE).length;
-          this.didVote = person.votes.length - this.didNotVote;
+          this.comparisonMatrix = person.votingMatrix.sort(
+            (a, b) => b.comparisonScore - a.comparisonScore
+          );
+          this.didVote = person.votes.length -
+            person.votes.filter(vote => vote.vote === VoteResult.DID_NOT_VOTE).length;
         });
 
     });

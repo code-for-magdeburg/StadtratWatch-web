@@ -44,15 +44,7 @@
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Stimmenthaltungen</div>
-          <div class="card-body">
-            <h3>{{ person.abstentionRate * 100 | number : '1.2-2' }}%</h3>
-            <p class="text-body-secondary">
-              {{ person.abstentionCount }} der {{ didVote }} abgegebenen Stimmen waren Stimmenthaltungen
-            </p>
-          </div>
-        </div>
+        <app-person-abstention-rate [person]="person" [didVote]="didVote"></app-person-abstention-rate>
       </div>
 
     </div>

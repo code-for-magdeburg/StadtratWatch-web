@@ -45,6 +45,7 @@ import { FractionParticipationRateComponent } from './fraction/fraction-particip
 import { FractionAbstentionRateComponent } from './fraction/fraction-abstention-rate/fraction-abstention-rate.component';
 import { PersonVotingAttendanceComponent } from './person/person-voting-attendance/person-voting-attendance.component';
 import { PersonVotingSuccessRateComponent } from './person/person-voting-success-rate/person-voting-success-rate.component';
+import { PersonAbstentionRateComponent } from './person/person-abstention-rate/person-abstention-rate.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -82,7 +83,8 @@ registerLocaleData(localeDe, 'de-DE');
     FractionParticipationRateComponent,
     FractionAbstentionRateComponent,
     PersonVotingAttendanceComponent,
-    PersonVotingSuccessRateComponent
+    PersonVotingSuccessRateComponent,
+    PersonAbstentionRateComponent
   ],
     imports: [
         AppRoutingModule,
