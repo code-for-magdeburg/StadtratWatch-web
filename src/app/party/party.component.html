@@ -45,52 +45,19 @@
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Abstimmungserfolg</div>
-          <div class="card-body">
-            <h3>{{ party.votingsSuccessRate * 100 | number : '1.1-1' }}%</h3>
-            <p class="text-body-secondary">
-              Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Partei übereinstimmte.
-            </p>
-          </div>
-        </div>
+        <app-party-votings-success-rate [party]="party"></app-party-votings-success-rate>
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Geschlossenheit</div>
-          <div class="card-body">
-            <h3>{{ party.uniformityScore | number : '0.3-3' }}</h3>
-            <p class="text-body-secondary">
-              Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Parteimitglieder abgestimmt haben. Je größer der
-              Wert ist, desto geschlossener ist das Abstimmungsverhalten der Partei.
-            </p>
-          </div>
-        </div>
+        <app-party-uniformity-score [party]="party"></app-party-uniformity-score>
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Abstimmungsteilnahme</div>
-          <div class="card-body">
-            <h3>{{ party.participationRate * 100 | number : '1.1-1' }}%</h3>
-            <p class="text-body-secondary">
-              Gibt an, wie häufig die Parteimitglieder an Abstimmungen teilgenommen haben.
-            </p>
-          </div>
-        </div>
+        <app-party-participation-rate [party]="party"></app-party-participation-rate>
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Stimmenthaltungen</div>
-          <div class="card-body">
-            <h3>{{ party.abstentionRate * 100 | number : '1.1-1' }}%</h3>
-            <p class="text-body-secondary">
-              Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren.
-            </p>
-          </div>
-        </div>
+        <app-party-abstention-rate [party]="party"></app-party-abstention-rate>
       </div>
 
     </div>

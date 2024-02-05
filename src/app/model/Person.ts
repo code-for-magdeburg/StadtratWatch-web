@@ -16,6 +16,7 @@ export type PersonDetailsDto = {
   votingSuccessRate: number;
   abstentionCount: number;
   abstentionRate: number;
+  statsHistory: PersonStatsHistoryDto;
 };
 
 
@@ -32,6 +33,19 @@ export type PersonVotingComparison = {
   fraction: string;
   party: string;
   comparisonScore: number;
+};
+
+
+export type PersonStatsHistoryDto = {
+  votingAttendance: HistoryValue[];
+  votingSuccessRate: HistoryValue[];
+  abstentionRate: HistoryValue[];
+};
+
+
+export type HistoryValue = {
+  date: string;
+  value: number | null;
 };
 
 

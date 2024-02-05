@@ -838,5 +838,25 @@
   "votingSuccessCount": 0,
   "votingSuccessRate": 0,
   "abstentionCount": 0,
-  "abstentionRate": null
+  "abstentionRate": null,
+  "statsHistory": {
+    "votingAttendance": [
+      {
+        "date": "2022-09-01",
+        "value": 0
+      }
+    ],
+    "votingSuccessRate": [
+      {
+        "date": "2022-09-01",
+        "value": 0
+      }
+    ],
+    "abstentionRate": [
+      {
+        "date": "2022-09-01",
+        "value": null
+      }
+    ]
+  }
 }

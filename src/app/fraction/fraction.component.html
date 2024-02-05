@@ -45,65 +45,23 @@
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Erfolgreiche Anträge</div>
-          <div class="card-body">
-            <h3>{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</h3>
-            <p class="text-body-secondary">
-              Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen
-              wurde.
-            </p>
-          </div>
-        </div>
+        <app-fraction-application-success-rate [fraction]="fraction"></app-fraction-application-success-rate>
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Abstimmungserfolg</div>
-          <div class="card-body">
-            <h3>{{ fraction.votingsSuccessRate * 100 | number : '1.1-1' }}%</h3>
-            <p class="text-body-secondary">
-              Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmte.
-            </p>
-          </div>
-        </div>
+        <app-fraction-votings-success-rate [fraction]="fraction"></app-fraction-votings-success-rate>
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Geschlossenheit</div>
-          <div class="card-body">
-            <h3>{{ fraction.uniformityScore | number : '0.3-3' }}</h3>
-            <p class="text-body-secondary">
-              Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der
-              Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion.
-            </p>
-          </div>
-        </div>
+        <app-fraction-uniformity-score [fraction]="fraction"></app-fraction-uniformity-score>
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Abstimmungsteilnahme</div>
-          <div class="card-body">
-            <h3>{{ fraction.participationRate * 100 | number : '1.1-1' }}%</h3>
-            <p class="text-body-secondary">
-              Gibt an, wie häufig die Fraktionsmitglieder an Abstimmungen teilgenommen haben.
-            </p>
-          </div>
-        </div>
+        <app-fraction-participation-rate [fraction]="fraction"></app-fraction-participation-rate>
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Stimmenthaltungen</div>
-          <div class="card-body">
-            <h3>{{ fraction.abstentionRate * 100 | number : '1.1-1' }}%</h3>
-            <p class="text-body-secondary">
-              Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren.
-            </p>
-          </div>
-        </div>
+        <app-fraction-abstention-rate [fraction]="fraction"></app-fraction-abstention-rate>
       </div>
 
     </div>

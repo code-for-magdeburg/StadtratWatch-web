@@ -38,6 +38,18 @@ import { CouncilorCardComponent } from './components/councilor-card/councilor-ca
 import { SortablePartiesDirective } from './parties/sortable-parties.directive';
 import { SortableFractionApplicationsDirective } from './fractions/sortable-fraction-applications.directive';
 import { FormsModule } from '@angular/forms';
+import { FractionApplicationSuccessRateComponent } from './fraction/fraction-application-success-rate/fraction-application-success-rate.component';
+import { FractionVotingsSuccessRateComponent } from './fraction/fraction-votings-success-rate/fraction-votings-success-rate.component';
+import { FractionUniformityScoreComponent } from './fraction/fraction-uniformity-score/fraction-uniformity-score.component';
+import { FractionParticipationRateComponent } from './fraction/fraction-participation-rate/fraction-participation-rate.component';
+import { FractionAbstentionRateComponent } from './fraction/fraction-abstention-rate/fraction-abstention-rate.component';
+import { PersonVotingAttendanceComponent } from './person/person-voting-attendance/person-voting-attendance.component';
+import { PersonVotingSuccessRateComponent } from './person/person-voting-success-rate/person-voting-success-rate.component';
+import { PersonAbstentionRateComponent } from './person/person-abstention-rate/person-abstention-rate.component';
+import { PartyVotingsSuccessRateComponent} from './party/party-votings-success-rate/party-votings-success-rate.component';
+import { PartyUniformityScoreComponent } from './party/party-uniformity-score/party-uniformity-score.component';
+import { PartyParticipationRateComponent } from './party/party-participation-rate/party-participation-rate.component';
+import { PartyAbstentionRateComponent } from './party/party-abstention-rate/party-abstention-rate.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -68,7 +80,19 @@ registerLocaleData(localeDe, 'de-DE');
     UniformityScoreChartComponent,
     ParticipationRateChartComponent,
     AbstentionRateChartComponent,
-    CouncilorCardComponent
+    CouncilorCardComponent,
+    FractionApplicationSuccessRateComponent,
+    FractionVotingsSuccessRateComponent,
+    FractionUniformityScoreComponent,
+    FractionParticipationRateComponent,
+    FractionAbstentionRateComponent,
+    PersonVotingAttendanceComponent,
+    PersonVotingSuccessRateComponent,
+    PersonAbstentionRateComponent,
+    PartyVotingsSuccessRateComponent,
+    PartyUniformityScoreComponent,
+    PartyParticipationRateComponent,
+    PartyAbstentionRateComponent
   ],
     imports: [
         AppRoutingModule,
