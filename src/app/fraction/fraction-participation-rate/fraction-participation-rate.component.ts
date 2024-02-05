@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { Fraction } from '../fraction.component';
 import { ChartConfiguration } from 'chart.js';
 import 'chartjs-adapter-date-fns';
@@ -7,6 +7,7 @@ import {
   initialHistoryChartOptions,
   mapHistoryDataToChartDataAndLabels
 } from '../../utilities/chart-helpers';
+import { BaseChartDirective } from 'ng2-charts';
 
 
 @Component({
@@ -19,6 +20,8 @@ export class FractionParticipationRateComponent implements OnChanges {
 
   @Input() fraction!: Fraction;
 
+  @ViewChild(BaseChartDirective) chart!: BaseChartDirective;
+
 
   public chartData: ChartConfiguration['data'] = initialHistoryChartData();
   public chartOptions: ChartConfiguration['options'] = initialHistoryChartOptions(
@@ -30,6 +33,9 @@ export class FractionParticipationRateComponent implements OnChanges {
 
     if (changes['fraction']) {
       mapHistoryDataToChartDataAndLabels(this.chartData, this.fraction.statsHistory.participationRate);
+      if (!changes['fraction'].firstChange) {
+        this.chart.update();
+      }
     }
 
   }
