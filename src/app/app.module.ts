@@ -48,6 +48,7 @@ import { PersonVotingSuccessRateComponent } from './person/person-voting-success
 import { PersonAbstentionRateComponent } from './person/person-abstention-rate/person-abstention-rate.component';
 import { PartyVotingsSuccessRateComponent} from './party/party-votings-success-rate/party-votings-success-rate.component';
 import { PartyUniformityScoreComponent } from './party/party-uniformity-score/party-uniformity-score.component';
+import { PartyParticipationRateComponent } from './party/party-participation-rate/party-participation-rate.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -88,7 +89,8 @@ registerLocaleData(localeDe, 'de-DE');
     PersonVotingSuccessRateComponent,
     PersonAbstentionRateComponent,
     PartyVotingsSuccessRateComponent,
-    PartyUniformityScoreComponent
+    PartyUniformityScoreComponent,
+    PartyParticipationRateComponent
   ],
     imports: [
         AppRoutingModule,
