@@ -53,19 +53,11 @@
       </div>
 
       <div class="col">
-        <app-party-votings-success-rate [party]="party"></app-party-votings-success-rate>
+        <app-party-participation-rate [party]="party"></app-party-participation-rate>
       </div>
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Stimmenthaltungen</div>
-          <div class="card-body">
-            <h3>{{ party.abstentionRate * 100 | number : '1.1-1' }}%</h3>
-            <p class="text-body-secondary">
-              Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren.
-            </p>
-          </div>
-        </div>
+        <app-party-abstention-rate [party]="party"></app-party-abstention-rate>
       </div>
 
     </div>
