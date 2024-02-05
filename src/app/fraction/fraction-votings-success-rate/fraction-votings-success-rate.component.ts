@@ -1,6 +1,5 @@
-import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Fraction } from '../fraction.component';
-import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfiguration } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 import {
@@ -19,8 +18,6 @@ export class FractionVotingsSuccessRateComponent implements OnChanges {
 
 
   @Input() fraction!: Fraction;
-
-  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 
 
   public chartData: ChartConfiguration['data'] = initialHistoryChartData();
