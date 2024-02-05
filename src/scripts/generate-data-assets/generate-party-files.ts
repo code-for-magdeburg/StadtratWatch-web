@@ -1,4 +1,4 @@
-import { PartyDto } from '../../app/model/Party';
+import { PartyDto, PartyStatsHistoryDto } from '../../app/model/Party';
 import * as fs from 'fs';
 import { PARTIES_BASE_DIR } from './constants';
 import { Registry, RegistryParty, RegistryPerson } from './model/registry';
@@ -23,6 +23,7 @@ export function generatePartyFiles(registry: Registry, sessions: SessionDetailsD
       uniformityScore,
       participationRate,
       abstentionRate,
+      statsHistory: calcStatsHistory(party, members, sessions)
     };
   });
   fs.writeFileSync(
@@ -178,4 +179,29 @@ function calcAbstentionRateForVoting(partyMembers: RegistryPerson[], voting: Ses
   }
 
   return abstentions.length / allVotes.length;
+}
+
+
+function calcStatsHistory(party: RegistryParty, partyMembers: RegistryPerson[],
+                          sessions: SessionDetailsDto[]): PartyStatsHistoryDto {
+
+  return {
+    votingsSuccessRate: sessions.map(session => ({
+      date: session.date,
+      value: calcPartyVotingSuccessRate(party.id, sessions.filter(s => s.date <= session.date))
+    })),
+    uniformityScore: sessions.map(session => ({
+      date: session.date,
+      value: calcUniformityScore(partyMembers, sessions.filter(s => s.date <= session.date))
+    })),
+    participationRate: sessions.map(session => ({
+      date: session.date,
+      value: calcParticipationRate(party, sessions.filter(s => s.date <= session.date))
+    })),
+    abstentionRate: sessions.map(session => ({
+      date: session.date,
+      value: calcAbstentionRate(partyMembers, sessions.filter(s => s.date <= session.date))
+    }))
+  };
+
 }
