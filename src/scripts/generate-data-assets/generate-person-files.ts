@@ -1,5 +1,11 @@
 import { SessionDetailsDto, SessionVotingDto, VoteResult } from '../../app/model/Session';
-import { PersonDetailsDto, PersonLightDto, PersonVoteDto, PersonVotingComparison } from '../../app/model/Person';
+import {
+  PersonDetailsDto,
+  PersonLightDto,
+  PersonStatsHistoryDto,
+  PersonVoteDto,
+  PersonVotingComparison
+} from '../../app/model/Person';
 import * as fs from 'fs';
 import { RegistryPerson } from './model/registry';
 import { PERSONS_BASE_DIR } from './constants';
@@ -75,6 +81,7 @@ export function generatePersonFiles(registry: Registry, sessions: SessionDetails
       votingSuccessRate: votingSuccess.successRate,
       abstentionCount: abstentionStats.abstentionCount,
       abstentionRate: abstentionStats.abstentionRate,
+      statsHistory: calcStatsHistory(relevantSessions, person)
     };
   });
   persons.forEach(person => {
@@ -160,5 +167,17 @@ function calcAbstentionStats(sessions: SessionDetailsDto[], person: RegistryPers
     .reduce<number>((a, b) => a + b, 0);
   const abstentionRate = abstentionCount / abstentions.length;
   return { abstentionCount, abstentionRate };
+
+}
+
+
+function calcStatsHistory(sessions: SessionDetailsDto[], person: RegistryPerson): PersonStatsHistoryDto {
+
+  return {
+    votingAttendance: sessions.map(session => ({
+      date: session.date,
+      value: calcVotingAttendance(sessions.filter(s => s.date <= session.date), person)
+    }))
+  };
 
 }

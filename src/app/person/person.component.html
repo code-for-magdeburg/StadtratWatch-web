@@ -33,18 +33,10 @@
 
     <h2 class="mb-3">Abstimmungsstatistiken</h2>
 
-    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 mb-3">
+    <div class="row row-cols-1 xrow-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 mb-3">
 
       <div class="col">
-        <div class="card text-center">
-          <div class="card-header">Abstimmungen</div>
-          <div class="card-body">
-            <h3>{{ person.votingAttendance * 100 | number : '1.2-2' }}%</h3>
-            <p class="text-body-secondary">
-              Hat an {{ didVote }} von {{ didVote + didNotVote }} Abstimmungen teilgenommen
-            </p>
-          </div>
-        </div>
+        <app-person-voting-attendance [person]="person" [didVote]="didVote"></app-person-voting-attendance>
       </div>
 
       <div class="col">
