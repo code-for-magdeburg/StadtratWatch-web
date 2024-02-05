@@ -4,14 +4,16 @@ import { PartiesService } from '../services/parties.service';
 import { forkJoin } from 'rxjs';
 import { PersonsService } from '../services/persons.service';
 import { Councilor, CouncilorCardComponent } from '../components/councilor-card/councilor-card.component';
+import { PartyStatsHistoryDto } from '../model/Party';
 
 
-type Party = {
+export type Party = {
   name: string;
   uniformityScore: number;
   votingsSuccessRate: number;
   participationRate: number;
   abstentionRate: number;
+  statsHistory: PartyStatsHistoryDto;
 };
 
 
@@ -57,7 +59,8 @@ export class PartyComponent {
             votingsSuccessRate: party.votingsSuccessRate,
             uniformityScore: party.uniformityScore,
             participationRate: party.participationRate,
-            abstentionRate: party.abstentionRate
+            abstentionRate: party.abstentionRate,
+            statsHistory: party.statsHistory
           };
           this.councilors = persons
             .filter(person => !person.councilorUntil || person.councilorUntil >= today)
