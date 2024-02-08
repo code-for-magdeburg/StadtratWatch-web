@@ -2,11 +2,11 @@
   "id": "12c83b4a-a7ab-4965-a642-06add6a7fcd5",
   "name": "CDU",
   "seats": 10,
-  "applicationsSuccessRate": 0.8633540372670807,
-  "votingsSuccessRate": 0.8306878306878307,
-  "uniformityScore": 0.9338951264572551,
-  "participationRate": 0.7241118669690099,
-  "abstentionRate": 0.0812621972111069,
+  "applicationsSuccessRate": 0.8421052631578947,
+  "votingsSuccessRate": 0.8267045454545454,
+  "uniformityScore": 0.9354787765170225,
+  "participationRate": 0.7216619318181818,
+  "abstentionRate": 0.08097016915633798,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -108,6 +108,10 @@
       {
         "date": "2023-12-11",
         "value": 0.8633540372670807
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.8421052631578947
       }
     ],
     "votingsSuccessRate": [
@@ -210,6 +214,10 @@
       {
         "date": "2023-12-11",
         "value": 0.8306878306878307
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.8267045454545454
       }
     ],
     "uniformityScore": [
@@ -312,6 +320,10 @@
       {
         "date": "2023-12-11",
         "value": 0.9338951264572551
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.9354787765170225
       }
     ],
     "participationRate": [
@@ -414,6 +426,10 @@
       {
         "date": "2023-12-11",
         "value": 0.7241118669690099
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.7216619318181818
       }
     ],
     "abstentionRate": [
@@ -516,6 +532,10 @@
       {
         "date": "2023-12-11",
         "value": 0.0812621972111069
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.08097016915633798
       }
     ]
   },
@@ -2115,6 +2135,10 @@
         {
           "votingId": 26,
           "votingResult": "PASSED"
+        },
+        {
+          "votingId": 56,
+          "votingResult": "REJECTED"
         }
       ]
     },
@@ -2720,6 +2744,102 @@
       "votings": [
         {
           "votingId": 59,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0269/23",
+      "type": "Geschäftsordnung",
+      "title": "Berufung der Mitglieder des Klimabeirates der Landeshauptstadt Magdeburg",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682408&type=do",
+      "votings": [
+        {
+          "votingId": 35,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0182/23",
+      "type": "Antrag",
+      "title": "Neue ICE-Strecke - die „ELBE Linie”",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674568&type=do",
+      "votings": [
+        {
+          "votingId": 64,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 65,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0184/23",
+      "type": "Antrag",
+      "title": "Magdeburg-Collage im Herrenkrug",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674572&type=do",
+      "votings": [
+        {
+          "votingId": 66,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 67,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 68,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0280/23",
+      "type": "Geschäftsordnung",
+      "title": "Übergangslösung für den Alten Markt",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682652&type=do",
+      "votings": [
+        {
+          "votingId": 71,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0291/23",
+      "type": "Geschäftsordnung",
+      "title": "Errichtung einer Photovoltaikanlage in den Theaterwerkstätten",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682830&type=do",
+      "votings": [
+        {
+          "votingId": 73,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0002/24/1",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrskonzept Listemannstraße",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685537&type=do",
+      "votings": [
+        {
+          "votingId": 77,
           "votingResult": "PASSED"
         }
       ]

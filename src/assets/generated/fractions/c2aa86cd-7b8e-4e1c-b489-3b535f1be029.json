@@ -2,11 +2,11 @@
   "id": "c2aa86cd-7b8e-4e1c-b489-3b535f1be029",
   "name": "DIE LINKE",
   "seats": 8,
-  "applicationsSuccessRate": 0.8258426966292135,
-  "votingsSuccessRate": 0.8578987150415722,
-  "uniformityScore": 0.9604419891873861,
-  "participationRate": 0.7762660619803476,
-  "abstentionRate": 0.08522096882541139,
+  "applicationsSuccessRate": 0.827027027027027,
+  "votingsSuccessRate": 0.8544034090909091,
+  "uniformityScore": 0.9590352029193515,
+  "participationRate": 0.7840021306818182,
+  "abstentionRate": 0.08606411837608238,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -108,6 +108,10 @@
       {
         "date": "2023-12-11",
         "value": 0.8258426966292135
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.827027027027027
       }
     ],
     "votingsSuccessRate": [
@@ -210,6 +214,10 @@
       {
         "date": "2023-12-11",
         "value": 0.8578987150415722
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.8544034090909091
       }
     ],
     "uniformityScore": [
@@ -312,6 +320,10 @@
       {
         "date": "2023-12-11",
         "value": 0.9604419891873861
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.9590352029193515
       }
     ],
     "participationRate": [
@@ -414,6 +426,10 @@
       {
         "date": "2023-12-11",
         "value": 0.7762660619803476
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.7840021306818182
       }
     ],
     "abstentionRate": [
@@ -516,6 +532,10 @@
       {
         "date": "2023-12-11",
         "value": 0.08522096882541139
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.08606411837608238
       }
     ]
   },
@@ -2915,6 +2935,104 @@
         {
           "votingId": 29,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0570/23/1",
+      "type": "Änderungsantrag",
+      "title": "Friedhofsgebührensatzung für die städtischen Friedhöfe der Landeshauptstadt Magdeburg",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685515&type=do",
+      "votings": [
+        {
+          "votingId": 6,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0161/23",
+      "type": "Antrag",
+      "title": "Hitzeschutzplan für die Stadt Magdeburg",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674315&type=do",
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0166/23/2",
+      "type": "Änderungsantrag",
+      "title": "Fahrradschutzstreifen in der Großen Diesdorfer Straße sicherer machen",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685520&type=do",
+      "votings": [
+        {
+          "votingId": 57,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0294/23",
+      "type": "Geschäftsordnung",
+      "title": "Antragsstau im Sozial- und Wohnungsamt auflösen",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684700&type=do",
+      "votings": [
+        {
+          "votingId": 75,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0002/24/1",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrskonzept Listemannstraße",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685537&type=do",
+      "votings": [
+        {
+          "votingId": 77,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0296/23",
+      "type": "Geschäftsordnung",
+      "title": "Ganzjährige Außengastronomie",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684737&type=do",
+      "votings": [
+        {
+          "votingId": 78,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0006/24",
+      "type": "Antrag",
+      "title": "Akteneinsicht zu Baumfällgenehmigungen",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684904&type=do",
+      "votings": [
+        {
+          "votingId": 82,
+          "votingResult": "PASSED"
         }
       ]
     }

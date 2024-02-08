@@ -2,11 +2,11 @@
   "id": "480fb9f1-2032-49e3-b671-7eec6265fec0",
   "name": "SPD",
   "seats": 10,
-  "applicationsSuccessRate": 0.8933333333333333,
-  "votingsSuccessRate": 0.9259259259259259,
-  "uniformityScore": 0.9833736776830293,
-  "participationRate": 0.7787603930461073,
-  "abstentionRate": 0.0222429881795981,
+  "applicationsSuccessRate": 0.8978723404255319,
+  "votingsSuccessRate": 0.9254261363636364,
+  "uniformityScore": 0.9833344185866231,
+  "participationRate": 0.7796164772727273,
+  "abstentionRate": 0.022367880791091685,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -108,6 +108,10 @@
       {
         "date": "2023-12-11",
         "value": 0.8933333333333333
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.8978723404255319
       }
     ],
     "votingsSuccessRate": [
@@ -210,6 +214,10 @@
       {
         "date": "2023-12-11",
         "value": 0.9259259259259259
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.9254261363636364
       }
     ],
     "uniformityScore": [
@@ -312,6 +320,10 @@
       {
         "date": "2023-12-11",
         "value": 0.9833736776830293
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.9833344185866231
       }
     ],
     "participationRate": [
@@ -414,6 +426,10 @@
       {
         "date": "2023-12-11",
         "value": 0.7787603930461073
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.7796164772727273
       }
     ],
     "abstentionRate": [
@@ -516,6 +532,10 @@
       {
         "date": "2023-12-11",
         "value": 0.0222429881795981
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.022367880791091685
       }
     ]
   },
@@ -3566,6 +3586,146 @@
       "votings": [
         {
           "votingId": 59,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0621/23",
+      "type": "Geschäftsordnung",
+      "title": "Wirtschaftsplan 2024 Eigenbetrieb Kommunale Kindertageseinrichtungen Magdeburg",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=681857&type=do",
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0033/23/1",
+      "type": "Änderungsantrag",
+      "title": "Erneute Bewerbung um das Label „StadtGrün - naturnah\"",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682863&type=do",
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0033/23",
+      "type": "Antrag",
+      "title": "Erneute Bewerbung um das Label „StadtGrün - naturnah“",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=663457&type=do",
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0170/23",
+      "type": "Antrag",
+      "title": "Hitzeaktionsplan",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674490&type=do",
+      "votings": [
+        {
+          "votingId": 55,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0166/23/1",
+      "type": "Änderungsantrag",
+      "title": "Fahrradschutzstreifen in der Großen Diesdorfer Straße sicherer machen",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674953&type=do",
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0166/23",
+      "type": "Antrag",
+      "title": "Fahrradschutzstreifen in der Großen Diesdorfer Straße sicherer machen",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674475&type=do",
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0001/24",
+      "type": "Geschäftsordnung",
+      "title": "Anpassung des Leitsystems für den City-Tunnel am Damaschkeplatz im Sperrfall",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684836&type=do",
+      "votings": [
+        {
+          "votingId": 76,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0296/23",
+      "type": "Geschäftsordnung",
+      "title": "Ganzjährige Außengastronomie",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684737&type=do",
+      "votings": [
+        {
+          "votingId": 78,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0004/24",
+      "type": "Geschäftsordnung",
+      "title": "Entwicklung der Landeshauptstadt Magdeburg",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684877&type=do",
+      "votings": [
+        {
+          "votingId": 81,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0008/24",
+      "type": "Geschäftsordnung",
+      "title": "Weiterentwicklung: Kaiser-Otto-Preis",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684908&type=do",
+      "votings": [
+        {
+          "votingId": 84,
           "votingResult": "PASSED"
         }
       ]

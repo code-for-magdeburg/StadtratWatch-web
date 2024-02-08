@@ -2,11 +2,11 @@
   "id": "31c2810c-2e4f-4f2f-9636-060ff98e714a",
   "name": "AfD",
   "seats": 8,
-  "applicationsSuccessRate": 0.07692307692307693,
-  "votingsSuccessRate": 0.5774754346182918,
-  "uniformityScore": 0.9881564008777208,
-  "participationRate": 0.7127739984882842,
-  "abstentionRate": 0.11457008090938935,
+  "applicationsSuccessRate": 0.0761904761904762,
+  "votingsSuccessRate": 0.5823863636363636,
+  "uniformityScore": 0.9884309284457723,
+  "participationRate": 0.7112038352272727,
+  "abstentionRate": 0.11405494205088341,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -108,6 +108,10 @@
       {
         "date": "2023-12-11",
         "value": 0.07692307692307693
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.0761904761904762
       }
     ],
     "votingsSuccessRate": [
@@ -210,6 +214,10 @@
       {
         "date": "2023-12-11",
         "value": 0.5774754346182918
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.5823863636363636
       }
     ],
     "uniformityScore": [
@@ -312,6 +320,10 @@
       {
         "date": "2023-12-11",
         "value": 0.9881564008777208
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.9884309284457723
       }
     ],
     "participationRate": [
@@ -414,6 +426,10 @@
       {
         "date": "2023-12-11",
         "value": 0.7127739984882842
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.7112038352272727
       }
     ],
     "abstentionRate": [
@@ -516,6 +532,10 @@
       {
         "date": "2023-12-11",
         "value": 0.11457008090938935
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.11405494205088341
       }
     ]
   },
@@ -1922,6 +1942,20 @@
       "votings": [
         {
           "votingId": 49,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0451/23/1",
+      "type": "Änderungsantrag",
+      "title": "EW-Bau für den Erweiterungsneubau Hort Grundschule Sudenburg in der Braunschweiger Straße 27 in 39112 Magdeburg",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685539&type=do",
+      "votings": [
+        {
+          "votingId": 2,
           "votingResult": "REJECTED"
         }
       ]
