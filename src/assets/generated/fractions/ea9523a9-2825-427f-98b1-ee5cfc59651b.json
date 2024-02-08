@@ -3,10 +3,10 @@
   "name": "GRÜNE/future!",
   "seats": 11,
   "applicationsSuccessRate": 0.8,
-  "votingsSuccessRate": 0.890400604686319,
-  "uniformityScore": 0.9397750086595947,
-  "participationRate": 0.7704940562083419,
-  "abstentionRate": 0.04802629068046982,
+  "votingsSuccessRate": 0.8920454545454546,
+  "uniformityScore": 0.9394967268857519,
+  "participationRate": 0.7698217975206612,
+  "abstentionRate": 0.048396679342439825,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -107,6 +107,10 @@
       },
       {
         "date": "2023-12-11",
+        "value": 0.8
+      },
+      {
+        "date": "2024-01-18",
         "value": 0.8
       }
     ],
@@ -210,6 +214,10 @@
       {
         "date": "2023-12-11",
         "value": 0.890400604686319
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.8920454545454546
       }
     ],
     "uniformityScore": [
@@ -312,6 +320,10 @@
       {
         "date": "2023-12-11",
         "value": 0.9397750086595947
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.9394967268857519
       }
     ],
     "participationRate": [
@@ -414,6 +426,10 @@
       {
         "date": "2023-12-11",
         "value": 0.7704940562083419
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.7698217975206612
       }
     ],
     "abstentionRate": [
@@ -516,6 +532,10 @@
       {
         "date": "2023-12-11",
         "value": 0.04802629068046982
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.048396679342439825
       }
     ]
   },
@@ -2996,6 +3016,206 @@
       "votings": [
         {
           "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0668/23/1",
+      "type": "Änderungsantrag",
+      "title": "Erster qualifizierter Mietspiegel der Landeshauptstadt Magdeburg",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685370&type=do",
+      "votings": [
+        {
+          "votingId": 4,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0633/23/1",
+      "type": "Änderungsantrag",
+      "title": "Planung und Erichtung eines Wasserwerkes sowie Rohwasserentnahme aus der Elbe innerhalb des Gemeindegebietes MD",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685532&type=do",
+      "votings": [
+        {
+          "votingId": 9,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0539/23/1",
+      "type": "Änderungsantrag",
+      "title": "Feststellungsbeschluss zur mittelfristigen SEPL der allgemeinbildenden Schulen bis zum Zielplanjahr 2026/27",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685373&type=do",
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0539/23/2",
+      "type": "Änderungsantrag",
+      "title": "Feststellungsbeschluss zur mittelfristigen SEPL der allgemeinbildenden Schulen bis zum Zielplanjahr 2026/27",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685382&type=do",
+      "votings": [
+        {
+          "votingId": 21,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0575/23",
+      "type": "Geschäftsordnung",
+      "title": "46. Änderung des Flächennutzungsplanes \"Albert-Vater-Straße 140\"",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=679719&type=do",
+      "votings": [
+        {
+          "votingId": 36,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0174/23",
+      "type": "Antrag",
+      "title": "Bewerbung als Modellregion Cannabislegalisierung",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674509&type=do",
+      "votings": [
+        {
+          "votingId": 60,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 61,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0175/23/1",
+      "type": "Änderungsantrag",
+      "title": "Radwegebeziehung vom City-Tunnel zum Universitätsplatz",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685389&type=do",
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0175/23",
+      "type": "Antrag",
+      "title": "Radwegebeziehung vom City-Tunnel zum Universitätsplatz",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674512&type=do",
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0280/23",
+      "type": "Geschäftsordnung",
+      "title": "Übergangslösung für den Alten Markt",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682652&type=do",
+      "votings": [
+        {
+          "votingId": 71,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0002/24/1",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrskonzept Listemannstraße",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685537&type=do",
+      "votings": [
+        {
+          "votingId": 77,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0295/23",
+      "type": "Antrag",
+      "title": "Mehr Sicherheit auf der Ebendorfer Straße in Höhe REWE-Markt!",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684735&type=do",
+      "votings": [
+        {
+          "votingId": 79,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0003/24",
+      "type": "Geschäftsordnung",
+      "title": "Verbesserung der Situation für den Fuß- und Radverkehr auf der Otto-von-Guericke-Straße Südabschnitt",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684846&type=do",
+      "votings": [
+        {
+          "votingId": 80,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0008/24",
+      "type": "Geschäftsordnung",
+      "title": "Weiterentwicklung: Kaiser-Otto-Preis",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684908&type=do",
+      "votings": [
+        {
+          "votingId": 84,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0009/24",
+      "type": "Geschäftsordnung",
+      "title": "Zum grundsätzlichen Umgang mit fehlerhaften bzw. unvollständigen Niederschriften von Einwohner*innenversammlungen",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684910&type=do",
+      "votings": [
+        {
+          "votingId": 85,
           "votingResult": "PASSED"
         }
       ]

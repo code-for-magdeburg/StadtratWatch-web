@@ -2,11 +2,11 @@
   "id": "d6db336f-1f1a-4eb9-b743-1c18e39259f8",
   "name": "Gartenpartei/Tierschutzallianz",
   "seats": 3,
-  "applicationsSuccessRate": 0.42857142857142855,
-  "votingsSuccessRate": 0.672713529856387,
-  "uniformityScore": 0.8692119975832007,
-  "participationRate": 0.8422776518014613,
-  "abstentionRate": 0.1307898291179586,
+  "applicationsSuccessRate": 0.4336283185840708,
+  "votingsSuccessRate": 0.6761363636363636,
+  "uniformityScore": 0.8632317472990807,
+  "participationRate": 0.8432765151515151,
+  "abstentionRate": 0.13390424745505072,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -108,6 +108,10 @@
       {
         "date": "2023-12-11",
         "value": 0.42857142857142855
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.4336283185840708
       }
     ],
     "votingsSuccessRate": [
@@ -210,6 +214,10 @@
       {
         "date": "2023-12-11",
         "value": 0.672713529856387
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.6761363636363636
       }
     ],
     "uniformityScore": [
@@ -312,6 +320,10 @@
       {
         "date": "2023-12-11",
         "value": 0.8692119975832007
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.8632317472990807
       }
     ],
     "participationRate": [
@@ -414,6 +426,10 @@
       {
         "date": "2023-12-11",
         "value": 0.8422776518014613
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.8432765151515151
       }
     ],
     "abstentionRate": [
@@ -516,6 +532,10 @@
       {
         "date": "2023-12-11",
         "value": 0.1307898291179586
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.13390424745505072
       }
     ]
   },
@@ -2011,6 +2031,20 @@
         {
           "votingId": 60,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0293/23",
+      "type": "Geschäftsordnung",
+      "title": "Unterstützen statt blockieren",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684668&type=do",
+      "votings": [
+        {
+          "votingId": 74,
+          "votingResult": "PASSED"
         }
       ]
     }

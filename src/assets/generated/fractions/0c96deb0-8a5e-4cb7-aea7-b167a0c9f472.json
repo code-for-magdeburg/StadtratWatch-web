@@ -2,11 +2,11 @@
   "id": "0c96deb0-8a5e-4cb7-aea7-b167a0c9f472",
   "name": "FDP/Tierschutzpartei",
   "seats": 6,
-  "applicationsSuccessRate": 0.8362573099415205,
-  "votingsSuccessRate": 0.8374905517762661,
-  "uniformityScore": 0.809781749086063,
-  "participationRate": 0.7596371882086168,
-  "abstentionRate": 0.1518722388733238,
+  "applicationsSuccessRate": 0.8397790055248618,
+  "votingsSuccessRate": 0.8387784090909091,
+  "uniformityScore": 0.8121581674847137,
+  "participationRate": 0.7482244318181818,
+  "abstentionRate": 0.15123461882615977,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -108,6 +108,10 @@
       {
         "date": "2023-12-11",
         "value": 0.8362573099415205
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.8397790055248618
       }
     ],
     "votingsSuccessRate": [
@@ -210,6 +214,10 @@
       {
         "date": "2023-12-11",
         "value": 0.8374905517762661
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.8387784090909091
       }
     ],
     "uniformityScore": [
@@ -312,6 +320,10 @@
       {
         "date": "2023-12-11",
         "value": 0.809781749086063
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.8121581674847137
       }
     ],
     "participationRate": [
@@ -414,6 +426,10 @@
       {
         "date": "2023-12-11",
         "value": 0.7596371882086168
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.7482244318181818
       }
     ],
     "abstentionRate": [
@@ -516,6 +532,10 @@
       {
         "date": "2023-12-11",
         "value": 0.1518722388733238
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.15123461882615977
       }
     ]
   },
@@ -2881,6 +2901,136 @@
         {
           "votingId": 50,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0151/23",
+      "type": "Antrag",
+      "title": "Nachbesserungen in der Königstraße",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=673752&type=do",
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 53,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0206/23",
+      "type": "Antrag",
+      "title": "Zukunft zeigen - Wie entwickelt sich Magdeburg",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=676199&type=do",
+      "votings": [
+        {
+          "votingId": 70,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0281/23",
+      "type": "Geschäftsordnung",
+      "title": "Einführung „Nette Toilette” in der Landeshauptstadt Magdeburg",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682528&type=do",
+      "votings": [
+        {
+          "votingId": 72,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0291/23",
+      "type": "Geschäftsordnung",
+      "title": "Errichtung einer Photovoltaikanlage in den Theaterwerkstätten",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682830&type=do",
+      "votings": [
+        {
+          "votingId": 73,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0294/23",
+      "type": "Geschäftsordnung",
+      "title": "Antragsstau im Sozial- und Wohnungsamt auflösen",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684700&type=do",
+      "votings": [
+        {
+          "votingId": 75,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0004/24",
+      "type": "Geschäftsordnung",
+      "title": "Entwicklung der Landeshauptstadt Magdeburg",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684877&type=do",
+      "votings": [
+        {
+          "votingId": 81,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0007/24",
+      "type": "Geschäftsordnung",
+      "title": "Schulung leitender städt. Angestellter* in Fragen des Sitzungsmanagements",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684906&type=do",
+      "votings": [
+        {
+          "votingId": 83,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0008/24",
+      "type": "Geschäftsordnung",
+      "title": "Weiterentwicklung: Kaiser-Otto-Preis",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684908&type=do",
+      "votings": [
+        {
+          "votingId": 84,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0009/24",
+      "type": "Geschäftsordnung",
+      "title": "Zum grundsätzlichen Umgang mit fehlerhaften bzw. unvollständigen Niederschriften von Einwohner*innenversammlungen",
+      "sessionId": "a705278d-284d-4a9c-ab53-d1b90aff4ff0",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684910&type=do",
+      "votings": [
+        {
+          "votingId": 85,
+          "votingResult": "PASSED"
         }
       ]
     }
