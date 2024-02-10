@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FractionsService } from '../services/fractions.service';
 import { PersonsService } from '../services/persons.service';
@@ -51,14 +51,13 @@ export type Fraction = {
   templateUrl: './fraction.component.html',
   styleUrls: ['./fraction.component.scss']
 })
-export class FractionComponent {
+export class FractionComponent implements OnInit {
 
 
   private applicationsSorting: SortFractionApplicationsEvent = { column: '', direction: '' };
 
   public fraction: Fraction | null = null;
   public councilors: Councilor[] = [];
-  public formerCouncilors: Councilor[] = [];
   public sortedApplications: Application[] = [];
 
   public showApplications = true;
@@ -79,7 +78,6 @@ export class FractionComponent {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
@@ -107,13 +105,17 @@ export class FractionComponent {
             applications: this.mapApplications(fraction.applications)
           };
 
-          const today = new Date().toISOString().substring(0, 10);
           this.councilors = persons
-            .filter(person => !person.councilorUntil || person.councilorUntil >= today)
-            .map(CouncilorCardComponent.mapPersonToCouncilor);
-          this.formerCouncilors = persons
-            .filter(person => person.councilorUntil && person.councilorUntil < today)
-            .map(CouncilorCardComponent.mapPersonToCouncilor);
+            .map(CouncilorCardComponent.mapPersonToCouncilor)
+            .sort((a, b) => {
+              if (a.councilorUntil && !b.councilorUntil) {
+                return 1;
+              }
+              if (!a.councilorUntil && b.councilorUntil) {
+                return -1;
+              }
+              return 0;
+            });
 
           this.applicationsSorting = { column: 'votingDate', direction: 'desc' };
           this.filterAndSortApplications();

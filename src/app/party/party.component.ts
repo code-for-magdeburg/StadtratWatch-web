@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PartiesService } from '../services/parties.service';
 import { forkJoin } from 'rxjs';
@@ -22,12 +22,11 @@ export type Party = {
   templateUrl: './party.component.html',
   styleUrls: ['./party.component.scss']
 })
-export class PartyComponent {
+export class PartyComponent implements OnInit {
 
 
   public party: Party | null = null;
   public councilors: Councilor[] = [];
-  public formerCouncilors: Councilor[] = [];
 
 
   constructor(private readonly route: ActivatedRoute, private readonly partiesService: PartiesService,
@@ -35,7 +34,6 @@ export class PartyComponent {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
@@ -52,8 +50,6 @@ export class PartyComponent {
       ])
         .subscribe(([party, persons]) => {
 
-          const today = new Date().toISOString().substring(0, 10);
-
           this.party = {
             name: party.name,
             votingsSuccessRate: party.votingsSuccessRate,
@@ -63,11 +59,16 @@ export class PartyComponent {
             statsHistory: party.statsHistory
           };
           this.councilors = persons
-            .filter(person => !person.councilorUntil || person.councilorUntil >= today)
-            .map(CouncilorCardComponent.mapPersonToCouncilor);
-          this.formerCouncilors = persons
-            .filter(person => person.councilorUntil && person.councilorUntil < today)
-            .map(CouncilorCardComponent.mapPersonToCouncilor);
+            .map(CouncilorCardComponent.mapPersonToCouncilor)
+            .sort((a, b) => {
+              if (a.councilorUntil && !b.councilorUntil) {
+                return 1;
+              }
+              if (!a.councilorUntil && b.councilorUntil) {
+                return -1;
+              }
+              return 0;
+            });
 
         });
 

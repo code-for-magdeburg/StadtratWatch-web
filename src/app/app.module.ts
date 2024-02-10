@@ -50,6 +50,7 @@ import { PartyVotingsSuccessRateComponent} from './party/party-votings-success-r
 import { PartyUniformityScoreComponent } from './party/party-uniformity-score/party-uniformity-score.component';
 import { PartyParticipationRateComponent } from './party/party-participation-rate/party-participation-rate.component';
 import { PartyAbstentionRateComponent } from './party/party-abstention-rate/party-abstention-rate.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -101,7 +102,8 @@ registerLocaleData(localeDe, 'de-DE');
         HttpClientModule,
         TooltipModule.forRoot(),
         NgChartsModule,
-        FormsModule
+        FormsModule,
+        TabsModule
     ],
   providers: [{ provide: LOCALE_ID, useValue: 'de-DE' }],
   bootstrap: [AppComponent]
