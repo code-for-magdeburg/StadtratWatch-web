@@ -23,3 +23,16 @@ docker build -t srw-download-paper-files -f docker\download-paper-files.Dockerfi
 ```shell
 docker run --rm -v %cd%\data\sessions:/app/data/sessions:ro -v %cd%\output\papers:/app/output/papers srw-download-paper-files 2024
 ```
+
+
+### Web App
+
+#### Build the docker image
+```shell
+docker build -t srw-stadtratwatch-web -f docker\stadtrat-watch-web.Dockerfile .
+```
+
+#### Run the docker container
+```shell
+docker run --rm -p 8080:80 srw-stadtratwatch-web
+```
