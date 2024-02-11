@@ -1,7 +1,6 @@
 import { FractionDetailsDto, FractionLightDto, StatsHistoryDto } from '../../app/model/Fraction';
 import * as fs from 'fs';
 import { Registry, RegistryFraction, RegistryPerson } from './model/registry';
-import { FRACTIONS_BASE_DIR } from './constants';
 import {
   SessionDetailsDto,
   SessionPersonDto,
@@ -13,7 +12,12 @@ import { calcFractionVotingSuccessRate } from './data-analysis/voting-success-ra
 import { ApplicationDto } from '../../app/model/Application';
 
 
-export function generateFractionFiles(registry: Registry, sessions: SessionDetailsDto[]): void {
+export function generateFractionFiles(fractionsOutputDir: string, registry: Registry, sessions: SessionDetailsDto[]): void {
+
+  if (!fs.existsSync(fractionsOutputDir)) {
+    fs.mkdirSync(fractionsOutputDir, { recursive: true });
+  }
+
   console.log('Writing all-fractions.json');
   const fractions = registry.fractions.map<FractionLightDto>(fraction => {
     const members = registry.persons.filter(person => person.fractionId === fraction.id);
@@ -34,7 +38,7 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
     };
   });
   fs.writeFileSync(
-    `${FRACTIONS_BASE_DIR}/all-fractions.json`,
+    `${fractionsOutputDir}/all-fractions.json`,
     JSON.stringify(fractions, null, 2),
     'utf-8'
   );
@@ -47,7 +51,7 @@ export function generateFractionFiles(registry: Registry, sessions: SessionDetai
       applications: getApplicationsOfFraction(fraction, sessions)
     } satisfies FractionDetailsDto;
     const data = JSON.stringify(fractionDetails, null, 2);
-    fs.writeFileSync(`${FRACTIONS_BASE_DIR}/${fraction.id}.json`, data, 'utf-8');
+    fs.writeFileSync(`${fractionsOutputDir}/${fraction.id}.json`, data, 'utf-8');
   });
 
 }

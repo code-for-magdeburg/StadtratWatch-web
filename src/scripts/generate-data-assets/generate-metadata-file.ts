@@ -1,11 +1,10 @@
 import * as fs from 'fs';
-import { GENERATED_ASSETS_DIR } from './constants';
 import { SessionDetailsDto, Vote, VoteResult } from '../../app/model/Session';
 import { MetadataDto } from '../../app/model/Metadata';
 import { Registry } from './model/registry';
 
 
-export function generateMetadataFile(registry: Registry, sessions: SessionDetailsDto[]) {
+export function generateMetadataFile(metadataFilename: string, registry: Registry, sessions: SessionDetailsDto[]) {
   const votingsCount = getVotingsCount(sessions);
   const votesCount = getVotesCount(sessions);
 
@@ -21,11 +20,7 @@ export function generateMetadataFile(registry: Registry, sessions: SessionDetail
     personsCount: registry.persons.length,
   };
 
-  fs.writeFileSync(
-    `${GENERATED_ASSETS_DIR}/metadata.json`,
-    JSON.stringify(metadata, null, 2),
-    `utf-8`
-  );
+  fs.writeFileSync(metadataFilename, JSON.stringify(metadata, null, 2), `utf-8`);
 
 }
 

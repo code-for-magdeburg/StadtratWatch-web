@@ -1,27 +1,39 @@
 import * as fs from 'fs';
-import { OUTPUT_DIR, SCRAPED_SESSION_FILENAME } from './constants';
 import * as https from 'https';
 import * as path from 'path';
 import { ScrapedMeeting, ScrapedSession } from '../shared/model/scraped-session';
 
 
-async function run(years: number[]) {
-  for (const year of years) {
-    await runYear(year);
-  }
+const inputDir = process.argv[2];
+const outputDir = process.argv[3];
+const year = process.argv[4];
+
+if (!inputDir || !outputDir || !year) {
+  console.error('Usage: node index.js <inputDir> <outputDir> <year>');
+  process.exit(1);
+}
+
+const scrapedSessionFilename = `${inputDir}/Magdeburg.json`;
+if (!fs.existsSync(scrapedSessionFilename) || !fs.lstatSync(scrapedSessionFilename).isFile()) {
+  console.error(`Scraped session file "${scrapedSessionFilename}" does not exist or is not a file.`);
+  process.exit(1);
 }
 
 
-async function runYear(year: number): Promise<void> {
+if (isNaN(parseInt(year))) {
+  console.error('Year must be a number.');
+  process.exit(1);
+}
 
-  console.log('Running year: ', year);
 
-  const outputDir = path.join(OUTPUT_DIR, `${year}`);
+async function runYear(outputBaseDir: string, year: number): Promise<void> {
+
+  const outputDir = path.join(outputBaseDir, `${year}`);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);
   }
 
-  const magdeburg = JSON.parse(fs.readFileSync(SCRAPED_SESSION_FILENAME, 'utf8')) as ScrapedSession;
+  const magdeburg = JSON.parse(fs.readFileSync(scrapedSessionFilename, 'utf8')) as ScrapedSession;
   await runMeetings(year, magdeburg, outputDir);
 
 }
@@ -96,29 +108,6 @@ async function downloadFile(url: string, id: number, outputDir: string): Promise
 
 
 (async () => {
-  await run([
-    2003,
-    2004,
-    2005,
-    2006,
-    2007,
-    2008,
-    2009,
-    2010,
-    2011,
-    2012,
-    2013,
-    2014,
-    2015,
-    2016,
-    2017,
-    2018,
-    2019,
-    2020,
-    2021,
-    2022,
-    2023,
-    2024,
-  ]);
+  await runYear(outputDir, parseInt(year));
   console.log('Done.');
 })();
