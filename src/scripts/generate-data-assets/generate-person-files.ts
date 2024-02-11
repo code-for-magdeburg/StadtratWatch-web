@@ -8,12 +8,15 @@ import {
 } from '../../app/model/Person';
 import * as fs from 'fs';
 import { RegistryPerson } from './model/registry';
-import { PERSONS_BASE_DIR } from './constants';
 import { Registry } from './model/registry';
 import { calcPersonVotingSuccess } from './data-analysis/voting-success-rate';
 
 
-export function generatePersonFiles(registry: Registry, sessions: SessionDetailsDto[]) {
+export function generatePersonFiles(personsOutputDir: string, registry: Registry, sessions: SessionDetailsDto[]) {
+
+  if (!fs.existsSync(personsOutputDir)) {
+    fs.mkdirSync(personsOutputDir, { recursive: true });
+  }
 
   console.log('Writing all-persons.json');
   const personsLight = registry.persons
@@ -41,7 +44,7 @@ export function generatePersonFiles(registry: Registry, sessions: SessionDetails
     .sort((a, b) => a.name.localeCompare(b.name));
 
   fs.writeFileSync(
-    `${PERSONS_BASE_DIR}/all-persons.json`,
+    `${personsOutputDir}/all-persons.json`,
     JSON.stringify(personsLight, null, 2),
     'utf-8'
   );
@@ -87,7 +90,7 @@ export function generatePersonFiles(registry: Registry, sessions: SessionDetails
   persons.forEach(person => {
     console.log(`Writing person file ${person.id}.json`);
     const data = JSON.stringify(person, null, 2);
-    fs.writeFileSync(`${PERSONS_BASE_DIR}/${person.id}.json`, data, 'utf-8');
+    fs.writeFileSync(`${personsOutputDir}/${person.id}.json`, data, 'utf-8');
   });
 
 }

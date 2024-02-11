@@ -6,15 +6,17 @@ import {
   VotingResult
 } from '../../app/model/Session';
 import * as fs from 'fs';
-import { SESSIONS_BASE_DIR } from './constants';
 import { SessionScan, SessionVote } from './model/session-scan';
-import { SESSIONS_CONFIGS_DIR } from './constants';
 import { ScrapedSession } from '../shared/model/scraped-session';
 import { Registry } from './model/registry';
 import { SessionConfig } from './model/session-config';
 
 
-export function generateSessionFiles(registry: Registry, scrapedSession: ScrapedSession): SessionDetailsDto[] {
+export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir: string, registry: Registry, scrapedSession: ScrapedSession): SessionDetailsDto[] {
+
+  if (!fs.existsSync(sessionsOutputDir)) {
+    fs.mkdirSync(sessionsOutputDir, { recursive: true });
+  }
 
   const scrapedStadtratMeetings = scrapedSession.meetings
     .filter(meeting => meeting.organization_name === 'Stadtrat')
@@ -43,7 +45,7 @@ export function generateSessionFiles(registry: Registry, scrapedSession: Scraped
         console.warn('No scraped meeting found for session', session.date);
       }
 
-      const sessionDir = `${SESSIONS_CONFIGS_DIR}/${session.date}`;
+      const sessionDir = `${sessionsDataDir}/${session.date}`;
       const sessionConfig = JSON.parse(
         fs.readFileSync(`${sessionDir}/config-${session.date}.json`, 'utf-8')
       ) as SessionConfig;
@@ -122,7 +124,7 @@ export function generateSessionFiles(registry: Registry, scrapedSession: Scraped
   sessions.forEach(session => {
     console.log(`Writing session file ${session.id}.json`);
     const data = JSON.stringify(session, null, 2);
-    fs.writeFileSync(`${SESSIONS_BASE_DIR}/${session.id}.json`, data, 'utf-8');
+    fs.writeFileSync(`${sessionsOutputDir}/${session.id}.json`, data, 'utf-8');
   });
 
   console.log('Writing all-sessions.json');
@@ -132,7 +134,7 @@ export function generateSessionFiles(registry: Registry, scrapedSession: Scraped
     votingsCount: sessions.find(s => s.id === session.id)?.votings.length || 0,
   }));
   fs.writeFileSync(
-    `${SESSIONS_BASE_DIR}/all-sessions.json`,
+    `${sessionsOutputDir}/all-sessions.json`,
     JSON.stringify(sessionsLight, null, 2),
     'utf-8'
   );
