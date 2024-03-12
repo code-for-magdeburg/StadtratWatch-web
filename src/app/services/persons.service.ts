@@ -40,4 +40,8 @@ export class PersonsService {
       );
 
 
+  public fetchAllPersonsForces = (): Observable<any> =>
+    this.http.get<any>(`assets/generated/persons/all-persons-forces.json`);
+
+
 }
