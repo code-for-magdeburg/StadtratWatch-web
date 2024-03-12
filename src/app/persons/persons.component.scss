@@ -24,3 +24,22 @@ th[sortablePersons].desc:before {
   transform: rotate(180deg);
   -ms-transform: rotate(180deg);
 }
+
+:host {
+  ::ng-deep {
+    .person-tooltip {
+      position: absolute;
+      text-align: center;
+      padding: 5px;
+      background: var(--bs-secondary-bg);
+      font-weight: bold;
+      border: 1px solid black;
+      border-radius: 5px;
+      pointer-events: none; /* keep the mouseover when over the tooltip */
+    }
+  }
+}
+
+#graph-container {
+  min-height: 500px;
+}
