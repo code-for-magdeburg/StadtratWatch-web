@@ -10,6 +10,7 @@ import * as fs from 'fs';
 import { RegistryPerson } from './model/registry';
 import { Registry } from './model/registry';
 import { calcPersonVotingSuccess } from './data-analysis/voting-success-rate';
+import * as path from 'path';
 
 
 export function generatePersonFiles(personsOutputDir: string, registry: Registry, sessions: SessionDetailsDto[]) {
@@ -22,7 +23,9 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
   const personsLight = registry.persons
     .map<PersonLightDto>(person => {
 
-      const fraction = registry.fractions.find(fraction => fraction.id === person.fractionId);
+      const fraction = registry.fractions.find(
+        fraction => fraction.id === person.fractionId
+      );
       const party = registry.parties.find(party => party.id === person.partyId);
       const votingAttendance = calcVotingAttendance(sessions, person);
       const votingSuccessStats = calcPersonVotingSuccess(sessions, person);
@@ -87,11 +90,44 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
       statsHistory: calcStatsHistory(relevantSessions, person)
     };
   });
+
   persons.forEach(person => {
     console.log(`Writing person file ${person.id}.json`);
     const data = JSON.stringify(person, null, 2);
     fs.writeFileSync(`${personsOutputDir}/${person.id}.json`, data, 'utf-8');
   });
+
+  console.log('Writing all-persons-forces.json');
+
+  const personsForForceData = persons.filter(person => !person.councilorUntil);
+  personsForForceData.sort((a, b) => a.name.localeCompare(b.name));
+
+  const personPairs = [];
+  const nodes = [];
+  const links = [];
+  for (let i = 0; i < personsForForceData.length; i++) {
+    const person1 = personsForForceData[i];
+    nodes.push({ id: person1.id , name: person1.name, fraction: person1.fraction })
+    for (let j = i + 1; j < personsForForceData.length; j++) {
+      const person2 = personsForForceData[j];
+      const score = person1.votingMatrix
+        .find(v => v.personId === person2.id)
+        ?.comparisonScore!;
+      personPairs.push({ person1, person2, score });
+      links.push({
+        source: person1.id,
+        target: person2.id,
+        value: score,
+      });
+    }
+  }
+
+  const forceData = { nodes, links };
+  fs.writeFileSync(
+    path.join(personsOutputDir, 'all-persons-forces.json'),
+    JSON.stringify(forceData, null, 2),
+    'utf-8'
+  );
 
 }
 
@@ -113,7 +149,8 @@ function calcVotingMatrix(registry: Registry, votings: SessionVotingDto[],
 }
 
 
-function calcVotingComparisonScore(votings: SessionVotingDto[], person: RegistryPerson, otherPerson: RegistryPerson) {
+function calcVotingComparisonScore(votings: SessionVotingDto[], person: RegistryPerson,
+                                   otherPerson: RegistryPerson) {
   const relevantVotings = votings.filter(
     voting =>
       voting.votes.some((vote: any) => vote.personId === person.id && vote.vote !== VoteResult.DID_NOT_VOTE) &&
