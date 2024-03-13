@@ -36,7 +36,8 @@ type GraphData = {
 
 interface Node extends SimulationNodeDatum {
   id: string;
-  group: string;
+  name: string;
+  fraction: string;
 }
 
 interface Link extends SimulationLinkDatum<Node> {
@@ -166,7 +167,7 @@ export class PersonsComponent implements OnInit {
       .data(nodes)
       .join('circle')
       .attr('r', 5)
-      .attr('fill', d => FILL_COLOR_MAP.get(d.group)!);
+      .attr('fill', d => FILL_COLOR_MAP.get(d.fraction)!);
 
     circleEnter.call(
       drag<any, any>()
@@ -208,7 +209,14 @@ export class PersonsComponent implements OnInit {
         .duration(300)
         .style('opacity', 1);
       tooltip
-        .html(node.id)
+        .html(`
+<span class="fw-bold">
+    ${node.name}
+</span>
+<br>
+<span class="text-secondary fw-normal">
+    ${node.fraction}
+</span>`)
         .style('left', `${event.pageX - tooltip.node()!.offsetWidth - 5}px`)
         .style('top', `${event.pageY - tooltip.node()!.offsetHeight}px`);
     }

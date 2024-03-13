@@ -23,7 +23,9 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
   const personsLight = registry.persons
     .map<PersonLightDto>(person => {
 
-      const fraction = registry.fractions.find(fraction => fraction.id === person.fractionId);
+      const fraction = registry.fractions.find(
+        fraction => fraction.id === person.fractionId
+      );
       const party = registry.parties.find(party => party.id === person.partyId);
       const votingAttendance = calcVotingAttendance(sessions, person);
       const votingSuccessStats = calcPersonVotingSuccess(sessions, person);
@@ -105,14 +107,16 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
   const links = [];
   for (let i = 0; i < personsForForceData.length; i++) {
     const person1 = personsForForceData[i];
-    nodes.push({ id: `${person1.name} (${person1.party})` , group: person1.fraction })
+    nodes.push({ id: person1.id , name: person1.name, fraction: person1.fraction })
     for (let j = i + 1; j < personsForForceData.length; j++) {
       const person2 = personsForForceData[j];
-      const score = person1.votingMatrix.find(v => v.personId === person2.id)?.comparisonScore!;
+      const score = person1.votingMatrix
+        .find(v => v.personId === person2.id)
+        ?.comparisonScore!;
       personPairs.push({ person1, person2, score });
       links.push({
-        source: `${person1.name} (${person1.party})`,
-        target: `${person2.name} (${person2.party})`,
+        source: person1.id,
+        target: person2.id,
         value: score,
       });
     }
@@ -145,7 +149,8 @@ function calcVotingMatrix(registry: Registry, votings: SessionVotingDto[],
 }
 
 
-function calcVotingComparisonScore(votings: SessionVotingDto[], person: RegistryPerson, otherPerson: RegistryPerson) {
+function calcVotingComparisonScore(votings: SessionVotingDto[], person: RegistryPerson,
+                                   otherPerson: RegistryPerson) {
   const relevantVotings = votings.filter(
     voting =>
       voting.votes.some((vote: any) => vote.personId === person.id && vote.vote !== VoteResult.DID_NOT_VOTE) &&
