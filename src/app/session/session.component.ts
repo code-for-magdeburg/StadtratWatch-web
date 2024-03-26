@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SessionsService } from '../services/sessions.service';
 import { ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
 import { SessionVotingDto, Vote, VoteResult } from '../model/Session';
+import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
+import { TabsetComponent } from 'ngx-bootstrap/tabs';
 
 
 enum VotingResult {
@@ -32,8 +34,11 @@ export class SessionComponent {
 
   public sessionDate: string | null = null;
   public votings: Voting[] = [];
+  public speakingTimes: SpeakingTimeChartData[] = [];
   public meetingMinutesUrl = '';
   public youtubeUrl = '';
+
+  @ViewChild('tabs', { static: true }) tabs?: TabsetComponent;
 
   protected VotingResult = VotingResult;
   protected ACCEPTED_COLOR = ACCEPTED_COLOR;
@@ -61,7 +66,7 @@ export class SessionComponent {
 
           this.sessionDate = session.date;
           this.meetingMinutesUrl = session.meetingMinutesUrl;
-          this.youtubeUrl = `${session.youtubeUrl}?t=0`;
+          this.youtubeUrl = session.youtubeUrl;
           this.votings = session.votings.map((votingDto: SessionVotingDto) => ({
             id: votingDto.id,
             agendaItem: votingDto.votingSubject.agendaItem,
@@ -71,6 +76,10 @@ export class SessionComponent {
             authorNames: votingDto.votingSubject.authors,
             result: this.getVotingResult(votingDto.votes),
           }));
+          this.speakingTimes = SpeakingTimeChartData.fromSession(session);
+
+          this.tabs ? this.tabs.tabs[1].active = true : null;
+          setTimeout(() => this.tabs ? this.tabs.tabs[0].active = true : null, 1);
 
         });
 

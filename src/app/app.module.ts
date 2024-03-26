@@ -51,6 +51,7 @@ import { PartyUniformityScoreComponent } from './party/party-uniformity-score/pa
 import { PartyParticipationRateComponent } from './party/party-participation-rate/party-participation-rate.component';
 import { PartyAbstentionRateComponent } from './party/party-abstention-rate/party-abstention-rate.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { SpeakingTimeChartComponent } from './components/speaking-time-chart/speaking-time-chart.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -93,7 +94,8 @@ registerLocaleData(localeDe, 'de-DE');
     PartyVotingsSuccessRateComponent,
     PartyUniformityScoreComponent,
     PartyParticipationRateComponent,
-    PartyAbstentionRateComponent
+    PartyAbstentionRateComponent,
+    SpeakingTimeChartComponent
   ],
   imports: [
     AppRoutingModule,
