@@ -2,11 +2,11 @@
   "id": "12c83b4a-a7ab-4965-a642-06add6a7fcd5",
   "name": "CDU",
   "seats": 10,
-  "applicationsSuccessRate": 0.8421052631578947,
-  "votingsSuccessRate": 0.8267045454545454,
-  "uniformityScore": 0.9354787765170225,
-  "participationRate": 0.7216619318181818,
-  "abstentionRate": 0.08097016915633798,
+  "applicationsSuccessRate": 0.8430232558139535,
+  "votingsSuccessRate": 0.8289290681502086,
+  "uniformityScore": 0.9344768190877226,
+  "participationRate": 0.7249652294853964,
+  "abstentionRate": 0.08084850308333233,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -112,6 +112,10 @@
       {
         "date": "2024-01-18",
         "value": 0.8421052631578947
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.8430232558139535
       }
     ],
     "votingsSuccessRate": [
@@ -218,6 +222,10 @@
       {
         "date": "2024-01-18",
         "value": 0.8267045454545454
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.8289290681502086
       }
     ],
     "uniformityScore": [
@@ -324,6 +332,10 @@
       {
         "date": "2024-01-18",
         "value": 0.9354787765170225
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.9344768190877226
       }
     ],
     "participationRate": [
@@ -430,6 +442,10 @@
       {
         "date": "2024-01-18",
         "value": 0.7216619318181818
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.7249652294853964
       }
     ],
     "abstentionRate": [
@@ -536,6 +552,10 @@
       {
         "date": "2024-01-18",
         "value": 0.08097016915633798
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.08084850308333233
       }
     ]
   },
@@ -2840,6 +2860,20 @@
       "votings": [
         {
           "votingId": 77,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0238/23",
+      "type": "Antrag",
+      "title": "Gedenken an die erste Sitzung des Stadtrates nach der Wende",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=678783&type=do",
+      "votings": [
+        {
+          "votingId": 28,
           "votingResult": "PASSED"
         }
       ]

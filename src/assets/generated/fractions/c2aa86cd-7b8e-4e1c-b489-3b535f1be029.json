@@ -2,11 +2,11 @@
   "id": "c2aa86cd-7b8e-4e1c-b489-3b535f1be029",
   "name": "DIE LINKE",
   "seats": 8,
-  "applicationsSuccessRate": 0.827027027027027,
-  "votingsSuccessRate": 0.8544034090909091,
-  "uniformityScore": 0.9590352029193515,
-  "participationRate": 0.7840021306818182,
-  "abstentionRate": 0.08606411837608238,
+  "applicationsSuccessRate": 0.8225806451612904,
+  "votingsSuccessRate": 0.8504867872044506,
+  "uniformityScore": 0.956565057249793,
+  "participationRate": 0.7871175243393602,
+  "abstentionRate": 0.08836303697826156,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -112,6 +112,10 @@
       {
         "date": "2024-01-18",
         "value": 0.827027027027027
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.8225806451612904
       }
     ],
     "votingsSuccessRate": [
@@ -218,6 +222,10 @@
       {
         "date": "2024-01-18",
         "value": 0.8544034090909091
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.8504867872044506
       }
     ],
     "uniformityScore": [
@@ -324,6 +332,10 @@
       {
         "date": "2024-01-18",
         "value": 0.9590352029193515
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.956565057249793
       }
     ],
     "participationRate": [
@@ -430,6 +442,10 @@
       {
         "date": "2024-01-18",
         "value": 0.7840021306818182
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.7871175243393602
       }
     ],
     "abstentionRate": [
@@ -536,6 +552,10 @@
       {
         "date": "2024-01-18",
         "value": 0.08606411837608238
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.08836303697826156
       }
     ]
   },
@@ -3033,6 +3053,20 @@
         {
           "votingId": 82,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0613/23/6",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Wahlsichtwerbung - Sondernutzungssatzung",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=689046&type=do",
+      "votings": [
+        {
+          "votingId": 6,
+          "votingResult": "REJECTED"
         }
       ]
     }
