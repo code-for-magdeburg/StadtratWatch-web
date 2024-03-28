@@ -2,11 +2,11 @@
   "id": "d6db336f-1f1a-4eb9-b743-1c18e39259f8",
   "name": "Gartenpartei/Tierschutzallianz",
   "seats": 3,
-  "applicationsSuccessRate": 0.4336283185840708,
-  "votingsSuccessRate": 0.6761363636363636,
-  "uniformityScore": 0.8632317472990807,
-  "participationRate": 0.8432765151515151,
-  "abstentionRate": 0.13390424745505072,
+  "applicationsSuccessRate": 0.43478260869565216,
+  "votingsSuccessRate": 0.6787204450625869,
+  "uniformityScore": 0.8604783080987032,
+  "participationRate": 0.8463143254520167,
+  "abstentionRate": 0.13347157985383484,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -112,6 +112,10 @@
       {
         "date": "2024-01-18",
         "value": 0.4336283185840708
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.43478260869565216
       }
     ],
     "votingsSuccessRate": [
@@ -218,6 +222,10 @@
       {
         "date": "2024-01-18",
         "value": 0.6761363636363636
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.6787204450625869
       }
     ],
     "uniformityScore": [
@@ -324,6 +332,10 @@
       {
         "date": "2024-01-18",
         "value": 0.8632317472990807
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.8604783080987032
       }
     ],
     "participationRate": [
@@ -430,6 +442,10 @@
       {
         "date": "2024-01-18",
         "value": 0.8432765151515151
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.8463143254520167
       }
     ],
     "abstentionRate": [
@@ -536,6 +552,10 @@
       {
         "date": "2024-01-18",
         "value": 0.13390424745505072
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.13347157985383484
       }
     ]
   },
@@ -2044,6 +2064,34 @@
       "votings": [
         {
           "votingId": 74,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0613/23",
+      "type": "Geschäftsordnung",
+      "title": "Neufassung der Wahlsichtwerbung-Sondernutzungssatzung",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=680812&type=do",
+      "votings": [
+        {
+          "votingId": 2,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0050/23",
+      "type": "Antrag",
+      "title": "Einrichtung eines Cafés im Gebäude des Kulturhistorischen Museums der Landeshauptstadt Magdeburg",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=663906&type=do",
+      "votings": [
+        {
+          "votingId": 27,
           "votingResult": "PASSED"
         }
       ]

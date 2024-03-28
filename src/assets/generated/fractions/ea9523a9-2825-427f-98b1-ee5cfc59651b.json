@@ -2,11 +2,11 @@
   "id": "ea9523a9-2825-427f-98b1-ee5cfc59651b",
   "name": "GRÜNE/future!",
   "seats": 11,
-  "applicationsSuccessRate": 0.8,
-  "votingsSuccessRate": 0.8920454545454546,
-  "uniformityScore": 0.9394967268857519,
-  "participationRate": 0.7698217975206612,
-  "abstentionRate": 0.048396679342439825,
+  "applicationsSuccessRate": 0.8018433179723502,
+  "votingsSuccessRate": 0.8901251738525731,
+  "uniformityScore": 0.9366895778790094,
+  "participationRate": 0.7716525477304337,
+  "abstentionRate": 0.05034906570424247,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -112,6 +112,10 @@
       {
         "date": "2024-01-18",
         "value": 0.8
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.8018433179723502
       }
     ],
     "votingsSuccessRate": [
@@ -218,6 +222,10 @@
       {
         "date": "2024-01-18",
         "value": 0.8920454545454546
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.8901251738525731
       }
     ],
     "uniformityScore": [
@@ -324,6 +332,10 @@
       {
         "date": "2024-01-18",
         "value": 0.9394967268857519
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.9366895778790094
       }
     ],
     "participationRate": [
@@ -430,6 +442,10 @@
       {
         "date": "2024-01-18",
         "value": 0.7698217975206612
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.7716525477304337
       }
     ],
     "abstentionRate": [
@@ -536,6 +552,10 @@
       {
         "date": "2024-01-18",
         "value": 0.048396679342439825
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.05034906570424247
       }
     ]
   },
@@ -3216,6 +3236,24 @@
       "votings": [
         {
           "votingId": 85,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0613/23/5",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Wahlsichtwerbung-Sondernutzungssatzung",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=689028&type=do",
+      "votings": [
+        {
+          "votingId": 7,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 8,
           "votingResult": "PASSED"
         }
       ]

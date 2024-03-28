@@ -2,11 +2,11 @@
   "id": "480fb9f1-2032-49e3-b671-7eec6265fec0",
   "name": "SPD",
   "seats": 10,
-  "applicationsSuccessRate": 0.8978723404255319,
-  "votingsSuccessRate": 0.9254261363636364,
-  "uniformityScore": 0.9833344185866231,
-  "participationRate": 0.7796164772727273,
-  "abstentionRate": 0.022367880791091685,
+  "applicationsSuccessRate": 0.9,
+  "votingsSuccessRate": 0.9262865090403338,
+  "uniformityScore": 0.9837752954996406,
+  "participationRate": 0.7825452016689847,
+  "abstentionRate": 0.021715807604825502,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -112,6 +112,10 @@
       {
         "date": "2024-01-18",
         "value": 0.8978723404255319
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.9
       }
     ],
     "votingsSuccessRate": [
@@ -218,6 +222,10 @@
       {
         "date": "2024-01-18",
         "value": 0.9254261363636364
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.9262865090403338
       }
     ],
     "uniformityScore": [
@@ -324,6 +332,10 @@
       {
         "date": "2024-01-18",
         "value": 0.9833344185866231
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.9837752954996406
       }
     ],
     "participationRate": [
@@ -430,6 +442,10 @@
       {
         "date": "2024-01-18",
         "value": 0.7796164772727273
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.7825452016689847
       }
     ],
     "abstentionRate": [
@@ -536,6 +552,10 @@
       {
         "date": "2024-01-18",
         "value": 0.022367880791091685
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.021715807604825502
       }
     ]
   },
@@ -3726,6 +3746,76 @@
       "votings": [
         {
           "votingId": 84,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0641/23/1/1/1",
+      "type": "Änderungsantrag",
+      "title": "Aufstellung des Bebauungsplan Nr. 489-3 \"Nördlich Sohlener Straße\"",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=689348&type=do",
+      "votings": [
+        {
+          "votingId": 18,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0641/23/1/1",
+      "type": "Änderungsantrag",
+      "title": "Aufstellung des Bebauungsplan Nr. 489-3 \"Nördlich Sohlener Straße\"",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688991&type=do",
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0641/23/2",
+      "type": "Änderungsantrag",
+      "title": "Aufstellung des Bebauungsplan Nr. 489-3 \"Nördlich Sohlener Straße\"",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=689330&type=do",
+      "votings": [
+        {
+          "votingId": 21,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0072/24/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs zum B-Plan Nr. 237-4 \"Maybachstraße\" mit örtlicher Bauvorschrift",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688970&type=do",
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0251/23",
+      "type": "Antrag",
+      "title": "ÖPNV-Angebot in Ostelbien verbessern",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=680680&type=do",
+      "votings": [
+        {
+          "votingId": 30,
           "votingResult": "PASSED"
         }
       ]
