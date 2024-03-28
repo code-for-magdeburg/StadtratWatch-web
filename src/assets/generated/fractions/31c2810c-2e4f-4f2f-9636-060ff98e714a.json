@@ -2,11 +2,11 @@
   "id": "31c2810c-2e4f-4f2f-9636-060ff98e714a",
   "name": "AfD",
   "seats": 8,
-  "applicationsSuccessRate": 0.07339449541284404,
-  "votingsSuccessRate": 0.5813630041724618,
-  "uniformityScore": 0.9888594125774104,
-  "participationRate": 0.7093184979137691,
-  "abstentionRate": 0.11600352444406058,
+  "applicationsSuccessRate": 0.07272727272727272,
+  "votingsSuccessRate": 0.5831062670299727,
+  "uniformityScore": 0.9892572906996457,
+  "participationRate": 0.7021457765667575,
+  "abstentionRate": 0.11305101761867745,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -116,6 +116,10 @@
       {
         "date": "2024-03-07",
         "value": 0.07339449541284404
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.07272727272727272
       }
     ],
     "votingsSuccessRate": [
@@ -226,6 +230,10 @@
       {
         "date": "2024-03-07",
         "value": 0.5813630041724618
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.5831062670299727
       }
     ],
     "uniformityScore": [
@@ -336,6 +344,10 @@
       {
         "date": "2024-03-07",
         "value": 0.9888594125774104
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.9892572906996457
       }
     ],
     "participationRate": [
@@ -446,6 +458,10 @@
       {
         "date": "2024-03-07",
         "value": 0.7093184979137691
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.7021457765667575
       }
     ],
     "abstentionRate": [
@@ -556,6 +572,10 @@
       {
         "date": "2024-03-07",
         "value": 0.11600352444406058
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.11305101761867745
       }
     ]
   },
@@ -2032,6 +2052,20 @@
       "votings": [
         {
           "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0045/24",
+      "type": "Antrag",
+      "title": "Jurassic Park in Magdeburg",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688277&type=do",
+      "votings": [
+        {
+          "votingId": 9,
           "votingResult": "REJECTED"
         }
       ]

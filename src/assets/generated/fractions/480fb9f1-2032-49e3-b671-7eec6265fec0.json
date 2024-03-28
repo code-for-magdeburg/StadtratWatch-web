@@ -2,11 +2,11 @@
   "id": "480fb9f1-2032-49e3-b671-7eec6265fec0",
   "name": "SPD",
   "seats": 10,
-  "applicationsSuccessRate": 0.9,
-  "votingsSuccessRate": 0.9262865090403338,
-  "uniformityScore": 0.9837752954996406,
-  "participationRate": 0.7825452016689847,
-  "abstentionRate": 0.021715807604825502,
+  "applicationsSuccessRate": 0.904,
+  "votingsSuccessRate": 0.9271117166212534,
+  "uniformityScore": 0.9838445451501637,
+  "participationRate": 0.7800408719346049,
+  "abstentionRate": 0.021960651210775613,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -116,6 +116,10 @@
       {
         "date": "2024-03-07",
         "value": 0.9
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.904
       }
     ],
     "votingsSuccessRate": [
@@ -226,6 +230,10 @@
       {
         "date": "2024-03-07",
         "value": 0.9262865090403338
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.9271117166212534
       }
     ],
     "uniformityScore": [
@@ -336,6 +344,10 @@
       {
         "date": "2024-03-07",
         "value": 0.9837752954996406
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.9838445451501637
       }
     ],
     "participationRate": [
@@ -446,6 +458,10 @@
       {
         "date": "2024-03-07",
         "value": 0.7825452016689847
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.7800408719346049
       }
     ],
     "abstentionRate": [
@@ -556,6 +572,10 @@
       {
         "date": "2024-03-07",
         "value": 0.021715807604825502
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.021960651210775613
       }
     ]
   },
@@ -3816,6 +3836,146 @@
       "votings": [
         {
           "votingId": 30,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0285/23/1",
+      "type": "Änderungsantrag",
+      "title": "Baumscheiben auf dem Alten Markt sanieren, Verkehrsberuhigung und Barrierefreiheit prüfen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687960&type=do",
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0050/24",
+      "type": "Geschäftsordnung",
+      "title": "Geschäftsführerverträge",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688338&type=do",
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0051/24",
+      "type": "Geschäftsordnung",
+      "title": "Bürgeranleihen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688348&type=do",
+      "votings": [
+        {
+          "votingId": 13,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0055/24",
+      "type": "Geschäftsordnung",
+      "title": "Kontaktboxen der Mitarbeiterinnen und Mitarbeiter optimieren",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688354&type=do",
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0059/24",
+      "type": "Geschäftsordnung",
+      "title": "S-Bahn Anschluss ausbauen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688367&type=do",
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0061/24",
+      "type": "Antrag",
+      "title": "Fraktionen des Stadtrates informieren über ihre Arbeit im Foyer des Alten Rathaus",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688375&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0040/24",
+      "type": "Geschäftsordnung",
+      "title": "Zickzacklinien vor abgesenkten Bordsteinen und Bushaltestellen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688021&type=do",
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0066/24",
+      "type": "Geschäftsordnung",
+      "title": "Personelle Wiederbesetzung des Pflegeinormationsbüros",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688398&type=do",
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0065/24",
+      "type": "Geschäftsordnung",
+      "title": "Lückenlose Aufklärung der formell unrechtmäßig erteilten Baumfällgenehmigung für die über 100-jährige Platane",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688396&type=do",
+      "votings": [
+        {
+          "votingId": 30,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0280/23/1",
+      "type": "Änderungsantrag",
+      "title": "Übergangslösung für den Alten Markt",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687963&type=do",
+      "votings": [
+        {
+          "votingId": 3,
           "votingResult": "PASSED"
         }
       ]
