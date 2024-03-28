@@ -2,11 +2,11 @@
   "id": "d6db336f-1f1a-4eb9-b743-1c18e39259f8",
   "name": "Gartenpartei/Tierschutzallianz",
   "seats": 3,
-  "applicationsSuccessRate": 0.43478260869565216,
-  "votingsSuccessRate": 0.6787204450625869,
-  "uniformityScore": 0.8604783080987032,
-  "participationRate": 0.8463143254520167,
-  "abstentionRate": 0.13347157985383484,
+  "applicationsSuccessRate": 0.45454545454545453,
+  "votingsSuccessRate": 0.6750681198910081,
+  "uniformityScore": 0.8552571440339536,
+  "participationRate": 0.84763851044505,
+  "abstentionRate": 0.13545076946222961,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -116,6 +116,10 @@
       {
         "date": "2024-03-07",
         "value": 0.43478260869565216
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.45454545454545453
       }
     ],
     "votingsSuccessRate": [
@@ -226,6 +230,10 @@
       {
         "date": "2024-03-07",
         "value": 0.6787204450625869
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.6750681198910081
       }
     ],
     "uniformityScore": [
@@ -336,6 +344,10 @@
       {
         "date": "2024-03-07",
         "value": 0.8604783080987032
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.8552571440339536
       }
     ],
     "participationRate": [
@@ -446,6 +458,10 @@
       {
         "date": "2024-03-07",
         "value": 0.8463143254520167
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.84763851044505
       }
     ],
     "abstentionRate": [
@@ -556,6 +572,10 @@
       {
         "date": "2024-03-07",
         "value": 0.13347157985383484
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.13545076946222961
       }
     ]
   },
@@ -2092,6 +2112,90 @@
       "votings": [
         {
           "votingId": 27,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0280/23/1",
+      "type": "Geschäftsordnung",
+      "title": "Übergangslösung für den Alten Markt",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687963&type=do",
+      "votings": [
+        {
+          "votingId": 2,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0059/24",
+      "type": "Geschäftsordnung",
+      "title": "S-Bahn Anschluss ausbauen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688367&type=do",
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0060/24",
+      "type": "Antrag",
+      "title": "Lärmschutzwand entlang des Magdeburger Ringes im Bereich Reform/ Lemsdorf",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688371&type=do",
+      "votings": [
+        {
+          "votingId": 21,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0061/24",
+      "type": "Antrag",
+      "title": "Fraktionen des Stadtrates informieren über ihre Arbeit im Foyer des Alten Rathaus",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688375&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0063/24",
+      "type": "Geschäftsordnung",
+      "title": "Bürgerpark Reform ohne Eingriffe in die Kleingartenvereine",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688373&type=do",
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0064/24",
+      "type": "Geschäftsordnung",
+      "title": "Redezeiten während der Sitzungen des Stadtrates sichtbar darstellen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688378&type=do",
+      "votings": [
+        {
+          "votingId": 25,
           "votingResult": "PASSED"
         }
       ]

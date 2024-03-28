@@ -2,11 +2,11 @@
   "id": "ea9523a9-2825-427f-98b1-ee5cfc59651b",
   "name": "GRÜNE/future!",
   "seats": 11,
-  "applicationsSuccessRate": 0.8018433179723502,
-  "votingsSuccessRate": 0.8901251738525731,
-  "uniformityScore": 0.9366895778790094,
-  "participationRate": 0.7716525477304337,
-  "abstentionRate": 0.05034906570424247,
+  "applicationsSuccessRate": 0.8088888888888889,
+  "votingsSuccessRate": 0.8910081743869209,
+  "uniformityScore": 0.9360084875125823,
+  "participationRate": 0.7680827347039881,
+  "abstentionRate": 0.05309170111276442,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -116,6 +116,10 @@
       {
         "date": "2024-03-07",
         "value": 0.8018433179723502
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.8088888888888889
       }
     ],
     "votingsSuccessRate": [
@@ -226,6 +230,10 @@
       {
         "date": "2024-03-07",
         "value": 0.8901251738525731
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.8910081743869209
       }
     ],
     "uniformityScore": [
@@ -336,6 +344,10 @@
       {
         "date": "2024-03-07",
         "value": 0.9366895778790094
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.9360084875125823
       }
     ],
     "participationRate": [
@@ -446,6 +458,10 @@
       {
         "date": "2024-03-07",
         "value": 0.7716525477304337
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.7680827347039881
       }
     ],
     "abstentionRate": [
@@ -556,6 +572,10 @@
       {
         "date": "2024-03-07",
         "value": 0.05034906570424247
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.05309170111276442
       }
     ]
   },
@@ -3254,6 +3274,118 @@
         },
         {
           "votingId": 8,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0285/23/1",
+      "type": "Änderungsantrag",
+      "title": "Baumscheiben auf dem Alten Markt sanieren, Verkehrsberuhigung und Barrierefreiheit prüfen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687960&type=do",
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0037/24",
+      "type": "Antrag",
+      "title": "Sicherer Überweg Arndtstraße",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687836&type=do",
+      "votings": [
+        {
+          "votingId": 7,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0049/24",
+      "type": "Geschäftsordnung",
+      "title": "„Schutz und Erhalt von Stadtkultur: Maßnahmen zur Sicherung wertvoller Skulpturen vor Diebstahl und Vandalismus”",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688340&type=do",
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0055/24",
+      "type": "Geschäftsordnung",
+      "title": "Kontaktboxen der Mitarbeiterinnen und Mitarbeiter optimieren",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688354&type=do",
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0058/24",
+      "type": "Geschäftsordnung",
+      "title": "Modularer Gebäudebau",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688361&type=do",
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0061/24",
+      "type": "Antrag",
+      "title": "Fraktionen des Stadtrates informieren über ihre Arbeit im Foyer des Alten Rathaus",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688375&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0066/24",
+      "type": "Geschäftsordnung",
+      "title": "Personelle Wiederbesetzung des Pflegeinormationsbüros",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688398&type=do",
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0280/23/1",
+      "type": "Änderungsantrag",
+      "title": "Übergangslösung für den Alten Markt",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687963&type=do",
+      "votings": [
+        {
+          "votingId": 3,
           "votingResult": "PASSED"
         }
       ]

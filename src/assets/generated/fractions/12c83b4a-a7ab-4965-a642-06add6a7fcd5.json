@@ -2,11 +2,11 @@
   "id": "12c83b4a-a7ab-4965-a642-06add6a7fcd5",
   "name": "CDU",
   "seats": 10,
-  "applicationsSuccessRate": 0.8430232558139535,
-  "votingsSuccessRate": 0.8289290681502086,
-  "uniformityScore": 0.9344768190877226,
-  "participationRate": 0.7249652294853964,
-  "abstentionRate": 0.08084850308333233,
+  "applicationsSuccessRate": 0.848314606741573,
+  "votingsSuccessRate": 0.8290190735694822,
+  "uniformityScore": 0.9349716945964944,
+  "participationRate": 0.7202316076294278,
+  "abstentionRate": 0.08040153273511808,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -116,6 +116,10 @@
       {
         "date": "2024-03-07",
         "value": 0.8430232558139535
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.848314606741573
       }
     ],
     "votingsSuccessRate": [
@@ -226,6 +230,10 @@
       {
         "date": "2024-03-07",
         "value": 0.8289290681502086
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.8290190735694822
       }
     ],
     "uniformityScore": [
@@ -336,6 +344,10 @@
       {
         "date": "2024-03-07",
         "value": 0.9344768190877226
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.9349716945964944
       }
     ],
     "participationRate": [
@@ -446,6 +458,10 @@
       {
         "date": "2024-03-07",
         "value": 0.7249652294853964
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.7202316076294278
       }
     ],
     "abstentionRate": [
@@ -556,6 +572,10 @@
       {
         "date": "2024-03-07",
         "value": 0.08084850308333233
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.08040153273511808
       }
     ]
   },
@@ -2874,6 +2894,90 @@
       "votings": [
         {
           "votingId": 28,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0285/23/1",
+      "type": "Änderungsantrag",
+      "title": "Baumscheiben auf dem Alten Markt sanieren, Verkehrsberuhigung und Barrierefreiheit prüfen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687960&type=do",
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0054/24",
+      "type": "Antrag",
+      "title": "Schulwegsicherheit zum Editha-Gymnasium",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688352&type=do",
+      "votings": [
+        {
+          "votingId": 15,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0061/24",
+      "type": "Antrag",
+      "title": "Fraktionen des Stadtrates informieren über ihre Arbeit im Foyer des Alten Rathaus",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688375&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0040/24",
+      "type": "Geschäftsordnung",
+      "title": "Zickzacklinien vor abgesenkten Bordsteinen und Bushaltestellen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688021&type=do",
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0280/23/1",
+      "type": "Änderungsantrag",
+      "title": "Übergangslösung für den Alten Markt",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687963&type=do",
+      "votings": [
+        {
+          "votingId": 3,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0285/23",
+      "type": "Antrag",
+      "title": "Baumscheiben auf dem Alten Markt sanieren, Verkehrsberuhigung und Barrierefreiheit prüfen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682608&type=do",
+      "votings": [
+        {
+          "votingId": 6,
           "votingResult": "PASSED"
         }
       ]
