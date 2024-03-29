@@ -33,7 +33,7 @@
               Stimmenthaltungen
               <span tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren"><i class="bi bi-info-circle"></i></span>
             </th>
-
+            <th sortablePersons="speakingTime" (sort)="onSort($event)" style="text-align: right;">Redezeit</th>
           </thead>
           <tbody>
           <tr *ngFor="let person of sortedPersons">
@@ -48,6 +48,7 @@
             <td style="text-align: right;">{{ person.votingAttendance * 100 | number : '1.2-2'}}%</td>
             <td style="text-align: right;">{{ person.votingSuccessRate * 100 | number : '1.2-2'}}%</td>
             <td style="text-align: right;">{{ person.abstentionRate * 100 | number : '1.2-2'}}%</td>
+            <td style="text-align: right;">{{ person.speakingTime | speakingTime }}</td>
           </tr>
           </tbody>
         </table>

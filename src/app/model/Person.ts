@@ -60,4 +60,5 @@ export type PersonLightDto = {
   votingAttendance: number;
   votingSuccessRate: number;
   abstentionRate: number;
+  speakingTime: number;
 };
