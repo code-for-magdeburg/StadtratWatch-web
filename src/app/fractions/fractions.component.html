@@ -139,6 +139,7 @@
             <i class="bi bi-info-circle"></i>
           </span>
         </th>
+        <th sortableFractions="speakingTime" (sort)="onSort($event)" style="text-align: right;">Redezeit</th>
       </thead>
       <tbody>
       <tr *ngFor="let fraction of sortedFractions">
@@ -149,6 +150,7 @@
         <td style="text-align: right;">{{ fraction.participationRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ fraction.abstentionRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</td>
+        <td style="text-align: right;">{{ fraction.speakingTime | speakingTime }}</td>
       </tr>
       </tbody>
     </table>
