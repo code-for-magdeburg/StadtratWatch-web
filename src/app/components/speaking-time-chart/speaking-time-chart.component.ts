@@ -3,7 +3,8 @@ import { ChartConfiguration } from 'chart.js';
 import { SessionDetailsDto } from '../../model/Session';
 import { BaseChartDirective } from 'ng2-charts';
 import { FractionLightDto } from '../../model/Fraction';
-import { SpeakingTimePipe } from "../../pipes/speaking-time.pipe";
+import { SpeakingTimePipe } from '../../pipes/speaking-time.pipe';
+import { PartyDto } from '../../model/Party';
 
 
 export class SpeakingTimeChartData {
@@ -31,6 +32,11 @@ export class SpeakingTimeChartData {
   public static fromFraction(fraction: FractionLightDto): SpeakingTimeChartData {
     const speakingTimeDisplay = new SpeakingTimePipe().transform(fraction.speakingTime) as string;
     return new SpeakingTimeChartData(fraction.name, fraction.speakingTime, speakingTimeDisplay.toString());
+  }
+
+  public static fromParty(party: PartyDto): SpeakingTimeChartData {
+    const speakingTimeDisplay = new SpeakingTimePipe().transform(party.speakingTime) as string;
+    return new SpeakingTimeChartData(party.name, party.speakingTime, speakingTimeDisplay.toString());
   }
 
 }

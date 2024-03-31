@@ -7,6 +7,7 @@ export type PartyDto = {
   uniformityScore: number;
   participationRate: number;
   abstentionRate: number;
+  speakingTime: number;
   statsHistory: PartyStatsHistoryDto;
 };
 

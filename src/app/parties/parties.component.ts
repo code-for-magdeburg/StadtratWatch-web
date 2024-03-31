@@ -8,6 +8,7 @@ import {
 import { UniformityScoreChartData } from '../components/uniformity-score-chart/uniformity-score-chart.component';
 import { ParticipationRateChartData } from '../components/participation-rate-chart/participation-rate-chart.component';
 import { AbstentionRateChartData } from '../components/abstention-rate-chart/abstention-rate-chart.component';
+import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class PartiesComponent {
   public uniformityScores: UniformityScoreChartData[] = [];
   public participationRates: ParticipationRateChartData[] = [];
   public abstentionRates: AbstentionRateChartData[] = [];
+  public speakingTimes: SpeakingTimeChartData[] = [];
 
   @ViewChildren(SortablePartiesDirective) headers: QueryList<SortablePartiesDirective> | undefined;
 
@@ -45,6 +47,7 @@ export class PartiesComponent {
         this.uniformityScores = this.data.map(UniformityScoreChartData.fromParty);
         this.participationRates = this.data.map(ParticipationRateChartData.fromParty);
         this.abstentionRates = this.data.map(AbstentionRateChartData.fromParty);
+        this.speakingTimes = this.data.map(SpeakingTimeChartData.fromParty);
       });
 
   }
