@@ -1,7 +1,9 @@
-import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { SessionDetailsDto } from '../../model/Session';
 import { BaseChartDirective } from 'ng2-charts';
+import { FractionLightDto } from '../../model/Fraction';
+import { SpeakingTimePipe } from "../../pipes/speaking-time.pipe";
 
 
 export class SpeakingTimeChartData {
@@ -24,6 +26,11 @@ export class SpeakingTimeChartData {
 
     });
 
+  }
+
+  public static fromFraction(fraction: FractionLightDto): SpeakingTimeChartData {
+    const speakingTimeDisplay = new SpeakingTimePipe().transform(fraction.speakingTime) as string;
+    return new SpeakingTimeChartData(fraction.name, fraction.speakingTime, speakingTimeDisplay.toString());
   }
 
 }
@@ -60,7 +67,7 @@ export class SpeakingTimeChartComponent implements OnChanges {
       .sort((a, b) => b.totalDurationSeconds - a.totalDurationSeconds);
 
     this.chartData = {
-      labels: speakingTimes.map(speakingTime => `${speakingTime.speaker} (${speakingTime.totalDurationDisplay})`),
+      labels: speakingTimes.map(speakingTime => `${speakingTime.speaker} ${speakingTime.totalDurationDisplay}`),
       datasets: [{ data: speakingTimes.map(speakingTime => speakingTime.totalDurationSeconds) }]
     };
 

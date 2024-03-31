@@ -33,7 +33,10 @@
               Stimmenthaltungen
               <span tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren"><i class="bi bi-info-circle"></i></span>
             </th>
-            <th sortablePersons="speakingTime" (sort)="onSort($event)" style="text-align: right;">Redezeit</th>
+            <th sortablePersons="speakingTime" (sort)="onSort($event)" style="text-align: right;">
+              Redezeit
+              <span tooltip="Gibt an, wie lange das Ratsmitglied insgesamt in den Ratssitzungen gesprochen hat"><i class="bi bi-info-circle"></i></span>
+            </th>
           </thead>
           <tbody>
           <tr *ngFor="let person of sortedPersons">
