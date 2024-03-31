@@ -9,8 +9,10 @@ import { PartyDto } from '../../model/Party';
 
 export class SpeakingTimeChartData {
 
-  constructor(public readonly speaker: string, public readonly totalDurationSeconds: number,
-              public readonly totalDurationDisplay: string) {
+  public readonly totalDurationDisplay: string;
+
+  constructor(public readonly speaker: string, public readonly totalDurationSeconds: number) {
+    this.totalDurationDisplay = new SpeakingTimePipe().transform(totalDurationSeconds) as string;
   }
 
   public static fromSession(session: SessionDetailsDto): SpeakingTimeChartData[] {
@@ -21,22 +23,19 @@ export class SpeakingTimeChartData {
         (total, segment) => total + segment.duration,
         0
       );
-      const totalDurationDisplay = `${Math.floor(totalDurationSeconds / 60)} min ${Math.round(totalDurationSeconds % 60)} sec`;
 
-      return new SpeakingTimeChartData(speakingTime.speaker, totalDurationSeconds, totalDurationDisplay);
+      return new SpeakingTimeChartData(speakingTime.speaker, totalDurationSeconds);
 
     });
 
   }
 
   public static fromFraction(fraction: FractionLightDto): SpeakingTimeChartData {
-    const speakingTimeDisplay = new SpeakingTimePipe().transform(fraction.speakingTime) as string;
-    return new SpeakingTimeChartData(fraction.name, fraction.speakingTime, speakingTimeDisplay.toString());
+    return new SpeakingTimeChartData(fraction.name, fraction.speakingTime);
   }
 
   public static fromParty(party: PartyDto): SpeakingTimeChartData {
-    const speakingTimeDisplay = new SpeakingTimePipe().transform(party.speakingTime) as string;
-    return new SpeakingTimeChartData(party.name, party.speakingTime, speakingTimeDisplay.toString());
+    return new SpeakingTimeChartData(party.name, party.speakingTime);
   }
 
 }
