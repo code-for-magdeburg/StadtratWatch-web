@@ -2,12 +2,12 @@
   "id": "d6db336f-1f1a-4eb9-b743-1c18e39259f8",
   "name": "Gartenpartei/Tierschutzallianz",
   "seats": 3,
-  "applicationsSuccessRate": 0.45454545454545453,
-  "votingsSuccessRate": 0.6750681198910081,
-  "uniformityScore": 0.8552571440339536,
-  "participationRate": 0.84763851044505,
-  "abstentionRate": 0.13545076946222961,
-  "speakingTime": 20124.158000000003,
+  "applicationsSuccessRate": 0.45901639344262296,
+  "votingsSuccessRate": 0.6796368352788587,
+  "uniformityScore": 0.856416859373779,
+  "participationRate": 0.8367920449632512,
+  "abstentionRate": 0.135439885519916,
+  "speakingTime": 21680.467000000004,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -115,12 +115,16 @@
         "value": 0.4336283185840708
       },
       {
+        "date": "2024-02-15",
+        "value": 0.43859649122807015
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.43478260869565216
+        "value": 0.4396551724137931
       },
       {
         "date": "2024-03-11",
-        "value": 0.45454545454545453
+        "value": 0.45901639344262296
       }
     ],
     "votingsSuccessRate": [
@@ -229,12 +233,16 @@
         "value": 0.6761363636363636
       },
       {
+        "date": "2024-02-15",
+        "value": 0.6808367071524967
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.6787204450625869
+        "value": 0.6832010582010583
       },
       {
         "date": "2024-03-11",
-        "value": 0.6750681198910081
+        "value": 0.6796368352788587
       }
     ],
     "uniformityScore": [
@@ -343,12 +351,16 @@
         "value": 0.8632317472990807
       },
       {
+        "date": "2024-02-15",
+        "value": 0.864182011802407
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.8604783080987032
+        "value": 0.8614929716983527
       },
       {
         "date": "2024-03-11",
-        "value": 0.8552571440339536
+        "value": 0.856416859373779
       }
     ],
     "participationRate": [
@@ -457,12 +469,16 @@
         "value": 0.8432765151515151
       },
       {
+        "date": "2024-02-15",
+        "value": 0.832208726945569
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.8463143254520167
+        "value": 0.8353174603174603
       },
       {
         "date": "2024-03-11",
-        "value": 0.84763851044505
+        "value": 0.8367920449632512
       }
     ],
     "abstentionRate": [
@@ -571,12 +587,16 @@
         "value": 0.13390424745505072
       },
       {
+        "date": "2024-02-15",
+        "value": 0.13394983588764642
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.13347157985383484
+        "value": 0.1335309925424527
       },
       {
         "date": "2024-03-11",
-        "value": 0.13545076946222961
+        "value": 0.135439885519916
       }
     ]
   },
@@ -2085,6 +2105,20 @@
       "votings": [
         {
           "votingId": 74,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0635/23/1",
+      "type": "Änderungsantrag",
+      "title": "Satzung über die Schulbezirke der kommunalen Grundschulen im Einschulungsjahr 2025/26",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687745&type=do",
+      "votings": [
+        {
+          "votingId": 17,
           "votingResult": "PASSED"
         }
       ]
