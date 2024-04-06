@@ -2,11 +2,11 @@
   "id": "c2aa86cd-7b8e-4e1c-b489-3b535f1be029",
   "name": "DIE LINKE",
   "seats": 8,
-  "applicationsSuccessRate": 0.8324873096446701,
-  "votingsSuccessRate": 0.8480926430517711,
-  "uniformityScore": 0.9575380739126406,
-  "participationRate": 0.7878065395095368,
-  "abstentionRate": 0.09054735028345971,
+  "applicationsSuccessRate": 0.8232558139534883,
+  "votingsSuccessRate": 0.8482490272373541,
+  "uniformityScore": 0.9573646800711582,
+  "participationRate": 0.7863164721141375,
+  "abstentionRate": 0.09078898294798515,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -114,12 +114,16 @@
         "value": 0.827027027027027
       },
       {
+        "date": "2024-02-15",
+        "value": 0.8177339901477833
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.8225806451612904
+        "value": 0.8137254901960784
       },
       {
         "date": "2024-03-11",
-        "value": 0.8324873096446701
+        "value": 0.8232558139534883
       }
     ],
     "votingsSuccessRate": [
@@ -228,12 +232,16 @@
         "value": 0.8544034090909091
       },
       {
+        "date": "2024-02-15",
+        "value": 0.854251012145749
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.8504867872044506
+        "value": 0.8505291005291006
       },
       {
         "date": "2024-03-11",
-        "value": 0.8480926430517711
+        "value": 0.8482490272373541
       }
     ],
     "uniformityScore": [
@@ -342,12 +350,16 @@
         "value": 0.9590352029193515
       },
       {
+        "date": "2024-02-15",
+        "value": 0.9587935158671405
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.956565057249793
+        "value": 0.9564202213662165
       },
       {
         "date": "2024-03-11",
-        "value": 0.9575380739126406
+        "value": 0.9573646800711582
       }
     ],
     "participationRate": [
@@ -456,12 +468,16 @@
         "value": 0.7840021306818182
       },
       {
+        "date": "2024-02-15",
+        "value": 0.7826417004048583
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.7871175243393602
+        "value": 0.7856316137566137
       },
       {
         "date": "2024-03-11",
-        "value": 0.7878065395095368
+        "value": 0.7863164721141375
       }
     ],
     "abstentionRate": [
@@ -570,12 +586,16 @@
         "value": 0.08606411837608238
       },
       {
+        "date": "2024-02-15",
+        "value": 0.08648969538269775
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.08836303697826156
+        "value": 0.08869131057027714
       },
       {
         "date": "2024-03-11",
-        "value": 0.09054735028345971
+        "value": 0.09078898294798515
       }
     ]
   },
@@ -3072,6 +3092,248 @@
       "votings": [
         {
           "votingId": 82,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0077/23",
+      "type": "Antrag",
+      "title": "Einwohner*innen an der Zukunft der Salbker Seen beteiligen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=666579&type=do",
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0080/23",
+      "type": "Antrag",
+      "title": "Kinderfreundliches Magdeburg - Stempelkarte für Spielplätze",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=666655&type=do",
+      "votings": [
+        {
+          "votingId": 31,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0204/23/1",
+      "type": "Änderungsantrag",
+      "title": "Energiewende vorantreiben - Kommune und Bürger*innen profitieren",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687552&type=do",
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0241/23",
+      "type": "Antrag",
+      "title": "Kommunales Fuhrparkmanagement",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=678816&type=do",
+      "votings": [
+        {
+          "votingId": 39,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0202/23",
+      "type": "Antrag",
+      "title": "Wohntrend bei TinyHouses nicht verpassen, kostengünstiges Bauen und Wohnen ermöglichen!",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=676028&type=do",
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0289/23",
+      "type": "Antrag",
+      "title": "Förderfähige Anträge auf Städtebaufördermittel",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682660&type=do",
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0010/24",
+      "type": "Geschäftsordnung",
+      "title": "Brauchtum stärken - Weihnachtsbaumverbrennen erlauben",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684947&type=do",
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0012/24",
+      "type": "Geschäftsordnung",
+      "title": "Digitalisierung der Sozialberichterstattung",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686525&type=do",
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0016/24",
+      "type": "Geschäftsordnung",
+      "title": "Trinkbrunnen-Kampagne zur EURO 2024",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686562&type=do",
+      "votings": [
+        {
+          "votingId": 55,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0025/24",
+      "type": "Geschäftsordnung",
+      "title": "Wiederherstellung Kunstwerk „Spielende Kinder” von Heinrich Apel",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686794&type=do",
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0026/24",
+      "type": "Geschäftsordnung",
+      "title": "Perspektivische Suche nach einem neuen Tierheimstandort",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686796&type=do",
+      "votings": [
+        {
+          "votingId": 60,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0030/24",
+      "type": "Geschäftsordnung",
+      "title": "Nachhaltige Stadtentwicklung sicherstellen - Soziale Vorhalteplanung aufstellen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686834&type=do",
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0031/24",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrssicherheit in Frankefelde-Ost verbessern",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686837&type=do",
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0033/24",
+      "type": "Geschäftsordnung",
+      "title": "Weitere Nutzung der Tatra-Straßenbahnen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686839&type=do",
+      "votings": [
+        {
+          "votingId": 64,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 65,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0034/24",
+      "type": "Geschäftsordnung",
+      "title": "Verbesserung Verkehrsinformationen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686845&type=do",
+      "votings": [
+        {
+          "votingId": 66,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0023/24",
+      "type": "Antrag",
+      "title": "Abstimmungen mit der MVB zu Abfahrtszeiten und Bauarbeiten",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686815&type=do",
+      "votings": [
+        {
+          "votingId": 70,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0020/24",
+      "type": "Geschäftsordnung",
+      "title": "Soziale Stadtentwicklung anpacken!",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686613&type=do",
+      "votings": [
+        {
+          "votingId": 71,
           "votingResult": "PASSED"
         }
       ]
