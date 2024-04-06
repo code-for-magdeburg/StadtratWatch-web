@@ -2,11 +2,11 @@
   "id": "480fb9f1-2032-49e3-b671-7eec6265fec0",
   "name": "SPD",
   "seats": 10,
-  "applicationsSuccessRate": 0.904,
-  "votingsSuccessRate": 0.9271117166212534,
-  "uniformityScore": 0.9838445451501637,
-  "participationRate": 0.7800408719346049,
-  "abstentionRate": 0.021960651210775613,
+  "applicationsSuccessRate": 0.9063670411985019,
+  "votingsSuccessRate": 0.9280155642023347,
+  "uniformityScore": 0.9837072778127025,
+  "participationRate": 0.7798313878080415,
+  "abstentionRate": 0.023058999145326154,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -114,12 +114,16 @@
         "value": 0.8978723404255319
       },
       {
+        "date": "2024-02-15",
+        "value": 0.9007936507936508
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.9
+        "value": 0.9027237354085603
       },
       {
         "date": "2024-03-11",
-        "value": 0.904
+        "value": 0.9063670411985019
       }
     ],
     "votingsSuccessRate": [
@@ -228,12 +232,16 @@
         "value": 0.9254261363636364
       },
       {
+        "date": "2024-02-15",
+        "value": 0.926450742240216
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.9262865090403338
+        "value": 0.9272486772486772
       },
       {
         "date": "2024-03-11",
-        "value": 0.9271117166212534
+        "value": 0.9280155642023347
       }
     ],
     "uniformityScore": [
@@ -342,12 +350,16 @@
         "value": 0.9833344185866231
       },
       {
+        "date": "2024-02-15",
+        "value": 0.9832058768746663
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.9837752954996406
+        "value": 0.9836355989590745
       },
       {
         "date": "2024-03-11",
-        "value": 0.9838445451501637
+        "value": 0.9837072778127025
       }
     ],
     "participationRate": [
@@ -456,12 +468,16 @@
         "value": 0.7796164772727273
       },
       {
+        "date": "2024-02-15",
+        "value": 0.7794197031039136
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.7825452016689847
+        "value": 0.7822089947089947
       },
       {
         "date": "2024-03-11",
-        "value": 0.7800408719346049
+        "value": 0.7798313878080415
       }
     ],
     "abstentionRate": [
@@ -570,12 +586,16 @@
         "value": 0.022367880791091685
       },
       {
+        "date": "2024-02-15",
+        "value": 0.023532505254856485
+      },
+      {
         "date": "2024-03-07",
-        "value": 0.021715807604825502
+        "value": 0.022862126665822494
       },
       {
         "date": "2024-03-11",
-        "value": 0.021960651210775613
+        "value": 0.023058999145326154
       }
     ]
   },
@@ -3766,6 +3786,244 @@
       "votings": [
         {
           "votingId": 84,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0626/23/3",
+      "type": "Änderungsantrag",
+      "title": "Standort künftiges Zentrum für Industriekultur für das nördliche Sachsen-Anhalt",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686855&type=do",
+      "votings": [
+        {
+          "votingId": 15,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0635/23/2",
+      "type": "Änderungsantrag",
+      "title": "Satzung über die Schulbezirke der kommunalen Grundschulen im Einschulungsjahr 2025/26",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687779&type=do",
+      "votings": [
+        {
+          "votingId": 18,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0077/23/1/1",
+      "type": "Änderungsantrag",
+      "title": "Einwohner:innen an der Zukunft der Salbker Seen beteiligen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687782&type=do",
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0644/23/1",
+      "type": "Änderungsantrag",
+      "title": "Flächenbefestigung Denkmal Magdeburger Recht",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687804&type=do",
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0210/23",
+      "type": "Antrag",
+      "title": "Wegebeziehung für Radverkehr am Ende des Parkplatzes Sternbrücke öffnen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=676274&type=do",
+      "votings": [
+        {
+          "votingId": 35,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0233/23",
+      "type": "Antrag",
+      "title": "GiroCode auf Knöllchen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=678577&type=do",
+      "votings": [
+        {
+          "votingId": 37,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0156/23/2",
+      "type": "Änderungsantrag",
+      "title": "Änderung/Ergänzung der Gefahrenabwehrverordnung",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687092&type=do",
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0010/24",
+      "type": "Geschäftsordnung",
+      "title": "Brauchtum stärken - Weihnachtsbaumverbrennen erlauben",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684947&type=do",
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0014/24",
+      "type": "Geschäftsordnung",
+      "title": "Flexibler Busstopp in den Nachtstunden",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686552&type=do",
+      "votings": [
+        {
+          "votingId": 50,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0015/24",
+      "type": "Geschäftsordnung",
+      "title": "Aufstellung Verkehrsspiegel Pestalozzistraße (Börderadweg)",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686557&type=do",
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0018/24",
+      "type": "Geschäftsordnung",
+      "title": "Breiter Weg - Verkehrssicherheit erhöhen, Lärmbelästigung reduzieren",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686569&type=do",
+      "votings": [
+        {
+          "votingId": 56,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0027/24",
+      "type": "Geschäftsordnung",
+      "title": "Wie machen wir unsere Haltestellen sicherer?",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686799&type=do",
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0034/24",
+      "type": "Geschäftsordnung",
+      "title": "Verbesserung Verkehrsinformationen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686845&type=do",
+      "votings": [
+        {
+          "votingId": 66,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0028/24",
+      "type": "Geschäftsordnung",
+      "title": "Offenlegung von Geschäftsführer:innengehältern kommunaler Gesellschaften sowie Eigenbetriebe prüfen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686814&type=do",
+      "votings": [
+        {
+          "votingId": 69,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0020/24",
+      "type": "Geschäftsordnung",
+      "title": "Soziale Stadtentwicklung anpacken!",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686613&type=do",
+      "votings": [
+        {
+          "votingId": 71,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0019/24",
+      "type": "Geschäftsordnung",
+      "title": "Schutz von Kulturstätten",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686611&type=do",
+      "votings": [
+        {
+          "votingId": 72,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0029/24",
+      "type": "Geschäftsordnung",
+      "title": "Nahverkehr attraktiv machen - Kundenfreundliche Kommunikation entwickeln",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686828&type=do",
+      "votings": [
+        {
+          "votingId": 73,
           "votingResult": "PASSED"
         }
       ]
