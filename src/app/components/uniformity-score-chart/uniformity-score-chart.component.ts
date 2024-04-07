@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { FractionLightDto } from '../../model/Fraction';
 import { PartyDto } from '../../model/Party';
@@ -25,9 +25,10 @@ export class UniformityScoreChartData {
   templateUrl: './uniformity-score-chart.component.html',
   styleUrls: ['./uniformity-score-chart.component.scss']
 })
-export class UniformityScoreChartComponent {
+export class UniformityScoreChartComponent implements OnChanges {
 
 
+  public chartHeight = 0;
   public uniformityScoreChartData: ChartConfiguration<'bar'>['data'] | undefined = undefined;
   public uniformityScoreChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
@@ -35,7 +36,6 @@ export class UniformityScoreChartComponent {
   @Input() data: UniformityScoreChartData[] = [];
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       this.setUpUniformityScoreChart(changes['data'].currentValue);
@@ -56,6 +56,7 @@ export class UniformityScoreChartComponent {
 
     this.uniformityScoreChartOptions = {
       responsive: true,
+      maintainAspectRatio: false,
       indexAxis: 'y',
       scales: {
         x: { display: false, max: 1, ticks: { display: false } },
@@ -65,6 +66,8 @@ export class UniformityScoreChartComponent {
         }
       }
     };
+
+    this.chartHeight = uniformityScoreData.length * 40;
 
   }
 

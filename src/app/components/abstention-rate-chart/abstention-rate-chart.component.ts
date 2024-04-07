@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { FractionLightDto } from '../../model/Fraction';
 import { PartyDto } from '../../model/Party';
@@ -25,9 +25,9 @@ export class AbstentionRateChartData {
   templateUrl: './abstention-rate-chart.component.html',
   styleUrls: ['./abstention-rate-chart.component.scss']
 })
-export class AbstentionRateChartComponent {
+export class AbstentionRateChartComponent implements OnChanges {
 
-
+  public chartHeight = 0;
   public abstentionRateChartData: ChartConfiguration<'bar'>['data'] | undefined = undefined;
   public abstentionRateChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
@@ -35,7 +35,6 @@ export class AbstentionRateChartComponent {
   @Input() data: AbstentionRateChartData[] = [];
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       this.setUpAbstentionRateChart(changes['data'].currentValue);
@@ -56,6 +55,7 @@ export class AbstentionRateChartComponent {
 
     this.abstentionRateChartOptions = {
       responsive: true,
+      maintainAspectRatio: false,
       indexAxis: 'y',
       scales: {
         x: { display: false, max: 100, ticks: { display: false } },
@@ -65,6 +65,8 @@ export class AbstentionRateChartComponent {
         }
       }
     };
+
+    this.chartHeight = abstentionRateData.length * 40;
 
   }
 

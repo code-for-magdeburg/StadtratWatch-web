@@ -28,6 +28,7 @@ export class VotingsSuccessRateChartData {
 export class VotingsSuccessRateChartComponent implements OnChanges {
 
 
+  public chartHeight = 0;
   public votingsSuccessRateChartData: ChartConfiguration<'bar'>['data'] | undefined = undefined;
   public votingsSuccessRateChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
@@ -55,6 +56,7 @@ export class VotingsSuccessRateChartComponent implements OnChanges {
 
     this.votingsSuccessRateChartOptions = {
       responsive: true,
+      maintainAspectRatio: false,
       indexAxis: 'y',
       scales: {
         x: { display: false, max: 100, ticks: { display: false } },
@@ -64,6 +66,8 @@ export class VotingsSuccessRateChartComponent implements OnChanges {
         }
       }
     };
+
+    this.chartHeight = votingsSuccessRateData.length * 40;
 
   }
 
