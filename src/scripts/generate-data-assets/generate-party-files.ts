@@ -18,6 +18,7 @@ export function generatePartyFiles(partiesOutputDir: string, registry: Registry,
     const uniformityScore = calcUniformityScore(members, sessions) || 0;
     const participationRate = calcParticipationRate(party, sessions) || 0;
     const abstentionRate = calcAbstentionRate(members, sessions) || 0;
+    const speakingTime = calcSpeakingTime(members, sessions) || 0;
     return {
       id: party.id,
       name: party.name,
@@ -26,6 +27,7 @@ export function generatePartyFiles(partiesOutputDir: string, registry: Registry,
       uniformityScore,
       participationRate,
       abstentionRate,
+      speakingTime,
       statsHistory: calcStatsHistory(party, members, sessions)
     };
   });
@@ -206,5 +208,31 @@ function calcStatsHistory(party: RegistryParty, partyMembers: RegistryPerson[],
       value: calcAbstentionRate(partyMembers, sessions.filter(s => s.date <= session.date))
     }))
   };
+
+}
+
+
+function calcSpeakingTime(partyMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
+  return sessions
+    .map(session => calcSpeakingTimeForSession(partyMembers, session))
+    .reduce((a, b) => a + b, 0);
+}
+
+
+function calcSpeakingTimeForSession(partyMembers: RegistryPerson[], session: SessionDetailsDto): number {
+
+  const partySpeakingTimes = session.speakingTimes.filter(speakingTime =>
+    partyMembers.some(member => member.name === speakingTime.speaker)
+  );
+
+  return partySpeakingTimes.reduce(
+    (a, b) => {
+      const accumulatedTime = b.segments.reduce(
+        (acc, segment) => acc + segment.duration,
+        0
+      );
+      return a + accumulatedTime;
+    },
+    0);
 
 }

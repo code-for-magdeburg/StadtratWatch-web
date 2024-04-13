@@ -8,6 +8,7 @@ export interface Person {
   votingAttendance: number;
   votingSuccessRate: number;
   abstentionRate: number;
+  speakingTime: number;
 }
 
 

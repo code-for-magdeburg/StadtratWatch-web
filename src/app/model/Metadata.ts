@@ -8,4 +8,5 @@ export type MetadataDto = {
   fractionsCount: number;
   partiesCount: number;
   personsCount: number;
+  speakingTime: number;
 };

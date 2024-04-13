@@ -5,8 +5,10 @@ import { Registry } from './model/registry';
 
 
 export function generateMetadataFile(metadataFilename: string, registry: Registry, sessions: SessionDetailsDto[]) {
+
   const votingsCount = getVotingsCount(sessions);
   const votesCount = getVotesCount(sessions);
+  const speakingTime = getTotalSpeakingTime(sessions);
 
   const metadata: MetadataDto = {
     lastUpdatedTimestamp: new Date().toISOString(),
@@ -18,6 +20,7 @@ export function generateMetadataFile(metadataFilename: string, registry: Registr
     fractionsCount: registry.fractions.length,
     partiesCount: registry.parties.length,
     personsCount: registry.persons.length,
+    speakingTime,
   };
 
   fs.writeFileSync(metadataFilename, JSON.stringify(metadata, null, 2), `utf-8`);
@@ -37,4 +40,12 @@ function getVotesCount(sessions: SessionDetailsDto[]) {
       (acc, voting) => acc + onlyVoted(voting.votes).length, 0
     ), 0
   );
+}
+
+
+function getTotalSpeakingTime(sessions: SessionDetailsDto[]) {
+  return sessions
+    .flatMap(session => session.speakingTimes)
+    .flatMap(speakingTime => speakingTime.segments)
+    .reduce((acc, segment) => acc + segment.duration, 0);
 }

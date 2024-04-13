@@ -452,5 +452,6 @@ function createSession(votings: SessionVotingDto[], fractions: SessionFractionDt
     parties,
     persons,
     votings,
+    speakingTimes: []
   };
 }

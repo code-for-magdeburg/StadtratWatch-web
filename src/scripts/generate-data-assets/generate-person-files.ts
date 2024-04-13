@@ -30,6 +30,7 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
       const votingAttendance = calcVotingAttendance(sessions, person);
       const votingSuccessStats = calcPersonVotingSuccess(sessions, person);
       const abstentionStats = calcAbstentionStats(sessions, person);
+      const speakingTime = calcSpeakingTime(sessions, person);
       return {
         id: person.id,
         name: person.name,
@@ -41,6 +42,7 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
         votingAttendance,
         votingSuccessRate: votingSuccessStats.successRate,
         abstentionRate: abstentionStats.abstentionRate,
+        speakingTime
       };
 
     })
@@ -107,7 +109,7 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
   const links = [];
   for (let i = 0; i < personsForForceData.length; i++) {
     const person1 = personsForForceData[i];
-    nodes.push({ id: person1.id , name: person1.name, fraction: person1.fraction })
+    nodes.push({ id: person1.id, name: person1.name, fraction: person1.fraction })
     for (let j = i + 1; j < personsForForceData.length; j++) {
       const person2 = personsForForceData[j];
       const score = person1.votingMatrix
@@ -227,5 +229,22 @@ function calcStatsHistory(sessions: SessionDetailsDto[], person: RegistryPerson)
       value: calcAbstentionStats(sessions.filter(s => s.date <= session.date), person).abstentionRate
     }))
   };
+
+}
+
+
+function calcSpeakingTime(sessions: SessionDetailsDto[], person: RegistryPerson): number {
+
+  return sessions.reduce(
+    (totalTime, session) => {
+      const sessionSpeakingTime = session.speakingTimes.find(
+        speakingTime => speakingTime.speaker === person.name
+      );
+      const accumulatedSegments = sessionSpeakingTime
+        ? sessionSpeakingTime.segments.reduce((acc, segment) => acc + segment.duration, 0)
+        : 0;
+      return totalTime + accumulatedSegments;
+    },
+    0);
 
 }

@@ -79,7 +79,7 @@ export class PersonsComponent implements OnInit {
       .fetchAllPersonsForces()
       .subscribe(data => {
 
-        this.tabs? this.tabs.tabs[1].active = true : null;
+        this.tabs ? this.tabs.tabs[1].active = true : null;
 
         setTimeout(() => {
           this.drawGraph(data as GraphData);

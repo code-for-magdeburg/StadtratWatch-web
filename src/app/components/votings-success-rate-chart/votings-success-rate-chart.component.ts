@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { FractionLightDto } from '../../model/Fraction';
 import { PartyDto } from '../../model/Party';
@@ -25,9 +25,10 @@ export class VotingsSuccessRateChartData {
   templateUrl: './votings-success-rate-chart.component.html',
   styleUrls: ['./votings-success-rate-chart.component.scss']
 })
-export class VotingsSuccessRateChartComponent {
+export class VotingsSuccessRateChartComponent implements OnChanges {
 
 
+  public chartHeight = 0;
   public votingsSuccessRateChartData: ChartConfiguration<'bar'>['data'] | undefined = undefined;
   public votingsSuccessRateChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
@@ -35,7 +36,6 @@ export class VotingsSuccessRateChartComponent {
   @Input() data: VotingsSuccessRateChartData[] = [];
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       this.setUpVotingsSuccessRateChart(changes['data'].currentValue);
@@ -56,6 +56,7 @@ export class VotingsSuccessRateChartComponent {
 
     this.votingsSuccessRateChartOptions = {
       responsive: true,
+      maintainAspectRatio: false,
       indexAxis: 'y',
       scales: {
         x: { display: false, max: 100, ticks: { display: false } },
@@ -65,6 +66,8 @@ export class VotingsSuccessRateChartComponent {
         }
       }
     };
+
+    this.chartHeight = votingsSuccessRateData.length * 40;
 
   }
 

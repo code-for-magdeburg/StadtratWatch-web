@@ -77,6 +77,22 @@
       </div>
     </div>
 
+    <div class="col">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          Redezeit
+          <span
+            tooltip="Gibt an, wieviel Zeit die Mitglieder der Partei insgesamt in den Ratssitzungen gesprochen haben."
+          >
+            <i class="bi bi-question-circle"></i>
+          </span>
+        </div>
+        <div class="card-body">
+          <app-speaking-time-chart [data]="speakingTimes"></app-speaking-time-chart>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="table-responsive mt-5">
@@ -124,6 +140,7 @@
         <td style="text-align: right;">{{ party.uniformityScore | number : '0.3-3' }}</td>
         <td style="text-align: right;">{{ party.participationRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ party.abstentionRate * 100 | number : '1.1-1' }}%</td>
+        <td style="text-align: right;">{{ party.speakingTime | speakingTime }}</td>
       </tr>
       </tbody>
     </table>

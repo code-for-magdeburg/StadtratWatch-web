@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { FractionLightDto } from '../../model/Fraction';
 
@@ -20,9 +20,10 @@ export class ApplicationsSuccessRateChartData {
   templateUrl: './applications-success-rate-chart.component.html',
   styleUrls: ['./applications-success-rate-chart.component.scss']
 })
-export class ApplicationsSuccessRateChartComponent {
+export class ApplicationsSuccessRateChartComponent implements OnChanges {
 
 
+  public chartHeight = 0;
   public applicationSuccessRateChartData: ChartConfiguration<'bar'>['data'] | undefined = undefined;
   public applicationsSuccessRateChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
@@ -30,7 +31,6 @@ export class ApplicationsSuccessRateChartComponent {
   @Input() data: ApplicationsSuccessRateChartData[] = [];
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       this.setUpApplicationsSuccessRateChart(changes['data'].currentValue);
@@ -53,6 +53,7 @@ export class ApplicationsSuccessRateChartComponent {
 
     this.applicationsSuccessRateChartOptions = {
       responsive: true,
+      maintainAspectRatio: false,
       indexAxis: 'y',
       scales: {
         x: { display: false, max: 100, ticks: { display: false } },
@@ -62,6 +63,8 @@ export class ApplicationsSuccessRateChartComponent {
         }
       }
     };
+
+    this.chartHeight = applicationsSuccessRateData.length * 40;
 
   }
 
