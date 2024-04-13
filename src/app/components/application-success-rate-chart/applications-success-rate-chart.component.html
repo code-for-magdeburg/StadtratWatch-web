@@ -1,7 +1,8 @@
 <canvas
+  *ngIf="applicationSuccessRateChartData && applicationSuccessRateChartData.labels && applicationSuccessRateChartData.labels.length > 0"
   baseChart
   type="bar"
-  height="300"
+  [height]="chartHeight"
   [options]="applicationsSuccessRateChartOptions"
   [data]="applicationSuccessRateChartData"
   [legend]="false"

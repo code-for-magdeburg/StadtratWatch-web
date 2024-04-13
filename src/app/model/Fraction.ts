@@ -24,6 +24,7 @@ export type FractionLightDto = {
   uniformityScore: number;
   participationRate: number;
   abstentionRate: number;
+  speakingTime: number;
 };
 
 

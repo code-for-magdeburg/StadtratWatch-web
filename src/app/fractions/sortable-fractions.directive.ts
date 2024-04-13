@@ -9,6 +9,7 @@ export interface Fraction {
   uniformityScore: number;
   participationRate: number;
   abstentionRate: number;
+  speakingTime: number;
 }
 
 

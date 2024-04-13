@@ -26,6 +26,7 @@ export function generateFractionFiles(fractionsOutputDir: string, registry: Regi
     const uniformityScore = calcUniformityScore(members, sessions) || 0;
     const participationRate = calcParticipationRate(fraction, sessions) || 0;
     const abstentionRate = calcAbstentionRate(members, sessions) || 0;
+    const speakingTime = calcSpeakingTime(members, sessions) || 0;
     return {
       id: fraction.id,
       name: fraction.name,
@@ -34,7 +35,8 @@ export function generateFractionFiles(fractionsOutputDir: string, registry: Regi
       votingsSuccessRate,
       uniformityScore,
       participationRate,
-      abstentionRate
+      abstentionRate,
+      speakingTime
     };
   });
   fs.writeFileSync(
@@ -294,4 +296,30 @@ function getApplicationsOfFraction(fraction: FractionLightDto, sessions: Session
       votings
     };
   });
+}
+
+
+function calcSpeakingTime(fractionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
+  return sessions
+    .map(session => calcSpeakingTimeForSession(fractionMembers, session))
+    .reduce((a, b) => a + b, 0);
+}
+
+
+function calcSpeakingTimeForSession(fractionMembers: RegistryPerson[], session: SessionDetailsDto): number {
+
+  const fractionSpeakingTimes = session.speakingTimes.filter(speakingTime =>
+    fractionMembers.some(member => member.name === speakingTime.speaker)
+  );
+
+  return fractionSpeakingTimes.reduce(
+    (a, b) => {
+      const accumulatedTime = b.segments.reduce(
+        (acc, segment) => acc + segment.duration,
+        0
+      );
+      return a + accumulatedTime;
+    },
+    0);
+
 }

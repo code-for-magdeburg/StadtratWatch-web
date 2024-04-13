@@ -10,6 +10,7 @@ import { SessionScan, SessionVote } from './model/session-scan';
 import { ScrapedSession } from '../shared/model/scraped-session';
 import { Registry } from './model/registry';
 import { SessionConfig } from './model/session-config';
+import { SessionSpeaker } from './model/session-speaker';
 
 
 export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir: string, registry: Registry, scrapedSession: ScrapedSession): SessionDetailsDto[] {
@@ -52,6 +53,9 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
       const sessionScan = JSON.parse(
         fs.readFileSync(`${sessionDir}/session-scan-${session.date}.json`, 'utf-8')
       ) as SessionScan;
+      const sessionSpeakers = JSON.parse(
+        fs.readFileSync(`${sessionDir}/session-speakers-${session.date}.json`, 'utf-8')
+      ) as SessionSpeaker[];
       const sessionFractionNames = Array.from(new Set(
         sessionConfig.names.map(sessionConfigPerson => sessionConfigPerson.fraction)
       ));
@@ -117,7 +121,13 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
             })),
             votingResult: getVotingResult(voting.votes)
           };
-        })
+        }),
+        speakingTimes: sessionSpeakers.map<SessionSpeaker>(sessionSpeaker => ({
+          speaker: sessionSpeaker.speaker,
+          segments: sessionSpeaker.segments
+            .filter(segment => segment.duration > 1)
+            .map(segment => ({ start: segment.start, duration: segment.duration }))
+        }))
       };
     })
     .sort((a, b) => a.date.localeCompare(b.date));

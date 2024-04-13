@@ -14,41 +14,63 @@
     <h1>Stadtratssitzung - {{ sessionDate | date }}</h1>
     <div class="hstack gap-3">
       <a *ngIf="meetingMinutesUrl" [href]="meetingMinutesUrl" target="_blank">Niederschrift</a>
-      <a *ngIf="youtubeUrl" [href]="youtubeUrl" target="_blank">YouTube</a>
+      <a *ngIf="youtubeUrl" [href]="youtubeUrl + '?t=0'" target="_blank">YouTube</a>
     </div>
   </div>
 
-  <div class="list-group">
-    <a
-      *ngFor="let voting of votings"
-      class="list-group-item list-group-item-action"
-      [routerLink]="['voting', voting.id]"
-    >
-      <div class="d-flex w-100 justify-content-between">
-        <h5>
-          {{ voting.agendaItem }} {{ voting.type }} {{ voting.applicationId }}
-        </h5>
-        <span
-          *ngIf="voting.result === VotingResult.ACCEPTED"
-          class="badge rounded-pill align-self-center"
-          [style.background-color]="ACCEPTED_COLOR"
-        >angenommen</span>
-        <span
-          *ngIf="voting.result === VotingResult.REJECTED"
-          class="badge rounded-pill align-self-start"
-          [style.background-color]="REJECTED_COLOR"
-        >abgelehnt</span>
-      </div>
-      <p *ngIf="voting.authorNames.length > 0" class="mb-2">
+  <tabset #tabs>
+
+    <tab heading="Abstimmungen" class="pt-4">
+      <div class="list-group">
+        <a
+          *ngFor="let voting of votings"
+          class="list-group-item list-group-item-action"
+          [routerLink]="['voting', voting.id]"
+        >
+          <div class="d-flex w-100 justify-content-between">
+            <h5>
+              {{ voting.agendaItem }} {{ voting.type }} {{ voting.applicationId }}
+            </h5>
+            <span
+              *ngIf="voting.result === VotingResult.ACCEPTED"
+              class="badge rounded-pill align-self-center"
+              [style.background-color]="ACCEPTED_COLOR"
+            >angenommen</span>
+            <span
+              *ngIf="voting.result === VotingResult.REJECTED"
+              class="badge rounded-pill align-self-start"
+              [style.background-color]="REJECTED_COLOR"
+            >abgelehnt</span>
+          </div>
+          <p *ngIf="voting.authorNames.length > 0" class="mb-2">
         <span
           *ngFor="let author of voting.authorNames"
           class="badge border border-light-subtle text-bg-light me-1"
         >
           {{ author }}
         </span>
-      </p>
-      <p>{{ voting.title }}</p>
-    </a>
-  </div>
+          </p>
+          <p>{{ voting.title }}</p>
+        </a>
+      </div>
+    </tab>
+
+    <tab heading="Redezeiten" class="pt-4">
+
+      <div [hidden]="speakingTimes.length === 0">
+        <div class="alert alert-info">
+          Die Redezeiten wurden automatisch mit Hilfe einer Software ermittelt. Sie sind nur eine Schätzung und können
+          von den tatsächlichen Redezeiten abweichen.
+        </div>
+        <app-speaking-time-chart [data]="speakingTimes"></app-speaking-time-chart>
+      </div>
+
+      <div *ngIf="speakingTimes.length === 0" class="alert alert-warning">
+        Für diese Sitzung liegen noch keine Daten zu den Redezeiten vor.
+      </div>
+
+    </tab>
+
+  </tabset>
 
 </div>

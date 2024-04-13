@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { FractionLightDto } from '../../model/Fraction';
 import { PartyDto } from '../../model/Party';
@@ -25,9 +25,10 @@ export class ParticipationRateChartData {
   templateUrl: './participation-rate-chart.component.html',
   styleUrls: ['./participation-rate-chart.component.scss']
 })
-export class ParticipationRateChartComponent {
+export class ParticipationRateChartComponent implements OnChanges {
 
 
+  public chartHeight = 0;
   public participationRateChartData: ChartConfiguration<'bar'>['data'] | undefined = undefined;
   public participationRateChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
@@ -35,7 +36,6 @@ export class ParticipationRateChartComponent {
   @Input() data: ParticipationRateChartData[] = [];
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {
       this.setUpParticipationRateChart(changes['data'].currentValue);
@@ -56,6 +56,7 @@ export class ParticipationRateChartComponent {
 
     this.participationRateChartOptions = {
       responsive: true,
+      maintainAspectRatio: false,
       indexAxis: 'y',
       scales: {
         x: { display: false, max: 100, ticks: { display: false } },
@@ -65,6 +66,8 @@ export class ParticipationRateChartComponent {
         }
       }
     };
+
+    this.chartHeight = participationRateData.length * 40;
 
   }
 

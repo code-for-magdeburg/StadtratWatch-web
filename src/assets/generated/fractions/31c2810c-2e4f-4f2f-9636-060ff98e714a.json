@@ -2,11 +2,12 @@
   "id": "31c2810c-2e4f-4f2f-9636-060ff98e714a",
   "name": "AfD",
   "seats": 8,
-  "applicationsSuccessRate": 0.0761904761904762,
-  "votingsSuccessRate": 0.5823863636363636,
-  "uniformityScore": 0.9884309284457723,
-  "participationRate": 0.7112038352272727,
-  "abstentionRate": 0.11405494205088341,
+  "applicationsSuccessRate": 0.07079646017699115,
+  "votingsSuccessRate": 0.5888456549935149,
+  "uniformityScore": 0.9894280218551232,
+  "participationRate": 0.7074416342412452,
+  "abstentionRate": 0.11168232988558766,
+  "speakingTime": 32017.281999999996,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -112,6 +113,18 @@
       {
         "date": "2024-01-18",
         "value": 0.0761904761904762
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.07407407407407407
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.07142857142857142
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.07079646017699115
       }
     ],
     "votingsSuccessRate": [
@@ -218,6 +231,18 @@
       {
         "date": "2024-01-18",
         "value": 0.5823863636363636
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.5883940620782726
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.5873015873015873
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.5888456549935149
       }
     ],
     "uniformityScore": [
@@ -324,6 +349,18 @@
       {
         "date": "2024-01-18",
         "value": 0.9884309284457723
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.9886449123629101
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.9890504512070919
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.9894280218551232
       }
     ],
     "participationRate": [
@@ -430,6 +467,18 @@
       {
         "date": "2024-01-18",
         "value": 0.7112038352272727
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.7162618083670715
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.7143683862433863
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.7074416342412452
       }
     ],
     "abstentionRate": [
@@ -536,6 +585,18 @@
       {
         "date": "2024-01-18",
         "value": 0.11405494205088341
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.11254768765489045
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.11448050833388246
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.11168232988558766
       }
     ]
   },
@@ -1956,6 +2017,118 @@
       "votings": [
         {
           "votingId": 2,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0011/24",
+      "type": "Antrag",
+      "title": "Beendigung der Zuwendungen zum Deutschen Institut für Urbanistik gGmbH",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686530&type=do",
+      "votings": [
+        {
+          "votingId": 47,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0017/24",
+      "type": "Geschäftsordnung",
+      "title": "Entwicklungspotenziale für den Zoo - Denkmalstatus des Vogelgesang-Parks",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686565&type=do",
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0017/24",
+      "type": "Antrag",
+      "title": "Entwicklungspotenziale für den Zoo - Denkmalstatus des Vogelgesang-Parks",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686565&type=do",
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0613/23/1",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Wahlsichtwerbung-Sondernutzungssatzung",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688231&type=do",
+      "votings": [
+        {
+          "votingId": 3,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0613/23/2",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Wahlsichtwerbung-Sondernutzungssatzung",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688597&type=do",
+      "votings": [
+        {
+          "votingId": 4,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0613/23/3",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Wahlsichtwerbung-Sondernutzungssatzung",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688722&type=do",
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0072/24/2",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs zum B-Plan Nr. 237-4 \"Maybachstraße\" mit örtlicher Bauvorschrift",
+      "sessionId": "eb5cb434-42ef-4df5-845c-2d085ffa3275",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=689222&type=do",
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0045/24",
+      "type": "Antrag",
+      "title": "Jurassic Park in Magdeburg",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688277&type=do",
+      "votings": [
+        {
+          "votingId": 9,
           "votingResult": "REJECTED"
         }
       ]

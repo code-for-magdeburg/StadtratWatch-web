@@ -2,11 +2,12 @@
   "id": "0c96deb0-8a5e-4cb7-aea7-b167a0c9f472",
   "name": "FDP/Tierschutzpartei",
   "seats": 6,
-  "applicationsSuccessRate": 0.8397790055248618,
-  "votingsSuccessRate": 0.8387784090909091,
-  "uniformityScore": 0.8121581674847137,
-  "participationRate": 0.7482244318181818,
-  "abstentionRate": 0.15123461882615977,
+  "applicationsSuccessRate": 0.8529411764705882,
+  "votingsSuccessRate": 0.8456549935149157,
+  "uniformityScore": 0.8170203390372426,
+  "participationRate": 0.7422178988326849,
+  "abstentionRate": 0.1475353971002269,
+  "speakingTime": 16800.459999999995,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -112,6 +113,18 @@
       {
         "date": "2024-01-18",
         "value": 0.8397790055248618
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.84375
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.84375
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.8529411764705882
       }
     ],
     "votingsSuccessRate": [
@@ -218,6 +231,18 @@
       {
         "date": "2024-01-18",
         "value": 0.8387784090909091
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.8414304993252362
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.8425925925925926
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.8456549935149157
       }
     ],
     "uniformityScore": [
@@ -324,6 +349,18 @@
       {
         "date": "2024-01-18",
         "value": 0.8121581674847137
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.8136514752622235
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.8146520178123823
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.8170203390372426
       }
     ],
     "participationRate": [
@@ -430,6 +467,18 @@
       {
         "date": "2024-01-18",
         "value": 0.7482244318181818
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.7420152946468735
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.7414021164021164
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.7422178988326849
       }
     ],
     "abstentionRate": [
@@ -536,6 +585,18 @@
       {
         "date": "2024-01-18",
         "value": 0.15123461882615977
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.15113884215291862
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.15078070890142548
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.1475353971002269
       }
     ]
   },
@@ -3030,6 +3091,328 @@
       "votings": [
         {
           "votingId": 85,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0233/23/1",
+      "type": "Änderungsantrag",
+      "title": "GiroCode auf Knöllchen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=679278&type=do",
+      "votings": [
+        {
+          "votingId": 36,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0012/24",
+      "type": "Geschäftsordnung",
+      "title": "Digitalisierung der Sozialberichterstattung",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686525&type=do",
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0014/24",
+      "type": "Antrag",
+      "title": "Flexibler Busstopp in den Nachtstunden",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686552&type=do",
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0015/24",
+      "type": "Geschäftsordnung",
+      "title": "Aufstellung Verkehrsspiegel Pestalozzistraße (Börderadweg)",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686557&type=do",
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0021/24",
+      "type": "Geschäftsordnung",
+      "title": "Silvesterfeuerwerk in der Landeshauptstadt",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686659&type=do",
+      "votings": [
+        {
+          "votingId": 57,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0026/24",
+      "type": "Geschäftsordnung",
+      "title": "Perspektivische Suche nach einem neuen Tierheimstandort",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686796&type=do",
+      "votings": [
+        {
+          "votingId": 60,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0030/24",
+      "type": "Geschäftsordnung",
+      "title": "Nachhaltige Stadtentwicklung sicherstellen - Soziale Vorhalteplanung aufstellen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686834&type=do",
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0031/24",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrssicherheit in Frankefelde-Ost verbessern",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686837&type=do",
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0033/24",
+      "type": "Geschäftsordnung",
+      "title": "Weitere Nutzung der Tatra-Straßenbahnen",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686839&type=do",
+      "votings": [
+        {
+          "votingId": 65,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0032/24",
+      "type": "Geschäftsordnung",
+      "title": "Insektenfreundliche Grünflächen in Reform",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686841&type=do",
+      "votings": [
+        {
+          "votingId": 67,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0035/24",
+      "type": "Geschäftsordnung",
+      "title": "Park- und Verkehrsleitsystem für Ostelbien",
+      "sessionId": "f87fdbba-7b5c-43fd-aaf7-3f503ad11107",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686872&type=do",
+      "votings": [
+        {
+          "votingId": 68,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0280/23",
+      "type": "Antrag",
+      "title": "Übergangslösung für den Alten Markt",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682652&type=do",
+      "votings": [
+        {
+          "votingId": 4,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0285/23/1",
+      "type": "Änderungsantrag",
+      "title": "Baumscheiben auf dem Alten Markt sanieren, Verkehrsberuhigung und Barrierefreiheit prüfen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687960&type=do",
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0039/24",
+      "type": "Geschäftsordnung",
+      "title": "Radwegmarkierung südliche Königstraße",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687990&type=do",
+      "votings": [
+        {
+          "votingId": 8,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0048/24",
+      "type": "Geschäftsordnung",
+      "title": "Aufwertung der Abfallbehälter/Papierkörbe",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688334&type=do",
+      "votings": [
+        {
+          "votingId": 10,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0050/24",
+      "type": "Geschäftsordnung",
+      "title": "Geschäftsführerverträge",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688338&type=do",
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0056/24",
+      "type": "Geschäftsordnung",
+      "title": "Anwohnerparken auf der Harsdorfer Straße",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688357&type=do",
+      "votings": [
+        {
+          "votingId": 17,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0058/24",
+      "type": "Geschäftsordnung",
+      "title": "Modularer Gebäudebau",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688361&type=do",
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0061/24",
+      "type": "Antrag",
+      "title": "Fraktionen des Stadtrates informieren über ihre Arbeit im Foyer des Alten Rathaus",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688375&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0040/24",
+      "type": "Geschäftsordnung",
+      "title": "Zickzacklinien vor abgesenkten Bordsteinen und Bushaltestellen",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688021&type=do",
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0043/24",
+      "type": "Antrag",
+      "title": "Prüfung alternative Verkehrsanbindung für Ottersleben",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688212&type=do",
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0066/24",
+      "type": "Geschäftsordnung",
+      "title": "Personelle Wiederbesetzung des Pflegeinormationsbüros",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688398&type=do",
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0280/23/1",
+      "type": "Änderungsantrag",
+      "title": "Übergangslösung für den Alten Markt",
+      "sessionId": "1fb301b8-0522-483d-86a1-941c20cffb5c",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687963&type=do",
+      "votings": [
+        {
+          "votingId": 3,
           "votingResult": "PASSED"
         }
       ]
