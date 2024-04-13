@@ -10,9 +10,10 @@ export class SpeakingTimePipe implements PipeTransform {
       return value;
     }
 
-    const hours = Math.floor(value / 3600);
-    const minutes = Math.floor((value % 3600) / 60);
-    const seconds = Math.floor(value % 60);
+    const roundedValue = Math.round(value / 10) * 10;
+    const hours = Math.floor(roundedValue / 3600);
+    const minutes = Math.floor((roundedValue % 3600) / 60);
+    const seconds = Math.floor(roundedValue % 60);
 
     return `${hours}h ${minutes}m ${seconds}s`;
 
