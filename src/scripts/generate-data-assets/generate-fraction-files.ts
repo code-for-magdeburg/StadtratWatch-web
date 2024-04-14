@@ -308,18 +308,10 @@ function calcSpeakingTime(fractionMembers: RegistryPerson[], sessions: SessionDe
 
 function calcSpeakingTimeForSession(fractionMembers: RegistryPerson[], session: SessionDetailsDto): number {
 
-  const fractionSpeakingTimes = session.speakingTimes.filter(speakingTime =>
+  const fractionSpeeches = session.speeches.filter(speakingTime =>
     fractionMembers.some(member => member.name === speakingTime.speaker)
   );
 
-  return fractionSpeakingTimes.reduce(
-    (a, b) => {
-      const accumulatedTime = b.segments.reduce(
-        (acc, segment) => acc + segment.duration,
-        0
-      );
-      return a + accumulatedTime;
-    },
-    0);
+  return fractionSpeeches.reduce((a, b) => a + b.duration, 0);
 
 }
