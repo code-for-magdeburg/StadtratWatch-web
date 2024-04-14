@@ -6,7 +6,7 @@ export class SpeakingTimePipe implements PipeTransform {
 
   transform(value: unknown, ...args: unknown[]): unknown {
 
-    const [unit] = args as [string];
+    const [unit, hideZeroHours] = args as [string, boolean];
 
     if (typeof value !== 'number') {
       return value;
@@ -17,15 +17,21 @@ export class SpeakingTimePipe implements PipeTransform {
     const minutes = Math.floor((roundedValue % 3600) / 60);
     const seconds = Math.floor(roundedValue % 60);
 
-    if (unit === 'h') {
-      return `${hours}h`;
+    let result = '';
+
+    if ((!unit || unit.includes('h')) && (!hideZeroHours || hours > 0)) {
+      result += ` ${hours}h`;
     }
 
-    if (unit === 'm') {
-      return `${hours}h ${minutes}m`;
+    if (!unit || unit.includes('m')) {
+      result += ` ${minutes}m`;
     }
 
-    return `${hours}h ${minutes}m ${seconds}s`;
+    if (!unit || unit.includes('s')) {
+      result += ` ${seconds}s`;
+    }
+
+    return result.trim();
 
   }
 
