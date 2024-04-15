@@ -1,7 +1,7 @@
 import { SessionDetailsDto, SessionVotingDto, VoteResult } from '../../app/model/Session';
 import {
   PersonDetailsDto,
-  PersonLightDto,
+  PersonLightDto, PersonSpeechDto,
   PersonStatsHistoryDto,
   PersonVoteDto,
   PersonVotingComparison
@@ -74,6 +74,18 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
     const votingAttendance = calcVotingAttendance(relevantSessions, person);
     const votingSuccess = calcPersonVotingSuccess(relevantSessions, person);
     const abstentionStats = calcAbstentionStats(relevantSessions, person);
+    const speeches: PersonSpeechDto[] = relevantSessions.flatMap(
+      session => session.speeches
+        .filter(speech => speech.speaker === person.name)
+        .map(speech => ({
+          sessionId: session.id,
+          sessionDate: session.date,
+          youtubeUrl: session.youtubeUrl,
+          start: speech.start,
+          duration: speech.duration
+        }))
+    );
+
     return {
       id: person.id,
       name: person.name,
@@ -89,7 +101,8 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
       votingSuccessRate: votingSuccess.successRate,
       abstentionCount: abstentionStats.abstentionCount,
       abstentionRate: abstentionStats.abstentionRate,
-      statsHistory: calcStatsHistory(relevantSessions, person)
+      statsHistory: calcStatsHistory(relevantSessions, person),
+      speeches
     };
   });
 
