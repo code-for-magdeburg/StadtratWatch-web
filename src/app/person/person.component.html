@@ -72,6 +72,38 @@
       </table>
     </div>
 
+    <h2 class="mb-3">Redebeiträge</h2>
+
+    <div *ngFor="let session of speechesBySession" class="mb-3">
+      <h3>{{ session.sessionDate | date: 'dd. MMMM yyyy' }}</h3>
+      <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 gx-sm-1 gy-sm-3">
+        <div *ngFor="let speech of session.speeches" class="col">
+          <div class="card text-center" style="cursor: pointer;">
+            <div class="card-header d-flex justify-content-between">
+              <a
+                class="stretched-link text-decoration-none text-body"
+                [href]="speech.youtubeUrl + '?t=' + speech.start"
+                target="_blank"
+              >
+                {{ person.name }}
+              </a>
+              <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="card-body">
+            <span class="d-flex flex-column text-body-secondary">
+              <span>
+                <i class="bi bi-youtube"></i> {{ speech.start | youtubeTimestamp }}
+              </span>
+              <span>
+                <i class="bi bi-hourglass-split"></i> ca. {{ speech.duration | speakingTime : 'hms' : true }}
+              </span>
+            </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </ng-container>
 
 </div>
