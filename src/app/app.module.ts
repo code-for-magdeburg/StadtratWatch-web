@@ -53,6 +53,7 @@ import { PartyAbstentionRateComponent } from './party/party-abstention-rate/part
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { SpeakingTimeChartComponent } from './components/speaking-time-chart/speaking-time-chart.component';
 import { SpeakingTimePipe } from './pipes/speaking-time.pipe';
+import { YoutubeTimestampPipe } from './pipes/youtube-timestamp.pipe';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -97,7 +98,8 @@ registerLocaleData(localeDe, 'de-DE');
     PartyParticipationRateComponent,
     PartyAbstentionRateComponent,
     SpeakingTimeChartComponent,
-    SpeakingTimePipe
+    SpeakingTimePipe,
+    YoutubeTimestampPipe
   ],
   imports: [
     AppRoutingModule,
