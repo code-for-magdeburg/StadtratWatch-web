@@ -204,8 +204,8 @@ function getSpeeches(speakingTimes: SpeakingTimeDto[]): SpeechDto[] {
         const lastSegment = speechSegments[speechSegments.length - 1];
         return {
           speaker: speakingTime.speaker,
-          start: firstSegment.start,
-          duration: lastSegment.start + lastSegment.duration - firstSegment.start
+          start: Math.floor(firstSegment.start),
+          duration: Math.ceil(lastSegment.start + lastSegment.duration - firstSegment.start)
         };
       })
       .filter(speech => speech.duration > 5);
