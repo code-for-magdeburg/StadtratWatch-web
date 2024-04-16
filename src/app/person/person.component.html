@@ -1,109 +1,109 @@
-<div>
+<div *ngIf="person">
 
-  <ng-container *ngIf="person">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/">Startseite</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/persons">Personen</a>
+    </li>
+    <li class="breadcrumb-item active">{{ person.name }}</li>
+  </ol>
 
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <a routerLink="/">Startseite</a>
-      </li>
-      <li class="breadcrumb-item">
-        <a routerLink="/persons">Personen</a>
-      </li>
-      <li class="breadcrumb-item active">{{ person.name }}</li>
-    </ol>
+  <div class="mb-3">
+    <h1>{{ person.name }}</h1>
+  </div>
 
-    <div class="mb-3">
-      <h1>{{ person.name }}</h1>
-    </div>
+  <div class="mb-3">
+    <dl class="row">
+      <dt class="col-4 col-sm-3 col-md-2">Fraktion</dt>
+      <dd class="col-8 col-sm-9 col-md-10">
+        <a [routerLink]="['/fraction', person.fractionId]">{{ person.fraction }}</a>
+      </dd>
+      <dt class="col-4 col-sm-3 col-md-2">Partei</dt>
+      <dd class="col-8 col-sm-9 col-md-10">
+        <a [routerLink]="['/party', person.partyId]">{{ person.party }}</a>
+      </dd>
+      <dt *ngIf="person.councilorUntil" class="col-4 col-sm-3 col-md-2">Ratsmitglied bis</dt>
+      <dd *ngIf="person.councilorUntil" class="col-8 col-sm-9 col-md-10">{{ person.councilorUntil | date }}</dd>
+    </dl>
+  </div>
 
-    <div class="mb-3">
-      <dl class="row">
-        <dt class="col-4 col-sm-3 col-md-2">Fraktion</dt>
-        <dd class="col-8 col-sm-9 col-md-10">
-          <a [routerLink]="['/fraction', person.fractionId]">{{ person.fraction }}</a>
-        </dd>
-        <dt class="col-4 col-sm-3 col-md-2">Partei</dt>
-        <dd class="col-8 col-sm-9 col-md-10">
-          <a [routerLink]="['/party', person.partyId]">{{ person.party }}</a>
-        </dd>
-        <dt *ngIf="person.councilorUntil" class="col-4 col-sm-3 col-md-2">Ratsmitglied bis</dt>
-        <dd *ngIf="person.councilorUntil" class="col-8 col-sm-9 col-md-10">{{ person.councilorUntil | date }}</dd>
-      </dl>
-    </div>
+  <tabset>
 
-    <h2 class="mb-3">Abstimmungsstatistiken</h2>
+    <tab heading="Abstimmungen" class="pt-4">
+      <div class="row row-cols-1 xrow-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
 
-    <div class="row row-cols-1 xrow-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 mb-3">
+        <div class="col">
+          <app-person-voting-attendance [person]="person" [didVote]="didVote"></app-person-voting-attendance>
+        </div>
 
-      <div class="col">
-        <app-person-voting-attendance [person]="person" [didVote]="didVote"></app-person-voting-attendance>
+        <div class="col">
+          <app-person-voting-success-rate [person]="person" [didVote]="didVote"></app-person-voting-success-rate>
+        </div>
+
+        <div class="col">
+          <app-person-abstention-rate [person]="person" [didVote]="didVote"></app-person-abstention-rate>
+        </div>
+
       </div>
+    </tab>
 
-      <div class="col">
-        <app-person-voting-success-rate [person]="person" [didVote]="didVote"></app-person-voting-success-rate>
+    <tab heading="Vergleiche" class="pt-4">
+      <div class="table-responsive mb-3">
+        <table class="table table-striped table-bordered table-sm">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Fraktion</th>
+            <th>Partei</th>
+            <th style="text-align: right;">Übereinstimmung</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let comparison of comparisonMatrix">
+            <td><a [routerLink]="['/person', comparison.personId]">{{ comparison.personName }}</a></td>
+            <td>{{ comparison.fraction }}</td>
+            <td>{{ comparison.party }}</td>
+            <td style="text-align: right;">{{ comparison.comparisonScore * 100 | number : '1.2-2' }}%</td>
+          </tr>
+          </tbody>
+        </table>
       </div>
+    </tab>
 
-      <div class="col">
-        <app-person-abstention-rate [person]="person" [didVote]="didVote"></app-person-abstention-rate>
-      </div>
-
-    </div>
-
-    <h2 class="mb-3">Vergleich mit Personen</h2>
-
-    <div class="table-responsive mb-3">
-      <table class="table table-striped table-bordered table-sm">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Fraktion</th>
-          <th>Partei</th>
-          <th style="text-align: right;">Übereinstimmung</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let comparison of comparisonMatrix">
-          <td><a [routerLink]="['/person', comparison.personId]">{{ comparison.personName }}</a></td>
-          <td>{{ comparison.fraction }}</td>
-          <td>{{ comparison.party }}</td>
-          <td style="text-align: right;">{{ comparison.comparisonScore * 100 | number : '1.2-2' }}%</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h2 class="mb-3">Redebeiträge</h2>
-
-    <div *ngFor="let session of speechesBySession" class="mb-3">
-      <h3>{{ session.sessionDate | date: 'dd. MMMM yyyy' }}</h3>
-      <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 gx-sm-1 gy-sm-3">
-        <div *ngFor="let speech of session.speeches" class="col">
-          <div class="card text-center" style="cursor: pointer;">
-            <div class="card-header d-flex justify-content-between">
-              <a
-                class="stretched-link text-decoration-none text-body"
-                [href]="speech.youtubeUrl + '?t=' + speech.start"
-                target="_blank"
-              >
-                {{ person.name }}
-              </a>
-              <i class="bi bi-chevron-right"></i>
-            </div>
-            <div class="card-body">
-            <span class="d-flex flex-column text-body-secondary">
-              <span>
-                <i class="bi bi-youtube"></i> {{ speech.start | youtubeTimestamp }}
-              </span>
-              <span>
-                <i class="bi bi-hourglass-split"></i> ca. {{ speech.duration | speakingTime : 'hms' : true }}
-              </span>
+    <tab heading="Redebeiträge" class="pt-4">
+      <div *ngFor="let session of speechesBySession" class="mb-3">
+        <h3>{{ session.sessionDate | date: 'dd. MMMM yyyy' }}</h3>
+        <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 gx-sm-1 gy-sm-3">
+          <div *ngFor="let speech of session.speeches" class="col">
+            <div class="card text-center" style="cursor: pointer;">
+              <div class="card-header d-flex justify-content-between">
+                <a
+                  class="stretched-link text-decoration-none text-body"
+                  [href]="speech.youtubeUrl + '?t=' + speech.start"
+                  target="_blank"
+                >
+                  {{ person.name }}
+                </a>
+                <i class="bi bi-chevron-right"></i>
+              </div>
+              <div class="card-body">
+          <span class="d-flex flex-column text-body-secondary">
+            <span>
+              <i class="bi bi-youtube"></i> {{ speech.start | youtubeTimestamp }}
             </span>
+            <span>
+              <i class="bi bi-hourglass-split"></i> ca. {{ speech.duration | speakingTime : 'hms' : true }}
+            </span>
+          </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </tab>
 
-  </ng-container>
+  </tabset>
 
 </div>
