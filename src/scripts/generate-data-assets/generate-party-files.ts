@@ -221,18 +221,10 @@ function calcSpeakingTime(partyMembers: RegistryPerson[], sessions: SessionDetai
 
 function calcSpeakingTimeForSession(partyMembers: RegistryPerson[], session: SessionDetailsDto): number {
 
-  const partySpeakingTimes = session.speakingTimes.filter(speakingTime =>
+  const partySpeeches = session.speeches.filter(speakingTime =>
     partyMembers.some(member => member.name === speakingTime.speaker)
   );
 
-  return partySpeakingTimes.reduce(
-    (a, b) => {
-      const accumulatedTime = b.segments.reduce(
-        (acc, segment) => acc + segment.duration,
-        0
-      );
-      return a + accumulatedTime;
-    },
-    0);
+  return partySpeeches.reduce((a, b) => a + b.duration, 0);
 
 }

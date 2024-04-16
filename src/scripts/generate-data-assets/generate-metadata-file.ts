@@ -45,7 +45,6 @@ function getVotesCount(sessions: SessionDetailsDto[]) {
 
 function getTotalSpeakingTime(sessions: SessionDetailsDto[]) {
   return sessions
-    .flatMap(session => session.speakingTimes)
-    .flatMap(speakingTime => speakingTime.segments)
-    .reduce((acc, segment) => acc + segment.duration, 0);
+    .flatMap(session => session.speeches)
+    .reduce((acc, speech) => acc + speech.duration, 0);
 }

@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SessionsService } from '../services/sessions.service';
 import { ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
-import { SessionVotingDto, Vote, VoteResult } from '../model/Session';
+import { SessionVotingDto, SpeechDto, Vote, VoteResult } from '../model/Session';
 import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 
@@ -35,6 +35,7 @@ export class SessionComponent {
   public sessionDate: string | null = null;
   public votings: Voting[] = [];
   public speakingTimes: SpeakingTimeChartData[] = [];
+  public speeches: SpeechDto[] = [];
   public meetingMinutesUrl = '';
   public youtubeUrl = '';
 
@@ -77,6 +78,7 @@ export class SessionComponent {
             result: this.getVotingResult(votingDto.votes),
           }));
           this.speakingTimes = SpeakingTimeChartData.fromSession(session);
+          this.speeches = session.speeches;
 
           this.tabs ? this.tabs.tabs[1].active = true : null;
           setTimeout(() => this.tabs ? this.tabs.tabs[0].active = true : null, 1);

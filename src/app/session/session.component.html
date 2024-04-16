@@ -71,6 +71,37 @@
 
     </tab>
 
+    <tab heading="Redebeiträge" class="pt-4">
+
+      <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 gx-sm-2 gy-sm-5">
+        <div *ngFor="let speech of speeches" class="col">
+          <div class="card text-center" style="cursor: pointer;">
+            <div class="card-header d-flex justify-content-between">
+              <a
+                class="stretched-link text-decoration-none text-body"
+                [href]="youtubeUrl + '?t=' + speech.start"
+                target="_blank"
+              >
+                {{ speech.speaker }}
+              </a>
+              <i class="bi bi-chevron-right"></i>
+            </div>
+            <div class="card-body">
+              <span class="d-flex flex-column text-body-secondary">
+                <span>
+                  <i class="bi bi-youtube"></i> {{ speech.start | youtubeTimestamp }}
+                </span>
+                <span>
+                  <i class="bi bi-hourglass-split"></i> ca. {{ speech.duration | speakingTime : 'hms' : true }}
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </tab>
+
   </tabset>
 
 </div>

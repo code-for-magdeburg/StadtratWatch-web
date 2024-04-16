@@ -64,6 +64,13 @@ export type SpeakingTimeDto = {
 };
 
 
+export type SpeechDto = {
+  speaker: string;
+  start: number;
+  duration: number;
+};
+
+
 export type SessionDetailsDto = {
   id: string;
   date: string;
@@ -74,6 +81,7 @@ export type SessionDetailsDto = {
   persons: SessionPersonDto[];
   votings: SessionVotingDto[];
   speakingTimes: SpeakingTimeDto[];
+  speeches: SpeechDto[];
 };
 
 

@@ -17,6 +17,7 @@ export type PersonDetailsDto = {
   abstentionCount: number;
   abstentionRate: number;
   statsHistory: PersonStatsHistoryDto;
+  speeches: PersonSpeechDto[];
 };
 
 
@@ -46,6 +47,15 @@ export type PersonStatsHistoryDto = {
 export type HistoryValue = {
   date: string;
   value: number | null;
+};
+
+
+export type PersonSpeechDto = {
+sessionId: string;
+  sessionDate: string;
+  youtubeUrl: string;
+  start: number;
+  duration: number;
 };
 
 
