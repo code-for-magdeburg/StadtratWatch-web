@@ -17,21 +17,12 @@ export class SpeakingTimeChartData {
 
   public static fromSession(session: SessionDetailsDto): SpeakingTimeChartData[] {
 
-    return session.speakingTimes
+    return session.speeches
       // Ignore non-council members
-      .filter(speakingTime => !!session.persons.find(
-        person => person.name === speakingTime.speaker
+      .filter(speech => !!session.persons.find(
+        person => person.name === speech.speaker
       ))
-      .map(speakingTime => {
-
-        const totalDurationSeconds = speakingTime.segments.reduce(
-          (total, segment) => total + segment.duration,
-          0
-        );
-
-        return new SpeakingTimeChartData(speakingTime.speaker, totalDurationSeconds);
-
-      });
+      .map(speech => new SpeakingTimeChartData(speech.speaker, speech.duration));
 
   }
 
