@@ -8,7 +8,7 @@ import {
 import * as fs from 'fs';
 import { SessionScan, SessionVote } from './model/session-scan';
 import { ScrapedSession } from '../shared/model/scraped-session';
-import { Registry, RegistrySession } from './model/registry';
+import { Registry } from './model/registry';
 import { SessionConfig } from './model/session-config';
 import { SessionSpeaker } from './model/session-speaker';
 
