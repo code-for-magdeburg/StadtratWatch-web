@@ -1,16 +1,16 @@
 import {
   SessionDetailsDto,
   SessionFractionDto,
-  SessionLightDto, SessionPartyDto, SessionPersonDto, SessionVotingDto, SpeakingTimeDto, SpeechDto,
+  SessionLightDto, SessionPartyDto, SessionPersonDto, SessionVotingDto,
   VoteResult,
   VotingResult
 } from '../../app/model/Session';
 import * as fs from 'fs';
 import { SessionScan, SessionVote } from './model/session-scan';
 import { ScrapedSession } from '../shared/model/scraped-session';
-import { Registry, RegistrySession } from './model/registry';
+import { Registry } from './model/registry';
 import { SessionConfig } from './model/session-config';
-import { SessionSpeaker } from './model/session-speaker';
+import { SessionSpeech } from './model/session-speech';
 
 
 export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir: string, registry: Registry, scrapedSession: ScrapedSession): SessionDetailsDto[] {
@@ -53,22 +53,15 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
       const sessionScan = JSON.parse(
         fs.readFileSync(`${sessionDir}/session-scan-${session.date}.json`, 'utf-8')
       ) as SessionScan;
-      const sessionSpeakers = JSON.parse(
-        fs.readFileSync(`${sessionDir}/session-speakers-${session.date}.json`, 'utf-8')
-      ) as SessionSpeaker[];
+      const sessionSpeeches = JSON.parse(
+        fs.readFileSync(`${sessionDir}/session-speeches-${session.date}.json`, 'utf-8')
+      ) as SessionSpeech[];
       const sessionFractionNames = Array.from(new Set(
         sessionConfig.names.map(sessionConfigPerson => sessionConfigPerson.fraction)
       ));
       const sessionPartyNames = Array.from(new Set(
         sessionConfig.names.map(sessionConfigPerson => sessionConfigPerson.party)
       ));
-      const speakingTimes = sessionSpeakers.map<SessionSpeaker>(sessionSpeaker => ({
-        speaker: sessionSpeaker.speaker,
-        segments: sessionSpeaker.segments.map(segment => ({
-          start: segment.start,
-          duration: segment.duration
-        }))
-      }));
       return {
         id: session.id,
         date: session.date,
@@ -129,8 +122,13 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
             votingResult: getVotingResult(voting.votes)
           };
         }),
-        speakingTimes,
-        speeches: getSpeeches(speakingTimes)
+        speeches: sessionSpeeches
+          .filter(sessionSpeech => !sessionSpeech.isChairPerson)
+          .map(sessionSpeech => ({
+            speaker: sessionSpeech.speaker,
+            start: sessionSpeech.start,
+            duration: sessionSpeech.duration,
+          }))
       };
     })
     .sort((a, b) => a.date.localeCompare(b.date));
@@ -172,50 +170,4 @@ function getVotingResult(votes: SessionVote[]): VotingResult {
   const votedFor = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
   const votedAgainst = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
   return votedFor > votedAgainst ? VotingResult.PASSED : VotingResult.REJECTED;
-}
-
-
-function getSpeeches(speakingTimes: SpeakingTimeDto[]): SpeechDto[] {
-
-  const speeches: SpeechDto[] = [];
-
-  speakingTimes.forEach(speakingTime => {
-
-    const speechesOfSpeaker = [];
-
-    let speechSegments = [];
-    for (let i = 0; i < speakingTime.segments.length; i++) {
-      const segment = speakingTime.segments[i];
-      const nextSegment = speakingTime.segments[i + 1];
-      speechSegments.push(segment);
-      if (nextSegment && nextSegment.start - segment.start - segment.duration > 10) {
-        speechesOfSpeaker.push(speechSegments);
-        speechSegments = [];
-      }
-
-      if (!nextSegment) {
-        speechesOfSpeaker.push(speechSegments);
-      }
-    }
-
-    const relevantSpeeches = speechesOfSpeaker
-      .map(speechSegments => {
-        const firstSegment = speechSegments[0];
-        const lastSegment = speechSegments[speechSegments.length - 1];
-        return {
-          speaker: speakingTime.speaker,
-          start: Math.floor(firstSegment.start),
-          duration: Math.ceil(lastSegment.start + lastSegment.duration - firstSegment.start)
-        };
-      })
-      .filter(speech => speech.duration > 5);
-
-    speeches.push(...relevantSpeeches);
-
-  });
-
-  speeches.sort((a, b) => a.start - b.start);
-
-  return speeches;
-
 }
