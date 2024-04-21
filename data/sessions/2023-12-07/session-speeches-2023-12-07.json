@@ -1,20 +1,5 @@
 [
     {
-        "speaker": "Mirko Stage",
-        "start": 1119,
-        "duration": 9
-    },
-    {
-        "speaker": "Jürgen Canehl",
-        "start": 1133,
-        "duration": 9
-    },
-    {
-        "speaker": "René Hempel",
-        "start": 1146,
-        "duration": 7
-    },
-    {
         "speaker": "Prof.Dr. Alexander Pott",
         "start": 1159,
         "duration": 128,
@@ -35,7 +20,8 @@
     {
         "speaker": "Reinhard Stern",
         "start": 1579,
-        "duration": 43
+        "duration": 43,
+        "onBehalfOf": "Finanz- und Grundstücksausschuss"
     },
     {
         "speaker": "Roland Zander",
@@ -57,7 +43,8 @@
     {
         "speaker": "Reinhard Stern",
         "start": 1770,
-        "duration": 106
+        "duration": 106,
+        "onBehalfOf": "Finanz- und Grundstücksausschuss"
     },
     {
         "speaker": "Burkhard Moll",
@@ -77,7 +64,8 @@
     {
         "speaker": "Mirko Stage",
         "start": 2027,
-        "duration": 21
+        "duration": 21,
+        "onBehalfOf": "Ausschuss für Stadtentwicklung, Bauen und Verkehr"
     },
     {
         "speaker": "Frank Pasemann",
@@ -93,7 +81,8 @@
     {
         "speaker": "Reinhard Stern",
         "start": 2196,
-        "duration": 93
+        "duration": 93,
+        "onBehalfOf": "Finanz- und Grundstücksausschuss"
     },
     {
         "speaker": "Jürgen Canehl",
@@ -249,7 +238,8 @@
     {
         "speaker": "Dennis Jannack",
         "start": 4474,
-        "duration": 100
+        "duration": 100,
+        "onBehalfOf": "Jugendhilfeausschuss"
     },
     {
         "speaker": "Burkhard Moll",
@@ -329,7 +319,8 @@
     {
         "speaker": "Reinhard Stern",
         "start": 5491,
-        "duration": 95
+        "duration": 95,
+        "onBehalfOf": "Finanz- und Grundstücksausschuss"
     },
     {
         "speaker": "Prof.Dr. Alexander Pott",
@@ -429,11 +420,6 @@
         "isChairPerson": true
     },
     {
-        "speaker": "Olaf Meister",
-        "start": 6848,
-        "duration": 8
-    },
-    {
         "speaker": "Frank Schuster",
         "start": 6859,
         "duration": 146
@@ -476,12 +462,14 @@
     {
         "speaker": "Mirko Stage",
         "start": 7362,
-        "duration": 178
+        "duration": 178,
+        "onBehalfOf": "Ausschuss für Stadtentwicklung, Bauen und Verkehr"
     },
     {
         "speaker": "Reinhard Stern",
         "start": 7548,
-        "duration": 125
+        "duration": 125,
+        "onBehalfOf": "Finanz- und Grundstücksausschuss"
     },
     {
         "speaker": "Wigbert Schwenke",
@@ -616,20 +604,10 @@
         "isChairPerson": true
     },
     {
-        "speaker": "Manuel Rupsch",
-        "start": 12009,
-        "duration": 7
-    },
-    {
         "speaker": "Anke Jäger",
         "start": 12044,
         "duration": 75,
         "isChairPerson": true
-    },
-    {
-        "speaker": "Wigbert Schwenke",
-        "start": 12063,
-        "duration": 6
     },
     {
         "speaker": "Ronny Kumpf",
@@ -639,7 +617,8 @@
     {
         "speaker": "Burkhard Moll",
         "start": 12151,
-        "duration": 15
+        "duration": 15,
+        "onBehalfOf": "Ausschuss für Umwelt und Energie"
     },
     {
         "speaker": "Oliver Müller",
@@ -654,7 +633,8 @@
     {
         "speaker": "Burkhard Moll",
         "start": 12312,
-        "duration": 61
+        "duration": 61,
+        "onBehalfOf": "Ausschuss für Umwelt und Energie"
     },
     {
         "speaker": "Anke Jäger",
@@ -707,7 +687,8 @@
     {
         "speaker": "Jens Rösler",
         "start": 12774,
-        "duration": 51
+        "duration": 51,
+        "onBehalfOf": "Finanz- und Grundstücksausschuss"
     },
     {
         "speaker": "Anke Jäger",
@@ -772,7 +753,8 @@
     {
         "speaker": "Kornelia Keune",
         "start": 13411,
-        "duration": 91
+        "duration": 91,
+        "onBehalfOf": "Ausschuss für Bildung, Schule und Sport"
     },
     {
         "speaker": "René Hempel",
@@ -891,7 +873,8 @@
     {
         "speaker": "Oliver Müller",
         "start": 14883,
-        "duration": 143
+        "duration": 143,
+        "onBehalfOf": "Kulturausschuss"
     },
     {
         "speaker": "Roland Zander",
@@ -971,7 +954,8 @@
     {
         "speaker": "Kornelia Keune",
         "start": 16129,
-        "duration": 75
+        "duration": 75,
+        "onBehalfOf": "Ausschuss für Bildung, Schule und Sport"
     },
     {
         "speaker": "Matthias Boxhorn",
@@ -1339,11 +1323,6 @@
         "speaker": "Simone Borris",
         "start": 21662,
         "duration": 27
-    },
-    {
-        "speaker": "Oliver Müller",
-        "start": 21693,
-        "duration": 8
     },
     {
         "speaker": "Anke Jäger",
