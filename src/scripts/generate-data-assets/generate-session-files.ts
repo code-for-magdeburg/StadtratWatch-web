@@ -124,11 +124,18 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
         }),
         speeches: sessionSpeeches
           .filter(sessionSpeech => !sessionSpeech.isChairPerson)
-          .map(sessionSpeech => ({
-            speaker: sessionSpeech.speaker,
-            start: sessionSpeech.start,
-            duration: sessionSpeech.duration,
-          }))
+          .map(sessionSpeech => {
+            const fraction = sessionConfig.names.find(
+              name => name.name === sessionSpeech.speaker
+            )?.fraction;
+            return {
+              speaker: sessionSpeech.speaker,
+              start: sessionSpeech.start,
+              duration: sessionSpeech.duration,
+              fraction,
+              onBehalfOf: sessionSpeech.onBehalfOf
+            };
+          })
       };
     })
     .sort((a, b) => a.date.localeCompare(b.date));
