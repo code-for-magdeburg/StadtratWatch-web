@@ -52,7 +52,7 @@ export type SessionVotingDto = {
 };
 
 
-export type SpeechDto = {
+export type SessionSpeechDto = {
   speaker: string;
   start: number;
   duration: number;
@@ -69,7 +69,7 @@ export type SessionDetailsDto = {
   parties: SessionPartyDto[];
   persons: SessionPersonDto[];
   votings: SessionVotingDto[];
-  speeches: SpeechDto[];
+  speeches: SessionSpeechDto[];
 };
 
 
