@@ -15973,39 +15973,29 @@
   ],
   "speeches": [
     {
-      "speaker": "Mirko Stage",
-      "start": 730,
-      "duration": 8
-    },
-    {
-      "speaker": "Oliver Müller",
-      "start": 779,
-      "duration": 13
-    },
-    {
-      "speaker": "Stephan Bublitz",
-      "start": 792,
-      "duration": 18
-    },
-    {
       "speaker": "Jens Rösler",
       "start": 1029,
-      "duration": 51
+      "duration": 51,
+      "fraction": "SPD"
     },
     {
       "speaker": "Simone Borris",
       "start": 1083,
-      "duration": 21
+      "duration": 21,
+      "fraction": "Oberbürgermeisterin"
     },
     {
       "speaker": "Reinhard Stern",
       "start": 1361,
-      "duration": 83
+      "duration": 83,
+      "fraction": "CDU",
+      "onBehalfOf": "Finanz- und Grundstücksausschuss"
     },
     {
       "speaker": "Dr. Falko Grube",
       "start": 1652,
-      "duration": 29
+      "duration": 29,
+      "fraction": "SPD"
     },
     {
       "speaker": "Sandra Yvonne Stieger",
@@ -16015,22 +16005,26 @@
     {
       "speaker": "Mirko Stage",
       "start": 1782,
-      "duration": 17
+      "duration": 17,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "René Hempel",
       "start": 1803,
-      "duration": 37
+      "duration": 37,
+      "fraction": "DIE LINKE"
     },
     {
       "speaker": "Roland Zander",
       "start": 1845,
-      "duration": 40
+      "duration": 40,
+      "fraction": "Gartenpartei/Tierschutzallianz"
     },
     {
       "speaker": "Reinhard Stern",
       "start": 1895,
-      "duration": 12
+      "duration": 12,
+      "fraction": "CDU"
     },
     {
       "speaker": "Regina-Dolores Stieler-Hinz",
@@ -16040,32 +16034,39 @@
     {
       "speaker": "Carola Schumann",
       "start": 2100,
-      "duration": 85
+      "duration": 85,
+      "fraction": "FDP/Tierschutzpartei"
     },
     {
       "speaker": "Oliver Müller",
       "start": 2193,
-      "duration": 334
+      "duration": 334,
+      "fraction": "DIE LINKE",
+      "onBehalfOf": "Kulturausschuss"
     },
     {
       "speaker": "Julia Mayer-Buch",
       "start": 2537,
-      "duration": 181
+      "duration": 181,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Roland Zander",
       "start": 2725,
-      "duration": 98
+      "duration": 98,
+      "fraction": "Gartenpartei/Tierschutzallianz"
     },
     {
       "speaker": "Ronny Kumpf",
       "start": 2828,
-      "duration": 25
+      "duration": 25,
+      "fraction": "AfD"
     },
     {
       "speaker": "Andreas Schumann",
       "start": 2865,
-      "duration": 62
+      "duration": 62,
+      "fraction": "CDU"
     },
     {
       "speaker": "Regina-Dolores Stieler-Hinz",
@@ -16075,22 +16076,26 @@
     {
       "speaker": "Reinhard Stern",
       "start": 3089,
-      "duration": 125
+      "duration": 125,
+      "fraction": "CDU"
     },
     {
       "speaker": "Steffi Meyer",
       "start": 3219,
-      "duration": 71
+      "duration": 71,
+      "fraction": "SPD"
     },
     {
       "speaker": "Carola Schumann",
       "start": 3296,
-      "duration": 168
+      "duration": 168,
+      "fraction": "FDP/Tierschutzpartei"
     },
     {
       "speaker": "Oliver Müller",
       "start": 3468,
-      "duration": 153
+      "duration": 153,
+      "fraction": "DIE LINKE"
     },
     {
       "speaker": "Regina-Dolores Stieler-Hinz",
@@ -16100,32 +16105,40 @@
     {
       "speaker": "Mirko Stage",
       "start": 3736,
-      "duration": 60
+      "duration": 60,
+      "fraction": "GRÜNE/future!",
+      "onBehalfOf": "Ausschuss für Stadtentwicklung, Bauen und Verkehr"
     },
     {
       "speaker": "Jens Rösler",
       "start": 3804,
-      "duration": 181
+      "duration": 181,
+      "fraction": "SPD"
     },
     {
       "speaker": "Simone Borris",
       "start": 3990,
-      "duration": 44
+      "duration": 44,
+      "fraction": "Oberbürgermeisterin"
     },
     {
       "speaker": "Jürgen Canehl",
       "start": 4040,
-      "duration": 36
+      "duration": 36,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Kathrin Meyer-Pinger",
       "start": 4079,
-      "duration": 41
+      "duration": 41,
+      "fraction": "FDP/Tierschutzpartei"
     },
     {
       "speaker": "Matthias Borowiak",
       "start": 4248,
-      "duration": 34
+      "duration": 34,
+      "fraction": "GRÜNE/future!",
+      "onBehalfOf": "Gesundheits- und Sozialausschuss"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16135,12 +16148,15 @@
     {
       "speaker": "Mirko Stage",
       "start": 4410,
-      "duration": 131
+      "duration": 131,
+      "fraction": "GRÜNE/future!",
+      "onBehalfOf": "Ausschuss für Stadtentwicklung, Bauen und Verkehr"
     },
     {
       "speaker": "René Hempel",
       "start": 4547,
-      "duration": 161
+      "duration": 161,
+      "fraction": "DIE LINKE"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16150,72 +16166,81 @@
     {
       "speaker": "Wigbert Schwenke",
       "start": 4827,
-      "duration": 249
+      "duration": 249,
+      "fraction": "CDU"
     },
     {
       "speaker": "Roland Zander",
       "start": 5081,
-      "duration": 99
+      "duration": 99,
+      "fraction": "Gartenpartei/Tierschutzallianz"
     },
     {
       "speaker": "Christian Mertens",
       "start": 5188,
-      "duration": 123
+      "duration": 123,
+      "fraction": "AfD"
     },
     {
       "speaker": "Jens Rösler",
       "start": 5321,
-      "duration": 104
+      "duration": 104,
+      "fraction": "SPD"
     },
     {
       "speaker": "Burkhard Moll",
       "start": 5432,
-      "duration": 27
+      "duration": 27,
+      "fraction": "FDP/Tierschutzpartei",
+      "onBehalfOf": "Ausschuss für Umwelt und Energie"
     },
     {
       "speaker": "Kathrin Natho",
       "start": 5467,
-      "duration": 39
+      "duration": 39,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Jürgen Canehl",
       "start": 5517,
-      "duration": 157
-    },
-    {
-      "speaker": "Dr. Thomas Wiebe",
-      "start": 5647,
-      "duration": 8
+      "duration": 157,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Wigbert Schwenke",
       "start": 5678,
-      "duration": 176
+      "duration": 176,
+      "fraction": "CDU"
     },
     {
       "speaker": "Christian Mertens",
       "start": 5932,
-      "duration": 18
+      "duration": 18,
+      "fraction": "AfD"
     },
     {
       "speaker": "Kathrin Natho",
       "start": 5957,
-      "duration": 35
+      "duration": 35,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Hagen Kohl",
       "start": 6078,
-      "duration": 65
+      "duration": 65,
+      "fraction": "AfD"
     },
     {
       "speaker": "Dr. Thomas Wiebe",
       "start": 6151,
-      "duration": 60
+      "duration": 60,
+      "fraction": "SPD"
     },
     {
       "speaker": "Mirjam Karl-Sy",
       "start": 6220,
-      "duration": 49
+      "duration": 49,
+      "fraction": "FDP/Tierschutzpartei"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16230,12 +16255,14 @@
     {
       "speaker": "Roland Zander",
       "start": 6424,
-      "duration": 34
+      "duration": 34,
+      "fraction": "Gartenpartei/Tierschutzallianz"
     },
     {
       "speaker": "Roland Zander",
       "start": 6625,
-      "duration": 17
+      "duration": 17,
+      "fraction": "Gartenpartei/Tierschutzallianz"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16245,47 +16272,57 @@
     {
       "speaker": "Mirko Stage",
       "start": 6742,
-      "duration": 176
+      "duration": 176,
+      "fraction": "GRÜNE/future!",
+      "onBehalfOf": "Ausschuss für Stadtentwicklung, Bauen und Verkehr"
     },
     {
       "speaker": "Roland Zander",
       "start": 6922,
-      "duration": 98
+      "duration": 98,
+      "fraction": "Gartenpartei/Tierschutzallianz"
     },
     {
       "speaker": "René Hempel",
       "start": 7036,
-      "duration": 109
+      "duration": 109,
+      "fraction": "DIE LINKE"
     },
     {
       "speaker": "Stefanie Middendorf",
       "start": 7150,
-      "duration": 71
+      "duration": 71,
+      "fraction": "CDU"
     },
     {
       "speaker": "Reinhard Stern",
       "start": 7228,
-      "duration": 155
+      "duration": 155,
+      "fraction": "CDU"
     },
     {
       "speaker": "Christian Mertens",
       "start": 7403,
-      "duration": 63
+      "duration": 63,
+      "fraction": "AfD"
     },
     {
       "speaker": "Dr. Falko Grube",
       "start": 7475,
-      "duration": 100
+      "duration": 100,
+      "fraction": "SPD"
     },
     {
       "speaker": "Stephan Papenbreer",
       "start": 7584,
-      "duration": 110
+      "duration": 110,
+      "fraction": "FDP/Tierschutzpartei"
     },
     {
       "speaker": "Roland Zander",
       "start": 7704,
-      "duration": 48
+      "duration": 48,
+      "fraction": "Gartenpartei/Tierschutzallianz"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16295,27 +16332,33 @@
     {
       "speaker": "Wigbert Schwenke",
       "start": 8112,
-      "duration": 86
+      "duration": 86,
+      "fraction": "CDU"
     },
     {
       "speaker": "Mirko Stage",
       "start": 8201,
-      "duration": 120
+      "duration": 120,
+      "fraction": "GRÜNE/future!",
+      "onBehalfOf": "Ausschuss für Stadtentwicklung, Bauen und Verkehr"
     },
     {
       "speaker": "Roland Zander",
       "start": 8342,
-      "duration": 130
+      "duration": 130,
+      "fraction": "Gartenpartei/Tierschutzallianz"
     },
     {
       "speaker": "Andreas Schumann",
       "start": 8480,
-      "duration": 24
+      "duration": 24,
+      "fraction": "CDU"
     },
     {
       "speaker": "René Hempel",
       "start": 8527,
-      "duration": 120
+      "duration": 120,
+      "fraction": "DIE LINKE"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16325,102 +16368,118 @@
     {
       "speaker": "Mirko Stage",
       "start": 9111,
-      "duration": 233
+      "duration": 233,
+      "fraction": "GRÜNE/future!",
+      "onBehalfOf": "Ausschuss für Stadtentwicklung, Bauen und Verkehr"
     },
     {
       "speaker": "Stephan Bublitz",
       "start": 9347,
-      "duration": 101
+      "duration": 101,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Christian Mertens",
       "start": 9454,
-      "duration": 23
+      "duration": 23,
+      "fraction": "AfD"
     },
     {
       "speaker": "Oliver Müller",
       "start": 9488,
-      "duration": 135
+      "duration": 135,
+      "fraction": "DIE LINKE",
+      "onBehalfOf": "Kulturausschuss"
     },
     {
       "speaker": "Dr. Falko Grube",
       "start": 11706,
-      "duration": 86
+      "duration": 86,
+      "fraction": "SPD"
     },
     {
       "speaker": "Roland Zander",
       "start": 11800,
-      "duration": 97
+      "duration": 97,
+      "fraction": "Gartenpartei/Tierschutzallianz"
     },
     {
       "speaker": "Stefanie Middendorf",
       "start": 11903,
-      "duration": 66
+      "duration": 66,
+      "fraction": "CDU"
     },
     {
       "speaker": "Julia Brandt",
       "start": 11978,
-      "duration": 56
+      "duration": 56,
+      "fraction": "SPD"
     },
     {
       "speaker": "Hagen Kohl",
       "start": 12154,
-      "duration": 59
+      "duration": 59,
+      "fraction": "AfD"
     },
     {
       "speaker": "Hagen Kohl",
       "start": 12286,
-      "duration": 122
+      "duration": 122,
+      "fraction": "AfD"
     },
     {
       "speaker": "Simone Borris",
       "start": 12601,
-      "duration": 63
+      "duration": 63,
+      "fraction": "Oberbürgermeisterin"
     },
     {
       "speaker": "Jens Rösler",
       "start": 12675,
-      "duration": 64
+      "duration": 64,
+      "fraction": "SPD"
     },
     {
       "speaker": "Dr. Falko Grube",
       "start": 12749,
-      "duration": 61
+      "duration": 61,
+      "fraction": "SPD"
     },
     {
       "speaker": "Simone Borris",
       "start": 12817,
-      "duration": 46
+      "duration": 46,
+      "fraction": "Oberbürgermeisterin"
     },
     {
       "speaker": "Mirko Stage",
       "start": 12869,
-      "duration": 30
+      "duration": 30,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Simone Borris",
       "start": 12901,
-      "duration": 10
-    },
-    {
-      "speaker": "Ronny Kumpf",
-      "start": 12917,
-      "duration": 6
+      "duration": 10,
+      "fraction": "Oberbürgermeisterin"
     },
     {
       "speaker": "Dr. Falko Grube",
       "start": 13069,
-      "duration": 61
+      "duration": 61,
+      "fraction": "SPD"
     },
     {
       "speaker": "Madeleine Linke",
       "start": 13138,
-      "duration": 54
+      "duration": 54,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Christian Mertens",
       "start": 13203,
-      "duration": 17
+      "duration": 17,
+      "fraction": "AfD"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16430,12 +16489,14 @@
     {
       "speaker": "Roland Zander",
       "start": 13401,
-      "duration": 18
+      "duration": 18,
+      "fraction": "Gartenpartei/Tierschutzallianz"
     },
     {
       "speaker": "Jürgen Canehl",
       "start": 13424,
-      "duration": 46
+      "duration": 46,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16455,7 +16516,9 @@
     {
       "speaker": "Oliver Müller",
       "start": 14110,
-      "duration": 479
+      "duration": 479,
+      "fraction": "DIE LINKE",
+      "onBehalfOf": "Kulturausschuss"
     },
     {
       "speaker": "Regina-Dolores Stieler-Hinz",
@@ -16465,7 +16528,8 @@
     {
       "speaker": "Dr. Falko Grube",
       "start": 14819,
-      "duration": 146
+      "duration": 146,
+      "fraction": "SPD"
     },
     {
       "speaker": "Regina-Dolores Stieler-Hinz",
@@ -16475,17 +16539,20 @@
     {
       "speaker": "Steffi Meyer",
       "start": 15005,
-      "duration": 40
+      "duration": 40,
+      "fraction": "SPD"
     },
     {
       "speaker": "Stephan Papenbreer",
       "start": 15054,
-      "duration": 62
+      "duration": 62,
+      "fraction": "FDP/Tierschutzpartei"
     },
     {
       "speaker": "René Hempel",
       "start": 15129,
-      "duration": 96
+      "duration": 96,
+      "fraction": "DIE LINKE"
     },
     {
       "speaker": "Regina-Dolores Stieler-Hinz",
@@ -16495,7 +16562,8 @@
     {
       "speaker": "Dr. Thomas Wiebe",
       "start": 15290,
-      "duration": 154
+      "duration": 154,
+      "fraction": "SPD"
     },
     {
       "speaker": "Regina-Dolores Stieler-Hinz",
@@ -16510,7 +16578,8 @@
     {
       "speaker": "Carola Schumann",
       "start": 15697,
-      "duration": 155
+      "duration": 155,
+      "fraction": "FDP/Tierschutzpartei"
     },
     {
       "speaker": "Regina-Dolores Stieler-Hinz",
@@ -16520,7 +16589,8 @@
     {
       "speaker": "Dr. Falko Grube",
       "start": 15969,
-      "duration": 7
+      "duration": 7,
+      "fraction": "SPD"
     },
     {
       "speaker": "Regina-Dolores Stieler-Hinz",
@@ -16530,82 +16600,93 @@
     {
       "speaker": "Julia Mayer-Buch",
       "start": 16001,
-      "duration": 88
+      "duration": 88,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Roland Zander",
       "start": 16096,
-      "duration": 28
-    },
-    {
-      "speaker": "Manuel Rupsch",
-      "start": 18104,
-      "duration": 11
+      "duration": 28,
+      "fraction": "Gartenpartei/Tierschutzallianz"
     },
     {
       "speaker": "Dr. Thomas Wiebe",
       "start": 18122,
-      "duration": 23
+      "duration": 23,
+      "fraction": "SPD"
     },
     {
       "speaker": "Mirko Stage",
       "start": 18165,
-      "duration": 30
+      "duration": 30,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Julia Brandt",
       "start": 19498,
-      "duration": 88
+      "duration": 88,
+      "fraction": "SPD"
     },
     {
       "speaker": "Wigbert Schwenke",
       "start": 19590,
-      "duration": 33
+      "duration": 33,
+      "fraction": "CDU"
     },
     {
       "speaker": "René Hempel",
       "start": 19669,
-      "duration": 88
+      "duration": 88,
+      "fraction": "DIE LINKE"
     },
     {
       "speaker": "Madeleine Linke",
       "start": 19766,
-      "duration": 83
+      "duration": 83,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Mirko Stage",
       "start": 19852,
-      "duration": 20
+      "duration": 20,
+      "fraction": "GRÜNE/future!",
+      "onBehalfOf": "Ausschuss für Stadtentwicklung, Bauen und Verkehr"
     },
     {
       "speaker": "Jürgen Canehl",
       "start": 19877,
-      "duration": 104
+      "duration": 104,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Reinhard Stern",
       "start": 19986,
-      "duration": 70
+      "duration": 70,
+      "fraction": "CDU"
     },
     {
       "speaker": "Mirko Stage",
       "start": 20213,
-      "duration": 41
+      "duration": 41,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Frank Schuster",
       "start": 20259,
-      "duration": 15
+      "duration": 15,
+      "fraction": "CDU"
     },
     {
       "speaker": "Dr. Niko Zenker",
       "start": 20358,
-      "duration": 75
+      "duration": 75,
+      "fraction": "SPD"
     },
     {
       "speaker": "Frank Schuster",
       "start": 20440,
-      "duration": 78
+      "duration": 78,
+      "fraction": "CDU"
     },
     {
       "speaker": "Ronni Krug",
@@ -16615,27 +16696,32 @@
     {
       "speaker": "Jens Rösler",
       "start": 20702,
-      "duration": 31
+      "duration": 31,
+      "fraction": "SPD"
     },
     {
       "speaker": "Hagen Kohl",
       "start": 20821,
-      "duration": 137
+      "duration": 137,
+      "fraction": "AfD"
     },
     {
       "speaker": "Ronny Kumpf",
       "start": 21057,
-      "duration": 45
+      "duration": 45,
+      "fraction": "AfD"
     },
     {
       "speaker": "Oliver Kirchner",
       "start": 21398,
-      "duration": 288
+      "duration": 288,
+      "fraction": "AfD"
     },
     {
       "speaker": "Jürgen Canehl",
       "start": 21868,
-      "duration": 142
+      "duration": 142,
+      "fraction": "GRÜNE/future!"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16645,22 +16731,26 @@
     {
       "speaker": "Manuel Rupsch",
       "start": 22138,
-      "duration": 83
+      "duration": 83,
+      "fraction": "CDU"
     },
     {
       "speaker": "Simone Borris",
       "start": 22223,
-      "duration": 21
+      "duration": 21,
+      "fraction": "Oberbürgermeisterin"
     },
     {
       "speaker": "Manuel Rupsch",
       "start": 22252,
-      "duration": 13
+      "duration": 13,
+      "fraction": "CDU"
     },
     {
       "speaker": "Steffi Meyer",
       "start": 22274,
-      "duration": 64
+      "duration": 64,
+      "fraction": "SPD"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16670,17 +16760,20 @@
     {
       "speaker": "Tobias Baum",
       "start": 22371,
-      "duration": 52
+      "duration": 52,
+      "fraction": "DIE LINKE"
     },
     {
       "speaker": "Simone Borris",
       "start": 22424,
-      "duration": 29
+      "duration": 29,
+      "fraction": "Oberbürgermeisterin"
     },
     {
       "speaker": "Evelin Schulz",
       "start": 22472,
-      "duration": 26
+      "duration": 26,
+      "fraction": "FDP/Tierschutzpartei"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16690,7 +16783,8 @@
     {
       "speaker": "Karsten Köpp",
       "start": 22582,
-      "duration": 85
+      "duration": 85,
+      "fraction": "SPD"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16700,7 +16794,8 @@
     {
       "speaker": "Karsten Köpp",
       "start": 22678,
-      "duration": 26
+      "duration": 26,
+      "fraction": "SPD"
     },
     {
       "speaker": "Jörg Rehbaum",
@@ -16710,7 +16805,8 @@
     {
       "speaker": "Oliver Müller",
       "start": 22737,
-      "duration": 37
+      "duration": 37,
+      "fraction": "DIE LINKE"
     },
     {
       "speaker": "Dr. Cornelia Arnold",
@@ -16720,7 +16816,8 @@
     {
       "speaker": "Carola Schumann",
       "start": 22812,
-      "duration": 71
+      "duration": 71,
+      "fraction": "FDP/Tierschutzpartei"
     }
   ]
 }
