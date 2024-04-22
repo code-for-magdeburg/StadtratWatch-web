@@ -43,12 +43,12 @@
             >abgelehnt</span>
           </div>
           <p *ngIf="voting.authorNames.length > 0" class="mb-2">
-        <span
-          *ngFor="let author of voting.authorNames"
-          class="badge border border-light-subtle text-bg-light me-1"
-        >
-          {{ author }}
-        </span>
+            <span
+              *ngFor="let author of voting.authorNames"
+              class="badge border border-light-subtle text-bg-light me-1"
+            >
+              {{ author }}
+            </span>
           </p>
           <p>{{ voting.title }}</p>
         </a>
@@ -87,14 +87,20 @@
               <i class="bi bi-chevron-right"></i>
             </div>
             <div class="card-body">
-              <span class="d-flex flex-column text-body-secondary">
+              <div class="d-flex flex-column text-body-secondary">
                 <span>
                   <i class="bi bi-youtube"></i> {{ speech.start | youtubeTimestamp }}
                 </span>
                 <span>
                   <i class="bi bi-hourglass-split"></i> ca. {{ speech.duration | speakingTime : 'hms' : true }}
                 </span>
-              </span>
+                <span
+                  *ngIf="speech.onBehalfOf"
+                  class="badge border border-light-subtle text-bg-light mt-2"
+                >
+                  {{ speech.onBehalfOf }}
+                </span>
+              </div>
             </div>
           </div>
         </div>

@@ -51,11 +51,12 @@ export type HistoryValue = {
 
 
 export type PersonSpeechDto = {
-sessionId: string;
+  sessionId: string;
   sessionDate: string;
   youtubeUrl: string;
   start: number;
   duration: number;
+  onBehalfOf?: string;
 };
 
 
