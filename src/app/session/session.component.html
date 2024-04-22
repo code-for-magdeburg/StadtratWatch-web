@@ -94,12 +94,14 @@
                 <span>
                   <i class="bi bi-hourglass-split"></i> ca. {{ speech.duration | speakingTime : 'hms' : true }}
                 </span>
-                <span
-                  *ngIf="speech.onBehalfOf"
-                  class="badge border border-light-subtle text-bg-light mt-2"
-                >
-                  {{ speech.onBehalfOf }}
-                </span>
+                <div class="d-flex flex-wrap mt-2 gap-1">
+                  <span *ngIf="speech.fraction" class="badge border border-light-subtle text-bg-light">
+                    {{ speech.fraction }}
+                  </span>
+                  <span *ngIf="speech.onBehalfOf" class="badge border border-light-subtle text-bg-light">
+                    {{ speech.onBehalfOf }}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
