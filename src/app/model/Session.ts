@@ -56,6 +56,7 @@ export type SpeechDto = {
   speaker: string;
   start: number;
   duration: number;
+  onBehalfOf?: string;
 };
 
 

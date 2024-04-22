@@ -82,7 +82,8 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
           sessionDate: session.date,
           youtubeUrl: session.youtubeUrl,
           start: speech.start,
-          duration: speech.duration
+          duration: speech.duration,
+          onBehalfOf: speech.onBehalfOf
         }))
     );
 

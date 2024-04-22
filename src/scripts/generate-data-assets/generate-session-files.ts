@@ -128,6 +128,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
             speaker: sessionSpeech.speaker,
             start: sessionSpeech.start,
             duration: sessionSpeech.duration,
+            onBehalfOf: sessionSpeech.onBehalfOf
           }))
       };
     })
