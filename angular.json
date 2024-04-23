@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "StadtratWatch-web:build:production"
+              "buildTarget": "StadtratWatch-web:build:production"
             },
             "development": {
-              "browserTarget": "StadtratWatch-web:build:development"
+              "buildTarget": "StadtratWatch-web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "StadtratWatch-web:build"
+            "buildTarget": "StadtratWatch-web:build"
           }
         },
         "test": {
