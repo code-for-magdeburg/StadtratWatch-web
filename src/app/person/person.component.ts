@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PersonsService } from '../services/persons.service';
 import { ActivatedRoute } from '@angular/router';
 import { VoteResult } from '../model/Session';
@@ -17,7 +17,7 @@ type SpeechesBySession = {
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.scss']
 })
-export class PersonComponent {
+export class PersonComponent implements OnInit {
 
 
   public person: PersonDetailsDto | null = null;
@@ -30,7 +30,6 @@ export class PersonComponent {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
