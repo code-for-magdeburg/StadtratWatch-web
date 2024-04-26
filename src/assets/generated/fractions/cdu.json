@@ -2,12 +2,12 @@
   "id": "cdu",
   "name": "CDU",
   "seats": 10,
-  "applicationsSuccessRate": 0.8449197860962567,
-  "votingsSuccessRate": 0.8261997405966277,
-  "uniformityScore": 0.9351374659821003,
-  "participationRate": 0.7249027237354085,
-  "abstentionRate": 0.08054515952241434,
-  "speakingTime": 45652,
+  "applicationsSuccessRate": 0.8439024390243902,
+  "votingsSuccessRate": 0.8251066422912858,
+  "uniformityScore": 0.9357081589386935,
+  "participationRate": 0.7249238269347958,
+  "abstentionRate": 0.0813631532675417,
+  "speakingTime": 47739,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -125,6 +125,14 @@
       {
         "date": "2024-03-11",
         "value": 0.8449197860962567
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.8457446808510638
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.8439024390243902
       }
     ],
     "votingsSuccessRate": [
@@ -243,6 +251,14 @@
       {
         "date": "2024-03-11",
         "value": 0.8261997405966277
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.8269720101781171
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.8251066422912858
       }
     ],
     "uniformityScore": [
@@ -361,6 +377,14 @@
       {
         "date": "2024-03-11",
         "value": 0.9351374659821003
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.9351178926010391
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.9357081589386935
       }
     ],
     "participationRate": [
@@ -479,6 +503,14 @@
       {
         "date": "2024-03-11",
         "value": 0.7249027237354085
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.7272900763358778
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.7249238269347958
       }
     ],
     "abstentionRate": [
@@ -597,6 +629,14 @@
       {
         "date": "2024-03-11",
         "value": 0.08054515952241434
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.08149876884344849
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.0813631532675417
       }
     ]
   },
@@ -3125,6 +3165,238 @@
       "votings": [
         {
           "votingId": 6,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0068/24",
+      "type": "Antrag",
+      "title": "Öffentlichkeitsbeteiligung zur Umsetzung des Stadtratsbeschlusses zum Scholl-Denkmal",
+      "sessionId": "2024-04-04",
+      "sessionDate": "2024-04-04",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688981&type=do",
+      "votings": [
+        {
+          "votingId": 6,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0247/23",
+      "type": "Antrag",
+      "title": "Schulwegsicherheit Hohepfortestraße",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=680291&type=do",
+      "votings": [
+        {
+          "votingId": 13,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0262/23",
+      "type": "Antrag",
+      "title": "Anbringung von Slogans auf städtischen Papierkörben im Zuge der Umsetzung des Papierkorbkonzeptes",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=680993&type=do",
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0279/23",
+      "type": "Geschäftsordnung",
+      "title": "Kinderfreundliches Magdeburg - Kinder- und Jugendbericht erstellen",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682482&type=do",
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0287/23",
+      "type": "Antrag",
+      "title": "Ein Sportförderbericht für die Landeshauptstadt Magdeburg etablieren",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682650&type=do",
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0070/24",
+      "type": "Geschäftsordnung",
+      "title": "Hasselbachmanagement 2025 weiterführen",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=689342&type=do",
+      "votings": [
+        {
+          "votingId": 34,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0084/24",
+      "type": "Geschäftsordnung",
+      "title": "Sanierung des Kulturdenkmals Pferdetor im Stadtpark",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690470&type=do",
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0079/24",
+      "type": "Geschäftsordnung",
+      "title": "Umgehungsstraße für Südost und Beyendorf-Sohlen",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690080&type=do",
+      "votings": [
+        {
+          "votingId": 47,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0067/24",
+      "type": "Geschäftsordnung",
+      "title": "Mehr Leben an und auf der Elbe - Ein Hausbootkonzept für die Elbestadt",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688895&type=do",
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0088/24",
+      "type": "Geschäftsordnung",
+      "title": "Elberadweg am Sarajevo-Ufer mit Dränbeton ausbauen",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690543&type=do",
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0093/24",
+      "type": "Antrag",
+      "title": "Entwicklung in den Stadtteilen stärken - Stadtteilmanagement und Geschäftsstraßenmanagement sichern",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690569&type=do",
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 59,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 60,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0085/24",
+      "type": "Geschäftsordnung",
+      "title": "Lieferzonen für die Große Diesdorfer Straße",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690485&type=do",
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0087/24",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrsituation am zukünftigen Schulstandort Listemannstraße",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690518&type=do",
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0095/24",
+      "type": "Geschäftsordnung",
+      "title": "Unterstützung für die Jugendkunstschule",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690585&type=do",
+      "votings": [
+        {
+          "votingId": 64,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0097/24",
+      "type": "Geschäftsordnung",
+      "title": "Nach-Nutzungskonzept für unser AMO-Kulturhaus duldet keinen Aufschub",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690617&type=do",
+      "votings": [
+        {
+          "votingId": 66,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0098/24",
+      "type": "Geschäftsordnung",
+      "title": "Baugebundene Glaskunst in und aus Magdeburg",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690619&type=do",
+      "votings": [
+        {
+          "votingId": 67,
           "votingResult": "PASSED"
         }
       ]

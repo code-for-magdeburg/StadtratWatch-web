@@ -2,12 +2,12 @@
   "id": "die-linke",
   "name": "DIE LINKE",
   "seats": 8,
-  "applicationsSuccessRate": 0.8232558139534883,
-  "votingsSuccessRate": 0.8482490272373541,
-  "uniformityScore": 0.9573646800711582,
-  "participationRate": 0.7863164721141375,
-  "abstentionRate": 0.09078898294798515,
-  "speakingTime": 40577,
+  "applicationsSuccessRate": 0.8169642857142857,
+  "votingsSuccessRate": 0.8470444850700792,
+  "uniformityScore": 0.9565080193519475,
+  "participationRate": 0.787096282754418,
+  "abstentionRate": 0.09369712933184808,
+  "speakingTime": 46576,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -125,6 +125,14 @@
       {
         "date": "2024-03-11",
         "value": 0.8232558139534883
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.8248847926267281
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.8169642857142857
       }
     ],
     "votingsSuccessRate": [
@@ -243,6 +251,14 @@
       {
         "date": "2024-03-11",
         "value": 0.8482490272373541
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.8505089058524173
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.8470444850700792
       }
     ],
     "uniformityScore": [
@@ -361,6 +377,14 @@
       {
         "date": "2024-03-11",
         "value": 0.9573646800711582
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.9582765981428601
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.9565080193519475
       }
     ],
     "participationRate": [
@@ -479,6 +503,14 @@
       {
         "date": "2024-03-11",
         "value": 0.7863164721141375
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.7882474554707379
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.787096282754418
       }
     ],
     "abstentionRate": [
@@ -597,6 +629,14 @@
       {
         "date": "2024-03-11",
         "value": 0.09078898294798515
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.0908645353682375
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.09369712933184808
       }
     ]
   },
@@ -3504,6 +3544,122 @@
         {
           "votingId": 3,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0068/24",
+      "type": "Antrag",
+      "title": "Öffentlichkeitsbeteiligung zur Umsetzung des Stadtratsbeschlusses zum Scholl-Denkmal",
+      "sessionId": "2024-04-04",
+      "sessionDate": "2024-04-04",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688981&type=do",
+      "votings": [
+        {
+          "votingId": 6,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0019/23/1/1",
+      "type": "Änderungsantrag",
+      "title": "Erstellung eines Schulwegsicherungskonzeptes für das Stadtgebiet der LH Magdeburg",
+      "sessionId": "2024-04-04",
+      "sessionDate": "2024-04-04",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691084&type=do",
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0172/23",
+      "type": "Antrag",
+      "title": "Kulturveranstaltungen im Glacis für alle erlebbar machen",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674497&type=do",
+      "votings": [
+        {
+          "votingId": 1,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0221/23/3/1",
+      "type": "Änderungsantrag",
+      "title": "Soziale Schuldnerberatung",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691103&type=do",
+      "votings": [
+        {
+          "votingId": 7,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0247/23/1",
+      "type": "Änderungsantrag",
+      "title": "Schulwegsicherheit Hohepfortestraße",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691090&type=do",
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0267/23/1",
+      "type": "Änderungsantrag",
+      "title": "Bauzustandsberichte für AMO-Kulturhaus sowie Zentralbibliothek",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691287&type=do",
+      "votings": [
+        {
+          "votingId": 18,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0274/23",
+      "type": "Antrag",
+      "title": "Stadtratsfreundliche Terminplanung",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682446&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0282/23",
+      "type": "Antrag",
+      "title": "Mitgliedschaften der LH Magdeburg",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682532&type=do",
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 25,
+          "votingResult": "REJECTED"
         }
       ]
     }
