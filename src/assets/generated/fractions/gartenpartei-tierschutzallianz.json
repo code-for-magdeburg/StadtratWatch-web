@@ -2,12 +2,12 @@
   "id": "gartenpartei-tierschutzallianz",
   "name": "Gartenpartei/Tierschutzallianz",
   "seats": 3,
-  "applicationsSuccessRate": 0.45901639344262296,
-  "votingsSuccessRate": 0.6796368352788587,
-  "uniformityScore": 0.856416859373779,
-  "participationRate": 0.8367920449632512,
-  "abstentionRate": 0.135439885519916,
-  "speakingTime": 30338,
+  "applicationsSuccessRate": 0.48484848484848486,
+  "votingsSuccessRate": 0.6873857404021938,
+  "uniformityScore": 0.8573838509469655,
+  "participationRate": 0.84074751167987,
+  "abstentionRate": 0.1371116772286202,
+  "speakingTime": 32578,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -125,6 +125,14 @@
       {
         "date": "2024-03-11",
         "value": 0.45901639344262296
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.4634146341463415
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.48484848484848486
       }
     ],
     "votingsSuccessRate": [
@@ -243,6 +251,14 @@
       {
         "date": "2024-03-11",
         "value": 0.6796368352788587
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.6825699745547074
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.6873857404021938
       }
     ],
     "uniformityScore": [
@@ -361,6 +377,14 @@
       {
         "date": "2024-03-11",
         "value": 0.856416859373779
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.8563881492465047
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.8573838509469655
       }
     ],
     "participationRate": [
@@ -479,6 +503,14 @@
       {
         "date": "2024-03-11",
         "value": 0.8367920449632512
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.8394826123833757
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.84074751167987
       }
     ],
     "abstentionRate": [
@@ -597,6 +629,14 @@
       {
         "date": "2024-03-11",
         "value": 0.135439885519916
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.13685114859517808
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.1371116772286202
       }
     ]
   },
@@ -2231,6 +2271,146 @@
       "votings": [
         {
           "votingId": 25,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0068/24",
+      "type": "Antrag",
+      "title": "Öffentlichkeitsbeteiligung zur Umsetzung des Stadtratsbeschlusses zum Scholl-Denkmal",
+      "sessionId": "2024-04-04",
+      "sessionDate": "2024-04-04",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688981&type=do",
+      "votings": [
+        {
+          "votingId": 6,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0247/23",
+      "type": "Antrag",
+      "title": "Schulwegsicherheit Hohepfortestraße",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=680291&type=do",
+      "votings": [
+        {
+          "votingId": 13,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0265/23",
+      "type": "Antrag",
+      "title": "Unterstützung der Breakdance WM 2024 in der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=681007&type=do",
+      "votings": [
+        {
+          "votingId": 17,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0270/23",
+      "type": "Antrag",
+      "title": "Routenführung der Straßenbahnlinie 9, Reform - Neustädter See, über den Breiten Weg prüfen",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682432&type=do",
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0281/23",
+      "type": "Antrag",
+      "title": "Einführung „Nette Toilette“ in der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682528&type=do",
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0076/24",
+      "type": "Geschäftsordnung",
+      "title": "Verbot und Entfernung sichtbehindernder Werbeträger",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690071&type=do",
+      "votings": [
+        {
+          "votingId": 43,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0077/24",
+      "type": "Geschäftsordnung",
+      "title": "Sanierung der Straßen Alt Fermersleben, Alt Salbke und Alt Westerhüsen im Schnellverfahren",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690076&type=do",
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0080/24",
+      "type": "Geschäftsordnung",
+      "title": "Mehr Stadtwachen in der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690082&type=do",
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0081/24",
+      "type": "Geschäftsordnung",
+      "title": "Ermäßigter Eintritt für Freiwillige des BFD in städtischen Einrichtungen",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690086&type=do",
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0082/24",
+      "type": "Antrag",
+      "title": "Überdachung der Fahrradabstellfläche Schwimmhalle Große Diesdorfer Straße",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690351&type=do",
+      "votings": [
+        {
+          "votingId": 50,
           "votingResult": "PASSED"
         }
       ]

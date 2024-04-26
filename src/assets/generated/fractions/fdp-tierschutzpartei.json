@@ -2,12 +2,12 @@
   "id": "fdp-tierschutzpartei",
   "name": "FDP/Tierschutzpartei",
   "seats": 6,
-  "applicationsSuccessRate": 0.8529411764705882,
-  "votingsSuccessRate": 0.8456549935149157,
-  "uniformityScore": 0.8170203390372426,
-  "participationRate": 0.7422178988326849,
-  "abstentionRate": 0.1475353971002269,
-  "speakingTime": 18186,
+  "applicationsSuccessRate": 0.8518518518518519,
+  "votingsSuccessRate": 0.8470444850700792,
+  "uniformityScore": 0.8187441645933912,
+  "participationRate": 0.7275035547430428,
+  "abstentionRate": 0.1469269111411348,
+  "speakingTime": 19059,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -125,6 +125,14 @@
       {
         "date": "2024-03-11",
         "value": 0.8529411764705882
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.8495145631067961
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.8518518518518519
       }
     ],
     "votingsSuccessRate": [
@@ -243,6 +251,14 @@
       {
         "date": "2024-03-11",
         "value": 0.8456549935149157
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.8479643765903307
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.8470444850700792
       }
     ],
     "uniformityScore": [
@@ -361,6 +377,14 @@
       {
         "date": "2024-03-11",
         "value": 0.8170203390372426
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.8190455869952604
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.8187441645933912
       }
     ],
     "participationRate": [
@@ -479,6 +503,14 @@
       {
         "date": "2024-03-11",
         "value": 0.7422178988326849
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.7374893977947413
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.7275035547430428
       }
     ],
     "abstentionRate": [
@@ -597,6 +629,14 @@
       {
         "date": "2024-03-11",
         "value": 0.1475353971002269
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.14622866164133044
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.1469269111411348
       }
     ]
   },
@@ -3413,6 +3453,154 @@
       "votings": [
         {
           "votingId": 3,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0068/24",
+      "type": "Antrag",
+      "title": "Öffentlichkeitsbeteiligung zur Umsetzung des Stadtratsbeschlusses zum Scholl-Denkmal",
+      "sessionId": "2024-04-04",
+      "sessionDate": "2024-04-04",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688981&type=do",
+      "votings": [
+        {
+          "votingId": 6,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0129/23",
+      "type": "Antrag",
+      "title": "Lösung finden für Radverkehr und Marktgeschehen auf dem Nordabschnitt Breiter Weg während der Marktzeiten",
+      "sessionId": "2024-04-04",
+      "sessionDate": "2024-04-04",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=671227&type=do",
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0287/23",
+      "type": "Antrag",
+      "title": "Ein Sportförderbericht für die Landeshauptstadt Magdeburg etablieren",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682650&type=do",
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0041/24",
+      "type": "Geschäftsordnung",
+      "title": "Förderung für Dachbegrünung",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688119&type=do",
+      "votings": [
+        {
+          "votingId": 32,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0042/24",
+      "type": "Antrag",
+      "title": "Aufwertung des Haltestellenbereiches am Hundertwasserhaus",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688116&type=do",
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0071/24",
+      "type": "Geschäftsordnung",
+      "title": "Dynamische Fahrgastinformation (DFI) in der Braunlager Straße im Zuge der Ausbaumaßnahmen 2025",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690126&type=do",
+      "votings": [
+        {
+          "votingId": 36,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0072/24",
+      "type": "Antrag",
+      "title": "Trinkwasserbrunnen - Auch für Tiere!",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=689531&type=do",
+      "votings": [
+        {
+          "votingId": 38,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0074/24/1",
+      "type": "Änderungsantrag",
+      "title": "Wertschätzung für das Tier-Ehrenamt",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691671&type=do",
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0092/24",
+      "type": "Geschäftsordnung",
+      "title": "Tradition des Humboldt-Gymnasiums fortführen",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690561&type=do",
+      "votings": [
+        {
+          "votingId": 57,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0093/24",
+      "type": "Antrag",
+      "title": "Entwicklung in den Stadtteilen stärken - Stadtteilmanagement und Geschäftsstraßenmanagement sichern",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690569&type=do",
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 59,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 60,
           "votingResult": "PASSED"
         }
       ]

@@ -2,12 +2,12 @@
   "id": "afd",
   "name": "AfD",
   "seats": 8,
-  "applicationsSuccessRate": 0.07079646017699115,
-  "votingsSuccessRate": 0.5888456549935149,
-  "uniformityScore": 0.9894280218551232,
-  "participationRate": 0.7074416342412452,
-  "abstentionRate": 0.11168232988558766,
-  "speakingTime": 33697,
+  "applicationsSuccessRate": 0.06779661016949153,
+  "votingsSuccessRate": 0.5874466788543571,
+  "uniformityScore": 0.9898429374290196,
+  "participationRate": 0.710770871419866,
+  "abstentionRate": 0.11297898849311602,
+  "speakingTime": 34992,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -125,6 +125,14 @@
       {
         "date": "2024-03-11",
         "value": 0.07079646017699115
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.06956521739130435
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.06779661016949153
       }
     ],
     "votingsSuccessRate": [
@@ -243,6 +251,14 @@
       {
         "date": "2024-03-11",
         "value": 0.5888456549935149
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.5909669211195929
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.5874466788543571
       }
     ],
     "uniformityScore": [
@@ -361,6 +377,14 @@
       {
         "date": "2024-03-11",
         "value": 0.9894280218551232
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.9897804211266191
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.9898429374290196
       }
     ],
     "participationRate": [
@@ -479,6 +503,14 @@
       {
         "date": "2024-03-11",
         "value": 0.7074416342412452
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.7061068702290076
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.710770871419866
       }
     ],
     "abstentionRate": [
@@ -597,6 +629,14 @@
       {
         "date": "2024-03-11",
         "value": 0.11168232988558766
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.1112929188894014
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.11297898849311602
       }
     ]
   },
@@ -2129,6 +2169,76 @@
       "votings": [
         {
           "votingId": 9,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0063/23/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs und geringfügige Änderung des Geltungsbereichs zum Bebauungsplan Nr. 368-1C \"Kümmelsberg Westseite\" im Teilbereich C",
+      "sessionId": "2024-04-04",
+      "sessionDate": "2024-04-04",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691097&type=do",
+      "votings": [
+        {
+          "votingId": 17,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0019/23/2",
+      "type": "Änderungsantrag",
+      "title": "Erstellung eines Schulwegsicherungskonzeptes für das Stadtgebiet der LH Magdeburg",
+      "sessionId": "2024-04-04",
+      "sessionDate": "2024-04-04",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691116&type=do",
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0188/23/1",
+      "type": "Änderungsantrag",
+      "title": "Status des Hochwasserschutz in Magdeburg",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=677300&type=do",
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0075/24",
+      "type": "Antrag",
+      "title": "Spendenaktion zum Wiederaufbau des Magdeburger Pferdetors",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690038&type=do",
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0094/24",
+      "type": "Antrag",
+      "title": "Vereinswesen fördern - Nachwuchs vermitteln",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690571&type=do",
+      "votings": [
+        {
+          "votingId": 61,
           "votingResult": "REJECTED"
         }
       ]
