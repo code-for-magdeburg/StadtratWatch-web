@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SessionsService } from '../services/sessions.service';
 import { ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
@@ -29,7 +29,7 @@ type Voting = {
   templateUrl: './session.component.html',
   styleUrls: ['./session.component.scss']
 })
-export class SessionComponent {
+export class SessionComponent implements OnInit {
 
 
   public sessionDate: string | null = null;
@@ -50,7 +50,6 @@ export class SessionComponent {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnInit() {
 
     this.route.paramMap.subscribe(params => {
