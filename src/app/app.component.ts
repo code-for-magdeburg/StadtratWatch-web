@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
       .subscribe(metadata => {
         const sessionsPeriodFrom = new DatePipe('de-DE').transform(metadata.sessionsPeriodFrom);
         const sessionsPeriodUntil = new DatePipe('de-DE').transform(metadata.sessionsPeriodUntil);
-        const content = `Daten und Analysen von Abstimmungen und von Redebeiträgen in den Stadtratssitzungen der Landeshauptstadt Magdeburg im Zeitraum ${sessionsPeriodFrom} - ${sessionsPeriodUntil}`;
+        const content = `xxxDaten und Analysen von Abstimmungen und von Redebeiträgen in den Stadtratssitzungen der Landeshauptstadt Magdeburg im Zeitraum ${sessionsPeriodFrom} - ${sessionsPeriodUntil}`;
         this.meta.addTag({ name: 'description', content })
         return this.metadata = metadata;
       });
