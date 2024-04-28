@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/stadtrat-watch-web",
+            "outputPath": "dist/StadtratWatch-web/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -99,6 +99,61 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/StadtratWatch-web/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "StadtratWatch-web:build:development",
+              "serverTarget": "StadtratWatch-web:server:development"
+            },
+            "production": {
+              "browserTarget": "StadtratWatch-web:build:production",
+              "serverTarget": "StadtratWatch-web:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "StadtratWatch-web:build:production",
+              "serverTarget": "StadtratWatch-web:server:production"
+            },
+            "development": {
+              "browserTarget": "StadtratWatch-web:build:development",
+              "serverTarget": "StadtratWatch-web:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

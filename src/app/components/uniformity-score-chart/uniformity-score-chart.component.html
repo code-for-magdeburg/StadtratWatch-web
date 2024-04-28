@@ -1,5 +1,5 @@
 <canvas
-  *ngIf="uniformityScoreChartData && uniformityScoreChartData.labels && uniformityScoreChartData.labels.length > 0"
+  *ngIf="isBrowser &&uniformityScoreChartData && uniformityScoreChartData.labels && uniformityScoreChartData.labels.length > 0"
   baseChart
   type="bar"
   [height]="chartHeight"

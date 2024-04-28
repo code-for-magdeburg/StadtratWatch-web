@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { PersonsService } from '../services/persons.service';
 import { PersonLightDto } from '../model/Person';
 import { compare, SortablePersonsDirective, SortPersonsEvent } from './sortable-persons.directive';
@@ -13,6 +13,7 @@ import {
   SimulationLinkDatum, drag
 } from 'd3';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
+import { isPlatformBrowser } from '@angular/common';
 
 
 const VALUE_THRESHOLD = .65;
@@ -55,6 +56,7 @@ export class PersonsComponent implements OnInit {
 
   private data: PersonLightDto[] = [];
 
+  public isBrowser = false;
   public sortedPersons: PersonLightDto[] = [];
 
 
@@ -62,7 +64,8 @@ export class PersonsComponent implements OnInit {
   @ViewChild('graphContainer', { static: false }) graphContainer!: ElementRef;
   @ViewChildren(SortablePersonsDirective) headers: QueryList<SortablePersonsDirective> | undefined;
 
-  constructor(private readonly personsService: PersonsService) {
+  constructor(private readonly personsService: PersonsService, @Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser  = isPlatformBrowser(this.platformId);
   }
 
 
@@ -82,8 +85,10 @@ export class PersonsComponent implements OnInit {
         this.tabs ? this.tabs.tabs[1].active = true : null;
 
         setTimeout(() => {
-          this.drawGraph(data as GraphData);
-          this.tabs ? this.tabs.tabs[0].active = true : null;
+          if (this.isBrowser) {
+            this.drawGraph(data as GraphData);
+            this.tabs ? this.tabs.tabs[0].active = true : null;
+          }
         }, 1);
 
       });

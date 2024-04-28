@@ -1,5 +1,5 @@
 <canvas
-  *ngIf="participationRateChartData && participationRateChartData.labels && participationRateChartData.labels.length > 0"
+  *ngIf="isBrowser && participationRateChartData && participationRateChartData.labels && participationRateChartData.labels.length > 0"
   baseChart
   type="bar"
   [height]="chartHeight"

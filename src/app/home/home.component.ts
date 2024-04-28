@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MetadataService } from '../services/metadata.service';
 import { MetadataDto } from '../model/Metadata';
 
@@ -8,7 +8,7 @@ import { MetadataDto } from '../model/Metadata';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
 
   public metadata: MetadataDto | undefined;
@@ -17,7 +17,6 @@ export class HomeComponent {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnInit() {
     this.metadataService
       .fetchMetadata()
