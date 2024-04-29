@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FractionsService } from '../services/fractions.service';
 import { PersonsService } from '../services/persons.service';
@@ -51,7 +51,7 @@ export type Fraction = {
   templateUrl: './fraction.component.html',
   styleUrls: ['./fraction.component.scss']
 })
-export class FractionComponent {
+export class FractionComponent implements OnInit {
 
 
   private applicationsSorting: SortFractionApplicationsEvent = { column: '', direction: '' };
@@ -79,7 +79,6 @@ export class FractionComponent {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {

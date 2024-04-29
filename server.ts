@@ -6,20 +6,6 @@ import * as express from 'express';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import AppServerModule from './src/main.server';
-import * as fs from "node:fs";
-import * as path from "node:path";
-import * as domino from "domino";
-
-
-const template = fs
-  .readFileSync(path.join('dist/StadtratWatch-web/browser', 'index.html')) // Or whereever your rendered index.html is
-  .toString();
-
-
-const window = domino.createWindow(template);
-(global as any).window = window;
-(global as any).document = window.document;
-(global as any).navigator = window.navigator;
 
 
 // The Express app is exported so that it can be used by serverless Functions.
