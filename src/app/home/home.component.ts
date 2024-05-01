@@ -13,14 +13,13 @@ export class HomeComponent implements OnInit {
 
   public metadata: MetadataDto | undefined;
 
+
   constructor(private readonly metadataService: MetadataService) {
   }
 
 
-  ngOnInit() {
-    this.metadataService
-      .fetchMetadata()
-      .subscribe(metadata => this.metadata = metadata);
+  async ngOnInit() {
+    this.metadata = await this.metadataService.fetchMetadata();
   }
 
 
