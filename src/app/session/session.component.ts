@@ -52,7 +52,7 @@ export class SessionComponent implements OnInit {
 
   ngOnInit() {
 
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe(async params => {
 
       const sessionId = params.get('id');
       if (!sessionId) {
@@ -60,29 +60,25 @@ export class SessionComponent implements OnInit {
         return;
       }
 
-      this.sessionsService
-        .fetchSession(sessionId)
-        .subscribe(session => {
+      const session = await this.sessionsService.fetchSession(sessionId);
 
-          this.sessionDate = session.date;
-          this.meetingMinutesUrl = session.meetingMinutesUrl;
-          this.youtubeUrl = session.youtubeUrl;
-          this.votings = session.votings.map((votingDto: SessionVotingDto) => ({
-            id: votingDto.id,
-            agendaItem: votingDto.votingSubject.agendaItem,
-            applicationId: votingDto.votingSubject.applicationId,
-            title: votingDto.votingSubject.title,
-            type: votingDto.votingSubject.type,
-            authorNames: votingDto.votingSubject.authors,
-            result: this.getVotingResult(votingDto.votes),
-          }));
-          this.speakingTimes = SpeakingTimeChartData.fromSession(session);
-          this.speeches = session.speeches;
+      this.sessionDate = session.date;
+      this.meetingMinutesUrl = session.meetingMinutesUrl;
+      this.youtubeUrl = session.youtubeUrl;
+      this.votings = session.votings.map((votingDto: SessionVotingDto) => ({
+        id: votingDto.id,
+        agendaItem: votingDto.votingSubject.agendaItem,
+        applicationId: votingDto.votingSubject.applicationId,
+        title: votingDto.votingSubject.title,
+        type: votingDto.votingSubject.type,
+        authorNames: votingDto.votingSubject.authors,
+        result: this.getVotingResult(votingDto.votes),
+      }));
+      this.speakingTimes = SpeakingTimeChartData.fromSession(session);
+      this.speeches = session.speeches;
 
-          this.tabs ? this.tabs.tabs[1].active = true : null;
-          setTimeout(() => this.tabs ? this.tabs.tabs[0].active = true : null, 1);
-
-        });
+      this.tabs ? this.tabs.tabs[1].active = true : null;
+      setTimeout(() => this.tabs ? this.tabs.tabs[0].active = true : null, 1);
 
     });
 

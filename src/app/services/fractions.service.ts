@@ -12,11 +12,11 @@ export class FractionsService {
 
 
   public fetchFractions = (): Observable<FractionLightDto[]> =>
-    this.http.get<FractionLightDto[]>(`assets/generated/fractions/all-fractions.json`);
+    this.http.get<FractionLightDto[]>(`/assets/generated/fractions/all-fractions.json`);
 
 
   public fetchFraction = (id: string): Observable<FractionDetailsDto> =>
-    this.http.get<FractionDetailsDto>(`assets/generated/fractions/${id}.json`);
+    this.http.get<FractionDetailsDto>(`/assets/generated/fractions/${id}.json`);
 
 
 }

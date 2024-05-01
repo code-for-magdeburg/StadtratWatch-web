@@ -11,11 +11,11 @@ export class PartiesService {
 
 
   public fetchParties = (): Observable<PartyDto[]> =>
-    this.http.get<PartyDto[]>(`assets/generated/parties/all-parties.json`);
+    this.http.get<PartyDto[]>(`/assets/generated/parties/all-parties.json`);
 
 
   public fetchParty = (id: string): Observable<PartyDto> =>
-    this.http.get<PartyDto>(`assets/generated/parties/${id}.json`);
+    this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`);
 
 
 }

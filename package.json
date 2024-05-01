@@ -11,10 +11,7 @@
     "download-paper-files": "ts-node --project ./tsconfig.scripts.json src/scripts/download-paper-files",
     "parse-paper-files": "node src/scripts/parse-paper-files",
     "lab": "ts-node --project ./tsconfig.scripts.json src/scripts/lab/index.ts",
-    "dev:ssr": "ng run StadtratWatch-web:serve-ssr",
-    "serve:ssr": "node dist/StadtratWatch-web/server/main.js",
-    "build:ssr": "ng build && ng run StadtratWatch-web:server",
-    "prerender": "ng run StadtratWatch-web:prerender"
+    "serve:ssr:stadtrat-watch-web": "node dist/StadtratWatch-web/server/server.mjs"
   },
   "private": true,
   "dependencies": {

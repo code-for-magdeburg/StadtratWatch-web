@@ -13,16 +13,16 @@ export class PersonsService {
 
 
   public fetchPersons = (): Observable<PersonLightDto[]> =>
-    this.http.get<PersonLightDto[]>(`assets/generated/persons/all-persons.json`);
+    this.http.get<PersonLightDto[]>(`/assets/generated/persons/all-persons.json`);
 
 
   public fetchPerson = (id: string): Observable<PersonDetailsDto> =>
-    this.http.get<PersonDetailsDto>(`assets/generated/persons/${id}.json`);
+    this.http.get<PersonDetailsDto>(`/assets/generated/persons/${id}.json`);
 
 
   public fetchPersonsByFraction = (fractionId: string): Observable<PersonLightDto[]> =>
     this.http
-      .get<PersonLightDto[]>(`assets/generated/persons/all-persons.json`)
+      .get<PersonLightDto[]>(`/assets/generated/persons/all-persons.json`)
       .pipe(
         map(allPersons =>
           allPersons.filter(person => person.fractionId === fractionId)
@@ -32,7 +32,7 @@ export class PersonsService {
 
   public fetchPersonsByParty = (partyId: string): Observable<PersonLightDto[]> =>
     this.http
-      .get<PersonLightDto[]>(`assets/generated/persons/all-persons.json`)
+      .get<PersonLightDto[]>(`/assets/generated/persons/all-persons.json`)
       .pipe(
         map(allPersons =>
           allPersons.filter(person => person.partyId === partyId)
@@ -41,7 +41,7 @@ export class PersonsService {
 
 
   public fetchAllPersonsForces = (): Observable<any> =>
-    this.http.get<any>(`assets/generated/persons/all-persons-forces.json`);
+    this.http.get<any>(`/assets/generated/persons/all-persons-forces.json`);
 
 
 }
