@@ -18,17 +18,17 @@ import { ImpressumComponent } from './impressum/impressum.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'sessions', component: SessionsComponent },
-  // { path: 'session/:id', component: SessionComponent },
-  // { path: 'session/:session-id/voting/:voting-id', component: VotingComponent },
-  // { path: 'fractions', component: FractionsComponent },
-  // { path: 'fraction/:id', component: FractionComponent },
-  // { path: 'parties', component: PartiesComponent },
-  // { path: 'party/:id', component: PartyComponent },
-  // { path: 'persons', component: PersonsComponent },
-  // { path: 'person/:id', component: PersonComponent },
-  // { path: 'contact', component: ContactComponent },
-  // { path: 'impressum', component: ImpressumComponent },
-  // { path: 'privacy', component: PrivacyComponent },
+  { path: 'session/:id', component: SessionComponent },
+  { path: 'session/:session-id/voting/:voting-id', component: VotingComponent },
+  { path: 'fractions', component: FractionsComponent },
+  { path: 'fraction/:id', component: FractionComponent },
+  { path: 'parties', component: PartiesComponent },
+  { path: 'party/:id', component: PartyComponent },
+  { path: 'persons', component: PersonsComponent },
+  { path: 'person/:id', component: PersonComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'impressum', component: ImpressumComponent },
+  { path: 'privacy', component: PrivacyComponent },
 ];
 
 

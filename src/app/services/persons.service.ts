@@ -1,47 +1,122 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, makeStateKey, PLATFORM_ID, TransferState } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { PersonDetailsDto, PersonLightDto } from '../model/Person';
+import { isPlatformServer } from '@angular/common';
+
+
+const personsStateKey = makeStateKey<PersonLightDto[]>('persons');
+const personsByFractionStateKey = makeStateKey<PersonLightDto[]>('personsByFraction');
+const personsByPartyStateKey = makeStateKey<PersonLightDto[]>('personsByParty');
+const personStateKey = makeStateKey<PersonDetailsDto>('person');
+const personsForcesStateKey = makeStateKey<any>('personsForces');
 
 
 @Injectable({ providedIn: 'root' })
 export class PersonsService {
 
 
-  constructor(private readonly http: HttpClient) {
+  private readonly isServer: boolean = false;
+
+
+  constructor(private readonly http: HttpClient, private readonly transferState: TransferState,
+              @Inject(PLATFORM_ID) platformId: Object) {
+    this.isServer = isPlatformServer(platformId);
   }
 
 
-  public fetchPersons = (): Observable<PersonLightDto[]> =>
-    this.http.get<PersonLightDto[]>(`/assets/generated/persons/all-persons.json`);
+  public async fetchPersons(): Promise<PersonLightDto[]> {
 
-
-  public fetchPerson = (id: string): Observable<PersonDetailsDto> =>
-    this.http.get<PersonDetailsDto>(`/assets/generated/persons/${id}.json`);
-
-
-  public fetchPersonsByFraction = (fractionId: string): Observable<PersonLightDto[]> =>
-    this.http
-      .get<PersonLightDto[]>(`/assets/generated/persons/all-persons.json`)
-      .pipe(
-        map(allPersons =>
-          allPersons.filter(person => person.fractionId === fractionId)
-        )
+    if (this.isServer) {
+      const persons = await firstValueFrom(
+        this.http.get<PersonLightDto[]>(`/assets/generated/persons/all-persons.json`)
       );
+      this.transferState.set(personsStateKey, persons);
+      return persons;
+    } else {
+      const storedData = this.transferState.get(personsStateKey, null);
+      if (storedData) {
+        return storedData;
+      }
+      return firstValueFrom(this.http.get<PersonLightDto[]>(`/assets/generated/persons/all-persons.json`));
+    }
+
+  }
 
 
-  public fetchPersonsByParty = (partyId: string): Observable<PersonLightDto[]> =>
-    this.http
-      .get<PersonLightDto[]>(`/assets/generated/persons/all-persons.json`)
-      .pipe(
-        map(allPersons =>
-          allPersons.filter(person => person.partyId === partyId)
-        )
+  public async fetchPerson(id: string): Promise<PersonDetailsDto> {
+
+    if (this.isServer) {
+      const person = await firstValueFrom(
+        this.http.get<PersonDetailsDto>(`/assets/generated/persons/${id}.json`)
       );
+      this.transferState.set(personStateKey, person);
+      return person;
+    } else {
+      const storedData = this.transferState.get(personStateKey, null);
+      if (storedData) {
+        return storedData;
+      }
+      return firstValueFrom(this.http.get<PersonDetailsDto>(`/assets/generated/persons/${id}.json`));
+    }
+
+  }
 
 
-  public fetchAllPersonsForces = (): Observable<any> =>
-    this.http.get<any>(`/assets/generated/persons/all-persons-forces.json`);
+  public async fetchPersonsByFraction(fractionId: string): Promise<PersonLightDto[]> {
+
+    if (this.isServer) {
+      const allPersons = await this.fetchPersons();
+      const persons = allPersons.filter(person => person.fractionId === fractionId);
+      this.transferState.set(personsByFractionStateKey, persons);
+      return persons;
+    } else {
+      const storedData = this.transferState.get(personsByFractionStateKey, null);
+      if (storedData) {
+        return storedData;
+      }
+      const allPersons = await this.fetchPersons();
+      return allPersons.filter(person => person.fractionId === fractionId);
+    }
+
+  }
+
+
+  public async fetchPersonsByParty(partyId: string): Promise<PersonLightDto[]> {
+
+    if (this.isServer) {
+      const allPersons = await this.fetchPersons();
+      const persons = allPersons.filter(person => person.partyId === partyId);
+      this.transferState.set(personsByPartyStateKey, persons);
+      return persons;
+    } else {
+      const storedData = this.transferState.get(personsByPartyStateKey, null);
+      if (storedData) {
+        return storedData;
+      }
+      const allPersons = await this.fetchPersons();
+      return allPersons.filter(person => person.partyId === partyId);
+    }
+
+  }
+
+
+  public async fetchAllPersonsForces(): Promise<any> {
+
+    if (this.isServer) {
+      const personsForces = await firstValueFrom(
+        this.http.get<any>(`/assets/generated/persons/all-persons-forces.json`)
+      );
+      this.transferState.set(personsForcesStateKey, personsForces);
+    } else {
+      const storedData = this.transferState.get(personsForcesStateKey, null);
+      if (storedData) {
+        return storedData;
+      }
+      return firstValueFrom(this.http.get<any>(`/assets/generated/persons/all-persons-forces.json`));
+    }
+
+  }
 
 
 }

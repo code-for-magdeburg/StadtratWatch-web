@@ -32,7 +32,7 @@ export class PersonComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe(async params => {
 
       const personId = params.get('id');
       if (!personId) {
@@ -40,19 +40,15 @@ export class PersonComponent implements OnInit {
         return;
       }
 
-      this.personsService
-        .fetchPerson(personId)
-        .subscribe(person => {
-          this.person = person;
-          this.comparisonMatrix = person.votingMatrix.sort(
-            (a, b) => b.comparisonScore - a.comparisonScore
-          );
-          this.didVote = person.votes.length -
-            person.votes.filter(vote => vote.vote === VoteResult.DID_NOT_VOTE).length;
+      const person = await this.personsService.fetchPerson(personId);
+      this.person = person;
+      this.comparisonMatrix = person.votingMatrix.sort(
+        (a, b) => b.comparisonScore - a.comparisonScore
+      );
+      this.didVote = person.votes.length -
+        person.votes.filter(vote => vote.vote === VoteResult.DID_NOT_VOTE).length;
 
-          this.speechesBySession = this.generateSpeechesBySession(person);
-
-        });
+      this.speechesBySession = this.generateSpeechesBySession(person);
 
     });
 

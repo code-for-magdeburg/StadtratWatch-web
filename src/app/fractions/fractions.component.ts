@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FractionLightDto } from '../model/Fraction';
 import { FractionsService } from '../services/fractions.service';
 import { compare, SortableFractionsDirective, SortFractionsEvent } from './sortable-fractions.directive';
@@ -19,7 +19,7 @@ import { SpeakingTimeChartData } from '../components/speaking-time-chart/speakin
   templateUrl: './fractions.component.html',
   styleUrls: ['./fractions.component.scss']
 })
-export class FractionsComponent {
+export class FractionsComponent implements OnInit {
 
 
   private data: FractionLightDto[] = [];
@@ -39,21 +39,16 @@ export class FractionsComponent {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
-  ngOnInit() {
+  async ngOnInit() {
 
-    this.fractionsService
-      .fetchFractions()
-      .subscribe(fractions => {
-        this.sortedFractions = this.data = fractions;
-        this.sortedFractions.sort((a, b) => b.seats - a.seats);
-        this.applicationsSuccessRates = this.data.map(ApplicationsSuccessRateChartData.fromFraction);
-        this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromFraction);
-        this.uniformityScores = this.data.map(UniformityScoreChartData.fromFraction);
-        this.participationRates = this.data.map(ParticipationRateChartData.fromFraction);
-        this.abstentionRates = this.data.map(AbstentionRateChartData.fromFraction);
-        this.speakingTimes = this.data.map(SpeakingTimeChartData.fromFraction);
-      });
+    this.sortedFractions = this.data = await this.fractionsService.fetchFractions();
+    this.sortedFractions.sort((a, b) => b.seats - a.seats);
+    this.applicationsSuccessRates = this.data.map(ApplicationsSuccessRateChartData.fromFraction);
+    this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromFraction);
+    this.uniformityScores = this.data.map(UniformityScoreChartData.fromFraction);
+    this.participationRates = this.data.map(ParticipationRateChartData.fromFraction);
+    this.abstentionRates = this.data.map(AbstentionRateChartData.fromFraction);
+    this.speakingTimes = this.data.map(SpeakingTimeChartData.fromFraction);
 
   }
 
