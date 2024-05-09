@@ -46,10 +46,10 @@ export class PartiesService {
       this.transferState.set(partyStateKey, party);
       return party;
     } else {
-      // const storedData = this.transferState.get(partyStateKey, null);
-      // if (storedData) {
-      //   return storedData;
-      // }
+      const storedData = this.transferState.get(partyStateKey, null);
+      if (storedData) {
+        return storedData;
+      }
       return firstValueFrom(this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`));
     }
 
