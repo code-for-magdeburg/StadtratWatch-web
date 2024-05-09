@@ -41,23 +41,23 @@ export class PartiesService {
 
   public async fetchParty(id: string): Promise<PartyDto> {
 
-    console.error('a');
+    console.log('a');
     if (this.isServer) {
-      console.error('b');
+      console.log('b');
       const party = await firstValueFrom(this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`));
-      console.error('c');
+      console.log('c');
       this.transferState.set(partyStateKey, party);
-      console.error('d');
+      console.log('d');
       return party;
     } else {
-      console.error('e');
+      console.log('e');
       const storedData = this.transferState.get(partyStateKey, null);
-      console.error('f');
+      console.log('f');
       if (storedData) {
-        console.error('g');
+        console.log('g');
         return storedData;
       }
-      console.error('h');
+      console.log('h');
       return firstValueFrom(this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`));
     }
 
