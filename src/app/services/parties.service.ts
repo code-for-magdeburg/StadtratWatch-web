@@ -1,4 +1,4 @@
-import { Inject, Injectable, makeStateKey, PLATFORM_ID, TransferState } from '@angular/core';
+import { Inject, Injectable, makeStateKey, PLATFORM_ID, StateKey, TransferState } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { PartyDto } from '../model/Party';
 import { HttpClient } from '@angular/common/http';
@@ -6,7 +6,7 @@ import { isPlatformServer } from '@angular/common';
 
 
 const partiesStateKey = makeStateKey<PartyDto[]>('parties');
-const partyStateKey = makeStateKey<PartyDto>('party');
+const partyStateKeys = new Map<string, StateKey<PartyDto>>();
 
 
 @Injectable({ providedIn: 'root' })
@@ -42,14 +42,20 @@ export class PartiesService {
   public async fetchParty(id: string): Promise<PartyDto> {
 
     if (this.isServer) {
+      console.log('fetchParty - server');
       const party = await firstValueFrom(this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`));
+      const partyStateKey = partyStateKeys.get(id) || makeStateKey<PartyDto>(`party-${id}`);
       this.transferState.set(partyStateKey, party);
       return party;
     } else {
+      console.log('fetchParty - client');
+      const partyStateKey = partyStateKeys.get(id) || makeStateKey<PartyDto>(`party-${id}`);
       const storedData = this.transferState.get(partyStateKey, null);
       if (storedData) {
+        console.log('fetchParty storedData', storedData);
         return storedData;
       }
+      console.log('fetchParty no storedData');
       return firstValueFrom(this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`));
     }
 
