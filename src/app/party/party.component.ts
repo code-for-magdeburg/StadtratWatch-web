@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PartiesService } from '../services/parties.service';
 import { forkJoin } from 'rxjs';
 import { PersonsService } from '../services/persons.service';
 import { Councilor, CouncilorCardComponent } from '../components/councilor-card/councilor-card.component';
 import { PartyStatsHistoryDto } from '../model/Party';
+import { Meta } from '@angular/platform-browser';
 
 
 export type Party = {
@@ -22,7 +23,7 @@ export type Party = {
   templateUrl: './party.component.html',
   styleUrls: ['./party.component.scss']
 })
-export class PartyComponent {
+export class PartyComponent implements OnInit {
 
 
   public party: Party | null = null;
@@ -31,11 +32,10 @@ export class PartyComponent {
 
 
   constructor(private readonly route: ActivatedRoute, private readonly partiesService: PartiesService,
-              private readonly personsService: PersonsService) {
+              private readonly personsService: PersonsService, private readonly meta: Meta) {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
@@ -68,6 +68,8 @@ export class PartyComponent {
           this.formerCouncilors = persons
             .filter(person => person.councilorUntil && person.councilorUntil < today)
             .map(CouncilorCardComponent.mapPersonToCouncilor);
+
+          this.meta.addTag({ name: 'title', content: `Partei ${party.name}` });
 
         });
 
