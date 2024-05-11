@@ -42,21 +42,22 @@ export class PartiesService {
   public async fetchParty(id: string): Promise<PartyDto> {
 
     if (this.isServer) {
-      console.log('fetchParty - server');
+
       const party = await firstValueFrom(this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`));
       const partyStateKey = partyStateKeys.get(id) || makeStateKey<PartyDto>(`party-${id}`);
       this.transferState.set(partyStateKey, party);
       return party;
+
     } else {
-      console.log('fetchParty - client');
+
       const partyStateKey = partyStateKeys.get(id) || makeStateKey<PartyDto>(`party-${id}`);
       const storedData = this.transferState.get(partyStateKey, null);
       if (storedData) {
-        console.log('fetchParty storedData', storedData);
         return storedData;
       }
-      console.log('fetchParty no storedData');
+
       return firstValueFrom(this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`));
+
     }
 
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { PartiesService } from '../services/parties.service';
 import { forkJoin } from 'rxjs';
@@ -32,7 +33,8 @@ export class PartyComponent implements OnInit {
 
 
   constructor(private readonly route: ActivatedRoute, private readonly partiesService: PartiesService,
-              private readonly personsService: PersonsService, private readonly meta: Meta) {
+              private readonly personsService: PersonsService, private readonly meta: Meta,
+              private readonly location: Location) {
   }
 
 
@@ -69,7 +71,12 @@ export class PartyComponent implements OnInit {
             .filter(person => person.councilorUntil && person.councilorUntil < today)
             .map(CouncilorCardComponent.mapPersonToCouncilor);
 
-          this.meta.addTag({ name: 'title', content: `Partei ${party.name}` });
+          this.meta.addTag({ name: 'og:title', content: `${party.name} im Stadtrat Magdeburg` });
+          this.meta.addTag({
+            name: 'og:description',
+            content: `${party.name} - Abstimmungen, Anwesenheiten und andere Statistiken im Stadtrat Magdeburg`
+          });
+          this.meta.addTag({ name: 'og:url', content: this.location.path() });
 
         });
 
