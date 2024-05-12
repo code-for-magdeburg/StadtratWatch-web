@@ -69,16 +69,17 @@ export class PartyComponent implements OnInit {
             .filter(person => person.councilorUntil && person.councilorUntil < today)
             .map(CouncilorCardComponent.mapPersonToCouncilor);
 
-          this.meta.addTag({ name: 'og:type', content: 'website' });
-          this.meta.addTag({ name: 'og:title', content: `${party.name} im Magdeburger Stadtrat` });
           const description = party.name.startsWith('parteilos-')
             ? `${party.name} - Abstimmungen, Anwesenheiten und andere Statistiken im Magdeburger Stadtrat`
             : `${party.name} - Abstimmungen, Anwesenheiten und andere Statistiken der Partei im Magdeburger Stadtrat`;
-          this.meta.addTag({ name: 'og:description', content: description });
-
-          // TODO: Add og:url
-
-          // TODO: Add og:image
+          this.meta.addTags([
+            { name: 'description', content: description },
+            { property: 'og:description', content: description },
+            { property: 'og:title', content: `${party.name} im Magdeburger Stadtrat` },
+            { property: 'og:type', content: 'website' },
+            // TODO: Add property og:url
+            // TODO: Add property og:image
+          ]);
 
         });
 

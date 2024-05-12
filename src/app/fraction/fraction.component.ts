@@ -13,6 +13,7 @@ import {
   SortFractionApplicationsEvent
 } from '../fractions/sortable-fraction-applications.directive';
 import { StatsHistoryDto } from '../model/Fraction';
+import { Meta } from '@angular/platform-browser';
 
 
 enum ApplicationResult {
@@ -75,7 +76,7 @@ export class FractionComponent implements OnInit {
 
 
   constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService,
-              private readonly personsService: PersonsService) {
+              private readonly personsService: PersonsService, private readonly meta: Meta) {
   }
 
 
@@ -116,6 +117,19 @@ export class FractionComponent implements OnInit {
 
           this.applicationsSorting = { column: 'votingDate', direction: 'desc' };
           this.filterAndSortApplications();
+
+          const description = fraction.name.startsWith('parteilos-')
+            ? `${fraction.name} - Abstimmungen, Anwesenheiten und andere Statistiken im Magdeburger Stadtrat`
+            : `${fraction.name} - Abstimmungen, Anwesenheiten und andere Statistiken der Fraktion im Magdeburger Stadtrat`;
+          this.meta.addTags([
+            { name: 'description', content: description },
+            { property: 'og:description', content: description },
+            { property: 'og:title', content: `${fraction.name} im Magdeburger Stadtrat` },
+            { property: 'og:type', content: 'website' },
+            // TODO: Add property og:url
+            // TODO: Add property og:image
+          ]);
+
         });
 
     });
