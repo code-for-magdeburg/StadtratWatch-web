@@ -13,7 +13,7 @@ import {
   SortFractionApplicationsEvent
 } from '../fractions/sortable-fraction-applications.directive';
 import { StatsHistoryDto } from '../model/Fraction';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 
 enum ApplicationResult {
@@ -76,7 +76,8 @@ export class FractionComponent implements OnInit {
 
 
   constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService,
-              private readonly personsService: PersonsService, private readonly meta: Meta) {
+              private readonly personsService: PersonsService, private readonly meta: Meta,
+              private readonly titleService: Title) {
   }
 
 
@@ -122,6 +123,7 @@ export class FractionComponent implements OnInit {
             ? `${fraction.name} - Abstimmungen, Anwesenheiten und andere Statistiken im Magdeburger Stadtrat`
             : `${fraction.name} - Abstimmungen, Anwesenheiten und andere Statistiken der Fraktion im Magdeburger Stadtrat`;
           const title = `${fraction.name} im Magdeburger Stadtrat`;
+          this.titleService.setTitle(title);
           this.meta.updateTag({ name: 'description', content: description });
           this.meta.updateTag({ property: 'og:title', content: title });
           this.meta.updateTag({ property: 'og:description', content: description });
