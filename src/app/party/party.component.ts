@@ -71,9 +71,9 @@ export class PartyComponent implements OnInit {
             .map(CouncilorCardComponent.mapPersonToCouncilor);
 
           const description = party.name.startsWith('parteilos-')
-            ? `${party.name} - Abstimmungen, Anwesenheiten und andere Statistiken im Magdeburger Stadtrat`
-            : `${party.name} - Abstimmungen, Anwesenheiten und andere Statistiken der Partei im Magdeburger Stadtrat`;
-          const title = `${party.name} im Magdeburger Stadtrat`;
+            ? `${party.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen im Magdeburger Stadtrat`
+            : `${party.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen der Partei im Magdeburger Stadtrat`;
+          const title = `StadtratWatch: ${party.name}`;
           this.titleService.setTitle(title);
           this.meta.updateTag({ name: 'description', content: description });
           this.meta.updateTag({ property: 'og:title', content: title });

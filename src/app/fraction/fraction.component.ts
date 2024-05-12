@@ -120,9 +120,9 @@ export class FractionComponent implements OnInit {
           this.filterAndSortApplications();
 
           const description = fraction.name.startsWith('parteilos-')
-            ? `${fraction.name} - Abstimmungen, Anwesenheiten und andere Statistiken im Magdeburger Stadtrat`
-            : `${fraction.name} - Abstimmungen, Anwesenheiten und andere Statistiken der Fraktion im Magdeburger Stadtrat`;
-          const title = `${fraction.name} im Magdeburger Stadtrat`;
+            ? `${fraction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen im Magdeburger Stadtrat`
+            : `${fraction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen der Fraktion im Magdeburger Stadtrat`;
+          const title = `StadtratWatch: ${fraction.name}`;
           this.titleService.setTitle(title);
           this.meta.updateTag({ name: 'description', content: description });
           this.meta.updateTag({ property: 'og:title', content: title });
