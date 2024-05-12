@@ -11,7 +11,7 @@ import {
   VoteResult,
   VotingResult
 } from '../../../../app/model/Session';
-import { RegistryPerson } from '../../model/registry';
+import { RegistryPerson } from '../../../shared/model/registry';
 
 
 describe('Calculating voting success rate', () => {
