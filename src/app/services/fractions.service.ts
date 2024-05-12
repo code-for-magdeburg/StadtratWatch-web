@@ -1,4 +1,4 @@
-import { Inject, Injectable, makeStateKey, PLATFORM_ID, TransferState } from '@angular/core';
+import { Inject, Injectable, makeStateKey, PLATFORM_ID, StateKey, TransferState } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { FractionDetailsDto, FractionLightDto } from '../model/Fraction';
@@ -6,7 +6,7 @@ import { isPlatformServer } from '@angular/common';
 
 
 const fractionsStateKey = makeStateKey<FractionLightDto[]>('fractions');
-const fractionStateKey = makeStateKey<FractionDetailsDto>('fraction');
+const fractionStateKeys = new Map<string, StateKey<FractionDetailsDto>>();
 
 
 @Injectable({ providedIn: 'root' })
@@ -43,18 +43,27 @@ export class FractionsService {
 
   public async fetchFraction(id: string): Promise<FractionDetailsDto> {
 
+    const fractionStateKey = fractionStateKeys.get(id)
+      || makeStateKey<FractionDetailsDto>(`fraction-${id}`);
+
     if (this.isServer) {
+
       const fraction = await firstValueFrom(
         this.http.get<FractionDetailsDto>(`/assets/generated/fractions/${id}.json`)
       );
       this.transferState.set(fractionStateKey, fraction);
+
       return fraction;
+
     } else {
+
       const storedData = this.transferState.get(fractionStateKey, null);
       if (storedData) {
         return storedData;
       }
+
       return firstValueFrom(this.http.get<FractionDetailsDto>(`/assets/generated/fractions/${id}.json`));
+
     }
 
   }
