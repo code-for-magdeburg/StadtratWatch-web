@@ -72,14 +72,18 @@ export class PartyComponent implements OnInit {
           const description = party.name.startsWith('parteilos-')
             ? `${party.name} - Abstimmungen, Anwesenheiten und andere Statistiken im Magdeburger Stadtrat`
             : `${party.name} - Abstimmungen, Anwesenheiten und andere Statistiken der Partei im Magdeburger Stadtrat`;
-          this.meta.addTags([
-            { name: 'description', content: description },
-            { property: 'og:description', content: description },
-            { property: 'og:title', content: `${party.name} im Magdeburger Stadtrat` },
-            { property: 'og:type', content: 'website' },
-            // TODO: Add property og:url
-            // TODO: Add property og:image
-          ]);
+          const title = `${party.name} im Magdeburger Stadtrat`;
+          this.meta.updateTag({ name: 'description', content: description });
+          this.meta.updateTag({ property: 'og:title', content: title });
+          this.meta.updateTag({ property: 'og:description', content: description });
+          this.meta.updateTag({ name: 'twitter:title', content: title });
+          this.meta.updateTag({ name: 'twitter:description', content: description });
+          // TODO: Add property og:url
+          // TODO: Add property og:image
+          // TODO: Add name twitter:image
+          // TODO: Add name twitter:card
+          // TODO: Add name twitter:domain
+          // TODO: Add name twitter:url
 
         });
 

@@ -121,14 +121,18 @@ export class FractionComponent implements OnInit {
           const description = fraction.name.startsWith('parteilos-')
             ? `${fraction.name} - Abstimmungen, Anwesenheiten und andere Statistiken im Magdeburger Stadtrat`
             : `${fraction.name} - Abstimmungen, Anwesenheiten und andere Statistiken der Fraktion im Magdeburger Stadtrat`;
-          this.meta.addTags([
-            { name: 'description', content: description },
-            { property: 'og:description', content: description },
-            { property: 'og:title', content: `${fraction.name} im Magdeburger Stadtrat` },
-            { property: 'og:type', content: 'website' },
-            // TODO: Add property og:url
-            // TODO: Add property og:image
-          ]);
+          const title = `${fraction.name} im Magdeburger Stadtrat`;
+          this.meta.updateTag({ name: 'description', content: description });
+          this.meta.updateTag({ property: 'og:title', content: title });
+          this.meta.updateTag({ property: 'og:description', content: description });
+          this.meta.updateTag({ name: 'twitter:title', content: title });
+          this.meta.updateTag({ name: 'twitter:description', content: description });
+          // TODO: Add property og:url
+          // TODO: Add property og:image
+          // TODO: Add name twitter:image
+          // TODO: Add name twitter:card
+          // TODO: Add name twitter:domain
+          // TODO: Add name twitter:url
 
         });
 
