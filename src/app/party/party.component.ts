@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { PartiesService } from '../services/parties.service';
 import { forkJoin } from 'rxjs';
@@ -33,8 +32,7 @@ export class PartyComponent implements OnInit {
 
 
   constructor(private readonly route: ActivatedRoute, private readonly partiesService: PartiesService,
-              private readonly personsService: PersonsService, private readonly meta: Meta,
-              private readonly location: Location) {
+              private readonly personsService: PersonsService, private readonly meta: Meta) {
   }
 
 
@@ -71,12 +69,16 @@ export class PartyComponent implements OnInit {
             .filter(person => person.councilorUntil && person.councilorUntil < today)
             .map(CouncilorCardComponent.mapPersonToCouncilor);
 
-          this.meta.addTag({ name: 'og:title', content: `${party.name} im Stadtrat Magdeburg` });
-          this.meta.addTag({
-            name: 'og:description',
-            content: `${party.name} - Abstimmungen, Anwesenheiten und andere Statistiken im Stadtrat Magdeburg`
-          });
-          this.meta.addTag({ name: 'og:url', content: this.location.path() });
+          this.meta.addTag({ name: 'og:type', content: 'website' });
+          this.meta.addTag({ name: 'og:title', content: `${party.name} im Magdeburger Stadtrat` });
+          const description = party.name.startsWith('parteilos-')
+            ? `${party.name} - Abstimmungen, Anwesenheiten und andere Statistiken im Magdeburger Stadtrat`
+            : `${party.name} - Abstimmungen, Anwesenheiten und andere Statistiken der Partei im Magdeburger Stadtrat`;
+          this.meta.addTag({ name: 'og:description', content: description });
+
+          // TODO: Add og:url
+
+          // TODO: Add og:image
 
         });
 
