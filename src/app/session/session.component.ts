@@ -6,6 +6,7 @@ import { SessionVotingDto, SessionSpeechDto, Vote, VoteResult } from '../model/S
 import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { Meta, Title } from '@angular/platform-browser';
+import { DatePipe } from "@angular/common";
 
 
 enum VotingResult {
@@ -82,7 +83,8 @@ export class SessionComponent implements OnInit {
       this.tabs ? this.tabs.tabs[1].active = true : null;
       setTimeout(() => this.tabs ? this.tabs.tabs[0].active = true : null, 1);
 
-      const description = `${session.date} - Abstimmungen, Anwesenheiten und andere Daten und Analysen der Sitzung des Magdeburger Stadtrates`;
+      const sessionDateDisplay = new DatePipe('de-DE').transform(session.date);
+      const description = `${sessionDateDisplay}: Abstimmungen, Redebeiträge und andere Daten und Analysen der Sitzung des Magdeburger Stadtrates`;
       const title = `StadtratWatch: Sitzung vom ${session.date}`;
       this.titleService.setTitle(title);
       this.meta.updateTag({ name: 'description', content: description });
