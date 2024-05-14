@@ -5,6 +5,7 @@ import { ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
 import { SessionVotingDto, SessionSpeechDto, Vote, VoteResult } from '../model/Session';
 import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
+import { Meta, Title } from '@angular/platform-browser';
 
 
 enum VotingResult {
@@ -46,7 +47,8 @@ export class SessionComponent implements OnInit {
   protected REJECTED_COLOR = REJECTED_COLOR;
 
 
-  constructor(private readonly route: ActivatedRoute, private readonly sessionsService: SessionsService) {
+  constructor(private readonly route: ActivatedRoute, private readonly sessionsService: SessionsService,
+              private readonly meta: Meta, private readonly titleService: Title) {
   }
 
 
@@ -79,6 +81,21 @@ export class SessionComponent implements OnInit {
 
       this.tabs ? this.tabs.tabs[1].active = true : null;
       setTimeout(() => this.tabs ? this.tabs.tabs[0].active = true : null, 1);
+
+      const description = `${session.date} - Abstimmungen, Anwesenheiten und andere Daten und Analysen der Sitzung des Magdeburger Stadtrates`;
+      const title = `StadtratWatch: Sitzung vom ${session.date}`;
+      this.titleService.setTitle(title);
+      this.meta.updateTag({ name: 'description', content: description });
+      this.meta.updateTag({ property: 'og:title', content: title });
+      this.meta.updateTag({ property: 'og:description', content: description });
+      this.meta.updateTag({ name: 'twitter:title', content: title });
+      this.meta.updateTag({ name: 'twitter:description', content: description });
+      // TODO: Add property og:url
+      // TODO: Add property og:image
+      // TODO: Add name twitter:image
+      // TODO: Add name twitter:card
+      // TODO: Add name twitter:domain
+      // TODO: Add name twitter:url
 
     });
 
