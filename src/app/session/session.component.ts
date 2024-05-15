@@ -84,8 +84,8 @@ export class SessionComponent implements OnInit {
       setTimeout(() => this.tabs ? this.tabs.tabs[0].active = true : null, 1);
 
       const sessionDateDisplay = new DatePipe('de-DE').transform(session.date);
+      const title = `StadtratWatch: Sitzung vom ${sessionDateDisplay}`;
       const description = `${sessionDateDisplay}: Abstimmungen, Redebeiträge und andere Daten und Analysen der Sitzung des Magdeburger Stadtrates`;
-      const title = `StadtratWatch: Sitzung vom ${session.date}`;
       this.titleService.setTitle(title);
       this.meta.updateTag({ name: 'description', content: description });
       this.meta.updateTag({ property: 'og:title', content: title });

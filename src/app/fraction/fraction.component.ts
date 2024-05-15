@@ -119,10 +119,10 @@ export class FractionComponent implements OnInit {
           this.applicationsSorting = { column: 'votingDate', direction: 'desc' };
           this.filterAndSortApplications();
 
+          const title = `StadtratWatch: ${fraction.name}`;
           const description = fraction.name.startsWith('parteilos-')
             ? `${fraction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen im Magdeburger Stadtrat`
             : `${fraction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen der Fraktion im Magdeburger Stadtrat`;
-          const title = `StadtratWatch: ${fraction.name}`;
           this.titleService.setTitle(title);
           this.meta.updateTag({ name: 'description', content: description });
           this.meta.updateTag({ property: 'og:title', content: title });

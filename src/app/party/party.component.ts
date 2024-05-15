@@ -70,10 +70,10 @@ export class PartyComponent implements OnInit {
             .filter(person => person.councilorUntil && person.councilorUntil < today)
             .map(CouncilorCardComponent.mapPersonToCouncilor);
 
+          const title = `StadtratWatch: ${party.name}`;
           const description = party.name.startsWith('parteilos-')
             ? `${party.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen im Magdeburger Stadtrat`
             : `${party.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen der Partei im Magdeburger Stadtrat`;
-          const title = `StadtratWatch: ${party.name}`;
           this.titleService.setTitle(title);
           this.meta.updateTag({ name: 'description', content: description });
           this.meta.updateTag({ property: 'og:title', content: title });
