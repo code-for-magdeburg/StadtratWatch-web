@@ -1,4 +1,4 @@
-import { Inject, Injectable, makeStateKey, PLATFORM_ID, TransferState } from '@angular/core';
+import { Inject, Injectable, makeStateKey, PLATFORM_ID, StateKey, TransferState } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { SessionDetailsDto, SessionLightDto } from '../model/Session';
@@ -6,7 +6,7 @@ import { isPlatformServer } from '@angular/common';
 
 
 const sessionsStateKey = makeStateKey<SessionLightDto[]>('sessions')
-const sessionStateKey = makeStateKey<SessionDetailsDto>('session')
+const sessionStateKeys = new Map<string, StateKey<SessionDetailsDto>>()
 
 
 @Injectable({ providedIn: 'root' })
@@ -43,18 +43,27 @@ export class SessionsService {
 
   public async fetchSession(id: string): Promise<SessionDetailsDto> {
 
+    const sessionStateKey = sessionStateKeys.get(id)
+      || makeStateKey<SessionDetailsDto>(`session-${id}`);
+
     if (this.isServer) {
+
       const session = await firstValueFrom(
         this.http.get<SessionDetailsDto>(`/assets/generated/sessions/${id}.json`)
       );
       this.transferState.set(sessionStateKey, session);
+
       return session;
+
     } else {
+
       const storedData = this.transferState.get(sessionStateKey, null);
       if (storedData) {
         return storedData;
       }
+
       return firstValueFrom(this.http.get<SessionDetailsDto>(`/assets/generated/sessions/${id}.json`));
+
     }
 
   }
