@@ -5,7 +5,7 @@ import { forkJoin } from 'rxjs';
 import { PersonsService } from '../services/persons.service';
 import { Councilor, CouncilorCardComponent } from '../components/councilor-card/councilor-card.component';
 import { PartyStatsHistoryDto } from '../model/Party';
-import { Meta, Title } from '@angular/platform-browser';
+import { MetaTagsService } from '../services/meta-tags.service';
 
 
 export type Party = {
@@ -32,8 +32,7 @@ export class PartyComponent implements OnInit {
 
 
   constructor(private readonly route: ActivatedRoute, private readonly partiesService: PartiesService,
-              private readonly personsService: PersonsService, private readonly meta: Meta,
-              private readonly titleService: Title) {
+              private readonly personsService: PersonsService, private readonly metaTagsService: MetaTagsService) {
   }
 
 
@@ -74,18 +73,7 @@ export class PartyComponent implements OnInit {
           const description = party.name.startsWith('parteilos-')
             ? `${party.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen im Magdeburger Stadtrat`
             : `${party.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen der Partei im Magdeburger Stadtrat`;
-          this.titleService.setTitle(title);
-          this.meta.updateTag({ name: 'description', content: description });
-          this.meta.updateTag({ property: 'og:title', content: title });
-          this.meta.updateTag({ property: 'og:description', content: description });
-          this.meta.updateTag({ name: 'twitter:title', content: title });
-          this.meta.updateTag({ name: 'twitter:description', content: description });
-          // TODO: Add property og:url
-          // TODO: Add property og:image
-          // TODO: Add name twitter:image
-          // TODO: Add name twitter:card
-          // TODO: Add name twitter:domain
-          // TODO: Add name twitter:url
+          this.metaTagsService.updateTags({ title, description });
 
         });
 

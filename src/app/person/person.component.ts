@@ -3,7 +3,7 @@ import { PersonsService } from '../services/persons.service';
 import { ActivatedRoute } from '@angular/router';
 import { VoteResult } from '../model/Session';
 import { PersonDetailsDto, PersonSpeechDto, PersonVotingComparison } from '../model/Person';
-import { Meta, Title } from '@angular/platform-browser';
+import { MetaTagsService } from '../services/meta-tags.service';
 
 
 type SpeechesBySession = {
@@ -28,7 +28,7 @@ export class PersonComponent implements OnInit {
 
 
   constructor(private readonly route: ActivatedRoute, private readonly personsService: PersonsService,
-              private readonly meta: Meta, private readonly titleService: Title) {
+              private readonly metaTagsService: MetaTagsService) {
   }
 
 
@@ -52,20 +52,10 @@ export class PersonComponent implements OnInit {
 
       this.speechesBySession = this.generateSpeechesBySession(person);
 
-      const title = `StadtratWatch: ${person.name}`;
-      const description = `${person.name}: Abstimmungen, Anwesenheiten, Redebeiträge und andere Analysen im Magdeburger Stadtrat`;
-      this.titleService.setTitle(title);
-      this.meta.updateTag({ name: 'description', content: description });
-      this.meta.updateTag({ property: 'og:title', content: title });
-      this.meta.updateTag({ property: 'og:description', content: description });
-      this.meta.updateTag({ name: 'twitter:title', content: title });
-      this.meta.updateTag({ name: 'twitter:description', content: description });
-      // TODO: Add property og:url
-      // TODO: Add property og:image
-      // TODO: Add name twitter:image
-      // TODO: Add name twitter:card
-      // TODO: Add name twitter:domain
-      // TODO: Add name twitter:url
+      this.metaTagsService.updateTags({
+        title: `StadtratWatch: ${person.name}`,
+        description: `${person.name}: Abstimmungen, Anwesenheiten, Redebeiträge und andere Analysen im Magdeburger Stadtrat`
+      });
 
     });
 

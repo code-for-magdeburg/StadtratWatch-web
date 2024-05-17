@@ -5,8 +5,8 @@ import { ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
 import { SessionVotingDto, SessionSpeechDto, Vote, VoteResult } from '../model/Session';
 import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
-import { Meta, Title } from '@angular/platform-browser';
-import { DatePipe } from "@angular/common";
+import { DatePipe } from '@angular/common';
+import { MetaTagsService } from '../services/meta-tags.service';
 
 
 enum VotingResult {
@@ -49,7 +49,7 @@ export class SessionComponent implements OnInit {
 
 
   constructor(private readonly route: ActivatedRoute, private readonly sessionsService: SessionsService,
-              private readonly meta: Meta, private readonly titleService: Title) {
+              private readonly metaTagsService: MetaTagsService) {
   }
 
 
@@ -86,18 +86,7 @@ export class SessionComponent implements OnInit {
       const sessionDateDisplay = new DatePipe('de-DE').transform(session.date);
       const title = `StadtratWatch: Sitzung vom ${sessionDateDisplay}`;
       const description = `${sessionDateDisplay}: Abstimmungen, Redebeiträge und andere Daten und Analysen der Sitzung des Magdeburger Stadtrates`;
-      this.titleService.setTitle(title);
-      this.meta.updateTag({ name: 'description', content: description });
-      this.meta.updateTag({ property: 'og:title', content: title });
-      this.meta.updateTag({ property: 'og:description', content: description });
-      this.meta.updateTag({ name: 'twitter:title', content: title });
-      this.meta.updateTag({ name: 'twitter:description', content: description });
-      // TODO: Add property og:url
-      // TODO: Add property og:image
-      // TODO: Add name twitter:image
-      // TODO: Add name twitter:card
-      // TODO: Add name twitter:domain
-      // TODO: Add name twitter:url
+      this.metaTagsService.updateTags({ title, description });
 
     });
 

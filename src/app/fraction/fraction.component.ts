@@ -13,7 +13,7 @@ import {
   SortFractionApplicationsEvent
 } from '../fractions/sortable-fraction-applications.directive';
 import { StatsHistoryDto } from '../model/Fraction';
-import { Meta, Title } from '@angular/platform-browser';
+import { MetaTagsService } from '../services/meta-tags.service';
 
 
 enum ApplicationResult {
@@ -76,8 +76,7 @@ export class FractionComponent implements OnInit {
 
 
   constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService,
-              private readonly personsService: PersonsService, private readonly meta: Meta,
-              private readonly titleService: Title) {
+              private readonly personsService: PersonsService, private readonly metaTagsService: MetaTagsService) {
   }
 
 
@@ -123,18 +122,7 @@ export class FractionComponent implements OnInit {
           const description = fraction.name.startsWith('parteilos-')
             ? `${fraction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen im Magdeburger Stadtrat`
             : `${fraction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen der Fraktion im Magdeburger Stadtrat`;
-          this.titleService.setTitle(title);
-          this.meta.updateTag({ name: 'description', content: description });
-          this.meta.updateTag({ property: 'og:title', content: title });
-          this.meta.updateTag({ property: 'og:description', content: description });
-          this.meta.updateTag({ name: 'twitter:title', content: title });
-          this.meta.updateTag({ name: 'twitter:description', content: description });
-          // TODO: Add property og:url
-          // TODO: Add property og:image
-          // TODO: Add name twitter:image
-          // TODO: Add name twitter:card
-          // TODO: Add name twitter:domain
-          // TODO: Add name twitter:url
+          this.metaTagsService.updateTags({ title, description });
 
         });
 
