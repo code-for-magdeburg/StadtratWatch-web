@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { PartiesService } from '../services/parties.service';
 import { PartyDto } from '../model/Party';
 import { compare, SortablePartiesDirective, SortPartiesEvent } from './sortable-parties.directive';
@@ -16,7 +16,7 @@ import { SpeakingTimeChartData } from '../components/speaking-time-chart/speakin
   templateUrl: './parties.component.html',
   styleUrls: ['./parties.component.scss']
 })
-export class PartiesComponent {
+export class PartiesComponent implements OnInit {
 
 
   private data: PartyDto[] = [];
@@ -35,20 +35,15 @@ export class PartiesComponent {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
-  ngOnInit() {
+  async ngOnInit() {
 
-    this.partiesService
-      .fetchParties()
-      .subscribe(parties => {
-        this.sortedParties = this.data = parties;
-        this.sortedParties.sort((a, b) => b.seats - a.seats);
-        this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromParty);
-        this.uniformityScores = this.data.map(UniformityScoreChartData.fromParty);
-        this.participationRates = this.data.map(ParticipationRateChartData.fromParty);
-        this.abstentionRates = this.data.map(AbstentionRateChartData.fromParty);
-        this.speakingTimes = this.data.map(SpeakingTimeChartData.fromParty);
-      });
+    this.sortedParties = this.data = await this.partiesService.fetchParties();
+    this.sortedParties.sort((a, b) => b.seats - a.seats);
+    this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromParty);
+    this.uniformityScores = this.data.map(UniformityScoreChartData.fromParty);
+    this.participationRates = this.data.map(ParticipationRateChartData.fromParty);
+    this.abstentionRates = this.data.map(AbstentionRateChartData.fromParty);
+    this.speakingTimes = this.data.map(SpeakingTimeChartData.fromParty);
 
   }
 

@@ -1,7 +1,8 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { FractionLightDto } from '../../model/Fraction';
 import { PartyDto } from '../../model/Party';
+import { isPlatformBrowser } from '@angular/common';
 
 
 export class ParticipationRateChartData {
@@ -28,12 +29,18 @@ export class ParticipationRateChartData {
 export class ParticipationRateChartComponent implements OnChanges {
 
 
+  public isBrowser = false;
   public chartHeight = 0;
   public participationRateChartData: ChartConfiguration<'bar'>['data'] | undefined = undefined;
   public participationRateChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
 
   @Input() data: ParticipationRateChartData[] = [];
+
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser  = isPlatformBrowser(this.platformId);
+  }
 
 
   ngOnChanges(changes: SimpleChanges) {

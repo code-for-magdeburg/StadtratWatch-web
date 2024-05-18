@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SessionsService } from '../services/sessions.service';
 import { SessionLightDto } from '../model/Session';
 
@@ -8,7 +8,7 @@ import { SessionLightDto } from '../model/Session';
   templateUrl: './sessions.component.html',
   styleUrls: ['./sessions.component.scss']
 })
-export class SessionsComponent {
+export class SessionsComponent implements OnInit {
 
 
   public sessions: SessionLightDto[] = [];
@@ -18,14 +18,9 @@ export class SessionsComponent {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
-  ngOnInit() {
-    this.sessionsService
-      .fetchSessions()
-      .subscribe(sessions => {
-        this.sessions = sessions;
-        this.sessions.sort((a, b) => b.date.localeCompare(a.date));
-      });
+  async ngOnInit() {
+    this.sessions = await this.sessionsService.fetchSessions();
+    this.sessions.sort((a, b) => b.date.localeCompare(a.date));
   }
 
 

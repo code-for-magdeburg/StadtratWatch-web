@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MetadataDto } from './model/Metadata';
 import { MetadataService } from './services/metadata.service';
-import { Observable } from "rxjs";
 
 
 @Component({
@@ -9,7 +8,7 @@ import { Observable } from "rxjs";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
 
   public navbarCollapsed = true;
@@ -20,11 +19,8 @@ export class AppComponent {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
-  ngOnInit() {
-    this.metadataService
-      .fetchMetadata()
-      .subscribe(metadata => this.metadata = metadata);
+  async ngOnInit() {
+    this.metadata = await this.metadataService.fetchMetadata();
   }
 
 

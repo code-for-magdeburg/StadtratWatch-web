@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { SessionDetailsDto, Vote, VoteResult } from '../../app/model/Session';
 import { MetadataDto } from '../../app/model/Metadata';
-import { Registry } from './model/registry';
+import { Registry } from '../shared/model/registry';
 
 
 export function generateMetadataFile(metadataFilename: string, registry: Registry, sessions: SessionDetailsDto[]) {

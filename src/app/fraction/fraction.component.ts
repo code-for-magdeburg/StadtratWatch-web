@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FractionsService } from '../services/fractions.service';
 import { PersonsService } from '../services/persons.service';
@@ -13,6 +13,7 @@ import {
   SortFractionApplicationsEvent
 } from '../fractions/sortable-fraction-applications.directive';
 import { StatsHistoryDto } from '../model/Fraction';
+import { MetaTagsService } from '../services/meta-tags.service';
 
 
 enum ApplicationResult {
@@ -51,7 +52,7 @@ export type Fraction = {
   templateUrl: './fraction.component.html',
   styleUrls: ['./fraction.component.scss']
 })
-export class FractionComponent {
+export class FractionComponent implements OnInit {
 
 
   private applicationsSorting: SortFractionApplicationsEvent = { column: '', direction: '' };
@@ -75,11 +76,10 @@ export class FractionComponent {
 
 
   constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService,
-              private readonly personsService: PersonsService) {
+              private readonly personsService: PersonsService, private readonly metaTagsService: MetaTagsService) {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
@@ -117,6 +117,13 @@ export class FractionComponent {
 
           this.applicationsSorting = { column: 'votingDate', direction: 'desc' };
           this.filterAndSortApplications();
+
+          const title = `StadtratWatch: ${fraction.name}`;
+          const description = fraction.name.startsWith('parteilos-')
+            ? `${fraction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen im Magdeburger Stadtrat`
+            : `${fraction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen der Fraktion im Magdeburger Stadtrat`;
+          this.metaTagsService.updateTags({ title, description });
+
         });
 
     });

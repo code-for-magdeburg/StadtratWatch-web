@@ -65,7 +65,7 @@
         ist, desto näher liegen ihre Kreise beieinander.
       </p>
 
-      <div #graphContainer id="graph-container"></div>
+      <div *ngIf="isBrowser" #graphContainer id="graph-container"></div>
 
     </tab>
 

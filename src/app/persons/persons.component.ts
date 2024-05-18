@@ -1,18 +1,20 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { PersonsService } from '../services/persons.service';
 import { PersonLightDto } from '../model/Person';
 import { compare, SortablePersonsDirective, SortPersonsEvent } from './sortable-persons.directive';
 import * as d3 from 'd3';
 import {
-  SimulationNodeDatum,
+  drag,
   forceCenter,
   forceCollide,
   forceLink,
   forceManyBody,
   forceSimulation,
-  SimulationLinkDatum, drag
+  SimulationLinkDatum,
+  SimulationNodeDatum
 } from 'd3';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
+import { isPlatformBrowser } from '@angular/common';
 
 
 const VALUE_THRESHOLD = .65;
@@ -55,6 +57,7 @@ export class PersonsComponent implements OnInit {
 
   private data: PersonLightDto[] = [];
 
+  public isBrowser = false;
   public sortedPersons: PersonLightDto[] = [];
 
 
@@ -62,31 +65,26 @@ export class PersonsComponent implements OnInit {
   @ViewChild('graphContainer', { static: false }) graphContainer!: ElementRef;
   @ViewChildren(SortablePersonsDirective) headers: QueryList<SortablePersonsDirective> | undefined;
 
-  constructor(private readonly personsService: PersonsService) {
+  constructor(private readonly personsService: PersonsService, @Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser  = isPlatformBrowser(this.platformId);
   }
 
 
-  ngOnInit() {
+  async ngOnInit() {
 
-    this.personsService
-      .fetchPersons()
-      .subscribe(persons => {
-        this.sortedPersons = this.data = persons;
-        this.sortedPersons.sort((a, b) => a.name.localeCompare(b.name));
-      });
+    this.sortedPersons = this.data = await this.personsService.fetchPersons();
+    this.sortedPersons.sort((a, b) => a.name.localeCompare(b.name));
 
-    this.personsService
-      .fetchAllPersonsForces()
-      .subscribe(data => {
+    const data = await this.personsService.fetchAllPersonsForces();
 
-        this.tabs ? this.tabs.tabs[1].active = true : null;
+    this.tabs ? this.tabs.tabs[1].active = true : null;
 
-        setTimeout(() => {
-          this.drawGraph(data as GraphData);
-          this.tabs ? this.tabs.tabs[0].active = true : null;
-        }, 1);
-
-      });
+    setTimeout(() => {
+      if (this.isBrowser) {
+        this.drawGraph(data as GraphData);
+        this.tabs ? this.tabs.tabs[0].active = true : null;
+      }
+    }, 1);
 
   }
 

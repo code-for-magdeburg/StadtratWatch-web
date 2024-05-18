@@ -1,7 +1,8 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { FractionLightDto } from '../../model/Fraction';
 import { PartyDto } from '../../model/Party';
+import { isPlatformBrowser } from '@angular/common';
 
 
 export class VotingsSuccessRateChartData {
@@ -28,12 +29,18 @@ export class VotingsSuccessRateChartData {
 export class VotingsSuccessRateChartComponent implements OnChanges {
 
 
+  public isBrowser = false;
   public chartHeight = 0;
   public votingsSuccessRateChartData: ChartConfiguration<'bar'>['data'] | undefined = undefined;
   public votingsSuccessRateChartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
 
 
   @Input() data: VotingsSuccessRateChartData[] = [];
+
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser  = isPlatformBrowser(this.platformId);
+  }
 
 
   ngOnChanges(changes: SimpleChanges) {

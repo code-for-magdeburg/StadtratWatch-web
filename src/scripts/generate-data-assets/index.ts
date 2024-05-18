@@ -5,7 +5,7 @@ import { generateFractionFiles } from './generate-fraction-files';
 import { generatePartyFiles } from './generate-party-files';
 import { generateMetadataFile } from './generate-metadata-file';
 import { ScrapedSession } from '../shared/model/scraped-session';
-import { Registry } from './model/registry';
+import { Registry } from '../shared/model/registry';
 
 
 const inputDir = process.argv[2];

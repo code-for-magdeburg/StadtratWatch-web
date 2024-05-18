@@ -1,21 +1,67 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Inject, Injectable, makeStateKey, PLATFORM_ID, StateKey, TransferState } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
 import { PartyDto } from '../model/Party';
 import { HttpClient } from '@angular/common/http';
+import { isPlatformServer } from '@angular/common';
+
+
+const partiesStateKey = makeStateKey<PartyDto[]>('parties');
+const partyStateKeys = new Map<string, StateKey<PartyDto>>();
 
 
 @Injectable({ providedIn: 'root' })
 export class PartiesService {
 
-  constructor(private readonly http: HttpClient) { }
+
+  private readonly isServer: boolean = false;
 
 
-  public fetchParties = (): Observable<PartyDto[]> =>
-    this.http.get<PartyDto[]>(`assets/generated/parties/all-parties.json`);
+  constructor(private readonly http: HttpClient, private readonly transferState: TransferState,
+              @Inject(PLATFORM_ID) platformId: Object) {
+    this.isServer = isPlatformServer(platformId);
+  }
 
 
-  public fetchParty = (id: string): Observable<PartyDto> =>
-    this.http.get<PartyDto>(`assets/generated/parties/${id}.json`);
+  public async fetchParties(): Promise<PartyDto[]> {
+
+    if (this.isServer) {
+      const parties = await firstValueFrom(this.http.get<PartyDto[]>(`/assets/generated/parties/all-parties.json`));
+      this.transferState.set(partiesStateKey, parties);
+      return parties;
+    } else {
+      const storedData = this.transferState.get(partiesStateKey, null);
+      if (storedData) {
+        return storedData;
+      }
+      return firstValueFrom(this.http.get<PartyDto[]>(`/assets/generated/parties/all-parties.json`));
+    }
+
+  }
+
+
+  public async fetchParty(id: string): Promise<PartyDto> {
+
+    const partyStateKey = partyStateKeys.get(id) || makeStateKey<PartyDto>(`party-${id}`);
+
+    if (this.isServer) {
+
+      const party = await firstValueFrom(this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`));
+      this.transferState.set(partyStateKey, party);
+
+      return party;
+
+    } else {
+
+      const storedData = this.transferState.get(partyStateKey, null);
+      if (storedData) {
+        return storedData;
+      }
+
+      return firstValueFrom(this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`));
+
+    }
+
+  }
 
 
 }

@@ -7,8 +7,8 @@ import {
   PersonVotingComparison
 } from '../../app/model/Person';
 import * as fs from 'fs';
-import { RegistryPerson } from './model/registry';
-import { Registry } from './model/registry';
+import { RegistryPerson } from '../shared/model/registry';
+import { Registry } from '../shared/model/registry';
 import { calcPersonVotingSuccess } from './data-analysis/voting-success-rate';
 import * as path from 'path';
 

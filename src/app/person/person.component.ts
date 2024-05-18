@@ -3,6 +3,7 @@ import { PersonsService } from '../services/persons.service';
 import { ActivatedRoute } from '@angular/router';
 import { VoteResult } from '../model/Session';
 import { PersonDetailsDto, PersonSpeechDto, PersonVotingComparison } from '../model/Person';
+import { MetaTagsService } from '../services/meta-tags.service';
 
 
 type SpeechesBySession = {
@@ -26,13 +27,14 @@ export class PersonComponent implements OnInit {
   public speechesBySession: SpeechesBySession[] = [];
 
 
-  constructor(private readonly route: ActivatedRoute, private readonly personsService: PersonsService) {
+  constructor(private readonly route: ActivatedRoute, private readonly personsService: PersonsService,
+              private readonly metaTagsService: MetaTagsService) {
   }
 
 
   ngOnInit(): void {
 
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe(async params => {
 
       const personId = params.get('id');
       if (!personId) {
@@ -40,19 +42,20 @@ export class PersonComponent implements OnInit {
         return;
       }
 
-      this.personsService
-        .fetchPerson(personId)
-        .subscribe(person => {
-          this.person = person;
-          this.comparisonMatrix = person.votingMatrix.sort(
-            (a, b) => b.comparisonScore - a.comparisonScore
-          );
-          this.didVote = person.votes.length -
-            person.votes.filter(vote => vote.vote === VoteResult.DID_NOT_VOTE).length;
+      const person = await this.personsService.fetchPerson(personId);
+      this.person = person;
+      this.comparisonMatrix = person.votingMatrix.sort(
+        (a, b) => b.comparisonScore - a.comparisonScore
+      );
+      this.didVote = person.votes.length -
+        person.votes.filter(vote => vote.vote === VoteResult.DID_NOT_VOTE).length;
 
-          this.speechesBySession = this.generateSpeechesBySession(person);
+      this.speechesBySession = this.generateSpeechesBySession(person);
 
-        });
+      this.metaTagsService.updateTags({
+        title: `StadtratWatch: ${person.name}`,
+        description: `${person.name}: Abstimmungen, Anwesenheiten, Redebeiträge und andere Analysen im Magdeburger Stadtrat`
+      });
 
     });
 

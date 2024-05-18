@@ -1,10 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges, ViewChild } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import { SessionDetailsDto } from '../../model/Session';
 import { BaseChartDirective } from 'ng2-charts';
 import { FractionLightDto } from '../../model/Fraction';
 import { SpeakingTimePipe } from '../../pipes/speaking-time.pipe';
 import { PartyDto } from '../../model/Party';
+import { isPlatformBrowser } from '@angular/common';
 
 
 export class SpeakingTimeChartData {
@@ -53,6 +54,7 @@ export class SpeakingTimeChartData {
 export class SpeakingTimeChartComponent implements OnChanges {
 
 
+  public isBrowser = false;
   public chartHeight = 0;
   public chartData: ChartConfiguration<'bar'>['data'] | undefined = undefined;
   public chartOptions: ChartConfiguration<'bar'>['options'] | undefined = undefined;
@@ -61,6 +63,12 @@ export class SpeakingTimeChartComponent implements OnChanges {
   @Input() data: SpeakingTimeChartData[] = [];
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser  = isPlatformBrowser(this.platformId);
+  }
+
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data']) {

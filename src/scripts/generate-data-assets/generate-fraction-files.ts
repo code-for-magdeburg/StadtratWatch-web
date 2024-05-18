@@ -1,6 +1,6 @@
 import { FractionDetailsDto, FractionLightDto, StatsHistoryDto } from '../../app/model/Fraction';
 import * as fs from 'fs';
-import { Registry, RegistryFraction, RegistryPerson } from './model/registry';
+import { Registry, RegistryFraction, RegistryPerson } from '../shared/model/registry';
 import {
   SessionDetailsDto,
   SessionPersonDto,
