@@ -30,7 +30,7 @@ export class PersonsService {
     if (this.isServer) {
 
       const persons = await firstValueFrom(
-        this.http.get<PersonLightDto[]>(`/assets/generated/persons/all-persons.json`)
+        this.http.get<PersonLightDto[]>(`/assets/election-period-7/persons/all-persons.json`)
       );
       this.transferState.set(personsStateKey, persons);
 
@@ -43,7 +43,7 @@ export class PersonsService {
         return storedData;
       }
 
-      return firstValueFrom(this.http.get<PersonLightDto[]>(`/assets/generated/persons/all-persons.json`));
+      return firstValueFrom(this.http.get<PersonLightDto[]>(`/assets/election-period-7/persons/all-persons.json`));
 
     }
 
@@ -58,7 +58,7 @@ export class PersonsService {
     if (this.isServer) {
 
       const person = await firstValueFrom(
-        this.http.get<PersonDetailsDto>(`/assets/generated/persons/${id}.json`)
+        this.http.get<PersonDetailsDto>(`/assets/election-period-7/persons/${id}.json`)
       );
       this.transferState.set(personStateKey, person);
 
@@ -71,7 +71,7 @@ export class PersonsService {
         return storedData;
       }
 
-      return firstValueFrom(this.http.get<PersonDetailsDto>(`/assets/generated/persons/${id}.json`));
+      return firstValueFrom(this.http.get<PersonDetailsDto>(`/assets/election-period-7/persons/${id}.json`));
 
     }
 
@@ -139,7 +139,7 @@ export class PersonsService {
     if (this.isServer) {
 
       const personsForces = await firstValueFrom(
-        this.http.get<any>(`/assets/generated/persons/all-persons-forces.json`)
+        this.http.get<any>(`/assets/election-period-7/persons/all-persons-forces.json`)
       );
       this.transferState.set(personsForcesStateKey, personsForces);
 
@@ -150,7 +150,7 @@ export class PersonsService {
         return storedData;
       }
 
-      return firstValueFrom(this.http.get<any>(`/assets/generated/persons/all-persons-forces.json`));
+      return firstValueFrom(this.http.get<any>(`/assets/election-period-7/persons/all-persons-forces.json`));
 
     }
 

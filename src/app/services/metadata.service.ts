@@ -25,7 +25,7 @@ export class MetadataService {
 
     if (this.isServer) {
       const metadata = await firstValueFrom(
-        this.http.get<MetadataDto>(`/assets/generated/metadata.json`)
+        this.http.get<MetadataDto>(`/assets/election-period-7/metadata.json`)
       );
       this.transferState.set(metadataStateKey, metadata);
       return metadata;
@@ -34,7 +34,7 @@ export class MetadataService {
       if (storedData) {
         return storedData;
       }
-      return firstValueFrom(this.http.get<MetadataDto>(`/assets/generated/metadata.json`));
+      return firstValueFrom(this.http.get<MetadataDto>(`/assets/election-period-7/metadata.json`));
     }
 
   }

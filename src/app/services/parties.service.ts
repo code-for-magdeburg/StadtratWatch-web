@@ -25,7 +25,7 @@ export class PartiesService {
   public async fetchParties(): Promise<PartyDto[]> {
 
     if (this.isServer) {
-      const parties = await firstValueFrom(this.http.get<PartyDto[]>(`/assets/generated/parties/all-parties.json`));
+      const parties = await firstValueFrom(this.http.get<PartyDto[]>(`/assets/election-period-7/parties/all-parties.json`));
       this.transferState.set(partiesStateKey, parties);
       return parties;
     } else {
@@ -33,7 +33,7 @@ export class PartiesService {
       if (storedData) {
         return storedData;
       }
-      return firstValueFrom(this.http.get<PartyDto[]>(`/assets/generated/parties/all-parties.json`));
+      return firstValueFrom(this.http.get<PartyDto[]>(`/assets/election-period-7/parties/all-parties.json`));
     }
 
   }
@@ -45,7 +45,7 @@ export class PartiesService {
 
     if (this.isServer) {
 
-      const party = await firstValueFrom(this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`));
+      const party = await firstValueFrom(this.http.get<PartyDto>(`/assets/election-period-7/parties/${id}.json`));
       this.transferState.set(partyStateKey, party);
 
       return party;
@@ -57,7 +57,7 @@ export class PartiesService {
         return storedData;
       }
 
-      return firstValueFrom(this.http.get<PartyDto>(`/assets/generated/parties/${id}.json`));
+      return firstValueFrom(this.http.get<PartyDto>(`/assets/election-period-7/parties/${id}.json`));
 
     }
 
