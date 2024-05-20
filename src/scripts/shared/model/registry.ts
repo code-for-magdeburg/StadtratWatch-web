@@ -1,4 +1,5 @@
 export type Registry = {
+  electionPeriod: number;
   sessions: RegistrySession[];
   fractions: RegistryFraction[];
   parties: RegistryParty[];
