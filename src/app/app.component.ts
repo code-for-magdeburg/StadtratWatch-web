@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MetadataDto } from './model/Metadata';
 import { MetadataService } from './services/metadata.service';
+import { environment } from '../environments/environment';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
 
 
   async ngOnInit() {
-    this.metadata = await this.metadataService.fetchMetadata(7);
+    this.metadata = await this.metadataService.fetchMetadata(environment.currentElectionPeriod);
   }
 
 
