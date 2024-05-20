@@ -134,7 +134,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let party of sortedParties">
-        <td><a [routerLink]="['/party', party.id]">{{ party.name }}</a></td>
+        <td><a [routerLink]="['/ep', 7, 'party', party.id]">{{ party.name }}</a></td>
         <td style="text-align: right;">{{ party.seats }}</td>
         <td style="text-align: right;">{{ party.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ party.uniformityScore | number : '0.3-3' }}</td>

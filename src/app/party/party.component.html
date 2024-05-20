@@ -7,7 +7,7 @@
         <a routerLink="/">Startseite</a>
       </li>
       <li class="breadcrumb-item">
-        <a routerLink="/parties">Parteien</a>
+        <a [routerLink]="['/ep', 7, 'parties']">Parteien</a>
       </li>
       <li class="breadcrumb-item active">{{ party.name }}</li>
     </ol>

@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
 
   async ngOnInit() {
-    this.metadata = await this.metadataService.fetchMetadata();
+    this.metadata = await this.metadataService.fetchMetadata(7);
   }
 
 

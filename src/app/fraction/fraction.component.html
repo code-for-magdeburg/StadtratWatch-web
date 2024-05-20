@@ -7,7 +7,7 @@
         <a routerLink="/">Startseite</a>
       </li>
       <li class="breadcrumb-item">
-        <a routerLink="/fractions">Fraktionen</a>
+        <a [routerLink]="['/ep', 7, 'fractions']">Fraktionen</a>
       </li>
       <li class="breadcrumb-item active">{{ fraction.name }}</li>
     </ol>
@@ -122,7 +122,7 @@
             <span *ngIf="!application.applicationUrl">{{ application.applicationId }}</span>
           </td>
           <td>
-            <a [routerLink]="['/session', application.sessionId, 'voting', application.votingId]">
+            <a [routerLink]="['/ep', 7, 'session', application.sessionId, 'voting', application.votingId]">
               {{ application.title }}
             </a>
           </td>

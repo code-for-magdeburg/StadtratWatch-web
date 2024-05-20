@@ -41,7 +41,7 @@
           <tbody>
           <tr *ngFor="let person of sortedPersons">
             <td class="d-flex flex-column">
-              <a [routerLink]="['/person', person.id]">{{ person.name }}</a>
+              <a [routerLink]="['/ep', 7, 'person', person.id]">{{ person.name }}</a>
               <span *ngIf="person.councilorUntil" class="text-body-secondary">
           Ratsmitglied bis {{ person.councilorUntil | date }}
         </span>
