@@ -11,4 +11,4 @@ COPY ../tsconfig.scripts.json .
 COPY ../src/scripts/shared /app/src/scripts/shared
 COPY ../src/scripts/download-paper-files /app/src/scripts/download-paper-files
 
-ENTRYPOINT ["npm", "run", "download-paper-files", "./data/sessions", "./output/papers"]
+ENTRYPOINT ["npm", "run", "download-paper-files", "./data", "./output/papers"]
