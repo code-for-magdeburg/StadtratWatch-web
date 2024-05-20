@@ -4,16 +4,15 @@ import * as path from 'path';
 import { ScrapedMeeting, ScrapedSession } from '../shared/model/scraped-session';
 
 
-const inputDir = process.argv[2];
+const scrapedSessionFilename = process.argv[2];
 const outputDir = process.argv[3];
 const year = process.argv[4];
 
-if (!inputDir || !outputDir || !year) {
-  console.error('Usage: node index.js <inputDir> <outputDir> <year>');
+if (!scrapedSessionFilename || !outputDir || !year) {
+  console.error('Usage: node index.js <scrapedSessionFilename> <outputDir> <year>');
   process.exit(1);
 }
 
-const scrapedSessionFilename = `${inputDir}/Magdeburg.json`;
 if (!fs.existsSync(scrapedSessionFilename) || !fs.lstatSync(scrapedSessionFilename).isFile()) {
   console.error(`Scraped session file "${scrapedSessionFilename}" does not exist or is not a file.`);
   process.exit(1);
