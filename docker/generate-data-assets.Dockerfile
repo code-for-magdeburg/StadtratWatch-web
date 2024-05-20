@@ -12,4 +12,4 @@ COPY ../src/app/model /app/src/app/model
 COPY ../src/scripts/shared /app/src/scripts/shared
 COPY ../src/scripts/generate-data-assets /app/src/scripts/generate-data-assets
 
-CMD ["npm", "run", "generate-data-assets", "./data/election-period-7", "./data/generated-assets/election-period-7"]
+CMD ["npm", "run", "generate-data-assets", "./election-period", "./generated", "./Magdeburg.json"]
