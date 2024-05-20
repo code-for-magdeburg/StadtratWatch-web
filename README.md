@@ -8,7 +8,20 @@ docker build -t srw-generate-data-assets -f docker\generate-data-assets.Dockerfi
 
 #### Run the docker container
 ```shell
-docker run --rm -v %cd%\data\sessions:/app/data/sessions:ro -v %cd%\src\assets\generated:/app/data/generated-assets srw-generate-data-assets
+docker run --rm -v %cd%\data:/app/data:ro -v %cd%\src\assets:/app/data/generated-assets srw-generate-data-assets
+```
+
+
+### Generate routes file
+
+#### Build the docker image
+```shell
+docker build -t srw-generate-routes-file -f docker\generate-routes-file.Dockerfile .
+```
+
+#### Run the docker container
+```shell
+docker run --rm -v %cd%\data:/app/data:ro -v %cd%:/app/generated srw-generate-routes-file
 ```
 
 
