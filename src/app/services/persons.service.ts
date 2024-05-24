@@ -25,12 +25,12 @@ export class PersonsService {
   }
 
 
-  public async fetchPersons(): Promise<PersonLightDto[]> {
+  public async fetchPersons(electionPeriod: number): Promise<PersonLightDto[]> {
 
     if (this.isServer) {
 
       const persons = await firstValueFrom(
-        this.http.get<PersonLightDto[]>(`/assets/election-period-7/persons/all-persons.json`)
+        this.http.get<PersonLightDto[]>(`/assets/election-period-${electionPeriod}/persons/all-persons.json`)
       );
       this.transferState.set(personsStateKey, persons);
 
@@ -43,14 +43,16 @@ export class PersonsService {
         return storedData;
       }
 
-      return firstValueFrom(this.http.get<PersonLightDto[]>(`/assets/election-period-7/persons/all-persons.json`));
+      return firstValueFrom(
+        this.http.get<PersonLightDto[]>(`/assets/election-period-${electionPeriod}/persons/all-persons.json`)
+      );
 
     }
 
   }
 
 
-  public async fetchPerson(id: string): Promise<PersonDetailsDto> {
+  public async fetchPerson(electionPeriod: number, id: string): Promise<PersonDetailsDto> {
 
     const personStateKey = personStateKeys.get(id)
       || makeStateKey<PersonDetailsDto>(`person-${id}`);
@@ -58,7 +60,7 @@ export class PersonsService {
     if (this.isServer) {
 
       const person = await firstValueFrom(
-        this.http.get<PersonDetailsDto>(`/assets/election-period-7/persons/${id}.json`)
+        this.http.get<PersonDetailsDto>(`/assets/election-period-${electionPeriod}/persons/${id}.json`)
       );
       this.transferState.set(personStateKey, person);
 
@@ -71,21 +73,21 @@ export class PersonsService {
         return storedData;
       }
 
-      return firstValueFrom(this.http.get<PersonDetailsDto>(`/assets/election-period-7/persons/${id}.json`));
+      return firstValueFrom(this.http.get<PersonDetailsDto>(`/assets/election-period-${electionPeriod}/persons/${id}.json`));
 
     }
 
   }
 
 
-  public async fetchPersonsByFraction(fractionId: string): Promise<PersonLightDto[]> {
+  public async fetchPersonsByFraction(electionPeriod: number, fractionId: string): Promise<PersonLightDto[]> {
 
     const personsByFractionStateKey = personByFractionStateKeys.get(fractionId)
       || makeStateKey<PersonLightDto[]>(`persons-by-fraction-${fractionId}`);
 
     if (this.isServer) {
 
-      const allPersons = await this.fetchPersons();
+      const allPersons = await this.fetchPersons(electionPeriod);
       const persons = allPersons.filter(person => person.fractionId === fractionId);
       this.transferState.set(personsByFractionStateKey, persons);
 
@@ -98,7 +100,7 @@ export class PersonsService {
         return storedData;
       }
 
-      const allPersons = await this.fetchPersons();
+      const allPersons = await this.fetchPersons(electionPeriod);
       return allPersons.filter(person => person.fractionId === fractionId);
 
     }
@@ -106,14 +108,14 @@ export class PersonsService {
   }
 
 
-  public async fetchPersonsByParty(partyId: string): Promise<PersonLightDto[]> {
+  public async fetchPersonsByParty(electionPeriod: number, partyId: string): Promise<PersonLightDto[]> {
 
     const personsByPartyStateKey = personByPartyStateKeys.get(partyId)
       || makeStateKey<PersonLightDto[]>(`persons-by-party-${partyId}`);
 
     if (this.isServer) {
 
-      const allPersons = await this.fetchPersons();
+      const allPersons = await this.fetchPersons(electionPeriod);
       const persons = allPersons.filter(person => person.partyId === partyId);
       this.transferState.set(personsByPartyStateKey, persons);
 
@@ -126,7 +128,7 @@ export class PersonsService {
         return storedData;
       }
 
-      const allPersons = await this.fetchPersons();
+      const allPersons = await this.fetchPersons(electionPeriod);
       return allPersons.filter(person => person.partyId === partyId);
 
     }
@@ -134,12 +136,12 @@ export class PersonsService {
   }
 
 
-  public async fetchAllPersonsForces(): Promise<any> {
+  public async fetchAllPersonsForces(electionPeriod: number): Promise<any> {
 
     if (this.isServer) {
 
       const personsForces = await firstValueFrom(
-        this.http.get<any>(`/assets/election-period-7/persons/all-persons-forces.json`)
+        this.http.get<any>(`/assets/election-period-${electionPeriod}/persons/all-persons-forces.json`)
       );
       this.transferState.set(personsForcesStateKey, personsForces);
 
@@ -150,7 +152,7 @@ export class PersonsService {
         return storedData;
       }
 
-      return firstValueFrom(this.http.get<any>(`/assets/election-period-7/persons/all-persons-forces.json`));
+      return firstValueFrom(this.http.get<any>(`/assets/election-period-${electionPeriod}/persons/all-persons-forces.json`));
 
     }
 

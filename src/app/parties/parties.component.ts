@@ -9,6 +9,8 @@ import { UniformityScoreChartData } from '../components/uniformity-score-chart/u
 import { ParticipationRateChartData } from '../components/participation-rate-chart/participation-rate-chart.component';
 import { AbstentionRateChartData } from '../components/abstention-rate-chart/abstention-rate-chart.component';
 import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
+import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -21,6 +23,7 @@ export class PartiesComponent implements OnInit {
 
   private data: PartyDto[] = [];
 
+  public electionPeriod = environment.currentElectionPeriod;
   public sortedParties: PartyDto[] = [];
   public votingsSuccessRates: VotingsSuccessRateChartData[] = [];
   public uniformityScores: UniformityScoreChartData[] = [];
@@ -31,19 +34,26 @@ export class PartiesComponent implements OnInit {
   @ViewChildren(SortablePartiesDirective) headers: QueryList<SortablePartiesDirective> | undefined;
 
 
-  constructor(private readonly partiesService: PartiesService) {
+  constructor(private readonly route: ActivatedRoute, private readonly partiesService: PartiesService) {
   }
 
 
   async ngOnInit() {
 
-    this.sortedParties = this.data = await this.partiesService.fetchParties();
-    this.sortedParties.sort((a, b) => b.seats - a.seats);
-    this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromParty);
-    this.uniformityScores = this.data.map(UniformityScoreChartData.fromParty);
-    this.participationRates = this.data.map(ParticipationRateChartData.fromParty);
-    this.abstentionRates = this.data.map(AbstentionRateChartData.fromParty);
-    this.speakingTimes = this.data.map(SpeakingTimeChartData.fromParty);
+    this.route.params.subscribe(async params => {
+
+      const { electionPeriod } = params as { electionPeriod: number };
+
+      this.electionPeriod = electionPeriod;
+      this.sortedParties = this.data = await this.partiesService.fetchParties(electionPeriod);
+      this.sortedParties.sort((a, b) => b.seats - a.seats);
+      this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromParty);
+      this.uniformityScores = this.data.map(UniformityScoreChartData.fromParty);
+      this.participationRates = this.data.map(ParticipationRateChartData.fromParty);
+      this.abstentionRates = this.data.map(AbstentionRateChartData.fromParty);
+      this.speakingTimes = this.data.map(SpeakingTimeChartData.fromParty);
+
+    });
 
   }
 

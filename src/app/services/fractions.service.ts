@@ -22,11 +22,11 @@ export class FractionsService {
   }
 
 
-  public async fetchFractions(): Promise<FractionLightDto[]> {
+  public async fetchFractions(electionPeriod: number): Promise<FractionLightDto[]> {
 
     if (this.isServer) {
       const fractions = await firstValueFrom(
-        this.http.get<FractionLightDto[]>(`/assets/election-period-7/fractions/all-fractions.json`)
+        this.http.get<FractionLightDto[]>(`/assets/election-period-${electionPeriod}/fractions/all-fractions.json`)
       );
       this.transferState.set(fractionsStateKey, fractions);
       return fractions;
@@ -35,13 +35,15 @@ export class FractionsService {
       if (storedData) {
         return storedData;
       }
-      return firstValueFrom(this.http.get<FractionLightDto[]>(`/assets/election-period-7/fractions/all-fractions.json`));
+      return firstValueFrom(
+        this.http.get<FractionLightDto[]>(`/assets/election-period-${electionPeriod}/fractions/all-fractions.json`)
+      );
     }
 
   }
 
 
-  public async fetchFraction(id: string): Promise<FractionDetailsDto> {
+  public async fetchFraction(electionPeriod: number, id: string): Promise<FractionDetailsDto> {
 
     const fractionStateKey = fractionStateKeys.get(id)
       || makeStateKey<FractionDetailsDto>(`fraction-${id}`);
@@ -49,7 +51,7 @@ export class FractionsService {
     if (this.isServer) {
 
       const fraction = await firstValueFrom(
-        this.http.get<FractionDetailsDto>(`/assets/election-period-7/fractions/${id}.json`)
+        this.http.get<FractionDetailsDto>(`/assets/election-period-${electionPeriod}/fractions/${id}.json`)
       );
       this.transferState.set(fractionStateKey, fraction);
 
@@ -62,7 +64,9 @@ export class FractionsService {
         return storedData;
       }
 
-      return firstValueFrom(this.http.get<FractionDetailsDto>(`/assets/election-period-7/fractions/${id}.json`));
+      return firstValueFrom(
+        this.http.get<FractionDetailsDto>(`/assets/election-period-${electionPeriod}/fractions/${id}.json`)
+      );
 
     }
 

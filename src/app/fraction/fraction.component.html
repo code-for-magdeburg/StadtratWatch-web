@@ -7,7 +7,7 @@
         <a routerLink="/">Startseite</a>
       </li>
       <li class="breadcrumb-item">
-        <a [routerLink]="['/ep', 7, 'fractions']">Fraktionen</a>
+        <a [routerLink]="['/ep', electionPeriod, 'fractions']">Fraktionen</a>
       </li>
       <li class="breadcrumb-item active">{{ fraction.name }}</li>
     </ol>
@@ -22,7 +22,7 @@
 
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
       <div *ngFor="let councilor of councilors" class="col">
-        <app-councilor-card [councilor]="councilor"></app-councilor-card>
+        <app-councilor-card [electionPeriod]="electionPeriod" [councilor]="councilor"></app-councilor-card>
       </div>
     </div>
 
@@ -34,7 +34,7 @@
 
       <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
         <div *ngFor="let councilor of formerCouncilors" class="col">
-          <app-councilor-card [councilor]="councilor"></app-councilor-card>
+          <app-councilor-card [electionPeriod]="electionPeriod" [councilor]="councilor"></app-councilor-card>
         </div>
       </div>
 
@@ -122,7 +122,7 @@
             <span *ngIf="!application.applicationUrl">{{ application.applicationId }}</span>
           </td>
           <td>
-            <a [routerLink]="['/ep', 7, 'session', application.sessionId, 'voting', application.votingId]">
+            <a [routerLink]="['/ep', electionPeriod, 'session', application.sessionId, 'voting', application.votingId]">
               {{ application.title }}
             </a>
           </td>

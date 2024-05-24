@@ -5,10 +5,12 @@
       <a routerLink="/">Startseite</a>
     </li>
     <li class="breadcrumb-item">
-      <a [routerLink]="['/ep', 7, 'sessions']">Sitzungen</a>
+      <a [routerLink]="['/ep', electionPeriod, 'sessions']">Sitzungen</a>
     </li>
     <li class="breadcrumb-item">
-      <a [routerLink]="['/ep', 7, 'session', votingViewModel.sessionId]">{{ votingViewModel.sessionDate | date }}</a>
+      <a [routerLink]="['/ep', electionPeriod, 'session', votingViewModel.sessionId]">
+        {{ votingViewModel.sessionDate | date }}
+      </a>
     </li>
     <li class="breadcrumb-item active">{{ votingViewModel.votingType }} {{ votingViewModel.applicationId }}</li>
   </ol>
@@ -98,14 +100,14 @@
 
           <div class="list-group">
             <a
-              [routerLink]="['/ep', 7, 'fraction', fraction.fractionId]"
+              [routerLink]="['/ep', electionPeriod, 'fraction', fraction.fractionId]"
               class="list-group-item list-group-item-info fw-bold"
             >
               {{ fraction.name }}
             </a>
             <a
               *ngFor="let member of fraction.members"
-              [routerLink]="['/ep', 7, 'person', member.personId]"
+              [routerLink]="['/ep', electionPeriod, 'person', member.personId]"
               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
             >
               {{ member.name }}

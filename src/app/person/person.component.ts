@@ -21,6 +21,7 @@ type SpeechesBySession = {
 export class PersonComponent implements OnInit {
 
 
+  public electionPeriod = 0;
   public person: PersonDetailsDto | null = null;
   public didVote = 0;
   public comparisonMatrix: PersonVotingComparison[] = [];
@@ -36,13 +37,19 @@ export class PersonComponent implements OnInit {
 
     this.route.paramMap.subscribe(async params => {
 
+      this.electionPeriod = +(params.get('electionPeriod') || '0');
+      if (!this.electionPeriod) {
+        // TODO: Handle missing election period
+        return;
+      }
+
       const personId = params.get('id');
       if (!personId) {
         // TODO: Handle missing person id
         return;
       }
 
-      const person = await this.personsService.fetchPerson(personId);
+      const person = await this.personsService.fetchPerson(this.electionPeriod, personId);
       this.person = person;
       this.comparisonMatrix = person.votingMatrix.sort(
         (a, b) => b.comparisonScore - a.comparisonScore

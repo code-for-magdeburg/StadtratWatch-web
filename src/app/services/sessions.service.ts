@@ -22,11 +22,11 @@ export class SessionsService {
   }
 
 
-  public async fetchSessions(): Promise<SessionLightDto[]> {
+  public async fetchSessions(electionPeriod: number): Promise<SessionLightDto[]> {
 
     if (this.isServer) {
       const sessions = await firstValueFrom(
-        this.http.get<SessionLightDto[]>(`/assets/election-period-7/sessions/all-sessions.json`)
+        this.http.get<SessionLightDto[]>(`/assets/election-period-${electionPeriod}/sessions/all-sessions.json`)
       );
       this.transferState.set(sessionsStateKey, sessions);
       return sessions;
@@ -35,13 +35,13 @@ export class SessionsService {
       if (storedData) {
         return storedData;
       }
-      return firstValueFrom(this.http.get<SessionLightDto[]>(`/assets/election-period-7/sessions/all-sessions.json`));
+      return firstValueFrom(this.http.get<SessionLightDto[]>(`/assets/election-period-${electionPeriod}/sessions/all-sessions.json`));
     }
 
   }
 
 
-  public async fetchSession(id: string): Promise<SessionDetailsDto> {
+  public async fetchSession(electionPeriod: number, id: string): Promise<SessionDetailsDto> {
 
     const sessionStateKey = sessionStateKeys.get(id)
       || makeStateKey<SessionDetailsDto>(`session-${id}`);
@@ -49,7 +49,7 @@ export class SessionsService {
     if (this.isServer) {
 
       const session = await firstValueFrom(
-        this.http.get<SessionDetailsDto>(`/assets/election-period-7/sessions/${id}.json`)
+        this.http.get<SessionDetailsDto>(`/assets/election-period-${electionPeriod}/sessions/${id}.json`)
       );
       this.transferState.set(sessionStateKey, session);
 
@@ -62,7 +62,7 @@ export class SessionsService {
         return storedData;
       }
 
-      return firstValueFrom(this.http.get<SessionDetailsDto>(`/assets/election-period-7/sessions/${id}.json`));
+      return firstValueFrom(this.http.get<SessionDetailsDto>(`/assets/election-period-${electionPeriod}/sessions/${id}.json`));
 
     }
 

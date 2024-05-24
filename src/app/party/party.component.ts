@@ -26,6 +26,7 @@ export type Party = {
 export class PartyComponent implements OnInit {
 
 
+  public electionPeriod = 0;
   public party: Party | null = null;
   public councilors: Councilor[] = [];
   public formerCouncilors: Councilor[] = [];
@@ -40,6 +41,12 @@ export class PartyComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
 
+      this.electionPeriod = +(params.get('electionPeriod') || 0);
+      if (!this.electionPeriod) {
+        // TODO: Handle missing election period
+        return;
+      }
+
       const partyId = params.get('id');
       if (!partyId) {
         // TODO: Handle missing party id
@@ -47,8 +54,8 @@ export class PartyComponent implements OnInit {
       }
 
       forkJoin([
-        this.partiesService.fetchParty(partyId),
-        this.personsService.fetchPersonsByParty(partyId)
+        this.partiesService.fetchParty(this.electionPeriod, partyId),
+        this.personsService.fetchPersonsByParty(this.electionPeriod, partyId)
       ])
         .subscribe(([party, persons]) => {
 

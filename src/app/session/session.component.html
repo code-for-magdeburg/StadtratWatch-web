@@ -5,7 +5,7 @@
       <a routerLink="/">Startseite</a>
     </li>
     <li class="breadcrumb-item">
-      <a [routerLink]="['/ep', 7, 'sessions']">Sitzungen</a>
+      <a [routerLink]="['/ep', electionPeriod, 'sessions']">Sitzungen</a>
     </li>
     <li class="breadcrumb-item active">{{ sessionDate | date }}</li>
   </ol>

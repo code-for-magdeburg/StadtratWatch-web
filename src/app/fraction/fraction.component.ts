@@ -57,6 +57,7 @@ export class FractionComponent implements OnInit {
 
   private applicationsSorting: SortFractionApplicationsEvent = { column: '', direction: '' };
 
+  public electionPeriod = 0;
   public fraction: Fraction | null = null;
   public councilors: Councilor[] = [];
   public formerCouncilors: Councilor[] = [];
@@ -84,6 +85,12 @@ export class FractionComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
 
+      this.electionPeriod = +(params.get('electionPeriod') || '0');
+      if (!this.electionPeriod) {
+        // TODO: Handle missing election period
+        return;
+      }
+
       const fractionId = params.get('id');
       if (!fractionId) {
         // TODO: Handle missing fraction id
@@ -91,8 +98,8 @@ export class FractionComponent implements OnInit {
       }
 
       forkJoin([
-        this.fractionsService.fetchFraction(fractionId),
-        this.personsService.fetchPersonsByFraction(fractionId)
+        this.fractionsService.fetchFraction(this.electionPeriod, fractionId),
+        this.personsService.fetchPersonsByFraction(this.electionPeriod, fractionId)
       ])
         .subscribe(([fraction, persons]) => {
 

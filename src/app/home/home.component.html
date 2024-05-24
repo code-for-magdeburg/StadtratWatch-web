@@ -42,7 +42,7 @@
               <h1>{{ metadata?.sessionsCount }}</h1>
               <p class="mb-0">
                 <a
-                  [routerLink]="['/ep', 7, 'sessions']"
+                  [routerLink]="['/ep', electionPeriod, 'sessions']"
                   class="card-link text-decoration-none text-body stretched-link"
                 >
                   Sitzungen
@@ -59,7 +59,7 @@
               <h1>{{ metadata?.fractionsCount }}</h1>
               <p class="mb-0">
                 <a
-                  [routerLink]="['/ep', 7, 'fractions']"
+                  [routerLink]="['/ep', electionPeriod, 'fractions']"
                   class="card-link text-decoration-none text-body stretched-link"
                 >
                   Fraktionen
@@ -76,7 +76,7 @@
               <h1>{{ metadata?.partiesCount }}</h1>
               <p class="mb-0">
                 <a
-                  [routerLink]="['/ep', 7, 'parties']"
+                  [routerLink]="['/ep', electionPeriod, 'parties']"
                   class="card-link text-decoration-none text-body stretched-link"
                 >
                   Parteien
@@ -93,7 +93,7 @@
               <h1>{{ metadata?.personsCount }}</h1>
               <p class="mb-0">
                 <a
-                  [routerLink]="['/ep', 7, 'persons']"
+                  [routerLink]="['/ep', electionPeriod, 'persons']"
                   class="card-link text-decoration-none text-body stretched-link"
                 >
                   Personen

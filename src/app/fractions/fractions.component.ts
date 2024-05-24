@@ -12,6 +12,8 @@ import {
 import { ParticipationRateChartData } from '../components/participation-rate-chart/participation-rate-chart.component';
 import { AbstentionRateChartData } from '../components/abstention-rate-chart/abstention-rate-chart.component';
 import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
+import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -24,6 +26,7 @@ export class FractionsComponent implements OnInit {
 
   private data: FractionLightDto[] = [];
 
+  public electionPeriod = environment.currentElectionPeriod;
   public sortedFractions: FractionLightDto[] = [];
   public applicationsSuccessRates: VotingsSuccessRateChartData[] = [];
   public votingsSuccessRates: VotingsSuccessRateChartData[] = [];
@@ -35,20 +38,27 @@ export class FractionsComponent implements OnInit {
   @ViewChildren(SortableFractionsDirective) headers: QueryList<SortableFractionsDirective> | undefined;
 
 
-  constructor(private readonly fractionsService: FractionsService) {
+  constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService) {
   }
 
 
   async ngOnInit() {
 
-    this.sortedFractions = this.data = await this.fractionsService.fetchFractions();
-    this.sortedFractions.sort((a, b) => b.seats - a.seats);
-    this.applicationsSuccessRates = this.data.map(ApplicationsSuccessRateChartData.fromFraction);
-    this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromFraction);
-    this.uniformityScores = this.data.map(UniformityScoreChartData.fromFraction);
-    this.participationRates = this.data.map(ParticipationRateChartData.fromFraction);
-    this.abstentionRates = this.data.map(AbstentionRateChartData.fromFraction);
-    this.speakingTimes = this.data.map(SpeakingTimeChartData.fromFraction);
+    this.route.params.subscribe(async params => {
+
+      const { electionPeriod } = params as { electionPeriod: number };
+
+      this.electionPeriod = electionPeriod;
+      this.sortedFractions = this.data = await this.fractionsService.fetchFractions(electionPeriod);
+      this.sortedFractions.sort((a, b) => b.seats - a.seats);
+      this.applicationsSuccessRates = this.data.map(ApplicationsSuccessRateChartData.fromFraction);
+      this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromFraction);
+      this.uniformityScores = this.data.map(UniformityScoreChartData.fromFraction);
+      this.participationRates = this.data.map(ParticipationRateChartData.fromFraction);
+      this.abstentionRates = this.data.map(AbstentionRateChartData.fromFraction);
+      this.speakingTimes = this.data.map(SpeakingTimeChartData.fromFraction);
+
+    });
 
   }
 

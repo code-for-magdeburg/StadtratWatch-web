@@ -34,6 +34,7 @@ type Voting = {
 export class SessionComponent implements OnInit {
 
 
+  public electionPeriod = 0;
   public sessionDate: string | null = null;
   public votings: Voting[] = [];
   public speakingTimes: SpeakingTimeChartData[] = [];
@@ -57,13 +58,19 @@ export class SessionComponent implements OnInit {
 
     this.route.paramMap.subscribe(async params => {
 
+      this.electionPeriod = +(params.get('electionPeriod') || '0');
+      if (!this.electionPeriod) {
+        // TODO: Handle missing election period
+        return;
+      }
+
       const sessionId = params.get('id');
       if (!sessionId) {
         // TODO: Handle missing session date
         return;
       }
 
-      const session = await this.sessionsService.fetchSession(sessionId);
+      const session = await this.sessionsService.fetchSession(this.electionPeriod, sessionId);
 
       this.sessionDate = session.date;
       this.meetingMinutesUrl = session.meetingMinutesUrl;

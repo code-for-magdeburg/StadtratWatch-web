@@ -15,6 +15,8 @@ import {
 } from 'd3';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { isPlatformBrowser } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 
 const VALUE_THRESHOLD = .65;
@@ -57,6 +59,7 @@ export class PersonsComponent implements OnInit {
 
   private data: PersonLightDto[] = [];
 
+  public electionPeriod = environment.currentElectionPeriod;
   public isBrowser = false;
   public sortedPersons: PersonLightDto[] = [];
 
@@ -65,26 +68,34 @@ export class PersonsComponent implements OnInit {
   @ViewChild('graphContainer', { static: false }) graphContainer!: ElementRef;
   @ViewChildren(SortablePersonsDirective) headers: QueryList<SortablePersonsDirective> | undefined;
 
-  constructor(private readonly personsService: PersonsService, @Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(private readonly route: ActivatedRoute, private readonly personsService: PersonsService,
+              @Inject(PLATFORM_ID) private platformId: Object) {
     this.isBrowser  = isPlatformBrowser(this.platformId);
   }
 
 
   async ngOnInit() {
 
-    this.sortedPersons = this.data = await this.personsService.fetchPersons();
-    this.sortedPersons.sort((a, b) => a.name.localeCompare(b.name));
+    this.route.params.subscribe(async params => {
 
-    const data = await this.personsService.fetchAllPersonsForces();
+      const { electionPeriod } = params as { electionPeriod: number };
 
-    this.tabs ? this.tabs.tabs[1].active = true : null;
+      this.electionPeriod = electionPeriod;
+      this.sortedPersons = this.data = await this.personsService.fetchPersons(electionPeriod);
+      this.sortedPersons.sort((a, b) => a.name.localeCompare(b.name));
 
-    setTimeout(() => {
-      if (this.isBrowser) {
-        this.drawGraph(data as GraphData);
-        this.tabs ? this.tabs.tabs[0].active = true : null;
-      }
-    }, 1);
+      const data = await this.personsService.fetchAllPersonsForces(electionPeriod);
+
+      this.tabs ? this.tabs.tabs[1].active = true : null;
+
+      setTimeout(() => {
+        if (this.isBrowser) {
+          this.drawGraph(data as GraphData);
+          this.tabs ? this.tabs.tabs[0].active = true : null;
+        }
+      }, 1);
+
+    });
 
   }
 

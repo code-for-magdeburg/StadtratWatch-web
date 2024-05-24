@@ -12,6 +12,7 @@ import { environment } from '../../environments/environment';
 export class HomeComponent implements OnInit {
 
 
+  public electionPeriod = environment.currentElectionPeriod;
   public metadata: MetadataDto | undefined;
 
 
