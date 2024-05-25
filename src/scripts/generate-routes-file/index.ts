@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import { Registry } from '../shared/model/registry';
+import { registry } from "chart.js";
 
 
 const dataDir = process.argv[2];
@@ -24,6 +25,7 @@ for (const electionPeriodDir of electionPeriodDirs) {
 
   const registry = JSON.parse(fs.readFileSync(registryFilename, 'utf-8')) as Registry;
 
+  routes.push(`/ep/${registry.electionPeriod}`);
   routes.push(...registry.parties.map(party => `/ep/${registry.electionPeriod}/party/${party.id}`));
   routes.push(...registry.fractions.map(fraction => `/ep/${registry.electionPeriod}/fraction/${fraction.id}`));
   routes.push(...registry.sessions.map(session => `/ep/${registry.electionPeriod}/session/${session.id}`));

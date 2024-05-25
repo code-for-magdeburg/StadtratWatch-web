@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MetadataService } from '../services/metadata.service';
 import { MetadataDto } from '../model/Metadata';
 import { environment } from '../../environments/environment';
+import { ActivatedRoute } from "@angular/router";
 
 
 @Component({
@@ -16,12 +17,23 @@ export class HomeComponent implements OnInit {
   public metadata: MetadataDto | undefined;
 
 
-  constructor(private readonly metadataService: MetadataService) {
+  constructor(private readonly route: ActivatedRoute, private readonly metadataService: MetadataService) {
   }
 
 
   async ngOnInit() {
-    this.metadata = await this.metadataService.fetchMetadata(environment.currentElectionPeriod);
+
+    this.route.params.subscribe(async params => {
+
+      const { electionPeriod } = params as { electionPeriod: number };
+      if (electionPeriod) {
+        this.electionPeriod = electionPeriod;
+      }
+
+      this.metadata = await this.metadataService.fetchMetadata(this.electionPeriod);
+
+    });
+
   }
 
 

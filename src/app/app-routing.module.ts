@@ -13,10 +13,12 @@ import { HomeComponent } from './home/home.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
 import { ImpressumComponent } from './impressum/impressum.component';
+import { environment } from '../environments/environment';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: `ep/${environment.currentElectionPeriod}`, pathMatch: 'full' },
+  { path: 'ep/:electionPeriod', component: HomeComponent },
   { path: 'ep/:electionPeriod/sessions', component: SessionsComponent },
   { path: 'ep/:electionPeriod/session/:id', component: SessionComponent },
   { path: 'ep/:electionPeriod/session/:session-id/voting/:voting-id', component: VotingComponent },
