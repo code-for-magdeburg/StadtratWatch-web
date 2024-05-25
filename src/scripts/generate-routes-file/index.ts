@@ -14,7 +14,7 @@ const electionPeriodDirs = fs.readdirSync(dataDir).filter(f => fs.lstatSync(`${d
 
 const routes: string[] = [];
 
-routes.push('/');
+routes.push('/'); // because of redirect to current election period
 
 for (const electionPeriodDir of electionPeriodDirs) {
 
