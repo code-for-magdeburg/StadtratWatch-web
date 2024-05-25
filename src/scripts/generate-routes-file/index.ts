@@ -27,10 +27,21 @@ for (const electionPeriodDir of electionPeriodDirs) {
   const registry = JSON.parse(fs.readFileSync(registryFilename, 'utf-8')) as Registry;
 
   routes.push(`/ep/${registry.electionPeriod}`);
+  routes.push(`/ep/${registry.electionPeriod}/parties`);
   routes.push(...registry.parties.map(party => `/ep/${registry.electionPeriod}/party/${party.id}`));
+  routes.push(`/ep/${registry.electionPeriod}/fractions`);
   routes.push(...registry.fractions.map(fraction => `/ep/${registry.electionPeriod}/fraction/${fraction.id}`));
-  routes.push(...registry.sessions.map(session => `/ep/${registry.electionPeriod}/session/${session.id}`));
+  routes.push(`/ep/${registry.electionPeriod}/persons`);
   routes.push(...registry.persons.map(person => `/ep/${registry.electionPeriod}/person/${person.id}`));
+
+  routes.push(`/ep/${registry.electionPeriod}/sessions`);
+  routes.push(...registry.sessions.map(session => `/ep/${registry.electionPeriod}/session/${session.id}`));
+  for (const session of registry.sessions) {
+    const sessionScanFilename = `${dataDir}/${electionPeriodDir}/${session.id}/session-scan-${session.id}.json`;
+    const sessionScan = JSON.parse(fs.readFileSync(sessionScanFilename, 'utf-8')) as any[];
+    const votingIds = sessionScan.map((_, index: number) => index + 1);
+    routes.push(...votingIds.map(votingId => `/ep/${registry.electionPeriod}/session/${session.id}/voting/${votingId}`));
+  }
 
 }
 
