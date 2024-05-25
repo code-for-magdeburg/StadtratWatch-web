@@ -1,6 +1,5 @@
 import * as fs from 'fs';
 import { Registry } from '../shared/model/registry';
-import { registry } from "chart.js";
 
 
 const dataDir = process.argv[2];
@@ -14,6 +13,8 @@ if (!dataDir || !outputDir) {
 const electionPeriodDirs = fs.readdirSync(dataDir).filter(f => fs.lstatSync(`${dataDir}/${f}`).isDirectory());
 
 const routes: string[] = [];
+
+routes.push('/');
 
 for (const electionPeriodDir of electionPeriodDirs) {
 
