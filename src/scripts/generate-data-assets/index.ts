@@ -10,8 +10,9 @@ import { Registry } from '../shared/model/registry';
 
 const inputDir = process.argv[2];
 const outputDir = process.argv[3];
-if (!inputDir || !outputDir) {
-  console.error('Usage: node index.js <inputDir> <outputDir>');
+const scrapedSessionFilename = process.argv[4];
+if (!inputDir || !outputDir || !scrapedSessionFilename) {
+  console.error('Usage: node index.js <inputDir> <outputDir> <scrapedSessionFile>');
   process.exit(1);
 }
 
@@ -21,7 +22,6 @@ if (!fs.existsSync(registryFilename) || !fs.lstatSync(registryFilename).isFile()
   process.exit(1);
 }
 
-const scrapedSessionFilename = `${inputDir}/Magdeburg.json`;
 if (!fs.existsSync(scrapedSessionFilename) || !fs.lstatSync(scrapedSessionFilename).isFile()) {
   console.error(`Scraped session file "${scrapedSessionFilename}" does not exist or is not a file.`);
   process.exit(1);
@@ -33,7 +33,12 @@ const scrapedSession =
   JSON.parse(fs.readFileSync(scrapedSessionFilename, 'utf-8')) as ScrapedSession;
 
 
-const sessions = generateSessionFiles(inputDir, `${outputDir}/sessions`, registry, scrapedSession);
+const sessions = generateSessionFiles(
+  inputDir,
+  `${outputDir}/sessions`,
+  registry,
+  scrapedSession
+);
 generatePersonFiles(`${outputDir}/persons`, registry, sessions);
 generateFractionFiles(`${outputDir}/fractions`, registry, sessions);
 generatePartyFiles(`${outputDir}/parties`, registry, sessions);

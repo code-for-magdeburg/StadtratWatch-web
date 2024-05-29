@@ -2,7 +2,7 @@
 
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a routerLink="/">Startseite</a>
+      <a [routerLink]="['/ep', electionPeriod]">Startseite</a>
     </li>
     <li class="breadcrumb-item active">Fraktionen</li>
   </ol>
@@ -165,7 +165,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let fraction of sortedFractions">
-        <td><a [routerLink]="['/fraction', fraction.id]">{{ fraction.name }}</a></td>
+        <td><a [routerLink]="['/ep', electionPeriod, 'fraction', fraction.id]">{{ fraction.name }}</a></td>
         <td style="text-align: right;">{{ fraction.seats }}</td>
         <td style="text-align: right;">{{ fraction.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ fraction.uniformityScore | number : '0.3-3' }}</td>

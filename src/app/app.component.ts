@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MetadataDto } from './model/Metadata';
 import { MetadataService } from './services/metadata.service';
+import { environment } from '../environments/environment';
 
 
 @Component({
@@ -12,6 +13,7 @@ export class AppComponent implements OnInit {
 
 
   public navbarCollapsed = true;
+  public electionPeriod = environment.currentElectionPeriod;
   public metadata: MetadataDto | undefined;
 
 
@@ -20,7 +22,7 @@ export class AppComponent implements OnInit {
 
 
   async ngOnInit() {
-    this.metadata = await this.metadataService.fetchMetadata();
+    this.metadata = await this.metadataService.fetchMetadata(this.electionPeriod);
   }
 
 

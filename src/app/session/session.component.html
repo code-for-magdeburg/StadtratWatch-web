@@ -2,10 +2,10 @@
 
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a routerLink="/">Startseite</a>
+      <a [routerLink]="['/ep', electionPeriod]">Startseite</a>
     </li>
     <li class="breadcrumb-item">
-      <a routerLink="/sessions">Sitzungen</a>
+      <a [routerLink]="['/ep', electionPeriod, 'sessions']">Sitzungen</a>
     </li>
     <li class="breadcrumb-item active">{{ sessionDate | date }}</li>
   </ol>

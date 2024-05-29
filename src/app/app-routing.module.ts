@@ -13,19 +13,21 @@ import { HomeComponent } from './home/home.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
 import { ImpressumComponent } from './impressum/impressum.component';
+import { environment } from '../environments/environment';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'sessions', component: SessionsComponent },
-  { path: 'session/:id', component: SessionComponent },
-  { path: 'session/:session-id/voting/:voting-id', component: VotingComponent },
-  { path: 'fractions', component: FractionsComponent },
-  { path: 'fraction/:id', component: FractionComponent },
-  { path: 'parties', component: PartiesComponent },
-  { path: 'party/:id', component: PartyComponent },
-  { path: 'persons', component: PersonsComponent },
-  { path: 'person/:id', component: PersonComponent },
+  { path: '', redirectTo: `ep/${environment.currentElectionPeriod}`, pathMatch: 'full' },
+  { path: 'ep/:electionPeriod', component: HomeComponent },
+  { path: 'ep/:electionPeriod/sessions', component: SessionsComponent },
+  { path: 'ep/:electionPeriod/session/:id', component: SessionComponent },
+  { path: 'ep/:electionPeriod/session/:session-id/voting/:voting-id', component: VotingComponent },
+  { path: 'ep/:electionPeriod/fractions', component: FractionsComponent },
+  { path: 'ep/:electionPeriod/fraction/:id', component: FractionComponent },
+  { path: 'ep/:electionPeriod/parties', component: PartiesComponent },
+  { path: 'ep/:electionPeriod/party/:id', component: PartyComponent },
+  { path: 'ep/:electionPeriod/persons', component: PersonsComponent },
+  { path: 'ep/:electionPeriod/person/:id', component: PersonComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'impressum', component: ImpressumComponent },
   { path: 'privacy', component: PrivacyComponent },

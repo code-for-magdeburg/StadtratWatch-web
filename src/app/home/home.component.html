@@ -41,7 +41,10 @@
               <h1 class="bi bi-calendar-event"></h1>
               <h1>{{ metadata?.sessionsCount }}</h1>
               <p class="mb-0">
-                <a routerLink="/sessions" class="card-link text-decoration-none text-body stretched-link">
+                <a
+                  [routerLink]="['/ep', electionPeriod, 'sessions']"
+                  class="card-link text-decoration-none text-body stretched-link"
+                >
                   Sitzungen
                 </a>
               </p>
@@ -55,7 +58,10 @@
               <h1 class="bi bi-people"></h1>
               <h1>{{ metadata?.fractionsCount }}</h1>
               <p class="mb-0">
-                <a routerLink="/fractions" class="card-link text-decoration-none text-body stretched-link">
+                <a
+                  [routerLink]="['/ep', electionPeriod, 'fractions']"
+                  class="card-link text-decoration-none text-body stretched-link"
+                >
                   Fraktionen
                 </a>
               </p>
@@ -69,7 +75,10 @@
               <h1 class="bi bi-people-fill"></h1>
               <h1>{{ metadata?.partiesCount }}</h1>
               <p class="mb-0">
-                <a routerLink="/parties" class="card-link text-decoration-none text-body stretched-link">
+                <a
+                  [routerLink]="['/ep', electionPeriod, 'parties']"
+                  class="card-link text-decoration-none text-body stretched-link"
+                >
                   Parteien
                 </a>
               </p>
@@ -83,7 +92,10 @@
               <h1 class="bi bi-person"></h1>
               <h1>{{ metadata?.personsCount }}</h1>
               <p class="mb-0">
-                <a routerLink="/persons" class="card-link text-decoration-none text-body stretched-link">
+                <a
+                  [routerLink]="['/ep', electionPeriod, 'persons']"
+                  class="card-link text-decoration-none text-body stretched-link"
+                >
                   Personen
                 </a>
               </p>

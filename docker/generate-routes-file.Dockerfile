@@ -10,6 +10,6 @@ COPY ../tsconfig.json .
 COPY ../tsconfig.scripts.json .
 COPY ../src/app/model /app/src/app/model
 COPY ../src/scripts/shared /app/src/scripts/shared
-COPY ../src/scripts/generate-data-assets /app/src/scripts/generate-data-assets
+COPY ../src/scripts/generate-routes-file /app/src/scripts/generate-routes-file
 
-CMD ["npm", "run", "generate-data-assets", "./election-period", "./generated", "./Magdeburg.json"]
+CMD ["npm", "run", "generate-routes-file", "./data", "./generated"]

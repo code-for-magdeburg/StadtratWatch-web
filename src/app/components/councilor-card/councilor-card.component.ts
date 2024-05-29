@@ -18,6 +18,7 @@ export type Councilor = {
 export class CouncilorCardComponent {
 
 
+  @Input() public electionPeriod!: number;
   @Input() public councilor!: Councilor;
 
 

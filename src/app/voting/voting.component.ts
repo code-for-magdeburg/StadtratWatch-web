@@ -41,6 +41,7 @@ type VotingViewModel = {
 export class VotingComponent {
 
 
+  public electionPeriod = 0;
   public votingViewModel: VotingViewModel | undefined;
   public fractions: Fraction[] = [];
 
@@ -56,6 +57,12 @@ export class VotingComponent {
 
     this.route.paramMap.subscribe(async params => {
 
+      this.electionPeriod = +(params.get('electionPeriod') || '0');
+      if (!this.electionPeriod) {
+        // TODO: Handle missing election period
+        return;
+      }
+
       const sessionId = params.get('session-id');
       if (!sessionId) {
         // TODO: Handle missing session date
@@ -68,7 +75,7 @@ export class VotingComponent {
         return;
       }
 
-      const session = await this.sessionsService.fetchSession(sessionId);
+      const session = await this.sessionsService.fetchSession(this.electionPeriod, sessionId);
 
       const votingDto = session.votings.find(
         (votingDto: SessionVotingDto) => votingDto.id === votingId
