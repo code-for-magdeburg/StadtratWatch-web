@@ -2,12 +2,12 @@
   "id": "spd",
   "name": "SPD",
   "seats": 10,
-  "applicationsSuccessRate": 0.9050847457627119,
-  "votingsSuccessRate": 0.9305301645338209,
-  "uniformityScore": 0.983838988422885,
-  "participationRate": 0.7711151736745887,
-  "abstentionRate": 0.02180507587180815,
-  "speakingTime": 44645,
+  "applicationsSuccessRate": 0.898989898989899,
+  "votingsSuccessRate": 0.9286998202516477,
+  "uniformityScore": 0.9840650021775269,
+  "participationRate": 0.7714200119832235,
+  "abstentionRate": 0.02349531903652843,
+  "speakingTime": 46682,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -133,6 +133,10 @@
       {
         "date": "2024-04-08",
         "value": 0.9050847457627119
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.898989898989899
       }
     ],
     "votingsSuccessRate": [
@@ -259,6 +263,10 @@
       {
         "date": "2024-04-08",
         "value": 0.9305301645338209
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.9286998202516477
       }
     ],
     "uniformityScore": [
@@ -385,6 +393,10 @@
       {
         "date": "2024-04-08",
         "value": 0.983838988422885
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.9840650021775269
       }
     ],
     "participationRate": [
@@ -511,6 +523,10 @@
       {
         "date": "2024-04-08",
         "value": 0.7711151736745887
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.7714200119832235
       }
     ],
     "abstentionRate": [
@@ -637,6 +653,10 @@
       {
         "date": "2024-04-08",
         "value": 0.02180507587180815
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.02349531903652843
       }
     ]
   },
@@ -4647,6 +4667,34 @@
       "votings": [
         {
           "votingId": 68,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0090/24/1",
+      "type": "Änderungsantrag",
+      "title": "Initiierung einer Magdeburger Pflegekonferenz",
+      "sessionId": "2024-05-02",
+      "sessionDate": "2024-05-02",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=693543&type=do",
+      "votings": [
+        {
+          "votingId": 17,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0231/23",
+      "type": "Antrag",
+      "title": "Wickeltische für öffentliche Plätze",
+      "sessionId": "2024-05-02",
+      "sessionDate": "2024-05-02",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=678569&type=do",
+      "votings": [
+        {
+          "votingId": 27,
           "votingResult": "REJECTED"
         }
       ]
