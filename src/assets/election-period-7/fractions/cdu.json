@@ -2,12 +2,12 @@
   "id": "cdu",
   "name": "CDU",
   "seats": 10,
-  "applicationsSuccessRate": 0.8439024390243902,
-  "votingsSuccessRate": 0.8251066422912858,
-  "uniformityScore": 0.9357081589386935,
-  "participationRate": 0.7249238269347958,
-  "abstentionRate": 0.0813631532675417,
-  "speakingTime": 47739,
+  "applicationsSuccessRate": 0.8398058252427184,
+  "votingsSuccessRate": 0.8262432594367884,
+  "uniformityScore": 0.9365879209786621,
+  "participationRate": 0.7255242660275614,
+  "abstentionRate": 0.08127856918371333,
+  "speakingTime": 49543,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -133,6 +133,10 @@
       {
         "date": "2024-04-08",
         "value": 0.8439024390243902
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.8398058252427184
       }
     ],
     "votingsSuccessRate": [
@@ -259,6 +263,10 @@
       {
         "date": "2024-04-08",
         "value": 0.8251066422912858
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.8262432594367884
       }
     ],
     "uniformityScore": [
@@ -385,6 +393,10 @@
       {
         "date": "2024-04-08",
         "value": 0.9357081589386935
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.9365879209786621
       }
     ],
     "participationRate": [
@@ -511,6 +523,10 @@
       {
         "date": "2024-04-08",
         "value": 0.7249238269347958
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.7255242660275614
       }
     ],
     "abstentionRate": [
@@ -637,6 +653,10 @@
       {
         "date": "2024-04-08",
         "value": 0.0813631532675417
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.08127856918371333
       }
     ]
   },
@@ -3398,6 +3418,20 @@
         {
           "votingId": 67,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0239/23",
+      "type": "Antrag",
+      "title": "Magdeburg respektiert die deutsche Rechtschreibung - keine „Gender-Sprache” in der Kommunikation mit den Bürgerinnen und Bürgern",
+      "sessionId": "2024-05-02",
+      "sessionDate": "2024-05-02",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=678785&type=do",
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "REJECTED"
         }
       ]
     }

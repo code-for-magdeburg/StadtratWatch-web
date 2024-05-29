@@ -2,12 +2,12 @@
   "id": "fdp-tierschutzpartei",
   "name": "FDP/Tierschutzpartei",
   "seats": 6,
-  "applicationsSuccessRate": 0.8518518518518519,
-  "votingsSuccessRate": 0.8470444850700792,
-  "uniformityScore": 0.8187441645933912,
-  "participationRate": 0.7275035547430428,
-  "abstentionRate": 0.1469269111411348,
-  "speakingTime": 19059,
+  "applicationsSuccessRate": 0.8525345622119815,
+  "votingsSuccessRate": 0.8484122228879568,
+  "uniformityScore": 0.820725373735562,
+  "participationRate": 0.731276213301378,
+  "abstentionRate": 0.1456836594536886,
+  "speakingTime": 20075,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -133,6 +133,10 @@
       {
         "date": "2024-04-08",
         "value": 0.8518518518518519
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.8525345622119815
       }
     ],
     "votingsSuccessRate": [
@@ -259,6 +263,10 @@
       {
         "date": "2024-04-08",
         "value": 0.8470444850700792
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.8484122228879568
       }
     ],
     "uniformityScore": [
@@ -385,6 +393,10 @@
       {
         "date": "2024-04-08",
         "value": 0.8187441645933912
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.820725373735562
       }
     ],
     "participationRate": [
@@ -511,6 +523,10 @@
       {
         "date": "2024-04-08",
         "value": 0.7275035547430428
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.731276213301378
       }
     ],
     "abstentionRate": [
@@ -637,6 +653,10 @@
       {
         "date": "2024-04-08",
         "value": 0.1469269111411348
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.1456836594536886
       }
     ]
   },
@@ -3601,6 +3621,20 @@
         },
         {
           "votingId": 60,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0226/23",
+      "type": "Antrag",
+      "title": "Werben für das Ehrenamt",
+      "sessionId": "2024-05-02",
+      "sessionDate": "2024-05-02",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=677505&type=do",
+      "votings": [
+        {
+          "votingId": 25,
           "votingResult": "PASSED"
         }
       ]

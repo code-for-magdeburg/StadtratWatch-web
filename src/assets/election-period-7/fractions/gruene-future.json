@@ -2,12 +2,12 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 11,
-  "applicationsSuccessRate": 0.8132295719844358,
-  "votingsSuccessRate": 0.8903107861060329,
-  "uniformityScore": 0.9365418648989995,
-  "participationRate": 0.7744169298099828,
-  "abstentionRate": 0.05399286034007601,
-  "speakingTime": 52757,
+  "applicationsSuccessRate": 0.8108108108108109,
+  "votingsSuccessRate": 0.8891551827441582,
+  "uniformityScore": 0.9354743363828105,
+  "participationRate": 0.7756958440002178,
+  "abstentionRate": 0.05416570250206768,
+  "speakingTime": 55049,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -133,6 +133,10 @@
       {
         "date": "2024-04-08",
         "value": 0.8132295719844358
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.8108108108108109
       }
     ],
     "votingsSuccessRate": [
@@ -259,6 +263,10 @@
       {
         "date": "2024-04-08",
         "value": 0.8903107861060329
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.8891551827441582
       }
     ],
     "uniformityScore": [
@@ -385,6 +393,10 @@
       {
         "date": "2024-04-08",
         "value": 0.9365418648989995
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.9354743363828105
       }
     ],
     "participationRate": [
@@ -511,6 +523,10 @@
       {
         "date": "2024-04-08",
         "value": 0.7744169298099828
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.7756958440002178
       }
     ],
     "abstentionRate": [
@@ -637,6 +653,10 @@
       {
         "date": "2024-04-08",
         "value": 0.05399286034007601
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.05416570250206768
       }
     ]
   },
@@ -3875,6 +3895,34 @@
       "votings": [
         {
           "votingId": 69,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0672/23",
+      "type": "Geschäftsordnung",
+      "title": "Neufassung der Hundesteuersatzung",
+      "sessionId": "2024-05-02",
+      "sessionDate": "2024-05-02",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684435&type=do",
+      "votings": [
+        {
+          "votingId": 10,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0030/24",
+      "type": "Geschäftsordnung",
+      "title": "Einleitung des Satzungsverfahrens zum vorhabenbezogenen Bebauungsplan Nr. 153-2.1 \"Freizeitpark Neustädter See\"",
+      "sessionId": "2024-05-02",
+      "sessionDate": "2024-05-02",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687187&type=do",
+      "votings": [
+        {
+          "votingId": 22,
           "votingResult": "REJECTED"
         }
       ]

@@ -2,12 +2,12 @@
   "id": "die-linke",
   "name": "DIE LINKE",
   "seats": 8,
-  "applicationsSuccessRate": 0.8169642857142857,
-  "votingsSuccessRate": 0.8470444850700792,
-  "uniformityScore": 0.9565080193519475,
-  "participationRate": 0.787096282754418,
-  "abstentionRate": 0.09369712933184808,
-  "speakingTime": 46576,
+  "applicationsSuccessRate": 0.8133333333333334,
+  "votingsSuccessRate": 0.8442180946674656,
+  "uniformityScore": 0.9553559830329135,
+  "participationRate": 0.7901437986818454,
+  "abstentionRate": 0.09481485296879925,
+  "speakingTime": 48893,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -133,6 +133,10 @@
       {
         "date": "2024-04-08",
         "value": 0.8169642857142857
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.8133333333333334
       }
     ],
     "votingsSuccessRate": [
@@ -259,6 +263,10 @@
       {
         "date": "2024-04-08",
         "value": 0.8470444850700792
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.8442180946674656
       }
     ],
     "uniformityScore": [
@@ -385,6 +393,10 @@
       {
         "date": "2024-04-08",
         "value": 0.9565080193519475
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.9553559830329135
       }
     ],
     "participationRate": [
@@ -511,6 +523,10 @@
       {
         "date": "2024-04-08",
         "value": 0.787096282754418
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.7901437986818454
       }
     ],
     "abstentionRate": [
@@ -637,6 +653,10 @@
       {
         "date": "2024-04-08",
         "value": 0.09369712933184808
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.09481485296879925
       }
     ]
   },
@@ -3659,6 +3679,20 @@
         },
         {
           "votingId": 25,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0039/24/1/1",
+      "type": "Änderungsantrag",
+      "title": "Aufhebungsbeschluss „FEELING EAST - Leben im Osten“",
+      "sessionId": "2024-05-02",
+      "sessionDate": "2024-05-02",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=693563&type=do",
+      "votings": [
+        {
+          "votingId": 11,
           "votingResult": "REJECTED"
         }
       ]
