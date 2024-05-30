@@ -2,12 +2,12 @@
   "id": "die-linke",
   "name": "DIE LINKE",
   "seats": 8,
-  "applicationsSuccessRate": 0.8133333333333334,
-  "votingsSuccessRate": 0.8442180946674656,
-  "uniformityScore": 0.9553559830329135,
-  "participationRate": 0.7901437986818454,
-  "abstentionRate": 0.09481485296879925,
-  "speakingTime": 48893,
+  "applicationsSuccessRate": 0.8040816326530612,
+  "votingsSuccessRate": 0.843859649122807,
+  "uniformityScore": 0.9552429537367696,
+  "participationRate": 0.7878654970760234,
+  "abstentionRate": 0.09377710305129192,
+  "speakingTime": 50237,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -137,6 +137,10 @@
       {
         "date": "2024-05-02",
         "value": 0.8133333333333334
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.8040816326530612
       }
     ],
     "votingsSuccessRate": [
@@ -267,6 +271,10 @@
       {
         "date": "2024-05-02",
         "value": 0.8442180946674656
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.843859649122807
       }
     ],
     "uniformityScore": [
@@ -397,6 +405,10 @@
       {
         "date": "2024-05-02",
         "value": 0.9553559830329135
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.9552429537367696
       }
     ],
     "participationRate": [
@@ -527,6 +539,10 @@
       {
         "date": "2024-05-02",
         "value": 0.7901437986818454
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.7878654970760234
       }
     ],
     "abstentionRate": [
@@ -657,6 +673,10 @@
       {
         "date": "2024-05-02",
         "value": 0.09481485296879925
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.09377710305129192
       }
     ]
   },
@@ -3694,6 +3714,286 @@
         {
           "votingId": 11,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0290/23",
+      "type": "Antrag",
+      "title": "Armutsbericht der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682662&type=do",
+      "votings": [
+        {
+          "votingId": 1,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0009/24",
+      "type": "Antrag",
+      "title": "Zum grundsätzlichen Umgang mit fehlerhaften bzw. unvollständigen Niederschriften von Einwohner*innenversammlungen",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684910&type=do",
+      "votings": [
+        {
+          "votingId": 2,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0028/24",
+      "type": "Antrag",
+      "title": "Offenlegung von Geschäftsführer:innengehältern kommunaler Gesellschaften sowie Eigenbetriebe prüfen",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686814&type=do",
+      "votings": [
+        {
+          "votingId": 4,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0159/23/1",
+      "type": "Änderungsantrag",
+      "title": "100-jährige Platane erhalten!",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=693700&type=do",
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "7.10",
+      "type": "Antrag",
+      "title": "100-jährige Platane erhalten!",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": null,
+      "votings": [
+        {
+          "votingId": 6,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0078/24",
+      "type": "Geschäftsordnung",
+      "title": "Portal für Kurzzeitpflege",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690078&type=do",
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0102/24",
+      "type": "Geschäftsordnung",
+      "title": "Studentisches Wohnen bezahlbar halten",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692231&type=do",
+      "votings": [
+        {
+          "votingId": 13,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0120/24",
+      "type": "Geschäftsordnung",
+      "title": "Handwerkerparkausweis",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692721&type=do",
+      "votings": [
+        {
+          "votingId": 17,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0121/24",
+      "type": "Geschäftsordnung",
+      "title": "Schulwegsicherheit Grundschule Am Grenzweg",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692730&type=do",
+      "votings": [
+        {
+          "votingId": 18,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0122/24",
+      "type": "Geschäftsordnung",
+      "title": "Pro Kind ein Baum - symbolische Baumschenkung als Sinnbild für Wachstum und Zukunft",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692733&type=do",
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0124/24",
+      "type": "Antrag",
+      "title": "Neues Vereinsheim für den MLV Einheit e.V.",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692742&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0125/24",
+      "type": "Geschäftsordnung",
+      "title": "Kampagne zur frühkindlichen Bildung - Kita tut gut",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692749&type=do",
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0127/24",
+      "type": "Geschäftsordnung",
+      "title": "Barrierefreier Zugang vom Nordpark zum Familienhaus",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692771&type=do",
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0112/24",
+      "type": "Geschäftsordnung",
+      "title": "Sportstadt Magdeburg - Strahlkraft des Olympiastützpunktes besser nutzen",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692658&type=do",
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0114/24",
+      "type": "Geschäftsordnung",
+      "title": "Heiraten ohne Tierleid - Verbot für Hochzeitstaubenflüge prüfen",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692669&type=do",
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0115/24",
+      "type": "Geschäftsordnung",
+      "title": "Verzicht auf Strafantrag bei Erschleichung von Beförderungsleistungen",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692703&type=do",
+      "votings": [
+        {
+          "votingId": 30,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0128/24",
+      "type": "Geschäftsordnung",
+      "title": "Einführung des Deutschland-Tickets als Jobticket für Beschäftigte der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692775&type=do",
+      "votings": [
+        {
+          "votingId": 36,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0129/24",
+      "type": "Geschäftsordnung",
+      "title": "Baustellenkoordination",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692773&type=do",
+      "votings": [
+        {
+          "votingId": 37,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0131/24",
+      "type": "Geschäftsordnung",
+      "title": "Ausweichstadion auf Sportcampus prüfen",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692785&type=do",
+      "votings": [
+        {
+          "votingId": 38,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0099/24",
+      "type": "Geschäftsordnung",
+      "title": "Den Hasselbachplatz ganzheitlich entwickeln! - Perspektiven für Gewerbetreibende und die Stadtgesellschaft bieten!",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691808&type=do",
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "PASSED"
         }
       ]
     }

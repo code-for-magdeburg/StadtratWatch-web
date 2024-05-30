@@ -2,12 +2,12 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 11,
-  "applicationsSuccessRate": 0.8108108108108109,
-  "votingsSuccessRate": 0.8891551827441582,
-  "uniformityScore": 0.9354743363828105,
-  "participationRate": 0.7756958440002178,
-  "abstentionRate": 0.05416570250206768,
-  "speakingTime": 55049,
+  "applicationsSuccessRate": 0.8157894736842105,
+  "votingsSuccessRate": 0.8871345029239766,
+  "uniformityScore": 0.9345099279444572,
+  "participationRate": 0.7741626794258373,
+  "abstentionRate": 0.05547044552389054,
+  "speakingTime": 55245,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -137,6 +137,10 @@
       {
         "date": "2024-05-02",
         "value": 0.8108108108108109
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.8157894736842105
       }
     ],
     "votingsSuccessRate": [
@@ -267,6 +271,10 @@
       {
         "date": "2024-05-02",
         "value": 0.8891551827441582
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.8871345029239766
       }
     ],
     "uniformityScore": [
@@ -397,6 +405,10 @@
       {
         "date": "2024-05-02",
         "value": 0.9354743363828105
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.9345099279444572
       }
     ],
     "participationRate": [
@@ -527,6 +539,10 @@
       {
         "date": "2024-05-02",
         "value": 0.7756958440002178
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.7741626794258373
       }
     ],
     "abstentionRate": [
@@ -657,6 +673,10 @@
       {
         "date": "2024-05-02",
         "value": 0.05416570250206768
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.05547044552389054
       }
     ]
   },
@@ -3924,6 +3944,104 @@
         {
           "votingId": 22,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0078/24",
+      "type": "Geschäftsordnung",
+      "title": "Portal für Kurzzeitpflege",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690078&type=do",
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0111/24",
+      "type": "Geschäftsordnung",
+      "title": "Missachtung kommunalpolitischer Arbeit durch Nichteinberufung vom Stadtrat bestätigter Gremien",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692635&type=do",
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0125/24",
+      "type": "Geschäftsordnung",
+      "title": "Kampagne zur frühkindlichen Bildung - Kita tut gut",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692749&type=do",
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0126/24",
+      "type": "Geschäftsordnung",
+      "title": "Für bezahlbaren Wohnraum sozialen Wohnungs(neu)bau wieder aufnehmen - Gebäudetyp E unterstützen",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692764&type=do",
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0112/24",
+      "type": "Geschäftsordnung",
+      "title": "Sportstadt Magdeburg - Strahlkraft des Olympiastützpunktes besser nutzen",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692658&type=do",
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0113/24",
+      "type": "Geschäftsordnung",
+      "title": "Nachtfahrverbot für Mähroboter",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692661&type=do",
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0099/24",
+      "type": "Geschäftsordnung",
+      "title": "Den Hasselbachplatz ganzheitlich entwickeln! - Perspektiven für Gewerbetreibende und die Stadtgesellschaft bieten!",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691808&type=do",
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "PASSED"
         }
       ]
     }

@@ -2,12 +2,12 @@
   "id": "cdu",
   "name": "CDU",
   "seats": 10,
-  "applicationsSuccessRate": 0.8398058252427184,
-  "votingsSuccessRate": 0.8262432594367884,
-  "uniformityScore": 0.9365879209786621,
-  "participationRate": 0.7255242660275614,
-  "abstentionRate": 0.08127856918371333,
-  "speakingTime": 49543,
+  "applicationsSuccessRate": 0.8457943925233645,
+  "votingsSuccessRate": 0.8257309941520468,
+  "uniformityScore": 0.9379182204907647,
+  "participationRate": 0.7199415204678362,
+  "abstentionRate": 0.08044159849891493,
+  "speakingTime": 49923,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -137,6 +137,10 @@
       {
         "date": "2024-05-02",
         "value": 0.8398058252427184
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.8457943925233645
       }
     ],
     "votingsSuccessRate": [
@@ -267,6 +271,10 @@
       {
         "date": "2024-05-02",
         "value": 0.8262432594367884
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.8257309941520468
       }
     ],
     "uniformityScore": [
@@ -397,6 +405,10 @@
       {
         "date": "2024-05-02",
         "value": 0.9365879209786621
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.9379182204907647
       }
     ],
     "participationRate": [
@@ -527,6 +539,10 @@
       {
         "date": "2024-05-02",
         "value": 0.7255242660275614
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.7199415204678362
       }
     ],
     "abstentionRate": [
@@ -657,6 +673,10 @@
       {
         "date": "2024-05-02",
         "value": 0.08127856918371333
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.08044159849891493
       }
     ]
   },
@@ -3432,6 +3452,118 @@
         {
           "votingId": 28,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0107/24",
+      "type": "Geschäftsordnung",
+      "title": "Feriensportwoche erneut etablieren",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692575&type=do",
+      "votings": [
+        {
+          "votingId": 7,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0100/24",
+      "type": "Geschäftsordnung",
+      "title": "Ausstellung Magdeburger Stadtgeschichte auch in Englisch",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692199&type=do",
+      "votings": [
+        {
+          "votingId": 10,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0120/24",
+      "type": "Geschäftsordnung",
+      "title": "Handwerkerparkausweis",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692721&type=do",
+      "votings": [
+        {
+          "votingId": 17,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0124/24",
+      "type": "Antrag",
+      "title": "Neues Vereinsheim für den MLV Einheit e.V.",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692742&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0126/24",
+      "type": "Geschäftsordnung",
+      "title": "Für bezahlbaren Wohnraum sozialen Wohnungs(neu)bau wieder aufnehmen - Gebäudetyp E unterstützen",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692764&type=do",
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0112/24",
+      "type": "Geschäftsordnung",
+      "title": "Sportstadt Magdeburg - Strahlkraft des Olympiastützpunktes besser nutzen",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692658&type=do",
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0113/24",
+      "type": "Geschäftsordnung",
+      "title": "Nachtfahrverbot für Mähroboter",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692661&type=do",
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0118/24",
+      "type": "Geschäftsordnung",
+      "title": "Gegen das Vergessen - Umsetzung und Schaffung eines dauerhaften Gedenkortes und Pflege",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692712&type=do",
+      "votings": [
+        {
+          "votingId": 34,
+          "votingResult": "PASSED"
         }
       ]
     }

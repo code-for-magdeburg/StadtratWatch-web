@@ -2,12 +2,12 @@
   "id": "afd",
   "name": "AfD",
   "seats": 8,
-  "applicationsSuccessRate": 0.06779661016949153,
-  "votingsSuccessRate": 0.5919712402636309,
-  "uniformityScore": 0.9901603456343627,
-  "participationRate": 0.7108298382264829,
-  "abstentionRate": 0.11056446653127758,
-  "speakingTime": 35671,
+  "applicationsSuccessRate": 0.06722689075630252,
+  "votingsSuccessRate": 0.5912280701754385,
+  "uniformityScore": 0.9904585169787761,
+  "participationRate": 0.7062134502923977,
+  "abstentionRate": 0.11312681455213318,
+  "speakingTime": 35889,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -137,6 +137,10 @@
       {
         "date": "2024-05-02",
         "value": 0.06779661016949153
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.06722689075630252
       }
     ],
     "votingsSuccessRate": [
@@ -267,6 +271,10 @@
       {
         "date": "2024-05-02",
         "value": 0.5919712402636309
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.5912280701754385
       }
     ],
     "uniformityScore": [
@@ -397,6 +405,10 @@
       {
         "date": "2024-05-02",
         "value": 0.9901603456343627
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.9904585169787761
       }
     ],
     "participationRate": [
@@ -527,6 +539,10 @@
       {
         "date": "2024-05-02",
         "value": 0.7108298382264829
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.7062134502923977
       }
     ],
     "abstentionRate": [
@@ -657,6 +673,10 @@
       {
         "date": "2024-05-02",
         "value": 0.11056446653127758
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.11312681455213318
       }
     ]
   },
@@ -2259,6 +2279,20 @@
       "votings": [
         {
           "votingId": 61,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0108/24",
+      "type": "Antrag",
+      "title": "Zubuch-Option für das Schülerticket",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692583&type=do",
+      "votings": [
+        {
+          "votingId": 8,
           "votingResult": "REJECTED"
         }
       ]
