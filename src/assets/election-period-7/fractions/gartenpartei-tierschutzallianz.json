@@ -2,12 +2,12 @@
   "id": "gartenpartei-tierschutzallianz",
   "name": "Gartenpartei/Tierschutzallianz",
   "seats": 3,
-  "applicationsSuccessRate": 0.48484848484848486,
-  "votingsSuccessRate": 0.6914319952067106,
-  "uniformityScore": 0.8603525103667775,
-  "participationRate": 0.8434192131016577,
-  "abstentionRate": 0.13357098493427344,
-  "speakingTime": 33281,
+  "applicationsSuccessRate": 0.48507462686567165,
+  "votingsSuccessRate": 0.6929824561403509,
+  "uniformityScore": 0.8597801135263947,
+  "participationRate": 0.8440545808966862,
+  "abstentionRate": 0.13211022338046322,
+  "speakingTime": 33854,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -137,6 +137,10 @@
       {
         "date": "2024-05-02",
         "value": 0.48484848484848486
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.48507462686567165
       }
     ],
     "votingsSuccessRate": [
@@ -267,6 +271,10 @@
       {
         "date": "2024-05-02",
         "value": 0.6914319952067106
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.6929824561403509
       }
     ],
     "uniformityScore": [
@@ -397,6 +405,10 @@
       {
         "date": "2024-05-02",
         "value": 0.8603525103667775
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.8597801135263947
       }
     ],
     "participationRate": [
@@ -527,6 +539,10 @@
       {
         "date": "2024-05-02",
         "value": 0.8434192131016577
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.8440545808966862
       }
     ],
     "abstentionRate": [
@@ -657,6 +673,10 @@
       {
         "date": "2024-05-02",
         "value": 0.13357098493427344
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.13211022338046322
       }
     ]
   },
@@ -2432,6 +2452,34 @@
         {
           "votingId": 50,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0129/24",
+      "type": "Geschäftsordnung",
+      "title": "Baustellenkoordination",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692773&type=do",
+      "votings": [
+        {
+          "votingId": 37,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0131/24",
+      "type": "Antrag",
+      "title": "Ausweichstadion auf Sportcampus prüfen",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692785&type=do",
+      "votings": [
+        {
+          "votingId": 39,
+          "votingResult": "REJECTED"
         }
       ]
     }
