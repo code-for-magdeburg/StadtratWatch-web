@@ -9,7 +9,7 @@ import { FractionsComponent } from './fractions/fractions.component';
 import { FractionComponent } from './fraction/fraction.component';
 import { PartiesComponent } from './parties/parties.component';
 import { PartyComponent } from './party/party.component';
-import { HomeComponent } from './home/home.component';
+import { ElectionPeriodComponent } from './election-period/election-period.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
 import { ImpressumComponent } from './impressum/impressum.component';
@@ -18,7 +18,7 @@ import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { path: '', redirectTo: `ep/${environment.currentElectionPeriod}`, pathMatch: 'full' },
-  { path: 'ep/:electionPeriod', component: HomeComponent },
+  { path: 'ep/:electionPeriod', component: ElectionPeriodComponent },
   { path: 'ep/:electionPeriod/sessions', component: SessionsComponent },
   { path: 'ep/:electionPeriod/session/:id', component: SessionComponent },
   { path: 'ep/:electionPeriod/session/:session-id/voting/:voting-id', component: VotingComponent },

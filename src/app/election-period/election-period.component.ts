@@ -6,11 +6,11 @@ import { ActivatedRoute } from "@angular/router";
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-election-period',
+  templateUrl: './election-period.component.html',
+  styleUrls: ['./election-period.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ElectionPeriodComponent implements OnInit {
 
 
   public electionPeriod = environment.currentElectionPeriod;
