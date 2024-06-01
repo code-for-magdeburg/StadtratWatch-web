@@ -4,10 +4,10 @@
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <a [routerLink]="['/ep', electionPeriod]">Startseite</a>
+        <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod]">Startseite</a>
       </li>
       <li class="breadcrumb-item">
-        <a [routerLink]="['/ep', electionPeriod, 'fractions']">Fraktionen</a>
+        <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'fractions']">Fraktionen</a>
       </li>
       <li class="breadcrumb-item active">{{ fraction.name }}</li>
     </ol>
@@ -122,7 +122,7 @@
             <span *ngIf="!application.applicationUrl">{{ application.applicationId }}</span>
           </td>
           <td>
-            <a [routerLink]="['/ep', electionPeriod, 'session', application.sessionId, 'voting', application.votingId]">
+            <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'session', application.sessionId, 'voting', application.votingId]">
               {{ application.title }}
             </a>
           </td>

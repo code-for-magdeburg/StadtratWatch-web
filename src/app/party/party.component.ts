@@ -6,6 +6,7 @@ import { PersonsService } from '../services/persons.service';
 import { Councilor, CouncilorCardComponent } from '../components/councilor-card/councilor-card.component';
 import { PartyStatsHistoryDto } from '../model/Party';
 import { MetaTagsService } from '../services/meta-tags.service';
+import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
 export type Party = {
@@ -25,6 +26,8 @@ export type Party = {
 })
 export class PartyComponent implements OnInit {
 
+
+  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
   public electionPeriod = 0;
   public party: Party | null = null;

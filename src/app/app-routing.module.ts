@@ -16,18 +16,21 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { environment } from '../environments/environment';
 
 
+export const ELECTION_PERIOD_PATH = 'ep';
+
+
 const routes: Routes = [
-  { path: '', redirectTo: `ep/${environment.currentElectionPeriod}`, pathMatch: 'full' },
-  { path: 'ep/:electionPeriod', component: ElectionPeriodComponent },
-  { path: 'ep/:electionPeriod/sessions', component: SessionsComponent },
-  { path: 'ep/:electionPeriod/session/:id', component: SessionComponent },
-  { path: 'ep/:electionPeriod/session/:session-id/voting/:voting-id', component: VotingComponent },
-  { path: 'ep/:electionPeriod/fractions', component: FractionsComponent },
-  { path: 'ep/:electionPeriod/fraction/:id', component: FractionComponent },
-  { path: 'ep/:electionPeriod/parties', component: PartiesComponent },
-  { path: 'ep/:electionPeriod/party/:id', component: PartyComponent },
-  { path: 'ep/:electionPeriod/persons', component: PersonsComponent },
-  { path: 'ep/:electionPeriod/person/:id', component: PersonComponent },
+  { path: '', redirectTo: `${ELECTION_PERIOD_PATH}/${environment.currentElectionPeriod}`, pathMatch: 'full' },
+  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod`, component: ElectionPeriodComponent },
+  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/sessions`, component: SessionsComponent },
+  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/session/:id`, component: SessionComponent },
+  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/session/:session-id/voting/:voting-id`, component: VotingComponent },
+  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/fractions`, component: FractionsComponent },
+  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/fraction/:id`, component: FractionComponent },
+  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/parties`, component: PartiesComponent },
+  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/party/:id`, component: PartyComponent },
+  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/persons`, component: PersonsComponent },
+  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/person/:id`, component: PersonComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'impressum', component: ImpressumComponent },
   { path: 'privacy', component: PrivacyComponent },

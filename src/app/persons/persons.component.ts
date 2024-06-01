@@ -17,6 +17,7 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
 const VALUE_THRESHOLD = .65;
@@ -58,6 +59,8 @@ export class PersonsComponent implements OnInit {
 
 
   private data: PersonLightDto[] = [];
+
+  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
   public electionPeriod = environment.currentElectionPeriod;
   public isBrowser = false;

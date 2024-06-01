@@ -3,6 +3,7 @@ import { MetadataService } from '../services/metadata.service';
 import { MetadataDto } from '../model/Metadata';
 import { environment } from '../../environments/environment';
 import { ActivatedRoute } from "@angular/router";
+import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
 @Component({
@@ -11,6 +12,9 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./election-period.component.scss']
 })
 export class ElectionPeriodComponent implements OnInit {
+
+
+  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
 
   public electionPeriod = environment.currentElectionPeriod;

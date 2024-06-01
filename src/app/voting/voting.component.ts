@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SessionsService } from '../services/sessions.service';
 import { DID_NOT_VOTE_COLOR, VOTED_ABSTENTION_COLOR, VOTED_AGAINST_COLOR, VOTED_FOR_COLOR } from '../utilities/ui';
 import { SessionVotingDto, Vote, VoteResult } from '../model/Session';
+import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
 type FractionMember = {
@@ -38,8 +39,10 @@ type VotingViewModel = {
   templateUrl: './voting.component.html',
   styleUrls: ['./voting.component.scss']
 })
-export class VotingComponent {
+export class VotingComponent implements OnInit {
 
+
+  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
   public electionPeriod = 0;
   public votingViewModel: VotingViewModel | undefined;
@@ -52,7 +55,6 @@ export class VotingComponent {
   }
 
 
-  //noinspection JSUnusedGlobalSymbols
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(async params => {
