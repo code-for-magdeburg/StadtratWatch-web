@@ -30,10 +30,10 @@ export class PersonsService {
   }
 
 
-  public async fetchPersonsByFraction(electionPeriod: number, fractionId: string): Promise<PersonLightDto[]> {
+  public async fetchPersonsByFaction(electionPeriod: number, factionId: string): Promise<PersonLightDto[]> {
 
     const allPersons = await this.fetchPersons(electionPeriod);
-    return allPersons.filter(person => person.fractionId === fractionId);
+    return allPersons.filter(person => person.fractionId === factionId);
 
   }
 

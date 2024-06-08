@@ -102,7 +102,7 @@ export class FactionComponent implements OnInit {
 
       forkJoin([
         this.factionsService.fetchFaction(this.electionPeriod, factionId),
-        this.personsService.fetchPersonsByFraction(this.electionPeriod, factionId)
+        this.personsService.fetchPersonsByFaction(this.electionPeriod, factionId)
       ])
         .subscribe(([faction, persons]) => {
 
