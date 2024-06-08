@@ -5,14 +5,14 @@ import { FactionDetailsDto, FactionLightDto } from '../model/Faction';
 
 
 @Injectable({ providedIn: 'root' })
-export class FractionsService {
+export class FactionsService {
 
 
   constructor(private readonly http: HttpClient) {
   }
 
 
-  public async fetchFractions(electionPeriod: number): Promise<FactionLightDto[]> {
+  public async fetchFactions(electionPeriod: number): Promise<FactionLightDto[]> {
 
     return firstValueFrom(
       this.http.get<FactionLightDto[]>(`/assets/election-period-${electionPeriod}/fractions/all-fractions.json`)
@@ -21,7 +21,7 @@ export class FractionsService {
   }
 
 
-  public async fetchFraction(electionPeriod: number, id: string): Promise<FactionDetailsDto> {
+  public async fetchFaction(electionPeriod: number, id: string): Promise<FactionDetailsDto> {
 
     return firstValueFrom(
       this.http.get<FactionDetailsDto>(`/assets/election-period-${electionPeriod}/fractions/${id}.json`)

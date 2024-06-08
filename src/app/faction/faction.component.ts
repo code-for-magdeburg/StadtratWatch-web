@@ -1,6 +1,6 @@
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FractionsService } from '../services/fractions.service';
+import { FactionsService } from '../services/factions.service';
 import { PersonsService } from '../services/persons.service';
 import { forkJoin } from 'rxjs';
 import { Councilor, CouncilorCardComponent } from '../components/councilor-card/councilor-card.component';
@@ -79,7 +79,7 @@ export class FactionComponent implements OnInit {
   @ViewChildren(SortableFactionApplicationsDirective) headers: QueryList<SortableFactionApplicationsDirective> | undefined;
 
 
-  constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService,
+  constructor(private readonly route: ActivatedRoute, private readonly factionsService: FactionsService,
               private readonly personsService: PersonsService, private readonly metaTagsService: MetaTagsService) {
   }
 
@@ -101,7 +101,7 @@ export class FactionComponent implements OnInit {
       }
 
       forkJoin([
-        this.fractionsService.fetchFraction(this.electionPeriod, factionId),
+        this.factionsService.fetchFaction(this.electionPeriod, factionId),
         this.personsService.fetchPersonsByFraction(this.electionPeriod, factionId)
       ])
         .subscribe(([faction, persons]) => {

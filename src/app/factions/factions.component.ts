@@ -1,6 +1,6 @@
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FactionLightDto } from '../model/Faction';
-import { FractionsService } from '../services/fractions.service';
+import { FactionsService } from '../services/factions.service';
 import { compare, SortableFactionsDirective, SortFactionsEvent } from './sortable-factions.directive';
 import {
   VotingsSuccessRateChartData
@@ -41,7 +41,7 @@ export class FactionsComponent implements OnInit {
   @ViewChildren(SortableFactionsDirective) headers: QueryList<SortableFactionsDirective> | undefined;
 
 
-  constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService) {
+  constructor(private readonly route: ActivatedRoute, private readonly factionsService: FactionsService) {
   }
 
 
@@ -52,7 +52,7 @@ export class FactionsComponent implements OnInit {
       const { electionPeriod } = params as { electionPeriod: number };
 
       this.electionPeriod = electionPeriod;
-      this.sortedFactions = this.data = await this.fractionsService.fetchFractions(electionPeriod);
+      this.sortedFactions = this.data = await this.factionsService.fetchFactions(electionPeriod);
       this.sortedFactions.sort((a, b) => b.seats - a.seats);
       this.applicationsSuccessRates = this.data.map(ApplicationsSuccessRateChartData.fromFaction);
       this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromFaction);
