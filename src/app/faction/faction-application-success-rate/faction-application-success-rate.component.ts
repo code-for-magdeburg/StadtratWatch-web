@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges, ViewChild } from '@angular/core';
-import { Fraction } from '../fraction.component';
+import { Fraction } from '../faction.component';
 import { ChartConfiguration } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 import {
@@ -12,11 +12,11 @@ import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
-  selector: 'app-fraction-abstention-rate',
-  templateUrl: './fraction-abstention-rate.component.html',
-  styleUrls: ['./fraction-abstention-rate.component.scss']
+  selector: 'app-faction-application-success-rate',
+  templateUrl: './faction-application-success-rate.component.html',
+  styleUrls: ['./faction-application-success-rate.component.scss']
 })
-export class FractionAbstentionRateComponent implements OnChanges {
+export class FactionApplicationSuccessRateComponent implements OnChanges {
 
 
   @Input() fraction!: Fraction;
@@ -39,7 +39,7 @@ export class FractionAbstentionRateComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
 
     if (changes['fraction']) {
-      mapHistoryDataToChartDataAndLabels(this.chartData, this.fraction.statsHistory.abstentionRate);
+      mapHistoryDataToChartDataAndLabels(this.chartData, this.fraction.statsHistory.applicationsSuccessRate);
       if (!changes['fraction'].firstChange) {
         this.chart.update();
       }

@@ -9,9 +9,9 @@ import { ACCEPTED_COLOR, PARTIALLY_ACCEPTED_COLOR, REJECTED_COLOR } from '../uti
 import { VotingResult } from '../model/Session';
 import {
   compare,
-  SortableFractionApplicationsDirective,
-  SortFractionApplicationsEvent
-} from '../fractions/sortable-fraction-applications.directive';
+  SortableFactionApplicationsDirective,
+  SortFactionApplicationsEvent
+} from './sortable-faction-applications.directive';
 import { StatsHistoryDto } from '../model/Fraction';
 import { MetaTagsService } from '../services/meta-tags.service';
 import { ELECTION_PERIOD_PATH } from '../app-routing.module';
@@ -49,14 +49,14 @@ export type Fraction = {
 
 
 @Component({
-  selector: 'app-fraction',
-  templateUrl: './fraction.component.html',
-  styleUrls: ['./fraction.component.scss']
+  selector: 'app-faction',
+  templateUrl: './faction.component.html',
+  styleUrls: ['./faction.component.scss']
 })
-export class FractionComponent implements OnInit {
+export class FactionComponent implements OnInit {
 
 
-  private applicationsSorting: SortFractionApplicationsEvent = { column: '', direction: '' };
+  private applicationsSorting: SortFactionApplicationsEvent = { column: '', direction: '' };
 
   protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
@@ -76,7 +76,7 @@ export class FractionComponent implements OnInit {
   protected readonly PARTIALLY_ACCEPTED_COLOR = PARTIALLY_ACCEPTED_COLOR;
   protected readonly REJECTED_COLOR = REJECTED_COLOR;
 
-  @ViewChildren(SortableFractionApplicationsDirective) headers: QueryList<SortableFractionApplicationsDirective> | undefined;
+  @ViewChildren(SortableFactionApplicationsDirective) headers: QueryList<SortableFactionApplicationsDirective> | undefined;
 
 
   constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService,
@@ -146,7 +146,7 @@ export class FractionComponent implements OnInit {
   }
 
 
-  onSort(sortEvent: SortFractionApplicationsEvent) {
+  onSort(sortEvent: SortFactionApplicationsEvent) {
 
     this.applicationsSorting = sortEvent;
 
@@ -155,7 +155,7 @@ export class FractionComponent implements OnInit {
     }
 
     this.headers.forEach((header) => {
-      if (header.sortableFractionApplications !== sortEvent.column) {
+      if (header.sortableFactionApplications !== sortEvent.column) {
         header.direction = '';
       }
     });

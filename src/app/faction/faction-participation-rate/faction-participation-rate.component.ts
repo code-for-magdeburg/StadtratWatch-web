@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges, ViewChild } from '@angular/core';
-import { Fraction } from '../fraction.component';
+import { Fraction } from '../faction.component';
 import { ChartConfiguration } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 import {
@@ -12,21 +12,22 @@ import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
-  selector: 'app-fraction-uniformity-score',
-  templateUrl: './fraction-uniformity-score.component.html',
-  styleUrls: ['./fraction-uniformity-score.component.scss']
+  selector: 'app-faction-participation-rate',
+  templateUrl: './faction-participation-rate.component.html',
+  styleUrls: ['./faction-participation-rate.component.scss']
 })
-export class FractionUniformityScoreComponent implements OnChanges {
+export class FactionParticipationRateComponent implements OnChanges {
 
 
   @Input() fraction!: Fraction;
 
   @ViewChild(BaseChartDirective) chart!: BaseChartDirective;
 
+
   public isBrowser = false;
   public chartData: ChartConfiguration['data'] = initialHistoryChartData();
   public chartOptions: ChartConfiguration['options'] = initialHistoryChartOptions(
-    (val) => val === +val ? val.toFixed(3) : val
+    (val) => val === +val ? `${(val * 100).toFixed(1)}%` : val
   );
 
 
@@ -38,7 +39,7 @@ export class FractionUniformityScoreComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
 
     if (changes['fraction']) {
-      mapHistoryDataToChartDataAndLabels(this.chartData, this.fraction.statsHistory.uniformityScore);
+      mapHistoryDataToChartDataAndLabels(this.chartData, this.fraction.statsHistory.participationRate);
       if (!changes['fraction'].firstChange) {
         this.chart.update();
       }

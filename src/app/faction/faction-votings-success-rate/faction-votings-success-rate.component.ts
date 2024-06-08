@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges, ViewChild } from '@angular/core';
-import { Fraction } from '../fraction.component';
+import { Fraction } from '../faction.component';
 import { ChartConfiguration } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 import {
@@ -12,11 +12,11 @@ import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
-  selector: 'app-fraction-application-success-rate',
-  templateUrl: './fraction-application-success-rate.component.html',
-  styleUrls: ['./fraction-application-success-rate.component.scss']
+  selector: 'app-faction-votings-success-rate',
+  templateUrl: './faction-votings-success-rate.component.html',
+  styleUrls: ['./faction-votings-success-rate.component.scss']
 })
-export class FractionApplicationSuccessRateComponent implements OnChanges {
+export class FactionVotingsSuccessRateComponent implements OnChanges {
 
 
   @Input() fraction!: Fraction;
@@ -39,7 +39,7 @@ export class FractionApplicationSuccessRateComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
 
     if (changes['fraction']) {
-      mapHistoryDataToChartDataAndLabels(this.chartData, this.fraction.statsHistory.applicationsSuccessRate);
+      mapHistoryDataToChartDataAndLabels(this.chartData, this.fraction.statsHistory.votingsSuccessRate);
       if (!changes['fraction'].firstChange) {
         this.chart.update();
       }

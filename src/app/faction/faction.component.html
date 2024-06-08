@@ -45,23 +45,23 @@
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
 
       <div class="col">
-        <app-fraction-application-success-rate [fraction]="fraction"></app-fraction-application-success-rate>
+        <app-faction-application-success-rate [fraction]="fraction"></app-faction-application-success-rate>
       </div>
 
       <div class="col">
-        <app-fraction-votings-success-rate [fraction]="fraction"></app-fraction-votings-success-rate>
+        <app-faction-votings-success-rate [fraction]="fraction"></app-faction-votings-success-rate>
       </div>
 
       <div class="col">
-        <app-fraction-uniformity-score [fraction]="fraction"></app-fraction-uniformity-score>
+        <app-faction-uniformity-score [fraction]="fraction"></app-faction-uniformity-score>
       </div>
 
       <div class="col">
-        <app-fraction-participation-rate [fraction]="fraction"></app-fraction-participation-rate>
+        <app-faction-participation-rate [fraction]="fraction"></app-faction-participation-rate>
       </div>
 
       <div class="col">
-        <app-fraction-abstention-rate [fraction]="fraction"></app-fraction-abstention-rate>
+        <app-faction-abstention-rate [fraction]="fraction"></app-faction-abstention-rate>
       </div>
 
     </div>
@@ -105,10 +105,10 @@
       <table class="table table-striped table-bordered table-sm">
         <thead>
         <tr>
-          <th sortableFractionApplications="votingDate" (sort)="onSort($event)">Abgestimmt am</th>
-          <th sortableFractionApplications="typeAndId" (sort)="onSort($event)">Antrag</th>
-          <th sortableFractionApplications="title" (sort)="onSort($event)">Titel</th>
-          <th sortableFractionApplications="result" (sort)="onSort($event)" style="text-align: center;">Ergebnis</th>
+          <th sortableFactionApplications="votingDate" (sort)="onSort($event)">Abgestimmt am</th>
+          <th sortableFactionApplications="typeAndId" (sort)="onSort($event)">Antrag</th>
+          <th sortableFactionApplications="title" (sort)="onSort($event)">Titel</th>
+          <th sortableFactionApplications="result" (sort)="onSort($event)" style="text-align: center;">Ergebnis</th>
         </tr>
         </thead>
         <tbody>
