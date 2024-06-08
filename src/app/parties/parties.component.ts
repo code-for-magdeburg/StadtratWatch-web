@@ -11,6 +11,7 @@ import { AbstentionRateChartData } from '../components/abstention-rate-chart/abs
 import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
 @Component({
@@ -22,6 +23,8 @@ export class PartiesComponent implements OnInit {
 
 
   private data: PartyDto[] = [];
+
+  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
   public electionPeriod = environment.currentElectionPeriod;
   public sortedParties: PartyDto[] = [];

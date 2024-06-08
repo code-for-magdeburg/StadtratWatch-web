@@ -14,6 +14,7 @@ import {
 } from '../fractions/sortable-fraction-applications.directive';
 import { StatsHistoryDto } from '../model/Fraction';
 import { MetaTagsService } from '../services/meta-tags.service';
+import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
 enum ApplicationResult {
@@ -56,6 +57,8 @@ export class FractionComponent implements OnInit {
 
 
   private applicationsSorting: SortFractionApplicationsEvent = { column: '', direction: '' };
+
+  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
   public electionPeriod = 0;
   public fraction: Fraction | null = null;

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { VoteResult } from '../model/Session';
 import { PersonDetailsDto, PersonSpeechDto, PersonVotingComparison } from '../model/Person';
 import { MetaTagsService } from '../services/meta-tags.service';
+import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
 type SpeechesBySession = {
@@ -20,6 +21,8 @@ type SpeechesBySession = {
 })
 export class PersonComponent implements OnInit {
 
+
+  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
   public electionPeriod = 0;
   public person: PersonDetailsDto | null = null;

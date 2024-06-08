@@ -2,13 +2,13 @@
 
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a [routerLink]="['/ep', electionPeriod]">Startseite</a>
+      <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod]">Startseite</a>
     </li>
     <li class="breadcrumb-item">
-      <a [routerLink]="['/ep', electionPeriod, 'sessions']">Sitzungen</a>
+      <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'sessions']">Sitzungen</a>
     </li>
     <li class="breadcrumb-item">
-      <a [routerLink]="['/ep', electionPeriod, 'session', votingViewModel.sessionId]">
+      <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'session', votingViewModel.sessionId]">
         {{ votingViewModel.sessionDate | date }}
       </a>
     </li>
@@ -100,14 +100,14 @@
 
           <div class="list-group">
             <a
-              [routerLink]="['/ep', electionPeriod, 'fraction', fraction.fractionId]"
+              [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'fraction', fraction.fractionId]"
               class="list-group-item list-group-item-info fw-bold"
             >
               {{ fraction.name }}
             </a>
             <a
               *ngFor="let member of fraction.members"
-              [routerLink]="['/ep', electionPeriod, 'person', member.personId]"
+              [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'person', member.personId]"
               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
             >
               {{ member.name }}

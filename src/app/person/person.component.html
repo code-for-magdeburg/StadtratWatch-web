@@ -2,10 +2,10 @@
 
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a [routerLink]="['/ep', electionPeriod]">Startseite</a>
+      <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod]">Startseite</a>
     </li>
     <li class="breadcrumb-item">
-      <a [routerLink]="['/ep', electionPeriod, 'persons']">Personen</a>
+      <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'persons']">Personen</a>
     </li>
     <li class="breadcrumb-item active">{{ person.name }}</li>
   </ol>
@@ -18,11 +18,13 @@
     <dl class="row">
       <dt class="col-4 col-sm-3 col-md-2">Fraktion</dt>
       <dd class="col-8 col-sm-9 col-md-10">
-        <a [routerLink]="['/ep', electionPeriod, 'fraction', person.fractionId]">{{ person.fraction }}</a>
+        <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'fraction', person.fractionId]">
+          {{ person.fraction }}
+        </a>
       </dd>
       <dt class="col-4 col-sm-3 col-md-2">Partei</dt>
       <dd class="col-8 col-sm-9 col-md-10">
-        <a [routerLink]="['/ep', electionPeriod, 'party', person.partyId]">{{ person.party }}</a>
+        <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'party', person.partyId]">{{ person.party }}</a>
       </dd>
       <dt *ngIf="person.councilorUntil" class="col-4 col-sm-3 col-md-2">Ratsmitglied bis</dt>
       <dd *ngIf="person.councilorUntil" class="col-8 col-sm-9 col-md-10">{{ person.councilorUntil | date }}</dd>
@@ -63,7 +65,9 @@
           <tbody>
           <tr *ngFor="let comparison of comparisonMatrix">
             <td>
-              <a [routerLink]="['/ep', electionPeriod, 'person', comparison.personId]">{{ comparison.personName }}</a>
+              <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'person', comparison.personId]">
+                {{ comparison.personName }}
+              </a>
             </td>
             <td>{{ comparison.fraction }}</td>
             <td>{{ comparison.party }}</td>

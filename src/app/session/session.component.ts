@@ -7,6 +7,7 @@ import { SpeakingTimeChartData } from '../components/speaking-time-chart/speakin
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { DatePipe } from '@angular/common';
 import { MetaTagsService } from '../services/meta-tags.service';
+import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
 enum VotingResult {
@@ -33,6 +34,8 @@ type Voting = {
 })
 export class SessionComponent implements OnInit {
 
+
+  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
   public electionPeriod = 0;
   public sessionDate: string | null = null;

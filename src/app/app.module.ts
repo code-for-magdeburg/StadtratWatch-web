@@ -1,5 +1,5 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration, withHttpTransferCacheOptions } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,7 +16,7 @@ import { FractionComponent } from './fraction/fraction.component';
 import { PartiesComponent } from './parties/parties.component';
 import { PartyComponent } from './party/party.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { HomeComponent } from './home/home.component';
+import { ElectionPeriodComponent } from './election-period/election-period.component';
 import { SortablePersonsDirective } from './persons/sortable-persons.directive';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { PrivacyComponent } from './privacy/privacy.component';
@@ -54,6 +54,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { SpeakingTimeChartComponent } from './components/speaking-time-chart/speaking-time-chart.component';
 import { SpeakingTimePipe } from './pipes/speaking-time.pipe';
 import { YoutubeTimestampPipe } from './pipes/youtube-timestamp.pipe';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -71,7 +72,7 @@ registerLocaleData(localeDe, 'de-DE');
     FractionComponent,
     PartiesComponent,
     PartyComponent,
-    HomeComponent,
+    ElectionPeriodComponent,
     SortableFractionApplicationsDirective,
     SortableFractionsDirective,
     SortablePersonsDirective,
@@ -108,7 +109,8 @@ registerLocaleData(localeDe, 'de-DE');
     TooltipModule.forRoot(),
     NgChartsModule,
     FormsModule,
-    TabsModule
+    TabsModule,
+    BsDropdownModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de-DE' },

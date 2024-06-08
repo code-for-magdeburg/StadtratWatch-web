@@ -2,7 +2,7 @@
 
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a [routerLink]="['/ep', electionPeriod]">Startseite</a>
+      <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod]">Startseite</a>
     </li>
     <li class="breadcrumb-item active">Personen</li>
   </ol>
@@ -41,7 +41,7 @@
           <tbody>
           <tr *ngFor="let person of sortedPersons">
             <td class="d-flex flex-column">
-              <a [routerLink]="['/ep', electionPeriod, 'person', person.id]">{{ person.name }}</a>
+              <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'person', person.id]">{{ person.name }}</a>
               <span *ngIf="person.councilorUntil" class="text-body-secondary">
           Ratsmitglied bis {{ person.councilorUntil | date }}
         </span>

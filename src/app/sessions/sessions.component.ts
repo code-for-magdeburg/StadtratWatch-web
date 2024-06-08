@@ -3,6 +3,7 @@ import { SessionsService } from '../services/sessions.service';
 import { SessionLightDto } from '../model/Session';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
 @Component({
@@ -12,6 +13,8 @@ import { environment } from '../../environments/environment';
 })
 export class SessionsComponent implements OnInit {
 
+
+  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
   public electionPeriod = environment.currentElectionPeriod;
   public sessions: SessionLightDto[] = [];

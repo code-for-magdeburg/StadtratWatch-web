@@ -17,21 +17,37 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
+
       <div class="navbar-collapse" [class.collapse]="navbarCollapsed" id="navbarNav">
+
+        <div *ngIf="availableElectionPeriods.length > 1" class="btn-group" dropdown>
+          <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-secondary dropdown-toggle">
+            Wahlperiode {{ electionPeriod }} <span class="caret"></span>
+          </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu">
+            <li *ngFor="let electionPeriod of availableElectionPeriods">
+              <button class="dropdown-item" (click)="selectElectionPeriod(electionPeriod)">
+                Wahlperiode {{ electionPeriod }}
+              </button>
+            </li>
+          </ul>
+        </div>
+
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a [routerLink]="['/ep', electionPeriod, 'sessions']" class="nav-link">Sitzungen</a>
+            <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'sessions']" class="nav-link">Sitzungen</a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/ep', electionPeriod, 'fractions']" class="nav-link">Fraktionen</a>
+            <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'fractions']" class="nav-link">Fraktionen</a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/ep', electionPeriod, 'parties']" class="nav-link">Parteien</a>
+            <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'parties']" class="nav-link">Parteien</a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/ep', electionPeriod, 'persons']" class="nav-link">Personen</a>
+            <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'persons']" class="nav-link">Personen</a>
           </li>
         </ul>
+
       </div>
 
       <div class="navbar-collapse justify-content-end" [class.collapse]="navbarCollapsed">
