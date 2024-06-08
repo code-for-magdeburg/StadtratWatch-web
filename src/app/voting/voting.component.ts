@@ -6,16 +6,16 @@ import { SessionVotingDto, Vote, VoteResult } from '../model/Session';
 import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
-type FractionMember = {
+type FactionMember = {
   personId: string;
   name: string;
   vote: VoteResult;
 };
 
-type Fraction = {
-  fractionId: string;
+type Faction = {
+  factionId: string;
   name: string;
-  members: FractionMember[];
+  members: FactionMember[];
 };
 
 type VotingViewModel = {
@@ -46,7 +46,7 @@ export class VotingComponent implements OnInit {
 
   public electionPeriod = 0;
   public votingViewModel: VotingViewModel | undefined;
-  public fractions: Fraction[] = [];
+  public factions: Faction[] = [];
 
   public VoteResult = VoteResult;
 
@@ -103,11 +103,11 @@ export class VotingComponent implements OnInit {
       }
 
       const votes = new Map(votingDto.votes.map(vote => [vote.personId, vote.vote]));
-      this.fractions = session.fractions.map(fraction => ({
-        fractionId: fraction.id,
-        name: fraction.name,
+      this.factions = session.fractions.map(faction => ({
+        factionId: faction.id,
+        name: faction.name,
         members: session.persons
-          .filter(personDto => personDto.fraction === fraction.name)
+          .filter(personDto => personDto.fraction === faction.name)
           .map(personDto => ({
             personId: personDto.id,
             name: personDto.name,
@@ -115,7 +115,7 @@ export class VotingComponent implements OnInit {
           }))
       }));
 
-      this.fractions.sort((a, b) =>
+      this.factions.sort((a, b) =>
         a.members.length === b.members.length
           ? a.name.localeCompare(b.name)
           : b.members.length - a.members.length);

@@ -96,11 +96,11 @@
     <div class="col-lg-9">
 
       <div class="row gy-3">
-        <div *ngFor="let fraction of fractions" class="col-lg-3 col-md-4 col-sm-6 col-12">
+        <div *ngFor="let fraction of factions" class="col-lg-3 col-md-4 col-sm-6 col-12">
 
           <div class="list-group">
             <a
-              [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'fraction', fraction.fractionId]"
+              [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'fraction', fraction.factionId]"
               class="list-group-item list-group-item-info fw-bold"
             >
               {{ fraction.name }}
