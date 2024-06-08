@@ -54,6 +54,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { SpeakingTimeChartComponent } from './components/speaking-time-chart/speaking-time-chart.component';
 import { SpeakingTimePipe } from './pipes/speaking-time.pipe';
 import { YoutubeTimestampPipe } from './pipes/youtube-timestamp.pipe';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -108,7 +109,8 @@ registerLocaleData(localeDe, 'de-DE');
     TooltipModule.forRoot(),
     NgChartsModule,
     FormsModule,
-    TabsModule
+    TabsModule,
+    BsDropdownModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de-DE' },

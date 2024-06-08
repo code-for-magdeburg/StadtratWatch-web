@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MetadataService } from '../services/metadata.service';
 import { MetadataDto } from '../model/Metadata';
 import { environment } from '../../environments/environment';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
 import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
@@ -21,7 +21,8 @@ export class ElectionPeriodComponent implements OnInit {
   public metadata: MetadataDto | undefined;
 
 
-  constructor(private readonly route: ActivatedRoute, private readonly metadataService: MetadataService) {
+  constructor(private readonly route: ActivatedRoute, private readonly router: Router,
+              private readonly metadataService: MetadataService) {
   }
 
 
@@ -32,6 +33,8 @@ export class ElectionPeriodComponent implements OnInit {
       const { electionPeriod } = params as { electionPeriod: number };
       if (electionPeriod) {
         this.electionPeriod = electionPeriod;
+      } else {
+        await this.router.navigate(['/', ELECTION_PERIOD_PATH, this.electionPeriod]);
       }
 
       this.metadata = await this.metadataService.fetchMetadata(this.electionPeriod);

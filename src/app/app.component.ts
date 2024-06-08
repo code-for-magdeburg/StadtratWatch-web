@@ -18,6 +18,7 @@ export class AppComponent implements OnDestroy {
   protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
   public navbarCollapsed = true;
+  public availableElectionPeriods = environment.availableElectionPeriods;
   public electionPeriod = environment.currentElectionPeriod;
   public metadata: MetadataDto | undefined;
 
@@ -33,11 +34,9 @@ export class AppComponent implements OnDestroy {
         filter(event => event.url.startsWith(`/${ELECTION_PERIOD_PATH}`)),
         map(event => event.url.split('/')[2]),
       )
-      .subscribe(electionPeriod => {
+      .subscribe(async electionPeriod => {
           this.electionPeriod = +electionPeriod;
-          this.metadataService
-            .fetchMetadata(this.electionPeriod)
-            .then(metadata => this.metadata = metadata);
+          this.metadata = await this.metadataService.fetchMetadata(this.electionPeriod);
         }
       );
 
@@ -47,6 +46,15 @@ export class AppComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.navigationSubscription.unsubscribe();
+  }
+
+
+  async selectElectionPeriod(electionPeriod: number) {
+
+    if (this.electionPeriod !== electionPeriod) {
+      await this.router.navigate(['/', ELECTION_PERIOD_PATH, electionPeriod]);
+    }
+
   }
 
 

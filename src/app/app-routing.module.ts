@@ -13,14 +13,13 @@ import { ElectionPeriodComponent } from './election-period/election-period.compo
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
 import { ImpressumComponent } from './impressum/impressum.component';
-import { environment } from '../environments/environment';
 
 
 export const ELECTION_PERIOD_PATH = 'ep';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: `${ELECTION_PERIOD_PATH}/${environment.currentElectionPeriod}`, pathMatch: 'full' },
+  { path: '', component: ElectionPeriodComponent },
   { path: `${ELECTION_PERIOD_PATH}/:electionPeriod`, component: ElectionPeriodComponent },
   { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/sessions`, component: SessionsComponent },
   { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/session/:id`, component: SessionComponent },
