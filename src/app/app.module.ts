@@ -11,7 +11,7 @@ import { SessionComponent } from './session/session.component';
 import { PersonsComponent } from './persons/persons.component';
 import { PersonComponent } from './person/person.component';
 import { SessionsComponent } from './sessions/sessions.component';
-import { FractionsComponent } from './fractions/fractions.component';
+import { FactionsComponent } from './factions/factions.component';
 import { FactionComponent } from './faction/faction.component';
 import { PartiesComponent } from './parties/parties.component';
 import { PartyComponent } from './party/party.component';
@@ -21,7 +21,7 @@ import { SortablePersonsDirective } from './persons/sortable-persons.directive';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
-import { SortableFractionsDirective } from './fractions/sortable-fractions.directive';
+import { SortableFactionsDirective } from './factions/sortable-factions.directive';
 import { NgChartsModule } from 'ng2-charts';
 import {
   ApplicationsSuccessRateChartComponent
@@ -68,13 +68,13 @@ registerLocaleData(localeDe, 'de-DE');
     PersonsComponent,
     PersonComponent,
     SessionsComponent,
-    FractionsComponent,
+    FactionsComponent,
     FactionComponent,
     PartiesComponent,
     PartyComponent,
     ElectionPeriodComponent,
     SortableFactionApplicationsDirective,
-    SortableFractionsDirective,
+    SortableFactionsDirective,
     SortablePersonsDirective,
     SortablePartiesDirective,
     ImpressumComponent,

@@ -1,7 +1,7 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
 
-export interface Fraction {
+export interface Faction {
   name: string;
   seats: number;
   applicationsSuccessRate: number;
@@ -13,7 +13,7 @@ export interface Fraction {
 }
 
 
-export type SortFractionsColumn = keyof Fraction | '';
+export type SortFactionsColumn = keyof Faction | '';
 export type SortDirection = 'asc' | 'desc' | '';
 
 
@@ -29,31 +29,31 @@ export const compare = (
 ) => (v1 < v2 ? -1 : v1 > v2 ? 1 : 0);
 
 
-export interface SortFractionsEvent {
-  column: SortFractionsColumn;
+export interface SortFactionsEvent {
+  column: SortFactionsColumn;
   direction: SortDirection;
 }
 
 
 @Directive({
-  selector: 'th[sortableFractions]',
+  selector: 'th[sortableFactions]',
   host: {
     '[class.asc]': 'direction === "asc"',
     '[class.desc]': 'direction === "desc"',
     '(click)': 'rotate()',
   },
 })
-export class SortableFractionsDirective {
+export class SortableFactionsDirective {
 
 
-  @Input() sortableFractions: SortFractionsColumn = '';
+  @Input() sortableFactions: SortFactionsColumn = '';
   @Input() direction: SortDirection = '';
-  @Output() sort = new EventEmitter<SortFractionsEvent>();
+  @Output() sort = new EventEmitter<SortFactionsEvent>();
 
 
   rotate() {
     this.direction = rotate[this.direction];
-    this.sort.emit({ column: this.sortableFractions, direction: this.direction });
+    this.sort.emit({ column: this.sortableFactions, direction: this.direction });
   }
 
 

@@ -115,15 +115,15 @@
     <table class="table table-striped table-bordered table-sm">
       <thead>
       <tr>
-        <th sortableFractions="name" (sort)="onSort($event)">Name</th>
-        <th sortableFractions="seats" (sort)="onSort($event)" style="text-align: right;">Sitze</th>
-        <th sortableFractions="votingsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
+        <th sortableFactions="name" (sort)="onSort($event)">Name</th>
+        <th sortableFactions="seats" (sort)="onSort($event)" style="text-align: right;">Sitze</th>
+        <th sortableFactions="votingsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
           Abstimmungserfolg
           <span tooltip="Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmte.">
             <i class="bi bi-info-circle"></i>
           </span>
         </th>
-        <th sortableFractions="uniformityScore" (sort)="onSort($event)" style="text-align: right;">
+        <th sortableFactions="uniformityScore" (sort)="onSort($event)" style="text-align: right;">
           Geschlossenheit
           <span
             tooltip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion."
@@ -131,7 +131,7 @@
             <i class="bi bi-info-circle"></i>
           </span>
         </th>
-        <th sortableFractions="participationRate" (sort)="onSort($event)" style="text-align: right;">
+        <th sortableFactions="participationRate" (sort)="onSort($event)" style="text-align: right;">
           Abstimmungsteilnahme
           <span
             tooltip="Gibt an, wie häufig die Fraktionsmitglieder an Abstimmungen teilgenommen haben."
@@ -139,7 +139,7 @@
             <i class="bi bi-info-circle"></i>
           </span>
         </th>
-        <th sortableFractions="abstentionRate" (sort)="onSort($event)" style="text-align: right;">
+        <th sortableFactions="abstentionRate" (sort)="onSort($event)" style="text-align: right;">
           Stimmenthaltungen
           <span
             tooltip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren."
@@ -147,7 +147,7 @@
             <i class="bi bi-info-circle"></i>
           </span>
         </th>
-        <th sortableFractions="applicationsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
+        <th sortableFactions="applicationsSuccessRate" (sort)="onSort($event)" style="text-align: right;">
           Erfolgreiche Anträge
           <span
             tooltip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde."
@@ -155,7 +155,7 @@
             <i class="bi bi-info-circle"></i>
           </span>
         </th>
-        <th sortableFractions="speakingTime" (sort)="onSort($event)" style="text-align: right;">
+        <th sortableFactions="speakingTime" (sort)="onSort($event)" style="text-align: right;">
           Redezeit
           <span
             tooltip="Gibt an, wieviel Zeit die Mitglieder der Fraktionen insgesamt in den Ratssitzungen gesprochen haben."

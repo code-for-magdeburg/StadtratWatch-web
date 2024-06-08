@@ -5,7 +5,7 @@ import { SessionComponent } from './session/session.component';
 import { PersonsComponent } from './persons/persons.component';
 import { PersonComponent } from './person/person.component';
 import { SessionsComponent } from './sessions/sessions.component';
-import { FractionsComponent } from './fractions/fractions.component';
+import { FactionsComponent } from './factions/factions.component';
 import { FactionComponent } from './faction/faction.component';
 import { PartiesComponent } from './parties/parties.component';
 import { PartyComponent } from './party/party.component';
@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/sessions`, component: SessionsComponent },
   { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/session/:id`, component: SessionComponent },
   { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/session/:session-id/voting/:voting-id`, component: VotingComponent },
-  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/fractions`, component: FractionsComponent },
+  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/fractions`, component: FactionsComponent },
   { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/fraction/:id`, component: FactionComponent },
   { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/parties`, component: PartiesComponent },
   { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/party/:id`, component: PartyComponent },

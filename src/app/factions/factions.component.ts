@@ -1,7 +1,7 @@
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FractionLightDto } from '../model/Fraction';
 import { FractionsService } from '../services/fractions.service';
-import { compare, SortableFractionsDirective, SortFractionsEvent } from './sortable-fractions.directive';
+import { compare, SortableFactionsDirective, SortFactionsEvent } from './sortable-factions.directive';
 import {
   VotingsSuccessRateChartData
 } from '../components/votings-success-rate-chart/votings-success-rate-chart.component';
@@ -18,11 +18,11 @@ import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
 @Component({
-  selector: 'app-fractions',
-  templateUrl: './fractions.component.html',
-  styleUrls: ['./fractions.component.scss']
+  selector: 'app-factions',
+  templateUrl: './factions.component.html',
+  styleUrls: ['./factions.component.scss']
 })
-export class FractionsComponent implements OnInit {
+export class FactionsComponent implements OnInit {
 
 
   private data: FractionLightDto[] = [];
@@ -38,7 +38,7 @@ export class FractionsComponent implements OnInit {
   public abstentionRates: AbstentionRateChartData[] = [];
   public speakingTimes: SpeakingTimeChartData[] = [];
 
-  @ViewChildren(SortableFractionsDirective) headers: QueryList<SortableFractionsDirective> | undefined;
+  @ViewChildren(SortableFactionsDirective) headers: QueryList<SortableFactionsDirective> | undefined;
 
 
   constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService) {
@@ -66,14 +66,14 @@ export class FractionsComponent implements OnInit {
   }
 
 
-  onSort(sortEvent: SortFractionsEvent) {
+  onSort(sortEvent: SortFactionsEvent) {
 
     if (!this.headers) {
       return;
     }
 
     this.headers.forEach((header) => {
-      if (header.sortableFractions !== sortEvent.column) {
+      if (header.sortableFactions !== sortEvent.column) {
         header.direction = '';
       }
     });
