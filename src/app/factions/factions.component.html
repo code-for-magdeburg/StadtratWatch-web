@@ -165,7 +165,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let faction of sortedFactions">
-        <td><a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'fraction', faction.id]">{{ faction.name }}</a></td>
+        <td><a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'faction', faction.id]">{{ faction.name }}</a></td>
         <td style="text-align: right;">{{ faction.seats }}</td>
         <td style="text-align: right;">{{ faction.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>
         <td style="text-align: right;">{{ faction.uniformityScore | number : '0.3-3' }}</td>
