@@ -1,5 +1,5 @@
 import { ChartConfiguration } from 'chart.js';
-import { HistoryValue } from "../model/Fraction";
+import { HistoryValue } from "../model/Faction";
 
 
 export function initialHistoryChartOptions(ticksCallback: (val: string | number) => number | string): ChartConfiguration['options'] {

@@ -2,7 +2,7 @@ import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges, ViewCh
 import { ChartConfiguration } from 'chart.js';
 import { SessionDetailsDto } from '../../model/Session';
 import { BaseChartDirective } from 'ng2-charts';
-import { FractionLightDto } from '../../model/Fraction';
+import { FactionLightDto } from '../../model/Faction';
 import { SpeakingTimePipe } from '../../pipes/speaking-time.pipe';
 import { PartyDto } from '../../model/Party';
 import { isPlatformBrowser } from '@angular/common';
@@ -35,8 +35,8 @@ export class SpeakingTimeChartData {
 
   }
 
-  public static fromFraction(fraction: FractionLightDto): SpeakingTimeChartData {
-    return new SpeakingTimeChartData(fraction.name, fraction.speakingTime);
+  public static fromFaction(faction: FactionLightDto): SpeakingTimeChartData {
+    return new SpeakingTimeChartData(faction.name, faction.speakingTime);
   }
 
   public static fromParty(party: PartyDto): SpeakingTimeChartData {

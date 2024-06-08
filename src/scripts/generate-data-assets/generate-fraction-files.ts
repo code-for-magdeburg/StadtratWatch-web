@@ -1,4 +1,4 @@
-import { FractionDetailsDto, FractionLightDto, StatsHistoryDto } from '../../app/model/Fraction';
+import { FactionDetailsDto, FactionLightDto, StatsHistoryDto } from '../../app/model/Faction';
 import * as fs from 'fs';
 import { Registry, RegistryFraction, RegistryPerson } from '../shared/model/registry';
 import {
@@ -19,7 +19,7 @@ export function generateFractionFiles(fractionsOutputDir: string, registry: Regi
   }
 
   console.log('Writing all-fractions.json');
-  const fractions = registry.fractions.map<FractionLightDto>(fraction => {
+  const fractions = registry.fractions.map<FactionLightDto>(fraction => {
     const members = registry.persons.filter(person => person.fractionId === fraction.id);
     const applicationsSuccessRate = calcApplicationsSuccessRate(fraction, sessions);
     const votingsSuccessRate = calcFractionVotingSuccessRate(fraction.id, sessions);
@@ -51,7 +51,7 @@ export function generateFractionFiles(fractionsOutputDir: string, registry: Regi
       ...fraction,
       statsHistory: calcStatsHistory(registry, fraction, sessions),
       applications: getApplicationsOfFraction(fraction, sessions)
-    } satisfies FractionDetailsDto;
+    } satisfies FactionDetailsDto;
     const data = JSON.stringify(fractionDetails, null, 2);
     fs.writeFileSync(`${fractionsOutputDir}/${fraction.id}.json`, data, 'utf-8');
   });
@@ -218,7 +218,7 @@ function calcAbstentionRateForVoting(fractionMembers: RegistryPerson[], voting: 
 }
 
 
-function calcStatsHistory(registry: Registry, fraction: FractionLightDto, sessions: SessionDetailsDto[]): StatsHistoryDto {
+function calcStatsHistory(registry: Registry, fraction: FactionLightDto, sessions: SessionDetailsDto[]): StatsHistoryDto {
 
   const members = registry.persons.filter(person => person.fractionId === fraction.id);
 
@@ -248,7 +248,7 @@ function calcStatsHistory(registry: Registry, fraction: FractionLightDto, sessio
 }
 
 
-function getApplicationsOfFraction(fraction: FractionLightDto, sessions: SessionDetailsDto[]): ApplicationDto[] {
+function getApplicationsOfFraction(fraction: FactionLightDto, sessions: SessionDetailsDto[]): ApplicationDto[] {
   const fractionApplicationsVotings = sessions
     .map(session => ({
       votings: session.votings.map(voting => ({

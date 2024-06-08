@@ -164,15 +164,15 @@
           </span>        </th>
       </thead>
       <tbody>
-      <tr *ngFor="let fraction of sortedFractions">
-        <td><a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'fraction', fraction.id]">{{ fraction.name }}</a></td>
-        <td style="text-align: right;">{{ fraction.seats }}</td>
-        <td style="text-align: right;">{{ fraction.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>
-        <td style="text-align: right;">{{ fraction.uniformityScore | number : '0.3-3' }}</td>
-        <td style="text-align: right;">{{ fraction.participationRate * 100 | number : '1.1-1' }}%</td>
-        <td style="text-align: right;">{{ fraction.abstentionRate * 100 | number : '1.1-1' }}%</td>
-        <td style="text-align: right;">{{ fraction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</td>
-        <td style="text-align: right;">{{ fraction.speakingTime | speakingTime }}</td>
+      <tr *ngFor="let faction of sortedFactions">
+        <td><a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'fraction', faction.id]">{{ faction.name }}</a></td>
+        <td style="text-align: right;">{{ faction.seats }}</td>
+        <td style="text-align: right;">{{ faction.votingsSuccessRate * 100 | number : '1.1-1' }}%</td>
+        <td style="text-align: right;">{{ faction.uniformityScore | number : '0.3-3' }}</td>
+        <td style="text-align: right;">{{ faction.participationRate * 100 | number : '1.1-1' }}%</td>
+        <td style="text-align: right;">{{ faction.abstentionRate * 100 | number : '1.1-1' }}%</td>
+        <td style="text-align: right;">{{ faction.applicationsSuccessRate * 100 | number : '1.1-1' }}%</td>
+        <td style="text-align: right;">{{ faction.speakingTime | speakingTime }}</td>
       </tr>
       </tbody>
     </table>

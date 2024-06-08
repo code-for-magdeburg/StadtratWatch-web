@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
-import { FractionLightDto } from '../../model/Fraction';
+import { FactionLightDto } from '../../model/Faction';
 import { isPlatformBrowser } from '@angular/common';
 
 
@@ -9,8 +9,8 @@ export class ApplicationsSuccessRateChartData {
   constructor(public readonly name: string, public readonly value: number) {
   }
 
-  public static fromFraction(fraction: FractionLightDto): ApplicationsSuccessRateChartData {
-    return new ApplicationsSuccessRateChartData(fraction.name, fraction.applicationsSuccessRate * 100);
+  public static fromFaction(faction: FactionLightDto): ApplicationsSuccessRateChartData {
+    return new ApplicationsSuccessRateChartData(faction.name, faction.applicationsSuccessRate * 100);
   }
 
 }

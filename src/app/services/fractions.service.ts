@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { FractionDetailsDto, FractionLightDto } from '../model/Fraction';
+import { FactionDetailsDto, FactionLightDto } from '../model/Faction';
 
 
 @Injectable({ providedIn: 'root' })
@@ -12,19 +12,19 @@ export class FractionsService {
   }
 
 
-  public async fetchFractions(electionPeriod: number): Promise<FractionLightDto[]> {
+  public async fetchFractions(electionPeriod: number): Promise<FactionLightDto[]> {
 
     return firstValueFrom(
-      this.http.get<FractionLightDto[]>(`/assets/election-period-${electionPeriod}/fractions/all-fractions.json`)
+      this.http.get<FactionLightDto[]>(`/assets/election-period-${electionPeriod}/fractions/all-fractions.json`)
     );
 
   }
 
 
-  public async fetchFraction(electionPeriod: number, id: string): Promise<FractionDetailsDto> {
+  public async fetchFraction(electionPeriod: number, id: string): Promise<FactionDetailsDto> {
 
     return firstValueFrom(
-      this.http.get<FractionDetailsDto>(`/assets/election-period-${electionPeriod}/fractions/${id}.json`)
+      this.http.get<FactionDetailsDto>(`/assets/election-period-${electionPeriod}/fractions/${id}.json`)
     );
 
   }

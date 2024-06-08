@@ -12,7 +12,7 @@ import {
   SortableFactionApplicationsDirective,
   SortFactionApplicationsEvent
 } from './sortable-faction-applications.directive';
-import { StatsHistoryDto } from '../model/Fraction';
+import { StatsHistoryDto } from '../model/Faction';
 import { MetaTagsService } from '../services/meta-tags.service';
 import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
@@ -36,7 +36,7 @@ type Application = {
   applicationUrl: string | null;
 };
 
-export type Fraction = {
+export type Faction = {
   name: string;
   uniformityScore: number;
   applicationsSuccessRate: number;
@@ -61,7 +61,7 @@ export class FactionComponent implements OnInit {
   protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
   public electionPeriod = 0;
-  public fraction: Fraction | null = null;
+  public faction: Faction | null = null;
   public councilors: Councilor[] = [];
   public formerCouncilors: Councilor[] = [];
   public sortedApplications: Application[] = [];
@@ -94,27 +94,27 @@ export class FactionComponent implements OnInit {
         return;
       }
 
-      const fractionId = params.get('id');
-      if (!fractionId) {
-        // TODO: Handle missing fraction id
+      const factionId = params.get('id');
+      if (!factionId) {
+        // TODO: Handle missing faction id
         return;
       }
 
       forkJoin([
-        this.fractionsService.fetchFraction(this.electionPeriod, fractionId),
-        this.personsService.fetchPersonsByFraction(this.electionPeriod, fractionId)
+        this.fractionsService.fetchFraction(this.electionPeriod, factionId),
+        this.personsService.fetchPersonsByFraction(this.electionPeriod, factionId)
       ])
-        .subscribe(([fraction, persons]) => {
+        .subscribe(([faction, persons]) => {
 
-          this.fraction = {
-            name: fraction.name,
-            applicationsSuccessRate: fraction.applicationsSuccessRate,
-            votingsSuccessRate: fraction.votingsSuccessRate,
-            uniformityScore: fraction.uniformityScore,
-            participationRate: fraction.participationRate,
-            abstentionRate: fraction.abstentionRate,
-            statsHistory: fraction.statsHistory,
-            applications: this.mapApplications(fraction.applications)
+          this.faction = {
+            name: faction.name,
+            applicationsSuccessRate: faction.applicationsSuccessRate,
+            votingsSuccessRate: faction.votingsSuccessRate,
+            uniformityScore: faction.uniformityScore,
+            participationRate: faction.participationRate,
+            abstentionRate: faction.abstentionRate,
+            statsHistory: faction.statsHistory,
+            applications: this.mapApplications(faction.applications)
           };
 
           const today = new Date().toISOString().substring(0, 10);
@@ -128,10 +128,10 @@ export class FactionComponent implements OnInit {
           this.applicationsSorting = { column: 'votingDate', direction: 'desc' };
           this.filterAndSortApplications();
 
-          const title = `StadtratWatch: ${fraction.name}`;
-          const description = fraction.name.startsWith('parteilos-')
-            ? `${fraction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen im Magdeburger Stadtrat`
-            : `${fraction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen der Fraktion im Magdeburger Stadtrat`;
+          const title = `StadtratWatch: ${faction.name}`;
+          const description = faction.name.startsWith('parteilos-')
+            ? `${faction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen im Magdeburger Stadtrat`
+            : `${faction.name} - Abstimmungen, Anwesenheiten und andere Daten und Analysen der Fraktion im Magdeburger Stadtrat`;
           this.metaTagsService.updateTags({ title, description });
 
         });
@@ -206,7 +206,7 @@ export class FactionComponent implements OnInit {
 
   private filterAndSortApplications() {
 
-    const filtered = (this.fraction?.applications || [])
+    const filtered = (this.faction?.applications || [])
       .filter(application => {
         switch (application.type) {
           case 'Antrag':
