@@ -15,7 +15,7 @@ export class FactionsService {
   public async fetchFactions(electionPeriod: number): Promise<FactionLightDto[]> {
 
     return firstValueFrom(
-      this.http.get<FactionLightDto[]>(`/assets/election-period-${electionPeriod}/fractions/all-fractions.json`)
+      this.http.get<FactionLightDto[]>(`/assets/election-period-${electionPeriod}/factions/all-factions.json`)
     );
 
   }
@@ -24,7 +24,7 @@ export class FactionsService {
   public async fetchFaction(electionPeriod: number, id: string): Promise<FactionDetailsDto> {
 
     return firstValueFrom(
-      this.http.get<FactionDetailsDto>(`/assets/election-period-${electionPeriod}/fractions/${id}.json`)
+      this.http.get<FactionDetailsDto>(`/assets/election-period-${electionPeriod}/factions/${id}.json`)
     );
 
   }

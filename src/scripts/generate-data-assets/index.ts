@@ -40,7 +40,7 @@ const sessions = generateSessionFiles(
   scrapedSession
 );
 generatePersonFiles(`${outputDir}/persons`, registry, sessions);
-generateFactionFiles(`${outputDir}/fractions`, registry, sessions);
+generateFactionFiles(`${outputDir}/factions`, registry, sessions);
 generatePartyFiles(`${outputDir}/parties`, registry, sessions);
 generateMetadataFile(`${outputDir}/metadata.json`, registry, sessions);
 

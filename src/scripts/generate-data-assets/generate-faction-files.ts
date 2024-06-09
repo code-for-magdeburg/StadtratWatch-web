@@ -18,7 +18,7 @@ export function generateFactionFiles(factionsOutputDir: string, registry: Regist
     fs.mkdirSync(factionsOutputDir, { recursive: true });
   }
 
-  console.log('Writing all-fractions.json');
+  console.log('Writing all-factions.json');
   const factions = registry.factions.map<FactionLightDto>(faction => {
     const members = registry.persons.filter(person => person.fractionId === faction.id);
     const applicationsSuccessRate = calcApplicationsSuccessRate(faction, sessions);
@@ -40,7 +40,7 @@ export function generateFactionFiles(factionsOutputDir: string, registry: Regist
     };
   });
   fs.writeFileSync(
-    `${factionsOutputDir}/all-fractions.json`,
+    `${factionsOutputDir}/all-factions.json`,
     JSON.stringify(factions, null, 2),
     'utf-8'
   );
