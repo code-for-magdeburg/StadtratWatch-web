@@ -1,6 +1,6 @@
 import {
   SessionDetailsDto,
-  SessionFractionDto,
+  SessionFactionDto,
   SessionLightDto, SessionPartyDto, SessionPersonDto, SessionVotingDto,
   VoteResult,
   VotingResult
@@ -67,7 +67,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
         date: session.date,
         meetingMinutesUrl: session.meetingMinutesUrl,
         youtubeUrl: sessionConfig.youtubeUrl,
-        fractions: sessionFactionNames.map<SessionFractionDto>(sessionFactionName => ({
+        fractions: sessionFactionNames.map<SessionFactionDto>(sessionFactionName => ({
           id: factionsByNameMap.get(sessionFactionName) || '',
           name: sessionFactionName
         })),

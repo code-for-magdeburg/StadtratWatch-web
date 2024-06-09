@@ -4,7 +4,7 @@ import {
   calcPersonVotingSuccess
 } from '../voting-success-rate';
 import {
-  SessionDetailsDto, SessionFractionDto, SessionPartyDto,
+  SessionDetailsDto, SessionFactionDto, SessionPartyDto,
   SessionPersonDto,
   SessionVotingDto,
   Vote,
@@ -362,7 +362,7 @@ describe('Calculating voting success rate', () => {
 });
 
 
-function createSessionFraction(id: string, fractionName: string): SessionFractionDto {
+function createSessionFraction(id: string, fractionName: string): SessionFactionDto {
   return { id, name: fractionName };
 }
 
@@ -372,7 +372,7 @@ function createSessionParty(id: string, partyName: string): SessionPartyDto {
 }
 
 
-function createPerson(id: string, name: string, fraction: SessionFractionDto, party: SessionPartyDto): RegistryPerson {
+function createPerson(id: string, name: string, fraction: SessionFactionDto, party: SessionPartyDto): RegistryPerson {
   return { id, name, fractionId: fraction.id, partyId: party.id, start: null, end: null };
 }
 
@@ -441,7 +441,7 @@ function createVoting(votingId: number, votingFor: SessionPersonDto[], votingAga
 }
 
 
-function createSession(votings: SessionVotingDto[], fractions: SessionFractionDto[], parties: SessionPartyDto[],
+function createSession(votings: SessionVotingDto[], fractions: SessionFactionDto[], parties: SessionPartyDto[],
                        persons: SessionPersonDto[]): SessionDetailsDto {
   return {
     id: 'id',
