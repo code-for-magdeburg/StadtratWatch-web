@@ -1,5 +1,5 @@
 import {
-  calcFractionVotingSuccessRate,
+  calcFactionVotingSuccessRate,
   calcPartyVotingSuccessRate,
   calcPersonVotingSuccess
 } from '../voting-success-rate';
@@ -24,7 +24,7 @@ describe('Calculating voting success rate', () => {
       const party = createSessionParty('party-1', 'Party 1');
       const persons = createSessionPersons(1, fraction.name, party.name);
       const session = createSession([], [fraction], [party], persons);
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction.id, [session]);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(fraction.id, [session]);
       expect(votingsSuccessRate).toBe(0);
     });
 
@@ -41,7 +41,7 @@ describe('Calculating voting success rate', () => {
       const passedVoting = createVoting(1, personsFraction1, personsFraction2, [], []);
       const session = createSession([passedVoting], [fraction1, fraction2], [party1, party2], [...personsFraction1, ...personsFraction2]);
 
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction1.id, [session]);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(fraction1.id, [session]);
 
       expect(votingsSuccessRate).toBe(1);
 
@@ -60,7 +60,7 @@ describe('Calculating voting success rate', () => {
       const rejectedVoting = createVoting(1, personsFraction2, personsFraction1, [], []);
       const session = createSession([rejectedVoting], [fraction1, fraction2], [party1, party2], [...personsFraction1, ...personsFraction2]);
 
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction1.id, [session]);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(fraction1.id, [session]);
 
       expect(votingsSuccessRate).toBe(1);
 
@@ -79,7 +79,7 @@ describe('Calculating voting success rate', () => {
       const passedVoting = createVoting(1, personsFraction2, personsFraction1, [], []);
       const session = createSession([passedVoting], [fraction1, fraction2], [party1, party2], [...personsFraction1, ...personsFraction2]);
 
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction1.id, [session]);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(fraction1.id, [session]);
 
       expect(votingsSuccessRate).toBe(0);
 
@@ -98,7 +98,7 @@ describe('Calculating voting success rate', () => {
       const rejectedVoting = createVoting(1, personsFraction1, personsFraction2, [], []);
       const session = createSession([rejectedVoting], [fraction1, fraction2], [party1, party2], [...personsFraction1, ...personsFraction2]);
 
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction1.id, [session]);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(fraction1.id, [session]);
 
       expect(votingsSuccessRate).toBe(0);
 
@@ -121,7 +121,7 @@ describe('Calculating voting success rate', () => {
       const voting2 = createVoting(2, personsFraction2, personsFraction3, personsFraction1, []);
       const session = createSession([voting1, voting2], [fraction1, fraction2, fraction3], [party1, party2, party3], [...personsFraction1, ...personsFraction2, ...personsFraction3]);
 
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction2.id, [session]);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(fraction2.id, [session]);
 
       expect(votingsSuccessRate).toBe(.5);
 

@@ -23,8 +23,8 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
   const personsLight = registry.persons
     .map<PersonLightDto>(person => {
 
-      const fraction = registry.fractions.find(
-        fraction => fraction.id === person.fractionId
+      const faction = registry.factions.find(
+        faction => faction.id === person.fractionId
       );
       const party = registry.parties.find(party => party.id === person.partyId);
       const votingAttendance = calcVotingAttendance(sessions, person);
@@ -34,8 +34,8 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
       return {
         id: person.id,
         name: person.name,
-        fractionId: fraction?.id || '',
-        fraction: fraction?.name || '',
+        fractionId: faction?.id || '',
+        fraction: faction?.name || '',
         partyId: party?.id || '',
         party: party?.name || '',
         councilorUntil: person.end,
@@ -61,7 +61,7 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
     const relevantSessions = sessions.filter(
       session => session.persons.some(sessionPerson => sessionPerson.id === person.id)
     );
-    const fraction = registry.fractions.find(fraction => fraction.id === person.fractionId);
+    const faction = registry.factions.find(faction => faction.id === person.fractionId);
     const party = registry.parties.find(party => party.id === person.partyId);
     const votes = relevantSessions.flatMap<PersonVoteDto>(
       session => session.votings.map(voting => ({
@@ -91,7 +91,7 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
       id: person.id,
       name: person.name,
       fractionId: person.fractionId,
-      fraction: fraction?.name || '',
+      fraction: faction?.name || '',
       partyId: person.partyId,
       party: party?.name || '',
       councilorUntil: person.end,
@@ -157,7 +157,7 @@ function calcVotingMatrix(registry: Registry, votings: SessionVotingDto[],
   return otherPersons.map<PersonVotingComparison>(otherPerson => ({
     personId: otherPerson.id,
     personName: otherPerson.name,
-    fraction: registry.fractions.find(fraction => fraction.id === otherPerson.fractionId)?.name || '',
+    fraction: registry.factions.find(faction => faction.id === otherPerson.fractionId)?.name || '',
     party: registry.parties.find(party => party.id === otherPerson.partyId)?.name || '',
     comparisonScore: calcVotingComparisonScore(votings, person, otherPerson)
   }));

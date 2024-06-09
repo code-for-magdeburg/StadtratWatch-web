@@ -1,6 +1,6 @@
 import { FactionDetailsDto, FactionLightDto, StatsHistoryDto } from '../../app/model/Faction';
 import * as fs from 'fs';
-import { Registry, RegistryFraction, RegistryPerson } from '../shared/model/registry';
+import { Registry, RegistryFaction, RegistryPerson } from '../shared/model/registry';
 import {
   SessionDetailsDto,
   SessionPersonDto,
@@ -8,29 +8,29 @@ import {
   VoteResult,
   VotingResult
 } from '../../app/model/Session';
-import { calcFractionVotingSuccessRate } from './data-analysis/voting-success-rate';
+import { calcFactionVotingSuccessRate } from './data-analysis/voting-success-rate';
 import { ApplicationDto } from '../../app/model/Application';
 
 
-export function generateFractionFiles(fractionsOutputDir: string, registry: Registry, sessions: SessionDetailsDto[]): void {
+export function generateFactionFiles(factionsOutputDir: string, registry: Registry, sessions: SessionDetailsDto[]): void {
 
-  if (!fs.existsSync(fractionsOutputDir)) {
-    fs.mkdirSync(fractionsOutputDir, { recursive: true });
+  if (!fs.existsSync(factionsOutputDir)) {
+    fs.mkdirSync(factionsOutputDir, { recursive: true });
   }
 
   console.log('Writing all-fractions.json');
-  const fractions = registry.fractions.map<FactionLightDto>(fraction => {
-    const members = registry.persons.filter(person => person.fractionId === fraction.id);
-    const applicationsSuccessRate = calcApplicationsSuccessRate(fraction, sessions);
-    const votingsSuccessRate = calcFractionVotingSuccessRate(fraction.id, sessions);
+  const factions = registry.factions.map<FactionLightDto>(faction => {
+    const members = registry.persons.filter(person => person.fractionId === faction.id);
+    const applicationsSuccessRate = calcApplicationsSuccessRate(faction, sessions);
+    const votingsSuccessRate = calcFactionVotingSuccessRate(faction.id, sessions);
     const uniformityScore = calcUniformityScore(members, sessions) || 0;
-    const participationRate = calcParticipationRate(fraction, sessions) || 0;
+    const participationRate = calcParticipationRate(faction, sessions) || 0;
     const abstentionRate = calcAbstentionRate(members, sessions) || 0;
     const speakingTime = calcSpeakingTime(members, sessions) || 0;
     return {
-      id: fraction.id,
-      name: fraction.name,
-      seats: fraction.seats,
+      id: faction.id,
+      name: faction.name,
+      seats: faction.seats,
       applicationsSuccessRate,
       votingsSuccessRate,
       uniformityScore,
@@ -40,30 +40,30 @@ export function generateFractionFiles(fractionsOutputDir: string, registry: Regi
     };
   });
   fs.writeFileSync(
-    `${fractionsOutputDir}/all-fractions.json`,
-    JSON.stringify(fractions, null, 2),
+    `${factionsOutputDir}/all-fractions.json`,
+    JSON.stringify(factions, null, 2),
     'utf-8'
   );
 
-  fractions.forEach(fraction => {
-    console.log(`Writing fraction file ${fraction.id}.json`);
-    const fractionDetails = {
-      ...fraction,
-      statsHistory: calcStatsHistory(registry, fraction, sessions),
-      applications: getApplicationsOfFraction(fraction, sessions)
+  factions.forEach(faction => {
+    console.log(`Writing faction file ${faction.id}.json`);
+    const factionDetails = {
+      ...faction,
+      statsHistory: calcStatsHistory(registry, faction, sessions),
+      applications: getApplicationsOfFaction(faction, sessions)
     } satisfies FactionDetailsDto;
-    const data = JSON.stringify(fractionDetails, null, 2);
-    fs.writeFileSync(`${fractionsOutputDir}/${fraction.id}.json`, data, 'utf-8');
+    const data = JSON.stringify(factionDetails, null, 2);
+    fs.writeFileSync(`${factionsOutputDir}/${faction.id}.json`, data, 'utf-8');
   });
 
 }
 
 
-function calcApplicationsSuccessRate(fraction: RegistryFraction, sessions: SessionDetailsDto[]): number {
+function calcApplicationsSuccessRate(faction: RegistryFaction, sessions: SessionDetailsDto[]): number {
   const relevantApplications = sessions
     .map(session => session.votings)
     .flat()
-    .filter(voting => voting.votingSubject.authors.includes(fraction.name));
+    .filter(voting => voting.votingSubject.authors.includes(faction.name));
 
   if (relevantApplications.length === 0) {
     return 0;
@@ -77,9 +77,9 @@ function calcApplicationsSuccessRate(fraction: RegistryFraction, sessions: Sessi
 }
 
 
-function calcUniformityScore(fractionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number | null {
+function calcUniformityScore(factionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number | null {
   const uniformityScoresPerSession = sessions
-    .map(session => calcUniformityScoreForSession(fractionMembers, session))
+    .map(session => calcUniformityScoreForSession(factionMembers, session))
     .filter(score => score !== null) as number[];
 
   if (uniformityScoresPerSession.length === 0) {
@@ -90,12 +90,12 @@ function calcUniformityScore(fractionMembers: RegistryPerson[], sessions: Sessio
 }
 
 
-function calcUniformityScoreForSession(fractionMembers: RegistryPerson[], session: SessionDetailsDto): number | null {
-  const relevantFractionMembers = fractionMembers.filter(
+function calcUniformityScoreForSession(factionMembers: RegistryPerson[], session: SessionDetailsDto): number | null {
+  const relevantFactionMembers = factionMembers.filter(
     member => session.persons.some(person => person.id === member.id)
   );
   const uniformityScorePerVoting = session.votings
-    .map(voting => calcUniformityScoreForVoting(relevantFractionMembers, voting))
+    .map(voting => calcUniformityScoreForVoting(relevantFactionMembers, voting))
     .filter(score => score !== null) as number[];
 
   if (uniformityScorePerVoting.length === 0) {
@@ -106,13 +106,13 @@ function calcUniformityScoreForSession(fractionMembers: RegistryPerson[], sessio
 }
 
 
-function calcUniformityScoreForVoting(fractionMembers: RegistryPerson[], voting: SessionVotingDto): number | null {
+function calcUniformityScoreForVoting(factionMembers: RegistryPerson[], voting: SessionVotingDto): number | null {
 
   let votesFor = 0;
   let votesAgainst = 0;
   let votesAbstained = 0;
 
-  fractionMembers.forEach(member => {
+  factionMembers.forEach(member => {
     const vote = voting.votes.find(vote => vote.personId === member.id)?.vote || VoteResult.DID_NOT_VOTE;
     switch (vote) {
       case VoteResult.VOTE_FOR:
@@ -144,12 +144,12 @@ function calcUniformityScoreForVoting(fractionMembers: RegistryPerson[], voting:
 }
 
 
-function calcParticipationRate(fraction: RegistryFraction, sessions: SessionDetailsDto[]): number | null {
+function calcParticipationRate(faction: RegistryFaction, sessions: SessionDetailsDto[]): number | null {
 
-  const votesPerSession = sessions.map(session => countVotesInSession(fraction, session));
+  const votesPerSession = sessions.map(session => countVotesInSession(faction, session));
   const votes = votesPerSession.reduce((a, b) => a + b, 0);
 
-  const totalVotesPerSession = sessions.map(session => session.votings.length * fraction.seats);
+  const totalVotesPerSession = sessions.map(session => session.votings.length * faction.seats);
   const totalVotes = totalVotesPerSession.reduce((a, b) => a + b, 0);
 
   return totalVotes === 0 ? null : votes / totalVotes;
@@ -157,11 +157,11 @@ function calcParticipationRate(fraction: RegistryFraction, sessions: SessionDeta
 }
 
 
-function countVotesInSession(fraction: RegistryFraction, session: SessionDetailsDto): number {
+function countVotesInSession(faction: RegistryFaction, session: SessionDetailsDto): number {
 
-  const fractionMembers = session.persons.filter(person => person.fraction === fraction.name);
+  const factionMembers = session.persons.filter(person => person.fraction === faction.name);
   const participationPerVoting = session.votings.map(
-    voting => countVotesInVoting(fractionMembers, voting)
+    voting => countVotesInVoting(factionMembers, voting)
   );
 
   return participationPerVoting.reduce((a, b) => a + b, 0);
@@ -169,18 +169,18 @@ function countVotesInSession(fraction: RegistryFraction, session: SessionDetails
 }
 
 
-function countVotesInVoting(fractionMembers: SessionPersonDto[], voting: SessionVotingDto): number {
+function countVotesInVoting(factionMembers: SessionPersonDto[], voting: SessionVotingDto): number {
   return voting.votes
     .filter(
-      vote => fractionMembers.some(member => member.id === vote.personId)
+      vote => factionMembers.some(member => member.id === vote.personId)
         && vote.vote !== VoteResult.DID_NOT_VOTE)
     .length;
 }
 
 
-function calcAbstentionRate(fractionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
+function calcAbstentionRate(factionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
   const abstentionRatePerSession = sessions
-    .map(session => calcAbstentionRateForSession(fractionMembers, session))
+    .map(session => calcAbstentionRateForSession(factionMembers, session))
     .filter(rate => rate !== null) as number[];
 
   if (abstentionRatePerSession.length === 0) {
@@ -191,9 +191,9 @@ function calcAbstentionRate(fractionMembers: RegistryPerson[], sessions: Session
 }
 
 
-function calcAbstentionRateForSession(fractionMembers: RegistryPerson[], session: SessionDetailsDto): number {
+function calcAbstentionRateForSession(factionMembers: RegistryPerson[], session: SessionDetailsDto): number {
   const abstentionRatePerVoting = session.votings
-    .map(voting => calcAbstentionRateForVoting(fractionMembers, voting))
+    .map(voting => calcAbstentionRateForVoting(factionMembers, voting))
     .filter(rate => rate !== null) as number[];
 
   if (abstentionRatePerVoting.length === 0) {
@@ -204,9 +204,9 @@ function calcAbstentionRateForSession(fractionMembers: RegistryPerson[], session
 }
 
 
-function calcAbstentionRateForVoting(fractionMembers: RegistryPerson[], voting: SessionVotingDto): number {
+function calcAbstentionRateForVoting(factionMembers: RegistryPerson[], voting: SessionVotingDto): number {
   const allVotes = voting.votes.filter(vote =>
-    fractionMembers.some(member => member.id === vote.personId) && vote.vote !== VoteResult.DID_NOT_VOTE
+    factionMembers.some(member => member.id === vote.personId) && vote.vote !== VoteResult.DID_NOT_VOTE
   );
   const abstentions = allVotes.filter(vote => vote.vote === VoteResult.VOTE_ABSTENTION);
 
@@ -218,18 +218,18 @@ function calcAbstentionRateForVoting(fractionMembers: RegistryPerson[], voting: 
 }
 
 
-function calcStatsHistory(registry: Registry, fraction: FactionLightDto, sessions: SessionDetailsDto[]): StatsHistoryDto {
+function calcStatsHistory(registry: Registry, faction: FactionLightDto, sessions: SessionDetailsDto[]): StatsHistoryDto {
 
-  const members = registry.persons.filter(person => person.fractionId === fraction.id);
+  const members = registry.persons.filter(person => person.fractionId === faction.id);
 
   return {
     applicationsSuccessRate: sessions.map(session => ({
       date: session.date,
-      value: calcApplicationsSuccessRate(fraction, sessions.filter(s => s.date <= session.date))
+      value: calcApplicationsSuccessRate(faction, sessions.filter(s => s.date <= session.date))
     })),
     votingsSuccessRate: sessions.map(session => ({
       date: session.date,
-      value: calcFractionVotingSuccessRate(fraction.id, sessions.filter(s => s.date <= session.date))
+      value: calcFactionVotingSuccessRate(faction.id, sessions.filter(s => s.date <= session.date))
     })),
     uniformityScore: sessions.map(session => ({
       date: session.date,
@@ -237,7 +237,7 @@ function calcStatsHistory(registry: Registry, fraction: FactionLightDto, session
     })),
     participationRate: sessions.map(session => ({
       date: session.date,
-      value: calcParticipationRate(fraction, sessions.filter(s => s.date <= session.date))
+      value: calcParticipationRate(faction, sessions.filter(s => s.date <= session.date))
     })),
     abstentionRate: sessions.map(session => ({
       date: session.date,
@@ -248,8 +248,8 @@ function calcStatsHistory(registry: Registry, fraction: FactionLightDto, session
 }
 
 
-function getApplicationsOfFraction(fraction: FactionLightDto, sessions: SessionDetailsDto[]): ApplicationDto[] {
-  const fractionApplicationsVotings = sessions
+function getApplicationsOfFaction(faction: FactionLightDto, sessions: SessionDetailsDto[]): ApplicationDto[] {
+  const factionApplicationsVotings = sessions
     .map(session => ({
       votings: session.votings.map(voting => ({
         voting,
@@ -259,16 +259,16 @@ function getApplicationsOfFraction(fraction: FactionLightDto, sessions: SessionD
     }))
     .flatMap(session => session.votings)
     .filter(voting => !!voting.voting.votingSubject.applicationId)
-    .filter(voting => voting.voting.votingSubject.authors.includes(fraction.name));
+    .filter(voting => voting.voting.votingSubject.authors.includes(faction.name));
 
-  const applicationsMap = fractionApplicationsVotings.reduce((acc, curr) => {
+  const applicationsMap = factionApplicationsVotings.reduce((acc, curr) => {
     const key = `${curr.voting.votingSubject.applicationId}-${curr.voting.votingSubject.type}`;
     if (!acc[key]) {
       acc[key] = [];
     }
     acc[key].push(curr);
     return acc;
-  }, {} as Record<string, typeof fractionApplicationsVotings>);
+  }, {} as Record<string, typeof factionApplicationsVotings>);
 
   const applications = Object.values(applicationsMap);
 
@@ -299,19 +299,19 @@ function getApplicationsOfFraction(fraction: FactionLightDto, sessions: SessionD
 }
 
 
-function calcSpeakingTime(fractionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
+function calcSpeakingTime(factionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
   return sessions
-    .map(session => calcSpeakingTimeForSession(fractionMembers, session))
+    .map(session => calcSpeakingTimeForSession(factionMembers, session))
     .reduce((a, b) => a + b, 0);
 }
 
 
-function calcSpeakingTimeForSession(fractionMembers: RegistryPerson[], session: SessionDetailsDto): number {
+function calcSpeakingTimeForSession(factionMembers: RegistryPerson[], session: SessionDetailsDto): number {
 
-  const fractionSpeeches = session.speeches.filter(speakingTime =>
-    fractionMembers.some(member => member.name === speakingTime.speaker)
+  const factionSpeeches = session.speeches.filter(speakingTime =>
+    factionMembers.some(member => member.name === speakingTime.speaker)
   );
 
-  return fractionSpeeches.reduce((a, b) => a + b.duration, 0);
+  return factionSpeeches.reduce((a, b) => a + b.duration, 0);
 
 }

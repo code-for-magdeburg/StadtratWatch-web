@@ -19,10 +19,10 @@ type PersonVotingSuccessStats = {
 };
 
 
-export function calcFractionVotingSuccessRate(fractionId: string, sessions: SessionDetailsDto[]): number {
+export function calcFactionVotingSuccessRate(factionId: string, sessions: SessionDetailsDto[]): number {
 
   const votingsSuccessPerSession = sessions.map(
-    session => calcFractionVotingSuccessForSession(fractionId, session)
+    session => calcFactionVotingSuccessForSession(factionId, session)
   );
 
   const successfulVotings = votingsSuccessPerSession.reduce((a, b) => a + b.successfulVotings, 0);
@@ -33,20 +33,20 @@ export function calcFractionVotingSuccessRate(fractionId: string, sessions: Sess
 }
 
 
-function calcFractionVotingSuccessForSession(fractionId: string, session: SessionDetailsDto): VotingsSuccessForSession {
+function calcFactionVotingSuccessForSession(factionId: string, session: SessionDetailsDto): VotingsSuccessForSession {
 
-  const fraction = session.fractions.find(
-    fraction => fraction.id === fractionId
+  const faction = session.fractions.find(
+    faction => faction.id === factionId
   );
-  if (!fraction) {
+  if (!faction) {
     return { successfulVotings: 0, totalVotings: session.votings.length };
   }
 
-  const fractionMembers = session.persons.filter(
-    person => person.fraction === fraction.name
+  const factionMembers = session.persons.filter(
+    person => person.fraction === faction.name
   );
   const successfulVotings = session.votings
-    .filter(voting => calcVotingSuccess(fractionMembers, voting))
+    .filter(voting => calcVotingSuccess(factionMembers, voting))
     .length;
 
   return { successfulVotings, totalVotings: session.votings.length };

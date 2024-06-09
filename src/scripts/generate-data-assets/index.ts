@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import { generatePersonFiles } from './generate-person-files';
 import { generateSessionFiles } from './generate-session-files';
-import { generateFractionFiles } from './generate-fraction-files';
+import { generateFactionFiles } from './generate-faction-files';
 import { generatePartyFiles } from './generate-party-files';
 import { generateMetadataFile } from './generate-metadata-file';
 import { ScrapedSession } from '../shared/model/scraped-session';
@@ -40,7 +40,7 @@ const sessions = generateSessionFiles(
   scrapedSession
 );
 generatePersonFiles(`${outputDir}/persons`, registry, sessions);
-generateFractionFiles(`${outputDir}/fractions`, registry, sessions);
+generateFactionFiles(`${outputDir}/fractions`, registry, sessions);
 generatePartyFiles(`${outputDir}/parties`, registry, sessions);
 generateMetadataFile(`${outputDir}/metadata.json`, registry, sessions);
 

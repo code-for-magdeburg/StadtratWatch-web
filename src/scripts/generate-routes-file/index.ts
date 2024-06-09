@@ -30,7 +30,7 @@ for (const electionPeriodDir of electionPeriodDirs) {
   routes.push(`/ep/${registry.electionPeriod}/parties`);
   routes.push(...registry.parties.map(party => `/ep/${registry.electionPeriod}/party/${party.id}`));
   routes.push(`/ep/${registry.electionPeriod}/factions`);
-  routes.push(...registry.fractions.map(faction => `/ep/${registry.electionPeriod}/faction/${faction.id}`));
+  routes.push(...registry.factions.map(faction => `/ep/${registry.electionPeriod}/faction/${faction.id}`));
   routes.push(`/ep/${registry.electionPeriod}/persons`);
   routes.push(...registry.persons.map(person => `/ep/${registry.electionPeriod}/person/${person.id}`));
 

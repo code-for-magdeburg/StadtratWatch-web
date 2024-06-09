@@ -31,8 +31,8 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
   const personIdsByNameMap =
     new Map(registry.persons.map(person => [person.name, person.id]));
 
-  const fractionsByNameMap =
-    new Map(registry.fractions.map(fraction => [fraction.name, fraction.id]));
+  const factionsByNameMap =
+    new Map(registry.factions.map(faction => [faction.name, faction.id]));
 
   const partiesByNameMap =
     new Map(registry.parties.map(party => [party.name, party.id]));
@@ -56,7 +56,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
       const sessionSpeeches = JSON.parse(
         fs.readFileSync(`${sessionDir}/session-speeches-${session.date}.json`, 'utf-8')
       ) as SessionSpeech[];
-      const sessionFractionNames = Array.from(new Set(
+      const sessionFactionNames = Array.from(new Set(
         sessionConfig.names.map(sessionConfigPerson => sessionConfigPerson.fraction)
       ));
       const sessionPartyNames = Array.from(new Set(
@@ -67,9 +67,9 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
         date: session.date,
         meetingMinutesUrl: session.meetingMinutesUrl,
         youtubeUrl: sessionConfig.youtubeUrl,
-        fractions: sessionFractionNames.map<SessionFractionDto>(sessionFractionName => ({
-          id: fractionsByNameMap.get(sessionFractionName) || '',
-          name: sessionFractionName
+        fractions: sessionFactionNames.map<SessionFractionDto>(sessionFactionName => ({
+          id: factionsByNameMap.get(sessionFactionName) || '',
+          name: sessionFactionName
         })),
         parties: sessionPartyNames.map<SessionPartyDto>(sessionPartyName => ({
           id: partiesByNameMap.get(sessionPartyName) || '',
