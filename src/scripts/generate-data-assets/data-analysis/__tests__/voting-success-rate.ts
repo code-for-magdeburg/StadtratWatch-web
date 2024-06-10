@@ -394,12 +394,12 @@ function createSessionPerson(id: string, fraction: string, party: string): Sessi
 function createSessionPerson(personOrId: RegistryPerson | string, fraction?: string, party?: string): SessionPersonDto {
 
   if (typeof personOrId === 'string' && fraction && party) {
-    return { id: personOrId, name: `Person ${personOrId}`, party, fraction };
+    return { id: personOrId, name: `Person ${personOrId}`, party, faction: fraction };
   }
 
   const person = personOrId as RegistryPerson;
 
-  return { id: person.id, name: person.name, party: person.partyId, fraction: person.fractionId };
+  return { id: person.id, name: person.name, party: person.partyId, faction: person.fractionId };
 
 }
 

@@ -159,7 +159,7 @@ function calcParticipationRate(faction: RegistryFaction, sessions: SessionDetail
 
 function countVotesInSession(faction: RegistryFaction, session: SessionDetailsDto): number {
 
-  const factionMembers = session.persons.filter(person => person.fraction === faction.name);
+  const factionMembers = session.persons.filter(person => person.faction === faction.name);
   const participationPerVoting = session.votings.map(
     voting => countVotesInVoting(factionMembers, voting)
   );

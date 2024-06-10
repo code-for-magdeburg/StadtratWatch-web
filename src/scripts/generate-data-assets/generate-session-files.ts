@@ -79,7 +79,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
           id: personIdsByNameMap.get(sessionConfigPerson.name) || '',
           name: sessionConfigPerson.name,
           party: sessionConfigPerson.party,
-          fraction: sessionConfigPerson.fraction
+          faction: sessionConfigPerson.fraction
         })),
         votings: sessionScan.map<SessionVotingDto>(voting => {
           const agendaItem = scrapedAgendaItems.find(

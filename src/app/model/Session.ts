@@ -24,7 +24,7 @@ export type SessionPersonDto = {
   id: string;
   name: string;
   party: string;
-  fraction: string;
+  faction: string;
 };
 
 export type VotingDocumentsDto = {

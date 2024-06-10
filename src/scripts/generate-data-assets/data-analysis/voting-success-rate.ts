@@ -43,7 +43,7 @@ function calcFactionVotingSuccessForSession(factionId: string, session: SessionD
   }
 
   const factionMembers = session.persons.filter(
-    person => person.fraction === faction.name
+    person => person.faction === faction.name
   );
   const successfulVotings = session.votings
     .filter(voting => calcVotingSuccess(factionMembers, voting))

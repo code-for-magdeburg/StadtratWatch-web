@@ -107,7 +107,7 @@ export class VotingComponent implements OnInit {
         factionId: faction.id,
         name: faction.name,
         members: session.persons
-          .filter(personDto => personDto.fraction === faction.name)
+          .filter(personDto => personDto.faction === faction.name)
           .map(personDto => ({
             personId: personDto.id,
             name: personDto.name,
