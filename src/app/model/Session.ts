@@ -56,7 +56,7 @@ export type SessionSpeechDto = {
   speaker: string;
   start: number;
   duration: number;
-  fraction?: string;
+  faction?: string;
   onBehalfOf?: string;
 };
 

@@ -125,14 +125,14 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
         speeches: sessionSpeeches
           .filter(sessionSpeech => !sessionSpeech.isChairPerson)
           .map(sessionSpeech => {
-            const fraction = sessionConfig.names.find(
+            const faction = sessionConfig.names.find(
               name => name.name === sessionSpeech.speaker
             )?.fraction;
             return {
               speaker: sessionSpeech.speaker,
               start: sessionSpeech.start,
               duration: sessionSpeech.duration,
-              fraction,
+              faction,
               onBehalfOf: sessionSpeech.onBehalfOf
             };
           })
