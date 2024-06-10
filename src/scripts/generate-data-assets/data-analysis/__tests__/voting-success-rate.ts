@@ -373,7 +373,7 @@ function createSessionParty(id: string, partyName: string): SessionPartyDto {
 
 
 function createPerson(id: string, name: string, fraction: SessionFactionDto, party: SessionPartyDto): RegistryPerson {
-  return { id, name, fractionId: fraction.id, partyId: party.id, start: null, end: null };
+  return { id, name, factionId: fraction.id, partyId: party.id, start: null, end: null };
 }
 
 
@@ -399,7 +399,7 @@ function createSessionPerson(personOrId: RegistryPerson | string, fraction?: str
 
   const person = personOrId as RegistryPerson;
 
-  return { id: person.id, name: person.name, party: person.partyId, faction: person.fractionId };
+  return { id: person.id, name: person.name, party: person.partyId, faction: person.factionId };
 
 }
 

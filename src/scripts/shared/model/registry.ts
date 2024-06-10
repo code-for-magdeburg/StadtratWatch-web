@@ -27,7 +27,7 @@ export type RegistryParty = {
 export type RegistryPerson = {
   id: string;
   name: string;
-  fractionId: string;
+  factionId: string;
   partyId: string;
   start: string | null;
   end: string | null;

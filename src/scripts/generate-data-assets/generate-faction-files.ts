@@ -20,7 +20,7 @@ export function generateFactionFiles(factionsOutputDir: string, registry: Regist
 
   console.log('Writing all-factions.json');
   const factions = registry.factions.map<FactionLightDto>(faction => {
-    const members = registry.persons.filter(person => person.fractionId === faction.id);
+    const members = registry.persons.filter(person => person.factionId === faction.id);
     const applicationsSuccessRate = calcApplicationsSuccessRate(faction, sessions);
     const votingsSuccessRate = calcFactionVotingSuccessRate(faction.id, sessions);
     const uniformityScore = calcUniformityScore(members, sessions) || 0;
@@ -220,7 +220,7 @@ function calcAbstentionRateForVoting(factionMembers: RegistryPerson[], voting: S
 
 function calcStatsHistory(registry: Registry, faction: FactionLightDto, sessions: SessionDetailsDto[]): StatsHistoryDto {
 
-  const members = registry.persons.filter(person => person.fractionId === faction.id);
+  const members = registry.persons.filter(person => person.factionId === faction.id);
 
   return {
     applicationsSuccessRate: sessions.map(session => ({
