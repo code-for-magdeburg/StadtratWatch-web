@@ -57,7 +57,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
         fs.readFileSync(`${sessionDir}/session-speeches-${session.date}.json`, 'utf-8')
       ) as SessionSpeech[];
       const sessionFactionNames = Array.from(new Set(
-        sessionConfig.names.map(sessionConfigPerson => sessionConfigPerson.fraction)
+        sessionConfig.names.map(sessionConfigPerson => sessionConfigPerson.faction)
       ));
       const sessionPartyNames = Array.from(new Set(
         sessionConfig.names.map(sessionConfigPerson => sessionConfigPerson.party)
@@ -79,7 +79,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
           id: personIdsByNameMap.get(sessionConfigPerson.name) || '',
           name: sessionConfigPerson.name,
           party: sessionConfigPerson.party,
-          faction: sessionConfigPerson.fraction
+          faction: sessionConfigPerson.faction
         })),
         votings: sessionScan.map<SessionVotingDto>(voting => {
           const agendaItem = scrapedAgendaItems.find(
@@ -127,7 +127,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
           .map(sessionSpeech => {
             const faction = sessionConfig.names.find(
               name => name.name === sessionSpeech.speaker
-            )?.fraction;
+            )?.faction;
             return {
               speaker: sessionSpeech.speaker,
               start: sessionSpeech.start,
