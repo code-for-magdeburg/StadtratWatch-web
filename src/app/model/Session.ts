@@ -10,7 +10,7 @@ export enum VotingResult {
   REJECTED = 'REJECTED'
 }
 
-export type SessionFractionDto = {
+export type SessionFactionDto = {
   id: string;
   name: string;
 };
@@ -24,7 +24,7 @@ export type SessionPersonDto = {
   id: string;
   name: string;
   party: string;
-  fraction: string;
+  faction: string;
 };
 
 export type VotingDocumentsDto = {
@@ -56,7 +56,7 @@ export type SessionSpeechDto = {
   speaker: string;
   start: number;
   duration: number;
-  fraction?: string;
+  faction?: string;
   onBehalfOf?: string;
 };
 
@@ -66,7 +66,7 @@ export type SessionDetailsDto = {
   date: string;
   meetingMinutesUrl: string;
   youtubeUrl: string;
-  fractions: SessionFractionDto[];
+  factions: SessionFactionDto[];
   parties: SessionPartyDto[];
   persons: SessionPersonDto[];
   votings: SessionVotingDto[];

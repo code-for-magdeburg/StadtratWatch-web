@@ -1,7 +1,7 @@
 export type Registry = {
   electionPeriod: number;
   sessions: RegistrySession[];
-  fractions: RegistryFraction[];
+  factions: RegistryFaction[];
   parties: RegistryParty[];
   persons: RegistryPerson[];
 };
@@ -12,7 +12,7 @@ export type RegistrySession = {
   meetingMinutesUrl: string;
 };
 
-export type RegistryFraction = {
+export type RegistryFaction = {
   id: string;
   name: string;
   seats: number;
@@ -27,7 +27,7 @@ export type RegistryParty = {
 export type RegistryPerson = {
   id: string;
   name: string;
-  fractionId: string;
+  factionId: string;
   partyId: string;
   start: string | null;
   end: string | null;

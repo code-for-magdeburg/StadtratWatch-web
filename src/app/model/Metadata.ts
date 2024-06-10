@@ -5,7 +5,7 @@ export type MetadataDto = {
   votingsCount: number;
   votesCount: number;
   sessionsCount: number;
-  fractionsCount: number;
+  factionsCount: number;
   partiesCount: number;
   personsCount: number;
   speakingTime: number;

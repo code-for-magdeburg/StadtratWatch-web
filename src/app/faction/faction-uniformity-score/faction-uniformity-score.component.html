@@ -1,9 +1,10 @@
 <div class="card text-center">
-  <div class="card-header">Abstimmungsteilnahme</div>
+  <div class="card-header">Geschlossenheit</div>
   <div class="card-body">
-    <h3>{{ fraction.participationRate * 100 | number : '1.1-1' }}%</h3>
+    <h3>{{ faction.uniformityScore | number : '0.3-3' }}</h3>
     <p class="text-body-secondary">
-      Gibt an, wie häufig die Fraktionsmitglieder an Abstimmungen teilgenommen haben.
+      Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der
+      Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion.
     </p>
     <div>
       <canvas

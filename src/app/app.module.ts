@@ -11,8 +11,8 @@ import { SessionComponent } from './session/session.component';
 import { PersonsComponent } from './persons/persons.component';
 import { PersonComponent } from './person/person.component';
 import { SessionsComponent } from './sessions/sessions.component';
-import { FractionsComponent } from './fractions/fractions.component';
-import { FractionComponent } from './fraction/fraction.component';
+import { FactionsComponent } from './factions/factions.component';
+import { FactionComponent } from './faction/faction.component';
 import { PartiesComponent } from './parties/parties.component';
 import { PartyComponent } from './party/party.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -21,7 +21,7 @@ import { SortablePersonsDirective } from './persons/sortable-persons.directive';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
-import { SortableFractionsDirective } from './fractions/sortable-fractions.directive';
+import { SortableFactionsDirective } from './factions/sortable-factions.directive';
 import { NgChartsModule } from 'ng2-charts';
 import {
   ApplicationsSuccessRateChartComponent
@@ -36,13 +36,13 @@ import {
 import { AbstentionRateChartComponent } from './components/abstention-rate-chart/abstention-rate-chart.component';
 import { CouncilorCardComponent } from './components/councilor-card/councilor-card.component';
 import { SortablePartiesDirective } from './parties/sortable-parties.directive';
-import { SortableFractionApplicationsDirective } from './fractions/sortable-fraction-applications.directive';
+import { SortableFactionApplicationsDirective } from './faction/sortable-faction-applications.directive';
 import { FormsModule } from '@angular/forms';
-import { FractionApplicationSuccessRateComponent } from './fraction/fraction-application-success-rate/fraction-application-success-rate.component';
-import { FractionVotingsSuccessRateComponent } from './fraction/fraction-votings-success-rate/fraction-votings-success-rate.component';
-import { FractionUniformityScoreComponent } from './fraction/fraction-uniformity-score/fraction-uniformity-score.component';
-import { FractionParticipationRateComponent } from './fraction/fraction-participation-rate/fraction-participation-rate.component';
-import { FractionAbstentionRateComponent } from './fraction/fraction-abstention-rate/fraction-abstention-rate.component';
+import { FactionApplicationSuccessRateComponent } from './faction/faction-application-success-rate/faction-application-success-rate.component';
+import { FactionVotingsSuccessRateComponent } from './faction/faction-votings-success-rate/faction-votings-success-rate.component';
+import { FactionUniformityScoreComponent } from './faction/faction-uniformity-score/faction-uniformity-score.component';
+import { FactionParticipationRateComponent } from './faction/faction-participation-rate/faction-participation-rate.component';
+import { FactionAbstentionRateComponent } from './faction/faction-abstention-rate/faction-abstention-rate.component';
 import { PersonVotingAttendanceComponent } from './person/person-voting-attendance/person-voting-attendance.component';
 import { PersonVotingSuccessRateComponent } from './person/person-voting-success-rate/person-voting-success-rate.component';
 import { PersonAbstentionRateComponent } from './person/person-abstention-rate/person-abstention-rate.component';
@@ -68,13 +68,13 @@ registerLocaleData(localeDe, 'de-DE');
     PersonsComponent,
     PersonComponent,
     SessionsComponent,
-    FractionsComponent,
-    FractionComponent,
+    FactionsComponent,
+    FactionComponent,
     PartiesComponent,
     PartyComponent,
     ElectionPeriodComponent,
-    SortableFractionApplicationsDirective,
-    SortableFractionsDirective,
+    SortableFactionApplicationsDirective,
+    SortableFactionsDirective,
     SortablePersonsDirective,
     SortablePartiesDirective,
     ImpressumComponent,
@@ -86,11 +86,11 @@ registerLocaleData(localeDe, 'de-DE');
     ParticipationRateChartComponent,
     AbstentionRateChartComponent,
     CouncilorCardComponent,
-    FractionApplicationSuccessRateComponent,
-    FractionVotingsSuccessRateComponent,
-    FractionUniformityScoreComponent,
-    FractionParticipationRateComponent,
-    FractionAbstentionRateComponent,
+    FactionApplicationSuccessRateComponent,
+    FactionVotingsSuccessRateComponent,
+    FactionUniformityScoreComponent,
+    FactionParticipationRateComponent,
+    FactionAbstentionRateComponent,
     PersonVotingAttendanceComponent,
     PersonVotingSuccessRateComponent,
     PersonAbstentionRateComponent,

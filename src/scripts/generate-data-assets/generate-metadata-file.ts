@@ -17,7 +17,7 @@ export function generateMetadataFile(metadataFilename: string, registry: Registr
     votingsCount,
     votesCount,
     sessionsCount: registry.sessions.length,
-    fractionsCount: registry.fractions.length,
+    factionsCount: registry.factions.length,
     partiesCount: registry.parties.length,
     personsCount: registry.persons.length,
     speakingTime,

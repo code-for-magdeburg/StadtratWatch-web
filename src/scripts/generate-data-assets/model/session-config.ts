@@ -6,5 +6,5 @@ export type SessionConfig = {
 export type SessionConfigPerson = {
   name: string;
   party: string;
-  fraction: string;
+  faction: string;
 };

@@ -4,8 +4,8 @@ import { VoteResult } from './Session';
 export type PersonDetailsDto = {
   id: string;
   name: string;
-  fractionId: string;
-  fraction: string;
+  factionId: string;
+  faction: string;
   partyId: string;
   party: string;
   councilorUntil: string | null;
@@ -31,7 +31,7 @@ export type PersonVoteDto = {
 export type PersonVotingComparison = {
   personId: string;
   personName: string;
-  fraction: string;
+  faction: string;
   party: string;
   comparisonScore: number;
 };
@@ -63,8 +63,8 @@ export type PersonSpeechDto = {
 export type PersonLightDto = {
   id: string;
   name: string;
-  fractionId: string;
-  fraction: string;
+  factionId: string;
+  faction: string;
   partyId: string;
   party: string;
   councilorUntil: string | null;

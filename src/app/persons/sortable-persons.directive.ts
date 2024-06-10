@@ -3,7 +3,7 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
 export interface Person {
   name: string;
-  fraction: string;
+  faction: string;
   party: string;
   votingAttendance: number;
   votingSuccessRate: number;

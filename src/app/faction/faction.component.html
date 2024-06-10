@@ -1,19 +1,19 @@
 <div>
 
-  <ng-container *ngIf="fraction">
+  <ng-container *ngIf="faction">
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
         <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod]">Startseite</a>
       </li>
       <li class="breadcrumb-item">
-        <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'fractions']">Fraktionen</a>
+        <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'factions']">Fraktionen</a>
       </li>
-      <li class="breadcrumb-item active">{{ fraction.name }}</li>
+      <li class="breadcrumb-item active">{{ faction.name }}</li>
     </ol>
 
     <div class="mb-5">
-      <h1>{{ fraction.name }}</h1>
+      <h1>{{ faction.name }}</h1>
     </div>
 
     <div class="mb-3">
@@ -45,23 +45,23 @@
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
 
       <div class="col">
-        <app-fraction-application-success-rate [fraction]="fraction"></app-fraction-application-success-rate>
+        <app-faction-application-success-rate [faction]="faction"></app-faction-application-success-rate>
       </div>
 
       <div class="col">
-        <app-fraction-votings-success-rate [fraction]="fraction"></app-fraction-votings-success-rate>
+        <app-faction-votings-success-rate [faction]="faction"></app-faction-votings-success-rate>
       </div>
 
       <div class="col">
-        <app-fraction-uniformity-score [fraction]="fraction"></app-fraction-uniformity-score>
+        <app-faction-uniformity-score [faction]="faction"></app-faction-uniformity-score>
       </div>
 
       <div class="col">
-        <app-fraction-participation-rate [fraction]="fraction"></app-fraction-participation-rate>
+        <app-faction-participation-rate [faction]="faction"></app-faction-participation-rate>
       </div>
 
       <div class="col">
-        <app-fraction-abstention-rate [fraction]="fraction"></app-fraction-abstention-rate>
+        <app-faction-abstention-rate [faction]="faction"></app-faction-abstention-rate>
       </div>
 
     </div>
@@ -105,10 +105,10 @@
       <table class="table table-striped table-bordered table-sm">
         <thead>
         <tr>
-          <th sortableFractionApplications="votingDate" (sort)="onSort($event)">Abgestimmt am</th>
-          <th sortableFractionApplications="typeAndId" (sort)="onSort($event)">Antrag</th>
-          <th sortableFractionApplications="title" (sort)="onSort($event)">Titel</th>
-          <th sortableFractionApplications="result" (sort)="onSort($event)" style="text-align: center;">Ergebnis</th>
+          <th sortableFactionApplications="votingDate" (sort)="onSort($event)">Abgestimmt am</th>
+          <th sortableFactionApplications="typeAndId" (sort)="onSort($event)">Antrag</th>
+          <th sortableFactionApplications="title" (sort)="onSort($event)">Titel</th>
+          <th sortableFactionApplications="result" (sort)="onSort($event)" style="text-align: center;">Ergebnis</th>
         </tr>
         </thead>
         <tbody>

@@ -1,19 +1,15 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
 
-export interface Fraction {
-  name: string;
-  seats: number;
-  applicationsSuccessRate: number;
-  votingsSuccessRate: number;
-  uniformityScore: number;
-  participationRate: number;
-  abstentionRate: number;
-  speakingTime: number;
+export interface FactionApplication {
+  votingDate: string;
+  typeAndId: string;
+  title: string;
+  result: string;
 }
 
 
-export type SortFractionsColumn = keyof Fraction | '';
+export type SortFactionApplicationsColumn = keyof FactionApplication | '';
 export type SortDirection = 'asc' | 'desc' | '';
 
 
@@ -29,31 +25,31 @@ export const compare = (
 ) => (v1 < v2 ? -1 : v1 > v2 ? 1 : 0);
 
 
-export interface SortFractionsEvent {
-  column: SortFractionsColumn;
+export interface SortFactionApplicationsEvent {
+  column: SortFactionApplicationsColumn;
   direction: SortDirection;
 }
 
 
 @Directive({
-  selector: 'th[sortableFractions]',
+  selector: 'th[sortableFactionApplications]',
   host: {
     '[class.asc]': 'direction === "asc"',
     '[class.desc]': 'direction === "desc"',
     '(click)': 'rotate()',
   },
 })
-export class SortableFractionsDirective {
+export class SortableFactionApplicationsDirective {
 
 
-  @Input() sortableFractions: SortFractionsColumn = '';
+  @Input() sortableFactionApplications: SortFactionApplicationsColumn = '';
   @Input() direction: SortDirection = '';
-  @Output() sort = new EventEmitter<SortFractionsEvent>();
+  @Output() sort = new EventEmitter<SortFactionApplicationsEvent>();
 
 
   rotate() {
     this.direction = rotate[this.direction];
-    this.sort.emit({ column: this.sortableFractions, direction: this.direction });
+    this.sort.emit({ column: this.sortableFactionApplications, direction: this.direction });
   }
 
 

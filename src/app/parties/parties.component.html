@@ -131,6 +131,14 @@
             <i class="bi bi-info-circle"></i>
           </span>
         </th>
+        <th sortableParties="speakingTime" (sort)="onSort($event)" style="text-align: right;">
+          Redezeit
+          <span
+            tooltip="Gibt an, wieviel Zeit die Mitglieder der Parteien insgesamt in den Ratssitzungen gesprochen haben."
+          >
+            <i class="bi bi-info-circle"></i>
+          </span>
+        </th>
       </thead>
       <tbody>
       <tr *ngFor="let party of sortedParties">

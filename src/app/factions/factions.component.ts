@@ -1,7 +1,7 @@
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { FractionLightDto } from '../model/Fraction';
-import { FractionsService } from '../services/fractions.service';
-import { compare, SortableFractionsDirective, SortFractionsEvent } from './sortable-fractions.directive';
+import { FactionLightDto } from '../model/Faction';
+import { FactionsService } from '../services/factions.service';
+import { compare, SortableFactionsDirective, SortFactionsEvent } from './sortable-factions.directive';
 import {
   VotingsSuccessRateChartData
 } from '../components/votings-success-rate-chart/votings-success-rate-chart.component';
@@ -18,19 +18,19 @@ import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 
 
 @Component({
-  selector: 'app-fractions',
-  templateUrl: './fractions.component.html',
-  styleUrls: ['./fractions.component.scss']
+  selector: 'app-factions',
+  templateUrl: './factions.component.html',
+  styleUrls: ['./factions.component.scss']
 })
-export class FractionsComponent implements OnInit {
+export class FactionsComponent implements OnInit {
 
 
-  private data: FractionLightDto[] = [];
+  private data: FactionLightDto[] = [];
 
   protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
 
   public electionPeriod = environment.currentElectionPeriod;
-  public sortedFractions: FractionLightDto[] = [];
+  public sortedFactions: FactionLightDto[] = [];
   public applicationsSuccessRates: VotingsSuccessRateChartData[] = [];
   public votingsSuccessRates: VotingsSuccessRateChartData[] = [];
   public uniformityScores: UniformityScoreChartData[] = [];
@@ -38,10 +38,10 @@ export class FractionsComponent implements OnInit {
   public abstentionRates: AbstentionRateChartData[] = [];
   public speakingTimes: SpeakingTimeChartData[] = [];
 
-  @ViewChildren(SortableFractionsDirective) headers: QueryList<SortableFractionsDirective> | undefined;
+  @ViewChildren(SortableFactionsDirective) headers: QueryList<SortableFactionsDirective> | undefined;
 
 
-  constructor(private readonly route: ActivatedRoute, private readonly fractionsService: FractionsService) {
+  constructor(private readonly route: ActivatedRoute, private readonly factionsService: FactionsService) {
   }
 
 
@@ -52,36 +52,36 @@ export class FractionsComponent implements OnInit {
       const { electionPeriod } = params as { electionPeriod: number };
 
       this.electionPeriod = electionPeriod;
-      this.sortedFractions = this.data = await this.fractionsService.fetchFractions(electionPeriod);
-      this.sortedFractions.sort((a, b) => b.seats - a.seats);
-      this.applicationsSuccessRates = this.data.map(ApplicationsSuccessRateChartData.fromFraction);
-      this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromFraction);
-      this.uniformityScores = this.data.map(UniformityScoreChartData.fromFraction);
-      this.participationRates = this.data.map(ParticipationRateChartData.fromFraction);
-      this.abstentionRates = this.data.map(AbstentionRateChartData.fromFraction);
-      this.speakingTimes = this.data.map(SpeakingTimeChartData.fromFraction);
+      this.sortedFactions = this.data = await this.factionsService.fetchFactions(electionPeriod);
+      this.sortedFactions.sort((a, b) => b.seats - a.seats);
+      this.applicationsSuccessRates = this.data.map(ApplicationsSuccessRateChartData.fromFaction);
+      this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromFaction);
+      this.uniformityScores = this.data.map(UniformityScoreChartData.fromFaction);
+      this.participationRates = this.data.map(ParticipationRateChartData.fromFaction);
+      this.abstentionRates = this.data.map(AbstentionRateChartData.fromFaction);
+      this.speakingTimes = this.data.map(SpeakingTimeChartData.fromFaction);
 
     });
 
   }
 
 
-  onSort(sortEvent: SortFractionsEvent) {
+  onSort(sortEvent: SortFactionsEvent) {
 
     if (!this.headers) {
       return;
     }
 
     this.headers.forEach((header) => {
-      if (header.sortableFractions !== sortEvent.column) {
+      if (header.sortableFactions !== sortEvent.column) {
         header.direction = '';
       }
     });
 
     if (sortEvent.direction === '' || sortEvent.column === '') {
-      this.sortedFractions = this.data;
+      this.sortedFactions = this.data;
     } else {
-      this.sortedFractions = [...this.data].sort((a, b) => {
+      this.sortedFactions = [...this.data].sort((a, b) => {
         const aValue = sortEvent.column === '' ? '' : a[sortEvent.column];
         const bValue = sortEvent.column === '' ? '' : b[sortEvent.column];
         const res = compare(aValue, bValue);

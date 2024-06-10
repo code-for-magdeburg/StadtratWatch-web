@@ -1,7 +1,7 @@
 import { ApplicationDto } from './Application';
 
 
-export type FractionDetailsDto = {
+export type FactionDetailsDto = {
   id: string;
   name: string;
   seats: number;
@@ -15,7 +15,7 @@ export type FractionDetailsDto = {
 };
 
 
-export type FractionLightDto = {
+export type FactionLightDto = {
   id: string;
   name: string;
   seats: number;

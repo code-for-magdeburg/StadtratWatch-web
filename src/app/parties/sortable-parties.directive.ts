@@ -8,6 +8,7 @@ export interface Party {
   uniformityScore: number;
   participationRate: number;
   abstentionRate: number;
+  speakingTime: number;
 }
 
 

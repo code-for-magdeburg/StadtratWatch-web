@@ -1,10 +1,10 @@
 import {
-  calcFractionVotingSuccessRate,
+  calcFactionVotingSuccessRate,
   calcPartyVotingSuccessRate,
   calcPersonVotingSuccess
 } from '../voting-success-rate';
 import {
-  SessionDetailsDto, SessionFractionDto, SessionPartyDto,
+  SessionDetailsDto, SessionFactionDto, SessionPartyDto,
   SessionPersonDto,
   SessionVotingDto,
   Vote,
@@ -17,111 +17,111 @@ import { RegistryPerson } from '../../../shared/model/registry';
 describe('Calculating voting success rate', () => {
 
 
-  describe('of a fraction', () => {
+  describe('of a faction', () => {
 
     it('should return 0 if there are no votings', () => {
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party = createSessionParty('party-1', 'Party 1');
-      const persons = createSessionPersons(1, fraction.name, party.name);
-      const session = createSession([], [fraction], [party], persons);
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction.id, [session]);
+      const persons = createSessionPersons(1, faction.name, party.name);
+      const session = createSession([], [faction], [party], persons);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(faction.id, [session]);
       expect(votingsSuccessRate).toBe(0);
     });
 
-    it('should be 100% if fraction voted for passed voting', () => {
+    it('should be 100% if faction voted for passed voting', () => {
 
-      const fraction1 = createSessionFraction('fraction-1', 'Fraction 1');
-      const fraction2 = createSessionFraction('fraction-2', 'Fraction 2');
+      const faction1 = createSessionFaction('faction-1', 'Faction 1');
+      const faction2 = createSessionFaction('faction-2', 'Faction 2');
       const party1 = createSessionParty('party-1', 'Party 1');
       const party2 = createSessionParty('party-2', 'Party 2');
 
-      const personsFraction1 = createSessionPersons(2, fraction1.name, party1.name);
-      const personsFraction2 = createSessionPersons(1, fraction2.name, party2.name);
+      const personsFaction1 = createSessionPersons(2, faction1.name, party1.name);
+      const personsFaction2 = createSessionPersons(1, faction2.name, party2.name);
 
-      const passedVoting = createVoting(1, personsFraction1, personsFraction2, [], []);
-      const session = createSession([passedVoting], [fraction1, fraction2], [party1, party2], [...personsFraction1, ...personsFraction2]);
+      const passedVoting = createVoting(1, personsFaction1, personsFaction2, [], []);
+      const session = createSession([passedVoting], [faction1, faction2], [party1, party2], [...personsFaction1, ...personsFaction2]);
 
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction1.id, [session]);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(faction1.id, [session]);
 
       expect(votingsSuccessRate).toBe(1);
 
     });
 
-    it('should be 100% if fraction voted against rejected voting', () => {
+    it('should be 100% if faction voted against rejected voting', () => {
 
-      const fraction1 = createSessionFraction('fraction-1', 'Fraction 1');
-      const fraction2 = createSessionFraction('fraction-2', 'Fraction 2');
+      const faction1 = createSessionFaction('faction-1', 'Faction 1');
+      const faction2 = createSessionFaction('faction-2', 'Faction 2');
       const party1 = createSessionParty('party-1', 'Party 1');
       const party2 = createSessionParty('party-2', 'Party 2');
 
-      const personsFraction1 = createSessionPersons(2, fraction1.name, party1.name);
-      const personsFraction2 = createSessionPersons(1, fraction2.name, party2.name);
+      const personsFaction1 = createSessionPersons(2, faction1.name, party1.name);
+      const personsFaction2 = createSessionPersons(1, faction2.name, party2.name);
 
-      const rejectedVoting = createVoting(1, personsFraction2, personsFraction1, [], []);
-      const session = createSession([rejectedVoting], [fraction1, fraction2], [party1, party2], [...personsFraction1, ...personsFraction2]);
+      const rejectedVoting = createVoting(1, personsFaction2, personsFaction1, [], []);
+      const session = createSession([rejectedVoting], [faction1, faction2], [party1, party2], [...personsFaction1, ...personsFaction2]);
 
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction1.id, [session]);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(faction1.id, [session]);
 
       expect(votingsSuccessRate).toBe(1);
 
     });
 
-    it('should be 0% if fraction voted against passed voting', () => {
+    it('should be 0% if faction voted against passed voting', () => {
 
-      const fraction1 = createSessionFraction('fraction-1', 'Fraction 1');
-      const fraction2 = createSessionFraction('fraction-2', 'Fraction 2');
+      const faction1 = createSessionFaction('faction-1', 'Faction 1');
+      const faction2 = createSessionFaction('faction-2', 'Faction 2');
       const party1 = createSessionParty('party-1', 'Party 1');
       const party2 = createSessionParty('party-2', 'Party 2');
 
-      const personsFraction1 = createSessionPersons(2, fraction1.name, party1.name);
-      const personsFraction2 = createSessionPersons(3, fraction2.name, party2.name);
+      const personsFaction1 = createSessionPersons(2, faction1.name, party1.name);
+      const personsFaction2 = createSessionPersons(3, faction2.name, party2.name);
 
-      const passedVoting = createVoting(1, personsFraction2, personsFraction1, [], []);
-      const session = createSession([passedVoting], [fraction1, fraction2], [party1, party2], [...personsFraction1, ...personsFraction2]);
+      const passedVoting = createVoting(1, personsFaction2, personsFaction1, [], []);
+      const session = createSession([passedVoting], [faction1, faction2], [party1, party2], [...personsFaction1, ...personsFaction2]);
 
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction1.id, [session]);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(faction1.id, [session]);
 
       expect(votingsSuccessRate).toBe(0);
 
     });
 
-    it('should be 0% if fraction voted for rejected voting', () => {
+    it('should be 0% if faction voted for rejected voting', () => {
 
-      const fraction1 = createSessionFraction('fraction-1', 'Fraction 1');
-      const fraction2 = createSessionFraction('fraction-2', 'Fraction 2');
+      const faction1 = createSessionFaction('faction-1', 'Faction 1');
+      const faction2 = createSessionFaction('faction-2', 'Faction 2');
       const party1 = createSessionParty('party-1', 'Party 1');
       const party2 = createSessionParty('party-2', 'Party 2');
 
-      const personsFraction1 = createSessionPersons(2, fraction1.name, party1.name);
-      const personsFraction2 = createSessionPersons(3, fraction2.name, party2.name);
+      const personsFaction1 = createSessionPersons(2, faction1.name, party1.name);
+      const personsFaction2 = createSessionPersons(3, faction2.name, party2.name);
 
-      const rejectedVoting = createVoting(1, personsFraction1, personsFraction2, [], []);
-      const session = createSession([rejectedVoting], [fraction1, fraction2], [party1, party2], [...personsFraction1, ...personsFraction2]);
+      const rejectedVoting = createVoting(1, personsFaction1, personsFaction2, [], []);
+      const session = createSession([rejectedVoting], [faction1, faction2], [party1, party2], [...personsFaction1, ...personsFaction2]);
 
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction1.id, [session]);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(faction1.id, [session]);
 
       expect(votingsSuccessRate).toBe(0);
 
     });
 
-    it('should be 50% if fraction half of votings were successful', () => {
+    it('should be 50% if faction half of votings were successful', () => {
 
-      const fraction1 = createSessionFraction('fraction-1', 'Fraction 1');
-      const fraction2 = createSessionFraction('fraction-2', 'Fraction 2');
-      const fraction3 = createSessionFraction('fraction-3', 'Fraction 3');
+      const faction1 = createSessionFaction('faction-1', 'Faction 1');
+      const faction2 = createSessionFaction('faction-2', 'Faction 2');
+      const faction3 = createSessionFaction('faction-3', 'Faction 3');
       const party1 = createSessionParty('party-1', 'Party 1');
       const party2 = createSessionParty('party-2', 'Party 2');
       const party3 = createSessionParty('party-3', 'Party 3');
 
-      const personsFraction1 = createSessionPersons(1, fraction1.name, party1.name);
-      const personsFraction2 = createSessionPersons(2, fraction2.name, party2.name);
-      const personsFraction3 = createSessionPersons(3, fraction3.name, party3.name);
+      const personsFaction1 = createSessionPersons(1, faction1.name, party1.name);
+      const personsFaction2 = createSessionPersons(2, faction2.name, party2.name);
+      const personsFaction3 = createSessionPersons(3, faction3.name, party3.name);
 
-      const voting1 = createVoting(1, personsFraction2, personsFraction1, personsFraction3, []);
-      const voting2 = createVoting(2, personsFraction2, personsFraction3, personsFraction1, []);
-      const session = createSession([voting1, voting2], [fraction1, fraction2, fraction3], [party1, party2, party3], [...personsFraction1, ...personsFraction2, ...personsFraction3]);
+      const voting1 = createVoting(1, personsFaction2, personsFaction1, personsFaction3, []);
+      const voting2 = createVoting(2, personsFaction2, personsFaction3, personsFaction1, []);
+      const session = createSession([voting1, voting2], [faction1, faction2, faction3], [party1, party2, party3], [...personsFaction1, ...personsFaction2, ...personsFaction3]);
 
-      const votingsSuccessRate = calcFractionVotingSuccessRate(fraction2.id, [session]);
+      const votingsSuccessRate = calcFactionVotingSuccessRate(faction2.id, [session]);
 
       expect(votingsSuccessRate).toBe(.5);
 
@@ -133,25 +133,25 @@ describe('Calculating voting success rate', () => {
   describe('of a party', () => {
 
     it('should return 0 if there are no votings', () => {
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party = createSessionParty('party-1', 'Party 1');
-      const persons = createSessionPersons(1, fraction.name, party.name);
-      const session = createSession([], [fraction], [party], persons);
+      const persons = createSessionPersons(1, faction.name, party.name);
+      const session = createSession([], [faction], [party], persons);
       const votingsSuccessRate = calcPartyVotingSuccessRate(party.id, [session])
       expect(votingsSuccessRate).toBe(0);
     });
 
     it('should be 100% if party voted for passed voting', () => {
 
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party1 = createSessionParty('party-1', 'Party 1');
       const party2 = createSessionParty('party-2', 'Party 2');
 
-      const personsParty1 = createSessionPersons(2, fraction.name, party1.name);
-      const personsParty2 = createSessionPersons(1, fraction.name, party2.name);
+      const personsParty1 = createSessionPersons(2, faction.name, party1.name);
+      const personsParty2 = createSessionPersons(1, faction.name, party2.name);
 
       const passedVoting = createVoting(1, personsParty1, personsParty2, [], []);
-      const session = createSession([passedVoting], [fraction], [party1, party2], [...personsParty1, ...personsParty2]);
+      const session = createSession([passedVoting], [faction], [party1, party2], [...personsParty1, ...personsParty2]);
 
       const votingsSuccessRate = calcPartyVotingSuccessRate(party1.id, [session]);
 
@@ -161,15 +161,15 @@ describe('Calculating voting success rate', () => {
 
     it('should be 100% if party voted against rejected voting', () => {
 
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party1 = createSessionParty('party-1', 'Party 1');
       const party2 = createSessionParty('party-2', 'Party 2');
 
-      const personsParty1 = createSessionPersons(2, fraction.name, party1.name);
-      const personsParty2 = createSessionPersons(1, fraction.name, party2.name);
+      const personsParty1 = createSessionPersons(2, faction.name, party1.name);
+      const personsParty2 = createSessionPersons(1, faction.name, party2.name);
 
       const rejectedVoting = createVoting(1, personsParty2, personsParty1, [], []);
-      const session = createSession([rejectedVoting], [fraction], [party1, party2], [...personsParty1, ...personsParty2]);
+      const session = createSession([rejectedVoting], [faction], [party1, party2], [...personsParty1, ...personsParty2]);
 
       const votingsSuccessRate = calcPartyVotingSuccessRate(party1.id, [session]);
 
@@ -179,15 +179,15 @@ describe('Calculating voting success rate', () => {
 
     it('should be 0% if party voted against passed voting', () => {
 
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party1 = createSessionParty('party-1', 'Party 1');
       const party2 = createSessionParty('party-2', 'Party 2');
 
-      const personsParty1 = createSessionPersons(2, fraction.name, party1.name);
-      const personsParty2 = createSessionPersons(3, fraction.name, party2.name);
+      const personsParty1 = createSessionPersons(2, faction.name, party1.name);
+      const personsParty2 = createSessionPersons(3, faction.name, party2.name);
 
       const passedVoting = createVoting(1, personsParty2, personsParty1, [], []);
-      const session = createSession([passedVoting], [fraction], [party1, party2], [...personsParty1, ...personsParty2]);
+      const session = createSession([passedVoting], [faction], [party1, party2], [...personsParty1, ...personsParty2]);
 
       const votingsSuccessRate = calcPartyVotingSuccessRate(party1.id, [session]);
 
@@ -197,15 +197,15 @@ describe('Calculating voting success rate', () => {
 
     it('should be 0% if party voted for rejected voting', () => {
 
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const minorityParty = createSessionParty('minority', 'Minority');
       const majorityParty = createSessionParty('majority', 'Majority');
 
-      const personsMinorityParty = createSessionPersons(2, fraction.name, minorityParty.name);
-      const personsMajorityParty = createSessionPersons(3, fraction.name, majorityParty.name);
+      const personsMinorityParty = createSessionPersons(2, faction.name, minorityParty.name);
+      const personsMajorityParty = createSessionPersons(3, faction.name, majorityParty.name);
 
       const rejectedVoting = createVoting(1, personsMinorityParty, personsMajorityParty, [], []);
-      const session = createSession([rejectedVoting], [fraction], [minorityParty, majorityParty], [...personsMinorityParty, ...personsMajorityParty]);
+      const session = createSession([rejectedVoting], [faction], [minorityParty, majorityParty], [...personsMinorityParty, ...personsMajorityParty]);
 
       const votingsSuccessRate = calcPartyVotingSuccessRate(minorityParty.id, [session]);
 
@@ -215,18 +215,18 @@ describe('Calculating voting success rate', () => {
 
     it('should be 50% if half of votings were successful', () => {
 
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party1 = createSessionParty('party-1', 'Party 1');
       const party2 = createSessionParty('party-2', 'Party 2');
       const party3 = createSessionParty('party-3', 'Party 3');
 
-      const personsParty1 = createSessionPersons(1, fraction.name, party1.name);
-      const personsParty2 = createSessionPersons(2, fraction.name, party2.name);
-      const personsParty3 = createSessionPersons(3, fraction.name, party3.name);
+      const personsParty1 = createSessionPersons(1, faction.name, party1.name);
+      const personsParty2 = createSessionPersons(2, faction.name, party2.name);
+      const personsParty3 = createSessionPersons(3, faction.name, party3.name);
 
       const voting1 = createVoting(1, personsParty2, personsParty1, personsParty3, []);
       const voting2 = createVoting(2, personsParty2, personsParty3, personsParty1, []);
-      const session = createSession([voting1, voting2], [fraction], [party1, party2, party3], [...personsParty1, ...personsParty2, ...personsParty3]);
+      const session = createSession([voting1, voting2], [faction], [party1, party2, party3], [...personsParty1, ...personsParty2, ...personsParty3]);
 
       const votingsSuccessRate = calcPartyVotingSuccessRate(party2.id, [session]);
 
@@ -240,28 +240,28 @@ describe('Calculating voting success rate', () => {
   describe('of a person', () => {
 
     it('should return null if there are no votings', () => {
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party = createSessionParty('party-1', 'Party 1');
-      const person: RegistryPerson = createPerson('person-1', 'Hans Hansen', fraction, party);
+      const person: RegistryPerson = createPerson('person-1', 'Hans Hansen', faction, party);
       const sessionPerson = createSessionPerson(person);
-      const session = createSession([], [fraction], [party], [sessionPerson]);
+      const session = createSession([], [faction], [party], [sessionPerson]);
       const votingsSuccessRate = calcPersonVotingSuccess([session], person);
       expect(votingsSuccessRate).toEqual({ successCount: 0, successRate: 0 });
     });
 
     it('should be 100% if person voted for passed voting', () => {
 
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party = createSessionParty('party-1', 'Party 1');
 
-      const person1: RegistryPerson = createPerson('person-1', 'Hans Hansen', fraction, party);
-      const person2: RegistryPerson = createPerson('person-2', 'Jens Jensen', fraction, party);
+      const person1: RegistryPerson = createPerson('person-1', 'Hans Hansen', faction, party);
+      const person2: RegistryPerson = createPerson('person-2', 'Jens Jensen', faction, party);
 
       const sessionPerson1 = createSessionPerson(person1);
       const sessionPerson2 = createSessionPerson(person2);
 
       const passedVoting = createVoting(1, [sessionPerson1, sessionPerson2], [], [], []);
-      const session = createSession([passedVoting], [fraction], [party], [sessionPerson1, sessionPerson2]);
+      const session = createSession([passedVoting], [faction], [party], [sessionPerson1, sessionPerson2]);
 
       const votingsSuccessRate = calcPersonVotingSuccess([session], person1);
 
@@ -271,17 +271,17 @@ describe('Calculating voting success rate', () => {
 
     it('should be 100% if person voted against rejected voting', () => {
 
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party = createSessionParty('party-1', 'Party 1');
 
-      const person1: RegistryPerson = createPerson('person-1', 'Hans Hansen', fraction, party);
-      const person2: RegistryPerson = createPerson('person-2', 'Jens Jensen', fraction, party);
+      const person1: RegistryPerson = createPerson('person-1', 'Hans Hansen', faction, party);
+      const person2: RegistryPerson = createPerson('person-2', 'Jens Jensen', faction, party);
 
       const sessionPerson1 = createSessionPerson(person1);
       const sessionPerson2 = createSessionPerson(person2);
 
       const rejectedVoting = createVoting(1, [], [sessionPerson1, sessionPerson2], [], []);
-      const session = createSession([rejectedVoting], [fraction], [party], [sessionPerson1, sessionPerson2]);
+      const session = createSession([rejectedVoting], [faction], [party], [sessionPerson1, sessionPerson2]);
 
       const votingsSuccessRate = calcPersonVotingSuccess([session], person1);
 
@@ -291,19 +291,19 @@ describe('Calculating voting success rate', () => {
 
     it('should be 0% if person voted against passed voting', () => {
 
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party = createSessionParty('party-1', 'Party 1');
 
-      const person1: RegistryPerson = createPerson('person-1', 'Hans Hansen', fraction, party);
-      const person2: RegistryPerson = createPerson('person-2', 'Jens Jensen', fraction, party);
-      const person3: RegistryPerson = createPerson('person-3', 'Britt Schmidt', fraction, party);
+      const person1: RegistryPerson = createPerson('person-1', 'Hans Hansen', faction, party);
+      const person2: RegistryPerson = createPerson('person-2', 'Jens Jensen', faction, party);
+      const person3: RegistryPerson = createPerson('person-3', 'Britt Schmidt', faction, party);
 
       const sessionPerson1 = createSessionPerson(person1);
       const sessionPerson2 = createSessionPerson(person2);
       const sessionPerson3 = createSessionPerson(person3);
 
       const passedVoting = createVoting(1, [sessionPerson2, sessionPerson3], [sessionPerson1], [], []);
-      const session = createSession([passedVoting], [fraction], [party], [sessionPerson1, sessionPerson2, sessionPerson3]);
+      const session = createSession([passedVoting], [faction], [party], [sessionPerson1, sessionPerson2, sessionPerson3]);
 
       const votingsSuccessRate = calcPersonVotingSuccess([session], person1);
 
@@ -313,19 +313,19 @@ describe('Calculating voting success rate', () => {
 
     it('should be 0% if person voted for rejected voting', () => {
 
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party = createSessionParty('party-1', 'Party 1');
 
-      const person1: RegistryPerson = createPerson('person-1', 'Hans Hansen', fraction, party);
-      const person2: RegistryPerson = createPerson('person-2', 'Jens Jensen', fraction, party);
-      const person3: RegistryPerson = createPerson('person-3', 'Britt Schmidt', fraction, party);
+      const person1: RegistryPerson = createPerson('person-1', 'Hans Hansen', faction, party);
+      const person2: RegistryPerson = createPerson('person-2', 'Jens Jensen', faction, party);
+      const person3: RegistryPerson = createPerson('person-3', 'Britt Schmidt', faction, party);
 
       const sessionPerson1 = createSessionPerson(person1);
       const sessionPerson2 = createSessionPerson(person2);
       const sessionPerson3 = createSessionPerson(person3);
 
       const rejectedVoting = createVoting(1, [sessionPerson1], [sessionPerson2, sessionPerson3], [], []);
-      const session = createSession([rejectedVoting], [fraction], [party], [sessionPerson1, sessionPerson2, sessionPerson3]);
+      const session = createSession([rejectedVoting], [faction], [party], [sessionPerson1, sessionPerson2, sessionPerson3]);
 
       const votingsSuccessRate = calcPersonVotingSuccess([session], person1);
 
@@ -335,12 +335,12 @@ describe('Calculating voting success rate', () => {
 
     it('should be 50% if half of votings were successful', () => {
 
-      const fraction = createSessionFraction('fraction-1', 'Fraction 1');
+      const faction = createSessionFaction('faction-1', 'Faction 1');
       const party = createSessionParty('party-1', 'Party 1');
 
-      const person1: RegistryPerson = createPerson('person-1', 'Hans Hansen', fraction, party);
-      const person2: RegistryPerson = createPerson('person-2', 'Jens Jensen', fraction, party);
-      const person3: RegistryPerson = createPerson('person-3', 'Britt Schmidt', fraction, party);
+      const person1: RegistryPerson = createPerson('person-1', 'Hans Hansen', faction, party);
+      const person2: RegistryPerson = createPerson('person-2', 'Jens Jensen', faction, party);
+      const person3: RegistryPerson = createPerson('person-3', 'Britt Schmidt', faction, party);
 
       const sessionPerson1 = createSessionPerson(person1);
       const sessionPerson2 = createSessionPerson(person2);
@@ -348,7 +348,7 @@ describe('Calculating voting success rate', () => {
 
       const voting1 = createVoting(1, [sessionPerson1], [sessionPerson2, sessionPerson3], [], []);
       const voting2 = createVoting(2, [sessionPerson1, sessionPerson2], [sessionPerson3], [], []);
-      const session = createSession([voting1, voting2], [fraction], [party], [sessionPerson1, sessionPerson2, sessionPerson3]);
+      const session = createSession([voting1, voting2], [faction], [party], [sessionPerson1, sessionPerson2, sessionPerson3]);
 
       const votingsSuccessRate = calcPersonVotingSuccess([session], person1);
 
@@ -362,8 +362,8 @@ describe('Calculating voting success rate', () => {
 });
 
 
-function createSessionFraction(id: string, fractionName: string): SessionFractionDto {
-  return { id, name: fractionName };
+function createSessionFaction(id: string, factionName: string): SessionFactionDto {
+  return { id, name: factionName };
 }
 
 
@@ -372,17 +372,17 @@ function createSessionParty(id: string, partyName: string): SessionPartyDto {
 }
 
 
-function createPerson(id: string, name: string, fraction: SessionFractionDto, party: SessionPartyDto): RegistryPerson {
-  return { id, name, fractionId: fraction.id, partyId: party.id, start: null, end: null };
+function createPerson(id: string, name: string, faction: SessionFactionDto, party: SessionPartyDto): RegistryPerson {
+  return { id, name, factionId: faction.id, partyId: party.id, start: null, end: null };
 }
 
 
-function createSessionPersons(count: number, fraction: string, party: string): SessionPersonDto[] {
+function createSessionPersons(count: number, faction: string, party: string): SessionPersonDto[] {
   return Array.from(
     { length: count },
     (_, index) => createSessionPerson(
-      `${fraction}-${party}-${index}`,
-      fraction,
+      `${faction}-${party}-${index}`,
+      faction,
       party
     )
   );
@@ -390,16 +390,16 @@ function createSessionPersons(count: number, fraction: string, party: string): S
 
 
 function createSessionPerson(person: RegistryPerson): SessionPersonDto;
-function createSessionPerson(id: string, fraction: string, party: string): SessionPersonDto;
-function createSessionPerson(personOrId: RegistryPerson | string, fraction?: string, party?: string): SessionPersonDto {
+function createSessionPerson(id: string, faction: string, party: string): SessionPersonDto;
+function createSessionPerson(personOrId: RegistryPerson | string, faction?: string, party?: string): SessionPersonDto {
 
-  if (typeof personOrId === 'string' && fraction && party) {
-    return { id: personOrId, name: `Person ${personOrId}`, party, fraction };
+  if (typeof personOrId === 'string' && faction && party) {
+    return { id: personOrId, name: `Person ${personOrId}`, party, faction };
   }
 
   const person = personOrId as RegistryPerson;
 
-  return { id: person.id, name: person.name, party: person.partyId, fraction: person.fractionId };
+  return { id: person.id, name: person.name, party: person.partyId, faction: person.factionId };
 
 }
 
@@ -441,17 +441,17 @@ function createVoting(votingId: number, votingFor: SessionPersonDto[], votingAga
 }
 
 
-function createSession(votings: SessionVotingDto[], fractions: SessionFractionDto[], parties: SessionPartyDto[],
+function createSession(votings: SessionVotingDto[], factions: SessionFactionDto[], parties: SessionPartyDto[],
                        persons: SessionPersonDto[]): SessionDetailsDto {
   return {
     id: 'id',
     date: 'date',
     meetingMinutesUrl: 'meetingMinutesUrl',
     youtubeUrl: 'youtubeUrl',
-    fractions,
+    factions,
     parties,
     persons,
     votings,
-    speakingTimes: []
+    speeches: []
   };
 }

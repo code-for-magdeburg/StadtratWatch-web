@@ -23,8 +23,8 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
   const personsLight = registry.persons
     .map<PersonLightDto>(person => {
 
-      const fraction = registry.fractions.find(
-        fraction => fraction.id === person.fractionId
+      const faction = registry.factions.find(
+        faction => faction.id === person.factionId
       );
       const party = registry.parties.find(party => party.id === person.partyId);
       const votingAttendance = calcVotingAttendance(sessions, person);
@@ -34,8 +34,8 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
       return {
         id: person.id,
         name: person.name,
-        fractionId: fraction?.id || '',
-        fraction: fraction?.name || '',
+        factionId: faction?.id || '',
+        faction: faction?.name || '',
         partyId: party?.id || '',
         party: party?.name || '',
         councilorUntil: person.end,
@@ -61,7 +61,7 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
     const relevantSessions = sessions.filter(
       session => session.persons.some(sessionPerson => sessionPerson.id === person.id)
     );
-    const fraction = registry.fractions.find(fraction => fraction.id === person.fractionId);
+    const faction = registry.factions.find(faction => faction.id === person.factionId);
     const party = registry.parties.find(party => party.id === person.partyId);
     const votes = relevantSessions.flatMap<PersonVoteDto>(
       session => session.votings.map(voting => ({
@@ -90,8 +90,8 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
     return {
       id: person.id,
       name: person.name,
-      fractionId: person.fractionId,
-      fraction: fraction?.name || '',
+      factionId: person.factionId,
+      faction: faction?.name || '',
       partyId: person.partyId,
       party: party?.name || '',
       councilorUntil: person.end,
@@ -123,7 +123,7 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
   const links = [];
   for (let i = 0; i < personsForForceData.length; i++) {
     const person1 = personsForForceData[i];
-    nodes.push({ id: person1.id, name: person1.name, fraction: person1.fraction })
+    nodes.push({ id: person1.id, name: person1.name, faction: person1.faction })
     for (let j = i + 1; j < personsForForceData.length; j++) {
       const person2 = personsForForceData[j];
       const score = person1.votingMatrix
@@ -157,7 +157,7 @@ function calcVotingMatrix(registry: Registry, votings: SessionVotingDto[],
   return otherPersons.map<PersonVotingComparison>(otherPerson => ({
     personId: otherPerson.id,
     personName: otherPerson.name,
-    fraction: registry.fractions.find(fraction => fraction.id === otherPerson.fractionId)?.name || '',
+    faction: registry.factions.find(faction => faction.id === otherPerson.factionId)?.name || '',
     party: registry.parties.find(party => party.id === otherPerson.partyId)?.name || '',
     comparisonScore: calcVotingComparisonScore(votings, person, otherPerson)
   }));
