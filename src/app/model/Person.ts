@@ -4,8 +4,8 @@ import { VoteResult } from './Session';
 export type PersonDetailsDto = {
   id: string;
   name: string;
-  fractionId: string;
-  fraction: string;
+  factionId: string;
+  faction: string;
   partyId: string;
   party: string;
   councilorUntil: string | null;
