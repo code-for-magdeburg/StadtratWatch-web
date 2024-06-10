@@ -123,7 +123,7 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
   const links = [];
   for (let i = 0; i < personsForForceData.length; i++) {
     const person1 = personsForForceData[i];
-    nodes.push({ id: person1.id, name: person1.name, fraction: person1.faction })
+    nodes.push({ id: person1.id, name: person1.name, faction: person1.faction })
     for (let j = i + 1; j < personsForForceData.length; j++) {
       const person2 = personsForForceData[j];
       const score = person1.votingMatrix

@@ -42,7 +42,7 @@ type GraphData = {
 interface Node extends SimulationNodeDatum {
   id: string;
   name: string;
-  fraction: string;
+  faction: string;
 }
 
 interface Link extends SimulationLinkDatum<Node> {
@@ -179,7 +179,7 @@ export class PersonsComponent implements OnInit {
       .data(nodes)
       .join('circle')
       .attr('r', 5)
-      .attr('fill', d => FILL_COLOR_MAP.get(d.fraction)!);
+      .attr('fill', d => FILL_COLOR_MAP.get(d.faction)!);
 
     circleEnter.call(
       drag<any, any>()
@@ -227,7 +227,7 @@ export class PersonsComponent implements OnInit {
 </span>
 <br>
 <span class="text-secondary fw-normal">
-    ${node.fraction}
+    ${node.faction}
 </span>`)
         .style('left', `${event.pageX - tooltip.node()!.offsetWidth - 5}px`)
         .style('top', `${event.pageY - tooltip.node()!.offsetHeight}px`);
