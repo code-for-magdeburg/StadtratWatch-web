@@ -157,7 +157,7 @@ function calcVotingMatrix(registry: Registry, votings: SessionVotingDto[],
   return otherPersons.map<PersonVotingComparison>(otherPerson => ({
     personId: otherPerson.id,
     personName: otherPerson.name,
-    fraction: registry.factions.find(faction => faction.id === otherPerson.fractionId)?.name || '',
+    faction: registry.factions.find(faction => faction.id === otherPerson.fractionId)?.name || '',
     party: registry.parties.find(party => party.id === otherPerson.partyId)?.name || '',
     comparisonScore: calcVotingComparisonScore(votings, person, otherPerson)
   }));

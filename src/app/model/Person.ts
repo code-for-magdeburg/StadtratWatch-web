@@ -31,7 +31,7 @@ export type PersonVoteDto = {
 export type PersonVotingComparison = {
   personId: string;
   personName: string;
-  fraction: string;
+  faction: string;
   party: string;
   comparisonScore: number;
 };
