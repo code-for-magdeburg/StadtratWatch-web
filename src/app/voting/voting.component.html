@@ -96,17 +96,17 @@
     <div class="col-lg-9">
 
       <div class="row gy-3">
-        <div *ngFor="let fraction of factions" class="col-lg-3 col-md-4 col-sm-6 col-12">
+        <div *ngFor="let faction of factions" class="col-lg-3 col-md-4 col-sm-6 col-12">
 
           <div class="list-group">
             <a
-              [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'faction', fraction.factionId]"
+              [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'faction', faction.factionId]"
               class="list-group-item list-group-item-info fw-bold"
             >
-              {{ fraction.name }}
+              {{ faction.name }}
             </a>
             <a
-              *ngFor="let member of fraction.members"
+              *ngFor="let member of faction.members"
               [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'person', member.personId]"
               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
             >
