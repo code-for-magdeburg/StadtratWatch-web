@@ -35,7 +35,7 @@ export function calcFactionVotingSuccessRate(factionId: string, sessions: Sessio
 
 function calcFactionVotingSuccessForSession(factionId: string, session: SessionDetailsDto): VotingsSuccessForSession {
 
-  const faction = session.fractions.find(
+  const faction = session.factions.find(
     faction => faction.id === factionId
   );
   if (!faction) {

@@ -103,7 +103,7 @@ export class VotingComponent implements OnInit {
       }
 
       const votes = new Map(votingDto.votes.map(vote => [vote.personId, vote.vote]));
-      this.factions = session.fractions.map(faction => ({
+      this.factions = session.factions.map(faction => ({
         factionId: faction.id,
         name: faction.name,
         members: session.persons

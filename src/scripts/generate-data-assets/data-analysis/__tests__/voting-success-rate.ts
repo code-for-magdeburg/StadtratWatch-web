@@ -441,17 +441,17 @@ function createVoting(votingId: number, votingFor: SessionPersonDto[], votingAga
 }
 
 
-function createSession(votings: SessionVotingDto[], fractions: SessionFactionDto[], parties: SessionPartyDto[],
+function createSession(votings: SessionVotingDto[], factions: SessionFactionDto[], parties: SessionPartyDto[],
                        persons: SessionPersonDto[]): SessionDetailsDto {
   return {
     id: 'id',
     date: 'date',
     meetingMinutesUrl: 'meetingMinutesUrl',
     youtubeUrl: 'youtubeUrl',
-    fractions,
+    factions,
     parties,
     persons,
     votings,
-    speakingTimes: []
+    speeches: []
   };
 }

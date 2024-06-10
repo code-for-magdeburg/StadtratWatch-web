@@ -66,7 +66,7 @@ export type SessionDetailsDto = {
   date: string;
   meetingMinutesUrl: string;
   youtubeUrl: string;
-  fractions: SessionFactionDto[];
+  factions: SessionFactionDto[];
   parties: SessionPartyDto[];
   persons: SessionPersonDto[];
   votings: SessionVotingDto[];

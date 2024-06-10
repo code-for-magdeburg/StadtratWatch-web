@@ -67,7 +67,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
         date: session.date,
         meetingMinutesUrl: session.meetingMinutesUrl,
         youtubeUrl: sessionConfig.youtubeUrl,
-        fractions: sessionFactionNames.map<SessionFactionDto>(sessionFactionName => ({
+        factions: sessionFactionNames.map<SessionFactionDto>(sessionFactionName => ({
           id: factionsByNameMap.get(sessionFactionName) || '',
           name: sessionFactionName
         })),
