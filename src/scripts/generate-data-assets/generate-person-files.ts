@@ -34,8 +34,8 @@ export function generatePersonFiles(personsOutputDir: string, registry: Registry
       return {
         id: person.id,
         name: person.name,
-        fractionId: faction?.id || '',
-        fraction: faction?.name || '',
+        factionId: faction?.id || '',
+        faction: faction?.name || '',
         partyId: party?.id || '',
         party: party?.name || '',
         councilorUntil: person.end,

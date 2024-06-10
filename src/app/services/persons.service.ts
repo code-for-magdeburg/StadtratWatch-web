@@ -33,7 +33,7 @@ export class PersonsService {
   public async fetchPersonsByFaction(electionPeriod: number, factionId: string): Promise<PersonLightDto[]> {
 
     const allPersons = await this.fetchPersons(electionPeriod);
-    return allPersons.filter(person => person.fractionId === factionId);
+    return allPersons.filter(person => person.factionId === factionId);
 
   }
 

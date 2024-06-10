@@ -19,7 +19,7 @@
           <thead>
           <tr>
             <th sortablePersons="name" (sort)="onSort($event)">Name</th>
-            <th sortablePersons="fraction" (sort)="onSort($event)">Fraktion</th>
+            <th sortablePersons="faction" (sort)="onSort($event)">Fraktion</th>
             <th sortablePersons="party" (sort)="onSort($event)">Partei</th>
             <th sortablePersons="votingAttendance" (sort)="onSort($event)" style="text-align: right;">
               abgestimmt
@@ -46,7 +46,7 @@
           Ratsmitglied bis {{ person.councilorUntil | date }}
         </span>
             </td>
-            <td>{{ person.fraction }}</td>
+            <td>{{ person.faction }}</td>
             <td>{{ person.party }}</td>
             <td style="text-align: right;">{{ person.votingAttendance * 100 | number : '1.2-2'}}%</td>
             <td style="text-align: right;">{{ person.votingSuccessRate * 100 | number : '1.2-2'}}%</td>
