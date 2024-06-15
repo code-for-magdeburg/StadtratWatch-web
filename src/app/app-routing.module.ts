@@ -9,27 +9,27 @@ import { FactionsComponent } from './factions/factions.component';
 import { FactionComponent } from './faction/faction.component';
 import { PartiesComponent } from './parties/parties.component';
 import { PartyComponent } from './party/party.component';
-import { ElectionPeriodComponent } from './election-period/election-period.component';
+import { ElectoralPeriodComponent } from './electoral-period/electoral-period.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 
 
-export const ELECTION_PERIOD_PATH = 'ep';
+export const ELECTORAL_PERIOD_PATH = 'ep';
 
 
 const routes: Routes = [
-  { path: '', component: ElectionPeriodComponent },
-  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod`, component: ElectionPeriodComponent },
-  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/sessions`, component: SessionsComponent },
-  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/session/:id`, component: SessionComponent },
-  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/session/:session-id/voting/:voting-id`, component: VotingComponent },
-  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/factions`, component: FactionsComponent },
-  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/faction/:id`, component: FactionComponent },
-  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/parties`, component: PartiesComponent },
-  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/party/:id`, component: PartyComponent },
-  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/persons`, component: PersonsComponent },
-  { path: `${ELECTION_PERIOD_PATH}/:electionPeriod/person/:id`, component: PersonComponent },
+  { path: '', component: ElectoralPeriodComponent },
+  { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod`, component: ElectoralPeriodComponent },
+  { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/sessions`, component: SessionsComponent },
+  { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/session/:id`, component: SessionComponent },
+  { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/session/:session-id/voting/:voting-id`, component: VotingComponent },
+  { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/factions`, component: FactionsComponent },
+  { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/faction/:id`, component: FactionComponent },
+  { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/parties`, component: PartiesComponent },
+  { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/party/:id`, component: PartyComponent },
+  { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/persons`, component: PersonsComponent },
+  { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/person/:id`, component: PersonComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'impressum', component: ImpressumComponent },
   { path: 'privacy', component: PrivacyComponent },

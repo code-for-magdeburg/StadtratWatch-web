@@ -12,44 +12,44 @@ export class PersonsService {
   }
 
 
-  public async fetchPersons(electionPeriod: number): Promise<PersonLightDto[]> {
+  public async fetchPersons(electoralPeriod: number): Promise<PersonLightDto[]> {
 
     return firstValueFrom(
-      this.http.get<PersonLightDto[]>(`/assets/election-period-${electionPeriod}/persons/all-persons.json`)
+      this.http.get<PersonLightDto[]>(`/assets/electoral-period-${electoralPeriod}/persons/all-persons.json`)
     );
 
   }
 
 
-  public async fetchPerson(electionPeriod: number, id: string): Promise<PersonDetailsDto> {
+  public async fetchPerson(electoralPeriod: number, id: string): Promise<PersonDetailsDto> {
 
     return firstValueFrom(
-      this.http.get<PersonDetailsDto>(`/assets/election-period-${electionPeriod}/persons/${id}.json`)
+      this.http.get<PersonDetailsDto>(`/assets/electoral-period-${electoralPeriod}/persons/${id}.json`)
     );
 
   }
 
 
-  public async fetchPersonsByFaction(electionPeriod: number, factionId: string): Promise<PersonLightDto[]> {
+  public async fetchPersonsByFaction(electoralPeriod: number, factionId: string): Promise<PersonLightDto[]> {
 
-    const allPersons = await this.fetchPersons(electionPeriod);
+    const allPersons = await this.fetchPersons(electoralPeriod);
     return allPersons.filter(person => person.factionId === factionId);
 
   }
 
 
-  public async fetchPersonsByParty(electionPeriod: number, partyId: string): Promise<PersonLightDto[]> {
+  public async fetchPersonsByParty(electoralPeriod: number, partyId: string): Promise<PersonLightDto[]> {
 
-    const allPersons = await this.fetchPersons(electionPeriod);
+    const allPersons = await this.fetchPersons(electoralPeriod);
     return allPersons.filter(person => person.partyId === partyId);
 
   }
 
 
-  public async fetchAllPersonsForces(electionPeriod: number): Promise<any> {
+  public async fetchAllPersonsForces(electoralPeriod: number): Promise<any> {
 
     return firstValueFrom(
-      this.http.get<any>(`/assets/election-period-${electionPeriod}/persons/all-persons-forces.json`)
+      this.http.get<any>(`/assets/electoral-period-${electoralPeriod}/persons/all-persons-forces.json`)
     );
 
   }

@@ -17,7 +17,7 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
-import { ELECTION_PERIOD_PATH } from '../app-routing.module';
+import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 
 
 const VALUE_THRESHOLD = .65;
@@ -60,9 +60,9 @@ export class PersonsComponent implements OnInit {
 
   private data: PersonLightDto[] = [];
 
-  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
+  protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
-  public electionPeriod = environment.currentElectionPeriod;
+  public electoralPeriod = environment.currentElectoralPeriod;
   public isBrowser = false;
   public sortedPersons: PersonLightDto[] = [];
 
@@ -81,13 +81,13 @@ export class PersonsComponent implements OnInit {
 
     this.route.params.subscribe(async params => {
 
-      const { electionPeriod } = params as { electionPeriod: number };
+      const { electoralPeriod } = params as { electoralPeriod: number };
 
-      this.electionPeriod = electionPeriod;
-      this.sortedPersons = this.data = await this.personsService.fetchPersons(electionPeriod);
+      this.electoralPeriod = electoralPeriod;
+      this.sortedPersons = this.data = await this.personsService.fetchPersons(electoralPeriod);
       this.sortedPersons.sort((a, b) => a.name.localeCompare(b.name));
 
-      const data = await this.personsService.fetchAllPersonsForces(electionPeriod);
+      const data = await this.personsService.fetchAllPersonsForces(electoralPeriod);
 
       this.tabs ? this.tabs.tabs[1].active = true : null;
 

@@ -4,10 +4,10 @@
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod]">Startseite</a>
+        <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod]">Startseite</a>
       </li>
       <li class="breadcrumb-item">
-        <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'factions']">Fraktionen</a>
+        <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'factions']">Fraktionen</a>
       </li>
       <li class="breadcrumb-item active">{{ faction.name }}</li>
     </ol>
@@ -22,7 +22,7 @@
 
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
       <div *ngFor="let councilor of councilors" class="col">
-        <app-councilor-card [electionPeriod]="electionPeriod" [councilor]="councilor"></app-councilor-card>
+        <app-councilor-card [electoralPeriod]="electoralPeriod" [councilor]="councilor"></app-councilor-card>
       </div>
     </div>
 
@@ -34,7 +34,7 @@
 
       <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
         <div *ngFor="let councilor of formerCouncilors" class="col">
-          <app-councilor-card [electionPeriod]="electionPeriod" [councilor]="councilor"></app-councilor-card>
+          <app-councilor-card [electoralPeriod]="electoralPeriod" [councilor]="councilor"></app-councilor-card>
         </div>
       </div>
 
@@ -122,7 +122,7 @@
             <span *ngIf="!application.applicationUrl">{{ application.applicationId }}</span>
           </td>
           <td>
-            <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'session', application.sessionId, 'voting', application.votingId]">
+            <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'session', application.sessionId, 'voting', application.votingId]">
               {{ application.title }}
             </a>
           </td>

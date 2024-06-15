@@ -3,7 +3,7 @@ import { SessionsService } from '../services/sessions.service';
 import { SessionLightDto } from '../model/Session';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
-import { ELECTION_PERIOD_PATH } from '../app-routing.module';
+import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 
 
 @Component({
@@ -14,9 +14,9 @@ import { ELECTION_PERIOD_PATH } from '../app-routing.module';
 export class SessionsComponent implements OnInit {
 
 
-  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
+  protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
-  public electionPeriod = environment.currentElectionPeriod;
+  public electoralPeriod = environment.currentElectoralPeriod;
   public sessions: SessionLightDto[] = [];
 
 
@@ -27,9 +27,9 @@ export class SessionsComponent implements OnInit {
   async ngOnInit() {
 
     this.route.params.subscribe(async params => {
-      const { electionPeriod } = params as { electionPeriod: number };
-      this.electionPeriod = electionPeriod;
-      this.sessions = await this.sessionsService.fetchSessions(electionPeriod);
+      const { electoralPeriod } = params as { electoralPeriod: number };
+      this.electoralPeriod = electoralPeriod;
+      this.sessions = await this.sessionsService.fetchSessions(electoralPeriod);
       this.sessions.sort((a, b) => b.date.localeCompare(a.date));
     });
 

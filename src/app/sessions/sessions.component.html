@@ -2,7 +2,7 @@
 
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod]">Startseite</a>
+      <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod]">Startseite</a>
     </li>
     <li class="breadcrumb-item active">Sitzungen</li>
   </ol>
@@ -16,7 +16,7 @@
       <div class="card text-center" style="cursor: pointer;">
         <div class="card-header d-flex justify-content-between">
           <a
-            [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'session', session.id]"
+            [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'session', session.id]"
             class="stretched-link text-decoration-none text-body"
           >
             {{ session.date | date : 'dd. MMMM yyyy' }}

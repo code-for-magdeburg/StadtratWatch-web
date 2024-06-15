@@ -10,15 +10,15 @@ if (!dataDir || !outputDir) {
 }
 
 
-const electionPeriodDirs = fs.readdirSync(dataDir).filter(f => fs.lstatSync(`${dataDir}/${f}`).isDirectory());
+const electoralPeriodDirs = fs.readdirSync(dataDir).filter(f => fs.lstatSync(`${dataDir}/${f}`).isDirectory());
 
 const routes: string[] = [];
 
-routes.push('/'); // because of redirect to current election period
+routes.push('/'); // because of redirect to current electoral period
 
-for (const electionPeriodDir of electionPeriodDirs) {
+for (const electoralPeriodDir of electoralPeriodDirs) {
 
-  const registryFilename = `${dataDir}/${electionPeriodDir}/registry.json`;
+  const registryFilename = `${dataDir}/${electoralPeriodDir}/registry.json`;
   if (!fs.existsSync(registryFilename) || !fs.lstatSync(registryFilename).isFile()) {
     console.error(`Registry file "${registryFilename}" does not exist.`);
     process.exit(1);
@@ -26,21 +26,21 @@ for (const electionPeriodDir of electionPeriodDirs) {
 
   const registry = JSON.parse(fs.readFileSync(registryFilename, 'utf-8')) as Registry;
 
-  routes.push(`/ep/${registry.electionPeriod}`);
-  routes.push(`/ep/${registry.electionPeriod}/parties`);
-  routes.push(...registry.parties.map(party => `/ep/${registry.electionPeriod}/party/${party.id}`));
-  routes.push(`/ep/${registry.electionPeriod}/factions`);
-  routes.push(...registry.factions.map(faction => `/ep/${registry.electionPeriod}/faction/${faction.id}`));
-  routes.push(`/ep/${registry.electionPeriod}/persons`);
-  routes.push(...registry.persons.map(person => `/ep/${registry.electionPeriod}/person/${person.id}`));
+  routes.push(`/ep/${registry.electoralPeriod}`);
+  routes.push(`/ep/${registry.electoralPeriod}/parties`);
+  routes.push(...registry.parties.map(party => `/ep/${registry.electoralPeriod}/party/${party.id}`));
+  routes.push(`/ep/${registry.electoralPeriod}/factions`);
+  routes.push(...registry.factions.map(faction => `/ep/${registry.electoralPeriod}/faction/${faction.id}`));
+  routes.push(`/ep/${registry.electoralPeriod}/persons`);
+  routes.push(...registry.persons.map(person => `/ep/${registry.electoralPeriod}/person/${person.id}`));
 
-  routes.push(`/ep/${registry.electionPeriod}/sessions`);
-  routes.push(...registry.sessions.map(session => `/ep/${registry.electionPeriod}/session/${session.id}`));
+  routes.push(`/ep/${registry.electoralPeriod}/sessions`);
+  routes.push(...registry.sessions.map(session => `/ep/${registry.electoralPeriod}/session/${session.id}`));
   for (const session of registry.sessions) {
-    const sessionScanFilename = `${dataDir}/${electionPeriodDir}/${session.id}/session-scan-${session.id}.json`;
+    const sessionScanFilename = `${dataDir}/${electoralPeriodDir}/${session.id}/session-scan-${session.id}.json`;
     const sessionScan = JSON.parse(fs.readFileSync(sessionScanFilename, 'utf-8')) as any[];
     const votingIds = sessionScan.map((_, index: number) => index + 1);
-    routes.push(...votingIds.map(votingId => `/ep/${registry.electionPeriod}/session/${session.id}/voting/${votingId}`));
+    routes.push(...votingIds.map(votingId => `/ep/${registry.electoralPeriod}/session/${session.id}/voting/${votingId}`));
   }
 
 }

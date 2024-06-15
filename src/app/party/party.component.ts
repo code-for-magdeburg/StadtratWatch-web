@@ -6,7 +6,7 @@ import { PersonsService } from '../services/persons.service';
 import { Councilor, CouncilorCardComponent } from '../components/councilor-card/councilor-card.component';
 import { PartyStatsHistoryDto } from '../model/Party';
 import { MetaTagsService } from '../services/meta-tags.service';
-import { ELECTION_PERIOD_PATH } from '../app-routing.module';
+import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 
 
 export type Party = {
@@ -27,9 +27,9 @@ export type Party = {
 export class PartyComponent implements OnInit {
 
 
-  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
+  protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
-  public electionPeriod = 0;
+  public electoralPeriod = 0;
   public party: Party | null = null;
   public councilors: Councilor[] = [];
   public formerCouncilors: Councilor[] = [];
@@ -44,9 +44,9 @@ export class PartyComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
 
-      this.electionPeriod = +(params.get('electionPeriod') || 0);
-      if (!this.electionPeriod) {
-        // TODO: Handle missing election period
+      this.electoralPeriod = +(params.get('electoralPeriod') || 0);
+      if (!this.electoralPeriod) {
+        // TODO: Handle missing electoral period
         return;
       }
 
@@ -57,8 +57,8 @@ export class PartyComponent implements OnInit {
       }
 
       forkJoin([
-        this.partiesService.fetchParty(this.electionPeriod, partyId),
-        this.personsService.fetchPersonsByParty(this.electionPeriod, partyId)
+        this.partiesService.fetchParty(this.electoralPeriod, partyId),
+        this.personsService.fetchPersonsByParty(this.electoralPeriod, partyId)
       ])
         .subscribe(([party, persons]) => {
 

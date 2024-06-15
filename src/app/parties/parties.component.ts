@@ -11,7 +11,7 @@ import { AbstentionRateChartData } from '../components/abstention-rate-chart/abs
 import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
-import { ELECTION_PERIOD_PATH } from '../app-routing.module';
+import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 
 
 @Component({
@@ -24,9 +24,9 @@ export class PartiesComponent implements OnInit {
 
   private data: PartyDto[] = [];
 
-  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
+  protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
-  public electionPeriod = environment.currentElectionPeriod;
+  public electoralPeriod = environment.currentElectoralPeriod;
   public sortedParties: PartyDto[] = [];
   public votingsSuccessRates: VotingsSuccessRateChartData[] = [];
   public uniformityScores: UniformityScoreChartData[] = [];
@@ -45,10 +45,10 @@ export class PartiesComponent implements OnInit {
 
     this.route.params.subscribe(async params => {
 
-      const { electionPeriod } = params as { electionPeriod: number };
+      const { electoralPeriod } = params as { electoralPeriod: number };
 
-      this.electionPeriod = electionPeriod;
-      this.sortedParties = this.data = await this.partiesService.fetchParties(electionPeriod);
+      this.electoralPeriod = electoralPeriod;
+      this.sortedParties = this.data = await this.partiesService.fetchParties(electoralPeriod);
       this.sortedParties.sort((a, b) => b.seats - a.seats);
       this.votingsSuccessRates = this.data.map(VotingsSuccessRateChartData.fromParty);
       this.uniformityScores = this.data.map(UniformityScoreChartData.fromParty);

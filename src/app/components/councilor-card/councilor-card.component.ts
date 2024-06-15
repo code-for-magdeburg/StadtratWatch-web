@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { PersonLightDto } from '../../model/Person';
-import { ELECTION_PERIOD_PATH } from '../../app-routing.module';
+import { ELECTORAL_PERIOD_PATH } from '../../app-routing.module';
 
 
 export type Councilor = {
@@ -19,10 +19,10 @@ export type Councilor = {
 export class CouncilorCardComponent {
 
 
-  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
+  protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
 
-  @Input() public electionPeriod!: number;
+  @Input() public electoralPeriod!: number;
   @Input() public councilor!: Councilor;
 
 

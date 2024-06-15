@@ -16,7 +16,7 @@ import { FactionComponent } from './faction/faction.component';
 import { PartiesComponent } from './parties/parties.component';
 import { PartyComponent } from './party/party.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ElectionPeriodComponent } from './election-period/election-period.component';
+import { ElectoralPeriodComponent } from './electoral-period/electoral-period.component';
 import { SortablePersonsDirective } from './persons/sortable-persons.directive';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { PrivacyComponent } from './privacy/privacy.component';
@@ -72,7 +72,7 @@ registerLocaleData(localeDe, 'de-DE');
     FactionComponent,
     PartiesComponent,
     PartyComponent,
-    ElectionPeriodComponent,
+    ElectoralPeriodComponent,
     SortableFactionApplicationsDirective,
     SortableFactionsDirective,
     SortablePersonsDirective,

@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  availableElectionPeriods: [7, 8],
-  currentElectionPeriod: 7,
+  availableElectoralPeriods: [7, 8],
+  currentElectoralPeriod: 7,
 };

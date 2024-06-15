@@ -20,14 +20,14 @@
 
       <div class="navbar-collapse" [class.collapse]="navbarCollapsed" id="navbarNav">
 
-        <div *ngIf="availableElectionPeriods.length > 1" class="btn-group" dropdown>
+        <div *ngIf="availableElectoralPeriods.length > 1" class="btn-group" dropdown>
           <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-secondary dropdown-toggle">
-            Wahlperiode {{ electionPeriod }} <span class="caret"></span>
+            Wahlperiode {{ electoralPeriod }} <span class="caret"></span>
           </button>
           <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu">
-            <li *ngFor="let electionPeriod of availableElectionPeriods">
-              <button class="dropdown-item" (click)="selectElectionPeriod(electionPeriod)">
-                Wahlperiode {{ electionPeriod }}
+            <li *ngFor="let electoralPeriod of availableElectoralPeriods">
+              <button class="dropdown-item" (click)="selectElectoralPeriod(electoralPeriod)">
+                Wahlperiode {{ electoralPeriod }}
               </button>
             </li>
           </ul>
@@ -35,16 +35,16 @@
 
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'sessions']" class="nav-link">Sitzungen</a>
+            <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'sessions']" class="nav-link">Sitzungen</a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'factions']" class="nav-link">Fraktionen</a>
+            <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'factions']" class="nav-link">Fraktionen</a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'parties']" class="nav-link">Parteien</a>
+            <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'parties']" class="nav-link">Parteien</a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['/', ELECTION_PERIOD_PATH, electionPeriod, 'persons']" class="nav-link">Personen</a>
+            <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'persons']" class="nav-link">Personen</a>
           </li>
         </ul>
 

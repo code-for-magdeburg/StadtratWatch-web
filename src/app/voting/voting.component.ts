@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SessionsService } from '../services/sessions.service';
 import { DID_NOT_VOTE_COLOR, VOTED_ABSTENTION_COLOR, VOTED_AGAINST_COLOR, VOTED_FOR_COLOR } from '../utilities/ui';
 import { SessionVotingDto, Vote, VoteResult } from '../model/Session';
-import { ELECTION_PERIOD_PATH } from '../app-routing.module';
+import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 
 
 type FactionMember = {
@@ -42,9 +42,9 @@ type VotingViewModel = {
 export class VotingComponent implements OnInit {
 
 
-  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
+  protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
-  public electionPeriod = 0;
+  public electoralPeriod = 0;
   public votingViewModel: VotingViewModel | undefined;
   public factions: Faction[] = [];
 
@@ -59,9 +59,9 @@ export class VotingComponent implements OnInit {
 
     this.route.paramMap.subscribe(async params => {
 
-      this.electionPeriod = +(params.get('electionPeriod') || '0');
-      if (!this.electionPeriod) {
-        // TODO: Handle missing election period
+      this.electoralPeriod = +(params.get('electoralPeriod') || '0');
+      if (!this.electoralPeriod) {
+        // TODO: Handle missing electoral period
         return;
       }
 
@@ -77,7 +77,7 @@ export class VotingComponent implements OnInit {
         return;
       }
 
-      const session = await this.sessionsService.fetchSession(this.electionPeriod, sessionId);
+      const session = await this.sessionsService.fetchSession(this.electoralPeriod, sessionId);
 
       const votingDto = session.votings.find(
         (votingDto: SessionVotingDto) => votingDto.id === votingId

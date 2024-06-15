@@ -4,7 +4,7 @@ import { MetadataService } from './services/metadata.service';
 import { environment } from '../environments/environment';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, map, Subscription } from 'rxjs';
-import { ELECTION_PERIOD_PATH } from './app-routing.module';
+import { ELECTORAL_PERIOD_PATH } from './app-routing.module';
 
 
 @Component({
@@ -15,11 +15,11 @@ import { ELECTION_PERIOD_PATH } from './app-routing.module';
 export class AppComponent implements OnDestroy {
 
 
-  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
+  protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
   public navbarCollapsed = true;
-  public availableElectionPeriods = environment.availableElectionPeriods;
-  public electionPeriod = environment.currentElectionPeriod;
+  public availableElectoralPeriods = environment.availableElectoralPeriods;
+  public electoralPeriod = environment.currentElectoralPeriod;
   public metadata: MetadataDto | undefined;
 
   private navigationSubscription: Subscription;
@@ -31,12 +31,12 @@ export class AppComponent implements OnDestroy {
       .pipe(
         filter((event: any) => event instanceof NavigationEnd),
         map(event => event as NavigationEnd),
-        filter(event => event.url.startsWith(`/${ELECTION_PERIOD_PATH}`)),
+        filter(event => event.url.startsWith(`/${ELECTORAL_PERIOD_PATH}`)),
         map(event => event.url.split('/')[2]),
       )
-      .subscribe(async electionPeriod => {
-          this.electionPeriod = +electionPeriod;
-          this.metadata = await this.metadataService.fetchMetadata(this.electionPeriod);
+      .subscribe(async electoralPeriod => {
+          this.electoralPeriod = +electoralPeriod;
+          this.metadata = await this.metadataService.fetchMetadata(this.electoralPeriod);
         }
       );
 
@@ -49,10 +49,10 @@ export class AppComponent implements OnDestroy {
   }
 
 
-  async selectElectionPeriod(electionPeriod: number) {
+  async selectElectoralPeriod(electoralPeriod: number) {
 
-    if (this.electionPeriod !== electionPeriod) {
-      await this.router.navigate(['/', ELECTION_PERIOD_PATH, electionPeriod]);
+    if (this.electoralPeriod !== electoralPeriod) {
+      await this.router.navigate(['/', ELECTORAL_PERIOD_PATH, electoralPeriod]);
     }
 
   }

@@ -8,7 +8,7 @@ docker build -t srw-generate-data-assets -f docker\generate-data-assets.Dockerfi
 
 #### Run the docker container
 ```shell
-docker run --rm -v %cd%\data\election-period-7:/app/election-period:ro -v %cd%\src\assets\election-period-7:/app/generated -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro srw-generate-data-assets
+docker run --rm -v %cd%\data\electoral-period-7:/app/electoral-period:ro -v %cd%\src\assets\electoral-period-7:/app/generated -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro srw-generate-data-assets
 ```
 
 

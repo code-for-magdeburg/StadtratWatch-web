@@ -7,7 +7,7 @@ import { SpeakingTimeChartData } from '../components/speaking-time-chart/speakin
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { DatePipe } from '@angular/common';
 import { MetaTagsService } from '../services/meta-tags.service';
-import { ELECTION_PERIOD_PATH } from '../app-routing.module';
+import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 
 
 enum VotingResult {
@@ -35,9 +35,9 @@ type Voting = {
 export class SessionComponent implements OnInit {
 
 
-  protected readonly ELECTION_PERIOD_PATH = ELECTION_PERIOD_PATH;
+  protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
-  public electionPeriod = 0;
+  public electoralPeriod = 0;
   public sessionDate: string | null = null;
   public votings: Voting[] = [];
   public speakingTimes: SpeakingTimeChartData[] = [];
@@ -61,9 +61,9 @@ export class SessionComponent implements OnInit {
 
     this.route.paramMap.subscribe(async params => {
 
-      this.electionPeriod = +(params.get('electionPeriod') || '0');
-      if (!this.electionPeriod) {
-        // TODO: Handle missing election period
+      this.electoralPeriod = +(params.get('electoralPeriod') || '0');
+      if (!this.electoralPeriod) {
+        // TODO: Handle missing electoral period
         return;
       }
 
@@ -73,7 +73,7 @@ export class SessionComponent implements OnInit {
         return;
       }
 
-      const session = await this.sessionsService.fetchSession(this.electionPeriod, sessionId);
+      const session = await this.sessionsService.fetchSession(this.electoralPeriod, sessionId);
 
       this.sessionDate = session.date;
       this.meetingMinutesUrl = session.meetingMinutesUrl;
