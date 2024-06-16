@@ -55,22 +55,6 @@
       </div>
     </tab>
 
-    <tab heading="Redezeiten" class="pt-4">
-
-      <div [hidden]="speakingTimes.length === 0">
-        <div class="alert alert-info">
-          Die Redezeiten wurden automatisch mit Hilfe einer Software ermittelt. Sie sind nur eine Schätzung und können
-          von den tatsächlichen Redezeiten abweichen.
-        </div>
-        <app-speaking-time-chart [data]="speakingTimes"></app-speaking-time-chart>
-      </div>
-
-      <div *ngIf="speakingTimes.length === 0" class="alert alert-warning">
-        Für diese Sitzung liegen noch keine Daten zu den Redezeiten vor.
-      </div>
-
-    </tab>
-
     <tab heading="Redebeiträge" class="pt-4">
 
       <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 gx-sm-2 gy-sm-5">
@@ -106,6 +90,22 @@
             </div>
           </div>
         </div>
+      </div>
+
+    </tab>
+
+    <tab heading="Redezeiten" class="pt-4">
+
+      <div [hidden]="speakingTimes.length === 0">
+        <div class="alert alert-info">
+          Die Redezeiten wurden automatisch mit Hilfe einer Software ermittelt. Sie sind nur eine Schätzung und können
+          von den tatsächlichen Redezeiten abweichen.
+        </div>
+        <app-speaking-time-chart [data]="speakingTimes"></app-speaking-time-chart>
+      </div>
+
+      <div *ngIf="speakingTimes.length === 0" class="alert alert-warning">
+        Für diese Sitzung liegen noch keine Daten zu den Redezeiten vor.
       </div>
 
     </tab>

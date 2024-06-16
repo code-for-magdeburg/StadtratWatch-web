@@ -90,7 +90,7 @@ export class SessionComponent implements OnInit {
       this.speakingTimes = SpeakingTimeChartData.fromSession(session);
       this.speeches = session.speeches;
 
-      this.tabs ? this.tabs.tabs[1].active = true : null;
+      this.tabs ? this.tabs.tabs[2].active = true : null;
       setTimeout(() => this.tabs ? this.tabs.tabs[0].active = true : null, 1);
 
       const sessionDateDisplay = new DatePipe('de-DE').transform(session.date);
