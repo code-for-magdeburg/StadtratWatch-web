@@ -150,6 +150,11 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
     id: session.id,
     date: session.date,
     votingsCount: sessions.find(s => s.id === session.id)?.votings.length || 0,
+    speechesCount: sessions.find(s => s.id === session.id)?.speeches.length || 0,
+    totalSpeakingTime: sessions.find(s => s.id === session.id)?.speeches.reduce(
+      (total, speech) => total + speech.duration,
+      0
+    ) || 0
   }));
   fs.writeFileSync(
     `${sessionsOutputDir}/all-sessions.json`,
