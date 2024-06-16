@@ -6,6 +6,13 @@ import { environment } from '../../environments/environment';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 
 
+type MonthYearGroup = {
+  month: string;
+  year: number;
+  sessions: SessionLightDto[];
+};
+
+
 @Component({
   selector: 'app-sessions',
   templateUrl: './sessions.component.html',
@@ -18,6 +25,7 @@ export class SessionsComponent implements OnInit {
 
   public electoralPeriod = environment.currentElectoralPeriod;
   public sessions: SessionLightDto[] = [];
+  public monthYearGroups: MonthYearGroup[] = [];
 
 
   constructor(private readonly route: ActivatedRoute, private readonly sessionsService: SessionsService) {
@@ -27,11 +35,50 @@ export class SessionsComponent implements OnInit {
   async ngOnInit() {
 
     this.route.params.subscribe(async params => {
+
       const { electoralPeriod } = params as { electoralPeriod: number };
+
       this.electoralPeriod = electoralPeriod;
       this.sessions = await this.sessionsService.fetchSessions(electoralPeriod);
-      this.sessions.sort((a, b) => b.date.localeCompare(a.date));
+      this.sessions.sort(this.compareSessionsForTimeline);
+
+      this.monthYearGroups = this.sessions.reduce((acc, session) => {
+
+        const date = new Date(session.date);
+        const month = date.toLocaleString('de', { month: 'long' });
+        const year = date.getFullYear();
+
+        const group = acc.find(g => g.month === month && g.year === year);
+
+        if (group) {
+          group.sessions.push(session);
+        } else {
+          acc.push({ month, year, sessions: [session] });
+        }
+
+        return acc;
+
+      }, [] as MonthYearGroup[]);
+
     });
+
+  }
+
+
+  private compareSessionsForTimeline(a: SessionLightDto, b: SessionLightDto) {
+
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+
+    if (dateA.getFullYear() !== dateB.getFullYear()) {
+      return dateB.getFullYear() - dateA.getFullYear();
+    }
+
+    if (dateA.getMonth() !== dateB.getMonth()) {
+      return dateB.getMonth() - dateA.getMonth();
+    }
+
+    return dateA.getDate() - dateB.getDate();
 
   }
 
