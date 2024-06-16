@@ -79,4 +79,5 @@ export type SessionLightDto = {
   date: string;
   votingsCount: number;
   speechesCount: number;
+  totalSpeakingTime: number;
 };

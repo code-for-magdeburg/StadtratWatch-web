@@ -35,10 +35,10 @@
               <h1>{{ session.speechesCount }}</h1>
               <span class="text-body-tertiary">Redebeiträge</span>
             </div>
-<!--            <div>-->
-<!--              <h1>6h 25m</h1>-->
-<!--              <span class="text-body-tertiary">Redezeit</span>-->
-<!--            </div>-->
+            <div>
+              <h1>{{ session.totalSpeakingTime | speakingTime : 'hm' }}</h1>
+              <span class="text-body-tertiary">Redezeit</span>
+            </div>
           </div>
         </div>
       </div>
