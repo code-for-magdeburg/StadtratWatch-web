@@ -11,34 +11,43 @@
     <h1>Sitzungen</h1>
   </div>
 
-  <div class="col col-md-8 offset-md-2 col-lg-6 offset-lg-3 vstack gap-3">
+  <div class="col col-md-8 offset-md-2 col-lg-6 offset-lg-3 vstack gap-4 gap-md-5">
 
     <div *ngFor="let group of monthYearGroups" class="vstack gap-2">
       <h2>{{ group.month }} {{ group.year }}</h2>
       <div class="vstack gap-2">
-        <div *ngFor="let session of group.sessions" class="card text-center" style="cursor: pointer;">
-          <div class="card-header d-flex justify-content-between">
+        <div *ngFor="let session of group.sessions" class="card">
+          <a
+            [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'session', session.id]"
+            class="card-header text-decoration-none"
+          >
+            {{ session.date | date : 'dd. MMMM yyyy' }}
+          </a>
+          <div class="card-body text-center d-flex flex-row justify-content-around">
             <a
               [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'session', session.id]"
-              class="stretched-link text-decoration-none text-body"
+              [fragment]="VOTINGS_TAB"
+              class="text-decoration-none text-body"
             >
-              {{ session.date | date : 'dd. MMMM yyyy' }}
-            </a>
-            <i class="bi bi-chevron-right"></i>
-          </div>
-          <div class="card-body d-flex flex-row justify-content-around">
-            <div>
               <h1>{{ session.votingsCount }}</h1>
               <span class="text-body-tertiary">Abstimmungen</span>
-            </div>
-            <div>
+            </a>
+            <a
+              [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'session', session.id]"
+              [fragment]="SPEECHES_TAB"
+              class="text-decoration-none text-body"
+            >
               <h1>{{ session.speechesCount }}</h1>
               <span class="text-body-tertiary">Redebeiträge</span>
-            </div>
-            <div>
+            </a>
+            <a
+              [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'session', session.id]"
+              [fragment]="SPEAKING_TIMES_TAB"
+              class="text-decoration-none text-body"
+            >
               <h1>{{ session.totalSpeakingTime | speakingTime : 'hm' }}</h1>
               <span class="text-body-tertiary">Redezeit</span>
-            </div>
+            </a>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SessionsService } from '../services/sessions.service';
 import { ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
 import { SessionVotingDto, SessionSpeechDto, Vote, VoteResult } from '../model/Session';
@@ -27,6 +27,11 @@ type Voting = {
 };
 
 
+export const VOTINGS_TAB = 'votings';
+export const SPEECHES_TAB = 'speeches';
+export const SPEAKING_TIMES_TAB = 'speaking-times';
+
+
 @Component({
   selector: 'app-session',
   templateUrl: './session.component.html',
@@ -35,7 +40,7 @@ type Voting = {
 export class SessionComponent implements OnInit {
 
 
-  protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
+  private isInitializing = true;
 
   public electoralPeriod = 0;
   public sessionDate: string | null = null;
@@ -47,17 +52,26 @@ export class SessionComponent implements OnInit {
 
   @ViewChild('tabs', { static: true }) tabs?: TabsetComponent;
 
-  protected VotingResult = VotingResult;
-  protected ACCEPTED_COLOR = ACCEPTED_COLOR;
-  protected REJECTED_COLOR = REJECTED_COLOR;
+  protected readonly VotingResult = VotingResult;
+  protected readonly ACCEPTED_COLOR = ACCEPTED_COLOR;
+  protected readonly REJECTED_COLOR = REJECTED_COLOR;
+  protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
+  protected readonly VOTINGS_TAB = VOTINGS_TAB;
+  protected readonly SPEECHES_TAB = SPEECHES_TAB;
+  protected readonly SPEAKING_TIMES_TAB = SPEAKING_TIMES_TAB;
 
 
-  constructor(private readonly route: ActivatedRoute, private readonly sessionsService: SessionsService,
-              private readonly metaTagsService: MetaTagsService) {
+  constructor(private readonly route: ActivatedRoute, private readonly router: Router,
+              private readonly sessionsService: SessionsService, private readonly metaTagsService: MetaTagsService) {
   }
 
 
   ngOnInit() {
+
+    this.route.fragment.subscribe(fragment => {
+      if (this.isInitializing) return;
+      this.openPage(fragment || VOTINGS_TAB);
+    });
 
     this.route.paramMap.subscribe(async params => {
 
@@ -91,7 +105,10 @@ export class SessionComponent implements OnInit {
       this.speeches = session.speeches;
 
       this.tabs ? this.tabs.tabs[2].active = true : null;
-      setTimeout(() => this.tabs ? this.tabs.tabs[0].active = true : null, 1);
+      setTimeout(() => {
+        this.openPage(this.route.snapshot.fragment || VOTINGS_TAB);
+        this.isInitializing = false;
+      }, 1);
 
       const sessionDateDisplay = new DatePipe('de-DE').transform(session.date);
       const title = `StadtratWatch: Sitzung vom ${sessionDateDisplay}`;
@@ -99,6 +116,31 @@ export class SessionComponent implements OnInit {
       this.metaTagsService.updateTags({ title, description });
 
     });
+
+  }
+
+
+  async onSelectTab(page: string) {
+    if (this.isInitializing) return;
+    await this.router.navigate([], { fragment: page });
+  }
+
+
+  private openPage(fragment: string) {
+
+    switch (fragment) {
+      case VOTINGS_TAB:
+        this.tabs ? this.tabs.tabs[0].active = true : null;
+        break;
+      case SPEECHES_TAB:
+        this.tabs ? this.tabs.tabs[1].active = true : null;
+        break;
+      case SPEAKING_TIMES_TAB:
+        this.tabs ? this.tabs.tabs[2].active = true : null;
+        break;
+      default:
+        this.tabs ? this.tabs.tabs[0].active = true : null;
+    }
 
   }
 

@@ -4,6 +4,7 @@ import { SessionLightDto } from '../model/Session';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
+import { SPEAKING_TIMES_TAB, SPEECHES_TAB, VOTINGS_TAB } from '../session/session.component';
 
 
 type MonthYearGroup = {
@@ -22,6 +23,9 @@ export class SessionsComponent implements OnInit {
 
 
   protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
+  protected readonly VOTINGS_TAB = VOTINGS_TAB;
+  protected readonly SPEECHES_TAB = SPEECHES_TAB;
+  protected readonly SPEAKING_TIMES_TAB = SPEAKING_TIMES_TAB;
 
   public electoralPeriod = environment.currentElectoralPeriod;
   public sessions: SessionLightDto[] = [];
