@@ -2,12 +2,12 @@
   "id": "cdu",
   "name": "CDU",
   "seats": 10,
-  "applicationsSuccessRate": 0.8457943925233645,
-  "votingsSuccessRate": 0.8257309941520468,
-  "uniformityScore": 0.9379182204907647,
-  "participationRate": 0.7199415204678362,
-  "abstentionRate": 0.08044159849891493,
-  "speakingTime": 49923,
+  "applicationsSuccessRate": 0.8423423423423423,
+  "votingsSuccessRate": 0.8246187363834423,
+  "uniformityScore": 0.9401469574653563,
+  "participationRate": 0.722875816993464,
+  "abstentionRate": 0.08039089652350916,
+  "speakingTime": 52240,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -141,6 +141,14 @@
       {
         "date": "2024-05-06",
         "value": 0.8457943925233645
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.8465116279069768
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8423423423423423
       }
     ],
     "votingsSuccessRate": [
@@ -275,6 +283,14 @@
       {
         "date": "2024-05-06",
         "value": 0.8257309941520468
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.8297389330306469
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8246187363834423
       }
     ],
     "uniformityScore": [
@@ -409,6 +425,14 @@
       {
         "date": "2024-05-06",
         "value": 0.9379182204907647
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.9388833942111576
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.9401469574653563
       }
     ],
     "participationRate": [
@@ -543,6 +567,14 @@
       {
         "date": "2024-05-06",
         "value": 0.7199415204678362
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.7238933030646992
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.722875816993464
       }
     ],
     "abstentionRate": [
@@ -677,6 +709,14 @@
       {
         "date": "2024-05-06",
         "value": 0.08044159849891493
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.07927759220822285
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.08039089652350916
       }
     ]
   },
@@ -3563,6 +3603,118 @@
       "votings": [
         {
           "votingId": 34,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0108/24/1",
+      "type": "Geschäftsordnung",
+      "title": "Wahlbereiche zu Kommunalwahlen nach den Wahlen vom 09. Juni 2024",
+      "sessionId": "2024-06-13",
+      "sessionDate": "2024-06-13",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696554&type=do",
+      "votings": [
+        {
+          "votingId": 9,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0230/22/1/2",
+      "type": "Änderungsantrag",
+      "title": "Pilotprojekt - Vergütung von Praktika-Zeiträumen von Studierenden der Fachrichtung",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696594&type=do",
+      "votings": [
+        {
+          "votingId": 38,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0004/24",
+      "type": "Antrag",
+      "title": "Entwicklung der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684877&type=do",
+      "votings": [
+        {
+          "votingId": 47,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0031/24",
+      "type": "Antrag",
+      "title": "Verkehrssicherheit in Frankefelde-Ost verbessern",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686837&type=do",
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0056/24",
+      "type": "Antrag",
+      "title": "Anwohnerparken auf der Harsdorfer Straße",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688357&type=do",
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0057/24",
+      "type": "Antrag",
+      "title": "Anpassung der Ampelschaltung an der Harsdorfer Straße/Europaring",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688365&type=do",
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0141/24",
+      "type": "Geschäftsordnung",
+      "title": "Parktickets verlängern können",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=695452&type=do",
+      "votings": [
+        {
+          "votingId": 72,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0142/24",
+      "type": "Geschäftsordnung",
+      "title": "Erhöhung Haushaltsansatz für die Förderung freier kultureller und künstlerischer Projekte",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=695456&type=do",
+      "votings": [
+        {
+          "votingId": 73,
           "votingResult": "PASSED"
         }
       ]

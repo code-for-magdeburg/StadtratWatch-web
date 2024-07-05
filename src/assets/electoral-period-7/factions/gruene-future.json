@@ -2,12 +2,12 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 11,
-  "applicationsSuccessRate": 0.8157894736842105,
-  "votingsSuccessRate": 0.8871345029239766,
-  "uniformityScore": 0.9345099279444572,
-  "participationRate": 0.7741626794258373,
-  "abstentionRate": 0.05547044552389054,
-  "speakingTime": 55245,
+  "applicationsSuccessRate": 0.8142857142857143,
+  "votingsSuccessRate": 0.8894335511982571,
+  "uniformityScore": 0.9347634719660282,
+  "participationRate": 0.7672311348781937,
+  "abstentionRate": 0.05512155449337409,
+  "speakingTime": 58442,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -141,6 +141,14 @@
       {
         "date": "2024-05-06",
         "value": 0.8157894736842105
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.8127340823970037
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8142857142857143
       }
     ],
     "votingsSuccessRate": [
@@ -275,6 +283,14 @@
       {
         "date": "2024-05-06",
         "value": 0.8871345029239766
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.8864926220204313
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8894335511982571
       }
     ],
     "uniformityScore": [
@@ -409,6 +425,14 @@
       {
         "date": "2024-05-06",
         "value": 0.9345099279444572
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.9335440843408334
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.9347634719660282
       }
     ],
     "participationRate": [
@@ -543,6 +567,14 @@
       {
         "date": "2024-05-06",
         "value": 0.7741626794258373
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.7730368383035806
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.7672311348781937
       }
     ],
     "abstentionRate": [
@@ -677,6 +709,14 @@
       {
         "date": "2024-05-06",
         "value": 0.05547044552389054
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.055795032721905835
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.05512155449337409
       }
     ]
   },
@@ -2424,6 +2464,10 @@
         {
           "votingId": 28,
           "votingResult": "PASSED"
+        },
+        {
+          "votingId": 36,
+          "votingResult": "PASSED"
         }
       ]
     },
@@ -4041,6 +4085,168 @@
       "votings": [
         {
           "votingId": 41,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0103/24/3",
+      "type": "Änderungsantrag",
+      "title": "Grundsatzbeschluss zum Rückbau und zur denkmalgerechten Rekonstruktion des Baudenkmals \"Pferdetor” im Stadtpark Rotehorn, Magdeburg",
+      "sessionId": "2024-06-13",
+      "sessionDate": "2024-06-13",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696271&type=do",
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0185/24/1/1",
+      "type": "Änderungsantrag",
+      "title": "Einleitung des Satzungsverfahrens zum vorhabenbezogenen Bebauungsplan Nr. 402-3.1 \"Leipziger Straße 11 / ehemaliger Kristallpalast\"",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": null,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0002/22/1/1",
+      "type": "Änderungsantrag",
+      "title": "Sozialticket",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696275&type=do",
+      "votings": [
+        {
+          "votingId": 34,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 35,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0002/22",
+      "type": "Antrag",
+      "title": "Sozialticket",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=636726&type=do",
+      "votings": [
+        {
+          "votingId": 37,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0230/22/1",
+      "type": "Änderungsantrag",
+      "title": "Pilotprojekt - Vergütung von Praktika-Zeiträumen von Studierenden der Fachrichtung ‚Soziale Arbeit‘",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688188&type=do",
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0230/22",
+      "type": "Antrag",
+      "title": "Pilotprojekt - Vergütung von Praktika-Zeiträumen von Studierenden der Fachrichtung ‚Soziale Arbeit‘",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=655423&type=do",
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0021/24",
+      "type": "Antrag",
+      "title": "Silvesterfeuerwerk in der Landeshauptstadt",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686659&type=do",
+      "votings": [
+        {
+          "votingId": 50,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 51,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0040/24",
+      "type": "Antrag",
+      "title": "Zickzacklinien vor abgesenkten Bordsteinen und Bushaltestellen",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688021&type=do",
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0085/24",
+      "type": "Antrag",
+      "title": "Lieferzonen für die Große Diesdorfer Straße",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690485&type=do",
+      "votings": [
+        {
+          "votingId": 69,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0007/24/1",
+      "type": "Änderungsantrag",
+      "title": "Schulung leitender städtischer Angestellter* in Fragen des Sitzungsmanagements",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685416&type=do",
+      "votings": [
+        {
+          "votingId": 70,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0141/24",
+      "type": "Geschäftsordnung",
+      "title": "Parktickets verlängern können",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=695452&type=do",
+      "votings": [
+        {
+          "votingId": 72,
           "votingResult": "PASSED"
         }
       ]

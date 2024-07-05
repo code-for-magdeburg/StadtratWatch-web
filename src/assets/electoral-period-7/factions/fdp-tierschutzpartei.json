@@ -2,12 +2,12 @@
   "id": "fdp-tierschutzpartei",
   "name": "FDP/Tierschutzpartei",
   "seats": 6,
-  "applicationsSuccessRate": 0.847457627118644,
-  "votingsSuccessRate": 0.8473684210526315,
-  "uniformityScore": 0.8197031463471721,
-  "participationRate": 0.7345029239766082,
-  "abstentionRate": 0.1451615874869964,
-  "speakingTime": 20580,
+  "applicationsSuccessRate": 0.8477366255144033,
+  "votingsSuccessRate": 0.8507625272331155,
+  "uniformityScore": 0.8214210301139687,
+  "participationRate": 0.7366557734204793,
+  "abstentionRate": 0.1430665208304778,
+  "speakingTime": 21751,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -141,6 +141,14 @@
       {
         "date": "2024-05-06",
         "value": 0.847457627118644
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.847457627118644
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8477366255144033
       }
     ],
     "votingsSuccessRate": [
@@ -275,6 +283,14 @@
       {
         "date": "2024-05-06",
         "value": 0.8473684210526315
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.8507377979568672
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8507625272331155
       }
     ],
     "uniformityScore": [
@@ -409,6 +425,14 @@
       {
         "date": "2024-05-06",
         "value": 0.8197031463471721
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.821216402223839
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8214210301139687
       }
     ],
     "participationRate": [
@@ -543,6 +567,14 @@
       {
         "date": "2024-05-06",
         "value": 0.7345029239766082
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.7367574725690503
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.7366557734204793
       }
     ],
     "abstentionRate": [
@@ -677,6 +709,14 @@
       {
         "date": "2024-05-06",
         "value": 0.1451615874869964
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.14304145029846482
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.1430665208304778
       }
     ]
   },
@@ -3922,6 +3962,104 @@
         {
           "votingId": 29,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0015/24",
+      "type": "Antrag",
+      "title": "Aufstellung Verkehrsspiegel Pestalozzistraße (Börderadweg)",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686557&type=do",
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0021/24/1",
+      "type": "Änderungsantrag",
+      "title": "Silvesterfeuerwerk in der Landeshauptstadt",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687627&type=do",
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0032/24/1",
+      "type": "Änderungsantrag",
+      "title": "Insektenfreundliche Grünflächen in Reform",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687637&type=do",
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0032/24",
+      "type": "Antrag",
+      "title": "Insektenfreundliche Grünflächen in Reform",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686841&type=do",
+      "votings": [
+        {
+          "votingId": 55,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0039/24",
+      "type": "Antrag",
+      "title": "Radwegmarkierung südliche Königstraße",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=687990&type=do",
+      "votings": [
+        {
+          "votingId": 57,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0071/24",
+      "type": "Antrag",
+      "title": "Dynamische Fahrgastinformation (DFI) in der Braunlager Straße im Zuge der Ausbaumaßnahmen 2025",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690126&type=do",
+      "votings": [
+        {
+          "votingId": 67,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0141/24",
+      "type": "Geschäftsordnung",
+      "title": "Parktickets verlängern können",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=695452&type=do",
+      "votings": [
+        {
+          "votingId": 72,
+          "votingResult": "PASSED"
         }
       ]
     }

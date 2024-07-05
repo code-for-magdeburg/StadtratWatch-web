@@ -2,12 +2,12 @@
   "id": "die-linke",
   "name": "DIE LINKE",
   "seats": 8,
-  "applicationsSuccessRate": 0.8040816326530612,
-  "votingsSuccessRate": 0.843859649122807,
-  "uniformityScore": 0.9552429537367696,
-  "participationRate": 0.7878654970760234,
-  "abstentionRate": 0.09377710305129192,
-  "speakingTime": 50237,
+  "applicationsSuccessRate": 0.8084291187739464,
+  "votingsSuccessRate": 0.8398692810457516,
+  "uniformityScore": 0.9539481578851843,
+  "participationRate": 0.7936410675381264,
+  "abstentionRate": 0.09704644686211064,
+  "speakingTime": 54376,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -141,6 +141,14 @@
       {
         "date": "2024-05-06",
         "value": 0.8040816326530612
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.8048780487804879
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8084291187739464
       }
     ],
     "votingsSuccessRate": [
@@ -275,6 +283,14 @@
       {
         "date": "2024-05-06",
         "value": 0.843859649122807
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.8399545970488081
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8398692810457516
       }
     ],
     "uniformityScore": [
@@ -409,6 +425,14 @@
       {
         "date": "2024-05-06",
         "value": 0.9552429537367696
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.9541622247591636
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.9539481578851843
       }
     ],
     "participationRate": [
@@ -543,6 +567,14 @@
       {
         "date": "2024-05-06",
         "value": 0.7878654970760234
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.7894438138479001
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.7936410675381264
       }
     ],
     "abstentionRate": [
@@ -677,6 +709,14 @@
       {
         "date": "2024-05-06",
         "value": 0.09377710305129192
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.09569197601692403
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.09704644686211064
       }
     ]
   },
@@ -2049,6 +2089,10 @@
       "votings": [
         {
           "votingId": 28,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 36,
           "votingResult": "PASSED"
         }
       ]
@@ -3993,6 +4037,206 @@
       "votings": [
         {
           "votingId": 41,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0672/23/3",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Hundesteuersatzung",
+      "sessionId": "2024-06-13",
+      "sessionDate": "2024-06-13",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696522&type=do",
+      "votings": [
+        {
+          "votingId": 39,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0115/23/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs des Bebauungsplans Nr. 339-2A \"Friedenshöhe\" im Teilbereich A",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696624&type=do",
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0185/24/1",
+      "type": "Änderungsantrag",
+      "title": "Einleitung des Satzungsverfahrens zum vorhabenbezogenen Bebauungsplan Nr. 402-3.1 \"Leipziger Straße 11 / ehemaliger Kristallpalast\"",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696770&type=do",
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0002/22/1/1",
+      "type": "Änderungsantrag",
+      "title": "Sozialticket",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696275&type=do",
+      "votings": [
+        {
+          "votingId": 34,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 35,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0002/22",
+      "type": "Antrag",
+      "title": "Sozialticket",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=636726&type=do",
+      "votings": [
+        {
+          "votingId": 37,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0230/22/1",
+      "type": "Änderungsantrag",
+      "title": "Pilotprojekt - Vergütung von Praktika-Zeiträumen von Studierenden der Fachrichtung ‚Soziale Arbeit‘",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688188&type=do",
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0230/22",
+      "type": "Antrag",
+      "title": "Pilotprojekt - Vergütung von Praktika-Zeiträumen von Studierenden der Fachrichtung ‚Soziale Arbeit‘",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=655423&type=do",
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0276/23",
+      "type": "Antrag",
+      "title": "Spielplatzflächenkonzeption für Jung und Alt",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682471&type=do",
+      "votings": [
+        {
+          "votingId": 43,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0024/24",
+      "type": "Antrag",
+      "title": "Kurz- und mittelfristige Begegnungsmöglichkeiten für Seniorinnen und Senioren in Südost prüfen",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686816&type=do",
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0066/24",
+      "type": "Antrag",
+      "title": "Personelle Wiederbesetzung des Pflegeinformationsbüros",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688398&type=do",
+      "votings": [
+        {
+          "votingId": 64,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0071/24/1",
+      "type": "Änderungsantrag",
+      "title": "Dynamische Fahrgastinformation (DFI) in der Braunlager Straße im Zuge der Ausbaumaßnahmen 2025",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691093&type=do",
+      "votings": [
+        {
+          "votingId": 66,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0085/24/1",
+      "type": "Änderungsantrag",
+      "title": "Lieferzonen für die Große Diesdorfer Straße",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691099&type=do",
+      "votings": [
+        {
+          "votingId": 68,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0007/24",
+      "type": "Antrag",
+      "title": "Schulung leitender städt. Angestellter* in Fragen des Sitzungsmanagements",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=684906&type=do",
+      "votings": [
+        {
+          "votingId": 71,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0151/24",
+      "type": "Antrag",
+      "title": "oben-ohne für alle - und das sofort",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=695714&type=do",
+      "votings": [
+        {
+          "votingId": 74,
           "votingResult": "PASSED"
         }
       ]
