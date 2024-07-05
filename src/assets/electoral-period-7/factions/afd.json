@@ -2,12 +2,12 @@
   "id": "afd",
   "name": "AfD",
   "seats": 8,
-  "applicationsSuccessRate": 0.06722689075630252,
-  "votingsSuccessRate": 0.5912280701754385,
-  "uniformityScore": 0.9904585169787761,
-  "participationRate": 0.7062134502923977,
-  "abstentionRate": 0.11312681455213318,
-  "speakingTime": 35889,
+  "applicationsSuccessRate": 0.06504065040650407,
+  "votingsSuccessRate": 0.5915032679738562,
+  "uniformityScore": 0.9910037445799889,
+  "participationRate": 0.6815087145969498,
+  "abstentionRate": 0.11145897994570893,
+  "speakingTime": 36901,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -141,6 +141,14 @@
       {
         "date": "2024-05-06",
         "value": 0.06722689075630252
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.06611570247933884
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.06504065040650407
       }
     ],
     "votingsSuccessRate": [
@@ -275,6 +283,14 @@
       {
         "date": "2024-05-06",
         "value": 0.5912280701754385
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.5976163450624291
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.5915032679738562
       }
     ],
     "uniformityScore": [
@@ -409,6 +425,14 @@
       {
         "date": "2024-05-06",
         "value": 0.9904585169787761
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.9907391488323415
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.9910037445799889
       }
     ],
     "participationRate": [
@@ -543,6 +567,14 @@
       {
         "date": "2024-05-06",
         "value": 0.7062134502923977
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.700766174801362
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.6815087145969498
       }
     ],
     "abstentionRate": [
@@ -677,6 +709,14 @@
       {
         "date": "2024-05-06",
         "value": 0.11312681455213318
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.11036516616032835
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.11145897994570893
       }
     ]
   },
@@ -2293,6 +2333,62 @@
       "votings": [
         {
           "votingId": 8,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0228/24",
+      "type": "Geschäftsordnung",
+      "title": "Aufsichtsrat der KLINIKUM MAGDEBURG gemeinnützige GmbH",
+      "sessionId": "2024-06-13",
+      "sessionDate": "2024-06-13",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=693666&type=do",
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0103/24/4",
+      "type": "Änderungsantrag",
+      "title": "Grundsatzbeschluss zum Rückbau und zur denkmalgerechten Rekonstruktion des Baudenkmals \"Pferdetor” im Stadtpark Rotehorn, Magdeburg",
+      "sessionId": "2024-06-13",
+      "sessionDate": "2024-06-13",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696426&type=do",
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0065/24/1",
+      "type": "Änderungsantrag",
+      "title": "Satzung des Bebauungsplans Nr. 229-6 \"Am Sternsee\" mit örtlicher Bauvorschrift",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696428&type=do",
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0098/24/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs und geringfügige Änderung des Geltungsbereichs zum Bebauungsplan Nr. 430-2 \"Leipziger Chaussee/Am Hopfengarten\"",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696430&type=do",
+      "votings": [
+        {
+          "votingId": 18,
           "votingResult": "REJECTED"
         }
       ]

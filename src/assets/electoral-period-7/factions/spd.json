@@ -2,12 +2,12 @@
   "id": "spd",
   "name": "SPD",
   "seats": 10,
-  "applicationsSuccessRate": 0.8962264150943396,
-  "votingsSuccessRate": 0.9269005847953217,
-  "uniformityScore": 0.9833879071784707,
-  "participationRate": 0.7711695906432748,
-  "abstentionRate": 0.023758538817715998,
-  "speakingTime": 47454,
+  "applicationsSuccessRate": 0.8987730061349694,
+  "votingsSuccessRate": 0.9302832244008714,
+  "uniformityScore": 0.9834420142659742,
+  "participationRate": 0.7657407407407407,
+  "abstentionRate": 0.022901300492810407,
+  "speakingTime": 50246,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -141,6 +141,14 @@
       {
         "date": "2024-05-06",
         "value": 0.8962264150943396
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.8962264150943396
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8987730061349694
       }
     ],
     "votingsSuccessRate": [
@@ -275,6 +283,14 @@
       {
         "date": "2024-05-06",
         "value": 0.9269005847953217
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.9284903518728718
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.9302832244008714
       }
     ],
     "uniformityScore": [
@@ -409,6 +425,14 @@
       {
         "date": "2024-05-06",
         "value": 0.9833879071784707
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.9832199855387678
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.9834420142659742
       }
     ],
     "participationRate": [
@@ -543,6 +567,14 @@
       {
         "date": "2024-05-06",
         "value": 0.7711695906432748
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.7721906923950057
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.7657407407407407
       }
     ],
     "abstentionRate": [
@@ -677,6 +709,14 @@
       {
         "date": "2024-05-06",
         "value": 0.023758538817715998
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.023574868154363653
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.022901300492810407
       }
     ]
   },
@@ -5009,6 +5049,118 @@
       "votings": [
         {
           "votingId": 41,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0230/22/1",
+      "type": "Änderungsantrag",
+      "title": "Pilotprojekt - Vergütung von Praktika-Zeiträumen von Studierenden der Fachrichtung ‚Soziale Arbeit‘",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688188&type=do",
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0230/22",
+      "type": "Antrag",
+      "title": "Pilotprojekt - Vergütung von Praktika-Zeiträumen von Studierenden der Fachrichtung ‚Soziale Arbeit‘",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=655423&type=do",
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0031/23",
+      "type": "Antrag",
+      "title": "LED für Magdeburger Sportstätten",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=663325&type=do",
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/73",
+      "type": "Antrag",
+      "title": "Haushalt 2024 - Zusammenlegung von GISE und AQB",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=683801&type=do",
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0035/24",
+      "type": "Antrag",
+      "title": "Park- und Verkehrsleitsystem für Ostelbien",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686872&type=do",
+      "votings": [
+        {
+          "votingId": 56,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0040/24/1",
+      "type": "Änderungsantrag",
+      "title": "Zickzacklinien vor abgesenkten Bordsteinen und Bushaltestellen",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688578&type=do",
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0049/24/1",
+      "type": "Änderungsantrag",
+      "title": "\"Schutz und Erhalt von Stadtkultur: Maßnahmen zur Sicherung wertvoller Skulpturen vor Diebstahl und Vandalismus\"",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692008&type=do",
+      "votings": [
+        {
+          "votingId": 60,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0049/24",
+      "type": "Antrag",
+      "title": "„Schutz und Erhalt von Stadtkultur: Maßnahmen zur Sicherung wertvoller Skulpturen vor Diebstahl und Vandalismus”",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688340&type=do",
+      "votings": [
+        {
+          "votingId": 61,
           "votingResult": "PASSED"
         }
       ]

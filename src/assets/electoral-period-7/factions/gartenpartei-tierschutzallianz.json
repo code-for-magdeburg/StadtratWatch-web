@@ -2,12 +2,12 @@
   "id": "gartenpartei-tierschutzallianz",
   "name": "Gartenpartei/Tierschutzallianz",
   "seats": 3,
-  "applicationsSuccessRate": 0.48507462686567165,
-  "votingsSuccessRate": 0.6929824561403509,
-  "uniformityScore": 0.8597801135263947,
-  "participationRate": 0.8440545808966862,
-  "abstentionRate": 0.13211022338046322,
-  "speakingTime": 33854,
+  "applicationsSuccessRate": 0.4782608695652174,
+  "votingsSuccessRate": 0.6933551198257081,
+  "uniformityScore": 0.8577124820055971,
+  "participationRate": 0.8478576615831518,
+  "abstentionRate": 0.1325949257925805,
+  "speakingTime": 34904,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -141,6 +141,14 @@
       {
         "date": "2024-05-06",
         "value": 0.48507462686567165
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.48175182481751827
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.4782608695652174
       }
     ],
     "votingsSuccessRate": [
@@ -275,6 +283,14 @@
       {
         "date": "2024-05-06",
         "value": 0.6929824561403509
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.6940976163450624
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.6933551198257081
       }
     ],
     "uniformityScore": [
@@ -409,6 +425,14 @@
       {
         "date": "2024-05-06",
         "value": 0.8597801135263947
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.8604440202219852
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8577124820055971
       }
     ],
     "participationRate": [
@@ -543,6 +567,14 @@
       {
         "date": "2024-05-06",
         "value": 0.8440545808966862
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.8456299659477866
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.8478576615831518
       }
     ],
     "abstentionRate": [
@@ -677,6 +709,14 @@
       {
         "date": "2024-05-06",
         "value": 0.13211022338046322
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.13086414592055517
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.1325949257925805
       }
     ]
   },
@@ -2479,6 +2519,52 @@
       "votings": [
         {
           "votingId": 39,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0672/23/1",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Hundesteuersatzung",
+      "sessionId": "2024-06-13",
+      "sessionDate": "2024-06-13",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690836&type=do",
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 41,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0154/24",
+      "type": "Geschäftsordnung",
+      "title": "Öffentliche Auslequng des Entwurfs zum B-Plan Nr. 483-5 \"ehemaliges RAW- Gelände\"",
+      "sessionId": "2024-06-13",
+      "sessionDate": "2024-06-13",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=694209&type=do",
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/73/1",
+      "type": "Geschäftsordnung",
+      "title": "Haushalt 2024 - Zusammenlegung von GISE und AQB",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=689973&type=do",
+      "votings": [
+        {
+          "votingId": 44,
           "votingResult": "REJECTED"
         }
       ]
