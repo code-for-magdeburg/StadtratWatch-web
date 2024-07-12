@@ -1,4 +1,8271 @@
 {
-  "nodes": [],
-  "links": []
+  "nodes": [
+    {
+      "id": "aila-fassl",
+      "name": "Aila Fassl",
+      "faction": "SPD/Tierschutzallianz/Volt"
+    },
+    {
+      "id": "bernd-heynemann",
+      "name": "Bernd Heynemann",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "burkhard-moll",
+      "name": "Burkhard Moll",
+      "faction": "Tierschutzpartei"
+    },
+    {
+      "id": "carola-schumann",
+      "name": "Carola Schumann",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "christian-mertens",
+      "name": "Christian Mertens",
+      "faction": "AfD"
+    },
+    {
+      "id": "christoph-abel",
+      "name": "Christoph Abel",
+      "faction": "SPD/Tierschutzallianz/Volt"
+    },
+    {
+      "id": "dennis-jannack",
+      "name": "Dennis Jannack",
+      "faction": "DIE LINKE"
+    },
+    {
+      "id": "beate-bettecken",
+      "name": "Dr. Beate Bettecken",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "falko-grube",
+      "name": "Dr. Falko Grube",
+      "faction": "SPD/Tierschutzallianz/Volt"
+    },
+    {
+      "id": "jan-moldenhauer",
+      "name": "Dr. Jan Moldenhauer",
+      "faction": "AfD"
+    },
+    {
+      "id": "kathrin-meyer-pinger",
+      "name": "Dr. Kathrin Meyer-Pinger",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "niko-zenker",
+      "name": "Dr. Niko Zenker",
+      "faction": "SPD/Tierschutzallianz/Volt"
+    },
+    {
+      "id": "norman-belas",
+      "name": "Dr. Norman Belas",
+      "faction": "SPD/Tierschutzallianz/Volt"
+    },
+    {
+      "id": "thomas-wiebe",
+      "name": "Dr. Thomas Wiebe",
+      "faction": "SPD/Tierschutzallianz/Volt"
+    },
+    {
+      "id": "evelin-schulz",
+      "name": "Evelin Schulz",
+      "faction": "Tierschutzpartei"
+    },
+    {
+      "id": "florian-buehnemann",
+      "name": "Florian Bühnemann",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "florian-russ",
+      "name": "Florian Ruß",
+      "faction": "AfD"
+    },
+    {
+      "id": "frank-schuster",
+      "name": "Frank Schuster",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "hagen-kohl",
+      "name": "Hagen Kohl",
+      "faction": "AfD"
+    },
+    {
+      "id": "jens-roesler",
+      "name": "Jens Rösler",
+      "faction": "SPD/Tierschutzallianz/Volt"
+    },
+    {
+      "id": "julia-lehnert",
+      "name": "Julia Lehnert",
+      "faction": "GRÜNE/future!"
+    },
+    {
+      "id": "julian-reek",
+      "name": "Julian Reek",
+      "faction": "AfD"
+    },
+    {
+      "id": "julian-schache",
+      "name": "Julian Schache",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "kevin-michalzik",
+      "name": "Kevin Michalzik",
+      "faction": "AfD"
+    },
+    {
+      "id": "kornelia-keune",
+      "name": "Kornelia Keune",
+      "faction": "SPD/Tierschutzallianz/Volt"
+    },
+    {
+      "id": "lucas-kemmesies",
+      "name": "Lucas Kemmesies",
+      "faction": "SPD/Tierschutzallianz/Volt"
+    },
+    {
+      "id": "madeleine-linke",
+      "name": "Madeleine Linke",
+      "faction": "GRÜNE/future!"
+    },
+    {
+      "id": "manuel-rupsch",
+      "name": "Manuel Rupsch",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "marcel-guderjahn",
+      "name": "Marcel Guderjahn",
+      "faction": "Gartenpartei"
+    },
+    {
+      "id": "margot-haefner",
+      "name": "Margot Häfner",
+      "faction": "AfD"
+    },
+    {
+      "id": "marika-heinrichs",
+      "name": "Marika Heinrichs",
+      "faction": "AfD"
+    },
+    {
+      "id": "matthias-boxhorn",
+      "name": "Matthias Boxhorn",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "nicole-anger",
+      "name": "Nicole Anger",
+      "faction": "DIE LINKE"
+    },
+    {
+      "id": "noah-biswanger",
+      "name": "Noah Biswanger",
+      "faction": "DIE LINKE"
+    },
+    {
+      "id": "olaf-meister",
+      "name": "Olaf Meister",
+      "faction": "GRÜNE/future!"
+    },
+    {
+      "id": "oliver-kirchner",
+      "name": "Oliver Kirchner",
+      "faction": "AfD"
+    },
+    {
+      "id": "oliver-mueller",
+      "name": "Oliver Müller",
+      "faction": "DIE LINKE"
+    },
+    {
+      "id": "philipp-haendler",
+      "name": "Philipp Händler",
+      "faction": "GRÜNE/future!"
+    },
+    {
+      "id": "rainer-buller",
+      "name": "Rainer Buller",
+      "faction": "Gartenpartei"
+    },
+    {
+      "id": "rebekka-grotjohann",
+      "name": "Rebekka Grotjohann",
+      "faction": "DIE LINKE"
+    },
+    {
+      "id": "robert-fietzke",
+      "name": "Robert Fietzke",
+      "faction": "DIE LINKE"
+    },
+    {
+      "id": "roland-zander",
+      "name": "Roland Zander",
+      "faction": "Gartenpartei"
+    },
+    {
+      "id": "ronny-kumpf",
+      "name": "Ronny Kumpf",
+      "faction": "AfD"
+    },
+    {
+      "id": "simone-borris",
+      "name": "Simone Borris",
+      "faction": "Oberbürgermeisterin"
+    },
+    {
+      "id": "stefanie-middendorf",
+      "name": "Stefanie Middendorf",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "steffen-kraus",
+      "name": "Steffen Kraus",
+      "faction": "AfD"
+    },
+    {
+      "id": "steffi-meyer",
+      "name": "Steffi Meyer",
+      "faction": "SPD/Tierschutzallianz/Volt"
+    },
+    {
+      "id": "stephan-bublitz",
+      "name": "Stephan Bublitz",
+      "faction": "GRÜNE/future!"
+    },
+    {
+      "id": "stephan-leitel",
+      "name": "Stephan Leitel",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "stephan-papenbreer",
+      "name": "Stephan Papenbreer",
+      "faction": "Tierschutzpartei"
+    },
+    {
+      "id": "thomas-wendler",
+      "name": "Thomas Wendler",
+      "faction": "AfD"
+    },
+    {
+      "id": "tim-rohne",
+      "name": "Tim Rohne",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "timo-schulze",
+      "name": "Timo Schulze",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "tobias-hartmann",
+      "name": "Tobias Hartmann",
+      "faction": "GRÜNE/future!"
+    },
+    {
+      "id": "ulf-steinforth",
+      "name": "Ulf Steinforth",
+      "faction": "CDU/FDP"
+    },
+    {
+      "id": "uwe-muelbredt",
+      "name": "Uwe Muelbredt",
+      "faction": "AfD"
+    },
+    {
+      "id": "wigbert-schwenke",
+      "name": "Wigbert Schwenke",
+      "faction": "CDU/FDP"
+    }
+  ],
+  "links": [
+    {
+      "source": "aila-fassl",
+      "target": "bernd-heynemann",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "burkhard-moll",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "carola-schumann",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "christian-mertens",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "christoph-abel",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "dennis-jannack",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "aila-fassl",
+      "target": "beate-bettecken",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "falko-grube",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "jan-moldenhauer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "kathrin-meyer-pinger",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "niko-zenker",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "norman-belas",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "thomas-wiebe",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "evelin-schulz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "aila-fassl",
+      "target": "florian-buehnemann",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "florian-russ",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "jens-roesler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "aila-fassl",
+      "target": "julia-lehnert",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "aila-fassl",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "aila-fassl",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "aila-fassl",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "aila-fassl",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "aila-fassl",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "aila-fassl",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "aila-fassl",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "aila-fassl",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "aila-fassl",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "aila-fassl",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "aila-fassl",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "aila-fassl",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "aila-fassl",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "aila-fassl",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "aila-fassl",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "aila-fassl",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "aila-fassl",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "aila-fassl",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "aila-fassl",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "burkhard-moll",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "carola-schumann",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "christian-mertens",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "christoph-abel",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "dennis-jannack",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "beate-bettecken",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "falko-grube",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "jan-moldenhauer",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "kathrin-meyer-pinger",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "niko-zenker",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "norman-belas",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "thomas-wiebe",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "evelin-schulz",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "florian-buehnemann",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "florian-russ",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "hagen-kohl",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "jens-roesler",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "julia-lehnert",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "julian-reek",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "kevin-michalzik",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "madeleine-linke",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "marcel-guderjahn",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "margot-haefner",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "nicole-anger",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "noah-biswanger",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "olaf-meister",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "oliver-mueller",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "philipp-haendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "rebekka-grotjohann",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "roland-zander",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "ronny-kumpf",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "simone-borris",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "steffen-kraus",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "stephan-bublitz",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "tobias-hartmann",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "uwe-muelbredt",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "bernd-heynemann",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "carola-schumann",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "christian-mertens",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "christoph-abel",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "dennis-jannack",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "beate-bettecken",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "falko-grube",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "jan-moldenhauer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "kathrin-meyer-pinger",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "niko-zenker",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "norman-belas",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "thomas-wiebe",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "evelin-schulz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "florian-buehnemann",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "florian-russ",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "jens-roesler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "julia-lehnert",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "burkhard-moll",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "christian-mertens",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "christoph-abel",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "dennis-jannack",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "carola-schumann",
+      "target": "beate-bettecken",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "falko-grube",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "jan-moldenhauer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "kathrin-meyer-pinger",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "niko-zenker",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "norman-belas",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "thomas-wiebe",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "evelin-schulz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "carola-schumann",
+      "target": "florian-buehnemann",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "florian-russ",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "jens-roesler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "carola-schumann",
+      "target": "julia-lehnert",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "carola-schumann",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "carola-schumann",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "carola-schumann",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "carola-schumann",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "carola-schumann",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "carola-schumann",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "carola-schumann",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "carola-schumann",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "carola-schumann",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "carola-schumann",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "carola-schumann",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "carola-schumann",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "carola-schumann",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "carola-schumann",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "carola-schumann",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "carola-schumann",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "carola-schumann",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "carola-schumann",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "carola-schumann",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "christoph-abel",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "dennis-jannack",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "christian-mertens",
+      "target": "beate-bettecken",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "falko-grube",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "jan-moldenhauer",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "kathrin-meyer-pinger",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "niko-zenker",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "norman-belas",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "christian-mertens",
+      "target": "thomas-wiebe",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "evelin-schulz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "florian-buehnemann",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "florian-russ",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "frank-schuster",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "hagen-kohl",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "jens-roesler",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "christian-mertens",
+      "target": "julia-lehnert",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "christian-mertens",
+      "target": "julian-reek",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "julian-schache",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "christian-mertens",
+      "target": "kevin-michalzik",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "kornelia-keune",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "lucas-kemmesies",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "madeleine-linke",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "christian-mertens",
+      "target": "manuel-rupsch",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "christian-mertens",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "christian-mertens",
+      "target": "margot-haefner",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "marika-heinrichs",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "christian-mertens",
+      "target": "nicole-anger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "christian-mertens",
+      "target": "noah-biswanger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "christian-mertens",
+      "target": "olaf-meister",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "christian-mertens",
+      "target": "oliver-kirchner",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "oliver-mueller",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "christian-mertens",
+      "target": "philipp-haendler",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "christian-mertens",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "christian-mertens",
+      "target": "rebekka-grotjohann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "christian-mertens",
+      "target": "robert-fietzke",
+      "value": 0.75
+    },
+    {
+      "source": "christian-mertens",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "christian-mertens",
+      "target": "ronny-kumpf",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "simone-borris",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "christian-mertens",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "christian-mertens",
+      "target": "steffen-kraus",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "stephan-bublitz",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "christian-mertens",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "christian-mertens",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "tobias-hartmann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "christian-mertens",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christian-mertens",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "christian-mertens",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "dennis-jannack",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "christoph-abel",
+      "target": "beate-bettecken",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "falko-grube",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "jan-moldenhauer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "kathrin-meyer-pinger",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "niko-zenker",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "norman-belas",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "thomas-wiebe",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "evelin-schulz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "christoph-abel",
+      "target": "florian-buehnemann",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "florian-russ",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "jens-roesler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "christoph-abel",
+      "target": "julia-lehnert",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "christoph-abel",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "christoph-abel",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "christoph-abel",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "christoph-abel",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "christoph-abel",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "christoph-abel",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "christoph-abel",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "christoph-abel",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "christoph-abel",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "christoph-abel",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "christoph-abel",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "christoph-abel",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "christoph-abel",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "christoph-abel",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "christoph-abel",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "christoph-abel",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "christoph-abel",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "christoph-abel",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "christoph-abel",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "beate-bettecken",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "falko-grube",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "jan-moldenhauer",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "kathrin-meyer-pinger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "niko-zenker",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "norman-belas",
+      "value": 1
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "thomas-wiebe",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "evelin-schulz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "florian-buehnemann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "florian-russ",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "frank-schuster",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "hagen-kohl",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "jens-roesler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "julia-lehnert",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "julian-reek",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "julian-schache",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "kevin-michalzik",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "kornelia-keune",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "lucas-kemmesies",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "madeleine-linke",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "manuel-rupsch",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "marcel-guderjahn",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "margot-haefner",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "marika-heinrichs",
+      "value": 0.75
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "nicole-anger",
+      "value": 1
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "noah-biswanger",
+      "value": 1
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "olaf-meister",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "oliver-mueller",
+      "value": 1
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "philipp-haendler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "rebekka-grotjohann",
+      "value": 1
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "robert-fietzke",
+      "value": 1
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "roland-zander",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "ronny-kumpf",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "steffen-kraus",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "steffi-meyer",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "stephan-bublitz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "stephan-leitel",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "thomas-wendler",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "tim-rohne",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "timo-schulze",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "tobias-hartmann",
+      "value": 1
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "ulf-steinforth",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "uwe-muelbredt",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "dennis-jannack",
+      "target": "wigbert-schwenke",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "falko-grube",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "jan-moldenhauer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "kathrin-meyer-pinger",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "niko-zenker",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "norman-belas",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "thomas-wiebe",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "evelin-schulz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "florian-buehnemann",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "florian-russ",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "jens-roesler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "julia-lehnert",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "beate-bettecken",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "jan-moldenhauer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "kathrin-meyer-pinger",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "niko-zenker",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "norman-belas",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "thomas-wiebe",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "evelin-schulz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "falko-grube",
+      "target": "florian-buehnemann",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "florian-russ",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "jens-roesler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "falko-grube",
+      "target": "julia-lehnert",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "falko-grube",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "falko-grube",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "falko-grube",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "falko-grube",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "falko-grube",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "falko-grube",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "falko-grube",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "falko-grube",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "falko-grube",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "falko-grube",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "falko-grube",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "falko-grube",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "falko-grube",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "falko-grube",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "falko-grube",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "falko-grube",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "falko-grube",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "falko-grube",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "falko-grube",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "kathrin-meyer-pinger",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "niko-zenker",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "norman-belas",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "thomas-wiebe",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "evelin-schulz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "florian-buehnemann",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "florian-russ",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "frank-schuster",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "hagen-kohl",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "jens-roesler",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "julia-lehnert",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "julian-reek",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "julian-schache",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "kevin-michalzik",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "kornelia-keune",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "lucas-kemmesies",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "madeleine-linke",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "manuel-rupsch",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "margot-haefner",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "marika-heinrichs",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "nicole-anger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "noah-biswanger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "olaf-meister",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "oliver-kirchner",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "oliver-mueller",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "philipp-haendler",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "rebekka-grotjohann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "robert-fietzke",
+      "value": 0.75
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "ronny-kumpf",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "simone-borris",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "steffen-kraus",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "stephan-bublitz",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "tobias-hartmann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "jan-moldenhauer",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "niko-zenker",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "norman-belas",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "thomas-wiebe",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "evelin-schulz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "florian-buehnemann",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "florian-russ",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "jens-roesler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "julia-lehnert",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kathrin-meyer-pinger",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "norman-belas",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "thomas-wiebe",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "evelin-schulz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "niko-zenker",
+      "target": "florian-buehnemann",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "florian-russ",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "jens-roesler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "niko-zenker",
+      "target": "julia-lehnert",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "niko-zenker",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "niko-zenker",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "niko-zenker",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "niko-zenker",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "niko-zenker",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "niko-zenker",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "niko-zenker",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "niko-zenker",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "niko-zenker",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "niko-zenker",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "niko-zenker",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "niko-zenker",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "niko-zenker",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "niko-zenker",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "niko-zenker",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "niko-zenker",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "niko-zenker",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "niko-zenker",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "niko-zenker",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "thomas-wiebe",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "evelin-schulz",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "norman-belas",
+      "target": "florian-buehnemann",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "florian-russ",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "norman-belas",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "hagen-kohl",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "norman-belas",
+      "target": "jens-roesler",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "julia-lehnert",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "norman-belas",
+      "target": "julian-reek",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "norman-belas",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "kevin-michalzik",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "norman-belas",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "madeleine-linke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "norman-belas",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "marcel-guderjahn",
+      "value": 0.75
+    },
+    {
+      "source": "norman-belas",
+      "target": "margot-haefner",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "norman-belas",
+      "target": "marika-heinrichs",
+      "value": 0.8
+    },
+    {
+      "source": "norman-belas",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "norman-belas",
+      "target": "nicole-anger",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "noah-biswanger",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "olaf-meister",
+      "value": 0.9090909090909091
+    },
+    {
+      "source": "norman-belas",
+      "target": "oliver-kirchner",
+      "value": 0.75
+    },
+    {
+      "source": "norman-belas",
+      "target": "oliver-mueller",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "philipp-haendler",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "norman-belas",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "norman-belas",
+      "target": "rebekka-grotjohann",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "robert-fietzke",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "roland-zander",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "norman-belas",
+      "target": "ronny-kumpf",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "norman-belas",
+      "target": "simone-borris",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "norman-belas",
+      "target": "steffen-kraus",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "norman-belas",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "stephan-bublitz",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "norman-belas",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "stephan-papenbreer",
+      "value": 0.75
+    },
+    {
+      "source": "norman-belas",
+      "target": "thomas-wendler",
+      "value": 0.8181818181818182
+    },
+    {
+      "source": "norman-belas",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "tobias-hartmann",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "norman-belas",
+      "target": "uwe-muelbredt",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "norman-belas",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "evelin-schulz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "florian-buehnemann",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "florian-russ",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "jens-roesler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "julia-lehnert",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "thomas-wiebe",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "florian-buehnemann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "florian-russ",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "frank-schuster",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "jens-roesler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "julia-lehnert",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "julian-schache",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "kornelia-keune",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "lucas-kemmesies",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "madeleine-linke",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "manuel-rupsch",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "nicole-anger",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "noah-biswanger",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "olaf-meister",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "oliver-mueller",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "philipp-haendler",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "rebekka-grotjohann",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "robert-fietzke",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "simone-borris",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "steffi-meyer",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "stephan-bublitz",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "stephan-leitel",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "tim-rohne",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "timo-schulze",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "tobias-hartmann",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "ulf-steinforth",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "evelin-schulz",
+      "target": "wigbert-schwenke",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "florian-russ",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "frank-schuster",
+      "value": 1
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "jens-roesler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "julia-lehnert",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-buehnemann",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "frank-schuster",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-russ",
+      "target": "hagen-kohl",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "jens-roesler",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "florian-russ",
+      "target": "julia-lehnert",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "florian-russ",
+      "target": "julian-reek",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "julian-schache",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "florian-russ",
+      "target": "kevin-michalzik",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "kornelia-keune",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-russ",
+      "target": "lucas-kemmesies",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-russ",
+      "target": "madeleine-linke",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "florian-russ",
+      "target": "manuel-rupsch",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "florian-russ",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "florian-russ",
+      "target": "margot-haefner",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "marika-heinrichs",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "florian-russ",
+      "target": "nicole-anger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "florian-russ",
+      "target": "noah-biswanger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "florian-russ",
+      "target": "olaf-meister",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "florian-russ",
+      "target": "oliver-kirchner",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "oliver-mueller",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "florian-russ",
+      "target": "philipp-haendler",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "florian-russ",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "florian-russ",
+      "target": "rebekka-grotjohann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "florian-russ",
+      "target": "robert-fietzke",
+      "value": 0.75
+    },
+    {
+      "source": "florian-russ",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "florian-russ",
+      "target": "ronny-kumpf",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "simone-borris",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "florian-russ",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "florian-russ",
+      "target": "steffen-kraus",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-russ",
+      "target": "stephan-bublitz",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "florian-russ",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "florian-russ",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-russ",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-russ",
+      "target": "tobias-hartmann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "florian-russ",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "florian-russ",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "florian-russ",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "hagen-kohl",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "jens-roesler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "frank-schuster",
+      "target": "julia-lehnert",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "julian-reek",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "julian-schache",
+      "value": 1
+    },
+    {
+      "source": "frank-schuster",
+      "target": "kevin-michalzik",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "frank-schuster",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "frank-schuster",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "frank-schuster",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "frank-schuster",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "frank-schuster",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "frank-schuster",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "frank-schuster",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "frank-schuster",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "frank-schuster",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "frank-schuster",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "frank-schuster",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "frank-schuster",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "frank-schuster",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "frank-schuster",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "frank-schuster",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "frank-schuster",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "frank-schuster",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "frank-schuster",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "frank-schuster",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "frank-schuster",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "frank-schuster",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "frank-schuster",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "frank-schuster",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "frank-schuster",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "frank-schuster",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "frank-schuster",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "jens-roesler",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "julia-lehnert",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "julian-reek",
+      "value": 1
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "julian-schache",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "kevin-michalzik",
+      "value": 1
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "kornelia-keune",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "lucas-kemmesies",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "madeleine-linke",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "manuel-rupsch",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "margot-haefner",
+      "value": 1
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "marika-heinrichs",
+      "value": 1
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "nicole-anger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "noah-biswanger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "olaf-meister",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "oliver-kirchner",
+      "value": 1
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "oliver-mueller",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "philipp-haendler",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "rebekka-grotjohann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "robert-fietzke",
+      "value": 0.75
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "ronny-kumpf",
+      "value": 1
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "simone-borris",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "steffen-kraus",
+      "value": 1
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "stephan-bublitz",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "tobias-hartmann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "hagen-kohl",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jens-roesler",
+      "target": "julia-lehnert",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jens-roesler",
+      "target": "julian-reek",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jens-roesler",
+      "target": "julian-schache",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "jens-roesler",
+      "target": "kevin-michalzik",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jens-roesler",
+      "target": "kornelia-keune",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "jens-roesler",
+      "target": "lucas-kemmesies",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "jens-roesler",
+      "target": "madeleine-linke",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jens-roesler",
+      "target": "manuel-rupsch",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "jens-roesler",
+      "target": "marcel-guderjahn",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "jens-roesler",
+      "target": "margot-haefner",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jens-roesler",
+      "target": "marika-heinrichs",
+      "value": 0.75
+    },
+    {
+      "source": "jens-roesler",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "jens-roesler",
+      "target": "nicole-anger",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jens-roesler",
+      "target": "noah-biswanger",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jens-roesler",
+      "target": "olaf-meister",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "jens-roesler",
+      "target": "oliver-kirchner",
+      "value": 0.6
+    },
+    {
+      "source": "jens-roesler",
+      "target": "oliver-mueller",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "jens-roesler",
+      "target": "philipp-haendler",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jens-roesler",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "jens-roesler",
+      "target": "rebekka-grotjohann",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jens-roesler",
+      "target": "robert-fietzke",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "jens-roesler",
+      "target": "roland-zander",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jens-roesler",
+      "target": "ronny-kumpf",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jens-roesler",
+      "target": "simone-borris",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jens-roesler",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "jens-roesler",
+      "target": "steffen-kraus",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jens-roesler",
+      "target": "steffi-meyer",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "jens-roesler",
+      "target": "stephan-bublitz",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jens-roesler",
+      "target": "stephan-leitel",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "jens-roesler",
+      "target": "stephan-papenbreer",
+      "value": 0.6
+    },
+    {
+      "source": "jens-roesler",
+      "target": "thomas-wendler",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "jens-roesler",
+      "target": "tim-rohne",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "jens-roesler",
+      "target": "timo-schulze",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "jens-roesler",
+      "target": "tobias-hartmann",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "jens-roesler",
+      "target": "ulf-steinforth",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "jens-roesler",
+      "target": "uwe-muelbredt",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "jens-roesler",
+      "target": "wigbert-schwenke",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "julian-reek",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "julian-schache",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "kevin-michalzik",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "kornelia-keune",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "lucas-kemmesies",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "madeleine-linke",
+      "value": 1
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "manuel-rupsch",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "margot-haefner",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "marika-heinrichs",
+      "value": 0.6666666666666666
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "olaf-meister",
+      "value": 1
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "philipp-haendler",
+      "value": 1
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "roland-zander",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "ronny-kumpf",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "simone-borris",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "steffen-kraus",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "stephan-bublitz",
+      "value": 1
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "thomas-wendler",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "uwe-muelbredt",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "julia-lehnert",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julian-reek",
+      "target": "julian-schache",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julian-reek",
+      "target": "kevin-michalzik",
+      "value": 1
+    },
+    {
+      "source": "julian-reek",
+      "target": "kornelia-keune",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julian-reek",
+      "target": "lucas-kemmesies",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julian-reek",
+      "target": "madeleine-linke",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "julian-reek",
+      "target": "manuel-rupsch",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "julian-reek",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "julian-reek",
+      "target": "margot-haefner",
+      "value": 1
+    },
+    {
+      "source": "julian-reek",
+      "target": "marika-heinrichs",
+      "value": 1
+    },
+    {
+      "source": "julian-reek",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "julian-reek",
+      "target": "nicole-anger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "julian-reek",
+      "target": "noah-biswanger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "julian-reek",
+      "target": "olaf-meister",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "julian-reek",
+      "target": "oliver-kirchner",
+      "value": 1
+    },
+    {
+      "source": "julian-reek",
+      "target": "oliver-mueller",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "julian-reek",
+      "target": "philipp-haendler",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "julian-reek",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "julian-reek",
+      "target": "rebekka-grotjohann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "julian-reek",
+      "target": "robert-fietzke",
+      "value": 0.75
+    },
+    {
+      "source": "julian-reek",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "julian-reek",
+      "target": "ronny-kumpf",
+      "value": 1
+    },
+    {
+      "source": "julian-reek",
+      "target": "simone-borris",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "julian-reek",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "julian-reek",
+      "target": "steffen-kraus",
+      "value": 1
+    },
+    {
+      "source": "julian-reek",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julian-reek",
+      "target": "stephan-bublitz",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "julian-reek",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julian-reek",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "julian-reek",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "julian-reek",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julian-reek",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julian-reek",
+      "target": "tobias-hartmann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "julian-reek",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julian-reek",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "julian-reek",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "julian-schache",
+      "target": "kevin-michalzik",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julian-schache",
+      "target": "kornelia-keune",
+      "value": 1
+    },
+    {
+      "source": "julian-schache",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "julian-schache",
+      "target": "madeleine-linke",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julian-schache",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "julian-schache",
+      "target": "marcel-guderjahn",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "julian-schache",
+      "target": "margot-haefner",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julian-schache",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "julian-schache",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "julian-schache",
+      "target": "nicole-anger",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "julian-schache",
+      "target": "noah-biswanger",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "julian-schache",
+      "target": "olaf-meister",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "julian-schache",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "julian-schache",
+      "target": "oliver-mueller",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "julian-schache",
+      "target": "philipp-haendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julian-schache",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "julian-schache",
+      "target": "rebekka-grotjohann",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "julian-schache",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "julian-schache",
+      "target": "roland-zander",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "julian-schache",
+      "target": "ronny-kumpf",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julian-schache",
+      "target": "simone-borris",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "julian-schache",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "julian-schache",
+      "target": "steffen-kraus",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julian-schache",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "julian-schache",
+      "target": "stephan-bublitz",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julian-schache",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "julian-schache",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "julian-schache",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julian-schache",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "julian-schache",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "julian-schache",
+      "target": "tobias-hartmann",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "julian-schache",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "julian-schache",
+      "target": "uwe-muelbredt",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "julian-schache",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "kornelia-keune",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "lucas-kemmesies",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "madeleine-linke",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "manuel-rupsch",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "margot-haefner",
+      "value": 1
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "marika-heinrichs",
+      "value": 1
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "nicole-anger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "noah-biswanger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "olaf-meister",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "oliver-kirchner",
+      "value": 1
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "oliver-mueller",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "philipp-haendler",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "rebekka-grotjohann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "robert-fietzke",
+      "value": 0.75
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "ronny-kumpf",
+      "value": 1
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "simone-borris",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "steffen-kraus",
+      "value": 1
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "stephan-bublitz",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "tobias-hartmann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "kevin-michalzik",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "lucas-kemmesies",
+      "value": 1
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "kornelia-keune",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "madeleine-linke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "manuel-rupsch",
+      "value": 1
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "margot-haefner",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "marika-heinrichs",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "olaf-meister",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "philipp-haendler",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "ronny-kumpf",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "steffen-kraus",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "lucas-kemmesies",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "manuel-rupsch",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "marcel-guderjahn",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "margot-haefner",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "marika-heinrichs",
+      "value": 0.6666666666666666
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "nicole-anger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "noah-biswanger",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "olaf-meister",
+      "value": 1
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "oliver-mueller",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "philipp-haendler",
+      "value": 1
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "roland-zander",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "ronny-kumpf",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "simone-borris",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "steffen-kraus",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "stephan-bublitz",
+      "value": 1
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "thomas-wendler",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "uwe-muelbredt",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "madeleine-linke",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "marcel-guderjahn",
+      "value": 0.75
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "margot-haefner",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "marika-heinrichs",
+      "value": 0.8181818181818182
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "nicole-anger",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "noah-biswanger",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "olaf-meister",
+      "value": 0.8181818181818182
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "oliver-mueller",
+      "value": 0.9090909090909091
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "philipp-haendler",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "rebekka-grotjohann",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "robert-fietzke",
+      "value": 0.9090909090909091
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "roland-zander",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "ronny-kumpf",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "simone-borris",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "steffen-kraus",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "steffi-meyer",
+      "value": 1
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "stephan-bublitz",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "thomas-wendler",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "tobias-hartmann",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "uwe-muelbredt",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "manuel-rupsch",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "margot-haefner",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "marika-heinrichs",
+      "value": 0.75
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "nicole-anger",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "noah-biswanger",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "olaf-meister",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "oliver-kirchner",
+      "value": 1
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "oliver-mueller",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "philipp-haendler",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "rebekka-grotjohann",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "robert-fietzke",
+      "value": 0.6666666666666666
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "roland-zander",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "ronny-kumpf",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "simone-borris",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "steffen-kraus",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "steffi-meyer",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "stephan-bublitz",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "stephan-leitel",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "thomas-wendler",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "tim-rohne",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "timo-schulze",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "tobias-hartmann",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "ulf-steinforth",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "uwe-muelbredt",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "marcel-guderjahn",
+      "target": "wigbert-schwenke",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "margot-haefner",
+      "target": "marika-heinrichs",
+      "value": 1
+    },
+    {
+      "source": "margot-haefner",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "margot-haefner",
+      "target": "nicole-anger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "margot-haefner",
+      "target": "noah-biswanger",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "margot-haefner",
+      "target": "olaf-meister",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "margot-haefner",
+      "target": "oliver-kirchner",
+      "value": 1
+    },
+    {
+      "source": "margot-haefner",
+      "target": "oliver-mueller",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "margot-haefner",
+      "target": "philipp-haendler",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "margot-haefner",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "margot-haefner",
+      "target": "rebekka-grotjohann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "margot-haefner",
+      "target": "robert-fietzke",
+      "value": 0.75
+    },
+    {
+      "source": "margot-haefner",
+      "target": "roland-zander",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "margot-haefner",
+      "target": "ronny-kumpf",
+      "value": 1
+    },
+    {
+      "source": "margot-haefner",
+      "target": "simone-borris",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "margot-haefner",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "margot-haefner",
+      "target": "steffen-kraus",
+      "value": 1
+    },
+    {
+      "source": "margot-haefner",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "margot-haefner",
+      "target": "stephan-bublitz",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "margot-haefner",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "margot-haefner",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "margot-haefner",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "margot-haefner",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "margot-haefner",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "margot-haefner",
+      "target": "tobias-hartmann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "margot-haefner",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "margot-haefner",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "margot-haefner",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "matthias-boxhorn",
+      "value": null
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "nicole-anger",
+      "value": 0.75
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "noah-biswanger",
+      "value": 0.75
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "olaf-meister",
+      "value": 0.6363636363636364
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "oliver-kirchner",
+      "value": 1
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "oliver-mueller",
+      "value": 0.7272727272727273
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "philipp-haendler",
+      "value": 0.6666666666666666
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "rebekka-grotjohann",
+      "value": 0.75
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "robert-fietzke",
+      "value": 0.75
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "roland-zander",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "ronny-kumpf",
+      "value": 1
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "simone-borris",
+      "value": 0.75
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "steffen-kraus",
+      "value": 1
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "steffi-meyer",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "stephan-bublitz",
+      "value": 0.6666666666666666
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "stephan-leitel",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "tim-rohne",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "timo-schulze",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "tobias-hartmann",
+      "value": 0.75
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "ulf-steinforth",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "marika-heinrichs",
+      "target": "wigbert-schwenke",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "nicole-anger",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "noah-biswanger",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "olaf-meister",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "oliver-kirchner",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "oliver-mueller",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "philipp-haendler",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "rebekka-grotjohann",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "robert-fietzke",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "roland-zander",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "ronny-kumpf",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "simone-borris",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "steffen-kraus",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "steffi-meyer",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "stephan-bublitz",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "stephan-leitel",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "stephan-papenbreer",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "thomas-wendler",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "tim-rohne",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "timo-schulze",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "tobias-hartmann",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "ulf-steinforth",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "uwe-muelbredt",
+      "value": null
+    },
+    {
+      "source": "matthias-boxhorn",
+      "target": "wigbert-schwenke",
+      "value": null
+    },
+    {
+      "source": "nicole-anger",
+      "target": "noah-biswanger",
+      "value": 1
+    },
+    {
+      "source": "nicole-anger",
+      "target": "olaf-meister",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "nicole-anger",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "nicole-anger",
+      "target": "oliver-mueller",
+      "value": 1
+    },
+    {
+      "source": "nicole-anger",
+      "target": "philipp-haendler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "nicole-anger",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "nicole-anger",
+      "target": "rebekka-grotjohann",
+      "value": 1
+    },
+    {
+      "source": "nicole-anger",
+      "target": "robert-fietzke",
+      "value": 1
+    },
+    {
+      "source": "nicole-anger",
+      "target": "roland-zander",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "nicole-anger",
+      "target": "ronny-kumpf",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "nicole-anger",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "nicole-anger",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "nicole-anger",
+      "target": "steffen-kraus",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "nicole-anger",
+      "target": "steffi-meyer",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "nicole-anger",
+      "target": "stephan-bublitz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "nicole-anger",
+      "target": "stephan-leitel",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "nicole-anger",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "nicole-anger",
+      "target": "thomas-wendler",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "nicole-anger",
+      "target": "tim-rohne",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "nicole-anger",
+      "target": "timo-schulze",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "nicole-anger",
+      "target": "tobias-hartmann",
+      "value": 1
+    },
+    {
+      "source": "nicole-anger",
+      "target": "ulf-steinforth",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "nicole-anger",
+      "target": "uwe-muelbredt",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "nicole-anger",
+      "target": "wigbert-schwenke",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "olaf-meister",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "oliver-mueller",
+      "value": 1
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "philipp-haendler",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "rebekka-grotjohann",
+      "value": 1
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "robert-fietzke",
+      "value": 1
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "roland-zander",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "ronny-kumpf",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "steffen-kraus",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "steffi-meyer",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "stephan-bublitz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "stephan-leitel",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "thomas-wendler",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "tim-rohne",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "timo-schulze",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "tobias-hartmann",
+      "value": 1
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "ulf-steinforth",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "uwe-muelbredt",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "noah-biswanger",
+      "target": "wigbert-schwenke",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "olaf-meister",
+      "target": "oliver-kirchner",
+      "value": 0.8
+    },
+    {
+      "source": "olaf-meister",
+      "target": "oliver-mueller",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "olaf-meister",
+      "target": "philipp-haendler",
+      "value": 1
+    },
+    {
+      "source": "olaf-meister",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "olaf-meister",
+      "target": "rebekka-grotjohann",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "olaf-meister",
+      "target": "robert-fietzke",
+      "value": 0.9090909090909091
+    },
+    {
+      "source": "olaf-meister",
+      "target": "roland-zander",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "olaf-meister",
+      "target": "ronny-kumpf",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "olaf-meister",
+      "target": "simone-borris",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "olaf-meister",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "olaf-meister",
+      "target": "steffen-kraus",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "olaf-meister",
+      "target": "steffi-meyer",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "olaf-meister",
+      "target": "stephan-bublitz",
+      "value": 1
+    },
+    {
+      "source": "olaf-meister",
+      "target": "stephan-leitel",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "olaf-meister",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "olaf-meister",
+      "target": "thomas-wendler",
+      "value": 0.6666666666666666
+    },
+    {
+      "source": "olaf-meister",
+      "target": "tim-rohne",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "olaf-meister",
+      "target": "timo-schulze",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "olaf-meister",
+      "target": "tobias-hartmann",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "olaf-meister",
+      "target": "ulf-steinforth",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "olaf-meister",
+      "target": "uwe-muelbredt",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "olaf-meister",
+      "target": "wigbert-schwenke",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "oliver-mueller",
+      "value": 0.75
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "philipp-haendler",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "rebekka-grotjohann",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "robert-fietzke",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "roland-zander",
+      "value": 1
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "ronny-kumpf",
+      "value": 1
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "simone-borris",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "steffen-kraus",
+      "value": 1
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "steffi-meyer",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "stephan-bublitz",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "stephan-leitel",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "tim-rohne",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "timo-schulze",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "tobias-hartmann",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "ulf-steinforth",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "oliver-kirchner",
+      "target": "wigbert-schwenke",
+      "value": 0.8
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "philipp-haendler",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "rebekka-grotjohann",
+      "value": 1
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "robert-fietzke",
+      "value": 1
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "roland-zander",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "ronny-kumpf",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "simone-borris",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "steffen-kraus",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "steffi-meyer",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "stephan-bublitz",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "stephan-leitel",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "stephan-papenbreer",
+      "value": 0.75
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "thomas-wendler",
+      "value": 0.75
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "tim-rohne",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "timo-schulze",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "tobias-hartmann",
+      "value": 1
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "ulf-steinforth",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "uwe-muelbredt",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "oliver-mueller",
+      "target": "wigbert-schwenke",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "rainer-buller",
+      "value": null
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "rebekka-grotjohann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "robert-fietzke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "roland-zander",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "ronny-kumpf",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "simone-borris",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "steffen-kraus",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "stephan-bublitz",
+      "value": 1
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "thomas-wendler",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "uwe-muelbredt",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "philipp-haendler",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "rainer-buller",
+      "target": "rebekka-grotjohann",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "robert-fietzke",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "roland-zander",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "ronny-kumpf",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "simone-borris",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "steffen-kraus",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "steffi-meyer",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "stephan-bublitz",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "stephan-leitel",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "stephan-papenbreer",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "thomas-wendler",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "tim-rohne",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "timo-schulze",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "tobias-hartmann",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "ulf-steinforth",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "uwe-muelbredt",
+      "value": null
+    },
+    {
+      "source": "rainer-buller",
+      "target": "wigbert-schwenke",
+      "value": null
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "robert-fietzke",
+      "value": 1
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "roland-zander",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "ronny-kumpf",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "simone-borris",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "steffen-kraus",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "steffi-meyer",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "stephan-bublitz",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "stephan-leitel",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "thomas-wendler",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "tim-rohne",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "timo-schulze",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "tobias-hartmann",
+      "value": 1
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "ulf-steinforth",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "uwe-muelbredt",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "rebekka-grotjohann",
+      "target": "wigbert-schwenke",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "roland-zander",
+      "value": 0.8333333333333334
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "ronny-kumpf",
+      "value": 0.75
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "simone-borris",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "steffen-kraus",
+      "value": 0.75
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "steffi-meyer",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "stephan-bublitz",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "stephan-leitel",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "thomas-wendler",
+      "value": 0.75
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "tim-rohne",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "timo-schulze",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "tobias-hartmann",
+      "value": 1
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "ulf-steinforth",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "uwe-muelbredt",
+      "value": 0.75
+    },
+    {
+      "source": "robert-fietzke",
+      "target": "wigbert-schwenke",
+      "value": 0.9166666666666666
+    },
+    {
+      "source": "roland-zander",
+      "target": "ronny-kumpf",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "roland-zander",
+      "target": "simone-borris",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "roland-zander",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "roland-zander",
+      "target": "steffen-kraus",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "roland-zander",
+      "target": "steffi-meyer",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "roland-zander",
+      "target": "stephan-bublitz",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "roland-zander",
+      "target": "stephan-leitel",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "roland-zander",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "roland-zander",
+      "target": "thomas-wendler",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "roland-zander",
+      "target": "tim-rohne",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "roland-zander",
+      "target": "timo-schulze",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "roland-zander",
+      "target": "tobias-hartmann",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "roland-zander",
+      "target": "ulf-steinforth",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "roland-zander",
+      "target": "uwe-muelbredt",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "roland-zander",
+      "target": "wigbert-schwenke",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "simone-borris",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "steffen-kraus",
+      "value": 1
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "stephan-bublitz",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "tobias-hartmann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "ronny-kumpf",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "simone-borris",
+      "target": "stefanie-middendorf",
+      "value": null
+    },
+    {
+      "source": "simone-borris",
+      "target": "steffen-kraus",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "simone-borris",
+      "target": "steffi-meyer",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "simone-borris",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "simone-borris",
+      "target": "stephan-leitel",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "simone-borris",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "simone-borris",
+      "target": "thomas-wendler",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "simone-borris",
+      "target": "tim-rohne",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "simone-borris",
+      "target": "timo-schulze",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "simone-borris",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "simone-borris",
+      "target": "ulf-steinforth",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "simone-borris",
+      "target": "uwe-muelbredt",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "simone-borris",
+      "target": "wigbert-schwenke",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "steffen-kraus",
+      "value": null
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "steffi-meyer",
+      "value": null
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "stephan-bublitz",
+      "value": null
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "stephan-leitel",
+      "value": null
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "stephan-papenbreer",
+      "value": null
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "thomas-wendler",
+      "value": null
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "tim-rohne",
+      "value": null
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "timo-schulze",
+      "value": null
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "tobias-hartmann",
+      "value": null
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "ulf-steinforth",
+      "value": null
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "uwe-muelbredt",
+      "value": null
+    },
+    {
+      "source": "stefanie-middendorf",
+      "target": "wigbert-schwenke",
+      "value": null
+    },
+    {
+      "source": "steffen-kraus",
+      "target": "steffi-meyer",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "steffen-kraus",
+      "target": "stephan-bublitz",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "steffen-kraus",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "steffen-kraus",
+      "target": "stephan-papenbreer",
+      "value": 1
+    },
+    {
+      "source": "steffen-kraus",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "steffen-kraus",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "steffen-kraus",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "steffen-kraus",
+      "target": "tobias-hartmann",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "steffen-kraus",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "steffen-kraus",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "steffen-kraus",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "steffi-meyer",
+      "target": "stephan-bublitz",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "steffi-meyer",
+      "target": "stephan-leitel",
+      "value": 1
+    },
+    {
+      "source": "steffi-meyer",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "steffi-meyer",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "steffi-meyer",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "steffi-meyer",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "steffi-meyer",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "steffi-meyer",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "steffi-meyer",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "steffi-meyer",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "stephan-bublitz",
+      "target": "stephan-leitel",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "stephan-bublitz",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "stephan-bublitz",
+      "target": "thomas-wendler",
+      "value": 0.6923076923076923
+    },
+    {
+      "source": "stephan-bublitz",
+      "target": "tim-rohne",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "stephan-bublitz",
+      "target": "timo-schulze",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "stephan-bublitz",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "stephan-bublitz",
+      "target": "ulf-steinforth",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "stephan-bublitz",
+      "target": "uwe-muelbredt",
+      "value": 0.7142857142857143
+    },
+    {
+      "source": "stephan-bublitz",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "stephan-leitel",
+      "target": "stephan-papenbreer",
+      "value": 0.8
+    },
+    {
+      "source": "stephan-leitel",
+      "target": "thomas-wendler",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "stephan-leitel",
+      "target": "tim-rohne",
+      "value": 1
+    },
+    {
+      "source": "stephan-leitel",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "stephan-leitel",
+      "target": "tobias-hartmann",
+      "value": 0.9230769230769231
+    },
+    {
+      "source": "stephan-leitel",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "stephan-leitel",
+      "target": "uwe-muelbredt",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "stephan-leitel",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "stephan-papenbreer",
+      "target": "thomas-wendler",
+      "value": 1
+    },
+    {
+      "source": "stephan-papenbreer",
+      "target": "tim-rohne",
+      "value": 0.8
+    },
+    {
+      "source": "stephan-papenbreer",
+      "target": "timo-schulze",
+      "value": 0.8
+    },
+    {
+      "source": "stephan-papenbreer",
+      "target": "tobias-hartmann",
+      "value": 0.8
+    },
+    {
+      "source": "stephan-papenbreer",
+      "target": "ulf-steinforth",
+      "value": 0.8
+    },
+    {
+      "source": "stephan-papenbreer",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "stephan-papenbreer",
+      "target": "wigbert-schwenke",
+      "value": 0.8
+    },
+    {
+      "source": "thomas-wendler",
+      "target": "tim-rohne",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "thomas-wendler",
+      "target": "timo-schulze",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "thomas-wendler",
+      "target": "tobias-hartmann",
+      "value": 0.7692307692307693
+    },
+    {
+      "source": "thomas-wendler",
+      "target": "ulf-steinforth",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "thomas-wendler",
+      "target": "uwe-muelbredt",
+      "value": 1
+    },
+    {
+      "source": "thomas-wendler",
+      "target": "wigbert-schwenke",
+      "value": 0.8461538461538461
+    },
+    {
+      "source": "tim-rohne",
+      "target": "timo-schulze",
+      "value": 1
+    },
+    {
+      "source": "tim-rohne",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "tim-rohne",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "tim-rohne",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "tim-rohne",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "timo-schulze",
+      "target": "tobias-hartmann",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "timo-schulze",
+      "target": "ulf-steinforth",
+      "value": 1
+    },
+    {
+      "source": "timo-schulze",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "timo-schulze",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "tobias-hartmann",
+      "target": "ulf-steinforth",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "tobias-hartmann",
+      "target": "uwe-muelbredt",
+      "value": 0.7857142857142857
+    },
+    {
+      "source": "tobias-hartmann",
+      "target": "wigbert-schwenke",
+      "value": 0.9285714285714286
+    },
+    {
+      "source": "ulf-steinforth",
+      "target": "uwe-muelbredt",
+      "value": 0.8571428571428571
+    },
+    {
+      "source": "ulf-steinforth",
+      "target": "wigbert-schwenke",
+      "value": 1
+    },
+    {
+      "source": "uwe-muelbredt",
+      "target": "wigbert-schwenke",
+      "value": 0.8571428571428571
+    }
+  ]
 }

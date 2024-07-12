@@ -1,7 +1,567 @@
 {
   "electoralPeriod": 8,
-  "sessions": [],
-  "factions": [],
-  "parties": [],
-  "persons": []
+  "sessions": [
+    {
+      "id": "2024-07-08",
+      "date": "2024-07-08",
+      "meetingMinutesUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=698259&type=do"
+    }
+  ],
+  "factions": [
+    {
+      "id": "cdu-fdp",
+      "name": "CDU/FDP",
+      "seats": 15
+    },
+    {
+      "id": "afd",
+      "name": "AfD",
+      "seats": 13
+    },
+    {
+      "id": "spd-tsa-volt",
+      "name": "SPD/Tierschutzallianz/Volt",
+      "seats": 10
+    },
+    {
+      "id": "gruene-future",
+      "name": "GRÜNE/future!",
+      "seats": 6
+    },
+    {
+      "id": "die-linke",
+      "name": "DIE LINKE",
+      "seats": 6
+    },
+    {
+      "id": "gartenpartei",
+      "name": "Gartenpartei",
+      "seats": 3
+    },
+    {
+      "id": "tierschutzpartei",
+      "name": "Tierschutzpartei",
+      "seats": 3
+    },
+    {
+      "id": "oberbuergermeisterin",
+      "name": "Oberbürgermeisterin",
+      "seats": 1
+    }
+  ],
+  "parties": [
+    {
+      "id": "cdu",
+      "name": "CDU",
+      "seats": 13
+    },
+    {
+      "id": "afd",
+      "name": "AfD",
+      "seats": 13
+    },
+    {
+      "id": "spd",
+      "name": "SPD",
+      "seats": 8
+    },
+    {
+      "id": "die-linke",
+      "name": "DIE LINKE",
+      "seats": 6
+    },
+    {
+      "id": "buendnis-90-die-gruenen",
+      "name": "Bündnis 90/Die Grünen",
+      "seats": 5
+    },
+    {
+      "id": "tierschutzpartei",
+      "name": "Tierschutzpartei",
+      "seats": 3
+    },
+    {
+      "id": "gartenpartei",
+      "name": "Gartenpartei",
+      "seats": 3
+    },
+    {
+      "id": "fdp",
+      "name": "FDP",
+      "seats": 2
+    },
+    {
+      "id": "future-magdeburg",
+      "name": "future! Magdeburg",
+      "seats": 1
+    },
+    {
+      "id": "tierschutzallianz",
+      "name": "Tierschutzallianz",
+      "seats": 1
+    },
+    {
+      "id": "volt",
+      "name": "Volt",
+      "seats": 1
+    }
+  ],
+  "persons": [
+    {
+      "id": "beate-bettecken",
+      "name": "Dr. Beate Bettecken",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "matthias-boxhorn",
+      "name": "Matthias Boxhorn",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "florian-buehnemann",
+      "name": "Florian Bühnemann",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "bernd-heynemann",
+      "name": "Bernd Heynemann",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "stephan-leitel",
+      "name": "Stephan Leitel",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "stefanie-middendorf",
+      "name": "Stefanie Middendorf",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "tim-rohne",
+      "name": "Tim Rohne",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "manuel-rupsch",
+      "name": "Manuel Rupsch",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "julian-schache",
+      "name": "Julian Schache",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "timo-schulze",
+      "name": "Timo Schulze",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "frank-schuster",
+      "name": "Frank Schuster",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "wigbert-schwenke",
+      "name": "Wigbert Schwenke",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "ulf-steinforth",
+      "name": "Ulf Steinforth",
+      "factionId": "cdu-fdp",
+      "partyId": "cdu",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "kathrin-meyer-pinger",
+      "name": "Dr. Kathrin Meyer-Pinger",
+      "factionId": "cdu-fdp",
+      "partyId": "fdp",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "carola-schumann",
+      "name": "Carola Schumann",
+      "factionId": "cdu-fdp",
+      "partyId": "fdp",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "margot-haefner",
+      "name": "Margot Häfner",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "marika-heinrichs",
+      "name": "Marika Heinrichs",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "oliver-kirchner",
+      "name": "Oliver Kirchner",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "hagen-kohl",
+      "name": "Hagen Kohl",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "steffen-kraus",
+      "name": "Steffen Kraus",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "ronny-kumpf",
+      "name": "Ronny Kumpf",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "christian-mertens",
+      "name": "Christian Mertens",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "kevin-michalzik",
+      "name": "Kevin Michalzik",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "jan-moldenhauer",
+      "name": "Dr. Jan Moldenhauer",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "uwe-muelbredt",
+      "name": "Uwe Muelbredt",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "julian-reek",
+      "name": "Julian Reek",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "florian-russ",
+      "name": "Florian Ruß",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "thomas-wendler",
+      "name": "Thomas Wendler",
+      "factionId": "afd",
+      "partyId": "afd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "christoph-abel",
+      "name": "Christoph Abel",
+      "factionId": "spd-tsa-volt",
+      "partyId": "spd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "norman-belas",
+      "name": "Dr. Norman Belas",
+      "factionId": "spd-tsa-volt",
+      "partyId": "spd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "falko-grube",
+      "name": "Dr. Falko Grube",
+      "factionId": "spd-tsa-volt",
+      "partyId": "spd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "kornelia-keune",
+      "name": "Kornelia Keune",
+      "factionId": "spd-tsa-volt",
+      "partyId": "spd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "steffi-meyer",
+      "name": "Steffi Meyer",
+      "factionId": "spd-tsa-volt",
+      "partyId": "spd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "jens-roesler",
+      "name": "Jens Rösler",
+      "factionId": "spd-tsa-volt",
+      "partyId": "spd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "thomas-wiebe",
+      "name": "Dr. Thomas Wiebe",
+      "factionId": "spd-tsa-volt",
+      "partyId": "spd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "niko-zenker",
+      "name": "Dr. Niko Zenker",
+      "factionId": "spd-tsa-volt",
+      "partyId": "spd",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "aila-fassl",
+      "name": "Aila Fassl",
+      "factionId": "spd-tsa-volt",
+      "partyId": "tierschutzallianz",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "lucas-kemmesies",
+      "name": "Lucas Kemmesies",
+      "factionId": "spd-tsa-volt",
+      "partyId": "volt",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "nicole-anger",
+      "name": "Nicole Anger",
+      "factionId": "die-linke",
+      "partyId": "die-linke",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "noah-biswanger",
+      "name": "Noah Biswanger",
+      "factionId": "die-linke",
+      "partyId": "die-linke",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "robert-fietzke",
+      "name": "Robert Fietzke",
+      "factionId": "die-linke",
+      "partyId": "die-linke",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "rebekka-grotjohann",
+      "name": "Rebekka Grotjohann",
+      "factionId": "die-linke",
+      "partyId": "die-linke",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "dennis-jannack",
+      "name": "Dennis Jannack",
+      "factionId": "die-linke",
+      "partyId": "die-linke",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "oliver-mueller",
+      "name": "Oliver Müller",
+      "factionId": "die-linke",
+      "partyId": "die-linke",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "philipp-haendler",
+      "name": "Philipp Händler",
+      "factionId": "gruene-future",
+      "partyId": "buendnis-90-die-gruenen",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "tobias-hartmann",
+      "name": "Tobias Hartmann",
+      "factionId": "gruene-future",
+      "partyId": "buendnis-90-die-gruenen",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "julia-lehnert",
+      "name": "Julia Lehnert",
+      "factionId": "gruene-future",
+      "partyId": "buendnis-90-die-gruenen",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "madeleine-linke",
+      "name": "Madeleine Linke",
+      "factionId": "gruene-future",
+      "partyId": "buendnis-90-die-gruenen",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "olaf-meister",
+      "name": "Olaf Meister",
+      "factionId": "gruene-future",
+      "partyId": "buendnis-90-die-gruenen",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "stephan-bublitz",
+      "name": "Stephan Bublitz",
+      "factionId": "gruene-future",
+      "partyId": "future-magdeburg",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "rainer-buller",
+      "name": "Rainer Buller",
+      "factionId": "gartenpartei",
+      "partyId": "gartenpartei",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "marcel-guderjahn",
+      "name": "Marcel Guderjahn",
+      "factionId": "gartenpartei",
+      "partyId": "gartenpartei",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "roland-zander",
+      "name": "Roland Zander",
+      "factionId": "gartenpartei",
+      "partyId": "gartenpartei",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "burkhard-moll",
+      "name": "Burkhard Moll",
+      "factionId": "tierschutzpartei",
+      "partyId": "tierschutzpartei",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "stephan-papenbreer",
+      "name": "Stephan Papenbreer",
+      "factionId": "tierschutzpartei",
+      "partyId": "tierschutzpartei",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "evelin-schulz",
+      "name": "Evelin Schulz",
+      "factionId": "tierschutzpartei",
+      "partyId": "tierschutzpartei",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "simone-borris",
+      "name": "Simone Borris",
+      "factionId": "oberbuergermeisterin",
+      "partyId": "parteilos-01",
+      "start": null,
+      "end": null
+    }
+  ]
 }

@@ -23,14 +23,29 @@ import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 const VALUE_THRESHOLD = .65;
 
 const FILL_COLOR_MAP = new Map([
-  ['CDU', '#16B9DE'],
-  ['SPD', '#F33F2F'],
-  ['DIE LINKE', '#C535E5'],
-  ['Gartenpartei/Tierschutzallianz', '#107012'],
-  ['AfD', '#0845C5'],
-  ['FDP/Tierschutzpartei', '#E7D251'],
-  ['GRÜNE/future!', '#3EAD3E'],
-  ['Oberbürgermeisterin', '#A1A2A1']
+  ['7 - CDU', '#16B9DE'],
+  ['7 - SPD', '#F33F2F'],
+  ['7 - DIE LINKE', '#C535E5'],
+  ['7 - Gartenpartei/Tierschutzallianz', '#107012'],
+  ['7 - AfD', '#0845C5'],
+  ['7 - FDP/Tierschutzpartei', '#E7D251'],
+  ['7 - GRÜNE/future!', '#3EAD3E'],
+  ['7 - Oberbürgermeisterin', '#A1A2A1'],
+
+  ['8 - CDU/FDP', '#16B9DE'],
+  ['8 - SPD/Tierschutzallianz/Volt', '#F33F2F'],
+  ['8 - DIE LINKE', '#C535E5'],
+  ['8 - Gartenpartei', '#107012'],
+  ['8 - AfD', '#0845C5'],
+  ['8 - Tierschutzpartei', '#E7D251'],
+  ['8 - GRÜNE/future!', '#3EAD3E'],
+  ['8 - Oberbürgermeisterin', '#A1A2A1']
+]);
+
+
+const DISTANCE_MAP = new Map([
+  ['7', 50],
+  ['8', 1000]
 ]);
 
 
@@ -141,7 +156,7 @@ export class PersonsComponent implements OnInit {
       .force('charge', forceManyBody())
       .force('link', forceLink<Node, Link>(links)
         .id(d => d.id)
-        .distance(l => 50 * (1 - l.value)))
+        .distance(l => DISTANCE_MAP.get(`${this.electoralPeriod}`)! * (1 - l.value)))
       .force('center', forceCenter(width / 3, height / 3))
       .force('collision', forceCollide(5))
       .on('tick', ticked);
@@ -179,7 +194,7 @@ export class PersonsComponent implements OnInit {
       .data(nodes)
       .join('circle')
       .attr('r', 5)
-      .attr('fill', d => FILL_COLOR_MAP.get(d.faction)!);
+      .attr('fill', d => FILL_COLOR_MAP.get(`${this.electoralPeriod} - ${d.faction}`)!);
 
     circleEnter.call(
       drag<any, any>()

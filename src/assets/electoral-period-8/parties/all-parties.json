@@ -1,1 +1,398 @@
-[]
+[
+  {
+    "id": "cdu",
+    "name": "CDU",
+    "seats": 13,
+    "votingsSuccessRate": 1,
+    "uniformityScore": 1,
+    "participationRate": 0.8186813186813187,
+    "abstentionRate": 0,
+    "speakingTime": 1154,
+    "statsHistory": {
+      "votingsSuccessRate": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "uniformityScore": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "participationRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.8186813186813187
+        }
+      ],
+      "abstentionRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "afd",
+    "name": "AfD",
+    "seats": 13,
+    "votingsSuccessRate": 0.8571428571428571,
+    "uniformityScore": 1,
+    "participationRate": 0.9340659340659341,
+    "abstentionRate": 0.07142857142857142,
+    "speakingTime": 348,
+    "statsHistory": {
+      "votingsSuccessRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.8571428571428571
+        }
+      ],
+      "uniformityScore": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "participationRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9340659340659341
+        }
+      ],
+      "abstentionRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.07142857142857142
+        }
+      ]
+    }
+  },
+  {
+    "id": "spd",
+    "name": "SPD",
+    "seats": 8,
+    "votingsSuccessRate": 1,
+    "uniformityScore": 0.9897959183673469,
+    "participationRate": 0.9821428571428571,
+    "abstentionRate": 0.01020408163265306,
+    "speakingTime": 52,
+    "statsHistory": {
+      "votingsSuccessRate": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "uniformityScore": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9897959183673469
+        }
+      ],
+      "participationRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9821428571428571
+        }
+      ],
+      "abstentionRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.01020408163265306
+        }
+      ]
+    }
+  },
+  {
+    "id": "die-linke",
+    "name": "DIE LINKE",
+    "seats": 6,
+    "votingsSuccessRate": 0.9285714285714286,
+    "uniformityScore": 1,
+    "participationRate": 0.9642857142857143,
+    "abstentionRate": 0,
+    "speakingTime": 76,
+    "statsHistory": {
+      "votingsSuccessRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9285714285714286
+        }
+      ],
+      "uniformityScore": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "participationRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9642857142857143
+        }
+      ],
+      "abstentionRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "buendnis-90-die-gruenen",
+    "name": "Bündnis 90/Die Grünen",
+    "seats": 5,
+    "votingsSuccessRate": 0.9285714285714286,
+    "uniformityScore": 0.9857142857142858,
+    "participationRate": 0.9857142857142858,
+    "abstentionRate": 0.05714285714285715,
+    "speakingTime": 95,
+    "statsHistory": {
+      "votingsSuccessRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9285714285714286
+        }
+      ],
+      "uniformityScore": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9857142857142858
+        }
+      ],
+      "participationRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9857142857142858
+        }
+      ],
+      "abstentionRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.05714285714285715
+        }
+      ]
+    }
+  },
+  {
+    "id": "tierschutzpartei",
+    "name": "Tierschutzpartei",
+    "seats": 3,
+    "votingsSuccessRate": 0.9285714285714286,
+    "uniformityScore": 0.9523809523809523,
+    "participationRate": 0.7857142857142857,
+    "abstentionRate": 0.023809523809523808,
+    "speakingTime": 46,
+    "statsHistory": {
+      "votingsSuccessRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9285714285714286
+        }
+      ],
+      "uniformityScore": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9523809523809523
+        }
+      ],
+      "participationRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.7857142857142857
+        }
+      ],
+      "abstentionRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.023809523809523808
+        }
+      ]
+    }
+  },
+  {
+    "id": "gartenpartei",
+    "name": "Gartenpartei",
+    "seats": 3,
+    "votingsSuccessRate": 0.9285714285714286,
+    "uniformityScore": 0.9285714285714286,
+    "participationRate": 0.6666666666666666,
+    "abstentionRate": 0.07142857142857142,
+    "speakingTime": 277,
+    "statsHistory": {
+      "votingsSuccessRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9285714285714286
+        }
+      ],
+      "uniformityScore": [
+        {
+          "date": "2024-07-08",
+          "value": 0.9285714285714286
+        }
+      ],
+      "participationRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.6666666666666666
+        }
+      ],
+      "abstentionRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.07142857142857142
+        }
+      ]
+    }
+  },
+  {
+    "id": "fdp",
+    "name": "FDP",
+    "seats": 2,
+    "votingsSuccessRate": 1,
+    "uniformityScore": 1,
+    "participationRate": 1,
+    "abstentionRate": 0,
+    "speakingTime": 0,
+    "statsHistory": {
+      "votingsSuccessRate": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "uniformityScore": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "participationRate": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "abstentionRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "future-magdeburg",
+    "name": "future! Magdeburg",
+    "seats": 1,
+    "votingsSuccessRate": 0.8571428571428571,
+    "uniformityScore": 1,
+    "participationRate": 1,
+    "abstentionRate": 0.07142857142857142,
+    "speakingTime": 0,
+    "statsHistory": {
+      "votingsSuccessRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.8571428571428571
+        }
+      ],
+      "uniformityScore": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "participationRate": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "abstentionRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0.07142857142857142
+        }
+      ]
+    }
+  },
+  {
+    "id": "tierschutzallianz",
+    "name": "Tierschutzallianz",
+    "seats": 1,
+    "votingsSuccessRate": 1,
+    "uniformityScore": 1,
+    "participationRate": 1,
+    "abstentionRate": 0,
+    "speakingTime": 0,
+    "statsHistory": {
+      "votingsSuccessRate": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "uniformityScore": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "participationRate": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "abstentionRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0
+        }
+      ]
+    }
+  },
+  {
+    "id": "volt",
+    "name": "Volt",
+    "seats": 1,
+    "votingsSuccessRate": 1,
+    "uniformityScore": 1,
+    "participationRate": 1,
+    "abstentionRate": 0,
+    "speakingTime": 0,
+    "statsHistory": {
+      "votingsSuccessRate": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "uniformityScore": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "participationRate": [
+        {
+          "date": "2024-07-08",
+          "value": 1
+        }
+      ],
+      "abstentionRate": [
+        {
+          "date": "2024-07-08",
+          "value": 0
+        }
+      ]
+    }
+  }
+]
