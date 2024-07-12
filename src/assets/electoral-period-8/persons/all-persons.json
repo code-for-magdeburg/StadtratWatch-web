@@ -183,15 +183,15 @@
   },
   {
     "id": "evelin-schulz",
-    "name": "Evlin Schulz",
+    "name": "Evelin Schulz",
     "factionId": "tierschutzpartei",
     "faction": "Tierschutzpartei",
     "partyId": "tierschutzpartei",
     "party": "Tierschutzpartei",
     "councilorUntil": null,
-    "votingAttendance": null,
-    "votingSuccessRate": 0,
-    "abstentionRate": null,
+    "votingAttendance": 1,
+    "votingSuccessRate": 0.9285714285714286,
+    "abstentionRate": 0.07142857142857142,
     "speakingTime": 0
   },
   {
@@ -709,9 +709,9 @@
     "partyId": "cdu",
     "party": "CDU",
     "councilorUntil": null,
-    "votingAttendance": null,
-    "votingSuccessRate": 0,
-    "abstentionRate": null,
+    "votingAttendance": 1,
+    "votingSuccessRate": 1,
+    "abstentionRate": 0,
     "speakingTime": 0
   },
   {
