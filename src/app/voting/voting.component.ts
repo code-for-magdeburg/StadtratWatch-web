@@ -123,8 +123,13 @@ export class VotingComponent implements OnInit {
           ? a.name.localeCompare(b.name)
           : b.members.length - a.members.length);
 
+      const formattedSessionDate = new Date(session.date).toLocaleDateString('de-DE', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
       this.metaTagsService.updateTags({
-        title: 'StadtratWatch - Magdeburger Stadtrat',
+        title: `StadtratWatch: Abstimmung am ${formattedSessionDate}`,
         description: votingDto.votingSubject.title,
         image: `${environment.awsCloudFrontBaseUrl}/web-assets/electoral-period-${this.electoralPeriod}/images/votings/${sessionId}/${sessionId}-${votingId.toString().padStart(3, '0')}.png`
       });
