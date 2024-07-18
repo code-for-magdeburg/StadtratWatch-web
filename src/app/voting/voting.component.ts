@@ -4,6 +4,8 @@ import { SessionsService } from '../services/sessions.service';
 import { DID_NOT_VOTE_COLOR, VOTED_ABSTENTION_COLOR, VOTED_AGAINST_COLOR, VOTED_FOR_COLOR } from '../utilities/ui';
 import { SessionVotingDto, Vote, VoteResult } from '../model/Session';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
+import { MetaTagsService } from '../services/meta-tags.service';
+import { environment } from '../../environments/environment';
 
 
 type FactionMember = {
@@ -51,7 +53,8 @@ export class VotingComponent implements OnInit {
   public VoteResult = VoteResult;
 
 
-  constructor(private readonly route: ActivatedRoute, private readonly sessionsService: SessionsService) {
+  constructor(private readonly route: ActivatedRoute, private readonly sessionsService: SessionsService,
+              private readonly metaTagsService: MetaTagsService) {
   }
 
 
@@ -119,6 +122,12 @@ export class VotingComponent implements OnInit {
         a.members.length === b.members.length
           ? a.name.localeCompare(b.name)
           : b.members.length - a.members.length);
+
+      this.metaTagsService.updateTags({
+        title: 'StadtratWatch - Magdeburger Stadtrat',
+        description: votingDto.votingSubject.title,
+        image: `${environment.awsCloudFrontBaseUrl}/web-assets/electoral-period-${this.electoralPeriod}/images/votings/${sessionId}/${sessionId}-${votingId.toString().padStart(3, '0')}.png`
+      });
 
     });
 

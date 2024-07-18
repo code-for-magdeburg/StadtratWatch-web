@@ -2,6 +2,13 @@ import { Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 
+type MetaTags = {
+  title: string;
+  description: string;
+  image?: string;
+};
+
+
 @Injectable({ providedIn: 'root' })
 export class MetaTagsService {
 
@@ -10,18 +17,21 @@ export class MetaTagsService {
   }
 
 
-  updateTags({ title, description }: { title: string, description: string }) {
+  updateTags(tags: MetaTags) {
 
-    this.titleService.setTitle(title);
-    this.meta.updateTag({ name: 'description', content: description });
-    this.meta.updateTag({ property: 'og:title', content: title });
-    this.meta.updateTag({ property: 'og:description', content: description });
-    this.meta.updateTag({ name: 'twitter:title', content: title });
-    this.meta.updateTag({ name: 'twitter:description', content: description });
+    this.titleService.setTitle(tags.title);
+    this.meta.updateTag({ name: 'description', content: tags.description });
+    this.meta.updateTag({ property: 'og:title', content: tags.title });
+    this.meta.updateTag({ property: 'og:description', content: tags.description });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({ name: 'twitter:title', content: tags.title });
+    this.meta.updateTag({ name: 'twitter:description', content: tags.description });
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    if (tags.image) {
+      this.meta.updateTag({ property: 'og:image', content: tags.image });
+      this.meta.updateTag({ name: 'twitter:image', content: tags.image });
+    }
     // TODO: Add property og:url
-    // TODO: Add property og:image
-    // TODO: Add name twitter:image
-    // TODO: Add name twitter:card
     // TODO: Add name twitter:domain
     // TODO: Add name twitter:url
 
