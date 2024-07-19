@@ -101,6 +101,7 @@ export class SessionComponent implements OnInit {
         authorNames: votingDto.votingSubject.authors,
         result: this.getVotingResult(votingDto.votes),
       }));
+      this.votings.sort((a, b) => a.id - b.id);
       this.speakingTimes = SpeakingTimeChartData.fromSession(session);
       this.speeches = session.speeches;
 
