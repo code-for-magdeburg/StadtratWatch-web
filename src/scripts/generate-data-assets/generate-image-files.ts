@@ -80,9 +80,6 @@ function generateVotingImage(sessionVoting: SessionVotingDto, registry: Registry
   const votingDistributionCanvas = drawVotingDistributionCanvas(voting);
   context.drawImage(votingDistributionCanvas, PADDING_LEFT + summaryCanvas.width + GAP, PADDING_TOP);
 
-  const sourceFooterCanvas = drawSourceFooter();
-  context.drawImage(sourceFooterCanvas, 0, TOTAL_HEIGHT - PADDING_BOTTOM);
-
   saveToFile(canvas, session.id, sessionVoting, outputDir);
 
 }
@@ -325,21 +322,6 @@ function drawVotingDistributionCanvas(voting: Voting): Canvas {
     }
 
   });
-
-  return canvas;
-
-}
-
-
-function drawSourceFooter(): Canvas {
-
-  const canvas = createCanvas(TOTAL_WIDTH, PADDING_BOTTOM);
-  const context = canvas.getContext('2d');
-
-  context.font = '10pt Verdana';
-  context.fillStyle = TEXT_COLOR;
-  context.textAlign = 'right';
-  context.fillText('CC-BY stadtratwatch.de', TOTAL_WIDTH - 20, 20);
 
   return canvas;
 
