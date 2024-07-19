@@ -46,7 +46,7 @@ export class VotingComponent implements OnInit {
 
   protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
-  public electoralPeriod = 0;
+  public electoralPeriod = environment.currentElectoralPeriod;
   public votingViewModel: VotingViewModel | undefined;
   public factions: Faction[] = [];
 
@@ -62,7 +62,7 @@ export class VotingComponent implements OnInit {
 
     this.route.paramMap.subscribe(async params => {
 
-      this.electoralPeriod = +(params.get('electoralPeriod') || '0');
+      this.electoralPeriod = params.get('electoralPeriod') || this.electoralPeriod;
       if (!this.electoralPeriod) {
         // TODO: Handle missing electoral period
         return;
@@ -126,7 +126,7 @@ export class VotingComponent implements OnInit {
       this.metaTagsService.updateTags({
         title: this.getTitleForMetaTags(votingDto, session.date),
         description: votingDto.votingSubject.title,
-        image: `${environment.awsCloudFrontBaseUrl}/web-assets/electoral-period-${this.electoralPeriod}/images/votings/${sessionId}/${sessionId}-${votingId.toString().padStart(3, '0')}.png`
+        image: `${environment.awsCloudFrontBaseUrl}/web-assets/electoral-periods/${this.electoralPeriod}/images/votings/${sessionId}/${sessionId}-${votingId.toString().padStart(3, '0')}.png`
       });
 
     });

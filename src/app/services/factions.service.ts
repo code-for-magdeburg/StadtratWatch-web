@@ -12,19 +12,19 @@ export class FactionsService {
   }
 
 
-  public async fetchFactions(electoralPeriod: number): Promise<FactionLightDto[]> {
+  public async fetchFactions(electoralPeriod: string): Promise<FactionLightDto[]> {
 
     return firstValueFrom(
-      this.http.get<FactionLightDto[]>(`/assets/electoral-period-${electoralPeriod}/factions/all-factions.json`)
+      this.http.get<FactionLightDto[]>(`/assets/electoral-periods/${electoralPeriod}/factions/all-factions.json`)
     );
 
   }
 
 
-  public async fetchFaction(electoralPeriod: number, id: string): Promise<FactionDetailsDto> {
+  public async fetchFaction(electoralPeriod: string, id: string): Promise<FactionDetailsDto> {
 
     return firstValueFrom(
-      this.http.get<FactionDetailsDto>(`/assets/electoral-period-${electoralPeriod}/factions/${id}.json`)
+      this.http.get<FactionDetailsDto>(`/assets/electoral-periods/${electoralPeriod}/factions/${id}.json`)
     );
 
   }

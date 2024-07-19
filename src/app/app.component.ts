@@ -35,7 +35,7 @@ export class AppComponent implements OnDestroy {
         map(event => event.url.split('/')[2]),
       )
       .subscribe(async electoralPeriod => {
-          this.electoralPeriod = +electoralPeriod;
+          this.electoralPeriod = electoralPeriod;
           this.metadata = await this.metadataService.fetchMetadata(this.electoralPeriod);
         }
       );
@@ -49,7 +49,7 @@ export class AppComponent implements OnDestroy {
   }
 
 
-  async selectElectoralPeriod(electoralPeriod: number) {
+  async selectElectoralPeriod(electoralPeriod: string) {
 
     if (this.electoralPeriod !== electoralPeriod) {
       await this.router.navigate(['/', ELECTORAL_PERIOD_PATH, electoralPeriod]);

@@ -7,6 +7,7 @@ import { Councilor, CouncilorCardComponent } from '../components/councilor-card/
 import { PartyStatsHistoryDto } from '../model/Party';
 import { MetaTagsService } from '../services/meta-tags.service';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
+import { environment } from '../../environments/environment';
 
 
 export type Party = {
@@ -29,7 +30,7 @@ export class PartyComponent implements OnInit {
 
   protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
-  public electoralPeriod = 0;
+  public electoralPeriod = environment.currentElectoralPeriod;
   public party: Party | null = null;
   public councilors: Councilor[] = [];
   public formerCouncilors: Councilor[] = [];
@@ -44,7 +45,7 @@ export class PartyComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
 
-      this.electoralPeriod = +(params.get('electoralPeriod') || 0);
+      this.electoralPeriod = params.get('electoralPeriod') || this.electoralPeriod;
       if (!this.electoralPeriod) {
         // TODO: Handle missing electoral period
         return;

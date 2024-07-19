@@ -22,7 +22,7 @@ export class CouncilorCardComponent {
   protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
 
-  @Input() public electoralPeriod!: number;
+  @Input() public electoralPeriod!: string;
   @Input() public councilor!: Councilor;
 
 

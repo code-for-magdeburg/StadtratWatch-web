@@ -12,18 +12,18 @@ export class PartiesService {
   }
 
 
-  public async fetchParties(electoralPeriod: number): Promise<PartyDto[]> {
+  public async fetchParties(electoralPeriod: string): Promise<PartyDto[]> {
 
     return firstValueFrom(
-      this.http.get<PartyDto[]>(`/assets/electoral-period-${electoralPeriod}/parties/all-parties.json`)
+      this.http.get<PartyDto[]>(`/assets/electoral-periods/${electoralPeriod}/parties/all-parties.json`)
     );
 
   }
 
 
-  public async fetchParty(electoralPeriod: number, id: string): Promise<PartyDto> {
+  public async fetchParty(electoralPeriod: string, id: string): Promise<PartyDto> {
 
-    return firstValueFrom(this.http.get<PartyDto>(`/assets/electoral-period-${electoralPeriod}/parties/${id}.json`));
+    return firstValueFrom(this.http.get<PartyDto>(`/assets/electoral-periods/${electoralPeriod}/parties/${id}.json`));
 
   }
 

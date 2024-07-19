@@ -40,7 +40,7 @@ export class SessionsComponent implements OnInit {
 
     this.route.params.subscribe(async params => {
 
-      const { electoralPeriod } = params as { electoralPeriod: number };
+      const { electoralPeriod } = params;
 
       this.electoralPeriod = electoralPeriod;
       this.sessions = await this.sessionsService.fetchSessions(electoralPeriod);

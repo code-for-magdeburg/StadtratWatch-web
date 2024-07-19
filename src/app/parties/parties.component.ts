@@ -45,7 +45,7 @@ export class PartiesComponent implements OnInit {
 
     this.route.params.subscribe(async params => {
 
-      const { electoralPeriod } = params as { electoralPeriod: number };
+      const { electoralPeriod } = params;
 
       this.electoralPeriod = electoralPeriod;
       this.sortedParties = this.data = await this.partiesService.fetchParties(electoralPeriod);

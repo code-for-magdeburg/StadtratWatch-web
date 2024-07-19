@@ -12,8 +12,8 @@ export class MetadataService {
   }
 
 
-  public async fetchMetadata(electoralPeriod: number): Promise<MetadataDto> {
-    return firstValueFrom(this.http.get<MetadataDto>(`/assets/electoral-period-${electoralPeriod}/metadata.json`));
+  public async fetchMetadata(electoralPeriod: string): Promise<MetadataDto> {
+    return firstValueFrom(this.http.get<MetadataDto>(`/assets/electoral-periods/${electoralPeriod}/metadata.json`));
   }
 
 
