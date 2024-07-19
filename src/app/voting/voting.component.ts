@@ -4,6 +4,8 @@ import { SessionsService } from '../services/sessions.service';
 import { DID_NOT_VOTE_COLOR, VOTED_ABSTENTION_COLOR, VOTED_AGAINST_COLOR, VOTED_FOR_COLOR } from '../utilities/ui';
 import { SessionVotingDto, Vote, VoteResult } from '../model/Session';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
+import { MetaTagsService } from '../services/meta-tags.service';
+import { environment } from '../../environments/environment';
 
 
 type FactionMember = {
@@ -51,7 +53,8 @@ export class VotingComponent implements OnInit {
   public VoteResult = VoteResult;
 
 
-  constructor(private readonly route: ActivatedRoute, private readonly sessionsService: SessionsService) {
+  constructor(private readonly route: ActivatedRoute, private readonly sessionsService: SessionsService,
+              private readonly metaTagsService: MetaTagsService) {
   }
 
 
@@ -120,6 +123,12 @@ export class VotingComponent implements OnInit {
           ? a.name.localeCompare(b.name)
           : b.members.length - a.members.length);
 
+      this.metaTagsService.updateTags({
+        title: this.getTitleForMetaTags(votingDto, session.date),
+        description: votingDto.votingSubject.title,
+        image: `${environment.awsCloudFrontBaseUrl}/web-assets/electoral-period-${this.electoralPeriod}/images/votings/${sessionId}/${sessionId}-${votingId.toString().padStart(3, '0')}.png`
+      });
+
     });
 
   }
@@ -148,6 +157,60 @@ export class VotingComponent implements OnInit {
 
   private countVotes = (votes: Vote[], voteResult: VoteResult): number =>
     votes.filter(vote => vote.vote === voteResult).length;
+
+
+  private getTitleForMetaTags(votingDto: SessionVotingDto, sessionDate: string): string {
+
+    switch (votingDto.votingSubject.type) {
+
+      case 'Änderungsantrag':
+        return votingDto.votingSubject.applicationId
+          ? `Änderungsantrag ${votingDto.votingSubject.applicationId}`
+          : 'Änderungsantrag';
+
+      case 'Antrag':
+        return votingDto.votingSubject.applicationId
+          ? `Antrag ${votingDto.votingSubject.applicationId}`
+          : 'Antrag';
+
+      case 'Beschlussvorlage':
+        return votingDto.votingSubject.applicationId
+          ? `Beschlussvorlage ${votingDto.votingSubject.applicationId}`
+          : 'Beschlussvorlage';
+
+      case 'Delegation':
+        return 'Abstimmung zur Delegation';
+
+      case 'Geschäftsordnung':
+        return votingDto.votingSubject.applicationId
+          ? `Geschäftsordnungsantrag zu ${votingDto.votingSubject.applicationId}`
+          : 'Geschäftsordnungsantrag';
+
+      case 'Niederschrift':
+        return 'Abstimmung zur Niederschrift';
+
+      case 'Redaktionelle Änderung':
+        return votingDto.votingSubject.applicationId
+          ? `Redaktionelle Änderung zu ${votingDto.votingSubject.applicationId}`
+          : 'Redaktionelle Änderung';
+
+      case 'Sonstige':
+        return 'Sonstige Abstimmung';
+
+      case 'Tagesordnung':
+        return `Abstimmung zur Tagesordnung`;
+
+    }
+
+    const formattedSessionDate = new Date(sessionDate).toLocaleDateString('de-DE', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+
+    return `StadtratWatch: Abstimmung am ${formattedSessionDate}`;
+
+  }
 
 
 }

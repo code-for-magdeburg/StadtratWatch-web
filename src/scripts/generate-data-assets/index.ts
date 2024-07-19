@@ -6,6 +6,7 @@ import { generatePartyFiles } from './generate-party-files';
 import { generateMetadataFile } from './generate-metadata-file';
 import { ScrapedSession } from '../shared/model/scraped-session';
 import { Registry } from '../shared/model/registry';
+import { generateImageFiles } from './generate-image-files';
 
 
 const inputDir = process.argv[2];
@@ -43,5 +44,6 @@ generatePersonFiles(`${outputDir}/persons`, registry, sessions);
 generateFactionFiles(`${outputDir}/factions`, registry, sessions);
 generatePartyFiles(`${outputDir}/parties`, registry, sessions);
 generateMetadataFile(`${outputDir}/metadata.json`, registry, sessions);
+generateImageFiles(`${outputDir}/images`, registry, sessions);
 
 console.log('Done.');
