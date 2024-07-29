@@ -19,7 +19,8 @@ export class AppComponent implements OnDestroy {
 
   public navbarCollapsed = true;
   public availableElectoralPeriods = environment.availableElectoralPeriods;
-  public electoralPeriod = environment.currentElectoralPeriod;
+  public electoralPeriodSlug = environment.currentElectoralPeriod;
+  public electoralPeriodName = '';
   public metadata: MetadataDto | undefined;
 
   private navigationSubscription: Subscription;
@@ -34,9 +35,12 @@ export class AppComponent implements OnDestroy {
         filter(event => event.url.startsWith(`/${ELECTORAL_PERIOD_PATH}`)),
         map(event => event.url.split('/')[2]),
       )
-      .subscribe(async electoralPeriod => {
-          this.electoralPeriod = electoralPeriod;
-          this.metadata = await this.metadataService.fetchMetadata(this.electoralPeriod);
+      .subscribe(async electoralPeriodSlug => {
+          this.electoralPeriodSlug = electoralPeriodSlug;
+          this.electoralPeriodName = this.availableElectoralPeriods.find(
+            p => p.slug === electoralPeriodSlug
+          )?.name || '';
+          this.metadata = await this.metadataService.fetchMetadata(this.electoralPeriodSlug);
         }
       );
 
@@ -49,10 +53,10 @@ export class AppComponent implements OnDestroy {
   }
 
 
-  async selectElectoralPeriod(electoralPeriod: string) {
+  async selectElectoralPeriod(electoralPeriodSlug: string) {
 
-    if (this.electoralPeriod !== electoralPeriod) {
-      await this.router.navigate(['/', ELECTORAL_PERIOD_PATH, electoralPeriod]);
+    if (this.electoralPeriodSlug !== electoralPeriodSlug) {
+      await this.router.navigate(['/', ELECTORAL_PERIOD_PATH, electoralPeriodSlug]);
     }
 
   }
