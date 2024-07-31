@@ -6,6 +6,8 @@ import { SessionVotingDto, Vote, VoteResult } from '../model/Session';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 import { MetaTagsService } from '../services/meta-tags.service';
 import { environment } from '../../environments/environment';
+import { BreadcrumbItem } from '../components/breadcrumb/breadcrumb.component';
+import { DatePipe } from '@angular/common';
 
 
 type FactionMember = {
@@ -23,6 +25,7 @@ type Faction = {
 type VotingViewModel = {
   sessionId: string;
   sessionDate: string;
+  breadcrumbSubItems: BreadcrumbItem[];
   agendaItem: string;
   applicationId: string;
   votingTitle: string;
@@ -93,6 +96,10 @@ export class VotingComponent implements OnInit {
       this.votingViewModel = {
         sessionId: session.id,
         sessionDate: session.date,
+        breadcrumbSubItems:  [
+          { title: 'Sitzungen', path: ['sessions'] },
+          { title: new DatePipe('de-DE').transform(session.date) || '', path: ['session', session.id] },
+        ],
         agendaItem: votingDto.votingSubject.agendaItem,
         applicationId: votingDto.votingSubject.applicationId,
         votingTitle: votingDto.votingSubject.title,

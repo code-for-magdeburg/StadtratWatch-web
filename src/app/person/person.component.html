@@ -1,14 +1,10 @@
 <div *ngIf="person">
 
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod]">Startseite</a>
-    </li>
-    <li class="breadcrumb-item">
-      <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'persons']">Personen</a>
-    </li>
-    <li class="breadcrumb-item active">{{ person.name }}</li>
-  </ol>
+  <app-breadcrumb
+    [electoralPeriod]="electoralPeriod"
+    [breadcrumbSubItems]="[{ title: 'Personen', path: ['persons'] }]"
+    [currentPageTitle]="person.name"
+  ></app-breadcrumb>
 
   <div class="mb-3">
     <h1>{{ person.name }}</h1>

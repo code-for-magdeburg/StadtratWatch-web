@@ -1,0 +1,20 @@
+<ol class="breadcrumb">
+
+  <li
+    *ngFor="let breadcrumbItem of breadcrumbItems"
+    class="breadcrumb-item"
+    [class.active]="!breadcrumbItem.path"
+  >
+
+    <a
+      *ngIf="breadcrumbItem.path else activePageBreadcrumb"
+      [routerLink]="breadcrumbItem.path"
+    >{{ breadcrumbItem.title }}</a>
+
+    <ng-template #activePageBreadcrumb>
+      {{ breadcrumbItem.title }}
+    </ng-template>
+
+  </li>
+
+</ol>

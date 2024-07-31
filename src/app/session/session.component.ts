@@ -44,7 +44,7 @@ export class SessionComponent implements OnInit {
   private isInitializing = true;
 
   public electoralPeriod = environment.currentElectoralPeriod;
-  public sessionDate: string | null = null;
+  public sessionDate = '';
   public votings: Voting[] = [];
   public speakingTimes: SpeakingTimeChartData[] = [];
   public speeches: SessionSpeechDto[] = [];
@@ -90,7 +90,7 @@ export class SessionComponent implements OnInit {
 
       const session = await this.sessionsService.fetchSession(this.electoralPeriod, sessionId);
 
-      this.sessionDate = session.date;
+      this.sessionDate = new DatePipe('de-DE').transform(session.date) || '';
       this.meetingMinutesUrl = session.meetingMinutesUrl;
       this.youtubeUrl = session.youtubeUrl;
       this.votings = session.votings.map((votingDto: SessionVotingDto) => ({

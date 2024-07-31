@@ -55,6 +55,7 @@ import { SpeakingTimeChartComponent } from './components/speaking-time-chart/spe
 import { SpeakingTimePipe } from './pipes/speaking-time.pipe';
 import { YoutubeTimestampPipe } from './pipes/youtube-timestamp.pipe';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -102,16 +103,17 @@ registerLocaleData(localeDe, 'de-DE');
     SpeakingTimePipe,
     YoutubeTimestampPipe
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    TooltipModule.forRoot(),
-    NgChartsModule,
-    FormsModule,
-    TabsModule,
-    BsDropdownModule
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        TooltipModule.forRoot(),
+        NgChartsModule,
+        FormsModule,
+        TabsModule,
+        BsDropdownModule,
+        BreadcrumbComponent
+    ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de-DE' },
     provideHttpClient(withFetch()),
