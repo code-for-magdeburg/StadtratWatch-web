@@ -1,11 +1,10 @@
 <div>
 
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod]">Startseite</a>
-    </li>
-    <li class="breadcrumb-item active">Personen</li>
-  </ol>
+  <app-breadcrumb
+    [electoralPeriod]="electoralPeriod"
+    [breadcrumbSubItems]="[]"
+    currentPageTitle="Personen"
+  ></app-breadcrumb>
 
   <div class="mb-5">
     <h1>Personen</h1>

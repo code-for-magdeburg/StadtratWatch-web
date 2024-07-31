@@ -5,6 +5,7 @@ import { VoteResult } from '../model/Session';
 import { PersonDetailsDto, PersonSpeechDto, PersonVotingComparison } from '../model/Person';
 import { MetaTagsService } from '../services/meta-tags.service';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
+import { environment } from '../../environments/environment';
 
 
 type SpeechesBySession = {
@@ -24,7 +25,7 @@ export class PersonComponent implements OnInit {
 
   protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
-  public electoralPeriod = 0;
+  public electoralPeriod = environment.currentElectoralPeriod;
   public person: PersonDetailsDto | null = null;
   public didVote = 0;
   public comparisonMatrix: PersonVotingComparison[] = [];
@@ -40,7 +41,7 @@ export class PersonComponent implements OnInit {
 
     this.route.paramMap.subscribe(async params => {
 
-      this.electoralPeriod = +(params.get('electoralPeriod') || '0');
+      this.electoralPeriod = params.get('electoralPeriod') || this.electoralPeriod;
       if (!this.electoralPeriod) {
         // TODO: Handle missing electoral period
         return;

@@ -1,17 +1,13 @@
 <div>
 
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod]">Startseite</a>
-    </li>
-    <li class="breadcrumb-item">
-      <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'sessions']">Sitzungen</a>
-    </li>
-    <li class="breadcrumb-item active">{{ sessionDate | date }}</li>
-  </ol>
+  <app-breadcrumb
+    [electoralPeriod]="electoralPeriod"
+    [breadcrumbSubItems]="[{ title: 'Sitzungen', path: ['sessions'] }]"
+    [currentPageTitle]="sessionDate"
+  ></app-breadcrumb>
 
   <div class="mb-5">
-    <h1>Stadtratssitzung - {{ sessionDate | date }}</h1>
+    <h1>Stadtratssitzung - {{ sessionDate }}</h1>
     <div class="hstack gap-3">
       <a *ngIf="meetingMinutesUrl" [href]="meetingMinutesUrl" target="_blank">Niederschrift</a>
       <a *ngIf="youtubeUrl" [href]="youtubeUrl + '?t=0'" target="_blank">YouTube</a>

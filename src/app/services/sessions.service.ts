@@ -12,19 +12,19 @@ export class SessionsService {
   }
 
 
-  public async fetchSessions(electoralPeriod: number): Promise<SessionLightDto[]> {
+  public async fetchSessions(electoralPeriod: string): Promise<SessionLightDto[]> {
 
     return firstValueFrom(
-      this.http.get<SessionLightDto[]>(`/assets/electoral-period-${electoralPeriod}/sessions/all-sessions.json`)
+      this.http.get<SessionLightDto[]>(`/assets/electoral-periods/${electoralPeriod}/sessions/all-sessions.json`)
     );
 
   }
 
 
-  public async fetchSession(electoralPeriod: number, id: string): Promise<SessionDetailsDto> {
+  public async fetchSession(electoralPeriod: string, id: string): Promise<SessionDetailsDto> {
 
     return firstValueFrom(
-      this.http.get<SessionDetailsDto>(`/assets/electoral-period-${electoralPeriod}/sessions/${id}.json`)
+      this.http.get<SessionDetailsDto>(`/assets/electoral-periods/${electoralPeriod}/sessions/${id}.json`)
     );
 
   }

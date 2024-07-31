@@ -1,19 +1,10 @@
 <div *ngIf="votingViewModel" class="container my-lg-3 my-3">
 
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod]">Startseite</a>
-    </li>
-    <li class="breadcrumb-item">
-      <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'sessions']">Sitzungen</a>
-    </li>
-    <li class="breadcrumb-item">
-      <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'session', votingViewModel.sessionId]">
-        {{ votingViewModel.sessionDate | date }}
-      </a>
-    </li>
-    <li class="breadcrumb-item active">{{ votingViewModel.votingType }} {{ votingViewModel.applicationId }}</li>
-  </ol>
+  <app-breadcrumb
+    [electoralPeriod]="electoralPeriod"
+    [breadcrumbSubItems]="votingViewModel.breadcrumbSubItems"
+    [currentPageTitle]="votingViewModel.votingType + ' ' + votingViewModel.applicationId"
+  ></app-breadcrumb>
 
   <div class="mb-5">
     <h1>Abstimmung</h1>

@@ -2,15 +2,11 @@
 
   <ng-container *ngIf="party">
 
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod]">Startseite</a>
-      </li>
-      <li class="breadcrumb-item">
-        <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'parties']">Parteien</a>
-      </li>
-      <li class="breadcrumb-item active">{{ party.name }}</li>
-    </ol>
+    <app-breadcrumb
+      [electoralPeriod]="electoralPeriod"
+      [breadcrumbSubItems]="[{ title: 'Parteien', path: ['parties'] }]"
+      [currentPageTitle]="party.name"
+    ></app-breadcrumb>
 
     <div class="mb-5">
       <h1>{{ party.name }}</h1>

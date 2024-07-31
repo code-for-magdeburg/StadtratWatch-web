@@ -30,7 +30,7 @@ export class ElectoralPeriodComponent implements OnInit {
 
     this.route.params.subscribe(async params => {
 
-      const { electoralPeriod } = params as { electoralPeriod: number };
+      const { electoralPeriod } = params;
       if (electoralPeriod) {
         this.electoralPeriod = electoralPeriod;
       } else {

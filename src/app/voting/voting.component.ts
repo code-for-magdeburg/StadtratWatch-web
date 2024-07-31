@@ -6,6 +6,8 @@ import { SessionVotingDto, Vote, VoteResult } from '../model/Session';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 import { MetaTagsService } from '../services/meta-tags.service';
 import { environment } from '../../environments/environment';
+import { BreadcrumbItem } from '../components/breadcrumb/breadcrumb.component';
+import { DatePipe } from '@angular/common';
 
 
 type FactionMember = {
@@ -23,6 +25,7 @@ type Faction = {
 type VotingViewModel = {
   sessionId: string;
   sessionDate: string;
+  breadcrumbSubItems: BreadcrumbItem[];
   agendaItem: string;
   applicationId: string;
   votingTitle: string;
@@ -46,7 +49,7 @@ export class VotingComponent implements OnInit {
 
   protected readonly ELECTORAL_PERIOD_PATH = ELECTORAL_PERIOD_PATH;
 
-  public electoralPeriod = 0;
+  public electoralPeriod = environment.currentElectoralPeriod;
   public votingViewModel: VotingViewModel | undefined;
   public factions: Faction[] = [];
 
@@ -62,7 +65,7 @@ export class VotingComponent implements OnInit {
 
     this.route.paramMap.subscribe(async params => {
 
-      this.electoralPeriod = +(params.get('electoralPeriod') || '0');
+      this.electoralPeriod = params.get('electoralPeriod') || this.electoralPeriod;
       if (!this.electoralPeriod) {
         // TODO: Handle missing electoral period
         return;
@@ -93,6 +96,10 @@ export class VotingComponent implements OnInit {
       this.votingViewModel = {
         sessionId: session.id,
         sessionDate: session.date,
+        breadcrumbSubItems:  [
+          { title: 'Sitzungen', path: ['sessions'] },
+          { title: new DatePipe('de-DE').transform(session.date) || '', path: ['session', session.id] },
+        ],
         agendaItem: votingDto.votingSubject.agendaItem,
         applicationId: votingDto.votingSubject.applicationId,
         votingTitle: votingDto.votingSubject.title,
@@ -126,7 +133,7 @@ export class VotingComponent implements OnInit {
       this.metaTagsService.updateTags({
         title: this.getTitleForMetaTags(votingDto, session.date),
         description: votingDto.votingSubject.title,
-        image: `${environment.awsCloudFrontBaseUrl}/web-assets/electoral-period-${this.electoralPeriod}/images/votings/${sessionId}/${sessionId}-${votingId.toString().padStart(3, '0')}.png`
+        image: `${environment.awsCloudFrontBaseUrl}/web-assets/electoral-periods/${this.electoralPeriod}/images/votings/${sessionId}/${sessionId}-${votingId.toString().padStart(3, '0')}.png`
       });
 
     });
@@ -165,40 +172,40 @@ export class VotingComponent implements OnInit {
 
       case 'Änderungsantrag':
         return votingDto.votingSubject.applicationId
-          ? `Änderungsantrag ${votingDto.votingSubject.applicationId}`
-          : 'Änderungsantrag';
+          ? `StadtratWatch: Änderungsantrag ${votingDto.votingSubject.applicationId}`
+          : 'StadtratWatch: Änderungsantrag';
 
       case 'Antrag':
         return votingDto.votingSubject.applicationId
-          ? `Antrag ${votingDto.votingSubject.applicationId}`
-          : 'Antrag';
+          ? `StadtratWatch: Antrag ${votingDto.votingSubject.applicationId}`
+          : 'StadtratWatch: Antrag';
 
       case 'Beschlussvorlage':
         return votingDto.votingSubject.applicationId
-          ? `Beschlussvorlage ${votingDto.votingSubject.applicationId}`
-          : 'Beschlussvorlage';
+          ? `StadtratWatch: Beschlussvorlage ${votingDto.votingSubject.applicationId}`
+          : 'StadtratWatch: Beschlussvorlage';
 
       case 'Delegation':
-        return 'Abstimmung zur Delegation';
+        return 'StadtratWatch: Abstimmung zur Delegation';
 
       case 'Geschäftsordnung':
         return votingDto.votingSubject.applicationId
-          ? `Geschäftsordnungsantrag zu ${votingDto.votingSubject.applicationId}`
-          : 'Geschäftsordnungsantrag';
+          ? `StadtratWatch: Geschäftsordnungsantrag zu ${votingDto.votingSubject.applicationId}`
+          : 'StadtratWatch: Geschäftsordnungsantrag';
 
       case 'Niederschrift':
-        return 'Abstimmung zur Niederschrift';
+        return 'StadtratWatch: Abstimmung zur Niederschrift';
 
       case 'Redaktionelle Änderung':
         return votingDto.votingSubject.applicationId
-          ? `Redaktionelle Änderung zu ${votingDto.votingSubject.applicationId}`
-          : 'Redaktionelle Änderung';
+          ? `StadtratWatch: Redaktionelle Änderung zu ${votingDto.votingSubject.applicationId}`
+          : 'StadtratWatch: Redaktionelle Änderung';
 
       case 'Sonstige':
-        return 'Sonstige Abstimmung';
+        return 'StadtratWatch: Sonstige Abstimmung';
 
       case 'Tagesordnung':
-        return `Abstimmung zur Tagesordnung`;
+        return `StadtratWatch: Abstimmung zur Tagesordnung`;
 
     }
 

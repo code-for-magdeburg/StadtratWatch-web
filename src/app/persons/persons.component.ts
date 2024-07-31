@@ -23,29 +23,29 @@ import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 const VALUE_THRESHOLD = .65;
 
 const FILL_COLOR_MAP = new Map([
-  ['7 - CDU', '#16B9DE'],
-  ['7 - SPD', '#F33F2F'],
-  ['7 - DIE LINKE', '#C535E5'],
-  ['7 - Gartenpartei/Tierschutzallianz', '#107012'],
-  ['7 - AfD', '#0845C5'],
-  ['7 - FDP/Tierschutzpartei', '#E7D251'],
-  ['7 - GRÜNE/future!', '#3EAD3E'],
-  ['7 - Oberbürgermeisterin', '#A1A2A1'],
+  ['magdeburg-7 - CDU', '#16B9DE'],
+  ['magdeburg-7 - SPD', '#F33F2F'],
+  ['magdeburg-7 - DIE LINKE', '#C535E5'],
+  ['magdeburg-7 - Gartenpartei/Tierschutzallianz', '#107012'],
+  ['magdeburg-7 - AfD', '#0845C5'],
+  ['magdeburg-7 - FDP/Tierschutzpartei', '#E7D251'],
+  ['magdeburg-7 - GRÜNE/future!', '#3EAD3E'],
+  ['magdeburg-7 - Oberbürgermeisterin', '#A1A2A1'],
 
-  ['8 - CDU/FDP', '#16B9DE'],
-  ['8 - SPD/Tierschutzallianz/Volt', '#F33F2F'],
-  ['8 - DIE LINKE', '#C535E5'],
-  ['8 - Gartenpartei', '#107012'],
-  ['8 - AfD', '#0845C5'],
-  ['8 - Tierschutzpartei', '#E7D251'],
-  ['8 - GRÜNE/future!', '#3EAD3E'],
-  ['8 - Oberbürgermeisterin', '#A1A2A1']
+  ['magdeburg-8 - CDU/FDP', '#16B9DE'],
+  ['magdeburg-8 - SPD/Tierschutzallianz/Volt', '#F33F2F'],
+  ['magdeburg-8 - DIE LINKE', '#C535E5'],
+  ['magdeburg-8 - Gartenpartei', '#107012'],
+  ['magdeburg-8 - AfD', '#0845C5'],
+  ['magdeburg-8 - Tierschutzpartei', '#E7D251'],
+  ['magdeburg-8 - GRÜNE/future!', '#3EAD3E'],
+  ['magdeburg-8 - Oberbürgermeisterin', '#A1A2A1']
 ]);
 
 
 const DISTANCE_MAP = new Map([
-  ['7', 50],
-  ['8', 1000]
+  ['magdeburg-7', 50],
+  ['magdeburg-8', 1000]
 ]);
 
 
@@ -96,7 +96,7 @@ export class PersonsComponent implements OnInit {
 
     this.route.params.subscribe(async params => {
 
-      const { electoralPeriod } = params as { electoralPeriod: number };
+      const { electoralPeriod } = params;
 
       this.electoralPeriod = electoralPeriod;
       this.sortedPersons = this.data = await this.personsService.fetchPersons(electoralPeriod);
