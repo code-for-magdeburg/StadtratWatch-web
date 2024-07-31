@@ -172,40 +172,40 @@ export class VotingComponent implements OnInit {
 
       case 'Änderungsantrag':
         return votingDto.votingSubject.applicationId
-          ? `Änderungsantrag ${votingDto.votingSubject.applicationId}`
-          : 'Änderungsantrag';
+          ? `StadtratWatch: Änderungsantrag ${votingDto.votingSubject.applicationId}`
+          : 'StadtratWatch: Änderungsantrag';
 
       case 'Antrag':
         return votingDto.votingSubject.applicationId
-          ? `Antrag ${votingDto.votingSubject.applicationId}`
-          : 'Antrag';
+          ? `StadtratWatch: Antrag ${votingDto.votingSubject.applicationId}`
+          : 'StadtratWatch: Antrag';
 
       case 'Beschlussvorlage':
         return votingDto.votingSubject.applicationId
-          ? `Beschlussvorlage ${votingDto.votingSubject.applicationId}`
-          : 'Beschlussvorlage';
+          ? `StadtratWatch: Beschlussvorlage ${votingDto.votingSubject.applicationId}`
+          : 'StadtratWatch: Beschlussvorlage';
 
       case 'Delegation':
-        return 'Abstimmung zur Delegation';
+        return 'StadtratWatch: Abstimmung zur Delegation';
 
       case 'Geschäftsordnung':
         return votingDto.votingSubject.applicationId
-          ? `Geschäftsordnungsantrag zu ${votingDto.votingSubject.applicationId}`
-          : 'Geschäftsordnungsantrag';
+          ? `StadtratWatch: Geschäftsordnungsantrag zu ${votingDto.votingSubject.applicationId}`
+          : 'StadtratWatch: Geschäftsordnungsantrag';
 
       case 'Niederschrift':
-        return 'Abstimmung zur Niederschrift';
+        return 'StadtratWatch: Abstimmung zur Niederschrift';
 
       case 'Redaktionelle Änderung':
         return votingDto.votingSubject.applicationId
-          ? `Redaktionelle Änderung zu ${votingDto.votingSubject.applicationId}`
-          : 'Redaktionelle Änderung';
+          ? `StadtratWatch: Redaktionelle Änderung zu ${votingDto.votingSubject.applicationId}`
+          : 'StadtratWatch: Redaktionelle Änderung';
 
       case 'Sonstige':
-        return 'Sonstige Abstimmung';
+        return 'StadtratWatch: Sonstige Abstimmung';
 
       case 'Tagesordnung':
-        return `Abstimmung zur Tagesordnung`;
+        return `StadtratWatch: Abstimmung zur Tagesordnung`;
 
     }
 
