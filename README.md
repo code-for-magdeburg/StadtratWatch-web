@@ -38,6 +38,21 @@ docker run --rm -v %cd%\output\papers:/app/output/papers -v %cd%\data\Magdeburg.
 ```
 
 
+### Extract text from paper files
+
+#### Build the tika tool docker image 
+```shell
+docker build -t srw-tika -f docker\tika-batch-extract.Dockerfile .
+```
+
+#### Run the docker container
+When running the container, the input and output folders have to be provided as volume mounts. The input folder should contain the pdf files to be processed. The output folder will contain the extracted text files.
+```shell 
+docker run --rm -v %cd%\output\papers\2023:/input -v %cd%\output\papers\2023-extracted:/output srw-tika
+```
+
+
+
 ### Web App
 
 #### Build the docker image
