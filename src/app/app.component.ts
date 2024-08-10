@@ -34,6 +34,10 @@ export class AppComponent implements OnDestroy {
         map(event => event as NavigationEnd),
         filter(event => event.url.startsWith(`/${ELECTORAL_PERIOD_PATH}`)),
         map(event => event.url.split('/')[2]),
+        // Old route /ep/7 was replace with /ep/magdeburg-7
+        map(electoralPeriodSlug => electoralPeriodSlug === '7' ? 'magdeburg-7' : electoralPeriodSlug),
+        // Old route /ep/8 was replace with /ep/magdeburg-8
+        map(electoralPeriodSlug => electoralPeriodSlug === '8' ? 'magdeburg-8' : electoralPeriodSlug)
       )
       .subscribe(async electoralPeriodSlug => {
           this.electoralPeriodSlug = electoralPeriodSlug;
