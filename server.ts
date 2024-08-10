@@ -17,6 +17,14 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
 
+  // Redirects
+  server.get('/ep/7/*', (req, res) => {
+    res.redirect(301, req.url.replace('/ep/7', '/ep/magdeburg-7'));
+  });
+  server.get('/ep/8/*', (req, res) => {
+    res.redirect(301, req.url.replace('/ep/8', '/ep/magdeburg-8'));
+  });
+
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
@@ -26,11 +34,6 @@ export function app(): express.Express {
 
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {
-
-    if (req.url.startsWith('/ep/7/')) {
-      return res.redirect(301, req.url.replace('/ep/7', '/ep/magdeburg-7'));
-    }
-
     const { protocol, originalUrl, baseUrl, headers } = req;
 
     commonEngine
