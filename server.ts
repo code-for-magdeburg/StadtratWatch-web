@@ -24,6 +24,10 @@ export function app(): express.Express {
     maxAge: '1y'
   }));
 
+  server.get('/ep/7/*', (req, res) => {
+    res.redirect(301, req.url.replace('/ep/7', '/ep/magdeburg-7'));
+  });
+
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
