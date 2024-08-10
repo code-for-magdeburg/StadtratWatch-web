@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/ep/7/*"
+  to = "/ep/magdeburg-7/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ep/8/*"
+  to = "/ep/magdeburg-8/:splat"
+  status = 301
+  force = true
