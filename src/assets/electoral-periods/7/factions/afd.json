@@ -1,0 +1,2397 @@
+{
+  "id": "afd",
+  "name": "AfD",
+  "seats": 8,
+  "applicationsSuccessRate": 0.06504065040650407,
+  "votingsSuccessRate": 0.5915032679738562,
+  "uniformityScore": 0.9910037445799889,
+  "participationRate": 0.6815087145969498,
+  "abstentionRate": 0.11145897994570893,
+  "speakingTime": 36906,
+  "statsHistory": {
+    "applicationsSuccessRate": [
+      {
+        "date": "2022-09-01",
+        "value": 0.6
+      },
+      {
+        "date": "2022-10-06",
+        "value": 0.5
+      },
+      {
+        "date": "2022-10-10",
+        "value": 0.23076923076923078
+      },
+      {
+        "date": "2022-11-10",
+        "value": 0.23076923076923078
+      },
+      {
+        "date": "2022-11-14",
+        "value": 0.2
+      },
+      {
+        "date": "2022-12-08",
+        "value": 0.13636363636363635
+      },
+      {
+        "date": "2022-12-12",
+        "value": 0.1
+      },
+      {
+        "date": "2023-01-19",
+        "value": 0.07317073170731707
+      },
+      {
+        "date": "2023-02-16",
+        "value": 0.09090909090909091
+      },
+      {
+        "date": "2023-03-16",
+        "value": 0.09615384615384616
+      },
+      {
+        "date": "2023-04-20",
+        "value": 0.09615384615384616
+      },
+      {
+        "date": "2023-04-24",
+        "value": 0.09090909090909091
+      },
+      {
+        "date": "2023-05-25",
+        "value": 0.11666666666666667
+      },
+      {
+        "date": "2023-05-30",
+        "value": 0.10606060606060606
+      },
+      {
+        "date": "2023-06-22",
+        "value": 0.10606060606060606
+      },
+      {
+        "date": "2023-06-26",
+        "value": 0.1044776119402985
+      },
+      {
+        "date": "2023-08-17",
+        "value": 0.10294117647058823
+      },
+      {
+        "date": "2023-08-21",
+        "value": 0.11267605633802817
+      },
+      {
+        "date": "2023-09-14",
+        "value": 0.11267605633802817
+      },
+      {
+        "date": "2023-09-18",
+        "value": 0.0963855421686747
+      },
+      {
+        "date": "2023-10-12",
+        "value": 0.09523809523809523
+      },
+      {
+        "date": "2023-10-16",
+        "value": 0.09411764705882353
+      },
+      {
+        "date": "2023-11-20",
+        "value": 0.09090909090909091
+      },
+      {
+        "date": "2023-12-07",
+        "value": 0.08791208791208792
+      },
+      {
+        "date": "2023-12-11",
+        "value": 0.07692307692307693
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.0761904761904762
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.07407407407407407
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.07142857142857142
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.07079646017699115
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.06956521739130435
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.06779661016949153
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.06779661016949153
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.06722689075630252
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.06611570247933884
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.06504065040650407
+      }
+    ],
+    "votingsSuccessRate": [
+      {
+        "date": "2022-09-01",
+        "value": 0.6823529411764706
+      },
+      {
+        "date": "2022-10-06",
+        "value": 0.6991150442477876
+      },
+      {
+        "date": "2022-10-10",
+        "value": 0.6358695652173914
+      },
+      {
+        "date": "2022-11-10",
+        "value": 0.6153846153846154
+      },
+      {
+        "date": "2022-11-14",
+        "value": 0.6131386861313869
+      },
+      {
+        "date": "2022-12-08",
+        "value": 0.625
+      },
+      {
+        "date": "2022-12-12",
+        "value": 0.5862068965517241
+      },
+      {
+        "date": "2023-01-19",
+        "value": 0.5663157894736842
+      },
+      {
+        "date": "2023-02-16",
+        "value": 0.5606617647058824
+      },
+      {
+        "date": "2023-03-16",
+        "value": 0.5733113673805601
+      },
+      {
+        "date": "2023-04-20",
+        "value": 0.5809379727685325
+      },
+      {
+        "date": "2023-04-24",
+        "value": 0.5685997171145686
+      },
+      {
+        "date": "2023-05-25",
+        "value": 0.5749039692701664
+      },
+      {
+        "date": "2023-05-30",
+        "value": 0.5688405797101449
+      },
+      {
+        "date": "2023-06-22",
+        "value": 0.5724381625441696
+      },
+      {
+        "date": "2023-06-26",
+        "value": 0.5780022446689114
+      },
+      {
+        "date": "2023-08-17",
+        "value": 0.5814696485623003
+      },
+      {
+        "date": "2023-08-21",
+        "value": 0.5800203873598369
+      },
+      {
+        "date": "2023-09-14",
+        "value": 0.5897187196896218
+      },
+      {
+        "date": "2023-09-18",
+        "value": 0.584958217270195
+      },
+      {
+        "date": "2023-10-12",
+        "value": 0.5871886120996441
+      },
+      {
+        "date": "2023-10-16",
+        "value": 0.5876817792985458
+      },
+      {
+        "date": "2023-11-20",
+        "value": 0.5898502495840267
+      },
+      {
+        "date": "2023-12-07",
+        "value": 0.5879556259904913
+      },
+      {
+        "date": "2023-12-11",
+        "value": 0.5774754346182918
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.5823863636363636
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.5883940620782726
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.5873015873015873
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.5888456549935149
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.5909669211195929
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.5874466788543571
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.5919712402636309
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.5912280701754385
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.5976163450624291
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.5915032679738562
+      }
+    ],
+    "uniformityScore": [
+      {
+        "date": "2022-09-01",
+        "value": 0.9847058823529411
+      },
+      {
+        "date": "2022-10-06",
+        "value": 0.9762815126050419
+      },
+      {
+        "date": "2022-10-10",
+        "value": 0.9830139661498402
+      },
+      {
+        "date": "2022-11-10",
+        "value": 0.9843647217166271
+      },
+      {
+        "date": "2022-11-14",
+        "value": 0.9874917773733017
+      },
+      {
+        "date": "2022-12-08",
+        "value": 0.988607488896356
+      },
+      {
+        "date": "2022-12-12",
+        "value": 0.9889040233131144
+      },
+      {
+        "date": "2023-01-19",
+        "value": 0.9883378953989751
+      },
+      {
+        "date": "2023-02-16",
+        "value": 0.9869498415355356
+      },
+      {
+        "date": "2023-03-16",
+        "value": 0.9876199367470614
+      },
+      {
+        "date": "2023-04-20",
+        "value": 0.9868901094732098
+      },
+      {
+        "date": "2023-04-24",
+        "value": 0.9879826003504423
+      },
+      {
+        "date": "2023-05-25",
+        "value": 0.9879974522985371
+      },
+      {
+        "date": "2023-05-30",
+        "value": 0.9881310834015437
+      },
+      {
+        "date": "2023-06-22",
+        "value": 0.9881286937144566
+      },
+      {
+        "date": "2023-06-26",
+        "value": 0.9850086889060559
+      },
+      {
+        "date": "2023-08-17",
+        "value": 0.9851245993625625
+      },
+      {
+        "date": "2023-08-21",
+        "value": 0.9859510105090867
+      },
+      {
+        "date": "2023-09-14",
+        "value": 0.9866904310086085
+      },
+      {
+        "date": "2023-09-18",
+        "value": 0.9869935906175984
+      },
+      {
+        "date": "2023-10-12",
+        "value": 0.9871063578323632
+      },
+      {
+        "date": "2023-10-16",
+        "value": 0.9876924324763467
+      },
+      {
+        "date": "2023-11-20",
+        "value": 0.987788369755592
+      },
+      {
+        "date": "2023-12-07",
+        "value": 0.9882971876824423
+      },
+      {
+        "date": "2023-12-11",
+        "value": 0.9881564008777208
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.9884309284457723
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.9886449123629101
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.9890504512070919
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.9894280218551232
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.9897804211266191
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.9898429374290196
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.9901603456343627
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.9904585169787761
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.9907391488323415
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.9910037445799889
+      }
+    ],
+    "participationRate": [
+      {
+        "date": "2022-09-01",
+        "value": 0.5455882352941176
+      },
+      {
+        "date": "2022-10-06",
+        "value": 0.5730088495575221
+      },
+      {
+        "date": "2022-10-10",
+        "value": 0.623641304347826
+      },
+      {
+        "date": "2022-11-10",
+        "value": 0.6583710407239819
+      },
+      {
+        "date": "2022-11-14",
+        "value": 0.6505474452554745
+      },
+      {
+        "date": "2022-12-08",
+        "value": 0.6138888888888889
+      },
+      {
+        "date": "2022-12-12",
+        "value": 0.6422413793103449
+      },
+      {
+        "date": "2023-01-19",
+        "value": 0.6378947368421053
+      },
+      {
+        "date": "2023-02-16",
+        "value": 0.6475183823529411
+      },
+      {
+        "date": "2023-03-16",
+        "value": 0.6540362438220758
+      },
+      {
+        "date": "2023-04-20",
+        "value": 0.6594175491679274
+      },
+      {
+        "date": "2023-04-24",
+        "value": 0.6502828854314003
+      },
+      {
+        "date": "2023-05-25",
+        "value": 0.6690140845070423
+      },
+      {
+        "date": "2023-05-30",
+        "value": 0.677536231884058
+      },
+      {
+        "date": "2023-06-22",
+        "value": 0.682567726737338
+      },
+      {
+        "date": "2023-06-26",
+        "value": 0.69668911335578
+      },
+      {
+        "date": "2023-08-17",
+        "value": 0.7109957401490948
+      },
+      {
+        "date": "2023-08-21",
+        "value": 0.7215851172273191
+      },
+      {
+        "date": "2023-09-14",
+        "value": 0.7219932104752668
+      },
+      {
+        "date": "2023-09-18",
+        "value": 0.7224930362116991
+      },
+      {
+        "date": "2023-10-12",
+        "value": 0.7090747330960854
+      },
+      {
+        "date": "2023-10-16",
+        "value": 0.7053036783575706
+      },
+      {
+        "date": "2023-11-20",
+        "value": 0.7061148086522463
+      },
+      {
+        "date": "2023-12-07",
+        "value": 0.7065174326465927
+      },
+      {
+        "date": "2023-12-11",
+        "value": 0.7127739984882842
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.7112038352272727
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.7162618083670715
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.7143683862433863
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.7074416342412452
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.7061068702290076
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.710770871419866
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.7108298382264829
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.7062134502923977
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.700766174801362
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.6815087145969498
+      }
+    ],
+    "abstentionRate": [
+      {
+        "date": "2022-09-01",
+        "value": 0.10470588235294118
+      },
+      {
+        "date": "2022-10-06",
+        "value": 0.09699579831932773
+      },
+      {
+        "date": "2022-10-10",
+        "value": 0.0963540063912889
+      },
+      {
+        "date": "2022-11-10",
+        "value": 0.11377129629925817
+      },
+      {
+        "date": "2022-11-14",
+        "value": 0.10611137666204803
+      },
+      {
+        "date": "2022-12-08",
+        "value": 0.10005405419511755
+      },
+      {
+        "date": "2022-12-12",
+        "value": 0.11637286277948852
+      },
+      {
+        "date": "2023-01-19",
+        "value": 0.11994219696103796
+      },
+      {
+        "date": "2023-02-16",
+        "value": 0.10849397647207668
+      },
+      {
+        "date": "2023-03-16",
+        "value": 0.11351759469788489
+      },
+      {
+        "date": "2023-04-20",
+        "value": 0.11498232514622532
+      },
+      {
+        "date": "2023-04-24",
+        "value": 0.11808162413766306
+      },
+      {
+        "date": "2023-05-25",
+        "value": 0.12238199816449563
+      },
+      {
+        "date": "2023-05-30",
+        "value": 0.12051551732874825
+      },
+      {
+        "date": "2023-06-22",
+        "value": 0.11803670506238725
+      },
+      {
+        "date": "2023-06-26",
+        "value": 0.11957026700505835
+      },
+      {
+        "date": "2023-08-17",
+        "value": 0.1185109865929961
+      },
+      {
+        "date": "2023-08-21",
+        "value": 0.1172180481843905
+      },
+      {
+        "date": "2023-09-14",
+        "value": 0.11736446670100154
+      },
+      {
+        "date": "2023-09-18",
+        "value": 0.11367015640942972
+      },
+      {
+        "date": "2023-10-12",
+        "value": 0.11838900407787634
+      },
+      {
+        "date": "2023-10-16",
+        "value": 0.11704808975110419
+      },
+      {
+        "date": "2023-11-20",
+        "value": 0.1137157397794927
+      },
+      {
+        "date": "2023-12-07",
+        "value": 0.11731091728868052
+      },
+      {
+        "date": "2023-12-11",
+        "value": 0.11457008090938935
+      },
+      {
+        "date": "2024-01-18",
+        "value": 0.11405494205088341
+      },
+      {
+        "date": "2024-02-15",
+        "value": 0.11254768765489045
+      },
+      {
+        "date": "2024-03-07",
+        "value": 0.11448050833388246
+      },
+      {
+        "date": "2024-03-11",
+        "value": 0.11168232988558766
+      },
+      {
+        "date": "2024-04-04",
+        "value": 0.1112929188894014
+      },
+      {
+        "date": "2024-04-08",
+        "value": 0.11297898849311602
+      },
+      {
+        "date": "2024-05-02",
+        "value": 0.11056446653127758
+      },
+      {
+        "date": "2024-05-06",
+        "value": 0.11312681455213318
+      },
+      {
+        "date": "2024-06-13",
+        "value": 0.11036516616032835
+      },
+      {
+        "date": "2024-06-17",
+        "value": 0.11145897994570893
+      }
+    ]
+  },
+  "applications": [
+    {
+      "applicationId": "A0064/22/1",
+      "type": "Änderungsantrag",
+      "title": "Mehr Sitzbänke an der Elbe",
+      "sessionId": "2022-09-01",
+      "sessionDate": "2022-09-01",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=644564&type=do",
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0147/22",
+      "type": "Geschäftsordnung",
+      "title": "Benennung der neuen Schwimmhalle",
+      "sessionId": "2022-09-01",
+      "sessionDate": "2022-09-01",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=648640&type=do",
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0150/22",
+      "type": "Geschäftsordnung",
+      "title": "B-Plan 253-6 \"Friedrich-Ebert-Straße\" (Traglufthalle)",
+      "sessionId": "2022-09-01",
+      "sessionDate": "2022-09-01",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=649569&type=do",
+      "votings": [
+        {
+          "votingId": 56,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0175/22",
+      "type": "Geschäftsordnung",
+      "title": "Spiel- und Freizeitfläche für Ostelbien",
+      "sessionId": "2022-09-01",
+      "sessionDate": "2022-09-01",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=650575&type=do",
+      "votings": [
+        {
+          "votingId": 57,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0154/22",
+      "type": "Änderungsantrag",
+      "title": "Sofortschutzmaßnahmen für Kitas",
+      "sessionId": "2022-09-01",
+      "sessionDate": "2022-09-01",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=650304&type=do",
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0363/22/1",
+      "type": "Änderungsantrag",
+      "title": "Strategischer Maßnahmeplan Handel in der Innenstadt und den Stadtteilzentren 2023",
+      "sessionId": "2022-10-06",
+      "sessionDate": "2022-10-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=653399&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0240/22/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des 2. Entwurfs zum Bebauungsplan Nr. 229-6 \"Am Sternsee”",
+      "sessionId": "2022-10-10",
+      "sessionDate": "2022-10-10",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=653401&type=do",
+      "votings": [
+        {
+          "votingId": 8,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0201/22/2",
+      "type": "Änderungsantrag",
+      "title": "Planungskosten bis Leistungsphase 3 für die originalgetreue Rekonstruktion der Oberseite der Anna-Ebert-Brücke über die Alte Elbe sowie Ersatzneubau der sich unmittelbar auf der Nordseite anschließenden Stützwand",
+      "sessionId": "2022-10-10",
+      "sessionDate": "2022-10-10",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=653805&type=do",
+      "votings": [
+        {
+          "votingId": 15,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0072/22",
+      "type": "Antrag",
+      "title": "Verfügungen den Stadträten zugänglich machen",
+      "sessionId": "2022-10-10",
+      "sessionDate": "2022-10-10",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=642454&type=do",
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0076/22",
+      "type": "Antrag",
+      "title": "Vorsorge im Katastrophenfall Blackout",
+      "sessionId": "2022-10-10",
+      "sessionDate": "2022-10-10",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=642471&type=do",
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0080/22/1",
+      "type": "Änderungsantrag",
+      "title": "Ausstellung Frauen in Magdeburg",
+      "sessionId": "2022-10-10",
+      "sessionDate": "2022-10-10",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=653418&type=do",
+      "votings": [
+        {
+          "votingId": 31,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0206/22",
+      "type": "Antrag",
+      "title": "Ökologische Gewässersanierung des Salbker Sees I",
+      "sessionId": "2022-10-10",
+      "sessionDate": "2022-10-10",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=652721&type=do",
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0204/22",
+      "type": "Antrag",
+      "title": "Magdeburger Krisenappell",
+      "sessionId": "2022-10-10",
+      "sessionDate": "2022-10-10",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=652711&type=do",
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0208/22",
+      "type": "Antrag",
+      "title": "Aufnahmestop für Ukrainer",
+      "sessionId": "2022-11-14",
+      "sessionDate": "2022-11-14",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=652709&type=do",
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0226/22",
+      "type": "Antrag",
+      "title": "Ergänzung zur Videoübertragung der Stadtratssitzungen",
+      "sessionId": "2022-11-14",
+      "sessionDate": "2022-11-14",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=655347&type=do",
+      "votings": [
+        {
+          "votingId": 36,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0190/22/2",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs zum Bebauungsplan Nr. 481-1 \"Iltisweg",
+      "sessionId": "2022-12-08",
+      "sessionDate": "2022-12-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=658586&type=do",
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0391/22/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des 3. Entwurfs zum Bebauungsplan Nr. 174-5 \"Sieverstorstraße 39 - 51\"",
+      "sessionId": "2022-12-08",
+      "sessionDate": "2022-12-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=658588&type=do",
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0114/22/1",
+      "type": "Änderungsantrag",
+      "title": "Umgestaltung Friedensplatz",
+      "sessionId": "2022-12-08",
+      "sessionDate": "2022-12-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=646504&type=do",
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0135/22/2",
+      "type": "Änderungsantrag",
+      "title": "Klimaschutzportal sichtbar machen",
+      "sessionId": "2022-12-08",
+      "sessionDate": "2022-12-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=658590&type=do",
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0243/22",
+      "type": "Geschäftsordnung",
+      "title": "Subvention von KiTa- und Schulessen",
+      "sessionId": "2022-12-08",
+      "sessionDate": "2022-12-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=657446&type=do",
+      "votings": [
+        {
+          "votingId": 72,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0243/22",
+      "type": "Antrag",
+      "title": "Subvention von KiTa- und Schulessen",
+      "sessionId": "2022-12-08",
+      "sessionDate": "2022-12-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=657446&type=do",
+      "votings": [
+        {
+          "votingId": 73,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0244/22",
+      "type": "Antrag",
+      "title": "Straftaten der „Letzten Generation” verurteilen!",
+      "sessionId": "2022-12-08",
+      "sessionDate": "2022-12-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=657464&type=do",
+      "votings": [
+        {
+          "votingId": 74,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0441/22/19",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2023 - Sparausschuss bilden!",
+      "sessionId": "2022-12-12",
+      "sessionDate": "2022-12-12",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=656230&type=do",
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0441/22/20",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2023 - Netzwerkstelle \"Otto greift ein\" streichen",
+      "sessionId": "2022-12-12",
+      "sessionDate": "2022-12-12",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=656235&type=do",
+      "votings": [
+        {
+          "votingId": 21,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0441/22/21",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2023 - Hasselbachplatzmanager einsparen!",
+      "sessionId": "2022-12-12",
+      "sessionDate": "2022-12-12",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=656237&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0441/22/22",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2023 - Gendermainstreaming-Stelle streichen!",
+      "sessionId": "2022-12-12",
+      "sessionDate": "2022-12-12",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=656239&type=do",
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0441/22/23",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2023 - Intakt und Schauwerk",
+      "sessionId": "2022-12-12",
+      "sessionDate": "2022-12-12",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=656241&type=do",
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0441/22/24",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2023 - Stadtschreiber einsparen!",
+      "sessionId": "2022-12-12",
+      "sessionDate": "2022-12-12",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=656246&type=do",
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0441/22/42",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2023 - Einsparpotenziale offen legen!",
+      "sessionId": "2022-12-12",
+      "sessionDate": "2022-12-12",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=658978&type=do",
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0441/22/43",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2023 - Klimarelevanzprüfung streichen!",
+      "sessionId": "2022-12-12",
+      "sessionDate": "2022-12-12",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=658980&type=do",
+      "votings": [
+        {
+          "votingId": 43,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0579/22/1",
+      "type": "Änderungsantrag",
+      "title": "EW-Bau für den Erweiterungsneubau der FÖSG \"Regenbogenschule” in der Hans-Grade-Str. 120 in 39130 Magdeburg",
+      "sessionId": "2023-01-19",
+      "sessionDate": "2023-01-19",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=660736&type=do",
+      "votings": [
+        {
+          "votingId": 2,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0689/22",
+      "type": "Delegation",
+      "title": "42. Hauptversammlung des Deutschen Städtetages vom 23. bis 25. Mai 2023 in Köln",
+      "sessionId": "2023-01-19",
+      "sessionDate": "2023-01-19",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=658625&type=do",
+      "votings": [
+        {
+          "votingId": 6,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 7,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 11,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 12,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 14,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 15,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0004/23/1",
+      "type": "Änderungsantrag",
+      "title": "Stellenausschreibung für die Wahl der/des Beigeordneten V",
+      "sessionId": "2023-01-19",
+      "sessionDate": "2023-01-19",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=660739&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0052/22/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des 2. Entwurfs zum B-Plan Nr. 229-5 \"Sternbogen\" und Änderung des Geltungsbereichs",
+      "sessionId": "2023-01-19",
+      "sessionDate": "2023-01-19",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=660750&type=do",
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0273/22/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs zum Bebauungsplan Nr. 229-8 \"Hans-Grade-Straße\"",
+      "sessionId": "2023-01-19",
+      "sessionDate": "2023-01-19",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=660753&type=do",
+      "votings": [
+        {
+          "votingId": 36,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0187/22",
+      "type": "Antrag",
+      "title": "Sprachwirrwarr beenden - Deutsche Rechtschreibung statt Gendersprache",
+      "sessionId": "2023-01-19",
+      "sessionDate": "2023-01-19",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=652479&type=do",
+      "votings": [
+        {
+          "votingId": 56,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0005/23",
+      "type": "Antrag",
+      "title": "Entbürokratisierung des 9-Euro-Schülertickets",
+      "sessionId": "2023-02-16",
+      "sessionDate": "2023-02-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=660080&type=do",
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0026/23",
+      "type": "Geschäftsordnung",
+      "title": "Machbarkeitsstudie Panometer bis 2031",
+      "sessionId": "2023-02-16",
+      "sessionDate": "2023-02-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=661959&type=do",
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0030/23",
+      "type": "Antrag",
+      "title": "Wirtschaftlichkeitsberechnung kommunaler Photovoltaik-Anlagen",
+      "sessionId": "2023-02-16",
+      "sessionDate": "2023-02-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=661983&type=do",
+      "votings": [
+        {
+          "votingId": 69,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0604/22/1",
+      "type": "Änderungsantrag",
+      "title": "Aufstellung und öffentliche Auslegung des Entwurfs zur 1. Änderung des Bebauungsplans Nr. 238-5 \"Franckestraße”",
+      "sessionId": "2023-03-16",
+      "sessionDate": "2023-03-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=665017&type=do",
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0005/23/2",
+      "type": "Geschäftsordnung",
+      "title": "Benennung der neuen Brücken über die Zoll- und Alte Elbe",
+      "sessionId": "2023-03-16",
+      "sessionDate": "2023-03-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=665010&type=do",
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0005/23/1",
+      "type": "Änderungsantrag",
+      "title": "Benennung der neuen Brücken über die Zoll- und Alte Elbe",
+      "sessionId": "2023-03-16",
+      "sessionDate": "2023-03-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=665004&type=do",
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0005/23/2",
+      "type": "Änderungsantrag",
+      "title": "Benennung der neuen Brücken über die Zoll- und Alte Elbe",
+      "sessionId": "2023-03-16",
+      "sessionDate": "2023-03-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=665010&type=do",
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0043/23",
+      "type": "Antrag",
+      "title": "„Sauberes Stadtmobiliar” - Pilotprojekt Sternbrücke",
+      "sessionId": "2023-03-16",
+      "sessionDate": "2023-03-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=663878&type=do",
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0044/23",
+      "type": "Antrag",
+      "title": "Zukunftsfähigkeit des Flughafens Magdeburg sicherstellen - erforderliche Optionen prüfen",
+      "sessionId": "2023-03-16",
+      "sessionDate": "2023-03-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=663888&type=do",
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0046/23",
+      "type": "Antrag",
+      "title": "Akteneinsicht Werbenutzungsvertrag Ströer Media",
+      "sessionId": "2023-03-16",
+      "sessionDate": "2023-03-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=663892&type=do",
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0051/23",
+      "type": "Antrag",
+      "title": "Fatale Migrationspolitik beenden - Austritt aus dem Bündnis sicherer Häfen",
+      "sessionId": "2023-03-16",
+      "sessionDate": "2023-03-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=663974&type=do",
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0083/23",
+      "type": "Antrag",
+      "title": "Neubewertung des Haushaltsplanes 2023",
+      "sessionId": "2023-04-24",
+      "sessionDate": "2023-04-24",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=666692&type=do",
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0084/23",
+      "type": "Antrag",
+      "title": "Für Frieden ist es nie zu spät!",
+      "sessionId": "2023-04-24",
+      "sessionDate": "2023-04-24",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=666694&type=do",
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0081/23",
+      "type": "Antrag",
+      "title": "Maßnahmen für die Verbesserung der Wasserqualität der Magdeburger Seen",
+      "sessionId": "2023-04-24",
+      "sessionDate": "2023-04-24",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=666685&type=do",
+      "votings": [
+        {
+          "votingId": 43,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0140/23",
+      "type": "Änderungsantrag",
+      "title": "WOHNEN UND PFLEGEN MAGDEBURG gemeinnützige GmbH",
+      "sessionId": "2023-05-25",
+      "sessionDate": "2023-05-25",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=664719&type=do",
+      "votings": [
+        {
+          "votingId": 3,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0145/23",
+      "type": "Änderungsantrag",
+      "title": "Servicegesellschaft WOHNEN UND PFLEGEN MAGDEBURG GmbH",
+      "sessionId": "2023-05-25",
+      "sessionDate": "2023-05-25",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=664796&type=do",
+      "votings": [
+        {
+          "votingId": 6,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0173/23",
+      "type": "Änderungsantrag",
+      "title": "AQB Gemeinnützige Gesellschaft für Ausbildung, Qualifizierung und Beschäftigung mbH",
+      "sessionId": "2023-05-25",
+      "sessionDate": "2023-05-25",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=665660&type=do",
+      "votings": [
+        {
+          "votingId": 9,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0018/23",
+      "type": "Geschäftsordnung",
+      "title": "Klimabeirat der Landeshauptstadt Magdeburg",
+      "sessionId": "2023-05-25",
+      "sessionDate": "2023-05-25",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=660437&type=do",
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0170/22",
+      "type": "Antrag",
+      "title": "Projekt „Schwimmunterricht in der Kita“ dauerhaft ermöglichen",
+      "sessionId": "2023-05-25",
+      "sessionDate": "2023-05-25",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=650526&type=do",
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0010/23",
+      "type": "Geschäftsordnung",
+      "title": "Eigenes Notstromaggregat für den Zoo",
+      "sessionId": "2023-05-30",
+      "sessionDate": "2023-05-30",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=661585&type=do",
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0010/23",
+      "type": "Antrag",
+      "title": "Eigenes Notstromaggregat für den Zoo",
+      "sessionId": "2023-05-30",
+      "sessionDate": "2023-05-30",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=661585&type=do",
+      "votings": [
+        {
+          "votingId": 13,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0082/23",
+      "type": "Antrag",
+      "title": "Zentrales Melde- und Auskunftssystem bei Gefährdung von Mitarbeitern (ZeMAG)",
+      "sessionId": "2023-05-30",
+      "sessionDate": "2023-05-30",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=666688&type=do",
+      "votings": [
+        {
+          "votingId": 14,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0087/23",
+      "type": "Antrag",
+      "title": "Errichtung eines Zauns zur Abtrennung der Schulbereiche Leibniz-Gemeinschaftsschule und IGS \"Regine Hildebrandt\" in Magdeburg-Nord",
+      "sessionId": "2023-05-30",
+      "sessionDate": "2023-05-30",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=668864&type=do",
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0104/23",
+      "type": "Antrag",
+      "title": "Otto versteht alles - Barrierefreie Sprache in der Landeshauptstadt",
+      "sessionId": "2023-05-30",
+      "sessionDate": "2023-05-30",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=669239&type=do",
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0108/23",
+      "type": "Antrag",
+      "title": "Synopsen bei erneuten Vertragsschlüssen",
+      "sessionId": "2023-05-30",
+      "sessionDate": "2023-05-30",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=669282&type=do",
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0130/23/4",
+      "type": "Änderungsantrag",
+      "title": "Konzept der Landeshauptstadt Magdeburg für elektrische Tretroller (E-Scooter)",
+      "sessionId": "2023-06-26",
+      "sessionDate": "2023-06-26",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=672093&type=do",
+      "votings": [
+        {
+          "votingId": 8,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0199/23/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des 4. Entwurfs zum Bebauungsplan Nr. 174-5 \"Sieverstorstraße 39 - 51\"",
+      "sessionId": "2023-08-17",
+      "sessionDate": "2023-08-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674986&type=do",
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0164/23",
+      "type": "Antrag",
+      "title": "Vorrang für Schwangere",
+      "sessionId": "2023-08-21",
+      "sessionDate": "2023-08-21",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674442&type=do",
+      "votings": [
+        {
+          "votingId": 18,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0179/23",
+      "type": "Antrag",
+      "title": "Treue bis ins Grab - Fangerechte Bestattung prüfen",
+      "sessionId": "2023-08-21",
+      "sessionDate": "2023-08-21",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674562&type=do",
+      "votings": [
+        {
+          "votingId": 32,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0183/23",
+      "type": "Geschäftsordnung",
+      "title": "Zulassung elektrisch angetriebener (Ruder-)Boote auf dem Barleber See I",
+      "sessionId": "2023-08-21",
+      "sessionDate": "2023-08-21",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=674570&type=do",
+      "votings": [
+        {
+          "votingId": 36,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0200/23",
+      "type": "Antrag",
+      "title": "Sonderzuschüsse für Kunst und Kultur streichen!",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=675981&type=do",
+      "votings": [
+        {
+          "votingId": 17,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0199/23",
+      "type": "Antrag",
+      "title": "Förderung der Netzwerkstelle Demokratisches Magdeburg beenden!",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=675973&type=do",
+      "votings": [
+        {
+          "votingId": 18,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0198/23",
+      "type": "Antrag",
+      "title": "Strukturelle Radverkehrsförderung beenden!",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=675954&type=do",
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0196/23",
+      "type": "Antrag",
+      "title": "Klimabeirat streichen!",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=675924&type=do",
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0194/23",
+      "type": "Antrag",
+      "title": "Mittel für Intakt und Schauwerk sparen!",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=675898&type=do",
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0193/23",
+      "type": "Antrag",
+      "title": "Stadtschreiber einsparen!",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=675888&type=do",
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0192/23",
+      "type": "Antrag",
+      "title": "Ausreispflicht durchsetzen!",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=675882&type=do",
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0191/23",
+      "type": "Antrag",
+      "title": "Zuwanderungsnotstand ausrufen - Zuzugstopp für illegale Zuwanderer, Asylbewerber und ‚Flüchtlinge‘ beschließen",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=675876&type=do",
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0218/23",
+      "type": "Geschäftsordnung",
+      "title": "Verbesserung der Bürgerkommunikation bei Bauvorhaben am Beispiel Iltisweg",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=676419&type=do",
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0218/23",
+      "type": "Antrag",
+      "title": "Verbesserung der Bürgerkommunikation bei Bauvorhaben am Beispiel Iltisweg",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=676419&type=do",
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0219/23",
+      "type": "Antrag",
+      "title": "Dienstanweisung zur parteipolitischen Neutralität",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=676421&type=do",
+      "votings": [
+        {
+          "votingId": 43,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0197/23",
+      "type": "Antrag",
+      "title": "Gebärdensprachendolmetscher streichen!",
+      "sessionId": "2023-09-18",
+      "sessionDate": "2023-09-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=675947&type=do",
+      "votings": [
+        {
+          "votingId": 21,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0134/23/2",
+      "type": "Änderungsantrag",
+      "title": "Ehrentafel für die in Ausübung ihres Dienstes tödlich verunglückten Magdeburger Feuerwehrleute",
+      "sessionId": "2023-10-12",
+      "sessionDate": "2023-10-12",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=677284&type=do",
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0229/23",
+      "type": "Antrag",
+      "title": "Abbau von Beschränkungen beim Bauen",
+      "sessionId": "2023-10-16",
+      "sessionDate": "2023-10-16",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=678350&type=do",
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0228/23",
+      "type": "Antrag",
+      "title": "Schulhofsicherheit in Magdeburg - Prüfung des aktuellen Sachstandes",
+      "sessionId": "2023-11-20",
+      "sessionDate": "2023-11-20",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=678329&type=do",
+      "votings": [
+        {
+          "votingId": 7,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0249/23",
+      "type": "Antrag",
+      "title": "Aufklärung über Enkeltrick-Betrug prüfen",
+      "sessionId": "2023-11-20",
+      "sessionDate": "2023-11-20",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=680650&type=do",
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0250/23",
+      "type": "Antrag",
+      "title": "Migrationskosten prüfen!",
+      "sessionId": "2023-11-20",
+      "sessionDate": "2023-11-20",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=680658&type=do",
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0340/23/1",
+      "type": "Änderungsantrag",
+      "title": "Satzung des Bebauungsplans Nr. 229-8 \"Hans-Grade-Straße\"",
+      "sessionId": "2023-12-07",
+      "sessionDate": "2023-12-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=683524&type=do",
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0273/23",
+      "type": "Antrag",
+      "title": "Kommunalen Bürokratieabbau prüfen!",
+      "sessionId": "2023-12-07",
+      "sessionDate": "2023-12-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682441&type=do",
+      "votings": [
+        {
+          "votingId": 43,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0277/23",
+      "type": "Antrag",
+      "title": "Sach- statt Geldleistungen für Asylbewerber prüfen!",
+      "sessionId": "2023-12-07",
+      "sessionDate": "2023-12-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682470&type=do",
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/59",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Mittel für Schauwerk und InTakt einsparen!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682802&type=do",
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/56",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Klimabeirat streichen!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682790&type=do",
+      "votings": [
+        {
+          "votingId": 38,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/57",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Klimarelevanzprüfung streichen!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682797&type=do",
+      "votings": [
+        {
+          "votingId": 39,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/58",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Ausreisepflicht durchsetzen!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682800&type=do",
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/60",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Förderung der \"Netzwerkstelle Demokratisches Magdeburg\" beenden!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682804&type=do",
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/61",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Gebärdensprachdolmetscher einsparen!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682806&type=do",
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/62",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Stadtschreiber einsparen!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682809&type=do",
+      "votings": [
+        {
+          "votingId": 43,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/63",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Strukturelle Radverkehrsförderung beenden!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682811&type=do",
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/64",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Hasselbachplatzmanager einsparen!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682991&type=do",
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/65",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Vollzeitäquivalente für den Aufgabenbereich „Gender Mainstreaming” einsparen!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=682994&type=do",
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/66",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Auskömmliche Asylfinanzierung mit dem Land verhandeln!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=683124&type=do",
+      "votings": [
+        {
+          "votingId": 47,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/67",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Anmietung von Wohnungen für Asylbewerber stoppen!",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=683133&type=do",
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0446/23/68",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2024 - Austritt aus dem Bündnis \"Sicherer Häfen\"",
+      "sessionId": "2023-12-11",
+      "sessionDate": "2023-12-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=683137&type=do",
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0451/23/1",
+      "type": "Änderungsantrag",
+      "title": "EW-Bau für den Erweiterungsneubau Hort Grundschule Sudenburg in der Braunschweiger Straße 27 in 39112 Magdeburg",
+      "sessionId": "2024-01-18",
+      "sessionDate": "2024-01-18",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=685539&type=do",
+      "votings": [
+        {
+          "votingId": 2,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0011/24",
+      "type": "Antrag",
+      "title": "Beendigung der Zuwendungen zum Deutschen Institut für Urbanistik gGmbH",
+      "sessionId": "2024-02-15",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686530&type=do",
+      "votings": [
+        {
+          "votingId": 47,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0017/24",
+      "type": "Geschäftsordnung",
+      "title": "Entwicklungspotenziale für den Zoo - Denkmalstatus des Vogelgesang-Parks",
+      "sessionId": "2024-02-15",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686565&type=do",
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0017/24",
+      "type": "Antrag",
+      "title": "Entwicklungspotenziale für den Zoo - Denkmalstatus des Vogelgesang-Parks",
+      "sessionId": "2024-02-15",
+      "sessionDate": "2024-02-15",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=686565&type=do",
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0613/23/1",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Wahlsichtwerbung-Sondernutzungssatzung",
+      "sessionId": "2024-03-07",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688231&type=do",
+      "votings": [
+        {
+          "votingId": 3,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0613/23/2",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Wahlsichtwerbung-Sondernutzungssatzung",
+      "sessionId": "2024-03-07",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688597&type=do",
+      "votings": [
+        {
+          "votingId": 4,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0613/23/3",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Wahlsichtwerbung-Sondernutzungssatzung",
+      "sessionId": "2024-03-07",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688722&type=do",
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0072/24/2",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs zum B-Plan Nr. 237-4 \"Maybachstraße\" mit örtlicher Bauvorschrift",
+      "sessionId": "2024-03-07",
+      "sessionDate": "2024-03-07",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=689222&type=do",
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0045/24",
+      "type": "Antrag",
+      "title": "Jurassic Park in Magdeburg",
+      "sessionId": "2024-03-11",
+      "sessionDate": "2024-03-11",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=688277&type=do",
+      "votings": [
+        {
+          "votingId": 9,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0063/23/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs und geringfügige Änderung des Geltungsbereichs zum Bebauungsplan Nr. 368-1C \"Kümmelsberg Westseite\" im Teilbereich C",
+      "sessionId": "2024-04-04",
+      "sessionDate": "2024-04-04",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691097&type=do",
+      "votings": [
+        {
+          "votingId": 17,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0019/23/2",
+      "type": "Änderungsantrag",
+      "title": "Erstellung eines Schulwegsicherungskonzeptes für das Stadtgebiet der LH Magdeburg",
+      "sessionId": "2024-04-04",
+      "sessionDate": "2024-04-04",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=691116&type=do",
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0188/23/1",
+      "type": "Änderungsantrag",
+      "title": "Status des Hochwasserschutz in Magdeburg",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=677300&type=do",
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0075/24",
+      "type": "Antrag",
+      "title": "Spendenaktion zum Wiederaufbau des Magdeburger Pferdetors",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690038&type=do",
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0094/24",
+      "type": "Antrag",
+      "title": "Vereinswesen fördern - Nachwuchs vermitteln",
+      "sessionId": "2024-04-08",
+      "sessionDate": "2024-04-08",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=690571&type=do",
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0108/24",
+      "type": "Antrag",
+      "title": "Zubuch-Option für das Schülerticket",
+      "sessionId": "2024-05-06",
+      "sessionDate": "2024-05-06",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=692583&type=do",
+      "votings": [
+        {
+          "votingId": 8,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0228/24",
+      "type": "Geschäftsordnung",
+      "title": "Aufsichtsrat der KLINIKUM MAGDEBURG gemeinnützige GmbH",
+      "sessionId": "2024-06-13",
+      "sessionDate": "2024-06-13",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=693666&type=do",
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0103/24/4",
+      "type": "Änderungsantrag",
+      "title": "Grundsatzbeschluss zum Rückbau und zur denkmalgerechten Rekonstruktion des Baudenkmals \"Pferdetor” im Stadtpark Rotehorn, Magdeburg",
+      "sessionId": "2024-06-13",
+      "sessionDate": "2024-06-13",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696426&type=do",
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0065/24/1",
+      "type": "Änderungsantrag",
+      "title": "Satzung des Bebauungsplans Nr. 229-6 \"Am Sternsee\" mit örtlicher Bauvorschrift",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696428&type=do",
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0098/24/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs und geringfügige Änderung des Geltungsbereichs zum Bebauungsplan Nr. 430-2 \"Leipziger Chaussee/Am Hopfengarten\"",
+      "sessionId": "2024-06-17",
+      "sessionDate": "2024-06-17",
+      "applicationUrl": "https://ratsinfo.magdeburg.de/getfile.asp?id=696430&type=do",
+      "votings": [
+        {
+          "votingId": 18,
+          "votingResult": "REJECTED"
+        }
+      ]
+    }
+  ]
+}
