@@ -1,4 +1,4 @@
 [build]
-command = "ng build -c production"
+command = "ng build -c development"
 functions = "/netlify/functions"
 publish = "/dist/StadtratWatch-web/browser"
