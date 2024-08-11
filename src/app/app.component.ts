@@ -32,10 +32,11 @@ export class AppComponent implements OnDestroy {
       .pipe(
         filter((event: any) => event instanceof NavigationEnd),
         map(event => event as NavigationEnd),
-        filter(event => event.url.startsWith(`/${ELECTORAL_PERIOD_PATH}`)),
-        map(event => event.url.split('/')[2]),
       )
-      .subscribe(async electoralPeriodSlug => {
+      .subscribe(async event => {
+          const electoralPeriodSlug = event.url.startsWith(`/${ELECTORAL_PERIOD_PATH}/`)
+            ? event.url.split('/')[2]
+            : environment.currentElectoralPeriod;
           this.electoralPeriodSlug = electoralPeriodSlug;
           this.electoralPeriodName = this.availableElectoralPeriods.find(
             p => p.slug === electoralPeriodSlug
