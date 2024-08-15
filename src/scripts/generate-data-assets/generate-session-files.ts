@@ -26,6 +26,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
       original_id: meeting.original_id
     }));
   const scrapedAgendaItems = scrapedSession.agenda_items;
+  const scrapedPapers = scrapedSession.papers;
   const scrapedFiles = scrapedSession.files;
 
   const personIdsByNameMap =
@@ -95,9 +96,12 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
           if (!scrapedPaperOriginalId) {
             console.warn('No scraped paper original id found for voting', session.date, voting.votingSubject.agendaItem);
           }
-          const files = scrapedFiles.filter(
-            file => scrapedPaperOriginalId && file.paper_original_id === scrapedPaperOriginalId
-          );
+          const paper = scrapedPaperOriginalId
+            ? scrapedPapers.find(paper => paper.original_id === scrapedPaperOriginalId) || null
+            : null;
+          const files = scrapedPaperOriginalId
+            ? scrapedFiles.filter(file => file.paper_original_id === scrapedPaperOriginalId)
+            : [];
           if (files.length === 0) {
             console.warn('No scraped file found for voting', session.date, voting.votingSubject.agendaItem);
           }
@@ -112,6 +116,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
               type: voting.votingSubject.type,
               authors: voting.votingSubject.authors,
               documents: {
+                paperId: paper?.original_id || null,
                 applicationUrl: files.length > 0 ? files[0].url : null,
               }
             },
