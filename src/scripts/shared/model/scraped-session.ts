@@ -15,15 +15,15 @@ export type ScrapedAgendaItem = {
   key: string;
   meeting_id: number;
   name: string;
-  original_id: number | null;
-  paper_original_id: number | null;
+  original_id: number;
+  paper_original_id: number;
   paper_reference: string | null;
 };
 
 export type ScrapedFiles = {
   name: string;
-  original_id: number | null;
-  paper_original_id: number | null;
+  original_id: number;
+  paper_original_id: number;
   url: string;
 };
 
@@ -36,7 +36,7 @@ export type ScrapedMeeting = {
   name: string;
   note: string | null;
   organization_name: string;
-  original_id: number | null;
+  original_id: number;
   start: string;
 };
 

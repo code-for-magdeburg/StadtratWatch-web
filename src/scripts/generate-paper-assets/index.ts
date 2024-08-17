@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { ScrapedSession } from '../shared/model/scraped-session';
+import { PapersDto } from '../../app/model/Paper';
 
 
 const scrapedSessionFilename = process.argv[2];
@@ -18,7 +19,7 @@ if (!fs.existsSync(scrapedSessionFilename) || !fs.lstatSync(scrapedSessionFilena
 
 async function run(scrapedSession: ScrapedSession, outputDir: string): Promise<void> {
 
-  const allPapers: { id: number, reference: string | null }[] = [];
+  const allPapers: PapersDto = [];
 
   scrapedSession.meetings
     .filter(
@@ -38,12 +39,16 @@ async function run(scrapedSession: ScrapedSession, outputDir: string): Promise<v
             && !allPapers.find(paper => paper.id === agendaItem.paper_original_id)
         )
         .forEach(agendaItem => {
-          if (agendaItem.paper_original_id) {
-            allPapers.push({
-              id: agendaItem.paper_original_id,
-              reference: agendaItem.paper_reference
-            });
-          }
+
+          const files = scrapedSession.files
+            .filter(file => file.paper_original_id === agendaItem.paper_original_id)
+            .map(file => ({ id: file.original_id, name: file.name, url: file.url }));
+          allPapers.push({
+            id: agendaItem.paper_original_id,
+            files,
+            reference: agendaItem.paper_reference
+          });
+
         });
 
     });

@@ -79,7 +79,7 @@ async function runMeeting(magdeburg: ScrapedSession, outputDir: string, meeting:
     file => !existingFiles.includes(`${file.original_id}.pdf`)
   );
   for (const file of filesToDownload) {
-    await downloadFile(file.url, file.original_id!, outputDir);
+    await downloadFile(file.url, file.original_id, outputDir);
   }
 
 }
