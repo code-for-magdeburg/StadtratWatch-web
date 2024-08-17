@@ -433,7 +433,7 @@ function createVoting(votingId: number, votingFor: SessionPersonDto[], votingAga
       title: 'title',
       type: 'type',
       authors: [],
-      documents: { applicationUrl: null, },
+      documents: { paperId: null, applicationUrl: null, },
     },
     votes,
     votingResult

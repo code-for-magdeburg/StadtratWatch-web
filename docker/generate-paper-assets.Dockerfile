@@ -10,6 +10,6 @@ COPY ../tsconfig.json .
 COPY ../tsconfig.scripts.json .
 COPY ../src/app/model /app/src/app/model
 COPY ../src/scripts/shared /app/src/scripts/shared
-COPY ../src/scripts/generate-routes-file /app/src/scripts/generate-routes-file
+COPY ../src/scripts/generate-paper-assets /app/src/scripts/generate-paper-assets
 
-CMD ["npm", "run", "generate-routes-file", "./data", "./generated"]
+CMD ["npm", "run", "generate-paper-assets", "./Magdeburg.json", "./generated"]
