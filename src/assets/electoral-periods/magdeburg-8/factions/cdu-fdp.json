@@ -3,15 +3,19 @@
   "name": "CDU/FDP",
   "seats": 15,
   "applicationsSuccessRate": 1,
-  "votingsSuccessRate": 1,
-  "uniformityScore": 1,
-  "participationRate": 0.8428571428571429,
-  "abstentionRate": 0,
-  "speakingTime": 1154,
+  "votingsSuccessRate": 0.9891304347826086,
+  "uniformityScore": 0.9911317315163468,
+  "participationRate": 0.8898550724637682,
+  "abstentionRate": 0.014695774311158923,
+  "speakingTime": 6173,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
         "date": "2024-07-08",
+        "value": 1
+      },
+      {
+        "date": "2024-08-15",
         "value": 1
       }
     ],
@@ -19,24 +23,40 @@
       {
         "date": "2024-07-08",
         "value": 1
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.9891304347826086
       }
     ],
     "uniformityScore": [
       {
         "date": "2024-07-08",
         "value": 1
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.9911317315163468
       }
     ],
     "participationRate": [
       {
         "date": "2024-07-08",
         "value": 0.8428571428571429
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.8898550724637682
       }
     ],
     "abstentionRate": [
       {
         "date": "2024-07-08",
         "value": 0
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.014695774311158923
       }
     ]
   },
