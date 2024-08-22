@@ -3,15 +3,19 @@
   "name": "Gartenpartei",
   "seats": 3,
   "applicationsSuccessRate": 0,
-  "votingsSuccessRate": 0.9285714285714286,
-  "uniformityScore": 0.9285714285714286,
-  "participationRate": 0.6666666666666666,
-  "abstentionRate": 0.07142857142857142,
-  "speakingTime": 277,
+  "votingsSuccessRate": 0.8152173913043478,
+  "uniformityScore": 0.948051948051948,
+  "participationRate": 0.6956521739130435,
+  "abstentionRate": 0.0666971916971917,
+  "speakingTime": 1323,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
         "date": "2024-07-08",
+        "value": 0
+      },
+      {
+        "date": "2024-08-15",
         "value": 0
       }
     ],
@@ -19,24 +23,40 @@
       {
         "date": "2024-07-08",
         "value": 0.9285714285714286
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.8152173913043478
       }
     ],
     "uniformityScore": [
       {
         "date": "2024-07-08",
         "value": 0.9285714285714286
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.948051948051948
       }
     ],
     "participationRate": [
       {
         "date": "2024-07-08",
         "value": 0.6666666666666666
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.6956521739130435
       }
     ],
     "abstentionRate": [
       {
         "date": "2024-07-08",
         "value": 0.07142857142857142
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.0666971916971917
       }
     ]
   },

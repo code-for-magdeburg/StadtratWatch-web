@@ -2,34 +2,50 @@
   "id": "die-linke",
   "name": "DIE LINKE",
   "seats": 6,
-  "votingsSuccessRate": 0.9285714285714286,
-  "uniformityScore": 1,
-  "participationRate": 0.9642857142857143,
-  "abstentionRate": 0,
-  "speakingTime": 76,
+  "votingsSuccessRate": 0.14130434782608695,
+  "uniformityScore": 0.9756410256410257,
+  "participationRate": 0.14673913043478262,
+  "abstentionRate": 0.11239316239316238,
+  "speakingTime": 968,
   "statsHistory": {
     "votingsSuccessRate": [
       {
         "date": "2024-07-08",
         "value": 0.9285714285714286
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.14130434782608695
       }
     ],
     "uniformityScore": [
       {
         "date": "2024-07-08",
         "value": 1
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.9756410256410257
       }
     ],
     "participationRate": [
       {
         "date": "2024-07-08",
         "value": 0.9642857142857143
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.14673913043478262
       }
     ],
     "abstentionRate": [
       {
         "date": "2024-07-08",
         "value": 0
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.11239316239316238
       }
     ]
   }
