@@ -24,10 +24,9 @@
         <div class="col-6">
           <dl>
             <dt>{{ votingViewModel.votingType }}</dt>
-            <dd *ngIf="votingViewModel.applicationUrl">
-              <a href="{{ votingViewModel.applicationUrl }}" target="_blank">{{ votingViewModel.applicationId }}</a>
+            <dd *ngIf="votingViewModel.paperId">
+              <a [routerLink]="['/paper']" [queryParams]="{ paperId: votingViewModel.paperId }">{{ votingViewModel.applicationId }}</a>
             </dd>
-            <dd *ngIf="!votingViewModel.applicationUrl">{{ votingViewModel.applicationId }}</dd>
           </dl>
         </div>
       </div>
