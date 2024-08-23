@@ -43,10 +43,15 @@ async function run(scrapedSession: ScrapedSession, outputDir: string): Promise<v
           const files = scrapedSession.files
             .filter(file => file.paper_original_id === agendaItem.paper_original_id)
             .map(file => ({ id: file.original_id, name: file.name, url: file.url }));
+          const paper = scrapedSession.papers.find(
+            p => p.original_id === agendaItem.paper_original_id
+          );
           allPapers.push({
             id: agendaItem.paper_original_id,
+            reference: agendaItem.paper_reference,
+            type: paper ? paper.paper_type : null,
+            title: paper ? paper.name : '',
             files,
-            reference: agendaItem.paper_reference
           });
 
         });
