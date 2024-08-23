@@ -1,13 +1,14 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { ScrapedSession } from '../shared/model/scraped-session';
+import { ScrapedFile, ScrapedMeeting, ScrapedSession } from '../shared/model/scraped-session';
 import { PapersDto } from '../../app/model/Paper';
 
 
 const scrapedSessionFilename = process.argv[2];
-const outputDir = process.argv[3];
-if (!scrapedSessionFilename || !outputDir) {
-  console.error('Usage: node index.js <scrapedSessionFile> <outputDir>');
+const papersDir = process.argv[3];
+const outputDir = process.argv[4];
+if (!scrapedSessionFilename || !papersDir || !outputDir) {
+  console.error('Usage: node index.js <scrapedSessionFile> <papersDir> <outputDir>');
   process.exit(1);
 }
 
@@ -27,7 +28,7 @@ async function run(scrapedSession: ScrapedSession, outputDir: string): Promise<v
         !meeting.cancelled
         && !!meeting.original_id
         && meeting.organization_name === 'Stadtrat'
-        // && meeting.start >= '2019'
+      // && meeting.start >= '2019'
     )
     .forEach(meeting => {
 
@@ -42,7 +43,12 @@ async function run(scrapedSession: ScrapedSession, outputDir: string): Promise<v
 
           const files = scrapedSession.files
             .filter(file => file.paper_original_id === agendaItem.paper_original_id)
-            .map(file => ({ id: file.original_id, name: file.name, url: file.url }));
+            .map(file => ({
+              id: file.original_id,
+              name: file.name,
+              url: file.url,
+              size: getFileSize(meeting, file),
+            }));
           const paper = scrapedSession.papers.find(
             p => p.original_id === agendaItem.paper_original_id
           );
@@ -75,6 +81,16 @@ async function run(scrapedSession: ScrapedSession, outputDir: string): Promise<v
     const filename = path.join(outputDir, `papers-${batchNo}.json`);
     fs.writeFileSync(filename, JSON.stringify(grouped[batchNo], null, 2));
   }
+
+}
+
+
+function getFileSize(meeting: ScrapedMeeting, file: ScrapedFile): number | null {
+
+  const year = meeting.start.split('-')[0];
+  const paperFilename = path.join(papersDir, year, `${file.original_id}.pdf`);
+
+  return fs.existsSync(paperFilename) ? fs.statSync(paperFilename).size : null;
 
 }
 

@@ -21,7 +21,7 @@ docker build -t srw-generate-paper-assets -f docker\generate-paper-assets.Docker
 
 #### Run the docker container
 ```shell
-docker run --rm -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro -v %cd%\src\assets\papers:/app/generated srw-generate-paper-assets
+docker run --rm -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro -v %cd%\output\papers:./app/papers:ro -v %cd%\src\assets\papers:/app/generated srw-generate-paper-assets
 ```
 
 

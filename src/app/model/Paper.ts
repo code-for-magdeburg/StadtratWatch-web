@@ -7,5 +7,5 @@ export type PaperDto = {
   reference: string | null;
   type: string | null;
   title: string;
-  files: { id: number, name: string, url: string }[];
+  files: { id: number, name: string, url: string, size: number | null }[];
 };

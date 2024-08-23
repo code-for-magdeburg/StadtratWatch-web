@@ -12,4 +12,4 @@ COPY ../src/app/model /app/src/app/model
 COPY ../src/scripts/shared /app/src/scripts/shared
 COPY ../src/scripts/generate-paper-assets /app/src/scripts/generate-paper-assets
 
-CMD ["npm", "run", "generate-paper-assets", "./Magdeburg.json", "./generated"]
+CMD ["npm", "run", "generate-paper-assets", "./Magdeburg.json", "./papers", "./generated"]

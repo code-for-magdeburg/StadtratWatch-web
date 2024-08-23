@@ -1,6 +1,6 @@
 export type ScrapedSession = {
   agenda_items: ScrapedAgendaItem[];
-  files: ScrapedFiles[];
+  files: ScrapedFile[];
   format_version: number;
   main_organization: ScrapedMainOrganization;
   meetings: ScrapedMeeting[];
@@ -20,7 +20,7 @@ export type ScrapedAgendaItem = {
   paper_reference: string | null;
 };
 
-export type ScrapedFiles = {
+export type ScrapedFile = {
   name: string;
   original_id: number;
   paper_original_id: number;
