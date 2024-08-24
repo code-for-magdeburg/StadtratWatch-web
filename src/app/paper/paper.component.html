@@ -1,0 +1,36 @@
+
+<ng-container *ngIf="paper && documentUrl">
+
+  <div class="mb-5">
+    <span *ngIf="paper.reference">{{ paper.reference }} - {{ paper.type }}</span>
+    <h1>{{ paper.title }}</h1>
+  </div>
+
+  <div class="container-sm-full d-none d-md-block">
+
+    <iframe
+      *ngIf="fileSize < 1024 * 1024; else fileTooBig"
+      [src]="documentUrl"
+      style="width: 100%; height: 90vh; border: 0"
+      loading="lazy"
+    >
+    </iframe>
+
+    <ng-template #fileTooBig>
+      <div class="text-center">
+        <div class="alert alert-warning">
+          <p>
+            Die Datei ist zu groß, um hier angezeigt zu werden.
+          </p>
+          <a class="btn btn-outline-primary" [href]="documentUrl" target="_blank">PDF herunterladen ({{ fileSizeDisplay }})</a>
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+
+  <div class="container d-block d-md-none text-center">
+    <a class="btn btn-outline-primary" [href]="documentUrl" target="_blank">PDF öffnen ({{ fileSizeDisplay }})</a>
+  </div>
+
+</ng-container>

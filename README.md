@@ -12,6 +12,19 @@ docker run --rm -v %cd%\data\electoral-period-7:/app/electoral-period:ro -v %cd%
 ```
 
 
+### Generate paper assets
+
+#### Build the docker image
+```shell
+docker build -t srw-generate-paper-assets -f docker\generate-paper-assets.Dockerfile .
+```
+
+#### Run the docker container
+```shell
+docker run --rm -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro -v %cd%\output\papers:./app/papers:ro -v %cd%\src\assets\papers:/app/generated srw-generate-paper-assets
+```
+
+
 ### Generate routes file
 
 #### Build the docker image

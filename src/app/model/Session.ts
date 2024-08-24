@@ -28,6 +28,7 @@ export type SessionPersonDto = {
 };
 
 export type VotingDocumentsDto = {
+  paperId: number | null;
   applicationUrl: string | null;
 };
 

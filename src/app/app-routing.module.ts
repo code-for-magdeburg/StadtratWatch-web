@@ -13,9 +13,11 @@ import { ElectoralPeriodComponent } from './electoral-period/electoral-period.co
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
 import { ImpressumComponent } from './impressum/impressum.component';
+import { PaperComponent } from './paper/paper.component';
 
 
 export const ELECTORAL_PERIOD_PATH = 'ep';
+export const PAPER_PATH = 'paper';
 
 
 const routes: Routes = [
@@ -30,6 +32,7 @@ const routes: Routes = [
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/party/:id`, component: PartyComponent },
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/persons`, component: PersonsComponent },
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/person/:id`, component: PersonComponent },
+  { path: `${PAPER_PATH}`, component: PaperComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'impressum', component: ImpressumComponent },
   { path: 'privacy', component: PrivacyComponent },

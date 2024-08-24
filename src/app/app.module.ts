@@ -56,6 +56,7 @@ import { SpeakingTimePipe } from './pipes/speaking-time.pipe';
 import { YoutubeTimestampPipe } from './pipes/youtube-timestamp.pipe';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { PaperComponent } from './paper/paper.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -101,7 +102,8 @@ registerLocaleData(localeDe, 'de-DE');
     PartyAbstentionRateComponent,
     SpeakingTimeChartComponent,
     SpeakingTimePipe,
-    YoutubeTimestampPipe
+    YoutubeTimestampPipe,
+    PaperComponent
   ],
     imports: [
         AppRoutingModule,
