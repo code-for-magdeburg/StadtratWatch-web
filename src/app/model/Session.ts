@@ -27,10 +27,6 @@ export type SessionPersonDto = {
   faction: string;
 };
 
-export type VotingDocumentsDto = {
-  paperId: number | null;
-};
-
 export type Vote = {
   personId: string;
   vote: VoteResult;
@@ -45,7 +41,7 @@ export type SessionVotingDto = {
     title: string;
     type: string;
     authors: string[];
-    documents: VotingDocumentsDto;
+    paperId: number | null;
   },
   votes: Vote[]
   votingResult: VotingResult

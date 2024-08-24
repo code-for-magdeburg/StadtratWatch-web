@@ -105,7 +105,7 @@ export class VotingComponent implements OnInit {
         votingTitle: votingDto.votingSubject.title,
         votingType: votingDto.votingSubject.type,
         authorNames: votingDto.votingSubject.authors,
-        paperId: votingDto.votingSubject.documents.paperId,
+        paperId: votingDto.votingSubject.paperId,
         youtubeUrl: this.generateYoutubeUrl(session.youtubeUrl, votingDto.videoTimestamp),
         votesFor: this.countVotes(votingDto.votes, VoteResult.VOTE_FOR),
         votesAgainst: this.countVotes(votingDto.votes, VoteResult.VOTE_AGAINST),
