@@ -115,10 +115,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
               title: voting.votingSubject.title,
               type: voting.votingSubject.type,
               authors: voting.votingSubject.authors,
-              documents: {
-                paperId: paper?.original_id || null,
-                applicationUrl: files.length > 0 ? files[0].url : null,
-              }
+              paperId: paper?.original_id || null
             },
             votes: voting.votes.map(vote => ({
               personId: personIdsByNameMap.get(vote.name) || '',

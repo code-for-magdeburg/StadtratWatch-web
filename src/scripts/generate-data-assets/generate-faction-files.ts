@@ -277,7 +277,7 @@ function getApplicationsOfFaction(faction: FactionLightDto, sessions: SessionDet
     const applicationId = applicationVoting.voting.votingSubject.applicationId;
     const applicationType = applicationVoting.voting.votingSubject.type;
     const applicationTitle = applicationVoting.voting.votingSubject.title;
-    const applicationUrl = applicationVoting.voting.votingSubject.documents.applicationUrl;
+    const paperId = applicationVoting.voting.votingSubject.paperId;
     const sessionId = applicationVoting.sessionId;
     const sessionDate = applicationVoting.sessionDate;
     const votings = applicationVotings.map(
@@ -292,9 +292,9 @@ function getApplicationsOfFaction(faction: FactionLightDto, sessions: SessionDet
       title: applicationTitle,
       sessionId,
       sessionDate,
-      applicationUrl,
+      paperId,
       votings
-    };
+    } satisfies ApplicationDto;
   });
 }
 
