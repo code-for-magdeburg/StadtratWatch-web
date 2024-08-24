@@ -7,7 +7,7 @@ export type ApplicationDto = {
   type: string;
   sessionId: string;
   sessionDate: string;
-  applicationUrl: string | null;
+  paperId: number | null;
   votings: ApplicationVotingDto[];
 };
 

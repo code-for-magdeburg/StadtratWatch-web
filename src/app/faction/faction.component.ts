@@ -34,7 +34,7 @@ type Application = {
   typeAndId: string;
   title: string;
   result: ApplicationResult;
-  applicationUrl: string | null;
+  paperId: number | null;
 };
 
 export type Faction = {
@@ -187,8 +187,8 @@ export class FactionComponent implements OnInit {
         typeAndId: `${application.type} ${application.applicationId}`,
         title: application.title,
         result: this.getApplicationResult(application.votings),
-        applicationUrl: application.applicationUrl
-      }));
+        paperId: application.paperId
+      } satisfies Application));
 
   }
 

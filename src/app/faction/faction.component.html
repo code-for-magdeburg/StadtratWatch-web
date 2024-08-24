@@ -112,10 +112,10 @@
           <td>{{ application.votingDate | date }}</td>
           <td class="d-flex flex-column">
             <span>{{ application.type }}</span>
-            <span *ngIf="!!application.applicationUrl">
-              <a href="{{ application.applicationUrl }}" target="_blank">{{ application.applicationId }}</a>
+            <span *ngIf="application.paperId">
+              <a [routerLink]="['/paper']" [queryParams]="{ paperId: application.paperId }">{{ application.applicationId }}</a>
             </span>
-            <span *ngIf="!application.applicationUrl">{{ application.applicationId }}</span>
+            <span *ngIf="!application.paperId">{{ application.applicationId }}</span>
           </td>
           <td>
             <a [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'session', application.sessionId, 'voting', application.votingId]">
