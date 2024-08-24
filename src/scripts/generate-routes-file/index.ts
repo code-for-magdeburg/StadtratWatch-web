@@ -45,6 +45,30 @@ for (const electoralPeriodDir of electoralPeriodDirs) {
 
 }
 
+// Workaround ahead!
+// Outdated faction and party routes will be added as they have been already indexed by search engines.
+// Without this workaround, the netlify server function will raise an error.
+routes.push('/ep/7/faction/gruene-future');
+routes.push('/ep/7/faction/fdp-tierschutzpartei');
+routes.push('/ep/7/faction/spd');
+routes.push('/ep/7/faction/afd');
+routes.push('/ep/7/faction/die-linke');
+routes.push('/ep/7/faction/cdu');
+routes.push('/ep/7/faction/gartenpartei-tierschutzallianz');
+routes.push('/ep/7/faction/oberbuergermeisterin');
+
+routes.push('/ep/7/party/buendnis-90-die-gruenen');
+routes.push('/ep/7/party/future-magdeburg');
+routes.push('/ep/7/party/cdu');
+routes.push('/ep/7/party/spd');
+routes.push('/ep/7/party/afd');
+routes.push('/ep/7/party/die-linke');
+routes.push('/ep/7/party/gartenpartei');
+routes.push('/ep/7/party/tierschutzpartei');
+routes.push('/ep/7/party/tierschutzallianz');
+routes.push('/ep/7/party/fdp');
+routes.push('/ep/7/party/parteilos-01');
+
 fs.writeFileSync(`${outputDir}/routes.txt`, routes.join('\n'));
 
 console.log('Done.');
