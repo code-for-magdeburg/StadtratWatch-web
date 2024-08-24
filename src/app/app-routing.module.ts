@@ -27,8 +27,12 @@ const routes: Routes = [
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/session/:id`, component: SessionComponent },
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/session/:session-id/voting/:voting-id`, component: VotingComponent },
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/factions`, component: FactionsComponent },
+  // Temporary fix: The slug "magdeburg-7" is used for the electoral period "7" here
+  { path: `ep/7/faction/:id`, redirectTo: `${ELECTORAL_PERIOD_PATH}/magdeburg-7/faction/:id` },
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/faction/:id`, component: FactionComponent },
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/parties`, component: PartiesComponent },
+  // Temporary fix: The slug "magdeburg-7" is used for the electoral period "7" here
+  { path: `ep/7/party/:id`, redirectTo: `${ELECTORAL_PERIOD_PATH}/magdeburg-7/party/:id` },
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/party/:id`, component: PartyComponent },
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/persons`, component: PersonsComponent },
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/person/:id`, component: PersonComponent },

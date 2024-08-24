@@ -37,7 +37,8 @@ export class AppComponent implements OnDestroy {
           const electoralPeriodSlug = event.url.startsWith(`/${ELECTORAL_PERIOD_PATH}/`)
             ? event.url.split('/')[2]
             : environment.currentElectoralPeriod;
-          this.electoralPeriodSlug = electoralPeriodSlug;
+          // Temporary fix: The slug "7" is used for the electoral period "Magdeburg 7".
+          this.electoralPeriodSlug = electoralPeriodSlug === '7' ? 'magdeburg-7' : electoralPeriodSlug;
           this.electoralPeriodName = this.availableElectoralPeriods.find(
             p => p.slug === electoralPeriodSlug
           )?.name || '';
