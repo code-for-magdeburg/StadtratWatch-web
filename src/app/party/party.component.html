@@ -1,63 +1,47 @@
-<div>
+<div *ngIf="party">
 
-  <ng-container *ngIf="party">
+  <app-breadcrumb
+    [electoralPeriod]="electoralPeriod"
+    [breadcrumbSubItems]="[{ title: 'Parteien', path: ['parties'] }]"
+    [currentPageTitle]="party.name"
+  ></app-breadcrumb>
 
-    <app-breadcrumb
-      [electoralPeriod]="electoralPeriod"
-      [breadcrumbSubItems]="[{ title: 'Parteien', path: ['parties'] }]"
-      [currentPageTitle]="party.name"
-    ></app-breadcrumb>
+  <div class="mb-3">
+    <h1>{{ party.name }}</h1>
+  </div>
 
-    <div class="mb-5">
-      <h1>{{ party.name }}</h1>
-    </div>
+  <tabset>
 
-    <div class="mb-3">
-      <h2>Ratsmitglieder</h2>
-    </div>
-
-    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
-      <div *ngFor="let councilor of councilors" class="col">
-        <app-councilor-card [electoralPeriod]="electoralPeriod" [councilor]="councilor"></app-councilor-card>
-      </div>
-    </div>
-
-    <ng-container *ngIf="formerCouncilors.length">
-
-      <div class="mb-3 mt-3">
-        <h2>Ehemalige Ratsmitglieder</h2>
-      </div>
-
+    <tab heading="Statistiken" class="py-3">
       <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
-        <div *ngFor="let councilor of formerCouncilors" class="col">
+
+        <div class="col">
+          <app-party-votings-success-rate [party]="party"></app-party-votings-success-rate>
+        </div>
+
+        <div class="col">
+          <app-party-uniformity-score [party]="party"></app-party-uniformity-score>
+        </div>
+
+        <div class="col">
+          <app-party-participation-rate [party]="party"></app-party-participation-rate>
+        </div>
+
+        <div class="col">
+          <app-party-abstention-rate [party]="party"></app-party-abstention-rate>
+        </div>
+
+      </div>
+    </tab>
+
+    <tab heading="Ratsmitglieder" class="py-3">
+      <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
+        <div *ngFor="let councilor of councilors" class="col">
           <app-councilor-card [electoralPeriod]="electoralPeriod" [councilor]="councilor"></app-councilor-card>
         </div>
       </div>
+    </tab>
 
-    </ng-container>
-
-    <h2 class="mb-3 mt-3">Abstimmungsstatistiken</h2>
-
-    <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3">
-
-      <div class="col">
-        <app-party-votings-success-rate [party]="party"></app-party-votings-success-rate>
-      </div>
-
-      <div class="col">
-        <app-party-uniformity-score [party]="party"></app-party-uniformity-score>
-      </div>
-
-      <div class="col">
-        <app-party-participation-rate [party]="party"></app-party-participation-rate>
-      </div>
-
-      <div class="col">
-        <app-party-abstention-rate [party]="party"></app-party-abstention-rate>
-      </div>
-
-    </div>
-
-  </ng-container>
+  </tabset>
 
 </div>

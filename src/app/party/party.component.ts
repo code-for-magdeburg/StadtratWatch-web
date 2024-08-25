@@ -33,7 +33,6 @@ export class PartyComponent implements OnInit {
   public electoralPeriod = environment.currentElectoralPeriod;
   public party: Party | null = null;
   public councilors: Councilor[] = [];
-  public formerCouncilors: Councilor[] = [];
 
 
   constructor(private readonly route: ActivatedRoute, private readonly partiesService: PartiesService,
@@ -63,8 +62,6 @@ export class PartyComponent implements OnInit {
       ])
         .subscribe(([party, persons]) => {
 
-          const today = new Date().toISOString().substring(0, 10);
-
           this.party = {
             name: party.name,
             votingsSuccessRate: party.votingsSuccessRate,
@@ -74,11 +71,16 @@ export class PartyComponent implements OnInit {
             statsHistory: party.statsHistory
           };
           this.councilors = persons
-            .filter(person => !person.councilorUntil || person.councilorUntil >= today)
-            .map(CouncilorCardComponent.mapPersonToCouncilor);
-          this.formerCouncilors = persons
-            .filter(person => person.councilorUntil && person.councilorUntil < today)
-            .map(CouncilorCardComponent.mapPersonToCouncilor);
+            .map(CouncilorCardComponent.mapPersonToCouncilor)
+            .sort((a, b) => {
+              if (a.councilorUntil && !b.councilorUntil) {
+                return 1;
+              }
+              if (!a.councilorUntil && b.councilorUntil) {
+                return -1;
+              }
+              return 0;
+            });
 
           const title = `StadtratWatch: ${party.name}`;
           const description = party.name.startsWith('parteilos-')
