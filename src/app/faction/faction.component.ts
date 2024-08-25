@@ -64,7 +64,6 @@ export class FactionComponent implements OnInit {
   public electoralPeriod = environment.currentElectoralPeriod;
   public faction: Faction | null = null;
   public councilors: Councilor[] = [];
-  public formerCouncilors: Councilor[] = [];
   public sortedApplications: Application[] = [];
 
   public showApplications = true;
@@ -118,13 +117,17 @@ export class FactionComponent implements OnInit {
             applications: this.mapApplications(faction.applications)
           };
 
-          const today = new Date().toISOString().substring(0, 10);
           this.councilors = persons
-            .filter(person => !person.councilorUntil || person.councilorUntil >= today)
-            .map(CouncilorCardComponent.mapPersonToCouncilor);
-          this.formerCouncilors = persons
-            .filter(person => person.councilorUntil && person.councilorUntil < today)
-            .map(CouncilorCardComponent.mapPersonToCouncilor);
+            .map(CouncilorCardComponent.mapPersonToCouncilor)
+            .sort((a, b) => {
+              if (a.councilorUntil && !b.councilorUntil) {
+                return 1;
+              }
+              if (!a.councilorUntil && b.councilorUntil) {
+                return -1;
+              }
+              return 0;
+            });
 
           this.applicationsSorting = { column: 'votingDate', direction: 'desc' };
           this.filterAndSortApplications();
