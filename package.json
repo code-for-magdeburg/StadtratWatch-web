@@ -28,6 +28,8 @@
     "@angular/platform-server": "^17.3.5",
     "@angular/router": "^17.3.5",
     "@angular/ssr": "^17.3.6",
+    "@babel/runtime": "^7.25.4",
+    "axios": "^1.7.5",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.11.1",
     "canvas": "^2.11.2",
@@ -42,6 +44,7 @@
     "pdf2json": "^3.0.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "typesense": "^1.8.2",
     "zone.js": "~0.14.4"
   },
   "devDependencies": {

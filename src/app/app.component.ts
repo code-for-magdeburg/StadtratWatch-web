@@ -5,6 +5,7 @@ import { environment } from '../environments/environment';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, map, Subscription } from 'rxjs';
 import { ELECTORAL_PERIOD_PATH } from './app-routing.module';
+import { SearchClient } from 'typesense';
 
 
 @Component({
@@ -22,11 +23,25 @@ export class AppComponent implements OnDestroy {
   public electoralPeriodSlug = environment.currentElectoralPeriod;
   public electoralPeriodName = '';
   public metadata: MetadataDto | undefined;
+  public searchQuery = '';
 
   private navigationSubscription: Subscription;
 
+  private searchClient: SearchClient;
+
 
   constructor(private readonly router: Router, private readonly metadataService: MetadataService) {
+
+    this.searchClient = new SearchClient({
+      apiKey: environment.typesense.apiKey,
+      nodes: [
+        {
+          host: environment.typesense.host,
+          port: environment.typesense.port,
+          protocol: environment.typesense.protocol
+        }
+      ]
+    });
 
     this.navigationSubscription = this.router.events
       .pipe(
@@ -60,6 +75,27 @@ export class AppComponent implements OnDestroy {
     if (this.electoralPeriodSlug !== electoralPeriodSlug) {
       await this.router.navigate(['/', ELECTORAL_PERIOD_PATH, electoralPeriodSlug]);
     }
+
+  }
+
+
+  async test() {
+
+    if (!this.searchQuery) {
+      return;
+    }
+
+    const searchResult = await this.searchClient
+      .collections('files')
+      .documents()
+      .search(
+        { q: this.searchQuery, query_by: 'paper_reference,paper_name,content' },
+        {}
+      );
+    this.searchQuery = '';
+
+    // TODO: Process search result.
+    console.log(searchResult);
 
   }
 

@@ -14,5 +14,13 @@ export const environment: Environment = {
     }
   ],
   currentElectoralPeriod: 'magdeburg-8',
-  awsCloudFrontBaseUrl: 'https://d2zk2bghxwzsug.cloudfront.net'
+  awsCloudFrontBaseUrl: 'https://d2zk2bghxwzsug.cloudfront.net',
+
+  typesense: {
+    apiKey: '2AEttw4Bl02tP1nicsVTmtdGWdgMVMKB',
+    host: '49.12.65.6',
+    port: 8108,
+    protocol: 'http'
+  }
+
 };
