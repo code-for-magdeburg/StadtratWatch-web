@@ -18,9 +18,9 @@ export const environment: Environment = {
 
   typesense: {
     apiKey: '2AEttw4Bl02tP1nicsVTmtdGWdgMVMKB',
-    host: '49.12.65.6',
-    port: 8108,
-    protocol: 'http'
+    host: 'typesense.unser-magdeburg.de',
+    port: 443,
+    protocol: 'https'
   }
 
 };
