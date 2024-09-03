@@ -14,6 +14,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { ContactComponent } from './contact/contact.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { PaperComponent } from './paper/paper.component';
+import { SearchComponent } from './search/search.component';
 
 
 export const ELECTORAL_PERIOD_PATH = 'ep';
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/persons`, component: PersonsComponent },
   { path: `${ELECTORAL_PERIOD_PATH}/:electoralPeriod/person/:id`, component: PersonComponent },
   { path: `${PAPER_PATH}`, component: PaperComponent },
+  { path: `search`, component: SearchComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'impressum', component: ImpressumComponent },
   { path: 'privacy', component: PrivacyComponent },

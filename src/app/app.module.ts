@@ -57,6 +57,7 @@ import { YoutubeTimestampPipe } from './pipes/youtube-timestamp.pipe';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { PaperComponent } from './paper/paper.component';
+import { SearchComponent } from './search/search.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -103,7 +104,8 @@ registerLocaleData(localeDe, 'de-DE');
     SpeakingTimeChartComponent,
     SpeakingTimePipe,
     YoutubeTimestampPipe,
-    PaperComponent
+    PaperComponent,
+    SearchComponent
   ],
     imports: [
         AppRoutingModule,
