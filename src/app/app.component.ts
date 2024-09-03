@@ -6,6 +6,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { filter, map, Subscription } from 'rxjs';
 import { ELECTORAL_PERIOD_PATH } from './app-routing.module';
 import { SearchClient } from 'typesense';
+import { SearchService } from './services/search.service';
 
 
 @Component({
@@ -30,7 +31,8 @@ export class AppComponent implements OnDestroy {
   private searchClient: SearchClient;
 
 
-  constructor(private readonly router: Router, private readonly metadataService: MetadataService) {
+  constructor(private readonly router: Router, private readonly metadataService: MetadataService,
+              private readonly searchService: SearchService) {
 
     this.searchClient = new SearchClient({
       apiKey: environment.typesense.apiKey,
@@ -79,23 +81,15 @@ export class AppComponent implements OnDestroy {
   }
 
 
-  async test() {
+  async search() {
 
-    if (!this.searchQuery) {
-      return;
-    }
-
-    const searchResult = await this.searchClient
-      .collections('files')
-      .documents()
-      .search(
-        { q: this.searchQuery, query_by: 'paper_reference,paper_name,content' },
-        {}
+    if (this.searchQuery) {
+      await this.router.navigate(
+        ['search'],
+        { queryParams: { q: this.searchQuery }}
       );
-    this.searchQuery = '';
-
-    // TODO: Process search result.
-    console.log(searchResult);
+      this.searchQuery = '';
+    }
 
   }
 
