@@ -64,10 +64,14 @@ export class SearchComponent implements OnInit {
   async search() {
 
     if (this.searchQuery) {
+
       await this.router.navigate(
-        ['search'],
-        { queryParams: { q: this.searchQuery }}
-      );
+        [],
+        {
+          relativeTo: this.route,
+          queryParams: { q: this.searchQuery }
+        });
+
     }
 
   }

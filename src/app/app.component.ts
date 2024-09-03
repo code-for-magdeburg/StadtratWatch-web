@@ -5,8 +5,6 @@ import { environment } from '../environments/environment';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, map, Subscription } from 'rxjs';
 import { ELECTORAL_PERIOD_PATH } from './app-routing.module';
-import { SearchClient } from 'typesense';
-import { SearchService } from './services/search.service';
 
 
 @Component({
@@ -28,22 +26,8 @@ export class AppComponent implements OnDestroy {
 
   private navigationSubscription: Subscription;
 
-  private searchClient: SearchClient;
 
-
-  constructor(private readonly router: Router, private readonly metadataService: MetadataService,
-              private readonly searchService: SearchService) {
-
-    this.searchClient = new SearchClient({
-      apiKey: environment.typesense.apiKey,
-      nodes: [
-        {
-          host: environment.typesense.host,
-          port: environment.typesense.port,
-          protocol: environment.typesense.protocol
-        }
-      ]
-    });
+  constructor(private readonly router: Router, private readonly metadataService: MetadataService) {
 
     this.navigationSubscription = this.router.events
       .pipe(
@@ -54,12 +38,14 @@ export class AppComponent implements OnDestroy {
           const electoralPeriodSlug = event.url.startsWith(`/${ELECTORAL_PERIOD_PATH}/`)
             ? event.url.split('/')[2]
             : environment.currentElectoralPeriod;
-          // Temporary fix: The slug "7" is used for the electoral period "Magdeburg 7".
-          this.electoralPeriodSlug = electoralPeriodSlug === '7' ? 'magdeburg-7' : electoralPeriodSlug;
-          this.electoralPeriodName = this.availableElectoralPeriods.find(
-            p => p.slug === electoralPeriodSlug
-          )?.name || '';
-          this.metadata = await this.metadataService.fetchMetadata(this.electoralPeriodSlug);
+          if (this.electoralPeriodSlug !== electoralPeriodSlug || !this.metadata) {
+            // Temporary fix: The slug "7" is used for the electoral period "Magdeburg 7".
+            this.electoralPeriodSlug = electoralPeriodSlug === '7' ? 'magdeburg-7' : electoralPeriodSlug;
+            this.electoralPeriodName = this.availableElectoralPeriods.find(
+              p => p.slug === electoralPeriodSlug
+            )?.name || '';
+            this.metadata = await this.metadataService.fetchMetadata(this.electoralPeriodSlug);
+          }
         }
       );
 
