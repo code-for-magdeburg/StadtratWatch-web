@@ -20,6 +20,13 @@
     </div>
   </form>
 
+  <div
+    *ngIf="searchExecuted && searchResultItems.length === 0"
+    class="alert alert-warning"
+    role="alert"
+  >
+    Keine Dokumente gefunden.
+  </div>
 
   <div *ngFor="let item of searchResultItems">
     <div class="card mb-3">
@@ -37,5 +44,16 @@
       </div>
     </div>
   </div>
+
+  <pagination
+    *ngIf="totalResultItems > 0"
+    [ngModel]="page"
+    [totalItems]="totalResultItems"
+    [maxSize]="8"
+    [rotate]="false"
+    previousText="&larr;"
+    nextText="&rarr;"
+    (pageChanged)="pageChanged($event)"
+  ></pagination>
 
 </div>

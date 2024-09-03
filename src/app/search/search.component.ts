@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaperDocumentSchema, SearchService } from '../services/search.service';
 import { SearchResponseHit } from 'typesense/lib/Typesense/Documents';
+import { PageChangedEvent } from "ngx-bootstrap/pagination";
 
 
 type SearchResultItem = {
@@ -21,9 +22,11 @@ type SearchResultItem = {
 export class SearchComponent implements OnInit {
 
 
+  public searchExecuted = false;
   public searchQuery = '';
   public searchResultItems: SearchResultItem[] = [];
-  public page = 0;
+  public page = 1;
+  public totalResultItems = 0;
 
 
   constructor(private readonly route: ActivatedRoute, private readonly searchService: SearchService,
@@ -35,11 +38,15 @@ export class SearchComponent implements OnInit {
 
     this.route.queryParams.subscribe(async params => {
 
+      this.searchExecuted = false;
+
       const { q, page } = params;
       if (q) {
+
         this.searchQuery = q;
         this.page = parseInt(page, 10) || 1;
         const searchResult = await this.searchService.searchPapers(q, page);
+        this.totalResultItems = searchResult?.found || 0;
         this.searchResultItems = ((searchResult?.hits as SearchResponseHit<PaperDocumentSchema>[]) || [])
           .map(hit => {
             const reference = hit.document.reference;
@@ -54,6 +61,9 @@ export class SearchComponent implements OnInit {
               content
             };
           });
+
+        this.searchExecuted = true;
+
       }
 
     });
@@ -70,10 +80,22 @@ export class SearchComponent implements OnInit {
         {
           relativeTo: this.route,
           queryParams: { q: this.searchQuery }
-        });
+        }
+      );
 
     }
 
+  }
+
+
+  async pageChanged(pageEvent: PageChangedEvent) {
+    await this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: { q: this.searchQuery, page: pageEvent.page },
+      }
+    );
   }
 
 
