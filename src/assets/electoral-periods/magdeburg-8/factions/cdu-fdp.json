@@ -2,12 +2,12 @@
   "id": "cdu-fdp",
   "name": "CDU/FDP",
   "seats": 15,
-  "applicationsSuccessRate": 1,
+  "applicationsSuccessRate": 0.9230769230769231,
   "votingsSuccessRate": 0.9891304347826086,
   "uniformityScore": 0.9911317315163468,
   "participationRate": 0.8898550724637682,
   "abstentionRate": 0.014695774311158923,
-  "speakingTime": 6173,
+  "speakingTime": 3300,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -16,7 +16,7 @@
       },
       {
         "date": "2024-08-15",
-        "value": 1
+        "value": 0.9230769230769231
       }
     ],
     "votingsSuccessRate": [
@@ -60,5 +60,150 @@
       }
     ]
   },
-  "applications": []
+  "applications": [
+    {
+      "applicationId": "A0288/23",
+      "type": "Antrag",
+      "title": "Beteiligungsstrukturen und Eigenbetriebe der Stadt Magdeburg müssen für effizienterer und kostengünstigere Strukturen auf den Prüfstand",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 242588,
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0055/24",
+      "type": "Antrag",
+      "title": "Kontaktboxen der Mitarbeiterinnen und Mitarbeiter optimieren",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243219,
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0146/24",
+      "type": "Geschäftsordnung",
+      "title": "Änderung der Benutzungs- und Entgeltordnung des Bürgerhauses Randau",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243975,
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0158/24/1",
+      "type": "Änderungsantrag",
+      "title": "Sprachwirrwarr beenden - Deutsche Rechtschreibung statt",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244361,
+      "votings": [
+        {
+          "votingId": 55,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0160/24/1",
+      "type": "Änderungsantrag",
+      "title": "Klimabeirat streichen!",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244360,
+      "votings": [
+        {
+          "votingId": 57,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 58,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0165/24",
+      "type": "Geschäftsordnung",
+      "title": "Wiedereinrichtung der Tierklinik",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244272,
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0167/24",
+      "type": "Geschäftsordnung",
+      "title": "Verbesserung der Verkehrssituation in der Harsdorfer Straße",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244287,
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0173/24",
+      "type": "Geschäftsordnung",
+      "title": "Alt Westerhüsen, Zackmünder bis Sohlener Straße: Tempo 30 von 22- 08 Uhr",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244296,
+      "votings": [
+        {
+          "votingId": 69,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0177/24",
+      "type": "Antrag",
+      "title": "Überprüfung auf frühere Stasi-Mitarbeit",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244304,
+      "votings": [
+        {
+          "votingId": 71,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0180/24",
+      "type": "Antrag",
+      "title": "Kassenautomat im Freibad und letzte Stunde kostenlos",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244307,
+      "votings": [
+        {
+          "votingId": 76,
+          "votingResult": "PASSED"
+        }
+      ]
+    }
+  ]
 }
