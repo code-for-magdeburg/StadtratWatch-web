@@ -2,43 +2,134 @@
   "id": "afd",
   "name": "AfD",
   "seats": 13,
-  "applicationsSuccessRate": 0,
-  "votingsSuccessRate": 0.8571428571428571,
-  "uniformityScore": 1,
-  "participationRate": 0.9340659340659341,
-  "abstentionRate": 0.07142857142857142,
-  "speakingTime": 348,
+  "applicationsSuccessRate": 0.2,
+  "votingsSuccessRate": 0.8260869565217391,
+  "uniformityScore": 0.9967313669236746,
+  "participationRate": 0.939799331103679,
+  "abstentionRate": 0.06548312798312798,
+  "speakingTime": 2053,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
         "date": "2024-07-08",
         "value": 0
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.2
       }
     ],
     "votingsSuccessRate": [
       {
         "date": "2024-07-08",
         "value": 0.8571428571428571
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.8260869565217391
       }
     ],
     "uniformityScore": [
       {
         "date": "2024-07-08",
         "value": 1
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.9967313669236746
       }
     ],
     "participationRate": [
       {
         "date": "2024-07-08",
         "value": 0.9340659340659341
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.939799331103679
       }
     ],
     "abstentionRate": [
       {
         "date": "2024-07-08",
         "value": 0.07142857142857142
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.06548312798312798
       }
     ]
   },
-  "applications": []
+  "applications": [
+    {
+      "applicationId": "A0012/24/2",
+      "type": "Änderungsantrag",
+      "title": "Digitalisierung der Sozialberichterstattung",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243878,
+      "votings": [
+        {
+          "votingId": 36,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0064/24/1",
+      "type": "Änderungsantrag",
+      "title": "Am Redezeiten während der Sitzungen des Stadtrates sichtbar darstellen",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243401,
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0103/24",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrsverbesserung Loitscher Weg prüfen",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243697,
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0109/24",
+      "type": "Antrag",
+      "title": "Arbeitspflicht für Asylbewerber einführen!",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243707,
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0175/24",
+      "type": "Antrag",
+      "title": "Oben-ohne-Baden beenden",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244301,
+      "votings": [
+        {
+          "votingId": 70,
+          "votingResult": "REJECTED"
+        }
+      ]
+    }
+  ]
 }

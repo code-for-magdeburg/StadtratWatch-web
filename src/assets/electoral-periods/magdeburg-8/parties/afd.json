@@ -2,34 +2,50 @@
   "id": "afd",
   "name": "AfD",
   "seats": 13,
-  "votingsSuccessRate": 0.8571428571428571,
-  "uniformityScore": 1,
-  "participationRate": 0.9340659340659341,
-  "abstentionRate": 0.07142857142857142,
-  "speakingTime": 348,
+  "votingsSuccessRate": 0.8260869565217391,
+  "uniformityScore": 0.9967313669236746,
+  "participationRate": 0.939799331103679,
+  "abstentionRate": 0.06548312798312798,
+  "speakingTime": 2053,
   "statsHistory": {
     "votingsSuccessRate": [
       {
         "date": "2024-07-08",
         "value": 0.8571428571428571
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.8260869565217391
       }
     ],
     "uniformityScore": [
       {
         "date": "2024-07-08",
         "value": 1
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.9967313669236746
       }
     ],
     "participationRate": [
       {
         "date": "2024-07-08",
         "value": 0.9340659340659341
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.939799331103679
       }
     ],
     "abstentionRate": [
       {
         "date": "2024-07-08",
         "value": 0.07142857142857142
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.06548312798312798
       }
     ]
   }

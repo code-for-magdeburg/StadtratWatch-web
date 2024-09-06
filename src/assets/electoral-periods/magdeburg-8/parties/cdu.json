@@ -2,34 +2,50 @@
   "id": "cdu",
   "name": "CDU",
   "seats": 13,
-  "votingsSuccessRate": 1,
-  "uniformityScore": 1,
-  "participationRate": 0.8186813186813187,
-  "abstentionRate": 0,
-  "speakingTime": 1154,
+  "votingsSuccessRate": 0.9891304347826086,
+  "uniformityScore": 0.99245337995338,
+  "participationRate": 0.9439799331103679,
+  "abstentionRate": 0.012674825174825172,
+  "speakingTime": 3038,
   "statsHistory": {
     "votingsSuccessRate": [
       {
         "date": "2024-07-08",
         "value": 1
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.9891304347826086
       }
     ],
     "uniformityScore": [
       {
         "date": "2024-07-08",
         "value": 1
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.99245337995338
       }
     ],
     "participationRate": [
       {
         "date": "2024-07-08",
         "value": 0.8186813186813187
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.9439799331103679
       }
     ],
     "abstentionRate": [
       {
         "date": "2024-07-08",
         "value": 0
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.012674825174825172
       }
     ]
   }

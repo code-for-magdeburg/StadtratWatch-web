@@ -2,43 +2,204 @@
   "id": "gartenpartei",
   "name": "Gartenpartei",
   "seats": 3,
-  "applicationsSuccessRate": 0,
-  "votingsSuccessRate": 0.9285714285714286,
-  "uniformityScore": 0.9285714285714286,
-  "participationRate": 0.6666666666666666,
-  "abstentionRate": 0.07142857142857142,
-  "speakingTime": 277,
+  "applicationsSuccessRate": 0.7,
+  "votingsSuccessRate": 0.8152173913043478,
+  "uniformityScore": 0.948051948051948,
+  "participationRate": 0.6956521739130435,
+  "abstentionRate": 0.0666971916971917,
+  "speakingTime": 1323,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
         "date": "2024-07-08",
         "value": 0
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.7
       }
     ],
     "votingsSuccessRate": [
       {
         "date": "2024-07-08",
         "value": 0.9285714285714286
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.8152173913043478
       }
     ],
     "uniformityScore": [
       {
         "date": "2024-07-08",
         "value": 0.9285714285714286
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.948051948051948
       }
     ],
     "participationRate": [
       {
         "date": "2024-07-08",
         "value": 0.6666666666666666
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.6956521739130435
       }
     ],
     "abstentionRate": [
       {
         "date": "2024-07-08",
         "value": 0.07142857142857142
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.0666971916971917
       }
     ]
   },
-  "applications": []
+  "applications": [
+    {
+      "applicationId": "A0059/24",
+      "type": "Antrag",
+      "title": "S-Bahn Anschluss ausbauen",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243223,
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0063/24",
+      "type": "Antrag",
+      "title": "Bürgerpark Reform ohne Eingriffe in die Kleingartenvereine",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243227,
+      "votings": [
+        {
+          "votingId": 47,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0064/24",
+      "type": "Antrag",
+      "title": "Redezeiten während der Sitzungen des Stadtrates sichtbar darstellen",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243228,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0080/24",
+      "type": "Antrag",
+      "title": "Mehr Stadtwachen in der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243429,
+      "votings": [
+        {
+          "votingId": 50,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0157/24",
+      "type": "Geschäftsordnung",
+      "title": "Tempolimit von 20 km/h für die Überquerung der Strombrücke, Kaiser-Otto-Brücke und Königin-Editha- Brücke",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244215,
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0168/24",
+      "type": "Geschäftsordnung",
+      "title": "Bedarfsampel Alt Westerhüsen/ Sohlener Straße",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244291,
+      "votings": [
+        {
+          "votingId": 64,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0169/24",
+      "type": "Geschäftsordnung",
+      "title": "Schulwegsicherheit Westerhüsen",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244292,
+      "votings": [
+        {
+          "votingId": 65,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0170/24",
+      "type": "Geschäftsordnung",
+      "title": "Erhalt des Turmpark für derzeitige Nutzung",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244293,
+      "votings": [
+        {
+          "votingId": 66,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0172/24",
+      "type": "Geschäftsordnung",
+      "title": "Erfolgsprämien bei vorzeitigem Abschluss von Bauvorhaben",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244295,
+      "votings": [
+        {
+          "votingId": 68,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0173/24",
+      "type": "Geschäftsordnung",
+      "title": "Alt Westerhüsen, Zackmünder bis Sohlener Straße: Tempo 30 von 22- 08 Uhr",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244296,
+      "votings": [
+        {
+          "votingId": 69,
+          "votingResult": "PASSED"
+        }
+      ]
+    }
+  ]
 }

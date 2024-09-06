@@ -2,43 +2,252 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 6,
-  "applicationsSuccessRate": 0,
-  "votingsSuccessRate": 0.9285714285714286,
-  "uniformityScore": 0.988095238095238,
-  "participationRate": 0.9880952380952381,
-  "abstentionRate": 0.05952380952380953,
-  "speakingTime": 95,
+  "applicationsSuccessRate": 0.4117647058823529,
+  "votingsSuccessRate": 0.7065217391304348,
+  "uniformityScore": 0.9795177045177044,
+  "participationRate": 0.9221014492753623,
+  "abstentionRate": 0.0583943833943834,
+  "speakingTime": 1239,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
         "date": "2024-07-08",
         "value": 0
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.4117647058823529
       }
     ],
     "votingsSuccessRate": [
       {
         "date": "2024-07-08",
         "value": 0.9285714285714286
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.7065217391304348
       }
     ],
     "uniformityScore": [
       {
         "date": "2024-07-08",
         "value": 0.988095238095238
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.9795177045177044
       }
     ],
     "participationRate": [
       {
         "date": "2024-07-08",
         "value": 0.9880952380952381
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.9221014492753623
       }
     ],
     "abstentionRate": [
       {
         "date": "2024-07-08",
         "value": 0.05952380952380953
+      },
+      {
+        "date": "2024-08-15",
+        "value": 0.0583943833943834
       }
     ]
   },
-  "applications": []
+  "applications": [
+    {
+      "applicationId": "A0294/23/1",
+      "type": "Änderungsantrag",
+      "title": "Antragsstau im Sozial- und Wohnungsamt auflösen",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243330,
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0003/24",
+      "type": "Antrag",
+      "title": "Verbesserung der Situation für den Fuß- und Radverkehr auf der Otto-von-Guericke-Straße Südabschnitt",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 242786,
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 30,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 31,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 32,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 33,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 34,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0018/24",
+      "type": "Antrag",
+      "title": "Breiter Weg - Verkehrssicherheit erhöhen, Lärmbelästigung reduzieren",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 242981,
+      "votings": [
+        {
+          "votingId": 38,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0165/24",
+      "type": "Geschäftsordnung",
+      "title": "Wiedereinrichtung der Tierklinik",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244272,
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0167/24",
+      "type": "Geschäftsordnung",
+      "title": "Verbesserung der Verkehrssituation in der Harsdorfer Straße",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244287,
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0171/24",
+      "type": "Geschäftsordnung",
+      "title": "2. Nord-Süd-Verbindung BA5, Milchweg: Sichtschutzmaßnahmen entlang der Grundstücke 5. Gartenweg 18 und 4. Gartenweg 18",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244294,
+      "votings": [
+        {
+          "votingId": 67,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0173/24",
+      "type": "Geschäftsordnung",
+      "title": "Alt Westerhüsen, Zackmünder bis Sohlener Straße: Tempo 30 von 22- 08 Uhr",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244296,
+      "votings": [
+        {
+          "votingId": 69,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0177/24",
+      "type": "Antrag",
+      "title": "Überprüfung auf frühere Stasi-Mitarbeit",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244304,
+      "votings": [
+        {
+          "votingId": 71,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0180/24",
+      "type": "Geschäftsordnung",
+      "title": "Kassenautomat im Freibad und letzte Stunde kostenlos",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244307,
+      "votings": [
+        {
+          "votingId": 75,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0181/24",
+      "type": "Geschäftsordnung",
+      "title": "Farbgebung der neuen Strombrückenverlängerung",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244308,
+      "votings": [
+        {
+          "votingId": 77,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0174/24",
+      "type": "Geschäftsordnung",
+      "title": "Mülleimer wie in Oslo",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244298,
+      "votings": [
+        {
+          "votingId": 78,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0294/23/1/1",
+      "type": "Änderungsantrag",
+      "title": "Antragsstau im Sozial- und Wohnungsamt auflösen",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243523,
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "REJECTED"
+        }
+      ]
+    }
+  ]
 }
