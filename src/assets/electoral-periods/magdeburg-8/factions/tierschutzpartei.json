@@ -2,7 +2,7 @@
   "id": "tierschutzpartei",
   "name": "Tierschutzpartei",
   "seats": 3,
-  "applicationsSuccessRate": 0,
+  "applicationsSuccessRate": 1,
   "votingsSuccessRate": 0.8913043478260869,
   "uniformityScore": 0.912087912087912,
   "participationRate": 0.9311594202898551,
@@ -16,7 +16,7 @@
       },
       {
         "date": "2024-08-15",
-        "value": 0
+        "value": 1
       }
     ],
     "votingsSuccessRate": [
@@ -60,5 +60,34 @@
       }
     ]
   },
-  "applications": []
+  "applications": [
+    {
+      "applicationId": "A0012/24",
+      "type": "Antrag",
+      "title": "Digitalisierung der Sozialberichterstattung",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 242972,
+      "votings": [
+        {
+          "votingId": 37,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0164/24",
+      "type": "Antrag",
+      "title": "Bushaltestelle Grundschule Annastraße",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244271,
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "PASSED"
+        }
+      ]
+    }
+  ]
 }

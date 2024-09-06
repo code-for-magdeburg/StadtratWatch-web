@@ -2,12 +2,12 @@
   "id": "spd-tsa-volt",
   "name": "SPD/Tierschutzallianz/Volt",
   "seats": 10,
-  "applicationsSuccessRate": 0,
+  "applicationsSuccessRate": 0.5,
   "votingsSuccessRate": 0.7934782608695652,
   "uniformityScore": 0.9637006512006513,
   "participationRate": 0.8304347826086956,
   "abstentionRate": 0.026404151404151404,
-  "speakingTime": 3460,
+  "speakingTime": 1152,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -16,7 +16,7 @@
       },
       {
         "date": "2024-08-15",
-        "value": 0
+        "value": 0.5
       }
     ],
     "votingsSuccessRate": [
@@ -60,5 +60,174 @@
       }
     ]
   },
-  "applications": []
+  "applications": [
+    {
+      "applicationId": "A0053/23/1",
+      "type": "Änderungsantrag",
+      "title": "Verbesserung des Stadtteilreports der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243671,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0053/23",
+      "type": "Antrag",
+      "title": "Verbesserung des Stadtteilreports der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 240619,
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0012/24/1",
+      "type": "Änderungsantrag",
+      "title": "Digitalisierung der Sozialberichterstattung",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243673,
+      "votings": [
+        {
+          "votingId": 35,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0053/24",
+      "type": "Antrag",
+      "title": "Veränderte Linienführung der Buslinie 57",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243217,
+      "votings": [
+        {
+          "votingId": 43,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0058/24",
+      "type": "Antrag",
+      "title": "Modularer Gebäudebau",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 243222,
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0160/24/1",
+      "type": "Geschäftsordnung",
+      "title": "Klimabeirat streichen!",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244360,
+      "votings": [
+        {
+          "votingId": 56,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0167/24",
+      "type": "Geschäftsordnung",
+      "title": "Verbesserung der Verkehrssituation in der Harsdorfer Straße",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244287,
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0171/24",
+      "type": "Geschäftsordnung",
+      "title": "2. Nord-Süd-Verbindung BA5, Milchweg: Sichtschutzmaßnahmen entlang der Grundstücke 5. Gartenweg 18 und 4. Gartenweg 18",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244294,
+      "votings": [
+        {
+          "votingId": 67,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0177/24",
+      "type": "Antrag",
+      "title": "Überprüfung auf frühere Stasi-Mitarbeit",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244304,
+      "votings": [
+        {
+          "votingId": 71,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0176/24",
+      "type": "Geschäftsordnung",
+      "title": "Pilotprojekt - Pyrotechnik in der AVNET - Arena",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244303,
+      "votings": [
+        {
+          "votingId": 72,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0181/24",
+      "type": "Geschäftsordnung",
+      "title": "Farbgebung der neuen Strombrückenverlängerung",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 244308,
+      "votings": [
+        {
+          "votingId": 77,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0294/23",
+      "type": "Antrag",
+      "title": "Antragsstau im Sozial- und Wohnungsamt auflösen",
+      "sessionId": "2024-08-15",
+      "sessionDate": "2024-08-15",
+      "paperId": 242772,
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "PASSED"
+        }
+      ]
+    }
+  ]
 }
