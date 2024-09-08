@@ -22,6 +22,7 @@ export class AppComponent implements OnDestroy {
   public electoralPeriodSlug = environment.currentElectoralPeriod;
   public electoralPeriodName = '';
   public metadata: MetadataDto | undefined;
+  public searchQuery = '';
 
   private navigationSubscription: Subscription;
 
@@ -37,12 +38,14 @@ export class AppComponent implements OnDestroy {
           const electoralPeriodSlug = event.url.startsWith(`/${ELECTORAL_PERIOD_PATH}/`)
             ? event.url.split('/')[2]
             : environment.currentElectoralPeriod;
-          // Temporary fix: The slug "7" is used for the electoral period "Magdeburg 7".
-          this.electoralPeriodSlug = electoralPeriodSlug === '7' ? 'magdeburg-7' : electoralPeriodSlug;
-          this.electoralPeriodName = this.availableElectoralPeriods.find(
-            p => p.slug === electoralPeriodSlug
-          )?.name || '';
-          this.metadata = await this.metadataService.fetchMetadata(this.electoralPeriodSlug);
+          if (this.electoralPeriodSlug !== electoralPeriodSlug || !this.metadata) {
+            // Temporary fix: The slug "7" is used for the electoral period "Magdeburg 7".
+            this.electoralPeriodSlug = electoralPeriodSlug === '7' ? 'magdeburg-7' : electoralPeriodSlug;
+            this.electoralPeriodName = this.availableElectoralPeriods.find(
+              p => p.slug === electoralPeriodSlug
+            )?.name || '';
+            this.metadata = await this.metadataService.fetchMetadata(this.electoralPeriodSlug);
+          }
         }
       );
 
@@ -59,6 +62,19 @@ export class AppComponent implements OnDestroy {
 
     if (this.electoralPeriodSlug !== electoralPeriodSlug) {
       await this.router.navigate(['/', ELECTORAL_PERIOD_PATH, electoralPeriodSlug]);
+    }
+
+  }
+
+
+  async search() {
+
+    if (this.searchQuery) {
+      await this.router.navigate(
+        ['search'],
+        { queryParams: { q: this.searchQuery }}
+      );
+      this.searchQuery = '';
     }
 
   }

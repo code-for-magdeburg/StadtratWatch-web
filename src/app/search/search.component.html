@@ -1,0 +1,59 @@
+<div>
+
+  <div class="mb-5">
+    <h1>Dokumente</h1>
+  </div>
+
+  <form class="row row-cols-auto g-1 align-items-center mb-3" (ngSubmit)="search()">
+    <div class="col-auto">
+      <input
+        class="form-control"
+        type="search"
+        name="search"
+        placeholder="Suche"
+        aria-label="Suche"
+        [(ngModel)]="searchQuery"
+      >
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-outline-secondary">Suchen</button>
+    </div>
+  </form>
+
+  <div
+    *ngIf="searchExecuted && searchResultItems.length === 0"
+    class="alert alert-warning"
+    role="alert"
+  >
+    Keine Dokumente gefunden.
+  </div>
+
+  <div *ngFor="let item of searchResultItems">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title" [innerHTML]="item.title"></h5>
+        <h6 class="card-subtitle text-muted mb-2">{{ item.reference }} {{ item.type }}</h6>
+        <p class="card-text" [innerHTML]="item.content"></p>
+        <a
+          [routerLink]="['/paper']"
+          [queryParams]="{ paperId: item.id }"
+          class="btn btn-primary"
+        >
+          Details
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <pagination
+    *ngIf="totalResultItems > 0"
+    [ngModel]="page"
+    [totalItems]="totalResultItems"
+    [maxSize]="8"
+    [rotate]="false"
+    previousText="&larr;"
+    nextText="&rarr;"
+    (pageChanged)="pageChanged($event)"
+  ></pagination>
+
+</div>

@@ -38,15 +38,25 @@ import { CouncilorCardComponent } from './components/councilor-card/councilor-ca
 import { SortablePartiesDirective } from './parties/sortable-parties.directive';
 import { SortableFactionApplicationsDirective } from './faction/sortable-faction-applications.directive';
 import { FormsModule } from '@angular/forms';
-import { FactionApplicationSuccessRateComponent } from './faction/faction-application-success-rate/faction-application-success-rate.component';
-import { FactionVotingsSuccessRateComponent } from './faction/faction-votings-success-rate/faction-votings-success-rate.component';
+import {
+  FactionApplicationSuccessRateComponent
+} from './faction/faction-application-success-rate/faction-application-success-rate.component';
+import {
+  FactionVotingsSuccessRateComponent
+} from './faction/faction-votings-success-rate/faction-votings-success-rate.component';
 import { FactionUniformityScoreComponent } from './faction/faction-uniformity-score/faction-uniformity-score.component';
-import { FactionParticipationRateComponent } from './faction/faction-participation-rate/faction-participation-rate.component';
+import {
+  FactionParticipationRateComponent
+} from './faction/faction-participation-rate/faction-participation-rate.component';
 import { FactionAbstentionRateComponent } from './faction/faction-abstention-rate/faction-abstention-rate.component';
 import { PersonVotingAttendanceComponent } from './person/person-voting-attendance/person-voting-attendance.component';
-import { PersonVotingSuccessRateComponent } from './person/person-voting-success-rate/person-voting-success-rate.component';
+import {
+  PersonVotingSuccessRateComponent
+} from './person/person-voting-success-rate/person-voting-success-rate.component';
 import { PersonAbstentionRateComponent } from './person/person-abstention-rate/person-abstention-rate.component';
-import { PartyVotingsSuccessRateComponent} from './party/party-votings-success-rate/party-votings-success-rate.component';
+import {
+  PartyVotingsSuccessRateComponent
+} from './party/party-votings-success-rate/party-votings-success-rate.component';
 import { PartyUniformityScoreComponent } from './party/party-uniformity-score/party-uniformity-score.component';
 import { PartyParticipationRateComponent } from './party/party-participation-rate/party-participation-rate.component';
 import { PartyAbstentionRateComponent } from './party/party-abstention-rate/party-abstention-rate.component';
@@ -57,6 +67,8 @@ import { YoutubeTimestampPipe } from './pipes/youtube-timestamp.pipe';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { PaperComponent } from './paper/paper.component';
+import { SearchComponent } from './search/search.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -103,19 +115,21 @@ registerLocaleData(localeDe, 'de-DE');
     SpeakingTimeChartComponent,
     SpeakingTimePipe,
     YoutubeTimestampPipe,
-    PaperComponent
+    PaperComponent,
+    SearchComponent
   ],
-    imports: [
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        BrowserModule,
-        TooltipModule.forRoot(),
-        NgChartsModule,
-        FormsModule,
-        TabsModule,
-        BsDropdownModule,
-        BreadcrumbComponent
-    ],
+  imports: [
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    TooltipModule.forRoot(),
+    NgChartsModule,
+    FormsModule,
+    TabsModule,
+    BsDropdownModule,
+    BreadcrumbComponent,
+    PaginationModule.forRoot()
+  ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de-DE' },
     provideHttpClient(withFetch()),

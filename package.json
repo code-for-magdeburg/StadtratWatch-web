@@ -12,6 +12,7 @@
     "generate-routes-file": "ts-node --project ./tsconfig.scripts.json src/scripts/generate-routes-file",
     "download-paper-files": "ts-node --project ./tsconfig.scripts.json src/scripts/download-paper-files",
     "parse-paper-files": "node src/scripts/parse-paper-files",
+    "index-documents": "ts-node --project ./tsconfig.scripts.json src/scripts/index-documents",
     "lab": "ts-node --project ./tsconfig.scripts.json src/scripts/lab",
     "serve:ssr": "node dist/StadtratWatch-web/server/server.mjs"
   },
@@ -28,6 +29,8 @@
     "@angular/platform-server": "^17.3.5",
     "@angular/router": "^17.3.5",
     "@angular/ssr": "^17.3.6",
+    "@babel/runtime": "^7.25.4",
+    "axios": "^1.7.5",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.11.1",
     "canvas": "^2.11.2",
@@ -42,6 +45,7 @@
     "pdf2json": "^3.0.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "typesense": "^1.8.2",
     "zone.js": "~0.14.4"
   },
   "devDependencies": {
