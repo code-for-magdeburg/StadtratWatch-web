@@ -14,10 +14,14 @@ import { formatFileSize } from '../utilities/ui';
 export class PaperComponent implements OnInit {
 
 
+  protected readonly formatFileSize = formatFileSize;
+
+
   public paper: PaperDto | null = null;
   public documentUrl: SafeResourceUrl | null = null;
-  public fileSize = 0;
+  public fileTooBig = false;
   public fileSizeDisplay = '';
+  public selectedFileId = 0;
 
 
   constructor(private readonly route: ActivatedRoute, private readonly papersService: PapersService,
@@ -35,23 +39,41 @@ export class PaperComponent implements OnInit {
 
         this.paper = await this.papersService.getPaper(paperId) || null;
         if (this.paper && this.paper.files.length > 0) {
-          this.documentUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.paper.files[0].url);
-          this.fileSize = this.paper.files[0].size || 0;
-          this.fileSizeDisplay = formatFileSize(this.fileSize);
+          this.selectFile(this.paper.files[0].id);
         } else {
-          this.documentUrl = null;
-          this.fileSize = 0;
-          this.fileSizeDisplay = '';
+          this.selectFile(null);
         }
 
       } else {
         // TODO: handle missing paperId
         this.paper = null;
-        this.documentUrl = null;
-        this.fileSizeDisplay = '';
+        this.selectFile(null);
       }
 
     });
+
+  }
+
+  selectFile(fileId: number | null) {
+
+    if (!fileId) {
+
+      this.documentUrl = null;
+      this.fileTooBig = false;
+      this.fileSizeDisplay = '';
+      this.selectedFileId = 0;
+
+    } else {
+
+      const file = this.paper?.files.find(f => f.id === fileId);
+      if (file) {
+        this.documentUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(file.url);
+        this.fileTooBig = (file.size || 0) > 1024 * 1024;
+        this.fileSizeDisplay = formatFileSize(file.size || 0);
+        this.selectedFileId = fileId;
+      }
+
+    }
 
   }
 
