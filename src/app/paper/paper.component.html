@@ -26,7 +26,7 @@
       <div class="col-lg-9">
 
         <iframe
-          *ngIf="!fileTooBig < 1024 * 1024; else fileTooBig"
+          *ngIf="!fileTooBig; else fileTooBig"
           [src]="documentUrl"
           style="width: 100%; height: 90vh; border: 0"
           loading="lazy"
@@ -66,18 +66,5 @@
       </div>
     </a>
   </div>
-
-<!--  <div class="list-group d-block d-md-none">-->
-<!--    <a-->
-<!--      *ngFor="let file of paper.files"-->
-<!--      [href]="documentUrl"-->
-<!--      target="_blank"-->
-<!--      class="list-group-item list-group-item-action d-flex flex-column gap-1"-->
-<!--      (click)="selectFile(file.id)"-->
-<!--    >-->
-<!--      <span>{{ file.name }}</span>-->
-<!--      <span class="small">{{ formatFileSize(file.size || 0) }}</span>-->
-<!--    </a>-->
-<!--  </div>-->
 
 </ng-container>
