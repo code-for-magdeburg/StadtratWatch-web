@@ -26,7 +26,7 @@
       <div class="col-lg-9">
 
         <iframe
-          *ngIf="!fileTooBig; else fileTooBig"
+          *ngIf="fileSizeOk; else fileTooBig"
           [src]="documentUrl"
           style="width: 100%; height: 90vh; border: 0"
           loading="lazy"

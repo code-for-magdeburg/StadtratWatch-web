@@ -19,7 +19,7 @@ export class PaperComponent implements OnInit {
 
   public paper: PaperDto | null = null;
   public documentUrl: SafeResourceUrl | null = null;
-  public fileTooBig = false;
+  public fileSizeOk = true;
   public fileSizeDisplay = '';
   public selectedFileId = 0;
 
@@ -59,7 +59,7 @@ export class PaperComponent implements OnInit {
     if (!fileId) {
 
       this.documentUrl = null;
-      this.fileTooBig = false;
+      this.fileSizeOk = true;
       this.fileSizeDisplay = '';
       this.selectedFileId = 0;
 
@@ -68,7 +68,7 @@ export class PaperComponent implements OnInit {
       const file = this.paper?.files.find(f => f.id === fileId);
       if (file) {
         this.documentUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(file.url);
-        this.fileTooBig = (file.size || 0) > 1024 * 1024;
+        this.fileSizeOk = (file.size || 0) <= 1024 * 1024;
         this.fileSizeDisplay = formatFileSize(file.size || 0);
         this.selectedFileId = fileId;
       }
