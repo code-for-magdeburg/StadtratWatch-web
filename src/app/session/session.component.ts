@@ -33,6 +33,13 @@ export const SPEECHES_TAB = 'speeches';
 export const SPEAKING_TIMES_TAB = 'speaking-times';
 
 
+type SpeechViewModel = SessionSpeechDto & {
+  transcriptionParagraphs: string[];
+  hintMailHref: string;
+  hintMailTitle: string;
+};
+
+
 @Component({
   selector: 'app-session',
   templateUrl: './session.component.html',
@@ -47,7 +54,7 @@ export class SessionComponent implements OnInit {
   public sessionDate = '';
   public votings: Voting[] = [];
   public speakingTimes: SpeakingTimeChartData[] = [];
-  public speeches: SessionSpeechDto[] = [];
+  public speeches: SpeechViewModel[] = [];
   public meetingMinutesUrl = '';
   public youtubeUrl = '';
 
@@ -104,7 +111,33 @@ export class SessionComponent implements OnInit {
       }));
       this.votings.sort((a, b) => a.id - b.id);
       this.speakingTimes = SpeakingTimeChartData.fromSession(session);
-      this.speeches = session.speeches;
+      this.speeches = session.speeches.map(speech => {
+
+        const transcriptionParagraphs = (speech.transcription || '')
+          .split('\n\n')
+          .filter(paragraph => paragraph.trim().length > 0);
+        const subject = encodeURIComponent(`Hinweis zum Redebeitrag von ${speech.speaker} am ${this.sessionDate}`);
+        const hintMailBodyText = encodeURIComponent(
+          `Hallo StadtratWatch-Team!
+
+Ich habe einen Hinweis zum Redebeitrag von ${speech.speaker} aus der Sitzung vom ${this.sessionDate} (Zeitmarke: ${ speech.start }):
+
+
+
+
+Mit freundlichen Grüßen,
+
+`);
+        const hintMailHref = `mailto:stadtratwatch@gmail.com?subject=${subject}&body=${hintMailBodyText}`
+        const hintMailTitle = `Hinweis zum Redebeitrag von ${speech.speaker} geben`;
+        return {
+          ...speech,
+          transcriptionParagraphs,
+          hintMailHref,
+          hintMailTitle,
+        } as SpeechViewModel;
+
+      });
 
       this.tabs ? this.tabs.tabs[2].active = true : null;
       setTimeout(() => {

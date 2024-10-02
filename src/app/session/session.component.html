@@ -53,39 +53,58 @@
 
     <tab heading="Redebeiträge" class="pt-4" (selectTab)="onSelectTab(SPEECHES_TAB)">
 
-      <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 gx-sm-2 gy-sm-5">
-        <div *ngFor="let speech of speeches" class="col">
-          <div class="card text-center" style="cursor: pointer;">
-            <div class="card-header d-flex justify-content-between">
-              <a
-                class="stretched-link text-decoration-none text-body"
-                [href]="youtubeUrl + '?t=' + speech.start"
-                target="_blank"
-              >
-                {{ speech.speaker }}
-              </a>
-              <i class="bi bi-chevron-right"></i>
-            </div>
-            <div class="card-body">
-              <div class="d-flex flex-column text-body-secondary">
-                <span>
-                  <i class="bi bi-youtube"></i> {{ speech.start | youtubeTimestamp }}
+      <div class="col col-md-8 offset-md-2 col-lg-6 offset-lg-3 vstack gap-4">
+
+        <div class="alert alert-info mb-0">
+          <p>
+            Die folgenden Redebeiträge wurden automatisiert erstellt und können Fehler enthalten.
+            Die Texte dienen nur zur Orientierung und sind nicht als offizielle Protokolle zu verstehen.
+            Um Aufzeichnungen der Redebeiträge anzuhören, nutzen Sie bitte die Links zum jeweiligen YouTube-Video.
+          </p>
+          <p class="mb-0">
+            Sollten Sie einen Fehler entdecken, können Sie uns diesen gern melden. Klicken Sie dazu auf das Flaggen-Symbol
+            unter dem jeweiligen Redebeitrag und senden Sie uns eine Nachricht. Wir werden den Fehler umgehend prüfen und korrigieren.
+          </p>
+        </div>
+
+        <div *ngFor="let speech of speeches" class="card">
+
+          <div class="card-header d-flex justify-content-between">
+            <div>
+              <span>{{ speech.speaker }}</span>
+              <div class="d-flex flex-wrap gap-1 mt-2">
+                <span *ngIf="speech.faction" class="badge border border-light-subtle text-bg-light">
+                  {{ speech.faction }}
                 </span>
-                <span>
-                  <i class="bi bi-hourglass-split"></i> ca. {{ speech.duration | speakingTime : 'hms' : true }}
+                <span *ngIf="speech.onBehalfOf" class="badge border border-light-subtle text-bg-light">
+                  {{ speech.onBehalfOf }}
                 </span>
-                <div class="d-flex flex-wrap mt-2 gap-1">
-                  <span *ngIf="speech.faction" class="badge border border-light-subtle text-bg-light">
-                    {{ speech.faction }}
-                  </span>
-                  <span *ngIf="speech.onBehalfOf" class="badge border border-light-subtle text-bg-light">
-                    {{ speech.onBehalfOf }}
-                  </span>
-                </div>
               </div>
             </div>
+            <div class="text-muted">
+              <i class="bi bi-hourglass-split"></i> {{ speech.duration | speakingTime : 'hms' : true }}
+            </div>
           </div>
+
+          <div class="card-body">
+            <p
+              *ngFor="let paragraph of speech.transcriptionParagraphs; let last = last"
+              [class.mb-0]="last"
+              [innerHTML]="paragraph"
+            ></p>
+          </div>
+
+          <div class="card-footer text-body-secondary d-flex justify-content-between">
+            <a class="btn btn-link" [href]="youtubeUrl + '?t=' + speech.start" target="_blank">In YouTube öffnen</a>
+            <div class="d-flex align-items-center">
+              <a class="btn" [href]="speech.hintMailHref" [title]="speech.hintMailTitle">
+                <i class="bi bi-flag"></i>
+              </a>
+            </div>
+          </div>
+
         </div>
+
       </div>
 
     </tab>

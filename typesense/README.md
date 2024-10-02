@@ -6,6 +6,7 @@ By starting a docker container:
 Bash:
 ```bash
 docker run \
+  -- rm \
   -d \
   -p 8108:8108 \
   -v ${pwd}/data:/data \
@@ -18,6 +19,7 @@ docker run \
 Powershell:
 ```powershell
 docker run `
+  -- rm `
   -d `
   -p 8108:8108 `
   -v ${pwd}/data:/data `
