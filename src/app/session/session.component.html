@@ -62,12 +62,13 @@
             Um Aufzeichnungen der Redebeiträge anzuhören, nutzen Sie bitte die Links zum jeweiligen YouTube-Video.
           </p>
           <p class="mb-0">
-            Sollten Sie einen Fehler entdecken, können Sie uns diesen gern melden. Klicken Sie dazu auf das Flaggen-Symbol
-            unter dem jeweiligen Redebeitrag und senden Sie uns eine Nachricht. Wir werden den Fehler umgehend prüfen und korrigieren.
+            Sollten Sie einen Fehler entdecken, können Sie uns diesen gern melden.
+            Klicken Sie dazu auf das Flaggen-Symbol unter dem jeweiligen Redebeitrag und senden Sie uns eine Nachricht.
+            Wir werden den Fehler umgehend prüfen und korrigieren.
           </p>
         </div>
 
-        <div [id]="'speech-' + speech.start" *ngFor="let speech of speeches" class="card">
+        <div *ngFor="let speech of speeches" [id]="speech.anchorId" class="card">
 
           <div class="card-header d-flex justify-content-between">
             <div>

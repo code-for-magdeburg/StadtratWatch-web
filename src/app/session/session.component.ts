@@ -35,6 +35,7 @@ export const SPEAKING_TIMES_TAB = 'speaking-times';
 
 type SpeechViewModel = SessionSpeechDto & {
   transcriptionParagraphs: string[];
+  anchorId: string;
   hintMailHref: string;
   hintMailTitle: string;
 };
@@ -134,6 +135,7 @@ Mit freundlichen Grüßen,
         return {
           ...speech,
           transcriptionParagraphs,
+          anchorId: `speech-${speech.start}`,
           hintMailHref,
           hintMailTitle,
         } as SpeechViewModel;
