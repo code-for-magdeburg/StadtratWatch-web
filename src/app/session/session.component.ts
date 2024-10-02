@@ -76,9 +76,10 @@ export class SessionComponent implements OnInit {
 
   ngOnInit() {
 
-    this.route.fragment.subscribe(fragment => {
+    this.route.queryParams.subscribe(query => {
       if (this.isInitializing) return;
-      this.openPage(fragment || VOTINGS_TAB);
+      const { tab } = query;
+      this.openTab(tab || VOTINGS_TAB);
     });
 
     this.route.paramMap.subscribe(async params => {
@@ -141,7 +142,8 @@ Mit freundlichen Grüßen,
 
       this.tabs ? this.tabs.tabs[2].active = true : null;
       setTimeout(() => {
-        this.openPage(this.route.snapshot.fragment || VOTINGS_TAB);
+        const { tab } = this.route.snapshot.queryParams;
+        this.openTab(tab || VOTINGS_TAB);
         this.isInitializing = false;
       }, 1);
 
@@ -155,15 +157,15 @@ Mit freundlichen Grüßen,
   }
 
 
-  async onSelectTab(page: string) {
+  async onSelectTab(tab: string) {
     if (this.isInitializing) return;
-    await this.router.navigate([], { fragment: page });
+    await this.router.navigate([], { relativeTo: this.route, queryParams: { tab } });
   }
 
 
-  private openPage(fragment: string) {
+  private openTab(tab: string) {
 
-    switch (fragment) {
+    switch (tab) {
       case VOTINGS_TAB:
         this.tabs ? this.tabs.tabs[0].active = true : null;
         break;

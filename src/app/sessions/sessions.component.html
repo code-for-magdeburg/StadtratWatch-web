@@ -25,7 +25,7 @@
           <div class="card-body text-center d-flex flex-row justify-content-around">
             <a
               [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'session', session.id]"
-              [fragment]="VOTINGS_TAB"
+              [queryParams]="{ tab: VOTINGS_TAB }"
               class="text-decoration-none text-body"
             >
               <h1>{{ session.votingsCount }}</h1>
@@ -33,7 +33,7 @@
             </a>
             <a
               [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'session', session.id]"
-              [fragment]="SPEECHES_TAB"
+              [queryParams]="{ tab: SPEECHES_TAB }"
               class="text-decoration-none text-body"
             >
               <h1>{{ session.speechesCount }}</h1>
@@ -41,7 +41,7 @@
             </a>
             <a
               [routerLink]="['/', ELECTORAL_PERIOD_PATH, electoralPeriod, 'session', session.id]"
-              [fragment]="SPEAKING_TIMES_TAB"
+              [queryParams]="{ tab: SPEAKING_TIMES_TAB }"
               class="text-decoration-none text-body"
             >
               <h1>{{ session.totalSpeakingTime | speakingTime : 'hm' }}</h1>

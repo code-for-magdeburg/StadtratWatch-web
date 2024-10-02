@@ -67,7 +67,7 @@
           </p>
         </div>
 
-        <div *ngFor="let speech of speeches" class="card">
+        <div [id]="'speech-' + speech.start" *ngFor="let speech of speeches" class="card">
 
           <div class="card-header d-flex justify-content-between">
             <div>
