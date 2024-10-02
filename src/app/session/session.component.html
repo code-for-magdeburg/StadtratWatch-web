@@ -82,8 +82,9 @@
                 </span>
               </div>
             </div>
-            <div class="text-muted">
-              <i class="bi bi-hourglass-split"></i> {{ speech.duration | speakingTime : 'hms' : true }}
+            <div class="text-muted d-flex flex-column text-end smallx">
+              <span><i class="bi bi-clock-history me-1"></i>{{ speech.start | youtubeTimestamp }}</span>
+              <span><i class="bi bi-hourglass-split me-1"></i>{{ speech.duration | speakingTime : 'hms' : true }}</span>
             </div>
           </div>
 
