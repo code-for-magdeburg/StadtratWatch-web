@@ -89,11 +89,17 @@
           </div>
 
           <div class="card-body">
+
+            <p *ngIf="speech.transcriptionParagraphs.length === 0" class="text-center text-muted mb-0">
+              Dieser Redebeitrag liegt leider nicht in schriftlicher Form vor.
+            </p>
+
             <p
               *ngFor="let paragraph of speech.transcriptionParagraphs; let last = last"
               [class.mb-0]="last"
               [innerHTML]="paragraph"
             ></p>
+
           </div>
 
           <div class="card-footer text-body-secondary d-flex justify-content-between">
