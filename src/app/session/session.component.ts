@@ -36,6 +36,7 @@ export const SPEAKING_TIMES_TAB = 'speaking-times';
 type SpeechViewModel = SessionSpeechDto & {
   transcriptionParagraphs: string[];
   anchorId: string;
+  permaLinkTitle: string;
   hintMailHref: string;
   hintMailTitle: string;
 };
@@ -118,6 +119,7 @@ export class SessionComponent implements OnInit {
         const transcriptionParagraphs = (speech.transcription || '')
           .split('\n\n')
           .filter(paragraph => paragraph.trim().length > 0);
+        const permaLinkTitle = `Link zum Redebeitrag von ${speech.speaker} am ${this.sessionDate}`;
         const subject = encodeURIComponent(`Hinweis zum Redebeitrag von ${speech.speaker} am ${this.sessionDate}`);
         const hintMailBodyText = encodeURIComponent(
           `Hallo StadtratWatch-Team!
@@ -136,6 +138,7 @@ Mit freundlichen Grüßen,
           ...speech,
           transcriptionParagraphs,
           anchorId: `speech-${speech.start}`,
+          permaLinkTitle,
           hintMailHref,
           hintMailTitle,
         } as SpeechViewModel;

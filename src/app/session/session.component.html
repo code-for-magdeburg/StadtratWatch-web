@@ -104,8 +104,17 @@
 
           <div class="card-footer text-body-secondary d-flex justify-content-between">
             <a class="btn btn-link" [href]="youtubeUrl + '?t=' + speech.start" target="_blank">In YouTube öffnen</a>
-            <div class="d-flex align-items-center">
-              <a class="btn" [href]="speech.hintMailHref" [title]="speech.hintMailTitle">
+            <div>
+              <a
+                class="btn btn-link"
+                [routerLink]="['.']"
+                [queryParams]="{ tab: SPEECHES_TAB }"
+                [fragment]="speech.anchorId"
+                [title]="speech.permaLinkTitle"
+              >
+                <i class="bi bi-link-45deg"></i>
+              </a>
+              <a class="btn btn-link" [href]="speech.hintMailHref" [title]="speech.hintMailTitle">
                 <i class="bi bi-flag"></i>
               </a>
             </div>
