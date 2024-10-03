@@ -54,5 +54,21 @@ This command will initialize the `papers` and `speeches` collections on the Type
 #### Papers
 
 ```bash
-npm run index-papers -- <Full path to directory containing text files> <Scraped Session file> <Typesense server url> <Papers collection name> <Api key>
+npm run index-papers -- <Path to directory containing text files> <Scraped Session file> <Typesense server url> <Papers collection name> <Api key>
+```
+
+Example
+```bash
+npm run index-papers -- ./output/papers/all-extracted ./data/Magdeburg.json http://localhost:8108 papers-0001 abc123
+```
+
+#### Speeches
+
+```bash
+npm run index-speeches -- <Path to directory electorial period folders> <Typesense server url> <Speeches collection name> <Api key>
+```
+
+Example
+```bash
+npm run index-speeches -- ./data/electoral-period-8 http://localhost:8108 speeches-0001 abc123
 ```

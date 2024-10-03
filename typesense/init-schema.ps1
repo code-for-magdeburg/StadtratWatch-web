@@ -35,10 +35,12 @@ $Body = @"
 {
     "name": "${SpeechesCollectionName}",
     "fields": [
-      {"name": "session_date", "type": "int64"},
+      {"name": "session", "type": "string", "index": false},
       {"name": "start", "type": "int32", "index": false},
+      {"name": "session_date", "type": "int64", "sort": true},
       {"name": "speaker", "type": "string", "facet": true},
       {"name": "faction", "type": "string", "facet": true, "optional": true},
+      {"name": "party", "type": "string", "facet": true, "optional": true},
       {"name": "on_behalf_of", "type": "string", "facet": true, "optional": true},
       {"name": "transcription", "type": "string", "locale": "de"}
     ],
