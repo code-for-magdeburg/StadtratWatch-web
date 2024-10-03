@@ -4,14 +4,6 @@ import { environment } from '../../environments/environment';
 import { DocumentSchema } from "typesense/lib/Typesense/Documents";
 
 
-export interface FileDocumentSchema extends DocumentSchema {
-  paper_id: number;
-  paper_reference: string;
-  paper_name: string;
-  paper_type: string;
-  content: string;
-}
-
 export interface PaperDocumentSchema extends DocumentSchema {
   id: string;
   reference: string;
@@ -40,27 +32,6 @@ export class SearchService {
         }
       ]
     });
-  }
-
-
-  public async searchFiles(query: string, page: number) {
-
-    if (!query) {
-      return null;
-    }
-
-    return await this.searchClient
-      .collections<FileDocumentSchema>('files')
-      .documents()
-      .search(
-        {
-          q: query,
-          query_by: 'paper_reference,paper_name,content',
-          page
-        },
-        {}
-      );
-
   }
 
 
