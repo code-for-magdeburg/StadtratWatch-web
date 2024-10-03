@@ -12,7 +12,7 @@
     "generate-routes-file": "ts-node --project ./tsconfig.scripts.json src/scripts/generate-routes-file",
     "download-paper-files": "ts-node --project ./tsconfig.scripts.json src/scripts/download-paper-files",
     "parse-paper-files": "node src/scripts/parse-paper-files",
-    "index-documents": "ts-node --project ./tsconfig.scripts.json src/scripts/index-documents",
+    "index-papers": "ts-node --project ./tsconfig.scripts.json src/scripts/index-papers",
     "lab": "ts-node --project ./tsconfig.scripts.json src/scripts/lab",
     "serve:ssr": "node dist/StadtratWatch-web/server/server.mjs"
   },

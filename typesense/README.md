@@ -51,6 +51,8 @@ This command will initialize the `files` and `papers` collections on the Typesen
   
 ### Import data into Typesense
 
+#### Papers
+
 ```bash
-npm run index-documents -- <Full path to directory containing text files> <Scraped Session file> <Typesense server url> <Files collection name> <Api key>
+npm run index-papers -- <Full path to directory containing text files> <Scraped Session file> <Typesense server url> <Papers collection name> <Api key>
 ```
