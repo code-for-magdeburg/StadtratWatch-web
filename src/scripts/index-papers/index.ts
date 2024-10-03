@@ -14,7 +14,7 @@ const typesenseApiKey = process.argv[6];
 const BATCH_SIZE = 100;
 
 
-if (!inputDir || !scrapedSessionFilename || !typesenseServerUrl || !typesenseApiKey) {
+if (!inputDir || !scrapedSessionFilename || !typesenseServerUrl || !papersCollectionName || !typesenseApiKey) {
   console.error('Usage: node index.js <inputDir> <scrapedSessionFile> <typesenseServerUrl> <papersCollectionName> <typesenseApiKey>');
   process.exit(1);
 }
