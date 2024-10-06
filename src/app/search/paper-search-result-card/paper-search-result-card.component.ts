@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { DatePipe, NgIf } from "@angular/common";
 
 
 export type PaperSearchResultItem = {
@@ -15,7 +16,9 @@ export type PaperSearchResultItem = {
   selector: 'app-paper-search-result-card',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    DatePipe,
+    NgIf
   ],
   templateUrl: './paper-search-result-card.component.html',
   styleUrl: './paper-search-result-card.component.scss'

@@ -4,7 +4,7 @@
 
     <div class="d-flex flex-row mb-2">
       <h3 class="card-title"><i class="bi bi-chat-text"></i></h3>
-      <div class="vstack ms-2">
+      <div class="vstack ms-2 ms-md-3">
         <span class="card-subtitle text-muted small">{{ speech.sessionDate | date : 'dd. MMMM yyyy' }}</span>
         <a
           [routerLink]="['/ep', 'magdeburg-8', 'session', speech.session]"
@@ -12,7 +12,7 @@
           [fragment]="'speech-' + speech.start"
           class="h5 card-title mb-0 stretched-link text-decoration-none"
         >
-          {{ speech.speaker}}
+          {{ speech.speaker }}
         </a>
         <div class="d-flex flex-wrap gap-1 mt-2">
           <span *ngIf="speech.faction" class="badge border border-light-subtle text-bg-light">
@@ -28,6 +28,5 @@
     <p class="card-text" [innerHTML]="speech.content"></p>
 
   </div>
-
 
 </div>

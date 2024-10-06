@@ -1,16 +1,23 @@
 <div class="card">
 
   <div class="card-body">
-    <h5 class="card-title" [innerHTML]="paper.title"></h5>
-    <h6 class="card-subtitle text-muted mb-2">{{ paper.reference }} {{ paper.type }}</h6>
+
+    <div class="d-flex flex-row mb-2">
+      <h3 class="card-title"><i class="bi bi-file-earmark-text"></i></h3>
+      <div class="vstack ms-2 ms-md-3">
+        <span class="card-subtitle text-muted small">{{ paper.reference }} {{ paper.type }}</span>
+        <a
+          [routerLink]="['/paper']"
+          [queryParams]="{ paperId: paper.id }"
+          class="h5 card-title mb-0 stretched-link text-decoration-none"
+        >
+          {{ paper.title }}
+        </a>
+      </div>
+    </div>
+
     <p class="card-text" [innerHTML]="paper.content"></p>
-    <a
-      [routerLink]="['/paper']"
-      [queryParams]="{ paperId: paper.id }"
-      class="btn btn-primary"
-    >
-      Dokument anzeigen
-    </a>
+
   </div>
 
 </div>
