@@ -66,7 +66,7 @@ async function indexSessionSpeeches(session: string, config: SessionConfig, spee
           speaker: speech.speaker,
           party,
           faction,
-          onBehalfOf: speech.onBehalfOf,
+          on_behalf_of: speech.onBehalfOf,
           transcription: speech.transcription
         };
 
