@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import axios from 'axios';
 import { SessionSpeech } from '../generate-data-assets/model/session-speech';
 import { SessionConfig } from '../generate-data-assets/model/session-config';
+import { Registry } from '../shared/model/registry';
 
 
 const inputDir = process.argv[2];
@@ -19,8 +20,14 @@ if (!inputDir || !typesenseServerUrl || !speechesCollectionName || !typesenseApi
   process.exit(1);
 }
 
+const registryFilename = `${inputDir}/registry.json`;
+if (!fs.existsSync(registryFilename) || !fs.lstatSync(registryFilename).isFile()) {
+  console.error(`Registry file "${registryFilename}" does not exist or is not a file.`);
+  process.exit(1);
+}
 
-async function indexSpeeches(contentDir: string) {
+
+async function indexSpeeches(contentDir: string, registry: Registry) {
 
   console.log('Importing speeches...');
 
@@ -37,13 +44,14 @@ async function indexSpeeches(contentDir: string) {
     const speeches = JSON.parse(
       fs.readFileSync(path.join(contentDir, session, `session-speeches-${session}.json`), 'utf-8')
     ) as SessionSpeech[];
-    await indexSessionSpeeches(session, config, speeches);
+    await indexSessionSpeeches(registry, session, config, speeches);
   }
 
 }
 
 
-async function indexSessionSpeeches(session: string, config: SessionConfig, speeches: SessionSpeech[]) {
+async function indexSessionSpeeches(registry: Registry, session: string, config: SessionConfig,
+                                    speeches: SessionSpeech[]) {
 
   console.log(`Indexing speeches for session ${session}...`);
 
@@ -60,7 +68,7 @@ async function indexSessionSpeeches(session: string, config: SessionConfig, spee
         const faction = person ? person.faction : null;
         return {
           id: `${session}-${speech.start}`,
-          electoral_period: config.electoralPeriod,
+          electoral_period: registry.electoralPeriod,
           session,
           start: speech.start,
           session_date: Date.parse(session),
@@ -99,7 +107,9 @@ async function indexSessionSpeeches(session: string, config: SessionConfig, spee
 
 (async () => {
 
-  await indexSpeeches(inputDir);
+  const registry = JSON.parse(fs.readFileSync(registryFilename, 'utf-8')) as Registry;
+
+  await indexSpeeches(inputDir, registry);
 
   console.log('Done.');
 

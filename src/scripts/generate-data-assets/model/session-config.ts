@@ -1,5 +1,4 @@
 export type SessionConfig = {
-  electoralPeriod: string;
   youtubeUrl: string;
   names: SessionConfigPerson[];
 };
