@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SearchClient } from 'typesense';
 import { environment } from '../../environments/environment';
-import { DocumentSchema } from "typesense/lib/Typesense/Documents";
+import { DocumentSchema } from 'typesense/lib/Typesense/Documents';
+import { MultiSearchRequestsSchema } from 'typesense/lib/Typesense/MultiSearch';
 
 
 export interface PaperDocumentSchema extends DocumentSchema {
@@ -11,6 +12,18 @@ export interface PaperDocumentSchema extends DocumentSchema {
   type: string;
   files_content: string[];
   sort_date: number;
+}
+
+export interface SpeechDocumentSchema extends DocumentSchema {
+  id: string;
+  session: string;
+  session_date: number;
+  start: number;
+  speaker: string;
+  faction?: string;
+  party?: string;
+  on_behalf_of?: string;
+  transcription: string;
 }
 
 
@@ -35,22 +48,34 @@ export class SearchService {
   }
 
 
-  public async searchPapers(query: string, page: number) {
+  public async searchPapersAndSpeeches(query: string, page: number) {
 
     if (!query) {
       return null;
     }
 
-    return await this.searchClient
-      .collections<PaperDocumentSchema>('papers')
-      .documents()
-      .search(
+    const searchRequests: MultiSearchRequestsSchema = {
+      searches: [
         {
           q: query,
-          query_by: 'reference,name,files_content',
-          page
+          collection: 'papers',
+          query_by: 'reference,name,files_content'
         },
-        {}
+        {
+          q: query,
+          collection: 'speeches',
+          query_by: 'transcription'
+        }
+      ]
+    };
+
+    return await this.searchClient.multiSearch
+      .perform<[PaperDocumentSchema, SpeechDocumentSchema]>(
+        searchRequests,
+        {
+          page,
+          highlight_affix_num_tokens: 15
+        }
       );
 
   }

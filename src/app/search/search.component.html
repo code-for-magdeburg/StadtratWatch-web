@@ -1,7 +1,7 @@
 <div>
 
   <div class="mb-5">
-    <h1>Dokumente</h1>
+    <h1>Suche</h1>
   </div>
 
   <form class="row row-cols-auto g-1 align-items-center mb-3" (ngSubmit)="search()">
@@ -30,21 +30,18 @@
     Keine Dokumente gefunden.
   </div>
 
-  <div *ngFor="let item of searchResultItems">
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title" [innerHTML]="item.title"></h5>
-        <h6 class="card-subtitle text-muted mb-2">{{ item.reference }} {{ item.type }}</h6>
-        <p class="card-text" [innerHTML]="item.content"></p>
-        <a
-          [routerLink]="['/paper']"
-          [queryParams]="{ paperId: item.id }"
-          class="btn btn-primary"
-        >
-          Details
-        </a>
-      </div>
-    </div>
+  <div *ngFor="let item of searchResultItems" class="mb-3">
+
+    <app-paper-search-result-card
+      *ngIf="item.type === 'paper'"
+      [paper]="item.paper!"
+    />
+
+    <app-speech-search-result-card
+      *ngIf="item.type === 'speech'"
+      [speech]="item.speech!"
+    />
+
   </div>
 
   <pagination

@@ -1,0 +1,16 @@
+<div class="card">
+
+  <div class="card-body">
+    <h5 class="card-title" [innerHTML]="paper.title"></h5>
+    <h6 class="card-subtitle text-muted mb-2">{{ paper.reference }} {{ paper.type }}</h6>
+    <p class="card-text" [innerHTML]="paper.content"></p>
+    <a
+      [routerLink]="['/paper']"
+      [queryParams]="{ paperId: paper.id }"
+      class="btn btn-primary"
+    >
+      Dokument anzeigen
+    </a>
+  </div>
+
+</div>

@@ -69,6 +69,10 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import { PaperComponent } from './paper/paper.component';
 import { SearchComponent } from './search/search.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { PaperSearchResultCardComponent } from './search/paper-search-result-card/paper-search-result-card.component';
+import {
+  SpeechSearchResultCardComponent
+} from './search/speech-search-result-card/speech-search-result-card.component';
 
 
 registerLocaleData(localeDe, 'de-DE');
@@ -128,7 +132,9 @@ registerLocaleData(localeDe, 'de-DE');
     TabsModule,
     BsDropdownModule,
     BreadcrumbComponent,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    PaperSearchResultCardComponent,
+    SpeechSearchResultCardComponent
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de-DE' },

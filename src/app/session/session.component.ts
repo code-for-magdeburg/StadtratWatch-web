@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SessionsService } from '../services/sessions.service';
 import { ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
-import { SessionVotingDto, SessionSpeechDto, Vote, VoteResult } from '../model/Session';
+import { SessionSpeechDto, SessionVotingDto, Vote, VoteResult } from '../model/Session';
 import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { DatePipe } from '@angular/common';
@@ -84,6 +84,13 @@ export class SessionComponent implements OnInit {
       this.openTab(tab || VOTINGS_TAB);
     });
 
+    this.route.fragment.subscribe(fragment => {
+      const { tab } = this.route.snapshot.queryParams;
+      if (tab === 'speeches' && fragment) {
+        setTimeout(() => document.getElementById(fragment)?.scrollIntoView({ behavior: 'instant' }), 200);
+      }
+    });
+
     this.route.paramMap.subscribe(async params => {
 
       this.electoralPeriod = params.get('electoralPeriod') || this.electoralPeriod;
@@ -124,7 +131,7 @@ export class SessionComponent implements OnInit {
         const hintMailBodyText = encodeURIComponent(
           `Hallo StadtratWatch-Team!
 
-Ich habe einen Hinweis zum Redebeitrag von ${speech.speaker} aus der Sitzung vom ${this.sessionDate} (Zeitmarke: ${ speech.start }):
+Ich habe einen Hinweis zum Redebeitrag von ${speech.speaker} aus der Sitzung vom ${this.sessionDate} (Zeitmarke: ${speech.start}):
 
 
 
