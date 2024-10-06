@@ -16,6 +16,7 @@ export interface PaperDocumentSchema extends DocumentSchema {
 
 export interface SpeechDocumentSchema extends DocumentSchema {
   id: string;
+  electoral_period: string;
   session: string;
   session_date: number;
   start: number;

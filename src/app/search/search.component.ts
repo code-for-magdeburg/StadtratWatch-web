@@ -114,6 +114,7 @@ export class SearchComponent implements OnInit {
                 paper: null,
                 speech: {
                   id: document.id,
+                  electoralPeriod: document.electoral_period,
                   session: document.session,
                   sessionDate: document.session_date,
                   start: document.start,

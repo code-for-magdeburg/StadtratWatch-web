@@ -60,6 +60,7 @@ async function indexSessionSpeeches(session: string, config: SessionConfig, spee
         const faction = person ? person.faction : null;
         return {
           id: `${session}-${speech.start}`,
+          electoral_period: config.electoralPeriod,
           session,
           start: speech.start,
           session_date: Date.parse(session),

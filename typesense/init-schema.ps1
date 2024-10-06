@@ -35,6 +35,7 @@ $Body = @"
 {
     "name": "${SpeechesCollectionName}",
     "fields": [
+      {"name": "electoral_period", "type": "string", "facet": true},
       {"name": "session", "type": "string", "index": false},
       {"name": "start", "type": "int32", "index": false},
       {"name": "session_date", "type": "int64", "sort": true},

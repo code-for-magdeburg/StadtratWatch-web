@@ -7,7 +7,7 @@
       <div class="vstack ms-2 ms-md-3">
         <span class="card-subtitle text-muted small">{{ speech.sessionDate | date : 'dd. MMMM yyyy' }}</span>
         <a
-          [routerLink]="['/ep', 'magdeburg-8', 'session', speech.session]"
+          [routerLink]="['/', ELECTORAL_PERIOD_PATH, speech.electoralPeriod, 'session', speech.session]"
           [queryParams]="{ tab: 'speeches' }"
           [fragment]="'speech-' + speech.start"
           class="h5 card-title mb-0 stretched-link text-decoration-none"
