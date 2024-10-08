@@ -2,11 +2,11 @@
   "id": "fdp",
   "name": "FDP",
   "seats": 2,
-  "votingsSuccessRate": 0.8695652173913043,
-  "uniformityScore": 1,
-  "participationRate": 0.5380434782608695,
-  "abstentionRate": 0.03205128205128205,
-  "speakingTime": 262,
+  "votingsSuccessRate": 0.8924731182795699,
+  "uniformityScore": 0.982078853046595,
+  "participationRate": 0.75,
+  "abstentionRate": 0.0497363156937625,
+  "speakingTime": 1086,
   "statsHistory": {
     "votingsSuccessRate": [
       {
@@ -16,6 +16,10 @@
       {
         "date": "2024-08-15",
         "value": 0.8695652173913043
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.8924731182795699
       }
     ],
     "uniformityScore": [
@@ -26,6 +30,10 @@
       {
         "date": "2024-08-15",
         "value": 1
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.982078853046595
       }
     ],
     "participationRate": [
@@ -36,6 +44,10 @@
       {
         "date": "2024-08-15",
         "value": 0.5380434782608695
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.75
       }
     ],
     "abstentionRate": [
@@ -46,6 +58,10 @@
       {
         "date": "2024-08-15",
         "value": 0.03205128205128205
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.0497363156937625
       }
     ]
   }
