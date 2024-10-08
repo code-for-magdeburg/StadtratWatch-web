@@ -2,12 +2,12 @@
   "id": "afd",
   "name": "AfD",
   "seats": 13,
-  "applicationsSuccessRate": 0.2,
-  "votingsSuccessRate": 0.8260869565217391,
-  "uniformityScore": 0.9967313669236746,
-  "participationRate": 0.939799331103679,
-  "abstentionRate": 0.06548312798312798,
-  "speakingTime": 2053,
+  "applicationsSuccessRate": 0.07692307692307693,
+  "votingsSuccessRate": 0.7526881720430108,
+  "uniformityScore": 0.9926212055508291,
+  "participationRate": 0.9276261373035567,
+  "abstentionRate": 0.06327592816954519,
+  "speakingTime": 4209,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -17,6 +17,10 @@
       {
         "date": "2024-08-15",
         "value": 0.2
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.07692307692307693
       }
     ],
     "votingsSuccessRate": [
@@ -27,6 +31,10 @@
       {
         "date": "2024-08-15",
         "value": 0.8260869565217391
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.7526881720430108
       }
     ],
     "uniformityScore": [
@@ -37,6 +45,10 @@
       {
         "date": "2024-08-15",
         "value": 0.9967313669236746
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.9926212055508291
       }
     ],
     "participationRate": [
@@ -47,6 +59,10 @@
       {
         "date": "2024-08-15",
         "value": 0.939799331103679
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.9276261373035567
       }
     ],
     "abstentionRate": [
@@ -57,6 +73,10 @@
       {
         "date": "2024-08-15",
         "value": 0.06548312798312798
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.06327592816954519
       }
     ]
   },
@@ -124,6 +144,118 @@
       "sessionId": "2024-08-15",
       "sessionDate": "2024-08-15",
       "paperId": 244301,
+      "votings": [
+        {
+          "votingId": 70,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0107/23/1",
+      "type": "Änderungsantrag",
+      "title": "Aufstellung und öffentliche Auslegung des Entwurfs zum einfachen Bebauungsplan \"Stellplatzbegrünungssatzung“",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244590,
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0277/24/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs zur 2. Änderung des Bebauungsplanes Nr. 237-2 \"Zentraler Platz - Elbufer\" (Prämonstratenserberg)",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244585,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0277/24/2",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs zur 2. Änderung des Bebauungsplanes Nr. 237-2 \"Zentraler Platz - Elbufer\" (Prämonstratenserberg)",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244592,
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0184/24",
+      "type": "Antrag",
+      "title": "Strukturelle Radverkehrsförderung beenden!",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244466,
+      "votings": [
+        {
+          "votingId": 66,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0159/24",
+      "type": "Antrag",
+      "title": "Mittel für in:takt und Schauwerk sparen!",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244219,
+      "votings": [
+        {
+          "votingId": 67,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0161/24",
+      "type": "Antrag",
+      "title": "Fatale Migrationspolitik beenden - Austritt aus dem Bündnis sicherer Häfen",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244221,
+      "votings": [
+        {
+          "votingId": 68,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0185/24",
+      "type": "Antrag",
+      "title": "Stadtschreiber einsparen!",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244467,
+      "votings": [
+        {
+          "votingId": 69,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0186/24",
+      "type": "Antrag",
+      "title": "Abbau von Beschränkungen beim Bauen",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244468,
       "votings": [
         {
           "votingId": 70,

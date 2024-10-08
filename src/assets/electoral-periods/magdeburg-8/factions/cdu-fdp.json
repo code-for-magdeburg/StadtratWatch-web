@@ -2,12 +2,12 @@
   "id": "cdu-fdp",
   "name": "CDU/FDP",
   "seats": 15,
-  "applicationsSuccessRate": 0.9230769230769231,
-  "votingsSuccessRate": 0.9891304347826086,
-  "uniformityScore": 0.9911317315163468,
-  "participationRate": 0.8898550724637682,
-  "abstentionRate": 0.014695774311158923,
-  "speakingTime": 3300,
+  "applicationsSuccessRate": 0.9310344827586207,
+  "votingsSuccessRate": 0.956989247311828,
+  "uniformityScore": 0.9735088038893275,
+  "participationRate": 0.8017921146953405,
+  "abstentionRate": 0.037960912367622675,
+  "speakingTime": 5254,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -17,6 +17,10 @@
       {
         "date": "2024-08-15",
         "value": 0.9230769230769231
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.9310344827586207
       }
     ],
     "votingsSuccessRate": [
@@ -27,6 +31,10 @@
       {
         "date": "2024-08-15",
         "value": 0.9891304347826086
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.956989247311828
       }
     ],
     "uniformityScore": [
@@ -37,6 +45,10 @@
       {
         "date": "2024-08-15",
         "value": 0.9911317315163468
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.9735088038893275
       }
     ],
     "participationRate": [
@@ -47,6 +59,10 @@
       {
         "date": "2024-08-15",
         "value": 0.8898550724637682
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.8017921146953405
       }
     ],
     "abstentionRate": [
@@ -57,6 +73,10 @@
       {
         "date": "2024-08-15",
         "value": 0.014695774311158923
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.037960912367622675
       }
     ]
   },
@@ -201,6 +221,220 @@
       "votings": [
         {
           "votingId": 76,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0436/24/3",
+      "type": "Änderungsantrag",
+      "title": "Grundsatzbeschluss Hermann-Gieseler-Halle und AMO",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244620,
+      "votings": [
+        {
+          "votingId": 15,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0090/24",
+      "type": "Antrag",
+      "title": "Fehlende Straßenbeleuchtung und Beschriftung an der Fahrradstraße",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 243477,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 50,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0092/24",
+      "type": "Antrag",
+      "title": "Tradition des Humboldt-Gymnasiums fortführen",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 243481,
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0121/24",
+      "type": "Antrag",
+      "title": "Schulwegsicherheit Grundschule Am Grenzweg",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 243723,
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0140/24/1",
+      "type": "Änderungsantrag",
+      "title": "Wenn die Pflege ausfällt - Pflegenotaufnahme einrichten",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244616,
+      "votings": [
+        {
+          "votingId": 60,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0182/24",
+      "type": "Geschäftsordnung",
+      "title": "Freier Zugang zu den Toiletten des Rathauses für die Markthändlerinnen und Markthändler",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244415,
+      "votings": [
+        {
+          "votingId": 71,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0183/24",
+      "type": "Geschäftsordnung",
+      "title": "Zebrastreifen",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244465,
+      "votings": [
+        {
+          "votingId": 73,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0192/24",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrssicherheit steigern. Haltestellen beleuchten.",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244508,
+      "votings": [
+        {
+          "votingId": 78,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0194/24",
+      "type": "Geschäftsordnung",
+      "title": "Inflationsausgleichszahlung auch für Mitarbeitende der Freien Träger der Stadt Magdeburg gewährleisten",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244510,
+      "votings": [
+        {
+          "votingId": 80,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0197/24",
+      "type": "Geschäftsordnung",
+      "title": "Standort für die Schwimmhalle der Leistungssportler festlegen",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244513,
+      "votings": [
+        {
+          "votingId": 83,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0199/24/1",
+      "type": "Änderungsantrag",
+      "title": "Ertüchtigung Parkplatz an der Lake",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244557,
+      "votings": [
+        {
+          "votingId": 85,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0199/24",
+      "type": "Antrag",
+      "title": "Ertüchtigung Parkplatz an der Lake",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244515,
+      "votings": [
+        {
+          "votingId": 86,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0203/24",
+      "type": "Antrag",
+      "title": "Beschleunigung der Baumaßnahme (DS0137/22) Lärmschutzwand Magdeburger Ring",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244519,
+      "votings": [
+        {
+          "votingId": 91,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0206/24",
+      "type": "Geschäftsordnung",
+      "title": "Mehr Verkehrssicherheit: Vor der Kita Sonnenland",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244522,
+      "votings": [
+        {
+          "votingId": 93,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0191/24",
+      "type": "Geschäftsordnung",
+      "title": "Zur Umsetzung der Kulturstrategie 2030 - Eine Halbzeitbilanz",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244506,
+      "votings": [
+        {
+          "votingId": 94,
           "votingResult": "PASSED"
         }
       ]

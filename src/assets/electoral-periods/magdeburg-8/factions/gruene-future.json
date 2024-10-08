@@ -2,12 +2,12 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 6,
-  "applicationsSuccessRate": 0.4117647058823529,
-  "votingsSuccessRate": 0.7065217391304348,
-  "uniformityScore": 0.9795177045177044,
-  "participationRate": 0.9221014492753623,
-  "abstentionRate": 0.0583943833943834,
-  "speakingTime": 1239,
+  "applicationsSuccessRate": 0.6129032258064516,
+  "votingsSuccessRate": 0.7526881720430108,
+  "uniformityScore": 0.9672553018297698,
+  "participationRate": 0.9068100358422939,
+  "abstentionRate": 0.06629365512344236,
+  "speakingTime": 2132,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -17,6 +17,10 @@
       {
         "date": "2024-08-15",
         "value": 0.4117647058823529
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.6129032258064516
       }
     ],
     "votingsSuccessRate": [
@@ -27,6 +31,10 @@
       {
         "date": "2024-08-15",
         "value": 0.7065217391304348
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.7526881720430108
       }
     ],
     "uniformityScore": [
@@ -37,6 +45,10 @@
       {
         "date": "2024-08-15",
         "value": 0.9795177045177044
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.9672553018297698
       }
     ],
     "participationRate": [
@@ -47,6 +59,10 @@
       {
         "date": "2024-08-15",
         "value": 0.9221014492753623
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.9068100358422939
       }
     ],
     "abstentionRate": [
@@ -57,6 +73,10 @@
       {
         "date": "2024-08-15",
         "value": 0.0583943833943834
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.06629365512344236
       }
     ]
   },
@@ -246,6 +266,192 @@
         {
           "votingId": 26,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0436/24/3",
+      "type": "Änderungsantrag",
+      "title": "Grundsatzbeschluss Hermann-Gieseler-Halle und AMO",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244620,
+      "votings": [
+        {
+          "votingId": 15,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0002/24/1",
+      "type": "Änderungsantrag",
+      "title": "Verkehrskonzept Listemannstraße",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 242876,
+      "votings": [
+        {
+          "votingId": 39,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0087/24/1",
+      "type": "Änderungsantrag",
+      "title": "Verkehrssituation am zukünftigen Schulstandort Listemannstraße",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 243573,
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0101/24",
+      "type": "Antrag",
+      "title": "Wiederherstellung der ursprünlichen Verkehrsangebote für die Straßenbahnlinien 3 und 9",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 243689,
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0102/24",
+      "type": "Antrag",
+      "title": "Studentisches Wohnen bezahlbar halten",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 243691,
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0140/24",
+      "type": "Antrag",
+      "title": "Wenn die Pflege ausfällt - Pflegenotaufnahme einrichten",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 243966,
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0147/24",
+      "type": "Antrag",
+      "title": "Fußgänger*innenüberweg Hegelstraße in Verlängerung des verkehrsberuhigten Bereichs (Einsteinstraße) am Hegelspielplatz",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 243977,
+      "votings": [
+        {
+          "votingId": 65,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0192/24",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrssicherheit steigern. Haltestellen beleuchten.",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244508,
+      "votings": [
+        {
+          "votingId": 78,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0193/24",
+      "type": "Geschäftsordnung",
+      "title": "Personalabbau und Stundenreduzierungen in Magdeburger Kitas vermeiden: Sicherung der Betreuungsqualität und für Fachkräfte schaffen",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244509,
+      "votings": [
+        {
+          "votingId": 79,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0198/24",
+      "type": "Geschäftsordnung",
+      "title": "Schaffung Spielplatz Feuerwehr/Rettungsdienst",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244514,
+      "votings": [
+        {
+          "votingId": 84,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0202/24",
+      "type": "Geschäftsordnung",
+      "title": "Bauen und Gebäudesanierungen in Magdeburg erleichtern",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244518,
+      "votings": [
+        {
+          "votingId": 88,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 89,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0205/24",
+      "type": "Geschäftsordnung",
+      "title": "pragmatischer Umwelt- und Naturschutz für Magdeburg",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244521,
+      "votings": [
+        {
+          "votingId": 92,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0191/24",
+      "type": "Geschäftsordnung",
+      "title": "Zur Umsetzung der Kulturstrategie 2030 - Eine Halbzeitbilanz",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244506,
+      "votings": [
+        {
+          "votingId": 94,
+          "votingResult": "PASSED"
         }
       ]
     }
