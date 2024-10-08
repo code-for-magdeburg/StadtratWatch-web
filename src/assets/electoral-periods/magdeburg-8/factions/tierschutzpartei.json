@@ -2,12 +2,12 @@
   "id": "tierschutzpartei",
   "name": "Tierschutzpartei",
   "seats": 3,
-  "applicationsSuccessRate": 1,
-  "votingsSuccessRate": 0.8913043478260869,
-  "uniformityScore": 0.912087912087912,
-  "participationRate": 0.9311594202898551,
-  "abstentionRate": 0.10592185592185593,
-  "speakingTime": 356,
+  "applicationsSuccessRate": 0.8,
+  "votingsSuccessRate": 0.9032258064516129,
+  "uniformityScore": 0.9029758657418231,
+  "participationRate": 0.9229390681003584,
+  "abstentionRate": 0.11139471245854227,
+  "speakingTime": 704,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -17,6 +17,10 @@
       {
         "date": "2024-08-15",
         "value": 1
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.8
       }
     ],
     "votingsSuccessRate": [
@@ -27,6 +31,10 @@
       {
         "date": "2024-08-15",
         "value": 0.8913043478260869
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.9032258064516129
       }
     ],
     "uniformityScore": [
@@ -37,6 +45,10 @@
       {
         "date": "2024-08-15",
         "value": 0.912087912087912
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.9029758657418231
       }
     ],
     "participationRate": [
@@ -47,6 +59,10 @@
       {
         "date": "2024-08-15",
         "value": 0.9311594202898551
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.9229390681003584
       }
     ],
     "abstentionRate": [
@@ -57,6 +73,10 @@
       {
         "date": "2024-08-15",
         "value": 0.10592185592185593
+      },
+      {
+        "date": "2024-09-12",
+        "value": 0.11139471245854227
       }
     ]
   },
@@ -85,6 +105,188 @@
       "votings": [
         {
           "votingId": 61,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0002/24",
+      "type": "Antrag",
+      "title": "Verkehrskonzept Listemannstraße",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 242785,
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0182/24",
+      "type": "Antrag",
+      "title": "Freier Zugang zu den Toiletten des Rathauses für die Markthändlerinnen und Markthändler",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244415,
+      "votings": [
+        {
+          "votingId": 72,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0188/24",
+      "type": "Geschäftsordnung",
+      "title": "Elbauenpark: Verlegung von Veranstaltungen mit Feuerwerken",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244500,
+      "votings": [
+        {
+          "votingId": 74,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0189/24",
+      "type": "Geschäftsordnung",
+      "title": "Kostenfreier Zugang in öffentliche Einrichtungen für ehrenamtliche Stadtratsmitglieder",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244501,
+      "votings": [
+        {
+          "votingId": 75,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0189/24",
+      "type": "Antrag",
+      "title": "Kostenfreier Zugang in öffentliche Einrichtungen für ehrenamtliche Stadtratsmitglieder",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244501,
+      "votings": [
+        {
+          "votingId": 76,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0192/24",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrssicherheit steigern. Haltestellen beleuchten.",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244508,
+      "votings": [
+        {
+          "votingId": 78,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0193/24",
+      "type": "Geschäftsordnung",
+      "title": "Personalabbau und Stundenreduzierungen in Magdeburger Kitas vermeiden: Sicherung der Betreuungsqualität und für Fachkräfte schaffen",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244509,
+      "votings": [
+        {
+          "votingId": 79,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0194/24",
+      "type": "Geschäftsordnung",
+      "title": "Inflationsausgleichszahlung auch für Mitarbeitende der Freien Träger der Stadt Magdeburg gewährleisten",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244510,
+      "votings": [
+        {
+          "votingId": 80,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0195/24",
+      "type": "Geschäftsordnung",
+      "title": "Bänke-Konzept ergänzen - Fehlende Papierkörbe ergänzen",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244511,
+      "votings": [
+        {
+          "votingId": 81,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0197/24",
+      "type": "Geschäftsordnung",
+      "title": "Standort für die Schwimmhalle der Leistungssportler festlegen",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244513,
+      "votings": [
+        {
+          "votingId": 83,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0198/24",
+      "type": "Geschäftsordnung",
+      "title": "Schaffung Spielplatz Feuerwehr/Rettungsdienst",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244514,
+      "votings": [
+        {
+          "votingId": 84,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0203/24",
+      "type": "Geschäftsordnung",
+      "title": "Beschleunigung der Baumaßnahme (DS0137/22) Lärmschutzwand Magdeburger Ring",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244519,
+      "votings": [
+        {
+          "votingId": 90,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0205/24",
+      "type": "Geschäftsordnung",
+      "title": "pragmatischer Umwelt- und Naturschutz für Magdeburg",
+      "sessionId": "2024-09-12",
+      "sessionDate": "2024-09-12",
+      "paperId": 244521,
+      "votings": [
+        {
+          "votingId": 92,
           "votingResult": "PASSED"
         }
       ]
