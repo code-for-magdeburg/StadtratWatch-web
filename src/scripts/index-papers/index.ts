@@ -7,16 +7,15 @@ import { ScrapedPaper, ScrapedSession } from '../shared/model/scraped-session';
 const inputDir = process.argv[2];
 const scrapedSessionFilename = process.argv[3];
 const typesenseServerUrl = process.argv[4];
-const filesCollectionName = process.argv[5];
-const papersCollectionName = process.argv[6];
-const typesenseApiKey = process.argv[7];
+const papersCollectionName = process.argv[5];
+const typesenseApiKey = process.argv[6];
 
 
 const BATCH_SIZE = 100;
 
 
-if (!inputDir || !scrapedSessionFilename || !typesenseServerUrl || !filesCollectionName || !typesenseApiKey) {
-  console.error('Usage: node index.js <inputDir> <scrapedSessionFile> <typesenseServerUrl> <filesCollectionName> <typesenseApiKey>');
+if (!inputDir || !scrapedSessionFilename || !typesenseServerUrl || !papersCollectionName || !typesenseApiKey) {
+  console.error('Usage: node index.js <inputDir> <scrapedSessionFile> <typesenseServerUrl> <papersCollectionName> <typesenseApiKey>');
   process.exit(1);
 }
 
@@ -24,66 +23,6 @@ if (!inputDir || !scrapedSessionFilename || !typesenseServerUrl || !filesCollect
 if (!fs.existsSync(scrapedSessionFilename) || !fs.lstatSync(scrapedSessionFilename).isFile()) {
   console.error(`Scraped session file "${scrapedSessionFilename}" does not exist or is not a file.`);
   process.exit(1);
-}
-
-
-async function runImportFiles(contentDir: string, scrapedSession: ScrapedSession) {
-
-  console.log(`Importing files...`);
-
-  const files = fs.readdirSync(contentDir).filter(file => file.endsWith('.txt'));
-  for (let i = 0; i < files.length; i += BATCH_SIZE) {
-
-    const data = files
-      .slice(i, i + BATCH_SIZE)
-      .map(filename => {
-
-        const fileId = parseInt(filename.split('.')[0], 10);
-        const scrapedFile = scrapedSession.files.find(f => f.original_id === fileId);
-
-        if (!scrapedFile?.paper_original_id) {
-          return null;
-        }
-
-        const scrapedPaper = scrapedSession.papers.find(
-          p => p.original_id === scrapedFile.paper_original_id
-        );
-
-        const content = fs.readFileSync(path.join(contentDir, filename), 'utf-8');
-        return {
-          id: `${fileId}`,
-          name: scrapedFile.name || '',
-          paper_id: scrapedFile.paper_original_id,
-          paper_name: scrapedPaper?.name || '',
-          paper_reference: scrapedPaper?.reference || '',
-          paper_type: scrapedPaper?.paper_type || '',
-          content,
-          url: scrapedFile.url
-        };
-
-      })
-      .filter(documents => documents !== null)
-      .map(document => JSON.stringify(document))
-      .join('\n');
-    const result = await axios.post(
-      `${typesenseServerUrl}/collections/${filesCollectionName}/documents/import`,
-      data,
-      {
-        headers: {
-          'X-TYPESENSE-API-KEY': typesenseApiKey,
-          'Content-Type': 'text/plain'
-        },
-        params: { action: 'upsert' }
-      });
-
-    if (result.status !== 200) {
-      console.error(`Failed to import files: ${result.data}`);
-    } else {
-      console.log(`Imported ${i + BATCH_SIZE} files.`);
-    }
-
-  }
-
 }
 
 
@@ -168,7 +107,6 @@ async function runImportPapers(contentDir: string, scrapedSession: ScrapedSessio
 
   const scrapedSession =
     JSON.parse(fs.readFileSync(scrapedSessionFilename, 'utf-8')) as ScrapedSession;
-  await runImportFiles(inputDir, scrapedSession);
   await runImportPapers(inputDir, scrapedSession);
 
   console.log('Done.');

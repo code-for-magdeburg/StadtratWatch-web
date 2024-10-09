@@ -1,7 +1,7 @@
 
 $TypesenseServerUrl = $args[0]
-$FilesCollectionName = $args[1]
-$PapersCollectionName = $args[2]
+$PapersCollectionName = $args[1]
+$SpeechesCollectionName = $args[2]
 $ApiKey = $args[3]
 
 $Url = "${TypesenseServerUrl}/collections"
@@ -10,28 +10,6 @@ $Headers = @{
     "X-TYPESENSE-API-KEY" = $ApiKey
     "Content-Type" = "application/json"
 }
-
-$Body = @"
-{
-    "name": "${FilesCollectionName}",
-    "fields": [
-      {"name": "name", "type": "string", "locale": "de"},
-      {"name": "content", "type": "string", "locale": "de"},
-      {"name": "url", "type": "string", "index": false},
-      {"name": "paper_id", "type": "int32", "index": false},
-      {"name": "paper_name", "type": "string", "locale": "de"},
-      {"name": "paper_type", "type": "string", "facet": true, "locale": "de"},
-      {"name": "paper_reference", "type": "string"}
-    ],
-    "default_sorting_field": "",
-    "enable_nested_fields": false,
-    "symbols_to_index": [],
-    "token_separators": ["/"]
-}
-"@
-
-Invoke-RestMethod -Uri $Url -Method Post -Headers $Headers -Body $Body
-
 
 $Body = @"
 {
@@ -47,6 +25,30 @@ $Body = @"
     "enable_nested_fields": false,
     "symbols_to_index": [],
     "token_separators": ["/"]
+}
+"@
+
+Invoke-RestMethod -Uri $Url -Method Post -Headers $Headers -Body $Body
+
+
+$Body = @"
+{
+    "name": "${SpeechesCollectionName}",
+    "fields": [
+      {"name": "electoral_period", "type": "string", "facet": true},
+      {"name": "session", "type": "string", "index": false},
+      {"name": "start", "type": "int32", "index": false},
+      {"name": "session_date", "type": "int64", "sort": true},
+      {"name": "speaker", "type": "string", "facet": true},
+      {"name": "faction", "type": "string", "facet": true, "optional": true},
+      {"name": "party", "type": "string", "facet": true, "optional": true},
+      {"name": "on_behalf_of", "type": "string", "facet": true, "optional": true},
+      {"name": "transcription", "type": "string", "locale": "de"}
+    ],
+    "default_sorting_field": "session_date",
+    "enable_nested_fields": false,
+    "symbols_to_index": [],
+    "token_separators": []
 }
 "@
 
