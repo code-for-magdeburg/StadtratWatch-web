@@ -54,6 +54,7 @@ export type SessionSpeechDto = {
   duration: number;
   faction?: string;
   onBehalfOf?: string;
+  transcription?: string;
 };
 
 
