@@ -45,7 +45,7 @@ const FILL_COLOR_MAP = new Map([
 
 const DISTANCE_MAP = new Map([
   ['magdeburg-7', 50],
-  ['magdeburg-8', 1000]
+  ['magdeburg-8', 100]
 ]);
 
 
