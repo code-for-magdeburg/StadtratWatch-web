@@ -2,7 +2,8 @@
 $TypesenseServerUrl = $args[0]
 $PapersCollectionName = $args[1]
 $SpeechesCollectionName = $args[2]
-$ApiKey = $args[3]
+$PapersAndSpeechesCollectionName = $args[3]
+$ApiKey = $args[4]
 
 $Url = "${TypesenseServerUrl}/collections"
 
@@ -49,6 +50,39 @@ $Body = @"
     "enable_nested_fields": false,
     "symbols_to_index": [],
     "token_separators": []
+}
+"@
+
+Invoke-RestMethod -Uri $Url -Method Post -Headers $Headers -Body $Body
+
+
+$Body = @"
+{
+    "name": "${PapersAndSpeechesCollectionName}",
+    "enable_nested_fields": true,
+    "fields": [
+
+      {"name": "type", "type": "string", "index": false},
+
+      {"name": "paper_name", "type": "string", "locale": "de"},
+      {"name": "paper_type", "type": "string", "facet": true, "locale": "de"},
+      {"name": "paper_reference", "type": "string"},
+      {"name": "paper_files_content", "type": "string[]", "locale": "de"},
+
+      {"name": "speech_electoral_period", "type": "string", "facet": true},
+      {"name": "speech_session", "type": "string", "index": false},
+      {"name": "speech_start", "type": "int32", "index": false},
+      {"name": "speech_session_date", "type": "int64", "sort": true},
+      {"name": "speech_speaker", "type": "string", "facet": true},
+      {"name": "speech_faction", "type": "string", "facet": true, "optional": true},
+      {"name": "speech_party", "type": "string", "facet": true, "optional": true},
+      {"name": "speech_on_behalf_of", "type": "string", "facet": true, "optional": true},
+      {"name": "speech_transcription", "type": "string", "locale": "de"}
+
+    ],
+    "enable_nested_fields": false,
+    "symbols_to_index": [],
+    "token_separators": ["/"]
 }
 "@
 
