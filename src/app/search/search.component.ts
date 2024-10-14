@@ -70,7 +70,7 @@ export class SearchComponent implements OnInit {
               return {
                 type: 'paper',
                 paper: {
-                  id: document.id,
+                  id: document.id.substring(6), // remove 'paper-' prefix
                   title: document.paper_name,
                   reference: document.paper_reference,
                   type: document.paper_type,
