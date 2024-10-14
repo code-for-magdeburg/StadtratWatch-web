@@ -13,6 +13,7 @@
     "download-paper-files": "ts-node --project ./tsconfig.scripts.json src/scripts/download-paper-files",
     "index-papers": "ts-node --project ./tsconfig.scripts.json src/scripts/index-papers",
     "index-speeches": "ts-node --project ./tsconfig.scripts.json src/scripts/index-speeches",
+    "index-search": "ts-node --project ./tsconfig.scripts.json src/scripts/index-search",
     "lab": "ts-node --project ./tsconfig.scripts.json src/scripts/lab",
     "serve:ssr": "node dist/StadtratWatch-web/server/server.mjs"
   },
@@ -38,6 +39,7 @@
     "chartjs-adapter-date-fns": "^3.0.0",
     "d3": "^7.8.5",
     "date-fns": "^3.3.1",
+    "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "ng2-charts": "^5.0.3",
     "ngx-bootstrap": "^12.0.0",

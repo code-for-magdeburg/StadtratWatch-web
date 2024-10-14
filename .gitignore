@@ -46,4 +46,7 @@ Thumbs.db
 # Local Netlify folder
 .netlify
 
+.env
+.env.*
+!.env.sample
 typesense/data
