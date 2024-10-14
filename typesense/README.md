@@ -29,22 +29,20 @@ docker run `
   --enable-cors
 ```
 
-### Set up the papers and files collections
+### Set up the collection
 
 #### Purpose
-The `init-schema.ps1` PowerShell script is used to initialize the schema for two collections (`papers` and `speeches`) in a Typesense server. This script sets up the necessary fields and configurations for these collections to store and index documents.
+The `init-schema.ps1` PowerShell script is used to initialize the schema for the collection in a Typesense server. This script sets up the necessary fields and configurations for the collection to store and index papers and speeches.
 
 #### Usage
 To run the script, you need to provide the following arguments:
 1. `TypesenseServerUrl`: The URL of the Typesense server.
-2. `PapersCollectionName`: The name of the collection for storing paper documents.
-3. `SpeechesCollectionName`: The name of the collection for storing speech transcriptions.
-4. `CollectionName`: The name of the collection for storing papers content and speech transcriptions.
-5. `ApiKey`: The API key for authenticating with the Typesense server.
+2. `CollectionName`: The name of the collection for storing papers content and speech transcriptions.
+3. `ApiKey`: The API key for authenticating with the Typesense server.
 
 #### Example
 ```powershell
-.\init-schema.ps1 "http://localhost:8108" "papers-0001" "speeches-0001" "papers-and-speeches-0001" "abc123"
+.\init-schema.ps1 "http://localhost:8108" "papers-and-speeches-0001" "abc123"
 ```
 
 This command will initialize the specified collection on the Typesense server running at `http://localhost:8108` using the provided API key.

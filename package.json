@@ -11,8 +11,6 @@
     "generate-paper-assets": "ts-node --project ./tsconfig.scripts.json src/scripts/generate-paper-assets",
     "generate-routes-file": "ts-node --project ./tsconfig.scripts.json src/scripts/generate-routes-file",
     "download-paper-files": "ts-node --project ./tsconfig.scripts.json src/scripts/download-paper-files",
-    "index-papers": "ts-node --project ./tsconfig.scripts.json src/scripts/index-papers",
-    "index-speeches": "ts-node --project ./tsconfig.scripts.json src/scripts/index-speeches",
     "index-search": "ts-node --project ./tsconfig.scripts.json src/scripts/index-search",
     "lab": "ts-node --project ./tsconfig.scripts.json src/scripts/lab",
     "serve:ssr": "node dist/StadtratWatch-web/server/server.mjs"
