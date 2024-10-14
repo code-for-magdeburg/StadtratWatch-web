@@ -2,29 +2,26 @@ import { Injectable } from '@angular/core';
 import { SearchClient } from 'typesense';
 import { environment } from '../../environments/environment';
 import { DocumentSchema } from 'typesense/lib/Typesense/Documents';
-import { MultiSearchRequestsSchema } from 'typesense/lib/Typesense/MultiSearch';
 
 
-export interface PaperDocumentSchema extends DocumentSchema {
+export interface PaperAndSpeechDocumentSchema extends DocumentSchema {
   id: string;
-  reference: string;
-  name: string;
   type: string;
-  files_content: string[];
-  sort_date: number;
-}
 
-export interface SpeechDocumentSchema extends DocumentSchema {
-  id: string;
-  electoral_period: string;
-  session: string;
-  session_date: number;
-  start: number;
-  speaker: string;
-  faction?: string;
-  party?: string;
-  on_behalf_of?: string;
-  transcription: string;
+  paper_name: string;
+  paper_type: string;
+  paper_reference: string;
+  paper_files_content: string[];
+
+  speech_electoral_period: string;
+  speech_session: string;
+  speech_start: number;
+  speech_session_date: number;
+  speech_speaker: string;
+  speech_faction?: string;
+  speech_party?: string;
+  speech_on_behalf_of?: string;
+  speech_transcription: string;
 }
 
 
@@ -55,28 +52,17 @@ export class SearchService {
       return null;
     }
 
-    const searchRequests: MultiSearchRequestsSchema = {
-      searches: [
+    return await this.searchClient
+      .collections<PaperAndSpeechDocumentSchema>('papers-and-speeches')
+      .documents()
+      .search(
         {
           q: query,
-          collection: 'papers',
-          query_by: 'reference,name,files_content'
-        },
-        {
-          q: query,
-          collection: 'speeches',
-          query_by: 'transcription'
-        }
-      ]
-    };
-
-    return await this.searchClient.multiSearch
-      .perform<[PaperDocumentSchema, SpeechDocumentSchema]>(
-        searchRequests,
-        {
+          query_by: 'paper_reference,paper_name,paper_files_content,speech_transcription',
           page,
           highlight_affix_num_tokens: 15
-        }
+        },
+        {}
       );
 
   }
