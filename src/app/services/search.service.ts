@@ -7,11 +7,11 @@ import { DocumentSchema } from 'typesense/lib/Typesense/Documents';
 export interface PaperAndSpeechDocumentSchema extends DocumentSchema {
   id: string;
   type: string;
+  content: string[];
 
   paper_name: string;
   paper_type: string;
   paper_reference: string;
-  paper_files_content: string[];
 
   speech_electoral_period: string;
   speech_session: string;
@@ -21,7 +21,6 @@ export interface PaperAndSpeechDocumentSchema extends DocumentSchema {
   speech_faction?: string;
   speech_party?: string;
   speech_on_behalf_of?: string;
-  speech_transcription: string;
 }
 
 
@@ -33,6 +32,7 @@ export class SearchService {
 
 
   constructor() {
+
     this.searchClient = new SearchClient({
       apiKey: environment.typesense.apiKey,
       nodes: [
@@ -43,6 +43,7 @@ export class SearchService {
         }
       ]
     });
+
   }
 
 
@@ -58,7 +59,7 @@ export class SearchService {
       .search(
         {
           q: query,
-          query_by: 'paper_reference,paper_name,paper_files_content,speech_transcription',
+          query_by: 'paper_reference,paper_name,content',
           page,
           highlight_affix_num_tokens: 15
         },

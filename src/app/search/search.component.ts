@@ -61,11 +61,12 @@ export class SearchComponent implements OnInit {
 
             const document = item.document as PaperAndSpeechDocumentSchema;
 
+            const contentHighlight = item.highlights?.find(highlight => highlight.field === 'content');
+            const contentSnippets = contentHighlight?.snippets || [];
+            const content = contentSnippets.length > 0 ? contentSnippets[0] : '';
+
             if (document.type === 'paper') {
 
-              const contentHighlight = item.highlights?.find(highlight => highlight.field === 'paper_files_content');
-              const contentSnippets = contentHighlight?.snippets || [];
-              const content = contentSnippets.length > 0 ? contentSnippets[0] : '';
               return {
                 type: 'paper',
                 paper: {
@@ -82,8 +83,6 @@ export class SearchComponent implements OnInit {
 
             if (document.type === 'speech') {
 
-              const contentHighlight = item.highlights?.find(highlight => highlight.field === 'speech_transcription');
-              const content = contentHighlight?.snippet || '';
               return {
                 type: 'speech',
                 paper: null,

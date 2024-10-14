@@ -53,11 +53,11 @@ async function indexSessionSpeeches(registry: Registry, session: string, config:
         return {
           id: `speech-${session}-${speech.start}`,
           type: 'speech',
+          content: [speech.transcription],
 
           paper_name: '',
           paper_type: '',
           paper_reference: '',
-          paper_files_content: [],
 
           speech_electoral_period: registry.electoralPeriod,
           speech_session: session,
@@ -66,8 +66,7 @@ async function indexSessionSpeeches(registry: Registry, session: string, config:
           speech_speaker: speech.speaker,
           speech_faction: faction,
           speech_party: party,
-          speech_on_behalf_of: speech.onBehalfOf,
-          speech_transcription: speech.transcription
+          speech_on_behalf_of: speech.onBehalfOf
         };
 
       })

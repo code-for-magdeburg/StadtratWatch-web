@@ -54,11 +54,11 @@ export async function indexPapers(contentDir: string, scrapedSession: ScrapedSes
         return {
           id: `paper-${paper.original_id}`,
           type: 'paper',
+          content: files_content,
 
           paper_name: paper.name || '',
           paper_type: paper.paper_type || '',
           paper_reference: paper.reference || '',
-          paper_files_content: files_content,
 
           speech_electoral_period: '',
           speech_session: '',
@@ -67,8 +67,7 @@ export async function indexPapers(contentDir: string, scrapedSession: ScrapedSes
           speech_speaker: '',
           speech_faction: null,
           speech_party: null,
-          speech_on_behalf_of: null,
-          speech_transcription: ''
+          speech_on_behalf_of: null
         };
 
       })

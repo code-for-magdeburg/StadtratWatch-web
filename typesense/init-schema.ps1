@@ -63,11 +63,11 @@ $Body = @"
     "fields": [
 
       {"name": "type", "type": "string", "index": false},
+      {"name": "content", "type": "string[]", "locale": "de"},
 
       {"name": "paper_name", "type": "string", "locale": "de"},
       {"name": "paper_type", "type": "string", "facet": true, "locale": "de"},
       {"name": "paper_reference", "type": "string"},
-      {"name": "paper_files_content", "type": "string[]", "locale": "de"},
 
       {"name": "speech_electoral_period", "type": "string", "facet": true},
       {"name": "speech_session", "type": "string", "index": false},
@@ -76,8 +76,7 @@ $Body = @"
       {"name": "speech_speaker", "type": "string", "facet": true},
       {"name": "speech_faction", "type": "string", "facet": true, "optional": true},
       {"name": "speech_party", "type": "string", "facet": true, "optional": true},
-      {"name": "speech_on_behalf_of", "type": "string", "facet": true, "optional": true},
-      {"name": "speech_transcription", "type": "string", "locale": "de"}
+      {"name": "speech_on_behalf_of", "type": "string", "facet": true, "optional": true}
 
     ],
     "enable_nested_fields": false,
