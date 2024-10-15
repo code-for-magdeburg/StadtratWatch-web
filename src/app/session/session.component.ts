@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SessionsService } from '../services/sessions.service';
 import { ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
-import { SessionVotingDto, SessionSpeechDto, Vote, VoteResult } from '../model/Session';
+import { SessionSpeechDto, SessionVotingDto, Vote, VoteResult } from '../model/Session';
 import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { DatePipe } from '@angular/common';
@@ -33,6 +33,15 @@ export const SPEECHES_TAB = 'speeches';
 export const SPEAKING_TIMES_TAB = 'speaking-times';
 
 
+type SpeechViewModel = SessionSpeechDto & {
+  transcriptionParagraphs: string[];
+  anchorId: string;
+  permaLinkTitle: string;
+  hintMailHref: string;
+  hintMailTitle: string;
+};
+
+
 @Component({
   selector: 'app-session',
   templateUrl: './session.component.html',
@@ -47,7 +56,7 @@ export class SessionComponent implements OnInit {
   public sessionDate = '';
   public votings: Voting[] = [];
   public speakingTimes: SpeakingTimeChartData[] = [];
-  public speeches: SessionSpeechDto[] = [];
+  public speeches: SpeechViewModel[] = [];
   public meetingMinutesUrl = '';
   public youtubeUrl = '';
 
@@ -69,9 +78,17 @@ export class SessionComponent implements OnInit {
 
   ngOnInit() {
 
-    this.route.fragment.subscribe(fragment => {
+    this.route.queryParams.subscribe(query => {
       if (this.isInitializing) return;
-      this.openPage(fragment || VOTINGS_TAB);
+      const { tab } = query;
+      this.openTab(tab || VOTINGS_TAB);
+    });
+
+    this.route.fragment.subscribe(fragment => {
+      const { tab } = this.route.snapshot.queryParams;
+      if (tab === 'speeches' && fragment) {
+        setTimeout(() => document.getElementById(fragment)?.scrollIntoView({ behavior: 'instant' }), 200);
+      }
     });
 
     this.route.paramMap.subscribe(async params => {
@@ -104,11 +121,41 @@ export class SessionComponent implements OnInit {
       }));
       this.votings.sort((a, b) => a.id - b.id);
       this.speakingTimes = SpeakingTimeChartData.fromSession(session);
-      this.speeches = session.speeches;
+      this.speeches = session.speeches.map(speech => {
+
+        const transcriptionParagraphs = (speech.transcription || '')
+          .split('\n\n')
+          .filter(paragraph => paragraph.trim().length > 0);
+        const permaLinkTitle = `Link zum Redebeitrag von ${speech.speaker} am ${this.sessionDate}`;
+        const subject = encodeURIComponent(`Hinweis zum Redebeitrag von ${speech.speaker} am ${this.sessionDate}`);
+        const hintMailBodyText = encodeURIComponent(
+          `Hallo StadtratWatch-Team!
+
+Ich habe einen Hinweis zum Redebeitrag von ${speech.speaker} aus der Sitzung vom ${this.sessionDate} (Zeitmarke: ${speech.start}):
+
+
+
+
+Mit freundlichen Grüßen,
+
+`);
+        const hintMailHref = `mailto:stadtratwatch@gmail.com?subject=${subject}&body=${hintMailBodyText}`
+        const hintMailTitle = `Hinweis zum Redebeitrag von ${speech.speaker} geben`;
+        return {
+          ...speech,
+          transcriptionParagraphs,
+          anchorId: `speech-${speech.start}`,
+          permaLinkTitle,
+          hintMailHref,
+          hintMailTitle,
+        } as SpeechViewModel;
+
+      });
 
       this.tabs ? this.tabs.tabs[2].active = true : null;
       setTimeout(() => {
-        this.openPage(this.route.snapshot.fragment || VOTINGS_TAB);
+        const { tab } = this.route.snapshot.queryParams;
+        this.openTab(tab || VOTINGS_TAB);
         this.isInitializing = false;
       }, 1);
 
@@ -122,15 +169,15 @@ export class SessionComponent implements OnInit {
   }
 
 
-  async onSelectTab(page: string) {
+  async onSelectTab(tab: string) {
     if (this.isInitializing) return;
-    await this.router.navigate([], { fragment: page });
+    await this.router.navigate([], { relativeTo: this.route, queryParams: { tab } });
   }
 
 
-  private openPage(fragment: string) {
+  private openTab(tab: string) {
 
-    switch (fragment) {
+    switch (tab) {
       case VOTINGS_TAB:
         this.tabs ? this.tabs.tabs[0].active = true : null;
         break;

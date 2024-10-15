@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
 import { SearchClient } from 'typesense';
 import { environment } from '../../environments/environment';
-import { DocumentSchema } from "typesense/lib/Typesense/Documents";
+import { DocumentSchema } from 'typesense/lib/Typesense/Documents';
 
 
-export interface FileDocumentSchema extends DocumentSchema {
-  paper_id: number;
-  paper_reference: string;
+export interface PaperAndSpeechDocumentSchema extends DocumentSchema {
+  id: string;
+  type: string;
+  content: string[];
+
   paper_name: string;
   paper_type: string;
-  content: string;
-}
+  paper_reference: string;
 
-export interface PaperDocumentSchema extends DocumentSchema {
-  id: string;
-  reference: string;
-  name: string;
-  type: string;
-  files_content: string[];
-  sort_date: number;
+  speech_electoral_period: string;
+  speech_session: string;
+  speech_start: number;
+  speech_session_date: number;
+  speech_speaker: string;
+  speech_faction?: string;
+  speech_party?: string;
+  speech_on_behalf_of?: string;
 }
 
 
@@ -30,6 +32,7 @@ export class SearchService {
 
 
   constructor() {
+
     this.searchClient = new SearchClient({
       apiKey: environment.typesense.apiKey,
       nodes: [
@@ -40,44 +43,25 @@ export class SearchService {
         }
       ]
     });
+
   }
 
 
-  public async searchFiles(query: string, page: number) {
+  public async searchPapersAndSpeeches(query: string, page: number) {
 
     if (!query) {
       return null;
     }
 
     return await this.searchClient
-      .collections<FileDocumentSchema>('files')
+      .collections<PaperAndSpeechDocumentSchema>('papers-and-speeches')
       .documents()
       .search(
         {
           q: query,
           query_by: 'paper_reference,paper_name,content',
-          page
-        },
-        {}
-      );
-
-  }
-
-
-  public async searchPapers(query: string, page: number) {
-
-    if (!query) {
-      return null;
-    }
-
-    return await this.searchClient
-      .collections<PaperDocumentSchema>('papers')
-      .documents()
-      .search(
-        {
-          q: query,
-          query_by: 'reference,name,files_content',
-          page
+          page,
+          highlight_affix_num_tokens: 15
         },
         {}
       );

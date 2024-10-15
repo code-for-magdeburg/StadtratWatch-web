@@ -17,7 +17,7 @@ export const environment: Environment = {
   awsCloudFrontBaseUrl: 'https://d2zk2bghxwzsug.cloudfront.net',
 
   typesense: {
-    apiKey: 'xqZFQXOwfQ0ObYTONF9uPYhELopQ89ll',
+    apiKey: 'XwYpdzR7Z2baeC3XdZHdzCUfKy7r2Pm5',
     host: 'typesense.unser-magdeburg.de',
     port: 443,
     protocol: 'https'

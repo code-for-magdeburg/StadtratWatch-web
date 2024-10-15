@@ -4,4 +4,5 @@ export type SessionSpeech = {
   duration: number;
   isChairPerson?: boolean;
   onBehalfOf?: string;
+  transcription?: string;
 };

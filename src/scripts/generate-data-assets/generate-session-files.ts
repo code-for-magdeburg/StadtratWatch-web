@@ -1,7 +1,7 @@
 import {
   SessionDetailsDto,
   SessionFactionDto,
-  SessionLightDto, SessionPartyDto, SessionPersonDto, SessionVotingDto,
+  SessionLightDto, SessionPartyDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto,
   VoteResult,
   VotingResult
 } from '../../app/model/Session';
@@ -13,7 +13,8 @@ import { SessionConfig } from './model/session-config';
 import { SessionSpeech } from './model/session-speech';
 
 
-export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir: string, registry: Registry, scrapedSession: ScrapedSession): SessionDetailsDto[] {
+export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir: string, registry: Registry,
+                                     scrapedSession: ScrapedSession): SessionDetailsDto[] {
 
   if (!fs.existsSync(sessionsOutputDir)) {
     fs.mkdirSync(sessionsOutputDir, { recursive: true });
@@ -54,6 +55,7 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
       const sessionScan = JSON.parse(
         fs.readFileSync(`${sessionDir}/session-scan-${session.date}.json`, 'utf-8')
       ) as SessionScan;
+
       const sessionSpeeches = JSON.parse(
         fs.readFileSync(`${sessionDir}/session-speeches-${session.date}.json`, 'utf-8')
       ) as SessionSpeech[];
@@ -135,10 +137,11 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
               start: sessionSpeech.start,
               duration: sessionSpeech.duration,
               faction,
-              onBehalfOf: sessionSpeech.onBehalfOf
-            };
+              onBehalfOf: sessionSpeech.onBehalfOf,
+              transcription: sessionSpeech.transcription
+            } satisfies SessionSpeechDto;
           })
-      };
+      } satisfies SessionDetailsDto;
     })
     .sort((a, b) => a.date.localeCompare(b.date));
   sessions.forEach(session => {
