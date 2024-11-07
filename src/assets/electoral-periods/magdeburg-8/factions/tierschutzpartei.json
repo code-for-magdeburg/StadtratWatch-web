@@ -2,12 +2,12 @@
   "id": "tierschutzpartei",
   "name": "Tierschutzpartei",
   "seats": 3,
-  "applicationsSuccessRate": 0.8,
-  "votingsSuccessRate": 0.9032258064516129,
-  "uniformityScore": 0.9029758657418231,
-  "participationRate": 0.9229390681003584,
-  "abstentionRate": 0.11139471245854227,
-  "speakingTime": 704,
+  "applicationsSuccessRate": 0.8928571428571429,
+  "votingsSuccessRate": 0.8821428571428571,
+  "uniformityScore": 0.8914095795954697,
+  "participationRate": 0.8154761904761905,
+  "abstentionRate": 0.13131051168565167,
+  "speakingTime": 1176,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -21,6 +21,14 @@
       {
         "date": "2024-09-12",
         "value": 0.8
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.8
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.8928571428571429
       }
     ],
     "votingsSuccessRate": [
@@ -35,6 +43,14 @@
       {
         "date": "2024-09-12",
         "value": 0.9032258064516129
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.8842975206611571
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.8821428571428571
       }
     ],
     "uniformityScore": [
@@ -49,6 +65,14 @@
       {
         "date": "2024-09-12",
         "value": 0.9029758657418231
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.900446185020653
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.8914095795954697
       }
     ],
     "participationRate": [
@@ -63,6 +87,14 @@
       {
         "date": "2024-09-12",
         "value": 0.9229390681003584
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.8526170798898072
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.8154761904761905
       }
     ],
     "abstentionRate": [
@@ -77,6 +109,14 @@
       {
         "date": "2024-09-12",
         "value": 0.11139471245854227
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.1147960343439067
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.13131051168565167
       }
     ]
   },
@@ -287,6 +327,188 @@
       "votings": [
         {
           "votingId": 92,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0132/24",
+      "type": "Antrag",
+      "title": "Graffitikunst für Magdeburg",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 243739,
+      "votings": [
+        {
+          "votingId": 2,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0208/24",
+      "type": "Geschäftsordnung",
+      "title": "Grundhafter Ausbau des Klusdamm-Radwegs zwischen Pechau und Magdeburg",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244526,
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0209/24",
+      "type": "Geschäftsordnung",
+      "title": "Schulwegsicherheit - Gefahrenstelle an der Salbker Chaussee Höhe Magdeburger Ring beseitigen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244588,
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0225/24",
+      "type": "Geschäftsordnung",
+      "title": "Elektromobilitätskonzept einstellen!",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244757,
+      "votings": [
+        {
+          "votingId": 14,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0230/24",
+      "type": "Geschäftsordnung",
+      "title": "Elektromobilitätskonzept haushaltsangepasst umsetzen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244770,
+      "votings": [
+        {
+          "votingId": 15,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0213/24",
+      "type": "Geschäftsordnung",
+      "title": "Kostenfreier Eintritt für Familien in allen städtischen Kultur- und Freizeiteinrichtungen am Kindertag",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244716,
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0218/24",
+      "type": "Geschäftsordnung",
+      "title": "Fahrgastunterstand Sohlener Hauptstraße/ Am Kirschberg und Sohlener Straße/ Langenweddinger Straße",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244738,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0227/24",
+      "type": "Geschäftsordnung",
+      "title": "Künstlerische Gestaltung von Schallschutzwänden, 2. Nord-Süd-Verbindung, Neustädter Feld",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244765,
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0228/24",
+      "type": "Geschäftsordnung",
+      "title": "Erarbeitung eines Verkehrskonzepts für die ehemalige Karl-Marx-Siedlung im Stadtteil Hopfengarten",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244768,
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0229/24",
+      "type": "Geschäftsordnung",
+      "title": "Eine gute Lösung für Radfahrer: Radweg auf der Südseite der Brenneckstraße ertüchtigen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244769,
+      "votings": [
+        {
+          "votingId": 30,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0236/24",
+      "type": "Geschäftsordnung",
+      "title": "Urban Art Gallery - Bitte mit Konzept: Stadtgeschichte als Graffiti",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244777,
+      "votings": [
+        {
+          "votingId": 35,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0237/24",
+      "type": "Geschäftsordnung",
+      "title": "Magdeburger Weltausstellung reloaded: 100 Jahre Theaterausstellung in 2027",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244778,
+      "votings": [
+        {
+          "votingId": 36,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0238/24",
+      "type": "Geschäftsordnung",
+      "title": "Transparenz bei der Datenabfrage in den Bürgerbüros",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244779,
+      "votings": [
+        {
+          "votingId": 37,
           "votingResult": "PASSED"
         }
       ]

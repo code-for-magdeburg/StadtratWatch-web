@@ -2,11 +2,11 @@
   "id": "volt",
   "name": "Volt",
   "seats": 1,
-  "votingsSuccessRate": 0.7795698924731183,
+  "votingsSuccessRate": 0.8,
   "uniformityScore": 1,
-  "participationRate": 0.978494623655914,
-  "abstentionRate": 0.030551009274413527,
-  "speakingTime": 83,
+  "participationRate": 0.9678571428571429,
+  "abstentionRate": 0.0307366206022421,
+  "speakingTime": 242,
   "statsHistory": {
     "votingsSuccessRate": [
       {
@@ -20,6 +20,14 @@
       {
         "date": "2024-09-12",
         "value": 0.7795698924731183
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.7933884297520661
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.8
       }
     ],
     "uniformityScore": [
@@ -33,6 +41,14 @@
       },
       {
         "date": "2024-09-12",
+        "value": 1
+      },
+      {
+        "date": "2024-10-17",
+        "value": 1
+      },
+      {
+        "date": "2024-10-21",
         "value": 1
       }
     ],
@@ -48,6 +64,14 @@
       {
         "date": "2024-09-12",
         "value": 0.978494623655914
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.9752066115702479
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.9678571428571429
       }
     ],
     "abstentionRate": [
@@ -62,6 +86,14 @@
       {
         "date": "2024-09-12",
         "value": 0.030551009274413527
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.03184182838438157
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.0307366206022421
       }
     ]
   }
