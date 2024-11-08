@@ -3,6 +3,13 @@ $TypesenseServerUrl = $args[0]
 $CollectionName = $args[1]
 $ApiKey = $args[2]
 
+$Url = "${TypesenseServerUrl}/collections"
+
+$Headers = @{
+  "X-TYPESENSE-API-KEY" = $ApiKey
+  "Content-Type" = "application/json"
+}
+
 $Body = @"
 {
     "name": "${CollectionName}",
