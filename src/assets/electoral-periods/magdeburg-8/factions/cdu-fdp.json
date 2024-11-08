@@ -2,12 +2,12 @@
   "id": "cdu-fdp",
   "name": "CDU/FDP",
   "seats": 15,
-  "applicationsSuccessRate": 0.9310344827586207,
-  "votingsSuccessRate": 0.956989247311828,
-  "uniformityScore": 0.9735088038893275,
-  "participationRate": 0.8017921146953405,
-  "abstentionRate": 0.037960912367622675,
-  "speakingTime": 5254,
+  "applicationsSuccessRate": 0.8888888888888888,
+  "votingsSuccessRate": 0.9107142857142857,
+  "uniformityScore": 0.9571610752249159,
+  "participationRate": 0.7795238095238095,
+  "abstentionRate": 0.07774792472747723,
+  "speakingTime": 8500,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -21,6 +21,14 @@
       {
         "date": "2024-09-12",
         "value": 0.9310344827586207
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.8823529411764706
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.8888888888888888
       }
     ],
     "votingsSuccessRate": [
@@ -35,6 +43,14 @@
       {
         "date": "2024-09-12",
         "value": 0.956989247311828
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.9421487603305785
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.9107142857142857
       }
     ],
     "uniformityScore": [
@@ -49,6 +65,14 @@
       {
         "date": "2024-09-12",
         "value": 0.9735088038893275
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.9651863918780347
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.9571610752249159
       }
     ],
     "participationRate": [
@@ -63,6 +87,14 @@
       {
         "date": "2024-09-12",
         "value": 0.8017921146953405
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.7991735537190082
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.7795238095238095
       }
     ],
     "abstentionRate": [
@@ -77,6 +109,14 @@
       {
         "date": "2024-09-12",
         "value": 0.037960912367622675
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.055692681028963756
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.07774792472747723
       }
     ]
   },
@@ -435,6 +475,230 @@
       "votings": [
         {
           "votingId": 94,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0509/24/2",
+      "type": "Änderungsantrag",
+      "title": "Aussetzung des Beschlusses \"Barrierefreier Livestream der Stadtratssitzungen\"",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244869,
+      "votings": [
+        {
+          "votingId": 4,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0416/24/5",
+      "type": "Änderungsantrag",
+      "title": "Alter Markt - Herstellung der Niveaugleichheit",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244906,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0249/24/3",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Parkgebührenordnung der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244886,
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0171/22",
+      "type": "Antrag",
+      "title": "Sanierung Neustädter See",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 239123,
+      "votings": [
+        {
+          "votingId": 47,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0089/24",
+      "type": "Antrag",
+      "title": "Verhinderung von Autos im Gleisbett",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 243476,
+      "votings": [
+        {
+          "votingId": 50,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0132/24/1",
+      "type": "Änderungsantrag",
+      "title": "Graffitikunst für Magdeburg",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": null,
+      "votings": [
+        {
+          "votingId": 1,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0132/24",
+      "type": "Antrag",
+      "title": "Graffitikunst für Magdeburg",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 243739,
+      "votings": [
+        {
+          "votingId": 2,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0152/24/1",
+      "type": "Änderungsantrag",
+      "title": "Mehr Aufenthaltsqualität durch bessere Umfeldgestaltung am Sudenburger Bahnhof",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244867,
+      "votings": [
+        {
+          "votingId": 3,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0208/24",
+      "type": "Geschäftsordnung",
+      "title": "Grundhafter Ausbau des Klusdamm-Radwegs zwischen Pechau und Magdeburg",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244526,
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0209/24",
+      "type": "Geschäftsordnung",
+      "title": "Schulwegsicherheit - Gefahrenstelle an der Salbker Chaussee Höhe Magdeburger Ring beseitigen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244588,
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0213/24",
+      "type": "Geschäftsordnung",
+      "title": "Kostenfreier Eintritt für Familien in allen städtischen Kultur- und Freizeiteinrichtungen am Kindertag",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244716,
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0218/24",
+      "type": "Geschäftsordnung",
+      "title": "Fahrgastunterstand Sohlener Hauptstraße/ Am Kirschberg und Sohlener Straße/ Langenweddinger Straße",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244738,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0228/24",
+      "type": "Geschäftsordnung",
+      "title": "Erarbeitung eines Verkehrskonzepts für die ehemalige Karl-Marx-Siedlung im Stadtteil Hopfengarten",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244768,
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0233/24",
+      "type": "Geschäftsordnung",
+      "title": "Schulwegsicherheit in der Wilhelm-Külz-Straße gewährleisten",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244773,
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0234/24",
+      "type": "Geschäftsordnung",
+      "title": "Demokratie ermöglichen: öffentliche Gebäude für parteipolitische Veranstaltungen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244774,
+      "votings": [
+        {
+          "votingId": 34,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0238/24",
+      "type": "Geschäftsordnung",
+      "title": "Transparenz bei der Datenabfrage in den Bürgerbüros",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244779,
+      "votings": [
+        {
+          "votingId": 37,
           "votingResult": "PASSED"
         }
       ]

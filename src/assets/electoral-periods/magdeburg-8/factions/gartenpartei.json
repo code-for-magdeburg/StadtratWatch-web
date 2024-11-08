@@ -2,12 +2,12 @@
   "id": "gartenpartei",
   "name": "Gartenpartei",
   "seats": 3,
-  "applicationsSuccessRate": 0.6923076923076923,
-  "votingsSuccessRate": 0.6774193548387096,
-  "uniformityScore": 0.9313177861564959,
-  "participationRate": 0.6630824372759857,
-  "abstentionRate": 0.12070592921656752,
-  "speakingTime": 2696,
+  "applicationsSuccessRate": 0.5714285714285714,
+  "votingsSuccessRate": 0.6714285714285714,
+  "uniformityScore": 0.9134585914933963,
+  "participationRate": 0.7166666666666667,
+  "abstentionRate": 0.13586340715400064,
+  "speakingTime": 4596,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -21,6 +21,14 @@
       {
         "date": "2024-09-12",
         "value": 0.6923076923076923
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.5882352941176471
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.5714285714285714
       }
     ],
     "votingsSuccessRate": [
@@ -35,6 +43,14 @@
       {
         "date": "2024-09-12",
         "value": 0.6774193548387096
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.6818181818181818
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.6714285714285714
       }
     ],
     "uniformityScore": [
@@ -49,6 +65,14 @@
       {
         "date": "2024-09-12",
         "value": 0.9313177861564959
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.926910958664991
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.9134585914933963
       }
     ],
     "participationRate": [
@@ -63,6 +87,14 @@
       {
         "date": "2024-09-12",
         "value": 0.6630824372759857
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.6721763085399449
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.7166666666666667
       }
     ],
     "abstentionRate": [
@@ -77,6 +109,14 @@
       {
         "date": "2024-09-12",
         "value": 0.12070592921656752
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.11061873262671135
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.13586340715400064
       }
     ]
   },
@@ -260,6 +300,118 @@
         {
           "votingId": 48,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0416/24",
+      "type": "Geschäftsordnung",
+      "title": "Alter Markt - Herstellung der Niveaugleichheit",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244345,
+      "votings": [
+        {
+          "votingId": 18,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0249/24",
+      "type": "Geschäftsordnung",
+      "title": "Neufassung der Parkgebührenordnung der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 243875,
+      "votings": [
+        {
+          "votingId": 39,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0079/24",
+      "type": "Antrag",
+      "title": "Umgehungsstraße für Südost und Beyendorf-Sohlen",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 243428,
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0089/24",
+      "type": "Geschäftsordnung",
+      "title": "Verhinderung von Autos im Gleisbett",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 243476,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0219/24",
+      "type": "Geschäftsordnung",
+      "title": "Neue Sporthalle für Beyendorf- Sohlen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244739,
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0226/24",
+      "type": "Geschäftsordnung",
+      "title": "Neubau Multifunktionshalle (Handballhalle) am Standort Barleber Grund prüfen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244764,
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0226/24",
+      "type": "Antrag",
+      "title": "Neubau Multifunktionshalle (Handballhalle) am Standort Barleber Grund prüfen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244764,
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0227/24",
+      "type": "Geschäftsordnung",
+      "title": "Künstlerische Gestaltung von Schallschutzwänden, 2. Nord-Süd-Verbindung, Neustädter Feld",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244765,
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "PASSED"
         }
       ]
     }

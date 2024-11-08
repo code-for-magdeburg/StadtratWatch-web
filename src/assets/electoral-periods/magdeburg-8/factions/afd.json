@@ -2,12 +2,12 @@
   "id": "afd",
   "name": "AfD",
   "seats": 13,
-  "applicationsSuccessRate": 0.07692307692307693,
-  "votingsSuccessRate": 0.7526881720430108,
-  "uniformityScore": 0.9926212055508291,
-  "participationRate": 0.9276261373035567,
-  "abstentionRate": 0.06327592816954519,
-  "speakingTime": 4209,
+  "applicationsSuccessRate": 0.043478260869565216,
+  "votingsSuccessRate": 0.7392857142857143,
+  "uniformityScore": 0.9884037592536388,
+  "participationRate": 0.8491758241758242,
+  "abstentionRate": 0.0620779211456703,
+  "speakingTime": 6577,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -21,6 +21,14 @@
       {
         "date": "2024-09-12",
         "value": 0.07692307692307693
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.05263157894736842
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.043478260869565216
       }
     ],
     "votingsSuccessRate": [
@@ -35,6 +43,14 @@
       {
         "date": "2024-09-12",
         "value": 0.7526881720430108
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.768595041322314
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.7392857142857143
       }
     ],
     "uniformityScore": [
@@ -49,6 +65,14 @@
       {
         "date": "2024-09-12",
         "value": 0.9926212055508291
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.992357769242487
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.9884037592536388
       }
     ],
     "participationRate": [
@@ -63,6 +87,14 @@
       {
         "date": "2024-09-12",
         "value": 0.9276261373035567
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.8760330578512396
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.8491758241758242
       }
     ],
     "abstentionRate": [
@@ -77,6 +109,14 @@
       {
         "date": "2024-09-12",
         "value": 0.06327592816954519
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.05192123184144461
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.0620779211456703
       }
     ]
   },
@@ -259,6 +299,146 @@
       "votings": [
         {
           "votingId": 70,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0509/24/1",
+      "type": "Änderungsantrag",
+      "title": "Aussetzung des Beschlusses „Barrierefreier Livestream der Stadtratssitzung”",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244850,
+      "votings": [
+        {
+          "votingId": 3,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0343/24/2",
+      "type": "Änderungsantrag",
+      "title": "Neubau Rettungswache Olvenstedt, Birkenallee 34, 39130 Magdeburg - Vorentwurf",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244852,
+      "votings": [
+        {
+          "votingId": 13,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0325/24/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs, Änderung des Titels des Bebauungsplans und geringfügige Änderung des Geltungsbereichs zum Bebauungsplan Nr. 483-6 „Elb-Hafen - ehemals Fahlberg-List\"",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244855,
+      "votings": [
+        {
+          "votingId": 32,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0283/24/1",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des 5. Entwurfs zum Bebauungsplan Nr. 174-5 \"Sieverstorstraße 39-51\"",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244856,
+      "votings": [
+        {
+          "votingId": 35,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0249/24/1",
+      "type": "Änderungsantrag",
+      "title": "Neufassung der Parkgebührenordnung der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244860,
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0171/22/1",
+      "type": "Änderungsantrag",
+      "title": "Sanierung Neustädter See",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 239189,
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0103/24",
+      "type": "Antrag",
+      "title": "Verkehrsverbesserung Loitscher Weg prüfen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 243697,
+      "votings": [
+        {
+          "votingId": 7,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0146/24",
+      "type": "Antrag",
+      "title": "Änderung der Benutzungs- und Entgeltordnung des Bürgerhauses Randau",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 243975,
+      "votings": [
+        {
+          "votingId": 8,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0223/24",
+      "type": "Antrag",
+      "title": "Anmietung von Wohnungen für Asylbewerber stoppen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244755,
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0220/24",
+      "type": "Antrag",
+      "title": "Haushaltsneutrale Asylfinanzierung mit dem Land verhandeln",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244752,
+      "votings": [
+        {
+          "votingId": 18,
           "votingResult": "REJECTED"
         }
       ]

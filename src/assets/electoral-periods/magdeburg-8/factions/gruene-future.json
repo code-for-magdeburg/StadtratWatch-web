@@ -2,12 +2,12 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 6,
-  "applicationsSuccessRate": 0.6129032258064516,
-  "votingsSuccessRate": 0.7526881720430108,
-  "uniformityScore": 0.9672553018297698,
-  "participationRate": 0.9068100358422939,
-  "abstentionRate": 0.06629365512344236,
-  "speakingTime": 2132,
+  "applicationsSuccessRate": 0.7045454545454546,
+  "votingsSuccessRate": 0.7821428571428571,
+  "uniformityScore": 0.9768193465113958,
+  "participationRate": 0.8761904761904762,
+  "abstentionRate": 0.05831002766053158,
+  "speakingTime": 3506,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -21,6 +21,14 @@
       {
         "date": "2024-09-12",
         "value": 0.6129032258064516
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.6486486486486487
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.7045454545454546
       }
     ],
     "votingsSuccessRate": [
@@ -35,6 +43,14 @@
       {
         "date": "2024-09-12",
         "value": 0.7526881720430108
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.7644628099173554
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.7821428571428571
       }
     ],
     "uniformityScore": [
@@ -49,6 +65,14 @@
       {
         "date": "2024-09-12",
         "value": 0.9672553018297698
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.9736557620866131
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.9768193465113958
       }
     ],
     "participationRate": [
@@ -63,6 +87,14 @@
       {
         "date": "2024-09-12",
         "value": 0.9068100358422939
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.8884297520661157
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.8761904761904762
       }
     ],
     "abstentionRate": [
@@ -77,6 +109,14 @@
       {
         "date": "2024-09-12",
         "value": 0.06629365512344236
+      },
+      {
+        "date": "2024-10-17",
+        "value": 0.07025595562829606
+      },
+      {
+        "date": "2024-10-21",
+        "value": 0.05831002766053158
       }
     ]
   },
@@ -451,6 +491,188 @@
       "votings": [
         {
           "votingId": 94,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0416/24/1",
+      "type": "Änderungsantrag",
+      "title": "Alter Markt - Herstellung der Niveaugleichheit",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244842,
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0416/24/5",
+      "type": "Änderungsantrag",
+      "title": "Alter Markt - Herstellung der Niveaugleichheit",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244906,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0358/24/1",
+      "type": "Änderungsantrag",
+      "title": "Aufhebung des Beschlusses zur Teilsperrung des Breiten Weges im Jahr 2025",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244724,
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0374/24/1",
+      "type": "Änderungsantrag",
+      "title": "43. Änderung des Flächennutzungsplanes der Landeshauptstadt Magdeburg \"Elb-Hafen - ehemals Fahlberg-List\" - Entwurf, Änderung des Titels der F-Planänderung",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244880,
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0325/24/2",
+      "type": "Änderungsantrag",
+      "title": "Öffentliche Auslegung des Entwurfs, Änderung des Titels des Bebauungsplans und geringfügige Änderung des Geltungsbereichs zum Bebauungsplan Nr. 483-6 „Elb-Hafen - ehemals Fahlberg-List\"",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 244879,
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0100/24",
+      "type": "Antrag",
+      "title": "Ausstellung Magdeburger Stadtgeschichte auch in Englisch",
+      "sessionId": "2024-10-17",
+      "sessionDate": "2024-10-17",
+      "paperId": 243685,
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0208/24",
+      "type": "Geschäftsordnung",
+      "title": "Grundhafter Ausbau des Klusdamm-Radwegs zwischen Pechau und Magdeburg",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244526,
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0209/24",
+      "type": "Geschäftsordnung",
+      "title": "Schulwegsicherheit - Gefahrenstelle an der Salbker Chaussee Höhe Magdeburger Ring beseitigen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244588,
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0213/24",
+      "type": "Geschäftsordnung",
+      "title": "Kostenfreier Eintritt für Familien in allen städtischen Kultur- und Freizeiteinrichtungen am Kindertag",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244716,
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0211/24",
+      "type": "Geschäftsordnung",
+      "title": "Interessenbekundungsverfahren Gouvernementsberg 4",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244711,
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0218/24",
+      "type": "Geschäftsordnung",
+      "title": "Fahrgastunterstand Sohlener Hauptstraße/ Am Kirschberg und Sohlener Straße/ Langenweddinger Straße",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244738,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0228/24",
+      "type": "Geschäftsordnung",
+      "title": "Erarbeitung eines Verkehrskonzepts für die ehemalige Karl-Marx-Siedlung im Stadtteil Hopfengarten",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244768,
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0229/24",
+      "type": "Geschäftsordnung",
+      "title": "Eine gute Lösung für Radfahrer: Radweg auf der Südseite der Brenneckstraße ertüchtigen",
+      "sessionId": "2024-10-21",
+      "sessionDate": "2024-10-21",
+      "paperId": 244769,
+      "votings": [
+        {
+          "votingId": 30,
           "votingResult": "PASSED"
         }
       ]
