@@ -10,6 +10,7 @@ export type FactionDetailsDto = {
   uniformityScore: number;
   participationRate: number;
   abstentionRate: number;
+  speakingTime: number;
   statsHistory: StatsHistoryDto;
   applications: ApplicationDto[];
 };

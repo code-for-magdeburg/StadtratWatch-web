@@ -5,7 +5,6 @@ import {
   VoteResult,
   VotingResult
 } from '../../../app/model/Session';
-import { RegistryPerson } from '../../shared/model/registry';
 
 
 type VotingsSuccessForSession = {
@@ -104,17 +103,17 @@ function calcVotingSuccess(persons: SessionPersonDto[], voting: SessionVotingDto
 }
 
 
-export function calcPersonVotingSuccess(sessions: SessionDetailsDto[], person: RegistryPerson): PersonVotingSuccessStats {
+export function calcPersonVotingSuccess(sessions: SessionDetailsDto[], personId: string): PersonVotingSuccessStats {
 
   const votingSuccess = sessions
     .flatMap(session => session.votings)
     .filter(voting =>
       // TODO: To be decided => Different results if the abstentions are counted as success or not
       //  or if the they are not counted at all
-      voting.votes.some(vote => vote.personId === person.id && vote.vote !== VoteResult.DID_NOT_VOTE)
+      voting.votes.some(vote => vote.personId === personId && vote.vote !== VoteResult.DID_NOT_VOTE)
     )
     .map(voting => {
-      const personVote = voting.votes.find(vote => vote.personId === person.id)!.vote;
+      const personVote = voting.votes.find(vote => vote.personId === personId)!.vote;
       return personVote === VoteResult.VOTE_FOR && voting.votingResult === VotingResult.PASSED
         || personVote === VoteResult.VOTE_AGAINST && voting.votingResult === VotingResult.REJECTED;
     });

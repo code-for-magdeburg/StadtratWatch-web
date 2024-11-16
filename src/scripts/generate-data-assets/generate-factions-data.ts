@@ -1,5 +1,4 @@
 import { FactionDetailsDto, FactionLightDto, StatsHistoryDto } from '../../app/model/Faction';
-import * as fs from 'fs';
 import { Registry, RegistryFaction, RegistryPerson } from '../shared/model/registry';
 import {
   SessionDetailsDto,
@@ -12,14 +11,15 @@ import { calcFactionVotingSuccessRate } from './data-analysis/voting-success-rat
 import { ApplicationDto } from '../../app/model/Application';
 
 
-export function generateFactionFiles(factionsOutputDir: string, registry: Registry, sessions: SessionDetailsDto[]): void {
+export type GeneratedFactionsData = {
+  factions: FactionDetailsDto[];
+  factionsLight: FactionLightDto[];
+};
 
-  if (!fs.existsSync(factionsOutputDir)) {
-    fs.mkdirSync(factionsOutputDir, { recursive: true });
-  }
 
-  console.log('Writing all-factions.json');
-  const factions = registry.factions.map<FactionLightDto>(faction => {
+export function generateFactionsData(registry: Registry, sessions: SessionDetailsDto[]): GeneratedFactionsData {
+
+  const factions = registry.factions.map<FactionDetailsDto>(faction => {
     const members = registry.persons.filter(person => person.factionId === faction.id);
     const applicationsSuccessRate = calcApplicationsSuccessRate(faction, sessions);
     const votingsSuccessRate = calcFactionVotingSuccessRate(faction.id, sessions);
@@ -36,30 +36,33 @@ export function generateFactionFiles(factionsOutputDir: string, registry: Regist
       uniformityScore,
       participationRate,
       abstentionRate,
-      speakingTime
-    };
-  });
-  fs.writeFileSync(
-    `${factionsOutputDir}/all-factions.json`,
-    JSON.stringify(factions, null, 2),
-    'utf-8'
-  );
-
-  factions.forEach(faction => {
-    console.log(`Writing faction file ${faction.id}.json`);
-    const factionDetails = {
-      ...faction,
+      speakingTime,
       statsHistory: calcStatsHistory(registry, faction, sessions),
       applications: getApplicationsOfFaction(faction, sessions)
     } satisfies FactionDetailsDto;
-    const data = JSON.stringify(factionDetails, null, 2);
-    fs.writeFileSync(`${factionsOutputDir}/${faction.id}.json`, data, 'utf-8');
   });
+
+  const factionsLight = factions.map<FactionLightDto>(faction => {
+    return {
+      id: faction.id,
+      name: faction.name,
+      seats: faction.seats,
+      applicationsSuccessRate: faction.applicationsSuccessRate,
+      votingsSuccessRate: faction.votingsSuccessRate,
+      uniformityScore: faction.uniformityScore,
+      participationRate: faction.participationRate,
+      abstentionRate: faction.abstentionRate,
+      speakingTime: faction.speakingTime
+    } satisfies FactionLightDto;
+  });
+
+  return { factions, factionsLight };
 
 }
 
 
 function calcApplicationsSuccessRate(faction: RegistryFaction, sessions: SessionDetailsDto[]): number {
+
   const relevantApplications = sessions
     .map(session => session.votings)
     .flat()
@@ -74,10 +77,12 @@ function calcApplicationsSuccessRate(faction: RegistryFaction, sessions: Session
     .length;
 
   return applicationsPassed / relevantApplications.length;
+
 }
 
 
 function calcUniformityScore(factionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number | null {
+
   const uniformityScoresPerSession = sessions
     .map(session => calcUniformityScoreForSession(factionMembers, session))
     .filter(score => score !== null) as number[];
@@ -87,6 +92,7 @@ function calcUniformityScore(factionMembers: RegistryPerson[], sessions: Session
   }
 
   return uniformityScoresPerSession.reduce((a, b) => a + b, 0) / uniformityScoresPerSession.length;
+
 }
 
 
@@ -218,7 +224,7 @@ function calcAbstentionRateForVoting(factionMembers: RegistryPerson[], voting: S
 }
 
 
-function calcStatsHistory(registry: Registry, faction: FactionLightDto, sessions: SessionDetailsDto[]): StatsHistoryDto {
+function calcStatsHistory(registry: Registry, faction: RegistryFaction, sessions: SessionDetailsDto[]): StatsHistoryDto {
 
   const members = registry.persons.filter(person => person.factionId === faction.id);
 
@@ -248,7 +254,7 @@ function calcStatsHistory(registry: Registry, faction: FactionLightDto, sessions
 }
 
 
-function getApplicationsOfFaction(faction: FactionLightDto, sessions: SessionDetailsDto[]): ApplicationDto[] {
+function getApplicationsOfFaction(faction: RegistryFaction, sessions: SessionDetailsDto[]): ApplicationDto[] {
   const factionApplicationsVotings = sessions
     .map(session => ({
       votings: session.votings.map(voting => ({

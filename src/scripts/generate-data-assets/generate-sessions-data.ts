@@ -1,29 +1,33 @@
 import {
   SessionDetailsDto,
   SessionFactionDto,
-  SessionLightDto, SessionPartyDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto,
+  SessionLightDto,
+  SessionPartyDto,
+  SessionPersonDto,
+  SessionSpeechDto,
+  SessionVotingDto,
   VoteResult,
   VotingResult
 } from '../../app/model/Session';
-import * as fs from 'fs';
-import { SessionScan, SessionVote } from './model/session-scan';
+import { SessionVote } from './model/session-scan';
 import { ScrapedSession } from '../shared/model/scraped-session';
 import { Registry } from '../shared/model/registry';
-import { SessionConfig } from './model/session-config';
-import { SessionSpeech } from './model/session-speech';
+import { SessionInputData } from './model/session-input-data';
 
 
-export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir: string, registry: Registry,
-                                     scrapedSession: ScrapedSession): SessionDetailsDto[] {
+export type GeneratedSessionsData = {
+  sessions: SessionDetailsDto[];
+  sessionsLight: SessionLightDto[];
+};
 
-  if (!fs.existsSync(sessionsOutputDir)) {
-    fs.mkdirSync(sessionsOutputDir, { recursive: true });
-  }
+
+export function generateSessionsData(sessionsData: SessionInputData[], registry: Registry,
+                                     scrapedSession: ScrapedSession): GeneratedSessionsData {
 
   const scrapedStadtratMeetings = scrapedSession.meetings
     .filter(meeting => meeting.organization_name === 'Stadtrat')
-    .map<{ start: string, original_id: number | null }>(meeting => ({
-      start: meeting.start ? meeting.start.slice(0, 10) : '',
+    .map<{ date: string | null, original_id: number | null }>(meeting => ({
+      date: meeting.start ? meeting.start.slice(0, 10) : null,
       original_id: meeting.original_id
     }));
   const scrapedAgendaItems = scrapedSession.agenda_items;
@@ -39,26 +43,21 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
   const partiesByNameMap =
     new Map(registry.parties.map(party => [party.name, party.id]));
 
-  const sessions: SessionDetailsDto[] = registry.sessions
+  const sessionDataMap = new Map(sessionsData.map(sessionData => [sessionData.sessionId, sessionData]));
+
+  const sessions = registry.sessions
+    .filter(session => sessionDataMap.has(session.id))
     .map(session => {
-      const scrapedStadtratMeeting = scrapedStadtratMeetings.find(
-        meeting => meeting.start.slice(0, 10) === session.date
-      );
+      const scrapedStadtratMeeting = scrapedStadtratMeetings.find(meeting => meeting.date === session.date);
       if (!scrapedStadtratMeeting) {
         console.warn('No scraped meeting found for session', session.date);
       }
 
-      const sessionDir = `${sessionsDataDir}/${session.date}`;
-      const sessionConfig = JSON.parse(
-        fs.readFileSync(`${sessionDir}/config-${session.date}.json`, 'utf-8')
-      ) as SessionConfig;
-      const sessionScan = JSON.parse(
-        fs.readFileSync(`${sessionDir}/session-scan-${session.date}.json`, 'utf-8')
-      ) as SessionScan;
+      const sessionData = sessionDataMap.get(session.id)!;
+      const sessionConfig = sessionData.config;
+      const sessionScan = sessionData.scan;
+      const sessionSpeeches = sessionData.speeches;
 
-      const sessionSpeeches = JSON.parse(
-        fs.readFileSync(`${sessionDir}/session-speeches-${session.date}.json`, 'utf-8')
-      ) as SessionSpeech[];
       const sessionFactionNames = Array.from(new Set(
         sessionConfig.names.map(sessionConfigPerson => sessionConfigPerson.faction)
       ));
@@ -142,32 +141,17 @@ export function generateSessionFiles(sessionsDataDir: string, sessionsOutputDir:
             } satisfies SessionSpeechDto;
           })
       } satisfies SessionDetailsDto;
-    })
-    .sort((a, b) => a.date.localeCompare(b.date));
-  sessions.forEach(session => {
-    console.log(`Writing session file ${session.id}.json`);
-    const data = JSON.stringify(session, null, 2);
-    fs.writeFileSync(`${sessionsOutputDir}/${session.id}.json`, data, 'utf-8');
-  });
+    });
 
-  console.log('Writing all-sessions.json');
-  const sessionsLight: SessionLightDto[] = registry.sessions.map(session => ({
+  const sessionsLight = sessions.map(session => ({
     id: session.id,
     date: session.date,
-    votingsCount: sessions.find(s => s.id === session.id)?.votings.length || 0,
-    speechesCount: sessions.find(s => s.id === session.id)?.speeches.length || 0,
-    totalSpeakingTime: sessions.find(s => s.id === session.id)?.speeches.reduce(
-      (total, speech) => total + speech.duration,
-      0
-    ) || 0
+    votingsCount: session.votings.length || 0,
+    speechesCount: session.speeches.length || 0,
+    totalSpeakingTime: session.speeches.reduce((total, speech) => total + speech.duration, 0) || 0
   }));
-  fs.writeFileSync(
-    `${sessionsOutputDir}/all-sessions.json`,
-    JSON.stringify(sessionsLight, null, 2),
-    'utf-8'
-  );
 
-  return sessions;
+  return { sessions, sessionsLight };
 
 }
 

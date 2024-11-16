@@ -1,49 +1,80 @@
-import * as fs from 'fs';
-import { generatePersonFiles } from './generate-person-files';
-import { generateSessionFiles } from './generate-session-files';
-import { generateFactionFiles } from './generate-faction-files';
-import { generatePartyFiles } from './generate-party-files';
-import { generateMetadataFile } from './generate-metadata-file';
-import { ScrapedSession } from '../shared/model/scraped-session';
-import { Registry } from '../shared/model/registry';
-import { generateImageFiles } from './generate-image-files';
+import { generatePersonsData } from './generate-persons-data';
+import { generateSessionsData } from './generate-sessions-data';
+import { generateFactionsData } from './generate-factions-data';
+import { generatePartiesData } from './generate-parties-data';
+import { generateMetadata } from './generate-metadata';
+import { GeneratedVotingImage, generateImages } from './generate-images';
+import { checkArgs, parseArgs } from './cli';
+import { loadRegistry, loadScrapedSession, loadSessionsInputData } from './input-data-loaders';
+import { AssetsWriter } from './assets-writer';
+import { SessionDetailsDto, SessionLightDto } from '../../app/model/Session';
+import { PersonDetailsDto, PersonLightDto } from "../../app/model/Person";
+import { FactionDetailsDto, FactionLightDto } from '../../app/model/Faction';
+import { PartyDto } from '../../app/model/Party';
 
 
-const inputDir = process.argv[2];
-const outputDir = process.argv[3];
-const scrapedSessionFilename = process.argv[4];
-if (!inputDir || !outputDir || !scrapedSessionFilename) {
-  console.error('Usage: node index.js <inputDir> <outputDir> <scrapedSessionFile>');
-  process.exit(1);
-}
+const args = parseArgs(process.argv);
 
-const registryFilename = `${inputDir}/registry.json`;
-if (!fs.existsSync(registryFilename) || !fs.lstatSync(registryFilename).isFile()) {
-  console.error(`Registry file "${registryFilename}" does not exist or is not a file.`);
-  process.exit(1);
-}
-
-if (!fs.existsSync(scrapedSessionFilename) || !fs.lstatSync(scrapedSessionFilename).isFile()) {
-  console.error(`Scraped session file "${scrapedSessionFilename}" does not exist or is not a file.`);
-  process.exit(1);
-}
+checkArgs(args);
 
 
-const registry = JSON.parse(fs.readFileSync(registryFilename, 'utf-8')) as Registry;
-const scrapedSession =
-  JSON.parse(fs.readFileSync(scrapedSessionFilename, 'utf-8')) as ScrapedSession;
+const registry = loadRegistry(args.inputDir);
+const scrapedSession = loadScrapedSession(args.scrapedSessionFilename);
+const sessionsInputData = loadSessionsInputData(args.inputDir, registry);
 
+const { sessions, sessionsLight } = generateSessionsData(sessionsInputData, registry, scrapedSession);
+const { persons, personsLight, personsForces } = generatePersonsData(registry, sessions);
+const { factions, factionsLight } = generateFactionsData(registry, sessions);
+const { parties } = generatePartiesData(registry, sessions);
+const metadata = generateMetadata(registry, sessions);
+const { votingImages } = generateImages(registry, sessions);
 
-const sessions = generateSessionFiles(
-  inputDir,
-  `${outputDir}/sessions`,
-  registry,
-  scrapedSession
-);
-generatePersonFiles(`${outputDir}/persons`, registry, sessions);
-generateFactionFiles(`${outputDir}/factions`, registry, sessions);
-generatePartyFiles(`${outputDir}/parties`, registry, sessions);
-generateMetadataFile(`${outputDir}/metadata.json`, registry, sessions);
-generateImageFiles(`${outputDir}/images`, registry, sessions);
+writeSessionFiles(sessions, sessionsLight);
+writePersonFiles(persons, personsLight, personsForces);
+writeFactionFiles(factions, factionsLight);
+writePartyFiles(parties);
+writeMetadataFile(metadata);
+writeVotingImagesFiles(votingImages);
 
 console.log('Done.');
+
+
+function writeSessionFiles(sessionsDetails: SessionDetailsDto[], sessionsLight: SessionLightDto[]) {
+  const assetsWriter = new AssetsWriter(args.outputDir);
+  assetsWriter.writeSessionFiles(sessionsDetails);
+  assetsWriter.writeAllSessionsFile(sessionsLight);
+}
+
+
+function writePersonFiles(persons: PersonDetailsDto[], personsLight: PersonLightDto[], personsForces: any) {
+  const assetsWriter = new AssetsWriter(args.outputDir);
+  assetsWriter.writePersonFiles(persons);
+  assetsWriter.writeAllPersonsFile(personsLight);
+  assetsWriter.writePersonsForcesFile(personsForces);
+}
+
+
+function writeFactionFiles(factions: FactionDetailsDto[], factionsLight: FactionLightDto[]) {
+  const assetsWriter = new AssetsWriter(args.outputDir);
+  assetsWriter.writeFactionFiles(factions);
+  assetsWriter.writeAllFactionsFile(factionsLight);
+}
+
+
+function writePartyFiles(parties: PartyDto[]) {
+  const assetsWriter = new AssetsWriter(args.outputDir);
+  assetsWriter.writePartyFiles(parties);
+  assetsWriter.writeAllPartiesFile(parties);
+}
+
+
+function writeMetadataFile(metadata: any) {
+  const assetsWriter = new AssetsWriter(args.outputDir);
+  assetsWriter.writeMetadataFile(metadata);
+}
+
+
+function writeVotingImagesFiles(votingImages: GeneratedVotingImage[]) {
+  const assetsWriter = new AssetsWriter(args.outputDir);
+  assetsWriter.writeVotingImagesFiles(votingImages);
+}

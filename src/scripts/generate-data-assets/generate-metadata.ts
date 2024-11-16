@@ -1,16 +1,15 @@
-import * as fs from 'fs';
 import { SessionDetailsDto, Vote, VoteResult } from '../../app/model/Session';
 import { MetadataDto } from '../../app/model/Metadata';
 import { Registry } from '../shared/model/registry';
 
 
-export function generateMetadataFile(metadataFilename: string, registry: Registry, sessions: SessionDetailsDto[]) {
+export function generateMetadata(registry: Registry, sessions: SessionDetailsDto[]): MetadataDto {
 
   const votingsCount = getVotingsCount(sessions);
   const votesCount = getVotesCount(sessions);
   const speakingTime = getTotalSpeakingTime(sessions);
 
-  const metadata: MetadataDto = {
+  return {
     lastUpdatedTimestamp: new Date().toISOString(),
     sessionsPeriodFrom: sessions[0]?.date ?? '',
     sessionsPeriodUntil: sessions[sessions.length - 1]?.date ?? '',
@@ -22,8 +21,6 @@ export function generateMetadataFile(metadataFilename: string, registry: Registr
     personsCount: registry.persons.length,
     speakingTime,
   };
-
-  fs.writeFileSync(metadataFilename, JSON.stringify(metadata, null, 2), `utf-8`);
 
 }
 

@@ -1,17 +1,16 @@
 import { PartyDto, PartyStatsHistoryDto } from '../../app/model/Party';
-import * as fs from 'fs';
 import { Registry, RegistryParty, RegistryPerson } from '../shared/model/registry';
 import { SessionDetailsDto, SessionPersonDto, SessionVotingDto, VoteResult } from '../../app/model/Session';
 import { calcPartyVotingSuccessRate } from './data-analysis/voting-success-rate';
 
 
-export function generatePartyFiles(partiesOutputDir: string, registry: Registry, sessions: SessionDetailsDto[]) {
+export type GeneratedPartiesData = {
+  parties: PartyDto[];
+};
 
-  if (!fs.existsSync(partiesOutputDir)) {
-    fs.mkdirSync(partiesOutputDir, { recursive: true });
-  }
 
-  console.log('Writing all-parties.json');
+export function generatePartiesData(registry: Registry, sessions: SessionDetailsDto[]): GeneratedPartiesData {
+
   const parties = registry.parties.map<PartyDto>(party => {
     const members = registry.persons.filter(person => person.partyId === party.id);
     const votingsSuccessRate = calcPartyVotingSuccessRate(party.id, sessions);
@@ -31,22 +30,14 @@ export function generatePartyFiles(partiesOutputDir: string, registry: Registry,
       statsHistory: calcStatsHistory(party, members, sessions)
     };
   });
-  fs.writeFileSync(
-    `${partiesOutputDir}/all-parties.json`,
-    JSON.stringify(parties, null, 2),
-    'utf-8'
-  );
 
-  parties.forEach(party => {
-    console.log(`Writing party file ${party.id}.json`);
-    const data = JSON.stringify(party, null, 2);
-    fs.writeFileSync(`${partiesOutputDir}/${party.id}.json`, data, 'utf-8');
-  });
+  return { parties };
 
 }
 
 
 function calcUniformityScore(partyMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number | null {
+
   const uniformityScoresPerSession = sessions
     .map(session => calcUniformityScoreForSession(partyMembers, session))
     .filter(score => score !== null) as number[];
@@ -56,6 +47,7 @@ function calcUniformityScore(partyMembers: RegistryPerson[], sessions: SessionDe
   }
 
   return uniformityScoresPerSession.reduce((a, b) => a + b, 0) / uniformityScoresPerSession.length;
+
 }
 
 

@@ -73,3 +73,9 @@ export type PersonLightDto = {
   abstentionRate: number;
   speakingTime: number;
 };
+
+
+export type PersonsForcesDto = {
+  nodes: Array<{ id: string; name: string; faction: string }>;
+  links: Array<{ source: string; target: string; value: number }>;
+};

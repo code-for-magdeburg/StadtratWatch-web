@@ -1,7 +1,5 @@
 import { Registry } from '../shared/model/registry';
 import { SessionDetailsDto, SessionPersonDto, SessionVotingDto } from '../../app/model/Session';
-import * as fs from 'fs';
-import * as path from 'path';
 import { Canvas, CanvasRenderingContext2D, createCanvas } from 'canvas';
 
 
@@ -40,20 +38,32 @@ const TEXT_COLOR = '#DDDDDD';
 const TEXT_COLOR_DARK = '#3C3C3C';
 
 
-export function generateImageFiles(imagesOutputDir: string, registry: Registry, sessions: SessionDetailsDto[]) {
+export type GeneratedImages = {
+  votingImages: GeneratedVotingImage[];
+};
+
+export type GeneratedVotingImage = {
+  sessionId: string;
+  votingId: number;
+  canvas: Canvas;
+};
+
+
+export function generateImages(registry: Registry, sessions: SessionDetailsDto[]): GeneratedImages {
   console.log('Generating images...');
-  sessions.forEach(session => generateVotingImages(registry, session, imagesOutputDir));
+  const votingImages = sessions.flatMap(session => generateVotingImages(registry, session));
+  return { votingImages };
 }
 
 
-function generateVotingImages(registry: Registry, session: SessionDetailsDto, outputDir: string) {
+function generateVotingImages(registry: Registry, session: SessionDetailsDto): GeneratedVotingImage[] {
   console.log(`Generating voting images for session ${session.id}`);
-  session.votings.forEach(voting => generateVotingImage(voting, registry, session, outputDir));
+  return session.votings.map(voting => generateVotingImage(voting, registry, session));
 }
 
 
-function generateVotingImage(sessionVoting: SessionVotingDto, registry: Registry, session: SessionDetailsDto,
-                             outputDir: string) {
+function generateVotingImage(sessionVoting: SessionVotingDto, registry: Registry,
+                             session: SessionDetailsDto): GeneratedVotingImage {
 
   const canvas = createCanvas(TOTAL_WIDTH, TOTAL_HEIGHT);
   const context = canvas.getContext('2d');
@@ -80,7 +90,7 @@ function generateVotingImage(sessionVoting: SessionVotingDto, registry: Registry
   const votingDistributionCanvas = drawVotingDistributionCanvas(voting);
   context.drawImage(votingDistributionCanvas, PADDING_LEFT + summaryCanvas.width + GAP, PADDING_TOP);
 
-  saveToFile(canvas, session.id, sessionVoting, outputDir);
+  return { sessionId: session.id, votingId: sessionVoting.id, canvas };
 
 }
 
@@ -324,20 +334,6 @@ function drawVotingDistributionCanvas(voting: Voting): Canvas {
   });
 
   return canvas;
-
-}
-
-
-function saveToFile(canvas: Canvas, sessionId: string, voting: SessionVotingDto, imagesDir: string) {
-
-  const sessionOutputDir = path.join(imagesDir, 'votings', sessionId);
-  if (!fs.existsSync(sessionOutputDir)) {
-    fs.mkdirSync(sessionOutputDir, { recursive: true });
-  }
-
-  const buffer = canvas.toBuffer('image/png');
-  const filename = `${sessionId}-${voting.id.toString().padStart(3, '0')}.png`;
-  fs.writeFileSync(path.join(sessionOutputDir, filename), buffer);
 
 }
 
