@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { PersonDetailsDto, PersonLightDto } from '../model/Person';
+import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../model/Person';
 
 
 @Injectable({ providedIn: 'root' })
@@ -46,10 +46,10 @@ export class PersonsService {
   }
 
 
-  public async fetchAllPersonsForces(electoralPeriod: string): Promise<any> {
+  public async fetchAllPersonsForces(electoralPeriod: string): Promise<PersonsForcesDto> {
 
     return firstValueFrom(
-      this.http.get<any>(`/assets/electoral-periods/${electoralPeriod}/persons/all-persons-forces.json`)
+      this.http.get<PersonsForcesDto>(`/assets/electoral-periods/${electoralPeriod}/persons/all-persons-forces.json`)
     );
 
   }

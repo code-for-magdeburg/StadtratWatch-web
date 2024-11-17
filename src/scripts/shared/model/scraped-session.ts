@@ -27,7 +27,7 @@ export type ScrapedFile = {
   url: string;
 };
 
-export type ScrapedMainOrganization = any;
+export type ScrapedMainOrganization = {};
 
 export type ScrapedMeeting = {
   cancelled: boolean;
@@ -40,11 +40,11 @@ export type ScrapedMeeting = {
   start: string;
 };
 
-export type ScrapedMembership = any;
+export type ScrapedMembership = {};
 
-export type ScrapedSessionMeta = any;
+export type ScrapedSessionMeta = {};
 
-export type ScrapedOrganization = any;
+export type ScrapedOrganization = {};
 
 export type ScrapedPaper = {
   name: string;
@@ -55,4 +55,4 @@ export type ScrapedPaper = {
   sort_date: string;
 };
 
-export type ScrapedPerson = any;
+export type ScrapedPerson = {};

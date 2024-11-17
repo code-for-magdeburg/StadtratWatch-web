@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { ScrapedFile, ScrapedMeeting, ScrapedSession } from '../shared/model/scraped-session';
-import { PapersDto } from '../../app/model/Paper';
+import { PaperDto, PapersDto } from '../../app/model/Paper';
 
 
 const scrapedSessionFilename = process.argv[2];
@@ -75,7 +75,7 @@ async function run(scrapedSession: ScrapedSession, outputDir: string): Promise<v
     }
     acc[batchNo].push(paper);
     return acc;
-  }, {} as { [batchNo: string]: any[] });
+  }, {} as { [batchNo: string]: PaperDto[] });
 
   for (const batchNo in grouped) {
     const filename = path.join(outputDir, `papers-${batchNo}.json`);

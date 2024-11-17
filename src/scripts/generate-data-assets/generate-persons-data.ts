@@ -136,12 +136,12 @@ function calcVotingComparisonScore(votings: SessionVotingDto[], personId: string
                                    otherPersonId: string) {
   const relevantVotings = votings.filter(
     voting =>
-      voting.votes.some((vote: any) => vote.personId === personId && vote.vote !== VoteResult.DID_NOT_VOTE) &&
-      voting.votes.some((vote: any) => vote.personId === otherPersonId && vote.vote !== VoteResult.DID_NOT_VOTE)
+      voting.votes.some(vote => vote.personId === personId && vote.vote !== VoteResult.DID_NOT_VOTE) &&
+      voting.votes.some(vote => vote.personId === otherPersonId && vote.vote !== VoteResult.DID_NOT_VOTE)
   );
   const equalVotes = relevantVotings.filter(voting => {
-    const personVote = voting.votes.find((vote: any) => vote.personId === personId)!;
-    const otherPersonVote = voting.votes.find((vote: any) => vote.personId === otherPersonId)!;
+    const personVote = voting.votes.find(vote => vote.personId === personId)!;
+    const otherPersonVote = voting.votes.find(vote => vote.personId === otherPersonId)!;
     return personVote.vote === otherPersonVote.vote;
   });
   return equalVotes.length / relevantVotings.length;

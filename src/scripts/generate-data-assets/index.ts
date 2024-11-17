@@ -8,9 +8,10 @@ import { checkArgs, parseArgs } from './cli';
 import { loadRegistry, loadScrapedSession, loadSessionsInputData } from './input-data-loaders';
 import { AssetsWriter } from './assets-writer';
 import { SessionDetailsDto, SessionLightDto } from '../../app/model/Session';
-import { PersonDetailsDto, PersonLightDto } from "../../app/model/Person";
+import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../../app/model/Person';
 import { FactionDetailsDto, FactionLightDto } from '../../app/model/Faction';
 import { PartyDto } from '../../app/model/Party';
+import { MetadataDto } from '../../app/model/Metadata';
 
 
 const args = parseArgs(process.argv);
@@ -46,7 +47,8 @@ function writeSessionFiles(sessionsDetails: SessionDetailsDto[], sessionsLight: 
 }
 
 
-function writePersonFiles(persons: PersonDetailsDto[], personsLight: PersonLightDto[], personsForces: any) {
+function writePersonFiles(persons: PersonDetailsDto[], personsLight: PersonLightDto[],
+                          personsForces: PersonsForcesDto) {
   const assetsWriter = new AssetsWriter(args.outputDir);
   assetsWriter.writePersonFiles(persons);
   assetsWriter.writeAllPersonsFile(personsLight);
@@ -68,7 +70,7 @@ function writePartyFiles(parties: PartyDto[]) {
 }
 
 
-function writeMetadataFile(metadata: any) {
+function writeMetadataFile(metadata: MetadataDto) {
   const assetsWriter = new AssetsWriter(args.outputDir);
   assetsWriter.writeMetadataFile(metadata);
 }

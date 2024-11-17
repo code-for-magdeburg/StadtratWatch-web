@@ -1,7 +1,7 @@
 import { SessionDetailsDto, SessionLightDto } from '../../app/model/Session';
 import * as fs from 'fs';
 import * as path from 'path';
-import { PersonDetailsDto, PersonLightDto } from '../../app/model/Person';
+import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../../app/model/Person';
 import { FactionDetailsDto, FactionLightDto } from '../../app/model/Faction';
 import { PartyDto } from '../../app/model/Party';
 import { MetadataDto } from '../../app/model/Metadata';
@@ -76,7 +76,7 @@ export class AssetsWriter {
   }
 
 
-  writePersonsForcesFile(personsForces: any) {
+  writePersonsForcesFile(personsForces: PersonsForcesDto) {
 
     console.log('Writing all-persons-forces.json');
     fs.writeFileSync(
