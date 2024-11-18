@@ -34,7 +34,7 @@ export type Vote = {
 
 export type SessionVotingDto = {
   id: number;
-  videoTimestamp: string;
+  videoTimestamp: number;
   votingSubject: {
     agendaItem: string;
     applicationId: string;
