@@ -151,14 +151,8 @@ export class VotingComponent implements OnInit {
           : DID_NOT_VOTE_COLOR;
 
 
-  private generateYoutubeUrl(youtubeBaseUrl: string, videoTimestamp: string): string {
-    const timeParts = videoTimestamp.split(':');
-    if (timeParts.length === 3) {
-      const secs = parseInt(timeParts[0]) * 3600 + parseInt(timeParts[1]) * 60 + parseInt(timeParts[2]) - 10;
-      return `${youtubeBaseUrl}?t=${secs}s`;
-    } else {
-      return youtubeBaseUrl;
-    }
+  private generateYoutubeUrl(youtubeBaseUrl: string, videoTimestamp: number): string {
+    return `${youtubeBaseUrl}?t=${videoTimestamp}s`;
   }
 
 
