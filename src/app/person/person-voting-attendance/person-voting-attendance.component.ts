@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges, ViewChild } from '@angular/core';
-import { PersonDetailsDto } from '../../model/Person';
+import { PersonDetailsDto } from '../../../interfaces/Person';
 import { ChartConfiguration } from 'chart.js';
 import {
   initialHistoryChartData,

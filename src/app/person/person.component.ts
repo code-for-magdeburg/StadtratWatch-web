@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonsService } from '../services/persons.service';
 import { ActivatedRoute } from '@angular/router';
-import { VoteResult } from '../model/Session';
-import { PersonDetailsDto, PersonSpeechDto, PersonVotingComparison } from '../model/Person';
+import { VoteResult } from '../../interfaces/Session';
+import { PersonDetailsDto, PersonSpeechDto, PersonVotingComparison } from '../../interfaces/Person';
 import { MetaTagsService } from '../services/meta-tags.service';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 import { environment } from '../../environments/environment';

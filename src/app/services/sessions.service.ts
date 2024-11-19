@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { SessionDetailsDto, SessionLightDto } from '../model/Session';
+import { SessionDetailsDto, SessionLightDto } from '../../interfaces/Session';
 
 
 @Injectable({ providedIn: 'root' })

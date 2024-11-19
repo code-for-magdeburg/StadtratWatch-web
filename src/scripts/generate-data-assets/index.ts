@@ -7,11 +7,11 @@ import { GeneratedVotingImage, generateImages } from './generate-images';
 import { checkArgs, parseArgs } from './cli';
 import { loadRegistry, loadScrapedSession, loadSessionsInputData } from './input-data-loaders';
 import { AssetsWriter } from './assets-writer';
-import { SessionDetailsDto, SessionLightDto } from '../../app/model/Session';
-import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../../app/model/Person';
-import { FactionDetailsDto, FactionLightDto } from '../../app/model/Faction';
-import { PartyDto } from '../../app/model/Party';
-import { MetadataDto } from '../../app/model/Metadata';
+import { SessionDetailsDto, SessionLightDto } from '../../interfaces/Session';
+import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../../interfaces/Person';
+import { FactionDetailsDto, FactionLightDto } from '../../interfaces/Faction';
+import { PartyDto } from '../../interfaces/Party';
+import { MetadataDto } from '../../interfaces/Metadata';
 
 
 const args = parseArgs(process.argv);

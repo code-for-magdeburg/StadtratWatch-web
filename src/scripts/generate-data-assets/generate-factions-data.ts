@@ -1,4 +1,4 @@
-import { FactionDetailsDto, FactionLightDto, StatsHistoryDto } from '../../app/model/Faction';
+import { FactionDetailsDto, FactionLightDto, StatsHistoryDto } from '../../interfaces/Faction';
 import { Registry, RegistryFaction, RegistryPerson } from '../shared/model/registry';
 import {
   SessionDetailsDto,
@@ -6,9 +6,9 @@ import {
   SessionVotingDto,
   VoteResult,
   VotingResult
-} from '../../app/model/Session';
+} from '../../interfaces/Session';
 import { calcFactionVotingSuccessRate } from './data-analysis/voting-success-rate';
-import { ApplicationDto } from '../../app/model/Application';
+import { ApplicationDto } from '../../interfaces/Application';
 
 
 export type GeneratedFactionsData = {

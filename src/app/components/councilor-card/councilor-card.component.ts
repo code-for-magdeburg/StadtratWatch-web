@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PersonLightDto } from '../../model/Person';
+import { PersonLightDto } from '../../../interfaces/Person';
 import { ELECTORAL_PERIOD_PATH } from '../../app-routing.module';
 
 

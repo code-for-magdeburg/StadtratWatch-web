@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../model/Person';
+import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../../interfaces/Person';
 
 
 @Injectable({ providedIn: 'root' })

@@ -1,10 +1,10 @@
 import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges, ViewChild } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
-import { SessionDetailsDto } from '../../model/Session';
+import { SessionDetailsDto } from '../../../interfaces/Session';
 import { BaseChartDirective } from 'ng2-charts';
-import { FactionLightDto } from '../../model/Faction';
+import { FactionLightDto } from '../../../interfaces/Faction';
 import { SpeakingTimePipe } from '../../pipes/speaking-time.pipe';
-import { PartyDto } from '../../model/Party';
+import { PartyDto } from '../../../interfaces/Party';
 import { isPlatformBrowser } from '@angular/common';
 
 

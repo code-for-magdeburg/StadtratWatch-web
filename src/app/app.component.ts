@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { MetadataDto } from './model/Metadata';
+import { MetadataDto } from '../interfaces/Metadata';
 import { MetadataService } from './services/metadata.service';
 import { environment } from '../environments/environment';
 import { NavigationEnd, Router } from '@angular/router';

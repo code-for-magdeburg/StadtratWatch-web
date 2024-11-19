@@ -1,5 +1,5 @@
-import { SessionDetailsDto, Vote, VoteResult } from '../../app/model/Session';
-import { MetadataDto } from '../../app/model/Metadata';
+import { SessionDetailsDto, Vote, VoteResult } from '../../interfaces/Session';
+import { MetadataDto } from '../../interfaces/Metadata';
 import { Registry } from '../shared/model/registry';
 
 

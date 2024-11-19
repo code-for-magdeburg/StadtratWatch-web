@@ -1,6 +1,6 @@
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { PartiesService } from '../services/parties.service';
-import { PartyDto } from '../model/Party';
+import { PartyDto } from '../../interfaces/Party';
 import { compare, SortablePartiesDirective, SortPartiesEvent } from './sortable-parties.directive';
 import {
   VotingsSuccessRateChartData
