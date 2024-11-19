@@ -15,7 +15,6 @@
     "scan-voting-images": "node src/scripts/scan-voting-images/scan-voting-images.js",
     "parse-speakers": "node src/scripts/parse-speakers/parse-speakers.js",
     "speech-to-text": "node src/scripts/speech-to-text/speech-to-text.js",
-    "lab": "ts-node --project ./tsconfig.scripts.json src/scripts/lab",
     "serve:ssr": "node dist/StadtratWatch-web/server/server.mjs"
   },
   "private": true,
