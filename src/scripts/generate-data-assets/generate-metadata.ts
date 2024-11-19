@@ -1,6 +1,6 @@
-import { SessionDetailsDto, Vote, VoteResult } from '../../interfaces/web-assets/Session';
-import { MetadataDto } from '../../interfaces/web-assets/Metadata';
-import { Registry } from '../shared/model/registry';
+import { SessionDetailsDto, Vote, VoteResult } from '@scope/interfaces-web-assets';
+import { MetadataDto } from '@scope/interfaces-web-assets';
+import { Registry } from '../shared/model/registry.ts';
 
 
 export function generateMetadata(registry: Registry, sessions: SessionDetailsDto[]): MetadataDto {

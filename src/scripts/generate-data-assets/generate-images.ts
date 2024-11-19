@@ -1,6 +1,6 @@
-import { Registry } from '../shared/model/registry';
-import { SessionDetailsDto, SessionPersonDto, SessionVotingDto } from '../../interfaces/web-assets/Session';
-import { Canvas, CanvasRenderingContext2D, createCanvas } from 'canvas';
+import { Registry } from '../shared/model/registry.ts';
+import { SessionDetailsDto, SessionPersonDto, SessionVotingDto } from '@scope/interfaces-web-assets';
+import { Canvas, CanvasRenderingContext2D, createCanvas } from '@gfx/canvas';
 
 
 type VotingPerFaction = {
@@ -127,11 +127,14 @@ function drawSummaryCanvas(voting: Voting): Canvas {
   context.drawImage(votingHeaderCanvas, 0, 0);
 
   const applicationIdCanvas = writeApplicationId(voting);
-  context.drawImage(applicationIdCanvas, 0, votingHeaderCanvas.height + 20);
+  if (applicationIdCanvas) {
+    context.drawImage(applicationIdCanvas, 0, votingHeaderCanvas.height + 20);
+  }
 
   const subjectLines = getWrappedLines(voting.subjectTitle, COLUMN_WIDTH);
   const subjectLinesCanvas = writeSubject(subjectLines);
-  context.drawImage(subjectLinesCanvas, 0, votingHeaderCanvas.height + 20 + applicationIdCanvas.height);
+  const applicationIdYOffset = applicationIdCanvas ? applicationIdCanvas.height : 0;
+  context.drawImage(subjectLinesCanvas, 0, votingHeaderCanvas.height + 20 + applicationIdYOffset);
 
   const votingResultCanvas = drawVotingResult(voting);
   context.drawImage(votingResultCanvas, 0, canvasHeight - votingResultCanvas.height);
@@ -159,10 +162,9 @@ function writeVotingHeader(voting: Voting): Canvas {
 }
 
 
-function writeApplicationId(voting: Voting): Canvas {
+function writeApplicationId(voting: Voting): Canvas | null {
 
   let text = '';
-  let skip = false;
   switch (voting.applicationType) {
 
     case 'Änderungsantrag':
@@ -177,25 +179,19 @@ function writeApplicationId(voting: Voting): Canvas {
       text = voting.applicationId ? `Beschlussvorlage ${voting.applicationId}` : 'Beschlussvorlage';
       break;
 
-    case 'Delegation':
-      skip = true;
-      break;
+    case 'Delegation': return null;
 
     case 'Geschäftsordnung':
       text = voting.applicationId ? `Geschäftsordnungsantrag zu ${voting.applicationId}` : 'Geschäftsordnungsantrag';
       break;
 
-    case 'Niederschrift':
-      skip = true;
-      break;
+    case 'Niederschrift': return null;
 
     case 'Redaktionelle Änderung':
       text = voting.applicationId ? `Redaktionelle Änderung zu ${voting.applicationId}` : 'Redaktionelle Änderung';
       break;
 
-    case 'Sonstige':
-      skip = true;
-      break;
+    case 'Sonstige': return null;
 
     case 'Tagesordnung':
       text = `Abstimmung zur Tagesordnung`;
@@ -203,9 +199,9 @@ function writeApplicationId(voting: Voting): Canvas {
 
   }
 
-  const canvas = createCanvas(COLUMN_WIDTH, skip ? 0 : 30);
+  const canvas = createCanvas(COLUMN_WIDTH, 30);
 
-  if (!skip) {
+  if (text.trim() !== '') {
     const context = canvas.getContext('2d');
     context.font = 'italic 14pt Verdana';
     context.fillStyle = TEXT_COLOR;

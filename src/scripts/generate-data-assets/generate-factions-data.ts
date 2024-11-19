@@ -1,14 +1,14 @@
-import { FactionDetailsDto, FactionLightDto, StatsHistoryDto } from '../../interfaces/web-assets/Faction';
-import { Registry, RegistryFaction, RegistryPerson } from '../shared/model/registry';
+import { FactionDetailsDto, FactionLightDto, StatsHistoryDto } from '@scope/interfaces-web-assets';
+import { Registry, RegistryFaction, RegistryPerson } from '../shared/model/registry.ts';
 import {
   SessionDetailsDto,
   SessionPersonDto,
   SessionVotingDto,
   VoteResult,
   VotingResult
-} from '../../interfaces/web-assets/Session';
-import { calcFactionVotingSuccessRate } from './data-analysis/voting-success-rate';
-import { ApplicationDto } from '../../interfaces/web-assets/Application';
+} from '@scope/interfaces-web-assets';
+import { calcFactionVotingSuccessRate } from './data-analysis/voting-success-rate.ts';
+import { ApplicationDto } from '@scope/interfaces-web-assets';
 
 
 export type GeneratedFactionsData = {

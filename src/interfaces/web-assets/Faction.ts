@@ -1,4 +1,4 @@
-import { ApplicationDto } from './Application';
+import { ApplicationDto } from './Application.ts';
 
 
 export type FactionDetailsDto = {
@@ -38,7 +38,7 @@ export type StatsHistoryDto = {
 };
 
 
-export type HistoryValue = {
+type HistoryValue = {
   date: string;
   value: number | null;
 };

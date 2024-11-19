@@ -1,20 +1,25 @@
-import { generatePersonsData } from './generate-persons-data';
-import { generateSessionsData } from './generate-sessions-data';
-import { generateFactionsData } from './generate-factions-data';
-import { generatePartiesData } from './generate-parties-data';
-import { generateMetadata } from './generate-metadata';
-import { GeneratedVotingImage, generateImages } from './generate-images';
-import { checkArgs, parseArgs } from './cli';
-import { loadRegistry, loadScrapedSession, loadSessionsInputData } from './input-data-loaders';
-import { AssetsWriter } from './assets-writer';
-import { SessionDetailsDto, SessionLightDto } from '../../interfaces/web-assets/Session';
-import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../../interfaces/web-assets/Person';
-import { FactionDetailsDto, FactionLightDto } from '../../interfaces/web-assets/Faction';
-import { PartyDto } from '../../interfaces/web-assets/Party';
-import { MetadataDto } from '../../interfaces/web-assets/Metadata';
+import { generatePersonsData } from './generate-persons-data.ts';
+import { generateSessionsData } from './generate-sessions-data.ts';
+import { generateFactionsData } from './generate-factions-data.ts';
+import { generatePartiesData } from './generate-parties-data.ts';
+import { generateMetadata } from './generate-metadata.ts';
+import { GeneratedVotingImage, generateImages } from './generate-images.ts';
+import { checkArgs, parseArgs, printHelpText } from './cli.ts';
+import { loadRegistry, loadScrapedSession, loadSessionsInputData } from './input-data-loaders.ts';
+import { AssetsWriter } from './assets-writer.ts';
+import { SessionDetailsDto, SessionLightDto } from '@scope/interfaces-web-assets';
+import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '@scope/interfaces-web-assets';
+import { FactionDetailsDto, FactionLightDto } from '@scope/interfaces-web-assets';
+import { PartyDto } from '@scope/interfaces-web-assets';
+import { MetadataDto } from '@scope/interfaces-web-assets';
 
 
-const args = parseArgs(process.argv);
+const args = parseArgs(Deno.args);
+
+if (args.help) {
+  printHelpText();
+  Deno.exit(0);
+}
 
 checkArgs(args);
 

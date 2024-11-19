@@ -1,4 +1,4 @@
-import { VoteResult } from './Session';
+import { VoteResult } from './Session.ts';
 
 
 export type PersonDetailsDto = {

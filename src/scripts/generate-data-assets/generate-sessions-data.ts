@@ -8,11 +8,11 @@ import {
   SessionVotingDto,
   VoteResult,
   VotingResult
-} from '../../interfaces/web-assets/Session';
-import { SessionVote } from '../shared/model/session-scan';
-import { ScrapedSession } from '../shared/model/scraped-session';
-import { Registry } from '../shared/model/registry';
-import { SessionInputData } from '../shared/model/session-input-data';
+} from '@scope/interfaces-web-assets';
+import { SessionVote } from '../shared/model/session-scan.ts';
+import { ScrapedSession } from '../shared/model/scraped-session.ts';
+import { Registry } from '../shared/model/registry.ts';
+import { SessionInputData } from '../shared/model/session-input-data.ts';
 
 
 export type GeneratedSessionsData = {

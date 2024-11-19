@@ -20,7 +20,7 @@ export type PartyStatsHistoryDto = {
 };
 
 
-export type HistoryValue = {
+type HistoryValue = {
   date: string;
   value: number | null;
 };

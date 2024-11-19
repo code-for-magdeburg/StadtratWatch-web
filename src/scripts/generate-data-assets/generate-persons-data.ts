@@ -1,13 +1,13 @@
-import { SessionDetailsDto, SessionVotingDto, VoteResult } from '../../interfaces/web-assets/Session';
+import { SessionDetailsDto, SessionVotingDto, VoteResult } from '@scope/interfaces-web-assets';
 import {
   PersonDetailsDto, PersonsForcesDto,
   PersonLightDto, PersonSpeechDto,
   PersonStatsHistoryDto,
   PersonVoteDto,
   PersonVotingComparison
-} from '../../interfaces/web-assets/Person';
-import { Registry } from '../shared/model/registry';
-import { calcPersonVotingSuccess } from './data-analysis/voting-success-rate';
+} from '@scope/interfaces-web-assets';
+import { Registry } from '../shared/model/registry.ts';
+import { calcPersonVotingSuccess } from './data-analysis/voting-success-rate.ts';
 
 
 export type GeneratedPersonsData = {

@@ -1,7 +1,7 @@
-import { PartyDto, PartyStatsHistoryDto } from '../../interfaces/web-assets/Party';
-import { Registry, RegistryParty, RegistryPerson } from '../shared/model/registry';
-import { SessionDetailsDto, SessionPersonDto, SessionVotingDto, VoteResult } from '../../interfaces/web-assets/Session';
-import { calcPartyVotingSuccessRate } from './data-analysis/voting-success-rate';
+import { PartyDto, PartyStatsHistoryDto } from '@scope/interfaces-web-assets';
+import { Registry, RegistryParty, RegistryPerson } from '../shared/model/registry.ts';
+import { SessionDetailsDto, SessionPersonDto, SessionVotingDto, VoteResult } from '@scope/interfaces-web-assets';
+import { calcPartyVotingSuccessRate } from './data-analysis/voting-success-rate.ts';
 
 
 export type GeneratedPartiesData = {
