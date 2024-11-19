@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionsService } from '../services/sessions.service';
-import { SessionLightDto } from '../model/Session';
+import { SessionLightDto } from '../../interfaces/web-assets/Session';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';

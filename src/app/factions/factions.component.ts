@@ -1,5 +1,5 @@
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { FactionLightDto } from '../model/Faction';
+import { FactionLightDto } from '../../interfaces/web-assets/Faction';
 import { FactionsService } from '../services/factions.service';
 import { compare, SortableFactionsDirective, SortFactionsEvent } from './sortable-factions.directive';
 import {

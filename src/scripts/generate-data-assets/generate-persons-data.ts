@@ -1,11 +1,11 @@
-import { SessionDetailsDto, SessionVotingDto, VoteResult } from '../../app/model/Session';
+import { SessionDetailsDto, SessionVotingDto, VoteResult } from '../../interfaces/web-assets/Session';
 import {
   PersonDetailsDto, PersonsForcesDto,
   PersonLightDto, PersonSpeechDto,
   PersonStatsHistoryDto,
   PersonVoteDto,
   PersonVotingComparison
-} from '../../app/model/Person';
+} from '../../interfaces/web-assets/Person';
 import { Registry } from '../shared/model/registry';
 import { calcPersonVotingSuccess } from './data-analysis/voting-success-rate';
 

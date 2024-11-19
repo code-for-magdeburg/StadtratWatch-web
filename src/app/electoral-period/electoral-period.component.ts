@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MetadataService } from '../services/metadata.service';
-import { MetadataDto } from '../model/Metadata';
+import { MetadataDto } from '../../interfaces/web-assets/Metadata';
 import { environment } from '../../environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';

@@ -4,7 +4,7 @@ import { PartiesService } from '../services/parties.service';
 import { forkJoin } from 'rxjs';
 import { PersonsService } from '../services/persons.service';
 import { Councilor, CouncilorCardComponent } from '../components/councilor-card/councilor-card.component';
-import { PartyStatsHistoryDto } from '../model/Party';
+import { PartyStatsHistoryDto } from '../../interfaces/web-assets/Party';
 import { MetaTagsService } from '../services/meta-tags.service';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 import { environment } from '../../environments/environment';

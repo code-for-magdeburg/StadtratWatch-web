@@ -1,6 +1,6 @@
-import { PartyDto, PartyStatsHistoryDto } from '../../app/model/Party';
+import { PartyDto, PartyStatsHistoryDto } from '../../interfaces/web-assets/Party';
 import { Registry, RegistryParty, RegistryPerson } from '../shared/model/registry';
-import { SessionDetailsDto, SessionPersonDto, SessionVotingDto, VoteResult } from '../../app/model/Session';
+import { SessionDetailsDto, SessionPersonDto, SessionVotingDto, VoteResult } from '../../interfaces/web-assets/Session';
 import { calcPartyVotingSuccessRate } from './data-analysis/voting-success-rate';
 
 

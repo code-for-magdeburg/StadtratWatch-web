@@ -1,5 +1,5 @@
 import { Registry } from '../shared/model/registry';
-import { SessionDetailsDto, SessionPersonDto, SessionVotingDto } from '../../app/model/Session';
+import { SessionDetailsDto, SessionPersonDto, SessionVotingDto } from '../../interfaces/web-assets/Session';
 import { Canvas, CanvasRenderingContext2D, createCanvas } from 'canvas';
 
 

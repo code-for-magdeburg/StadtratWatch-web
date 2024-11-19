@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
-import { FactionLightDto } from '../../model/Faction';
-import { PartyDto } from '../../model/Party';
+import { FactionLightDto } from '../../../interfaces/web-assets/Faction';
+import { PartyDto } from '../../../interfaces/web-assets/Party';
 import { isPlatformBrowser } from '@angular/common';
 
 

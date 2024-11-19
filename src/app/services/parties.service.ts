@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { PartyDto } from '../model/Party';
+import { PartyDto } from '../../interfaces/web-assets/Party';
 import { HttpClient } from '@angular/common/http';
 
 

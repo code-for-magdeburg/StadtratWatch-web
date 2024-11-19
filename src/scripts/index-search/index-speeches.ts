@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { Registry } from '../shared/model/registry';
-import { SessionConfig } from '../generate-data-assets/model/session-config';
-import { SessionSpeech } from '../generate-data-assets/model/session-speech';
+import { SessionConfig } from '../shared/model/session-config';
+import { SessionSpeech } from '../shared/model/session-speech';
 import axios from 'axios';
 
 

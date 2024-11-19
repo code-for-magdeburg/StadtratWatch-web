@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SessionsService } from '../services/sessions.service';
 import { DID_NOT_VOTE_COLOR, VOTED_ABSTENTION_COLOR, VOTED_AGAINST_COLOR, VOTED_FOR_COLOR } from '../utilities/ui';
-import { SessionVotingDto, Vote, VoteResult } from '../model/Session';
+import { SessionVotingDto, Vote, VoteResult } from '../../interfaces/web-assets/Session';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 import { MetaTagsService } from '../services/meta-tags.service';
 import { environment } from '../../environments/environment';

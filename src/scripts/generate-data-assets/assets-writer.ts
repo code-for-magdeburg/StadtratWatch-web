@@ -1,10 +1,10 @@
-import { SessionDetailsDto, SessionLightDto } from '../../app/model/Session';
+import { SessionDetailsDto, SessionLightDto } from '../../interfaces/web-assets/Session';
 import * as fs from 'fs';
 import * as path from 'path';
-import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../../app/model/Person';
-import { FactionDetailsDto, FactionLightDto } from '../../app/model/Faction';
-import { PartyDto } from '../../app/model/Party';
-import { MetadataDto } from '../../app/model/Metadata';
+import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../../interfaces/web-assets/Person';
+import { FactionDetailsDto, FactionLightDto } from '../../interfaces/web-assets/Faction';
+import { PartyDto } from '../../interfaces/web-assets/Party';
+import { MetadataDto } from '../../interfaces/web-assets/Metadata';
 import { GeneratedVotingImage } from './generate-images';
 
 
