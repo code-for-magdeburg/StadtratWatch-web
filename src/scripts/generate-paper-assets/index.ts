@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { ScrapedFile, ScrapedMeeting, ScrapedSession } from '../shared/model/scraped-session';
-import { PaperDto, PapersDto } from '../../interfaces/Paper';
+import { PaperDto, PapersDto } from '../../interfaces/web-assets/Paper';
 
 
 const scrapedSessionFilename = process.argv[2];

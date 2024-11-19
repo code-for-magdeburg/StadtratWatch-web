@@ -8,7 +8,7 @@ import {
   SessionVotingDto,
   VoteResult,
   VotingResult
-} from '../../interfaces/Session';
+} from '../../interfaces/web-assets/Session';
 import { SessionVote } from '../shared/model/session-scan';
 import { ScrapedSession } from '../shared/model/scraped-session';
 import { Registry } from '../shared/model/registry';

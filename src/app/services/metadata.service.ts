@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { MetadataDto } from '../../interfaces/Metadata';
+import { MetadataDto } from '../../interfaces/web-assets/Metadata';
 
 
 @Injectable({ providedIn: 'root' })

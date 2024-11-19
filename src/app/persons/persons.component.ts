@@ -1,6 +1,6 @@
 import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { PersonsService } from '../services/persons.service';
-import { PersonLightDto } from '../../interfaces/Person';
+import { PersonLightDto } from '../../interfaces/web-assets/Person';
 import { compare, SortablePersonsDirective, SortPersonsEvent } from './sortable-persons.directive';
 import * as d3 from 'd3';
 import {

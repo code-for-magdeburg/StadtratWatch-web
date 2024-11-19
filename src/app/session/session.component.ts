@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SessionsService } from '../services/sessions.service';
 import { ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
-import { SessionSpeechDto, SessionVotingDto, Vote, VoteResult } from '../../interfaces/Session';
+import { SessionSpeechDto, SessionVotingDto, Vote, VoteResult } from '../../interfaces/web-assets/Session';
 import { SpeakingTimeChartData } from '../components/speaking-time-chart/speaking-time-chart.component';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { DatePipe } from '@angular/common';

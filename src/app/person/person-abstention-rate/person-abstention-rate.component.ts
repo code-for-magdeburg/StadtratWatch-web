@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnChanges, PLATFORM_ID, SimpleChanges, ViewChild } from '@angular/core';
-import { PersonDetailsDto } from '../../../interfaces/Person';
+import { PersonDetailsDto } from '../../../interfaces/web-assets/Person';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfiguration } from 'chart.js';
 import {

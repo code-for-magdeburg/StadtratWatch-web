@@ -4,7 +4,7 @@ import {
   SessionVotingDto,
   VoteResult,
   VotingResult
-} from '../../../interfaces/Session';
+} from '../../../interfaces/web-assets/Session';
 
 
 type VotingsSuccessForSession = {

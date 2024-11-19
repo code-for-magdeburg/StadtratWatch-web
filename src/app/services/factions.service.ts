@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { FactionDetailsDto, FactionLightDto } from '../../interfaces/Faction';
+import { FactionDetailsDto, FactionLightDto } from '../../interfaces/web-assets/Faction';
 
 
 @Injectable({ providedIn: 'root' })

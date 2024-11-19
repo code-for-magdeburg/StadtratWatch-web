@@ -4,15 +4,15 @@ import { FactionsService } from '../services/factions.service';
 import { PersonsService } from '../services/persons.service';
 import { forkJoin } from 'rxjs';
 import { Councilor, CouncilorCardComponent } from '../components/councilor-card/councilor-card.component';
-import { ApplicationDto, ApplicationVotingDto } from '../../interfaces/Application';
+import { ApplicationDto, ApplicationVotingDto } from '../../interfaces/web-assets/Application';
 import { ACCEPTED_COLOR, PARTIALLY_ACCEPTED_COLOR, REJECTED_COLOR } from '../utilities/ui';
-import { VotingResult } from '../../interfaces/Session';
+import { VotingResult } from '../../interfaces/web-assets/Session';
 import {
   compare,
   SortableFactionApplicationsDirective,
   SortFactionApplicationsEvent
 } from './sortable-faction-applications.directive';
-import { StatsHistoryDto } from '../../interfaces/Faction';
+import { StatsHistoryDto } from '../../interfaces/web-assets/Faction';
 import { MetaTagsService } from '../services/meta-tags.service';
 import { ELECTORAL_PERIOD_PATH } from '../app-routing.module';
 import { environment } from '../../environments/environment';
