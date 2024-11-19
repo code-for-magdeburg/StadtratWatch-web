@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { PapersService } from '../services/papers.service';
-import { PaperDto } from '../model/Paper';
+import { PaperDto } from '../../interfaces/Paper';
 import { formatFileSize } from '../utilities/ui';
 
 

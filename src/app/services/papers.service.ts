@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { PapersDto } from '../model/Paper';
+import { PapersDto } from '../../interfaces/Paper';
 import { HttpClient } from '@angular/common/http';
 
 
