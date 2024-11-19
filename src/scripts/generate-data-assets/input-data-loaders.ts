@@ -2,10 +2,10 @@ import { Registry } from '../shared/model/registry';
 import * as path from 'path';
 import * as fs from 'fs';
 import { ScrapedSession } from '../shared/model/scraped-session';
-import { SessionInputData } from './model/session-input-data';
-import { SessionConfig } from './model/session-config';
-import { SessionScan } from './model/session-scan';
-import { SessionSpeech } from './model/session-speech';
+import { SessionInputData } from '../shared/model/session-input-data';
+import { SessionConfig } from '../shared/model/session-config';
+import { SessionScan } from '../shared/model/session-scan';
+import { SessionSpeech } from '../shared/model/session-speech';
 
 
 export function loadRegistry(inputDir: string): Registry {

@@ -9,10 +9,10 @@ import {
   VoteResult,
   VotingResult
 } from '../../app/model/Session';
-import { SessionVote } from './model/session-scan';
+import { SessionVote } from '../shared/model/session-scan';
 import { ScrapedSession } from '../shared/model/scraped-session';
 import { Registry } from '../shared/model/registry';
-import { SessionInputData } from './model/session-input-data';
+import { SessionInputData } from '../shared/model/session-input-data';
 
 
 export type GeneratedSessionsData = {
