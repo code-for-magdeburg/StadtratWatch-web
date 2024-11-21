@@ -45,8 +45,8 @@ export class AssetsWriter {
     console.log('Writing all-sessions.json');
     sessions.sort((a, b) => a.date.localeCompare(b.date));
     Deno.writeTextFileSync(
-        path.join(this.sessionsOutputDir, 'all-sessions.json')
-        , JSON.stringify(sessions, null, 2)
+      path.join(this.sessionsOutputDir, 'all-sessions.json'),
+      JSON.stringify(sessions, null, 2)
     );
 
   }

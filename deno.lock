@@ -9,6 +9,7 @@
     "jsr:@std/cli@^1.0.6": "1.0.6",
     "jsr:@std/encoding@0.214": "0.214.0",
     "jsr:@std/encoding@0.217.0": "0.217.0",
+    "jsr:@std/encoding@^1.0.5": "1.0.5",
     "jsr:@std/fmt@0.214": "0.214.0",
     "jsr:@std/fs@0.214": "0.214.0",
     "jsr:@std/fs@0.217.0": "0.217.0",
@@ -107,6 +108,9 @@
     },
     "@std/encoding@0.217.0": {
       "integrity": "b03e8ff94c98d6b6a02c02c5cf8e5d203400155516248964fc4559abc04669dc"
+    },
+    "@std/encoding@1.0.5": {
+      "integrity": "ecf363d4fc25bd85bd915ff6733a7e79b67e0e7806334af15f4645c569fefc04"
     },
     "@std/fmt@0.214.0": {
       "integrity": "40382cff88a0783b347b4d69b94cf931ab8e549a733916718cb866c08efac4d4"
@@ -8124,6 +8128,7 @@
     "dependencies": [
       "jsr:@gfx/canvas@~0.5.8",
       "jsr:@std/cli@^1.0.6",
+      "jsr:@std/encoding@^1.0.5",
       "jsr:@std/fs@^1.0.5",
       "jsr:@std/path@^1.0.8"
     ],

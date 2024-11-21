@@ -1,5 +1,8 @@
 node_modules
 npm-debug.log
+.angular
+.github
+.netlify
 
 coverage
 data
@@ -8,3 +11,6 @@ sessions-media-files
 dist
 docker
 output
+typesense
+.env*
+*.traineddata
