@@ -1,38 +1,29 @@
-import * as fs from 'fs';
-import * as https from 'https';
-import * as path from 'path';
-import { ScrapedMeeting, ScrapedSession } from '../shared/model/scraped-session';
+import * as fs from '@std/fs';
+import * as path from '@std/path';
+import { ScrapedMeeting, ScrapedSession } from '../shared/model/scraped-session.ts';
+import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 
 
-const scrapedSessionFilename = process.argv[2];
-const outputDir = process.argv[3];
-const year = process.argv[4];
+const args = parseArgs(Deno.args);
 
-if (!scrapedSessionFilename || !outputDir || !year) {
-  console.error('Usage: node index.js <scrapedSessionFilename> <outputDir> <year>');
-  process.exit(1);
+if (args.help) {
+  printHelpText();
+  Deno.exit(0);
 }
 
-if (!fs.existsSync(scrapedSessionFilename) || !fs.lstatSync(scrapedSessionFilename).isFile()) {
-  console.error(`Scraped session file "${scrapedSessionFilename}" does not exist or is not a file.`);
-  process.exit(1);
-}
+checkArgs(args);
 
 
-if (isNaN(parseInt(year))) {
-  console.error('Year must be a number.');
-  process.exit(1);
-}
+await runYear(args.outputDir, parseInt(args.year));
+console.log('Done.');
 
 
 async function runYear(outputBaseDir: string, year: number): Promise<void> {
 
   const outputDir = path.join(outputBaseDir, `${year}`);
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir);
-  }
+  fs.ensureDirSync(outputDir);
 
-  const magdeburg = JSON.parse(fs.readFileSync(scrapedSessionFilename, 'utf8')) as ScrapedSession;
+  const magdeburg = JSON.parse(Deno.readTextFileSync(args.scrapedSessionFilename)) as ScrapedSession;
   await runMeetings(year, magdeburg, outputDir);
 
 }
@@ -70,9 +61,10 @@ async function runMeeting(magdeburg: ScrapedSession, outputDir: string, meeting:
     .map(agendaItem => agendaItem.paper_original_id);
   const files = magdeburg.files.filter(file => paperIds.includes(file.paper_original_id));
 
-  const dirents = fs.readdirSync(outputDir, { withFileTypes: true });
-  const existingFiles = dirents
-    .filter(dirent => dirent.isFile() && dirent.name.endsWith('.pdf'))
+  const dirents = Deno.readDirSync(outputDir);
+  const existingFiles = Array
+    .from(dirents)
+    .filter(dirent => dirent.isFile && dirent.name.endsWith('.pdf'))
     .map(dirent => dirent.name);
 
   const filesToDownload = files.filter(
@@ -87,26 +79,13 @@ async function runMeeting(magdeburg: ScrapedSession, outputDir: string, meeting:
 
 async function downloadFile(url: string, id: number, outputDir: string): Promise<void> {
 
-  return new Promise((resolve) => {
+  const filename = `${id}.pdf`;
 
-    const filename = `${id}.pdf`;
+  const fileResponse = await fetch(url);
+  if (fileResponse.body) {
+    const file = await Deno.open(path.join(outputDir, filename), { write: true, create: true });
+    await fileResponse.body.pipeTo(file.writable);
+    console.log('Download finished: ', filename);
+  }
 
-    https.get(url, (res) => {
-      const fileStream = fs.createWriteStream(path.join(outputDir, filename));
-      res.pipe(fileStream);
-
-      fileStream.on('finish', () => {
-        fileStream.close();
-        console.log('Download finished: ', filename);
-        resolve();
-      });
-    })
-
-  });
 }
-
-
-(async () => {
-  await runYear(outputDir, parseInt(year));
-  console.log('Done.');
-})();
