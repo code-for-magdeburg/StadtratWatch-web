@@ -1,24 +1,27 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import { ScrapedFile, ScrapedMeeting, ScrapedSession } from '../shared/model/scraped-session';
-import { PaperDto, PapersDto } from '../../interfaces/web-assets/Paper';
+import * as fs from '@std/fs';
+import * as path from '@std/path';
+import { ScrapedFile, ScrapedMeeting, ScrapedSession } from '../shared/model/scraped-session.ts';
+import { PaperDto, PapersDto } from '@scope/interfaces-web-assets';
+import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 
 
-const scrapedSessionFilename = process.argv[2];
-const papersDir = process.argv[3];
-const outputDir = process.argv[4];
-if (!scrapedSessionFilename || !papersDir || !outputDir) {
-  console.error('Usage: node index.js <scrapedSessionFile> <papersDir> <outputDir>');
-  process.exit(1);
+const args = parseArgs(Deno.args);
+
+if (args.help) {
+  printHelpText();
+  Deno.exit(0);
 }
 
-if (!fs.existsSync(scrapedSessionFilename) || !fs.lstatSync(scrapedSessionFilename).isFile()) {
-  console.error(`Scraped session file "${scrapedSessionFilename}" does not exist or is not a file.`);
-  process.exit(1);
-}
+checkArgs(args);
 
 
-async function run(scrapedSession: ScrapedSession, outputDir: string): Promise<void> {
+const scrapedSession = JSON.parse(Deno.readTextFileSync(args.scrapedSessionFilename)) as ScrapedSession;
+run(scrapedSession, args.outputDir);
+
+console.log('Done.');
+
+
+function run(scrapedSession: ScrapedSession, outputDir: string) {
 
   const allPapers: PapersDto = [];
 
@@ -79,7 +82,7 @@ async function run(scrapedSession: ScrapedSession, outputDir: string): Promise<v
 
   for (const batchNo in grouped) {
     const filename = path.join(outputDir, `papers-${batchNo}.json`);
-    fs.writeFileSync(filename, JSON.stringify(grouped[batchNo], null, 2));
+    Deno.writeTextFileSync(filename, JSON.stringify(grouped[batchNo], null, 2));
   }
 
 }
@@ -88,19 +91,8 @@ async function run(scrapedSession: ScrapedSession, outputDir: string): Promise<v
 function getFileSize(meeting: ScrapedMeeting, file: ScrapedFile): number | null {
 
   const year = meeting.start.split('-')[0];
-  const paperFilename = path.join(papersDir, year, `${file.original_id}.pdf`);
+  const paperFilename = path.join(args.papersDir, year, `${file.original_id}.pdf`);
 
-  return fs.existsSync(paperFilename) ? fs.statSync(paperFilename).size : null;
+  return fs.existsSync(paperFilename) ? Deno.statSync(paperFilename).size : null;
 
 }
-
-
-(async () => {
-
-  const scrapedSession =
-    JSON.parse(fs.readFileSync(scrapedSessionFilename, 'utf-8')) as ScrapedSession;
-  await run(scrapedSession, outputDir);
-
-  console.log('Done.');
-
-})();
