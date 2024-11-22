@@ -1,15 +1,19 @@
-FROM node:18-bookworm
+FROM denoland/deno:2.1.0
 
 WORKDIR /app
 
-COPY package.json /app
+COPY deno.json /app
+COPY deno.lock /app
+COPY src /app/src
 
-RUN npm install
+RUN deno install --entrypoint src/scripts/generate-paper-assets/index.ts
 
-COPY ../tsconfig.json .
-COPY ../tsconfig.scripts.json .
-COPY ../src/app/model /app/src/app/model
-COPY ../src/scripts/shared /app/src/scripts/shared
-COPY ../src/scripts/generate-paper-assets /app/src/scripts/generate-paper-assets
+RUN deno cache src/scripts/generate-paper-assets/index.ts
 
-CMD ["npm", "run", "generate-paper-assets", "./Magdeburg.json", "./papers", "./generated"]
+CMD ["run", \
+        "-R=/app/Magdeburg.json,/app/papers", \
+        "-W=/app/generated", \
+        "src/scripts/generate-paper-assets/index.ts", \
+        "-s=./Magdeburg.json", \
+        "-p=./papers", \
+        "-o=./generated"]
