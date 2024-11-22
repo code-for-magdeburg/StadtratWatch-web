@@ -8,7 +8,7 @@ docker build -t srw-generate-data-assets -f docker\generate-data-assets.Dockerfi
 
 #### Run the docker container
 ```shell
-docker run --rm -v %cd%\data\electoral-period-7:/app/electoral-period:ro -v %cd%\src\assets\electoral-period-7:/app/generated -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro srw-generate-data-assets
+docker run --rm -v %cd%\data\electoral-period-8:/app/input-dir:ro -v %cd%\src\assets\electoral-periods\magdeburg-8:/app/output-dir -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro srw-generate-data-assets
 ```
 
 
@@ -47,7 +47,7 @@ docker build -t srw-download-paper-files -f docker\download-paper-files.Dockerfi
 
 #### Run the docker container
 ```shell
-docker run --rm -v %cd%\output\papers:/app/output/papers -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro srw-download-paper-files 2024
+docker run --rm -v %cd%\output\papers:/app/output-dir -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro srw-download-paper-files 2024
 ```
 
 

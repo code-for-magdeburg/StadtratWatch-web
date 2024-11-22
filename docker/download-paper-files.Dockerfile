@@ -1,14 +1,21 @@
-FROM node:18-bookworm
+FROM denoland/deno:2.1.0
 
 WORKDIR /app
 
-COPY package.json /app
+COPY deno.json /app
+COPY deno.lock /app
+COPY src /app/src
 
-RUN npm install
+RUN deno install --entrypoint src/scripts/download-paper-files/index.ts
 
-COPY ../tsconfig.json .
-COPY ../tsconfig.scripts.json .
-COPY ../src/scripts/shared /app/src/scripts/shared
-COPY ../src/scripts/download-paper-files /app/src/scripts/download-paper-files
+RUN deno cache src/scripts/download-paper-files/index.ts
 
-ENTRYPOINT ["npm", "run", "download-paper-files", "./Magdeburg.json", "./output/papers"]
+ENTRYPOINT ["deno", "run", \
+        "-R=/app/Magdeburg.json,/app/output-dir", \
+        "-W=/app/output-dir", \
+        "--allow-net", \
+        "src/scripts/download-paper-files/index.ts", \
+        "-s=./Magdeburg.json", \
+        "-o=./output-dir", \
+        "-y"]
+CMD ["2024"]
