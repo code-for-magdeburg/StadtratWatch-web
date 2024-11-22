@@ -1,15 +1,18 @@
-FROM node:18-bookworm
+FROM denoland/deno:2.1.0
 
 WORKDIR /app
 
-COPY package.json /app
+COPY deno.json /app
+COPY deno.lock /app
+COPY src /app/src
 
-RUN npm install
+RUN deno install --entrypoint src/scripts/generate-routes-file/index.ts
 
-COPY ../tsconfig.json .
-COPY ../tsconfig.scripts.json .
-COPY ../src/app/model /app/src/app/model
-COPY ../src/scripts/shared /app/src/scripts/shared
-COPY ../src/scripts/generate-routes-file /app/src/scripts/generate-routes-file
+RUN deno cache src/scripts/generate-routes-file/index.ts
 
-CMD ["npm", "run", "generate-routes-file", "./data", "./generated"]
+CMD ["run", \
+        "-R=/app/data", \
+        "-W=/app/generated", \
+        "src/scripts/generate-routes-file/index.ts", \
+        "-d=./data", \
+        "-o=./generated"]
