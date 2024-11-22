@@ -11,11 +11,11 @@ RUN deno install --entrypoint src/scripts/download-paper-files/index.ts
 RUN deno cache src/scripts/download-paper-files/index.ts
 
 ENTRYPOINT ["deno", "run", \
-        "-R=/app/Magdeburg.json,/app/output-dir", \
-        "-W=/app/output-dir", \
+        "-R=/app/Magdeburg.json,/app/papers", \
+        "-W=/app/papers", \
         "--allow-net", \
         "src/scripts/download-paper-files/index.ts", \
         "-s=./Magdeburg.json", \
-        "-o=./output-dir", \
+        "-p=./papers", \
         "-y"]
 CMD ["2024"]

@@ -51,7 +51,7 @@ export function checkArgs(args: GeneratePaperAssetsArgs) {
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts -i <input-dir> -o <output-dir> -s <scraped-session-file>
+Usage: deno run index.ts -s <scraped-session-file> -p <papers-dir> -o <output-dir>
 -h, --help                  Show this help message and exit.
 -s, --scraped-session-file  The scraped session file.
 -p, --papers-dir            The papers directory. It should contain directories with the paper files per year.

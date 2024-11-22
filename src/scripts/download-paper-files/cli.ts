@@ -5,7 +5,7 @@ import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 export type DownloadPaperFilesArgs = {
   help: boolean;
   scrapedSessionFilename: string;
-  outputDir: string;
+  papersDir: string;
   year: string;
 };
 
@@ -13,11 +13,11 @@ export type DownloadPaperFilesArgs = {
 export function parseArgs(args: string[]): DownloadPaperFilesArgs {
   return stdCliParseArgs(args, {
     boolean: ['help'],
-    string: ['scraped-session-filename', 'output-dir', 'year'],
+    string: ['scraped-session-filename', 'papers-dir', 'year'],
     alias: {
       help: 'h',
       'scraped-session-filename': ['s', 'scrapedSessionFilename'],
-      'output-dir': ['o', 'outputDir'],
+      'papers-dir': ['p', 'papersDir'],
       'year': ['y'],
     },
   }) as DownloadPaperFilesArgs;
@@ -25,15 +25,15 @@ export function parseArgs(args: string[]): DownloadPaperFilesArgs {
 
 
 export function checkArgs(args: DownloadPaperFilesArgs) {
-  const { scrapedSessionFilename, outputDir, year } = args;
+  const { scrapedSessionFilename, papersDir, year } = args;
 
   if (!scrapedSessionFilename) {
     console.error('Missing scraped session file. See --help for usage.');
     Deno.exit(1);
   }
 
-  if (!outputDir) {
-    console.error('Missing output directory. See --help for usage.');
+  if (!papersDir) {
+    console.error('Missing papers directory. See --help for usage.');
     Deno.exit(1);
   }
 
@@ -56,10 +56,10 @@ export function checkArgs(args: DownloadPaperFilesArgs) {
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts -i <input-dir> -o <output-dir> -s <scraped-session-file>
+Usage: deno run index.ts -s <scraped-session-file> -p <papers-dir> -y <year>
 -h, --help                  Show this help message and exit.
 -s, --scraped-session-file  The scraped session file.
--o, --output-dir            The output directory.
+-p, --papers-dir            The output directory.
 -y, --year                  The year to process.
   `);
 }

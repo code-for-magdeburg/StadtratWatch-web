@@ -14,7 +14,7 @@ if (args.help) {
 checkArgs(args);
 
 
-await runYear(args.outputDir, parseInt(args.year));
+await runYear(args.papersDir, parseInt(args.year));
 console.log('Done.');
 
 
