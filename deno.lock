@@ -6,7 +6,9 @@
     "jsr:@gfx/canvas@~0.5.8": "0.5.8",
     "jsr:@std/assert@0.214": "0.214.0",
     "jsr:@std/assert@0.217": "0.217.0",
+    "jsr:@std/bytes@^1.0.3": "1.0.3",
     "jsr:@std/cli@^1.0.6": "1.0.6",
+    "jsr:@std/csv@^1.0.4": "1.0.4",
     "jsr:@std/encoding@0.214": "0.214.0",
     "jsr:@std/encoding@0.217.0": "0.217.0",
     "jsr:@std/encoding@^1.0.5": "1.0.5",
@@ -19,6 +21,7 @@
     "jsr:@std/path@0.217.0": "0.217.0",
     "jsr:@std/path@^1.0.7": "1.0.8",
     "jsr:@std/path@^1.0.8": "1.0.8",
+    "jsr:@std/streams@^1.0.8": "1.0.8",
     "npm:@angular-devkit/build-angular@^17.3.5": "17.3.11_@angular+compiler-cli@17.3.12__@angular+compiler@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__typescript@5.4.5__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_@angular+platform-server@17.3.12__@angular+animations@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__@angular+common@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__@angular+compiler@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__@angular+platform-browser@17.3.12___@angular+animations@17.3.12____@angular+core@17.3.12_____rxjs@7.8.1_____zone.js@0.14.10____rxjs@7.8.1____zone.js@0.14.10___@angular+common@17.3.12____@angular+core@17.3.12_____rxjs@7.8.1_____zone.js@0.14.10____rxjs@7.8.1____zone.js@0.14.10___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_browser-sync@3.0.3_jest@29.7.0__ts-node@10.9.2___@types+node@22.5.4___typescript@5.4.5__typescript@5.4.5_karma@6.4.4_typescript@5.4.5_webpack@5.94.0__acorn@8.14.0_webpack-dev-server@4.15.1__webpack@5.94.0___acorn@8.14.0__@types+express@4.17.21_@angular+compiler@17.3.12__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_@angular+animations@17.3.12__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_@angular+common@17.3.12__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_@angular+core@17.3.12__rxjs@7.8.1__zone.js@0.14.10_@angular+platform-browser@17.3.12__@angular+animations@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__@angular+common@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_@babel+core@7.24.0_vite@5.1.8__@types+node@18.19.64__less@4.2.0__sass@1.71.1__terser@5.29.1_postcss@8.4.35_@types+express@4.17.21_less@4.2.0_sass@1.71.1_@types+node@18.19.64_terser@5.29.1_rxjs@7.8.1_zone.js@0.14.10_ts-node@10.9.2__@types+node@22.5.4__typescript@5.4.5",
     "npm:@angular/animations@^17.3.5": "17.3.12_@angular+core@17.3.12__rxjs@7.8.1__zone.js@0.14.10_rxjs@7.8.1_zone.js@0.14.10",
     "npm:@angular/cdk@^17.3.5": "17.3.10_@angular+common@17.3.12__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_@angular+core@17.3.12__rxjs@7.8.1__zone.js@0.14.10_rxjs@7.8.1_zone.js@0.14.10",
@@ -42,7 +45,6 @@
     "npm:@types/express@^4.17.17": "4.17.21",
     "npm:@types/jasmine@~5.1.4": "5.1.4",
     "npm:@types/node@^18.18.0": "18.19.64",
-    "npm:@types/papaparse@^5.3.14": "5.3.15",
     "npm:axios@^1.7.5": "1.7.7",
     "npm:babel-jest@^29.7.0": "29.7.0_@babel+core@7.26.0",
     "npm:bootstrap-icons@^1.11.1": "1.11.3",
@@ -65,7 +67,6 @@
     "npm:ng2-charts@^5.0.3": "5.0.4_@angular+cdk@17.3.10__@angular+common@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_@angular+common@17.3.12__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_@angular+core@17.3.12__rxjs@7.8.1__zone.js@0.14.10_@angular+platform-browser@17.3.12__@angular+animations@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__@angular+common@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_chart.js@3.9.1_rxjs@7.8.1_zone.js@0.14.10_@angular+animations@17.3.12__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10",
     "npm:ngx-bootstrap@12": "12.0.0_@angular+animations@17.3.12__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_@angular+common@17.3.12__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10_@angular+core@17.3.12__rxjs@7.8.1__zone.js@0.14.10_@angular+forms@17.3.12__@angular+common@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__@angular+platform-browser@17.3.12___@angular+animations@17.3.12____@angular+core@17.3.12_____rxjs@7.8.1_____zone.js@0.14.10____rxjs@7.8.1____zone.js@0.14.10___@angular+common@17.3.12____@angular+core@17.3.12_____rxjs@7.8.1_____zone.js@0.14.10____rxjs@7.8.1____zone.js@0.14.10___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10__@angular+animations@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10_rxjs@7.8.1_zone.js@0.14.10_@angular+platform-browser@17.3.12__@angular+animations@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__@angular+common@17.3.12___@angular+core@17.3.12____rxjs@7.8.1____zone.js@0.14.10___rxjs@7.8.1___zone.js@0.14.10__@angular+core@17.3.12___rxjs@7.8.1___zone.js@0.14.10__rxjs@7.8.1__zone.js@0.14.10",
     "npm:openai@^4.61.1": "4.71.1",
-    "npm:papaparse@^5.4.1": "5.4.1",
     "npm:rxjs@7.8": "7.8.1",
     "npm:tesseract.js@^5.1.0": "5.1.1",
     "npm:ts-node@^10.9.1": "10.9.2_@types+node@22.5.4_typescript@5.4.5",
@@ -100,8 +101,17 @@
     "@std/assert@0.217.0": {
       "integrity": "c98e279362ca6982d5285c3b89517b757c1e3477ee9f14eb2fdf80a45aaa9642"
     },
+    "@std/bytes@1.0.3": {
+      "integrity": "e5d5b9e685966314e4edb4be60dfc4bd7624a075bfd4ec8109252b4320f76452"
+    },
     "@std/cli@1.0.6": {
       "integrity": "d22d8b38c66c666d7ad1f2a66c5b122da1704f985d3c47f01129f05abb6c5d3d"
+    },
+    "@std/csv@1.0.4": {
+      "integrity": "aa351de654b10b8a407275b61f588863b9538027fd47aed90dd9e7f54ab5bdc0",
+      "dependencies": [
+        "jsr:@std/streams"
+      ]
     },
     "@std/encoding@0.214.0": {
       "integrity": "30a8713e1db22986c7e780555ffd2fefd1d4f9374d734bb41f5970f6c3352af5"
@@ -149,6 +159,12 @@
     },
     "@std/path@1.0.8": {
       "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    },
+    "@std/streams@1.0.8": {
+      "integrity": "b41332d93d2cf6a82fe4ac2153b930adf1a859392931e2a19d9fabfb6f154fb3",
+      "dependencies": [
+        "jsr:@std/bytes"
+      ]
     }
   },
   "npm": {
@@ -3084,12 +3100,6 @@
       "integrity": "sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==",
       "dependencies": [
         "undici-types@6.19.8"
-      ]
-    },
-    "@types/papaparse@5.3.15": {
-      "integrity": "sha512-JHe6vF6x/8Z85nCX4yFdDslN11d+1pr12E526X8WAfhadOeaOTx5AuIkvDKIBopfvlzpzkdMx4YyvSKCM9oqtw==",
-      "dependencies": [
-        "@types/node@22.5.4"
       ]
     },
     "@types/qs@6.9.17": {
@@ -6631,9 +6641,6 @@
         "tar"
       ]
     },
-    "papaparse@5.4.1": {
-      "integrity": "sha512-HipMsgJkZu8br23pW15uvo6sib6wne/4woLZPlFf3rpDyMe9ywEXUsuD7+6K9PRkJlVT51j/sCOYDKGGS3ZJrw=="
-    },
     "parent-module@1.0.1": {
       "integrity": "sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==",
       "dependencies": [
@@ -8128,6 +8135,7 @@
     "dependencies": [
       "jsr:@gfx/canvas@~0.5.8",
       "jsr:@std/cli@^1.0.6",
+      "jsr:@std/csv@^1.0.4",
       "jsr:@std/encoding@^1.0.5",
       "jsr:@std/fs@^1.0.5",
       "jsr:@std/path@^1.0.8"
@@ -8157,7 +8165,6 @@
         "npm:@types/express@^4.17.17",
         "npm:@types/jasmine@~5.1.4",
         "npm:@types/node@^18.18.0",
-        "npm:@types/papaparse@^5.3.14",
         "npm:axios@^1.7.5",
         "npm:babel-jest@^29.7.0",
         "npm:bootstrap-icons@^1.11.1",
@@ -8180,7 +8187,6 @@
         "npm:ng2-charts@^5.0.3",
         "npm:ngx-bootstrap@12",
         "npm:openai@^4.61.1",
-        "npm:papaparse@^5.4.1",
         "npm:rxjs@7.8",
         "npm:tesseract.js@^5.1.0",
         "npm:ts-node@^10.9.1",
