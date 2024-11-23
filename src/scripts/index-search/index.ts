@@ -1,42 +1,28 @@
-import * as fs from 'fs';
-import { ScrapedSession } from '../shared/model/scraped-session';
-import { indexPapers } from './index-papers';
-import { indexSpeeches } from './index-speeches';
-import * as dotenv from 'dotenv';
+import { ScrapedSession } from '../shared/model/scraped-session.ts';
+import { tryGetIndexSearchEnv } from './env.ts';
+import { checkArgs, parseArgs, printHelpText } from './cli.ts';
+import { TypesenseIndexer } from './typesense-indexer.ts';
 
 
-dotenv.config({ path: '.env.local' });
+const args = parseArgs(Deno.args);
 
-const { TYPESENSE_SERVER_URL, TYPESENSE_COLLECTION_NAME, TYPESENSE_API_KEY } = process.env;
-if (!TYPESENSE_SERVER_URL || !TYPESENSE_COLLECTION_NAME || !TYPESENSE_API_KEY) {
-  console.error('Environment variables TYPESENSE_SERVER_URL, TYPESENSE_COLLECTION_NAME and TYPESENSE_API_KEY must be set.');
-  process.exit(1);
+if (args.help) {
+  printHelpText();
+  Deno.exit(0);
 }
 
-const papersContentDir = process.argv[2];
-const electoralPeriodsBaseDir = process.argv[3];
-const scrapedSessionFilename = process.argv[4];
-
-if (!papersContentDir || !electoralPeriodsBaseDir || !scrapedSessionFilename) {
-  console.error('Usage: node index.js <papersContentDir> <electoralPeriodsBaseDir> <scrapedSessionFile>');
-  process.exit(1);
-}
+checkArgs(args);
 
 
-if (!fs.existsSync(scrapedSessionFilename) || !fs.lstatSync(scrapedSessionFilename).isFile()) {
-  console.error(`Scraped session file "${scrapedSessionFilename}" does not exist or is not a file.`);
-  process.exit(1);
-}
+const env = tryGetIndexSearchEnv();
+const indexer = new TypesenseIndexer(
+  env.typesenseServerUrl,
+  env.typesenseCollectionName,
+  env.typesenseApiKey
+);
 
+const scrapedSession = JSON.parse(Deno.readTextFileSync(args.scrapedSessionFilename)) as ScrapedSession;
+await indexer.indexPapers(args.papersContentDir, scrapedSession);
+await indexer.indexSpeeches(args.electoralPeriodsBaseDir);
 
-(async () => {
-
-  const scrapedSession =
-    JSON.parse(fs.readFileSync(scrapedSessionFilename, 'utf-8')) as ScrapedSession;
-  await indexPapers(papersContentDir, scrapedSession);
-
-  await indexSpeeches(electoralPeriodsBaseDir);
-
-  console.log('Done.');
-
-})();
+console.log('Done.');
