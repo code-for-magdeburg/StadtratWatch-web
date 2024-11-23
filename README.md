@@ -65,6 +65,32 @@ docker run --rm -v %cd%\output\papers\2023:/input -v %cd%\output\papers\2023-ext
 ```
 
 
+### Index Typesense search data
+
+#### Build the docker image
+```shell
+docker build -t srw-index-search -f docker\index-search.Dockerfile .
+```
+
+#### Run the docker container
+
+Typesense connection information have to be provided by setting the following environment variables:
+- `TYPESENSE_SERVER_URL`
+- `TYPESENSE_API_KEY`
+- `TYPESENSE_COLLECTION_NAME`
+
+```shell
+docker run \
+	--rm \
+	-e TYPESENSE_SERVER_URL=http://host.docker.internal:8108 \
+	-e TYPESENSE_COLLECTION_NAME=papers-and-speeches-0001 \
+	-e TYPESENSE_API_KEY=abc123 \
+	-v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
+	-v %cd%\output\papers\all-extracted:/app/papers-content:ro \
+	-v %cd%\data:/app/electoral-periods:ro \
+	srw-index-search
+```
+
 
 ### Web App
 

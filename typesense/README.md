@@ -46,20 +46,3 @@ To run the script, you need to provide the following arguments:
 ```
 
 This command will initialize the specified collection on the Typesense server running at `http://localhost:8108` using the provided API key.
-
-  
-### Import data into Typesense
-
-Typesense connection information has to be provided by setting the following environment variables:
-- `TYPESENSE_SERVER_URL`
-- `TYPESENSE_API_KEY`
-- `TYPESENSE_COLLECTION_NAME`
-
-```bash
-npm run index-search -- <Path to directory containing text files> <Path to base directory of electoral periods folders> <Scraped Session file>
-```
-
-Example
-```bash
-npm run index-search -- ./output/papers/all-extracted ./data ./data/Magdeburg.json
-```
