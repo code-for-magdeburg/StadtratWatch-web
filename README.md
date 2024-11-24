@@ -92,6 +92,25 @@ docker run \
 ```
 
 
+### Parse Speakers
+This tool parses multiple rttm files (from one session) and generates a single json file containing all speakers data.
+
+#### Build the docker image
+```shell
+docker build -t srw-parse-speakers -f docker\parse-speakers.Dockerfile .
+```
+
+#### Run the docker container
+```shell
+docker run \
+  --rm \
+  -v %cd%\sessions-media-files\2022-09-01:/app/input:ro \
+  -v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
+  srw-parse-speakers \
+  2022-09-01
+```
+
+
 ### Web App
 
 #### Build the docker image
