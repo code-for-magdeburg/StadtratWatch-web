@@ -114,7 +114,7 @@ export function generateSessionsData(sessionsData: SessionInputData[], registry:
               agendaItem: voting.votingSubject.agendaItem,
               applicationId: voting.votingSubject.applicationId,
               title: voting.votingSubject.title,
-              type: voting.votingSubject.type,
+              type: voting.votingSubject.type || 'Sonstige',
               authors: voting.votingSubject.authors,
               paperId: paper?.original_id || null
             },
