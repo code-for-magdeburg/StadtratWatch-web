@@ -65,6 +65,26 @@ docker run --rm -v %cd%\output\papers\2023:/input -v %cd%\output\papers\2023-ext
 ```
 
 
+### Scan voting images
+This tool scans the voting images and generates a json file containing the voting data.
+
+#### Build the docker image
+```shell
+docker build -t srw-scan-voting-images -f docker\scan-voting-images.Dockerfile .
+```
+
+#### Run the docker container
+```shell
+docker run \
+	--rm \
+	-v %cd%\data\electoral-period-7\2022-09-01\config-2022-09-01.json:/app/session-config.json:ro \
+	-v %cd%\sessions-media-files\2022-09-01:/app/voting-images:ro \
+	-v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
+	srw-scan-voting-images \
+	2022-09-01
+```
+
+
 ### Index Typesense search data
 
 #### Build the docker image
