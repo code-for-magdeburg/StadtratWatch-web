@@ -131,6 +131,33 @@ docker run \
 ```
 
 
+### Speech transcriptions
+
+#### Build the docker image
+```shell
+docker build -t srw-speech-to-text -f docker\speech-to-text.Dockerfile .
+```
+
+#### Run the docker container
+
+OpenAI API key has to be provided by setting the following environment variable:
+- `OPENAI_ORGANIZATION_ID`
+- `OPENAI_PROJECT_ID`
+- `OPENAI_API_KEY`
+
+```shell
+docker run \
+	--rm \
+	-e OPENAI_ORGANIZATION_ID=<OpenAI organization id> \
+	-e OPENAI_PROJECT_ID=<OpenAI project id> \
+	-e OPENAI_API_KEY=<OpenAI api key> \
+	-v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
+	-v %cd%\output\speeches\2022-09-01:/app/speeches:ro \
+	srw-speech-to-text \
+	2022-09-01
+```
+
+
 ### Web App
 
 #### Build the docker image
