@@ -1,4 +1,4 @@
-FROM node:18-bookworm as build
+FROM node:18-bookworm AS build
 
 WORKDIR /app
 
@@ -12,6 +12,6 @@ RUN npm run build -c production
 
 FROM nginx:latest
 
-COPY --from=build /app/dist/stadtrat-watch-web /usr/share/nginx/html
+COPY --from=build /app/dist/StadtratWatch-web /usr/share/nginx/html
 
 EXPOSE 80

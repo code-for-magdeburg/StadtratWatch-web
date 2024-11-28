@@ -1,4 +1,5 @@
-import { ApplicationDto } from './Application.ts';
+import { ApplicationDto } from './Application';
+import { HistoryValue } from './HistoryValue';
 
 
 export type FactionDetailsDto = {
@@ -35,10 +36,4 @@ export type StatsHistoryDto = {
   uniformityScore: HistoryValue[];
   participationRate: HistoryValue[];
   abstentionRate: HistoryValue[];
-};
-
-
-type HistoryValue = {
-  date: string;
-  value: number | null;
 };

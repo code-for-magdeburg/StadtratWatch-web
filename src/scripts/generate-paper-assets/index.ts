@@ -36,27 +36,25 @@ function run(scrapedSession: ScrapedSession, outputDir: string) {
     .forEach(meeting => {
 
       scrapedSession.agenda_items
+        .filter(agendaItem => agendaItem.meeting_id === meeting.original_id)
+        .filter(agendaItem => !!agendaItem.paper_original_id)
         .filter(
-          agendaItem =>
-            agendaItem.meeting_id === meeting.original_id
-            && !!agendaItem.paper_original_id
-            && !allPapers.find(paper => paper.id === agendaItem.paper_original_id)
+          agendaItem => !allPapers.some(paper => paper.id === agendaItem.paper_original_id!)
         )
         .forEach(agendaItem => {
 
+          const paperId = agendaItem.paper_original_id!;
           const files = scrapedSession.files
-            .filter(file => file.paper_original_id === agendaItem.paper_original_id)
+            .filter(file => file.paper_original_id === paperId)
             .map(file => ({
               id: file.original_id,
               name: file.name,
               url: file.url,
               size: getFileSize(meeting, file),
             }));
-          const paper = scrapedSession.papers.find(
-            p => p.original_id === agendaItem.paper_original_id
-          );
+          const paper = scrapedSession.papers.find(p => p.original_id === paperId);
           allPapers.push({
-            id: agendaItem.paper_original_id,
+            id: paperId,
             reference: agendaItem.paper_reference,
             type: paper ? paper.paper_type : null,
             title: paper ? paper.name : '',

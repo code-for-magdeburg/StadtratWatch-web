@@ -1,4 +1,4 @@
-import { VotingResult } from './Session.ts';
+import { VotingResult } from './Session';
 
 
 export type ApplicationDto = {

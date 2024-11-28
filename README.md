@@ -47,7 +47,7 @@ docker build -t srw-download-paper-files -f docker\download-paper-files.Dockerfi
 
 #### Run the docker container
 ```shell
-docker run --rm -v %cd%\output\papers:/app/papers -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro srw-download-paper-files 2024
+docker run --rm -v %cd%\output\papers\2024:/app/papers -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro srw-download-paper-files 2024
 ```
 
 
