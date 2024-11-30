@@ -1,7 +1,7 @@
 import { ScrapedSession } from '../shared/model/scraped-session.ts';
 import { tryGetIndexSearchEnv } from './env.ts';
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
-import { TypesenseIndexer } from './typesense-indexer.ts';
+import { SearchIndexer } from './search-indexer.ts';
 
 
 const args = parseArgs(Deno.args);
@@ -15,7 +15,7 @@ checkArgs(args);
 
 
 const env = tryGetIndexSearchEnv();
-const indexer = new TypesenseIndexer(
+const indexer = new SearchIndexer(
   env.typesenseServerUrl,
   env.typesenseCollectionName,
   env.typesenseApiKey

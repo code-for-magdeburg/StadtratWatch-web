@@ -6,7 +6,7 @@ import { SessionConfig } from '../shared/model/session-config.ts';
 import { SessionSpeech } from '../shared/model/session-speech.ts';
 
 
-export class TypesenseIndexer {
+export class SearchIndexer {
 
 
   private readonly BATCH_SIZE = 100;
