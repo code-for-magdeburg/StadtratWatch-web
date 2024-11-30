@@ -4,16 +4,14 @@ import * as fs from '@std/fs';
 import { Registry } from '../shared/model/registry.ts';
 import { SessionConfig } from '../shared/model/session-config.ts';
 import { SessionSpeech } from '../shared/model/session-speech.ts';
+import { IndexedPaper, IndexedSpeech, IDocumentsImporter } from './typesense-importer.ts';
 
 
 export class SearchIndexer {
 
 
-  private readonly BATCH_SIZE = 100;
-
-
-  constructor(private readonly typesenseServerUrl: string, private readonly typesenseCollectionName: string,
-              private readonly typesenseApiKey: string) {}
+  constructor(private readonly importer: IDocumentsImporter) {
+  }
 
 
   public async indexPapers(contentDir: string, scrapedSession: ScrapedSession) {
@@ -43,62 +41,28 @@ export class SearchIndexer {
       }
     }
 
-    const papers = Array.from(paperMap.values());
+    const papers = Array
+      .from(paperMap.values())
+      .map<IndexedPaper>(paper => {
+        const files = scrapedSession.files.filter(
+          file => file.paper_original_id === paper.original_id
+        );
+        const files_content = files.map(file => {
+          const filename = `${file.original_id}.pdf.txt`;
+          return Deno.readTextFileSync(path.join(contentDir, filename));
+        });
+        return {
+          id: `paper-${paper.original_id}`,
+          content: files_content,
 
-    for (let i = 0; i < papers.length; i += this.BATCH_SIZE) {
+          paper_name: paper.name || '',
+          paper_type: paper.paper_type || '',
+          paper_reference: paper.reference || ''
+        };
+      });
 
-      const data = papers
-        .slice(i, i + this.BATCH_SIZE)
-        .map(paper => {
-
-          const files = scrapedSession.files.filter(
-            file => file.paper_original_id === paper.original_id
-          );
-          const files_content = files.map(file => {
-            const filename = `${file.original_id}.pdf.txt`;
-            return Deno.readTextFileSync(path.join(contentDir, filename));
-          });
-          return {
-            id: `paper-${paper.original_id}`,
-            type: 'paper',
-            content: files_content,
-
-            paper_name: paper.name || '',
-            paper_type: paper.paper_type || '',
-            paper_reference: paper.reference || '',
-
-            speech_electoral_period: '',
-            speech_session: '',
-            speech_start: 0,
-            speech_session_date: 0,
-            speech_speaker: '',
-            speech_faction: null,
-            speech_party: null,
-            speech_on_behalf_of: null
-          };
-
-        })
-        .filter(documents => documents !== null)
-        .map(document => JSON.stringify(document))
-        .join('\n');
-      const queryParams = new URLSearchParams({ action: 'upsert' });
-      const url = `${this.typesenseServerUrl}/collections/${this.typesenseCollectionName}/documents/import?${queryParams}`;
-      const init: RequestInit = {
-        method: 'POST',
-        headers: {
-          'X-TYPESENSE-API-KEY': this.typesenseApiKey,
-          'Content-Type': 'text/plain'
-        },
-        body: data
-      };
-      const response = await fetch(url, init);
-
-      if (response.status !== 200) {
-        console.error(`Failed to import paper documents: ${response.body}`);
-      } else {
-        console.log(`Imported ${i + this.BATCH_SIZE} paper documents.`);
-      }
-
+    if (!await this.importer.importPapers(papers)) {
+      console.error('Failed to import papers.');
     }
 
   }
@@ -150,58 +114,30 @@ export class SearchIndexer {
 
     console.log(`Indexing speeches for session ${session}...`);
 
-    const speechesWithTranscriptions = speeches.filter(speech => speech.transcription);
+    const speechesWithTranscriptions = speeches
+      .filter(speech => speech.transcription)
+      .map<IndexedSpeech>(speech => {
+        const person = config.names.find(name => name.name === speech.speaker);
+        const party = person ? person.party : null;
+        const faction = person ? person.faction : null;
+        return {
+          id: `speech-${session}-${speech.start}`,
+          content: speech.transcription ? [speech.transcription] : [],
 
-    for (let i = 0; i < speechesWithTranscriptions.length; i += this.BATCH_SIZE) {
+          speech_electoral_period: registry.electoralPeriod,
+          speech_session: session,
+          speech_start: speech.start,
+          speech_session_date: Date.parse(session),
+          speech_speaker: speech.speaker,
+          speech_faction: faction,
+          speech_party: party,
+          speech_on_behalf_of: speech.onBehalfOf || null
+        };
+      });
 
-      const data = speechesWithTranscriptions
-        .slice(i, i + this.BATCH_SIZE)
-        .map(speech => {
 
-          const person = config.names.find(name => name.name === speech.speaker);
-          const party = person ? person.party : null;
-          const faction = person ? person.faction : null;
-          return {
-            id: `speech-${session}-${speech.start}`,
-            type: 'speech',
-            content: [speech.transcription],
-
-            paper_name: '',
-            paper_type: '',
-            paper_reference: '',
-
-            speech_electoral_period: registry.electoralPeriod,
-            speech_session: session,
-            speech_start: speech.start,
-            speech_session_date: Date.parse(session),
-            speech_speaker: speech.speaker,
-            speech_faction: faction,
-            speech_party: party,
-            speech_on_behalf_of: speech.onBehalfOf
-          };
-
-        })
-        .filter(documents => documents !== null)
-        .map(document => JSON.stringify(document))
-        .join('\n');
-      const queryParams = new URLSearchParams({ action: 'upsert' });
-      const url = `${this.typesenseServerUrl}/collections/${this.typesenseCollectionName}/documents/import?${queryParams}`;
-      const init: RequestInit = {
-        method: 'POST',
-        headers: {
-          'X-TYPESENSE-API-KEY': this.typesenseApiKey,
-          'Content-Type': 'text/plain'
-        },
-        body: data
-      };
-      const response = await fetch(url, init);
-
-      if (response.status !== 200) {
-        console.error(`Failed to import speech transcriptions: ${response.body}`);
-      } else {
-        console.log(`Imported ${i + this.BATCH_SIZE} speech transcriptions.`);
-      }
-
+    if (!await this.importer.importSpeeches(speechesWithTranscriptions)) {
+      console.error('Failed to import speeches.');
     }
 
   }

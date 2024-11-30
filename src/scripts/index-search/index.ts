@@ -1,7 +1,9 @@
 import { ScrapedSession } from '../shared/model/scraped-session.ts';
-import { tryGetIndexSearchEnv } from './env.ts';
+import { IndexSearchEnv, tryGetIndexSearchEnv } from './env.ts';
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { SearchIndexer } from './search-indexer.ts';
+import { IDocumentsImporter, TypesenseImporter } from './typesense-importer.ts';
+import { BatchedDocumentsImporter } from './batched-documents-importer.ts';
 
 
 const args = parseArgs(Deno.args);
@@ -15,14 +17,21 @@ checkArgs(args);
 
 
 const env = tryGetIndexSearchEnv();
-const indexer = new SearchIndexer(
-  env.typesenseServerUrl,
-  env.typesenseCollectionName,
-  env.typesenseApiKey
-);
+const importer = createImporter(env);
+const indexer = new SearchIndexer(importer);
 
 const scrapedSession = JSON.parse(Deno.readTextFileSync(args.scrapedSessionFilename)) as ScrapedSession;
 await indexer.indexPapers(args.papersContentDir, scrapedSession);
 await indexer.indexSpeeches(args.electoralPeriodsBaseDir);
 
 console.log('Done.');
+
+
+function createImporter(env: IndexSearchEnv): IDocumentsImporter {
+  const typesenseImporter = new TypesenseImporter(
+    env.typesenseServerUrl,
+    env.typesenseCollectionName,
+    env.typesenseApiKey
+  );
+  return new BatchedDocumentsImporter(typesenseImporter, 100);
+}
