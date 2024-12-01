@@ -2,12 +2,12 @@
   "id": "gartenpartei",
   "name": "Gartenpartei",
   "seats": 3,
-  "applicationsSuccessRate": 0.5714285714285714,
-  "votingsSuccessRate": 0.6714285714285714,
-  "uniformityScore": 0.9134585914933963,
-  "participationRate": 0.7166666666666667,
-  "abstentionRate": 0.13586340715400064,
-  "speakingTime": 4596,
+  "applicationsSuccessRate": 0.48,
+  "votingsSuccessRate": 0.6788732394366197,
+  "uniformityScore": 0.9101043818000525,
+  "participationRate": 0.7370892018779343,
+  "abstentionRate": 0.12655283929500052,
+  "speakingTime": 6188,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -29,6 +29,10 @@
       {
         "date": "2024-10-21",
         "value": 0.5714285714285714
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.48
       }
     ],
     "votingsSuccessRate": [
@@ -51,6 +55,10 @@
       {
         "date": "2024-10-21",
         "value": 0.6714285714285714
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.6788732394366197
       }
     ],
     "uniformityScore": [
@@ -73,6 +81,10 @@
       {
         "date": "2024-10-21",
         "value": 0.9134585914933963
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.9101043818000525
       }
     ],
     "participationRate": [
@@ -95,6 +107,10 @@
       {
         "date": "2024-10-21",
         "value": 0.7166666666666667
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.7370892018779343
       }
     ],
     "abstentionRate": [
@@ -117,6 +133,10 @@
       {
         "date": "2024-10-21",
         "value": 0.13586340715400064
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.12655283929500052
       }
     ]
   },
@@ -412,6 +432,62 @@
         {
           "votingId": 27,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0474/22",
+      "type": "Geschäftsordnung",
+      "title": "Variantenentscheidung zur Umgestaltung der Schönebecker Straße zwischen Bleckenburgstraße und den Haltestellen Thiemplatz",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 239220,
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0169/24",
+      "type": "Antrag",
+      "title": "Schulwegsicherheit Westerhüsen",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244292,
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0170/24",
+      "type": "Antrag",
+      "title": "Erhalt des Turmpark für derzeitige Nutzung",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244293,
+      "votings": [
+        {
+          "votingId": 47,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0173/24",
+      "type": "Antrag",
+      "title": "Alt Westerhüsen, Zackmünder bis Sohlener Straße: Tempo 30 von 22- 08 Uhr",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244296,
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "REJECTED"
         }
       ]
     }

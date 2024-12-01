@@ -2,12 +2,12 @@
   "id": "afd",
   "name": "AfD",
   "seats": 13,
-  "applicationsSuccessRate": 0.043478260869565216,
-  "votingsSuccessRate": 0.7392857142857143,
-  "uniformityScore": 0.9884037592536388,
-  "participationRate": 0.8491758241758242,
-  "abstentionRate": 0.0620779211456703,
-  "speakingTime": 6577,
+  "applicationsSuccessRate": 0.14285714285714285,
+  "votingsSuccessRate": 0.7408450704225352,
+  "uniformityScore": 0.9876136826552488,
+  "participationRate": 0.8528710725893824,
+  "abstentionRate": 0.071810164366622,
+  "speakingTime": 7588,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -29,6 +29,10 @@
       {
         "date": "2024-10-21",
         "value": 0.043478260869565216
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.14285714285714285
       }
     ],
     "votingsSuccessRate": [
@@ -51,6 +55,10 @@
       {
         "date": "2024-10-21",
         "value": 0.7392857142857143
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.7408450704225352
       }
     ],
     "uniformityScore": [
@@ -73,6 +81,10 @@
       {
         "date": "2024-10-21",
         "value": 0.9884037592536388
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.9876136826552488
       }
     ],
     "participationRate": [
@@ -95,6 +107,10 @@
       {
         "date": "2024-10-21",
         "value": 0.8491758241758242
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.8528710725893824
       }
     ],
     "abstentionRate": [
@@ -117,6 +133,10 @@
       {
         "date": "2024-10-21",
         "value": 0.0620779211456703
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.071810164366622
       }
     ]
   },
@@ -440,6 +460,76 @@
         {
           "votingId": 18,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0244/24",
+      "type": "Geschäftsordnung",
+      "title": "Vollzeitäquivalente für den Aufgabenbereich „Gender Mainstreaming” einsparen!",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244986,
+      "votings": [
+        {
+          "votingId": 56,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0245/24",
+      "type": "Geschäftsordnung",
+      "title": "Sparausschuss bilden - Einsparpotenziale identifizieren",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244987,
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0245/24",
+      "type": "Antrag",
+      "title": "Sparausschuss bilden - Einsparpotenziale identifizieren",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244987,
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0246/24",
+      "type": "Geschäftsordnung",
+      "title": "Erweiterte Realität für den Breiten Weg",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244989,
+      "votings": [
+        {
+          "votingId": 60,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0253/24",
+      "type": "Geschäftsordnung",
+      "title": "Illegalen Moscheebetrieb unterbinden!",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245003,
+      "votings": [
+        {
+          "votingId": 68,
+          "votingResult": "PASSED"
         }
       ]
     }
