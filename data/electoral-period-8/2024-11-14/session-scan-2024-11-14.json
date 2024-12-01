@@ -3,10 +3,10 @@
         "votingFilename": "2024-11-14-001.png",
         "videoTimestamp": "00:12:50",
         "votingSubject": {
-            "agendaItem": "2( m",
+            "agendaItem": "2",
             "applicationId": "",
-            "title": "ar Tagesordnung",
-            "type": null,
+            "title": "Bestätigung der Tagesordnung",
+            "type": "Tagesordnung",
             "authors": []
         },
         "votes": [
@@ -240,22 +240,22 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
         "votingFilename": "2024-11-14-002.png",
         "videoTimestamp": "00:15:32",
         "votingSubject": {
-            "agendaItem": "A",
+            "agendaItem": "2",
             "applicationId": "",
-            "title": "or Tagesordnung",
-            "type": null,
+            "title": "Bestätigung der Tagesordnung",
+            "type": "Tagesordnung",
             "authors": []
         },
         "votes": [
@@ -489,22 +489,22 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
         "votingFilename": "2024-11-14-003.png",
         "videoTimestamp": "00:17:06",
         "votingSubject": {
-            "agendaItem": "AND",
+            "agendaItem": "2",
             "applicationId": "",
-            "title": "ar Tagesordnung",
-            "type": null,
+            "title": "Bestätigung der Tagesordnung",
+            "type": "Tagesordnung",
             "authors": []
         },
         "votes": [
@@ -738,22 +738,22 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
         "votingFilename": "2024-11-14-005.png",
         "videoTimestamp": "00:23:24",
         "votingSubject": {
-            "agendaItem": "SS",
+            "agendaItem": "3",
             "applicationId": "",
-            "title": "r Niederschrift der 004. (VIII) Sitzung des Stadtrates am 17.10.2024 - öffentlicher Teil",
-            "type": null,
+            "title": "Bestätigung der Niederschrift der 004. (VIII) Sitzung des Stadtrates am 21.10.2024 - öffentlicher Teil",
+            "type": "Niederschrift",
             "authors": []
         },
         "votes": [
@@ -987,12 +987,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -1000,9 +1000,9 @@
         "videoTimestamp": "00:24:18",
         "votingSubject": {
             "agendaItem": "5.1",
-            "applicationId": "DS0441/24 (—",
-            "title": "Kostenerhöhung zur Umsetzung des veränderten Raumnutzungskonzepts und zur Erweiterung der technischen Modernisierung und langfristigen Herstellung der Krisensicherheit der Feurwache Süd, Otto- Lilientahl-Straße 5, 39120 Magdeburg",
-            "type": null,
+            "applicationId": "DS0441/24",
+            "title": "Kostenerhöhung zur Umsetzung des veränderten Raumnutzungskonzepts und zur Erweiterung der technischen Modernisierung und langfristigen Herstellung der Krisensicherheit der Feuerwache Süd, Otto- Lilienthal-Straße 5, 39120 Magdeburg",
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -1236,12 +1236,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -1249,10 +1249,14 @@
         "videoTimestamp": "01:13:42",
         "votingSubject": {
             "agendaItem": "5.2.1",
-            "applicationId": "DS0464/24/1/",
-            "title": "‘1 Ausgleichsbedarf der Magdeburger Verkehrsbetriebe GmbH & Co. KG",
-            "type": null,
-            "authors": []
+            "applicationId": "DS0464/24/1",
+            "title": "Ausgleichsbedarf der Magdeburger Verkehrsbetriebe GmbH & Co. KG",
+            "type": "Änderungsantrag",
+            "authors": [
+                "GRÜNE/future!",
+                "SPD/Tierschutzallianz/Volt",
+                "Tierschutzpartei"
+            ]
         },
         "votes": [
             {
@@ -1485,12 +1489,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -1498,10 +1502,14 @@
         "videoTimestamp": "01:14:12",
         "votingSubject": {
             "agendaItem": "5.2.1",
-            "applicationId": "DS0464/24/1/",
-            "title": "‘1 Ausgleichsbedarf der Magdeburger Verkehrsbetriebe GmbH & Co. KG",
-            "type": null,
-            "authors": []
+            "applicationId": "DS0464/24/1",
+            "title": "Ausgleichsbedarf der Magdeburger Verkehrsbetriebe GmbH & Co. KG",
+            "type": "Änderungsantrag",
+            "authors": [
+                "GRÜNE/future!",
+                "SPD/Tierschutzallianz/Volt",
+                "Tierschutzpartei"
+            ]
         },
         "votes": [
             {
@@ -1734,12 +1742,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -1747,9 +1755,9 @@
         "videoTimestamp": "01:14:58",
         "votingSubject": {
             "agendaItem": "5.2",
-            "applicationId": "DS0464/24 (",
+            "applicationId": "DS0464/24",
             "title": "Ausgleichsbedarf der Magdeburger Verkehrsbetriebe GmbH & Co. KG",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -1983,12 +1991,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -1996,10 +2004,12 @@
         "videoTimestamp": "01:35:09",
         "votingSubject": {
             "agendaItem": "5.3.3",
-            "applicationId": "DS0455/24/3 |",
-            "title": "> Besetzung der Auswahlkommission - Fortschreibung der Weihnachts- und Winterbeleuchtung",
-            "type": null,
-            "authors": []
+            "applicationId": "DS0455/24/3",
+            "title": "Besetzung der Auswahlkommission - Fortschreibung der Weihnachts- und Winterbeleuchtung",
+            "type": "Änderungsantrag",
+            "authors": [
+                "DIE LINKE"
+            ]
         },
         "votes": [
             {
@@ -2232,12 +2242,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -2245,10 +2255,13 @@
         "videoTimestamp": "01:35:44",
         "votingSubject": {
             "agendaItem": "5.3.2",
-            "applicationId": "DS0455/24/2 |",
-            "title": "Z Besetzung der Auswahlkommission - Fortschreibung der Weihnachts- und Winterbeleuchtung",
-            "type": null,
-            "authors": []
+            "applicationId": "DS0455/24/2",
+            "title": "Besetzung der Auswahlkommission - Fortschreibung der Weihnachts- und Winterbeleuchtung",
+            "type": "Änderungsantrag",
+            "authors": [
+                "GRÜNE/future!",
+                "SPD/Tierschutzallianz/Volt"
+            ]
         },
         "votes": [
             {
@@ -2481,12 +2494,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -2494,10 +2507,12 @@
         "videoTimestamp": "01:36:51",
         "votingSubject": {
             "agendaItem": "5.3.1",
-            "applicationId": "DS0455/24/1/{/",
-            "title": "SE Besetzung der Auswahlkommission - Fortschreibung der Weihnachts- und Winterbeleuchtung",
-            "type": null,
-            "authors": []
+            "applicationId": "DS0455/24/1",
+            "title": "Besetzung der Auswahlkommission - Fortschreibung der Weihnachts- und Winterbeleuchtung",
+            "type": "Änderungsantrag",
+            "authors": [
+                "Kulturausschuss"
+            ]
         },
         "votes": [
             {
@@ -2730,12 +2745,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -2743,9 +2758,9 @@
         "videoTimestamp": "01:37:19",
         "votingSubject": {
             "agendaItem": "5.3",
-            "applicationId": "DS0455/24 (",
+            "applicationId": "DS0455/24",
             "title": "Besetzung der Auswahlkommission - Fortschreibung der Weihnachts- und Winterbeleuchtung",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -2979,12 +2994,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -2992,9 +3007,9 @@
         "videoTimestamp": "01:57:01",
         "votingSubject": {
             "agendaItem": "5.4",
-            "applicationId": "DS0458/24 (",
+            "applicationId": "DS0458/24",
             "title": "Keine Erteilung von Sondernutzungserlaubnissen für einzelne ambulante Händler und einzelne ambulante Gastronomen im Umfeld des Alten Marktes und des Domplatzes (sog. Bannmeile)",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -3228,12 +3243,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -3241,9 +3256,9 @@
         "videoTimestamp": "01:57:42",
         "votingSubject": {
             "agendaItem": "5.5",
-            "applicationId": "DS0505/24 (",
-            "title": "Genehmigung der Annahme von Sponsoringleistungen gemäß & 99 Abs. 6 KVG LSA",
-            "type": null,
+            "applicationId": "DS0505/24",
+            "title": "Genehmigung der Annahme von Sponsoringleistungen gemäß § 99 Abs. 6 KVG LSA",
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -3477,12 +3492,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -3490,9 +3505,9 @@
         "videoTimestamp": "01:58:12",
         "votingSubject": {
             "agendaItem": "5.6",
-            "applicationId": "DS0519/24 (",
-            "title": "Annahme einer Schenkung gemäß 8& 99 Abs. 6 KVG",
-            "type": null,
+            "applicationId": "DS0519/24",
+            "title": "Annahme einer Schenkung gemäß § 99 Abs. 6 KVG",
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -3726,12 +3741,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -3739,9 +3754,9 @@
         "videoTimestamp": "02:00:02",
         "votingSubject": {
             "agendaItem": "5.7",
-            "applicationId": "DS0475/24 (",
-            "title": "Genehmigung der Annahme von Spenden gem. $ 99 Abs.6 KVG-LSA",
-            "type": null,
+            "applicationId": "DS0475/24",
+            "title": "Genehmigung der Annahme von Spenden gem. § 99 Abs.6 KVG-LSA",
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -3975,12 +3990,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -3988,10 +4003,12 @@
         "videoTimestamp": "02:14:29",
         "votingSubject": {
             "agendaItem": "5.8.1.1",
-            "applicationId": "DS0322/24/",
-            "title": "4/1/1 Beherbergungsteuersatzung",
-            "type": null,
-            "authors": []
+            "applicationId": "DS0322/24/1/1",
+            "title": "Beherbergungsteuersatzung",
+            "type": "Änderungsantrag",
+            "authors": [
+                "DIE LINKE"
+            ]
         },
         "votes": [
             {
@@ -4224,23 +4241,25 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
         "votingFilename": "2024-11-14-019.png",
         "videoTimestamp": "02:15:12",
         "votingSubject": {
-            "agendaItem": "5.8.1",
-            "applicationId": "DS0322/24/1/{/",
-            "title": "ei Beherbergungsteuersatzung",
-            "type": null,
-            "authors": []
+            "agendaItem": "5.8.2",
+            "applicationId": "DS0322/24/2",
+            "title": "Beherbergungsteuersatzung",
+            "type": "Änderungsantrag",
+            "authors": [
+                "CDU/FDP"
+            ]
         },
         "votes": [
             {
@@ -4473,23 +4492,26 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
         "votingFilename": "2024-11-14-020.png",
         "videoTimestamp": "02:15:49",
         "votingSubject": {
-            "agendaItem": "5.8.1",
-            "applicationId": "DS0322/24/1/{/",
-            "title": "a Beherbergungsteuersatzung",
-            "type": null,
-            "authors": []
+            "agendaItem": "5.8.3",
+            "applicationId": "DS0322/24/3",
+            "title": "Beherbergungsteuersatzung",
+            "type": "Änderungsantrag",
+            "authors": [
+                "CDU/FDP",
+                "GRÜNE/future!"
+            ]
         },
         "votes": [
             {
@@ -4722,12 +4744,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -4735,9 +4757,9 @@
         "videoTimestamp": "02:16:30",
         "votingSubject": {
             "agendaItem": "5.8",
-            "applicationId": "DS0322/24 (",
+            "applicationId": "DS0322/24",
             "title": "Beherbergungsteuersatzung",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -4971,12 +4993,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -4984,9 +5006,9 @@
         "videoTimestamp": "03:43:30",
         "votingSubject": {
             "agendaItem": "5.9",
-            "applicationId": "DS0457/24 (",
+            "applicationId": "DS0457/24",
             "title": "Machbarkeitsstudie Salbker Seen",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -5220,12 +5242,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -5233,9 +5255,9 @@
         "videoTimestamp": "03:44:12",
         "votingSubject": {
             "agendaItem": "5.10",
-            "applicationId": "DS0491/24 (",
+            "applicationId": "DS0491/24",
             "title": "Anpassung der Gesamtkosten für die Investitionsmaßnahme Reaktivierung Industriehafen gegenüber dem Haushaltsplan 2024",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -5469,12 +5491,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -5482,9 +5504,9 @@
         "videoTimestamp": "03:44:41",
         "votingSubject": {
             "agendaItem": "5.11",
-            "applicationId": "DS0299/24 (",
+            "applicationId": "DS0299/24",
             "title": "Benutzungs- und Gebührensatzung der Stadtbibliothek Magdeburg",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -5718,12 +5740,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -5731,9 +5753,9 @@
         "videoTimestamp": "03:47:11",
         "votingSubject": {
             "agendaItem": "5.12",
-            "applicationId": "DS0430/24 (",
+            "applicationId": "DS0430/24",
             "title": "Dringlichkeitsliste zur Verbesserung der Barrierefreiheit in der Landeshauptstadt Magdeburg 2024",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -5967,12 +5989,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -5980,9 +6002,9 @@
         "videoTimestamp": "03:49:01",
         "votingSubject": {
             "agendaItem": "5.13",
-            "applicationId": "DS0476/24 (",
+            "applicationId": "DS0476/24",
             "title": "Überplanmäßige Aufwendungen im Deckungskreis (DK) KiFöG für das Haushaltsjahr 2024",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -6216,12 +6238,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -6229,9 +6251,9 @@
         "videoTimestamp": "03:49:38",
         "votingSubject": {
             "agendaItem": "5.14",
-            "applicationId": "DS0478/24 (",
+            "applicationId": "DS0478/24",
             "title": "Überplanmäßige Aufwendungen im Deckungskreis (DK) Hilfen zur Erziehung",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -6465,12 +6487,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -6479,9 +6501,11 @@
         "votingSubject": {
             "agendaItem": "5.15.1",
             "applicationId": "DS0434/24/1",
-            "title": "Zi Angleichung der Strukturen der Beauftragten für Senioren, Integration und Menschen mit Beeinträchtigung / Schaffung eines hauptamtlichen Integrationsbeauftragten bzw. Seniorenbeauftragten in der Landeshauptstadt Magdeburg",
-            "type": null,
-            "authors": []
+            "title": "Angleichung der Strukturen der Beauftragten für Senioren, Integration und Menschen mit Beeinträchtigung / Schaffung eines hauptamtlichen Integrationsbeauftragten bzw. Seniorenbeauftragten in der Landeshauptstadt Magdeburg",
+            "type": "Änderungsantrag",
+            "authors": [
+                "DIE LINKE"
+            ]
         },
         "votes": [
             {
@@ -6714,12 +6738,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -6727,9 +6751,9 @@
         "videoTimestamp": "04:08:09",
         "votingSubject": {
             "agendaItem": "5.15",
-            "applicationId": "DS0434/24 (",
+            "applicationId": "DS0434/24",
             "title": "Angleichung der Strukturen der Beauftragten für Senioren, Integration und Menschen mit Beeinträchtigung / Schaffung eines hauptamtlichen Integrationsbeauftragten bzw. Seniorenbeauftragten in der Landeshauptstadt Magdeburg",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -6963,12 +6987,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -6976,9 +7000,9 @@
         "videoTimestamp": "04:08:48",
         "votingSubject": {
             "agendaItem": "5.16",
-            "applicationId": "DS0480/24 (",
+            "applicationId": "DS0480/24",
             "title": "Überplanmäßige Aufwendungen im Deckungskreis (DK) Sozialhilfe (SOZ) für das Haushaltsjahr 2024",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -7212,12 +7236,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -7225,9 +7249,9 @@
         "videoTimestamp": "04:10:05",
         "votingSubject": {
             "agendaItem": "5.17",
-            "applicationId": "DS0439/24 (",
+            "applicationId": "DS0439/24",
             "title": "Finanzierung der Baumaßnahme Brücke Lüttgen-Salbker-Weg über die Gleise der DB AG / Hauptstrecke 6403 Magdeburg-Halle in Magdeburg, Überbauerneuerung Provisorium",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -7461,12 +7485,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -7474,9 +7498,9 @@
         "videoTimestamp": "04:10:45",
         "votingSubject": {
             "agendaItem": "5.18",
-            "applicationId": "DS0388/24 (—",
+            "applicationId": "DS0388/24",
             "title": "Originalgetreue Rekonstruktion der Oberseite der Anna-Ebert-Brücke über die Alte Elbe",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -7710,12 +7734,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -7724,9 +7748,11 @@
         "votingSubject": {
             "agendaItem": "5.19.1",
             "applicationId": "DS0411/24/1",
-            "title": "1 Variantenentscheidung zur Umgestaltung des Straßenraums der Sudenburger Straße",
-            "type": null,
-            "authors": []
+            "title": "Variantenentscheidung zur Umgestaltung des Straßenraums der Sudenburger Straße",
+            "type": "Änderungsantrag",
+            "authors": [
+                "GRÜNE/future!"
+            ]
         },
         "votes": [
             {
@@ -7959,12 +7985,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -7972,9 +7998,9 @@
         "videoTimestamp": "04:11:59",
         "votingSubject": {
             "agendaItem": "5.19",
-            "applicationId": "DS0411/24 (",
+            "applicationId": "DS0411/24",
             "title": "Variantenentscheidung zur Umgestaltung des Straßenraums der Sudenburger Straße",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -8208,12 +8234,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -8222,9 +8248,11 @@
         "votingSubject": {
             "agendaItem": "5.20.1",
             "applicationId": "DS0412/24/1",
-            "title": "1 Variantenentscheidung zur Umgestaltung des Straßenraums der Freien Straße",
-            "type": null,
-            "authors": []
+            "title": "Variantenentscheidung zur Umgestaltung des Straßenraums der Freien Straße",
+            "type": "Änderungsantrag",
+            "authors": [
+                "GRÜNE/future!"
+            ]
         },
         "votes": [
             {
@@ -8457,12 +8485,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -8470,9 +8498,9 @@
         "videoTimestamp": "04:14:08",
         "votingSubject": {
             "agendaItem": "5.20",
-            "applicationId": "DS0412/24 (",
+            "applicationId": "DS0412/24",
             "title": "Variantenentscheidung zur Umgestaltung des Straßenraums der Freien Straße",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -8706,12 +8734,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -8719,9 +8747,9 @@
         "videoTimestamp": "04:15:56",
         "votingSubject": {
             "agendaItem": "5.21",
-            "applicationId": "DS0410/24 (",
+            "applicationId": "DS0410/24",
             "title": "Finanzierung der Baumaßnahme Radweg Kirschweg - Lückenschluss zwischen Kirschweg/Lilienweg und Hermann-Hesse-Straße",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -8955,12 +8983,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -8969,9 +8997,11 @@
         "votingSubject": {
             "agendaItem": "5.22.1",
             "applicationId": "DS0465/24/1",
-            "title": "1 Grundsatzbeschluss zum Planungsbeginn von fünf Ersatzneubauten (ENB) und dem Rückbau eines Fußgängertunnels im Zuge Magdeburger Ringes: 1. ENB MD-Ringbrücken über Wiener Straße",
-            "type": null,
-            "authors": []
+            "title": "Grundsatzbeschluss zum Planungsbeginn von fünf Ersatzneubauten (ENB) und dem Rückbau eines Fußgängertunnels im Zuge Magdeburger Ringes: 1. ENB MD-Ringbrücken über Wiener Straße",
+            "type": "Änderungsantrag",
+            "authors": [
+                "GRÜNE/future!"
+            ]
         },
         "votes": [
             {
@@ -9204,22 +9234,22 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
         "votingFilename": "2024-11-14-039.png",
         "videoTimestamp": "04:18:50",
         "votingSubject": {
-            "agendaItem": "5.22.1",
-            "applicationId": "DS0465/24/1",
-            "title": "1/1 Grundsatzbeschluss zum Planungsbeginn von fünf Ersatzneubauten (ENB) und dem Rückbau eines Fußgängertunnels im Zuge Magdeburger Ringes: 1. ENB MD-Ringbrücken über Wiener Straße",
-            "type": null,
+            "agendaItem": "5.22",
+            "applicationId": "DS0465/24",
+            "title": "Grundsatzbeschluss zum Planungsbeginn von fünf Ersatzneubauten (ENB) und dem Rückbau eines Fußgängertunnels im Zuge Magdeburger Ringes: 1. ENB MD-Ringbrücken über Wiener Straße",
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -9453,12 +9483,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -9466,10 +9496,12 @@
         "videoTimestamp": "04:45:20",
         "votingSubject": {
             "agendaItem": "5.23",
-            "applicationId": "DS0474/22 (",
+            "applicationId": "DS0474/22",
             "title": "Variantenentscheidung zur Umgestaltung der Schönebecker Straße zwischen Bleckenburgstraße und den Haltestellen Thiemplatz",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "Gartenpartei"
+            ]
         },
         "votes": [
             {
@@ -9702,12 +9734,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -9715,9 +9747,9 @@
         "videoTimestamp": "04:49:54",
         "votingSubject": {
             "agendaItem": "5.24",
-            "applicationId": "DS0342/24 (",
+            "applicationId": "DS0342/24",
             "title": "1. Änderungssatzung zur Sondernutzungsgebührensatzung der Landeshauptstadt Magdeburg vom 29.11.2007",
-            "type": null,
+            "type": "Beschlussvorlage",
             "authors": []
         },
         "votes": [
@@ -9951,12 +9983,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -9964,10 +9996,12 @@
         "videoTimestamp": "05:16:24",
         "votingSubject": {
             "agendaItem": "6.2",
-            "applicationId": "A0296/23 (",
-            "title": "janzjährige Außengastronomie",
-            "type": null,
-            "authors": []
+            "applicationId": "A0296/23",
+            "title": "Ganzjährige Außengastronomie",
+            "type": "Antrag",
+            "authors": [
+                "GRÜNE/future!"
+            ]
         },
         "votes": [
             {
@@ -10200,12 +10234,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -10213,10 +10247,12 @@
         "videoTimestamp": "05:18:14",
         "votingSubject": {
             "agendaItem": "6.5",
-            "applicationId": "A0118/24 (",
-            "title": "jegen das Vergessen - Umsetzung und Schaffung eines dauerhaften Gedenkortes und Pflege",
-            "type": null,
-            "authors": []
+            "applicationId": "A0118/24",
+            "title": "Gegen das Vergessen - Umsetzung und Schaffung eines dauerhaften Gedenkortes und Pflege",
+            "type": "Antrag",
+            "authors": [
+                "DIE LINKE"
+            ]
         },
         "votes": [
             {
@@ -10449,12 +10485,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -10462,10 +10498,12 @@
         "videoTimestamp": "05:20:10",
         "votingSubject": {
             "agendaItem": "6.6.1",
-            "applicationId": "A0126/24/1 (",
-            "title": "1 Für bezahlbaren Wohnraum sozialen Wohnungs(neu)bau wieder aufnehmen - Gebäudetyp E unterstützen",
-            "type": null,
-            "authors": []
+            "applicationId": "A0126/24/1",
+            "title": "Für bezahlbaren Wohnraum sozialen Wohnungs(neu)bau wieder aufnehmen - Gebäudetyp E unterstützen",
+            "type": "Änderungsantrag",
+            "authors": [
+                "Ausschuss StBV"
+            ]
         },
         "votes": [
             {
@@ -10698,12 +10736,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -10711,10 +10749,12 @@
         "videoTimestamp": "05:20:42",
         "votingSubject": {
             "agendaItem": "6.6",
-            "applicationId": "A0126/24 (",
-            "title": "ür bezahlbaren Wohnraum sozialen Wohnungs(neu)bau wieder aufnehmen - Gebäudetyp E unterstützen",
-            "type": null,
-            "authors": []
+            "applicationId": "A0126/24",
+            "title": "Für bezahlbaren Wohnraum sozialen Wohnungs(neu)bau wieder aufnehmen - Gebäudetyp E unterstützen",
+            "type": "Antrag",
+            "authors": [
+                "SPD/Tierschutzallianz/Volt"
+            ]
         },
         "votes": [
             {
@@ -10947,12 +10987,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -10960,10 +11000,12 @@
         "videoTimestamp": "05:22:57",
         "votingSubject": {
             "agendaItem": "6.9",
-            "applicationId": "A0169/24 (",
-            "title": "chulwegsicherheit Westerhüsen",
-            "type": null,
-            "authors": []
+            "applicationId": "A0169/24",
+            "title": "Schulwegsicherheit Westerhüsen",
+            "type": "Antrag",
+            "authors": [
+                "Gartenpartei"
+            ]
         },
         "votes": [
             {
@@ -11196,12 +11238,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -11209,10 +11251,12 @@
         "videoTimestamp": "05:25:31",
         "votingSubject": {
             "agendaItem": "6.10",
-            "applicationId": "A0170/24 (",
+            "applicationId": "A0170/24",
             "title": "Erhalt des Turmpark für derzeitige Nutzung",
-            "type": null,
-            "authors": []
+            "type": "Antrag",
+            "authors": [
+                "Gartenpartei"
+            ]
         },
         "votes": [
             {
@@ -11445,12 +11489,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -11458,10 +11502,12 @@
         "videoTimestamp": "05:29:50",
         "votingSubject": {
             "agendaItem": "6.11",
-            "applicationId": "A0173/24 (",
+            "applicationId": "A0173/24",
             "title": "Alt Westerhüsen, Zackmünder bis Sohlener Straße: Tempo 30 von 22- 08 Uhr",
-            "type": null,
-            "authors": []
+            "type": "Antrag",
+            "authors": [
+                "Gartenpartei"
+            ]
         },
         "votes": [
             {
@@ -11694,12 +11740,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -11707,10 +11753,12 @@
         "videoTimestamp": "05:34:01",
         "votingSubject": {
             "agendaItem": "6.12.1",
-            "applicationId": "A0179/24/1|",
-            "title": "A Verkehrssicherheit durch Straßenmarkierungen im Kreuzungsbereich verbessern",
-            "type": null,
-            "authors": []
+            "applicationId": "A0179/24/1",
+            "title": "Verkehrssicherheit durch Straßenmarkierungen im Kreuzungsbereich verbessern",
+            "type": "Änderungsantrag",
+            "authors": [
+                "CDU/FDP"
+            ]
         },
         "votes": [
             {
@@ -11943,12 +11991,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -11956,10 +12004,12 @@
         "videoTimestamp": "05:36:31",
         "votingSubject": {
             "agendaItem": "6.13.2",
-            "applicationId": "A0181/24/2 |",
-            "title": "CZ | Farbgebung der neuen Strombrückenverlängerung",
-            "type": null,
-            "authors": []
+            "applicationId": "A0181/24/2",
+            "title": "Farbgebung der neuen Strombrückenverlängerung",
+            "type": "Änderungsantrag",
+            "authors": [
+                "Finanz- und Grundstücksausschuss"
+            ]
         },
         "votes": [
             {
@@ -12192,12 +12242,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -12205,10 +12255,12 @@
         "videoTimestamp": "05:37:01",
         "votingSubject": {
             "agendaItem": "6.13",
-            "applicationId": "A0181/24 (",
+            "applicationId": "A0181/24",
             "title": "Farbgebung der neuen Strombrückenverlängerung",
-            "type": null,
-            "authors": []
+            "type": "Antrag",
+            "authors": [
+                "CDU/FDP"
+            ]
         },
         "votes": [
             {
@@ -12441,12 +12493,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -12454,10 +12506,13 @@
         "videoTimestamp": "05:43:27",
         "votingSubject": {
             "agendaItem": "6.14.1",
-            "applicationId": "A0113/24/1 |",
-            "title": "/1 Nachtfahrverbot für Mähroboter",
-            "type": null,
-            "authors": []
+            "applicationId": "A0113/24/1",
+            "title": "Nachtfahrverbot für Mähroboter",
+            "type": "Änderungsantrag",
+            "authors": [
+                "SPD/Tierschutzallianz/Volt",
+                "Tierschutzpartei"
+            ]
         },
         "votes": [
             {
@@ -12690,12 +12745,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -12703,10 +12758,12 @@
         "videoTimestamp": "05:46:49",
         "votingSubject": {
             "agendaItem": "6.18",
-            "applicationId": "A0034/24 (",
+            "applicationId": "A0034/24",
             "title": "Verbesserung Verkehrsinformationen",
-            "type": null,
-            "authors": []
+            "type": "Antrag",
+            "authors": [
+                "CDU/FDP"
+            ]
         },
         "votes": [
             {
@@ -12939,12 +12996,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -12952,10 +13009,15 @@
         "videoTimestamp": "05:48:57",
         "votingSubject": {
             "agendaItem": "6.20",
-            "applicationId": "A0241/24 (",
+            "applicationId": "A0241/24",
             "title": "Reparieren statt kassieren!",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "DIE LINKE",
+                "GRÜNE/future!",
+                "SPD/Tierschutzallianz/Volt",
+                "Tierschutzpartei"
+            ]
         },
         "votes": [
             {
@@ -13188,12 +13250,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -13201,10 +13263,12 @@
         "videoTimestamp": "05:50:02",
         "votingSubject": {
             "agendaItem": "6.22",
-            "applicationId": "A0243/24 (",
+            "applicationId": "A0243/24",
             "title": "Tempo 30 in der Kritzmannstraße",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "CDU/FDP"
+            ]
         },
         "votes": [
             {
@@ -13437,12 +13501,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -13450,10 +13514,13 @@
         "videoTimestamp": "05:50:42",
         "votingSubject": {
             "agendaItem": "6.23",
-            "applicationId": "A0244/24 (",
+            "applicationId": "A0244/24",
             "title": "Vollzeitäquivalente für den Aufgabenbereich „Gender Mainstreaming” einsparen!",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "AfD",
+                "CDU/FDP"
+            ]
         },
         "votes": [
             {
@@ -13686,12 +13753,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -13699,10 +13766,12 @@
         "videoTimestamp": "05:51:23",
         "votingSubject": {
             "agendaItem": "6.24",
-            "applicationId": "A0240/24 (",
+            "applicationId": "A0240/24",
             "title": "Otto-Hotspot in der Lakenmacher-Halle",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "DIE LINKE"
+            ]
         },
         "votes": [
             {
@@ -13935,12 +14004,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -13948,10 +14017,12 @@
         "videoTimestamp": "05:51:58",
         "votingSubject": {
             "agendaItem": "6.25",
-            "applicationId": "A0245/24 (",
+            "applicationId": "A0245/24",
             "title": "Sparausschuss bilden - Einsparpotenziale identifizieren",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "AfD"
+            ]
         },
         "votes": [
             {
@@ -14184,12 +14255,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -14197,10 +14268,12 @@
         "videoTimestamp": "05:55:30",
         "votingSubject": {
             "agendaItem": "6.25",
-            "applicationId": "A0245/24 (",
+            "applicationId": "A0245/24",
             "title": "Sparausschuss bilden - Einsparpotenziale identifizieren",
-            "type": null,
-            "authors": []
+            "type": "Antrag",
+            "authors": [
+                "AfD"
+            ]
         },
         "votes": [
             {
@@ -14433,12 +14506,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -14446,10 +14519,13 @@
         "videoTimestamp": "05:57:21",
         "votingSubject": {
             "agendaItem": "6.26",
-            "applicationId": "A0246/24 (",
+            "applicationId": "A0246/24",
             "title": "Erweiterte Realität für den Breiten Weg",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "AfD",
+                "Tierschutzpartei"
+            ]
         },
         "votes": [
             {
@@ -14682,12 +14758,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -14695,10 +14771,15 @@
         "videoTimestamp": "05:58:08",
         "votingSubject": {
             "agendaItem": "6.27",
-            "applicationId": "A0247/24 (",
+            "applicationId": "A0247/24",
             "title": "Barrierefreie Veranstaltungen in Magdeburg - Verleih überfahrbarer Kabelbrücken",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "CDU/FDP",
+                "DIE LINKE",
+                "GRÜNE/future!",
+                "SPD/Tierschutzallianz/Volt"
+            ]
         },
         "votes": [
             {
@@ -14931,12 +15012,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -14944,10 +15025,13 @@
         "videoTimestamp": "05:58:53",
         "votingSubject": {
             "agendaItem": "6.28",
-            "applicationId": "A0248/24 (",
+            "applicationId": "A0248/24",
             "title": "Evaluierung und Überarbeitung der Fachförderrichtlinie zur Unterstützung der Migrantenorganisationen",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "GRÜNE/future!",
+                "SPD/Tierschutzallianz/Volt"
+            ]
         },
         "votes": [
             {
@@ -15180,12 +15264,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -15193,10 +15277,13 @@
         "videoTimestamp": "05:59:37",
         "votingSubject": {
             "agendaItem": "6.29",
-            "applicationId": "A0249/24 (",
+            "applicationId": "A0249/24",
             "title": "Magdeburg spricht miteinander - Austausch in Magdeburg fördern",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "GRÜNE/future!",
+                "SPD/Tierschutzallianz/Volt"
+            ]
         },
         "votes": [
             {
@@ -15429,12 +15516,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -15442,10 +15529,12 @@
         "videoTimestamp": "06:00:07",
         "votingSubject": {
             "agendaItem": "6.29",
-            "applicationId": "A0249/24 (",
+            "applicationId": "A0249/24",
             "title": "Magdeburg spricht miteinander - Austausch in Magdeburg fördern",
-            "type": null,
-            "authors": []
+            "type": "Antrag",
+            "authors": [
+                "GRÜNE/future!"
+            ]
         },
         "votes": [
             {
@@ -15678,12 +15767,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -15691,10 +15780,12 @@
         "videoTimestamp": "06:00:38",
         "votingSubject": {
             "agendaItem": "6.30",
-            "applicationId": "A0250/24 (",
+            "applicationId": "A0250/24",
             "title": "Wiederbenennung von Buttergasse und Spiegelbrücke",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "GRÜNE/future!"
+            ]
         },
         "votes": [
             {
@@ -15927,12 +16018,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -15940,10 +16031,13 @@
         "videoTimestamp": "06:01:17",
         "votingSubject": {
             "agendaItem": "6.31",
-            "applicationId": "A0251/24 (",
+            "applicationId": "A0251/24",
             "title": "Neue Formen der Begrünung der Freiflächen in Kitas und Schulen",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "DIE LINKE",
+                "Tierschutzpartei"
+            ]
         },
         "votes": [
             {
@@ -16176,12 +16270,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -16189,10 +16283,13 @@
         "videoTimestamp": "06:01:59",
         "votingSubject": {
             "agendaItem": "6.32",
-            "applicationId": "A0252/24 (",
+            "applicationId": "A0252/24",
             "title": "Beirat für Menschen mit Behinderung",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "DIE LINKE",
+                "Tierschutzpartei"
+            ]
         },
         "votes": [
             {
@@ -16425,12 +16522,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -16438,10 +16535,13 @@
         "videoTimestamp": "06:02:39",
         "votingSubject": {
             "agendaItem": "6.33",
-            "applicationId": "A0253/24 (",
+            "applicationId": "A0253/24",
             "title": "Illegalen Moscheebetrieb unterbinden!",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "AfD",
+                "CDU/FDP"
+            ]
         },
         "votes": [
             {
@@ -16674,12 +16774,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -16687,10 +16787,12 @@
         "videoTimestamp": "06:03:12",
         "votingSubject": {
             "agendaItem": "6.34",
-            "applicationId": "A0255/24 (",
+            "applicationId": "A0255/24",
             "title": "Satzungsänderung Seniorenbeirat",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "GRÜNE/future!"
+            ]
         },
         "votes": [
             {
@@ -16923,12 +17025,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -16936,10 +17038,14 @@
         "videoTimestamp": "06:03:35",
         "votingSubject": {
             "agendaItem": "6.35",
-            "applicationId": "A0256/24 (",
+            "applicationId": "A0256/24",
             "title": "Wie weiter mit dem Kaiser-Otto-Fest?",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "CDU/FDP",
+                "DIE LINKE",
+                "SPD/Tierschutzallianz/Volt"
+            ]
         },
         "votes": [
             {
@@ -17172,12 +17278,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -17185,10 +17291,13 @@
         "videoTimestamp": "06:04:02",
         "votingSubject": {
             "agendaItem": "6.36",
-            "applicationId": "A0257/24 (",
+            "applicationId": "A0257/24",
             "title": "Ein Zeichen für mehr Familienfreundlichkeit in Magdeburg",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "DIE LINKE",
+                "SPD/Tierschutzallianz/Volt"
+            ]
         },
         "votes": [
             {
@@ -17421,12 +17530,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -17434,10 +17543,12 @@
         "videoTimestamp": "06:04:37",
         "votingSubject": {
             "agendaItem": "6.37",
-            "applicationId": "A0254/24 (",
+            "applicationId": "A0254/24",
             "title": "Umgang mit der landeseigenen Marina im Bereich des B-Plans Fahlberglist",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "DIE LINKE"
+            ]
         },
         "votes": [
             {
@@ -17670,12 +17781,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -17683,10 +17794,12 @@
         "videoTimestamp": "06:06:22",
         "votingSubject": {
             "agendaItem": "6.38",
-            "applicationId": "A0258/24 (",
+            "applicationId": "A0258/24",
             "title": "Einbeziehung der Ideen der Schülerinnen und Schüler der Gemeinschaftsschule \"Thomas Mann\" in die Schulumfeldgestaltung entlang der Cracauer Straße",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "DIE LINKE"
+            ]
         },
         "votes": [
             {
@@ -17919,12 +18032,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -17932,10 +18045,13 @@
         "videoTimestamp": "06:07:10",
         "votingSubject": {
             "agendaItem": "6.39",
-            "applicationId": "A0261/24 (",
-            "title": "Planreife für sämtliche Bauabschnitte gemäß $33 BauGB, B-Plan Nr. 483-5 \"ehemaliges RAW- Gelände\"",
-            "type": null,
-            "authors": []
+            "applicationId": "A0261/24",
+            "title": "Planreife für sämtliche Bauabschnitte gemäß §33 BauGB, B-Plan Nr. 483-5 \"ehemaliges RAW- Gelände\"",
+            "type": "Geschäftsordnung",
+            "authors": [
+                "CDU/FDP",
+                "SPD/Tierschutzallianz/Volt"
+            ]
         },
         "votes": [
             {
@@ -18168,12 +18284,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
@@ -18181,10 +18297,13 @@
         "videoTimestamp": "06:07:51",
         "votingSubject": {
             "agendaItem": "6.40",
-            "applicationId": "A0262/24 (",
+            "applicationId": "A0262/24",
             "title": "Öffnungszeiten des Kundenzentrums der MVB einwohner:innennah gestalten",
-            "type": null,
-            "authors": []
+            "type": "Geschäftsordnung",
+            "authors": [
+                "DIE LINKE",
+                "SPD/Tierschutzallianz/Volt"
+            ]
         },
         "votes": [
             {
@@ -18417,22 +18536,22 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     },
     {
         "votingFilename": "2024-11-14-004.png",
-        "videoTimestamp": "VA CA",
+        "videoTimestamp": "00:22:56",
         "votingSubject": {
-            "agendaItem": "SB (5",
+            "agendaItem": "3",
             "applicationId": "",
-            "title": "or Niederschrift der 004. (VIII) Sitzung des Stadtrates am 17.10.2024 - öffentlicher Teil",
-            "type": null,
+            "title": "Bestätigung der Niederschrift der 004. (VIII) Sitzung des Stadtrates am 17.10.2024 - öffentlicher Teil",
+            "type": "Niederschrift",
             "authors": []
         },
         "votes": [
@@ -18666,12 +18785,12 @@
             }
         ],
         "confirmations": {
-            "videoTimestamp": false,
-            "agendaItem": false,
-            "applicationId": false,
-            "title": false,
-            "votes": false,
-            "context": false
+            "videoTimestamp": true,
+            "agendaItem": true,
+            "applicationId": true,
+            "title": true,
+            "votes": true,
+            "context": true
         }
     }
 ]
