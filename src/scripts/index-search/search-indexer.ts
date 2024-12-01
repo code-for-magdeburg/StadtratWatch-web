@@ -5,6 +5,7 @@ import { Registry } from '../shared/model/registry.ts';
 import { SessionConfig } from '../shared/model/session-config.ts';
 import { SessionSpeech } from '../shared/model/session-speech.ts';
 import { IndexedPaper, IndexedSpeech, IDocumentsImporter } from './typesense-importer.ts';
+import { IPapersContentSource } from './papers-content-source.ts';
 
 
 export class SearchIndexer {
@@ -14,7 +15,7 @@ export class SearchIndexer {
   }
 
 
-  public async indexPapers(contentDir: string, scrapedSession: ScrapedSession) {
+  public async indexPapers(contentSource: IPapersContentSource, scrapedSession: ScrapedSession) {
 
     console.log('Importing papers...');
 
@@ -44,16 +45,12 @@ export class SearchIndexer {
     const papers = Array
       .from(paperMap.values())
       .map<IndexedPaper>(paper => {
-        const files = scrapedSession.files.filter(
-          file => file.paper_original_id === paper.original_id
-        );
-        const files_content = files.map(file => {
-          const filename = `${file.original_id}.pdf.txt`;
-          return Deno.readTextFileSync(path.join(contentDir, filename));
-        });
+        const content = scrapedSession.files
+          .filter(file => file.paper_original_id === paper.original_id)
+          .map(file => contentSource.getContent(file.original_id));
         return {
           id: `paper-${paper.original_id}`,
-          content: files_content,
+          content,
 
           paper_name: paper.name || '',
           paper_type: paper.paper_type || '',

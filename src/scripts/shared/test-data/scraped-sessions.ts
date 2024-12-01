@@ -233,7 +233,15 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
       paper_type: null,
       reference: 'P01',
       short_name: '',
-      sort_date: ''
+      sort_date: '2023-01-01'
+    },
+    {
+      name: 'P01',
+      original_id: 1,
+      paper_type: null,
+      reference: 'P01',
+      short_name: '',
+      sort_date: '2024-01-01'
     },
     {
       name: 'P02',
@@ -241,7 +249,15 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
       paper_type: null,
       reference: 'P02',
       short_name: '',
-      sort_date: ''
+      sort_date: '2023-01-01'
+    },
+    {
+      name: 'P02',
+      original_id: 2,
+      paper_type: null,
+      reference: 'P02',
+      short_name: '',
+      sort_date: '2024-01-01'
     },
     {
       name: 'P03',
@@ -249,7 +265,15 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
       paper_type: null,
       reference: 'P03',
       short_name: '',
-      sort_date: ''
+      sort_date: '2023-01-01'
+    },
+    {
+      name: 'P03',
+      original_id: 3,
+      paper_type: null,
+      reference: 'P03',
+      short_name: '',
+      sort_date: '2024-01-01'
     },
     {
       name: 'P04',
@@ -257,7 +281,15 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
       paper_type: null,
       reference: 'P04',
       short_name: '',
-      sort_date: ''
+      sort_date: '2023-01-01'
+    },
+    {
+      name: 'P04',
+      original_id: 4,
+      paper_type: null,
+      reference: 'P04',
+      short_name: '',
+      sort_date: '2024-01-01'
     },
     {
       name: 'P05',
@@ -265,7 +297,15 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
       paper_type: null,
       reference: 'P05',
       short_name: '',
-      sort_date: ''
+      sort_date: '2023-01-01'
+    },
+    {
+      name: 'P05',
+      original_id: 5,
+      paper_type: null,
+      reference: 'P05',
+      short_name: '',
+      sort_date: '2024-01-01'
     },
     {
       name: 'P06',
@@ -273,7 +313,15 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
       paper_type: null,
       reference: 'P06',
       short_name: '',
-      sort_date: ''
+      sort_date: '2024-01-01'
+    },
+    {
+      name: 'P06',
+      original_id: 6,
+      paper_type: null,
+      reference: 'P06',
+      short_name: '',
+      sort_date: '2025-01-01'
     },
     {
       name: 'P07',
@@ -281,7 +329,15 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
       paper_type: null,
       reference: 'P07',
       short_name: '',
-      sort_date: ''
+      sort_date: '2023-01-01'
+    },
+    {
+      name: 'P07',
+      original_id: 7,
+      paper_type: null,
+      reference: 'P07',
+      short_name: '',
+      sort_date: '2024-01-01'
     }
   ],
   persons: []
