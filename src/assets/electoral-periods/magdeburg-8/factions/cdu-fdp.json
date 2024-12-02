@@ -2,12 +2,12 @@
   "id": "cdu-fdp",
   "name": "CDU/FDP",
   "seats": 15,
-  "applicationsSuccessRate": 0.8888888888888888,
-  "votingsSuccessRate": 0.9107142857142857,
-  "uniformityScore": 0.9571610752249159,
-  "participationRate": 0.7795238095238095,
-  "abstentionRate": 0.07774792472747723,
-  "speakingTime": 8500,
+  "applicationsSuccessRate": 0.8928571428571429,
+  "votingsSuccessRate": 0.9154929577464789,
+  "uniformityScore": 0.9547240161105499,
+  "participationRate": 0.7874178403755868,
+  "abstentionRate": 0.0736260764423702,
+  "speakingTime": 10273,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -29,6 +29,10 @@
       {
         "date": "2024-10-21",
         "value": 0.8888888888888888
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.8928571428571429
       }
     ],
     "votingsSuccessRate": [
@@ -51,6 +55,10 @@
       {
         "date": "2024-10-21",
         "value": 0.9107142857142857
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.9154929577464789
       }
     ],
     "uniformityScore": [
@@ -73,6 +81,10 @@
       {
         "date": "2024-10-21",
         "value": 0.9571610752249159
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.9547240161105499
       }
     ],
     "participationRate": [
@@ -95,6 +107,10 @@
       {
         "date": "2024-10-21",
         "value": 0.7795238095238095
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.7874178403755868
       }
     ],
     "abstentionRate": [
@@ -117,6 +133,10 @@
       {
         "date": "2024-10-21",
         "value": 0.07774792472747723
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.0736260764423702
       }
     ]
   },
@@ -699,6 +719,160 @@
       "votings": [
         {
           "votingId": 37,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0322/24/2",
+      "type": "Änderungsantrag",
+      "title": "Beherbergungsteuersatzung",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245130,
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0322/24/3",
+      "type": "Änderungsantrag",
+      "title": "Beherbergungsteuersatzung",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245131,
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0179/24/1",
+      "type": "Änderungsantrag",
+      "title": "Verkehrssicherheit durch Straßenmarkierungen im Kreuzungsbereich verbessern",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245124,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0181/24",
+      "type": "Antrag",
+      "title": "Farbgebung der neuen Strombrückenverlängerung",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244308,
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0034/24",
+      "type": "Antrag",
+      "title": "Verbesserung Verkehrsinformationen",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 243019,
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0243/24",
+      "type": "Geschäftsordnung",
+      "title": "Tempo 30 in der Kritzmannstraße",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244985,
+      "votings": [
+        {
+          "votingId": 55,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0244/24",
+      "type": "Geschäftsordnung",
+      "title": "Vollzeitäquivalente für den Aufgabenbereich „Gender Mainstreaming” einsparen!",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244986,
+      "votings": [
+        {
+          "votingId": 56,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0247/24",
+      "type": "Geschäftsordnung",
+      "title": "Barrierefreie Veranstaltungen in Magdeburg - Verleih überfahrbarer Kabelbrücken",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244996,
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0253/24",
+      "type": "Geschäftsordnung",
+      "title": "Illegalen Moscheebetrieb unterbinden!",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245003,
+      "votings": [
+        {
+          "votingId": 68,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0256/24",
+      "type": "Geschäftsordnung",
+      "title": "Wie weiter mit dem Kaiser-Otto-Fest?",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245008,
+      "votings": [
+        {
+          "votingId": 70,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0261/24",
+      "type": "Geschäftsordnung",
+      "title": "Planreife für sämtliche Bauabschnitte gemäß §33 BauGB, B-Plan Nr. 483-5 \"ehemaliges RAW- Gelände\"",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245015,
+      "votings": [
+        {
+          "votingId": 74,
           "votingResult": "PASSED"
         }
       ]

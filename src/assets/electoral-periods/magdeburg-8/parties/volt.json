@@ -2,10 +2,10 @@
   "id": "volt",
   "name": "Volt",
   "seats": 1,
-  "votingsSuccessRate": 0.8,
+  "votingsSuccessRate": 0.8084507042253521,
   "uniformityScore": 1,
-  "participationRate": 0.9678571428571429,
-  "abstentionRate": 0.0307366206022421,
+  "participationRate": 0.9661971830985916,
+  "abstentionRate": 0.03005829494631286,
   "speakingTime": 242,
   "statsHistory": {
     "votingsSuccessRate": [
@@ -28,6 +28,10 @@
       {
         "date": "2024-10-21",
         "value": 0.8
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.8084507042253521
       }
     ],
     "uniformityScore": [
@@ -49,6 +53,10 @@
       },
       {
         "date": "2024-10-21",
+        "value": 1
+      },
+      {
+        "date": "2024-11-14",
         "value": 1
       }
     ],
@@ -72,6 +80,10 @@
       {
         "date": "2024-10-21",
         "value": 0.9678571428571429
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.9661971830985916
       }
     ],
     "abstentionRate": [
@@ -94,6 +106,10 @@
       {
         "date": "2024-10-21",
         "value": 0.0307366206022421
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.03005829494631286
       }
     ]
   }

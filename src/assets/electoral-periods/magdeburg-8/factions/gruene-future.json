@@ -2,12 +2,12 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 6,
-  "applicationsSuccessRate": 0.7045454545454546,
-  "votingsSuccessRate": 0.7821428571428571,
-  "uniformityScore": 0.9768193465113958,
-  "participationRate": 0.8761904761904762,
-  "abstentionRate": 0.05831002766053158,
-  "speakingTime": 3506,
+  "applicationsSuccessRate": 0.6610169491525424,
+  "votingsSuccessRate": 0.7859154929577464,
+  "uniformityScore": 0.9726827887594965,
+  "participationRate": 0.8516431924882629,
+  "abstentionRate": 0.05781391193933188,
+  "speakingTime": 4869,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -29,6 +29,10 @@
       {
         "date": "2024-10-21",
         "value": 0.7045454545454546
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.6610169491525424
       }
     ],
     "votingsSuccessRate": [
@@ -51,6 +55,10 @@
       {
         "date": "2024-10-21",
         "value": 0.7821428571428571
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.7859154929577464
       }
     ],
     "uniformityScore": [
@@ -73,6 +81,10 @@
       {
         "date": "2024-10-21",
         "value": 0.9768193465113958
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.9726827887594965
       }
     ],
     "participationRate": [
@@ -95,6 +107,10 @@
       {
         "date": "2024-10-21",
         "value": 0.8761904761904762
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.8516431924882629
       }
     ],
     "abstentionRate": [
@@ -117,6 +133,10 @@
       {
         "date": "2024-10-21",
         "value": 0.05831002766053158
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.05781391193933188
       }
     ]
   },
@@ -673,6 +693,206 @@
       "votings": [
         {
           "votingId": 30,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0464/24/1",
+      "type": "Änderungsantrag",
+      "title": "Ausgleichsbedarf der Magdeburger Verkehrsbetriebe GmbH & Co. KG",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244723,
+      "votings": [
+        {
+          "votingId": 7,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 8,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0455/24/2",
+      "type": "Änderungsantrag",
+      "title": "Besetzung der Auswahlkommission - Fortschreibung der Weihnachts- und Winterbeleuchtung",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245085,
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0322/24/3",
+      "type": "Änderungsantrag",
+      "title": "Beherbergungsteuersatzung",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245131,
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0411/24/1",
+      "type": "Änderungsantrag",
+      "title": "Variantenentscheidung zur Umgestaltung des Straßenraums der Sudenburger Straße",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245109,
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0412/24/1",
+      "type": "Änderungsantrag",
+      "title": "Variantenentscheidung zur Umgestaltung des Straßenraums der Freien Straße",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245108,
+      "votings": [
+        {
+          "votingId": 35,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0465/24/1",
+      "type": "Änderungsantrag",
+      "title": "Grundsatzbeschluss zum Planungsbeginn von fünf Ersatzneubauten (ENB) und dem Rückbau eines Fußgängertunnels im Zuge Magdeburger Ringes: 1. ENB MD-Ringbrücken über Wiener Straße",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245110,
+      "votings": [
+        {
+          "votingId": 38,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0296/23",
+      "type": "Antrag",
+      "title": "Ganzjährige Außengastronomie",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 242774,
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0241/24",
+      "type": "Geschäftsordnung",
+      "title": "Reparieren statt kassieren!",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244983,
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0247/24",
+      "type": "Geschäftsordnung",
+      "title": "Barrierefreie Veranstaltungen in Magdeburg - Verleih überfahrbarer Kabelbrücken",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244996,
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0248/24",
+      "type": "Geschäftsordnung",
+      "title": "Evaluierung und Überarbeitung der Fachförderrichtlinie zur Unterstützung der Migrantenorganisationen",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244997,
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0249/24",
+      "type": "Geschäftsordnung",
+      "title": "Magdeburg spricht miteinander - Austausch in Magdeburg fördern",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244998,
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0249/24",
+      "type": "Antrag",
+      "title": "Magdeburg spricht miteinander - Austausch in Magdeburg fördern",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244998,
+      "votings": [
+        {
+          "votingId": 64,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0250/24",
+      "type": "Geschäftsordnung",
+      "title": "Wiederbenennung von Buttergasse und Spiegelbrücke",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244999,
+      "votings": [
+        {
+          "votingId": 65,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0255/24",
+      "type": "Geschäftsordnung",
+      "title": "Satzungsänderung Seniorenbeirat",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245007,
+      "votings": [
+        {
+          "votingId": 69,
           "votingResult": "PASSED"
         }
       ]

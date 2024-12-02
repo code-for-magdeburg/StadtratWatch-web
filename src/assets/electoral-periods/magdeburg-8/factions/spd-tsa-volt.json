@@ -2,12 +2,12 @@
   "id": "spd-tsa-volt",
   "name": "SPD/Tierschutzallianz/Volt",
   "seats": 10,
-  "applicationsSuccessRate": 0.7843137254901961,
-  "votingsSuccessRate": 0.8785714285714286,
-  "uniformityScore": 0.9604168817319714,
-  "participationRate": 0.77,
-  "abstentionRate": 0.025746286577053655,
-  "speakingTime": 4170,
+  "applicationsSuccessRate": 0.78125,
+  "votingsSuccessRate": 0.8760563380281691,
+  "uniformityScore": 0.9630325866284947,
+  "participationRate": 0.7780281690140846,
+  "abstentionRate": 0.024378519237491805,
+  "speakingTime": 5614,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -29,6 +29,10 @@
       {
         "date": "2024-10-21",
         "value": 0.7843137254901961
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.78125
       }
     ],
     "votingsSuccessRate": [
@@ -51,6 +55,10 @@
       {
         "date": "2024-10-21",
         "value": 0.8785714285714286
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.8760563380281691
       }
     ],
     "uniformityScore": [
@@ -73,6 +81,10 @@
       {
         "date": "2024-10-21",
         "value": 0.9604168817319714
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.9630325866284947
       }
     ],
     "participationRate": [
@@ -95,6 +107,10 @@
       {
         "date": "2024-10-21",
         "value": 0.77
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.7780281690140846
       }
     ],
     "abstentionRate": [
@@ -117,6 +133,10 @@
       {
         "date": "2024-10-21",
         "value": 0.025746286577053655
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.024378519237491805
       }
     ]
   },
@@ -831,6 +851,178 @@
       "votings": [
         {
           "votingId": 37,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0464/24/1",
+      "type": "Änderungsantrag",
+      "title": "Ausgleichsbedarf der Magdeburger Verkehrsbetriebe GmbH & Co. KG",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244723,
+      "votings": [
+        {
+          "votingId": 7,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 8,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0455/24/2",
+      "type": "Änderungsantrag",
+      "title": "Besetzung der Auswahlkommission - Fortschreibung der Weihnachts- und Winterbeleuchtung",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245085,
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0126/24",
+      "type": "Antrag",
+      "title": "Für bezahlbaren Wohnraum sozialen Wohnungs(neu)bau wieder aufnehmen - Gebäudetyp E unterstützen",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 243732,
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0113/24/1",
+      "type": "Änderungsantrag",
+      "title": "Nachtfahrverbot für Mähroboter",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244977,
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0241/24",
+      "type": "Geschäftsordnung",
+      "title": "Reparieren statt kassieren!",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244983,
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0247/24",
+      "type": "Geschäftsordnung",
+      "title": "Barrierefreie Veranstaltungen in Magdeburg - Verleih überfahrbarer Kabelbrücken",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244996,
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0248/24",
+      "type": "Geschäftsordnung",
+      "title": "Evaluierung und Überarbeitung der Fachförderrichtlinie zur Unterstützung der Migrantenorganisationen",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244997,
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0249/24",
+      "type": "Geschäftsordnung",
+      "title": "Magdeburg spricht miteinander - Austausch in Magdeburg fördern",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244998,
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0256/24",
+      "type": "Geschäftsordnung",
+      "title": "Wie weiter mit dem Kaiser-Otto-Fest?",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245008,
+      "votings": [
+        {
+          "votingId": 70,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0257/24",
+      "type": "Geschäftsordnung",
+      "title": "Ein Zeichen für mehr Familienfreundlichkeit in Magdeburg",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245009,
+      "votings": [
+        {
+          "votingId": 71,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0261/24",
+      "type": "Geschäftsordnung",
+      "title": "Planreife für sämtliche Bauabschnitte gemäß §33 BauGB, B-Plan Nr. 483-5 \"ehemaliges RAW- Gelände\"",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245015,
+      "votings": [
+        {
+          "votingId": 74,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0262/24",
+      "type": "Geschäftsordnung",
+      "title": "Öffnungszeiten des Kundenzentrums der MVB einwohner:innennah gestalten",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245023,
+      "votings": [
+        {
+          "votingId": 75,
           "votingResult": "PASSED"
         }
       ]

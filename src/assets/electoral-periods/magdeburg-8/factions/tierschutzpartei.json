@@ -2,12 +2,12 @@
   "id": "tierschutzpartei",
   "name": "Tierschutzpartei",
   "seats": 3,
-  "applicationsSuccessRate": 0.8928571428571429,
-  "votingsSuccessRate": 0.8821428571428571,
-  "uniformityScore": 0.8914095795954697,
-  "participationRate": 0.8154761904761905,
-  "abstentionRate": 0.13131051168565167,
-  "speakingTime": 1176,
+  "applicationsSuccessRate": 0.8571428571428571,
+  "votingsSuccessRate": 0.8704225352112676,
+  "uniformityScore": 0.8902487237369655,
+  "participationRate": 0.8431924882629108,
+  "abstentionRate": 0.1272032041824875,
+  "speakingTime": 1497,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -29,6 +29,10 @@
       {
         "date": "2024-10-21",
         "value": 0.8928571428571429
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.8571428571428571
       }
     ],
     "votingsSuccessRate": [
@@ -51,6 +55,10 @@
       {
         "date": "2024-10-21",
         "value": 0.8821428571428571
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.8704225352112676
       }
     ],
     "uniformityScore": [
@@ -73,6 +81,10 @@
       {
         "date": "2024-10-21",
         "value": 0.8914095795954697
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.8902487237369655
       }
     ],
     "participationRate": [
@@ -95,6 +107,10 @@
       {
         "date": "2024-10-21",
         "value": 0.8154761904761905
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.8431924882629108
       }
     ],
     "abstentionRate": [
@@ -117,6 +133,10 @@
       {
         "date": "2024-10-21",
         "value": 0.13131051168565167
+      },
+      {
+        "date": "2024-11-14",
+        "value": 0.1272032041824875
       }
     ]
   },
@@ -509,6 +529,94 @@
       "votings": [
         {
           "votingId": 37,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0464/24/1",
+      "type": "Änderungsantrag",
+      "title": "Ausgleichsbedarf der Magdeburger Verkehrsbetriebe GmbH & Co. KG",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244723,
+      "votings": [
+        {
+          "votingId": 7,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 8,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0113/24/1",
+      "type": "Änderungsantrag",
+      "title": "Nachtfahrverbot für Mähroboter",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244977,
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0241/24",
+      "type": "Geschäftsordnung",
+      "title": "Reparieren statt kassieren!",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244983,
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0246/24",
+      "type": "Geschäftsordnung",
+      "title": "Erweiterte Realität für den Breiten Weg",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 244989,
+      "votings": [
+        {
+          "votingId": 60,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0251/24",
+      "type": "Geschäftsordnung",
+      "title": "Neue Formen der Begrünung der Freiflächen in Kitas und Schulen",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245000,
+      "votings": [
+        {
+          "votingId": 66,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0252/24",
+      "type": "Geschäftsordnung",
+      "title": "Beirat für Menschen mit Behinderung",
+      "sessionId": "2024-11-14",
+      "sessionDate": "2024-11-14",
+      "paperId": 245002,
+      "votings": [
+        {
+          "votingId": 67,
           "votingResult": "PASSED"
         }
       ]
