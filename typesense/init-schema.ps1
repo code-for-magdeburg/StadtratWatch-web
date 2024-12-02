@@ -16,7 +16,7 @@ $Body = @"
     "enable_nested_fields": true,
     "fields": [
 
-      {"name": "type", "type": "string", "index": false},
+      {"name": "type", "type": "string", "facet": true},
       {"name": "content", "type": "string[]", "locale": "de"},
 
       {"name": "paper_name", "type": "string", "locale": "de"},
