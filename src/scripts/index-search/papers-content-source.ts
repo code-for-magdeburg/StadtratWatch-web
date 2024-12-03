@@ -13,7 +13,7 @@ export class PapersContentSource implements IPapersContentSource {
   }
 
 
-  getContent(fileId: number): string {
+  public getContent(fileId: number): string {
     const filename = `${fileId}.pdf.txt`;
     return Deno.readTextFileSync(path.join(this.directory, filename));
   }

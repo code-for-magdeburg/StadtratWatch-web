@@ -1,11 +1,7 @@
 import { ScrapedPaper, ScrapedSession } from '../shared/model/scraped-session.ts';
-import * as path from '@std/path';
-import * as fs from '@std/fs';
-import { Registry } from '../shared/model/registry.ts';
-import { SessionConfig } from '../shared/model/session-config.ts';
-import { SessionSpeech } from '../shared/model/session-speech.ts';
-import { IndexedPaper, IndexedSpeech, IDocumentsImporter } from './typesense-importer.ts';
+import { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-importer.ts';
 import { IPapersContentSource } from './papers-content-source.ts';
+import { ISpeechesSource } from './speeches-source.ts';
 
 
 export class SearchIndexer {
@@ -65,63 +61,23 @@ export class SearchIndexer {
   }
 
 
-  public async indexSpeeches(electoralPeriodsBaseDir: string) {
+  public async indexSpeeches(speechesSource: ISpeechesSource) {
 
-    const electoralPeriods = Array
-      .from(Deno.readDirSync(electoralPeriodsBaseDir))
-      .filter(entry => Deno.statSync(path.join(electoralPeriodsBaseDir, entry.name)).isDirectory)
-      .filter(entry => fs.existsSync(path.join(electoralPeriodsBaseDir, entry.name, 'registry.json')))
-      .map(entry => entry.name);
-
-    for (const electoralPeriod of electoralPeriods) {
-      const electoralPeriodDir = path.join(electoralPeriodsBaseDir, electoralPeriod);
-      const registry = JSON.parse(Deno.readTextFileSync(path.join(electoralPeriodDir, 'registry.json')));
-      await this.indexSpeechesForElectoralPeriod(electoralPeriodDir, registry);
-    }
-
-  }
-
-
-  private async indexSpeechesForElectoralPeriod(contentDir: string, registry: Registry) {
-
-    console.log(`Importing speeches for ${registry.electoralPeriod}`);
-
-    const sessions = Array
-      .from(Deno.readDirSync(contentDir))
-      .filter(entry => Deno.statSync(path.join(contentDir, entry.name)).isDirectory)
-      .map(entry => entry.name)
-      .filter(session => fs.existsSync(path.join(contentDir, session, `config-${session}.json`)))
-      .filter(session => fs.existsSync(path.join(contentDir, session, `session-speeches-${session}.json`)));
-
-    for (const session of sessions) {
-      const config = JSON.parse(
-        Deno.readTextFileSync(path.join(contentDir, session, `config-${session}.json`))
-      ) as SessionConfig;
-      const speeches = JSON.parse(
-        Deno.readTextFileSync(path.join(contentDir, session, `session-speeches-${session}.json`))
-      ) as SessionSpeech[];
-      await this.indexSessionSpeeches(registry, session, config, speeches);
-    }
-
-  }
-
-
-  private async indexSessionSpeeches(registry: Registry, session: string, config: SessionConfig,
-                       speeches: SessionSpeech[]) {
-
-    console.log(`Indexing speeches for session ${session}...`);
-
-    const speechesWithTranscriptions = speeches
-      .filter(speech => speech.transcription)
-      .map<IndexedSpeech>(speech => {
-        const person = config.names.find(name => name.name === speech.speaker);
+    const speechesWithTranscriptions = speechesSource
+      .getSpeeches()
+      .filter(indexableSpeech => indexableSpeech.speech.transcription)
+      .map<IndexedSpeech>(indexableSpeech => {
+        const { electoralPeriod, session, config, speech } = indexableSpeech;
+        const person = config.names.find(
+          name => name.name === speech.speaker
+        );
         const party = person ? person.party : null;
         const faction = person ? person.faction : null;
         return {
           id: `speech-${session}-${speech.start}`,
           content: speech.transcription ? [speech.transcription] : [],
 
-          speech_electoral_period: registry.electoralPeriod,
+          speech_electoral_period: electoralPeriod,
           speech_session: session,
           speech_start: speech.start,
           speech_session_date: Date.parse(session),
@@ -131,7 +87,6 @@ export class SearchIndexer {
           speech_on_behalf_of: speech.onBehalfOf || null
         };
       });
-
 
     if (!await this.importer.importSpeeches(speechesWithTranscriptions)) {
       console.error('Failed to import speeches.');

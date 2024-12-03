@@ -5,6 +5,7 @@ import { SearchIndexer } from './search-indexer.ts';
 import { IDocumentsImporter, TypesenseImporter } from './typesense-importer.ts';
 import { BatchedDocumentsImporter } from './batched-documents-importer.ts';
 import { PapersContentSource } from './papers-content-source.ts';
+import { SpeechesSource } from './speeches-source.ts';
 
 
 const args = parseArgs(Deno.args);
@@ -25,7 +26,8 @@ const papersContentSource = new PapersContentSource(args.papersContentDir);
 const scrapedSession = JSON.parse(Deno.readTextFileSync(args.scrapedSessionFilename)) as ScrapedSession;
 await indexer.indexPapers(papersContentSource, scrapedSession);
 
-await indexer.indexSpeeches(args.electoralPeriodsBaseDir);
+const speechesSource = new SpeechesSource(args.electoralPeriodsBaseDir);
+await indexer.indexSpeeches(speechesSource);
 
 console.log('Done.');
 
