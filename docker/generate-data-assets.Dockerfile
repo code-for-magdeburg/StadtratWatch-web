@@ -1,4 +1,4 @@
-FROM denoland/deno:2.1.1
+FROM denoland/deno:2.1.2
 
 ARG MS_CORE_FONTS_VERSION=3.8
 ARG SKIA_CANVAS_VERSION=0.5.8
@@ -16,9 +16,9 @@ COPY deno.json /app
 COPY deno.lock /app
 COPY src /app/src
 
-RUN deno install --entrypoint src/scripts/generate-data-assets/index.ts
+RUN deno install --entrypoint src/scripts/generate-data-assets/index.ts --unstable-sloppy-imports
 
-RUN deno cache src/scripts/generate-data-assets/index.ts
+RUN deno cache src/scripts/generate-data-assets/index.ts --unstable-sloppy-imports
 
 ENV DENO_SKIA_PATH=/libnative_canvas.so
 

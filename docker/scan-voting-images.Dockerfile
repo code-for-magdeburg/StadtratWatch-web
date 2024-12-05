@@ -1,4 +1,4 @@
-FROM denoland/deno:2.1.1
+FROM denoland/deno:2.1.2
 
 ARG SKIA_CANVAS_VERSION=0.5.8
 
@@ -12,9 +12,9 @@ COPY deno.json /app
 COPY deno.lock /app
 COPY src /app/src
 
-RUN deno install --entrypoint src/scripts/scan-voting-images/index.ts
+RUN deno install --entrypoint src/scripts/scan-voting-images/index.ts --unstable-sloppy-imports
 
-RUN deno cache src/scripts/scan-voting-images/index.ts
+RUN deno cache src/scripts/scan-voting-images/index.ts --unstable-sloppy-imports
 
 ENV DENO_SKIA_PATH=/libnative_canvas.so
 
