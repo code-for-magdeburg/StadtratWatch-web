@@ -199,7 +199,7 @@ Deno.test('Paper contents are indexed', async () => {
             "lorem ipsum"
           ],
           "paper_name": "P01",
-          "paper_type": "",
+          "paper_type": "Stellungnahme",
           "paper_reference": "P01"
         },
         {
@@ -208,7 +208,7 @@ Deno.test('Paper contents are indexed', async () => {
             "lorem ipsum"
           ],
           "paper_name": "P02",
-          "paper_type": "",
+          "paper_type": "Anfrage",
           "paper_reference": "P02"
         },
         {

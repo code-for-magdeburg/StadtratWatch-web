@@ -230,7 +230,7 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
     {
       name: 'P01',
       original_id: 1,
-      paper_type: null,
+      paper_type: 'Antrag',
       reference: 'P01',
       short_name: '',
       sort_date: '2023-01-01'
@@ -238,7 +238,7 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
     {
       name: 'P01',
       original_id: 1,
-      paper_type: null,
+      paper_type: 'Stellungnahme',
       reference: 'P01',
       short_name: '',
       sort_date: '2024-01-01'
@@ -246,7 +246,7 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
     {
       name: 'P02',
       original_id: 2,
-      paper_type: null,
+      paper_type: 'Änderungsantrag',
       reference: 'P02',
       short_name: '',
       sort_date: '2023-01-01'
@@ -254,7 +254,7 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
     {
       name: 'P02',
       original_id: 2,
-      paper_type: null,
+      paper_type: 'Anfrage',
       reference: 'P02',
       short_name: '',
       sort_date: '2024-01-01'
@@ -262,7 +262,7 @@ export const TEST_SCRAPED_SESSION: ScrapedSession = {
     {
       name: 'P03',
       original_id: 3,
-      paper_type: null,
+      paper_type: 'Beschlussvorlage',
       reference: 'P03',
       short_name: '',
       sort_date: '2023-01-01'
