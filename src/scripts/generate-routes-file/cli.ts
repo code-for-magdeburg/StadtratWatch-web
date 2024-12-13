@@ -38,7 +38,7 @@ export function checkArgs(args: GenerateRoutesFileArgs) {
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts -i <input-dir> -o <output-dir> -s <scraped-session-file>
+Usage: deno run index.ts -d <data-dir> -o <output-dir> -s <scraped-session-file>
 -h, --help                  Show this help message and exit.
 -d, --data-dir              The data directory. It must contain the registry.json file.
 -o, --output-dir            The output directory.
