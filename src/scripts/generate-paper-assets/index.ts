@@ -20,4 +20,5 @@ const paperAssetsStore = new PaperAssetsStore(args.outputDir);
 const generator = new PaperAssetsGenerator(paperFilesStore, paperAssetsStore);
 const scrapedSession = JSON.parse(Deno.readTextFileSync(args.scrapedSessionFilename)) as ScrapedSession;
 generator.generatePaperAssets(scrapedSession);
+
 console.log('Done.');
