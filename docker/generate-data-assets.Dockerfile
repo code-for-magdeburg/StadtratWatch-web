@@ -1,4 +1,4 @@
-FROM denoland/deno:2.1.2
+FROM denoland/deno:2.1.4
 
 ARG MS_CORE_FONTS_VERSION=3.8
 ARG SKIA_CANVAS_VERSION=0.5.8

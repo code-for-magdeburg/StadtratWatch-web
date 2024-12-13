@@ -1,4 +1,4 @@
-FROM denoland/deno:2.1.2
+FROM denoland/deno:2.1.4
 
 ARG SKIA_CANVAS_VERSION=0.5.8
 
