@@ -8,7 +8,12 @@ docker build -t srw-generate-data-assets -f docker\generate-data-assets.Dockerfi
 
 #### Run the docker container
 ```shell
-docker run --rm -v %cd%\data\electoral-period-8:/app/input-dir:ro -v %cd%\src\assets\electoral-periods\magdeburg-8:/app/output-dir -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro srw-generate-data-assets
+docker run \
+  --rm \
+  -v %cd%\data\electoral-period-8:/app/input-dir:ro \
+  -v %cd%\src\assets\electoral-periods\magdeburg-8:/app/output-dir \
+  -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
+  srw-generate-data-assets
 ```
 
 
@@ -21,7 +26,12 @@ docker build -t srw-generate-paper-assets -f docker\generate-paper-assets.Docker
 
 #### Run the docker container
 ```shell
-docker run --rm -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro -v %cd%\output\papers:/app/papers:ro -v %cd%\src\assets\papers:/app/generated srw-generate-paper-assets
+docker run \
+  --rm \
+  -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
+  -v %cd%\output\papers:/app/papers:ro \
+  -v %cd%\src\assets\papers:/app/generated \
+  srw-generate-paper-assets
 ```
 
 
@@ -34,7 +44,11 @@ docker build -t srw-generate-routes-file -f docker\generate-routes-file.Dockerfi
 
 #### Run the docker container
 ```shell
-docker run --rm -v %cd%\data:/app/data:ro -v %cd%:/app/generated srw-generate-routes-file
+docker run \
+  --rm \
+  -v %cd%\data:/app/data:ro \
+  -v %cd%:/app/generated \
+  srw-generate-routes-file
 ```
 
 
@@ -47,7 +61,12 @@ docker build -t srw-download-paper-files -f docker\download-paper-files.Dockerfi
 
 #### Run the docker container
 ```shell
-docker run --rm -v %cd%\output\papers\2024:/app/papers -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro srw-download-paper-files 2024
+docker run \
+  --rm \
+  -v %cd%\output\papers\2024:/app/papers \
+  -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
+  srw-download-paper-files \
+  2024
 ```
 
 
@@ -61,7 +80,11 @@ docker build -t srw-tika -f docker\tika-batch-extract.Dockerfile .
 #### Run the docker container
 When running the container, the input and output folders have to be provided as volume mounts. The input folder should contain the pdf files to be processed. The output folder will contain the extracted text files.
 ```shell 
-docker run --rm -v %cd%\output\papers\2023:/input -v %cd%\output\papers\2023-extracted:/output srw-tika
+docker run \
+  --rm \
+  -v %cd%\output\papers\2023:/input \
+  -v %cd%\output\papers\2023-extracted:/output \
+  srw-tika
 ```
 
 
