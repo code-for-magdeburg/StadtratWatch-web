@@ -10,7 +10,7 @@ docker build -t srw-generate-data-assets -f docker\generate-data-assets.Dockerfi
 ```shell
 docker run \
   --rm \
-  -v %cd%\data\electoral-period-8:/app/input-dir:ro \
+  -v %cd%\data\magdeburg-8:/app/input-dir:ro \
   -v %cd%\src\assets\electoral-periods\magdeburg-8:/app/output-dir \
   -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
   srw-generate-data-assets
@@ -100,7 +100,7 @@ docker build -t srw-scan-voting-images -f docker\scan-voting-images.Dockerfile .
 ```shell
 docker run \
 	--rm \
-	-v %cd%\data\electoral-period-7\2022-09-01\config-2022-09-01.json:/app/session-config.json:ro \
+	-v %cd%\data\magdeburg-7\2022-09-01\config-2022-09-01.json:/app/session-config.json:ro \
 	-v %cd%\sessions-media-files\2022-09-01:/app/voting-images:ro \
 	-v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
 	srw-scan-voting-images \
