@@ -29,14 +29,13 @@ export class SpeechesSource implements ISpeechesSource {
 
     return this
       .getElectoralPeriods()
-      .flatMap<IndexableSpeech>(electoralPeriod => {
-        const registry = this.getRegistry(electoralPeriod);
-        return this
-          .getSessions(electoralPeriod)
+      .flatMap<IndexableSpeech>(registry => {
+        return registry.sessions
+          .map(session => session.id)
           .flatMap<IndexableSpeech>(session => {
-            const config = this.getSessionConfig(electoralPeriod, session);
+            const config = this.getSessionConfig(registry.electoralPeriod, session);
             return this
-              .getSessionSpeeches(electoralPeriod, session)
+              .getSessionSpeeches(registry.electoralPeriod, session)
               .map(speech => ({ electoralPeriod: registry.electoralPeriod, session, config, speech }));
           });
       });
@@ -44,29 +43,15 @@ export class SpeechesSource implements ISpeechesSource {
   }
 
 
-  private getElectoralPeriods(): string[] {
+  private getElectoralPeriods(): Registry[] {
     return Array
       .from(Deno.readDirSync(this.electoralPeriodsBaseDir))
       .filter(entry => Deno.statSync(path.join(this.electoralPeriodsBaseDir, entry.name)).isDirectory)
       .filter(entry => fs.existsSync(path.join(this.electoralPeriodsBaseDir, entry.name, 'registry.json')))
-      .map(entry => entry.name);
-  }
-
-
-  private getRegistry(electoralPeriod: string): Registry {
-    const electoralPeriodDir = path.join(this.electoralPeriodsBaseDir, electoralPeriod);
-    return JSON.parse(Deno.readTextFileSync(path.join(electoralPeriodDir, 'registry.json'))) as Registry;
-  }
-
-
-  private getSessions(electoralPeriod: string): string[] {
-    const electoralPeriodDir = path.join(this.electoralPeriodsBaseDir, electoralPeriod);
-    return Array
-      .from(Deno.readDirSync(electoralPeriodDir))
-      .filter(entry => Deno.statSync(path.join(electoralPeriodDir, entry.name)).isDirectory)
-      .map(entry => entry.name)
-      .filter(session => fs.existsSync(path.join(electoralPeriodDir, session, `config-${session}.json`)))
-      .filter(session => fs.existsSync(path.join(electoralPeriodDir, session, `session-speeches-${session}.json`)));
+      .map((entry) => {
+        const registryFilename = path.join(this.electoralPeriodsBaseDir, entry.name, 'registry.json');
+        return JSON.parse(Deno.readTextFileSync(registryFilename)) as Registry;
+      });
   }
 
 
