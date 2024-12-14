@@ -5,7 +5,7 @@ import { SessionScan } from '../shared/model/session-scan.ts';
 
 
 export interface IElectoralPeriodsSource {
-  getElectoralPeriods(): { registry: Registry, electoralPeriodDir: string }[];
+  getElectoralPeriods(): Registry[];
   getSessionScan(session: RegistrySession, electoralPeriodDir: string): SessionScan;
 }
 
@@ -17,20 +17,19 @@ export class ElectoralPeriodsSource implements IElectoralPeriodsSource {
   }
 
 
-  getElectoralPeriods(): { registry: Registry; electoralPeriodDir: string }[] {
+  public getElectoralPeriods(): Registry[] {
     return Array
       .from(Deno.readDirSync(this.directory))
       .filter((entry) => Deno.statSync(path.join(this.directory, entry.name)).isDirectory)
       .filter((entry) => fs.existsSync(path.join(this.directory, entry.name, 'registry.json')))
       .map((entry) => {
         const registryFilename = path.join(this.directory, entry.name, 'registry.json');
-        const registry = JSON.parse(Deno.readTextFileSync(registryFilename)) as Registry;
-        return { registry, electoralPeriodDir: entry.name };
+        return JSON.parse(Deno.readTextFileSync(registryFilename)) as Registry;
       });
   }
 
 
-  getSessionScan(session: RegistrySession, electoralPeriodDir: string): SessionScan {
+  public getSessionScan(session: RegistrySession, electoralPeriodDir: string): SessionScan {
     const sessionScanFilename = path.join(
       this.directory,
       electoralPeriodDir,

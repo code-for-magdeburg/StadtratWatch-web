@@ -8,7 +8,7 @@ import { assertSpyCall, assertSpyCalls, spy } from '@std/testing/mock';
 
 const mockEmptyElectoralPeriodsSource: IElectoralPeriodsSource = {
 
-  getElectoralPeriods: function (): { registry: Registry; electoralPeriodDir: string; }[] {
+  getElectoralPeriods: function (): Registry[] {
     return [];
   },
 
@@ -20,133 +20,127 @@ const mockEmptyElectoralPeriodsSource: IElectoralPeriodsSource = {
 
 const mockElectoralPeriodsSource: IElectoralPeriodsSource = {
 
-  getElectoralPeriods: function (): { registry: Registry; electoralPeriodDir: string; }[] {
+  getElectoralPeriods: function (): Registry[] {
     return [
       {
-        registry: {
-          electoralPeriod: 'magdeburg-7',
-          sessions: [
-            {
-              id: 'session-7-1',
-              date: '2022-01-01',
-              meetingMinutesUrl: 'xxx'
-            },
-            {
-              id: 'session-7-2',
-              date: '2022-02-01',
-              meetingMinutesUrl: 'yyy'
-            },
-            {
-              id: 'session-7-3',
-              date: '2022-03-01',
-              meetingMinutesUrl: 'yyy'
-            },
-          ],
-          factions: [
-            {
-              id: 'faction-7-1',
-              name: 'Faction 1',
-              seats: 10
-            },
-            {
-              id: 'faction-7-2',
-              name: 'Faction 2',
-              seats: 10
-            },
-          ],
-          parties: [
-            {
-              id: 'party-7-1',
-              name: 'Party 1',
-              seats: 10
-            },
-            {
-              id: 'party-7-2',
-              name: 'Party 2',
-              seats: 10
-            }
-          ],
-          persons: [
-            {
-              id: 'person-7-1',
-              name: 'Person 1',
-              factionId: 'faction-7-1',
-              partyId: 'party-7-1',
-              start: null,
-              end: null
-            },
-            {
-              id: 'person-7-2',
-              name: 'Person 2',
-              factionId: 'faction-7-1',
-              partyId: 'party-7-1',
-              start: null,
-              end: null
-            },
-            {
-              id: 'person-7-3',
-              name: 'Person 3',
-              factionId: 'faction-7-2',
-              partyId: 'party-7-2',
-              start: null,
-              end: null
-            },
-            {
-              id: 'person-7-4',
-              name: 'Person 4',
-              factionId: 'faction-7-2',
-              partyId: 'party-7-2',
-              start: null,
-              end: null
-            }
-          ]
-        },
-        electoralPeriodDir: 'magdeburg-7',
+        electoralPeriod: 'magdeburg-7',
+        sessions: [
+          {
+            id: 'session-7-1',
+            date: '2022-01-01',
+            meetingMinutesUrl: 'xxx'
+          },
+          {
+            id: 'session-7-2',
+            date: '2022-02-01',
+            meetingMinutesUrl: 'yyy'
+          },
+          {
+            id: 'session-7-3',
+            date: '2022-03-01',
+            meetingMinutesUrl: 'yyy'
+          },
+        ],
+        factions: [
+          {
+            id: 'faction-7-1',
+            name: 'Faction 1',
+            seats: 10
+          },
+          {
+            id: 'faction-7-2',
+            name: 'Faction 2',
+            seats: 10
+          },
+        ],
+        parties: [
+          {
+            id: 'party-7-1',
+            name: 'Party 1',
+            seats: 10
+          },
+          {
+            id: 'party-7-2',
+            name: 'Party 2',
+            seats: 10
+          }
+        ],
+        persons: [
+          {
+            id: 'person-7-1',
+            name: 'Person 1',
+            factionId: 'faction-7-1',
+            partyId: 'party-7-1',
+            start: null,
+            end: null
+          },
+          {
+            id: 'person-7-2',
+            name: 'Person 2',
+            factionId: 'faction-7-1',
+            partyId: 'party-7-1',
+            start: null,
+            end: null
+          },
+          {
+            id: 'person-7-3',
+            name: 'Person 3',
+            factionId: 'faction-7-2',
+            partyId: 'party-7-2',
+            start: null,
+            end: null
+          },
+          {
+            id: 'person-7-4',
+            name: 'Person 4',
+            factionId: 'faction-7-2',
+            partyId: 'party-7-2',
+            start: null,
+            end: null
+          }
+        ]
       },
       {
-        registry: {
-          electoralPeriod: 'magdeburg-8',
-          sessions: [
-            {
-              id: 'session-8-1',
-              date: '2024-01-01',
-              meetingMinutesUrl: 'xxx'
-            },
-          ],
-          factions: [
-            {
-              id: 'faction-8-1',
-              name: 'Faction 1',
-              seats: 10
-            },
-          ],
-          parties: [
-            {
-              id: 'party-8-1',
-              name: 'Party 1',
-              seats: 10
-            }
-          ],
-          persons: [
-            {
-              id: 'person-8-1',
-              name: 'Person 1',
-              factionId: 'faction-8-1',
-              partyId: 'party-8-1',
-              start: null,
-              end: null
-            },
-            {
-              id: 'person-8-2',
-              name: 'Person 2',
-              factionId: 'faction-8-1',
-              partyId: 'party-8-1',
-              start: null,
-              end: null
-            }
-          ]
-        },
-        electoralPeriodDir: 'magdeburg-8'
+        electoralPeriod: 'magdeburg-8',
+        sessions: [
+          {
+            id: 'session-8-1',
+            date: '2024-01-01',
+            meetingMinutesUrl: 'xxx'
+          },
+        ],
+        factions: [
+          {
+            id: 'faction-8-1',
+            name: 'Faction 1',
+            seats: 10
+          },
+        ],
+        parties: [
+          {
+            id: 'party-8-1',
+            name: 'Party 1',
+            seats: 10
+          }
+        ],
+        persons: [
+          {
+            id: 'person-8-1',
+            name: 'Person 1',
+            factionId: 'faction-8-1',
+            partyId: 'party-8-1',
+            start: null,
+            end: null
+          },
+          {
+            id: 'person-8-2',
+            name: 'Person 2',
+            factionId: 'faction-8-1',
+            partyId: 'party-8-1',
+            start: null,
+            end: null
+          }
+        ]
       }
     ];
   },
