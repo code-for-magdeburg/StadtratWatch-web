@@ -7,37 +7,62 @@ import { SessionScan } from '../shared/model/session-scan.ts';
 import { SessionSpeech } from '../shared/model/session-speech.ts';
 
 
-export function loadRegistry(inputDir: string): Registry {
-  const registryFilename = path.join(inputDir, 'registry.json');
-  return JSON.parse(Deno.readTextFileSync(registryFilename)) as Registry;
-}
+export type InputData = {
+  registry: Registry;
+  scrapedSession: ScrapedSession;
+  sessionsInputData: SessionInputData[];
+};
 
 
-export function loadScrapedSession(scrapedSessionFilename: string): ScrapedSession {
-  return JSON.parse(Deno.readTextFileSync(scrapedSessionFilename)) as ScrapedSession;
-}
+export class InputDataLoaders {
 
 
-export function loadSessionsInputData(inputDir: string, registry: Registry): SessionInputData[] {
+  constructor(private readonly inputDir: string, private readonly scrapedSessionFilename: string) {
+  }
 
-  return registry.sessions.map<SessionInputData>(session => {
 
-    const sessionDir = path.join(inputDir, session.date);
+  public loadInputData(): InputData {
+    const registry = this.loadRegistry();
+    const scrapedSession = this.loadScrapedSession();
+    const sessionsInputData = this.loadSessionsInputData(registry);
+    return { registry, scrapedSession, sessionsInputData };
+  }
 
-    const config = JSON.parse(
-      Deno.readTextFileSync(path.join(sessionDir, `config-${session.date}.json`))
-    ) as SessionConfig;
 
-    const scan = JSON.parse(
-      Deno.readTextFileSync(path.join(sessionDir, `session-scan-${session.date}.json`))
-    ) as SessionScan;
+  private loadRegistry(): Registry {
+    const registryFilename = path.join(this.inputDir, 'registry.json');
+    return JSON.parse(Deno.readTextFileSync(registryFilename)) as Registry;
+  }
 
-    const speeches = JSON.parse(
-      Deno.readTextFileSync(path.join(sessionDir, `session-speeches-${session.date}.json`))
-    ) as SessionSpeech[];
 
-    return { sessionId: session.id, config, scan, speeches } satisfies SessionInputData;
+  private loadScrapedSession(): ScrapedSession {
+    return JSON.parse(Deno.readTextFileSync(this.scrapedSessionFilename)) as ScrapedSession;
+  }
 
-  });
+
+  private loadSessionsInputData(registry: Registry): SessionInputData[] {
+
+    return registry.sessions.map<SessionInputData>(session => {
+
+      const sessionDir = path.join(this.inputDir, session.date);
+
+      const config = JSON.parse(
+        Deno.readTextFileSync(path.join(sessionDir, `config-${session.date}.json`))
+      ) as SessionConfig;
+
+      const scan = JSON.parse(
+        Deno.readTextFileSync(path.join(sessionDir, `session-scan-${session.date}.json`))
+      ) as SessionScan;
+
+      const speeches = JSON.parse(
+        Deno.readTextFileSync(path.join(sessionDir, `session-speeches-${session.date}.json`))
+      ) as SessionSpeech[];
+
+      return { sessionId: session.id, config, scan, speeches } satisfies SessionInputData;
+
+    });
+
+  }
+
 
 }

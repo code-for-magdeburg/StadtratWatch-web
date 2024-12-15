@@ -1,12 +1,12 @@
-import { SessionDetailsDto, SessionLightDto } from '@scope/interfaces-web-assets';
 import * as fs from '@std/fs';
 import * as path from '@std/path';
-import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '@scope/interfaces-web-assets';
-import { FactionDetailsDto, FactionLightDto } from '@scope/interfaces-web-assets';
-import { PartyDto } from '@scope/interfaces-web-assets';
-import { MetadataDto } from '@scope/interfaces-web-assets';
-import { GeneratedVotingImage } from './generate-images.ts';
+import { PartyDto, MetadataDto, PersonDetailsDto, PersonLightDto, PersonsForcesDto, SessionDetailsDto, SessionLightDto, FactionDetailsDto, FactionLightDto } from '@scope/interfaces-web-assets';
 import { decodeBase64 } from '@std/encoding';
+import { GeneratedSessionsData } from './sessions-data-generator.ts';
+import { GeneratedPersonsData } from './persons-data-generator.ts';
+import { GeneratedFactionsData } from "./factions-data-generator.ts";
+import { GeneratedPartiesData } from './parties-data-generator.ts';
+import { GeneratedImages, GeneratedVotingImage } from './images-generator.ts';
 
 
 export class AssetsWriter {
@@ -29,7 +29,25 @@ export class AssetsWriter {
   }
 
 
-  writeSessionFiles(sessions: SessionDetailsDto[]) {
+  public writeAssetsData(sessionsData: GeneratedSessionsData, personsData: GeneratedPersonsData,
+                         factionsData: GeneratedFactionsData, partiesData: GeneratedPartiesData,
+                         metadata: MetadataDto, images: GeneratedImages) {
+
+    this.writeSessionFiles(sessionsData.sessions);
+    this.writeAllSessionsFile(sessionsData.sessionsLight);
+    this.writePersonFiles(personsData.persons);
+    this.writeAllPersonsFile(personsData.personsLight);
+    this.writePersonsForcesFile(personsData.personsForces);
+    this.writeFactionFiles(factionsData.factions);
+    this.writeAllFactionsFile(factionsData.factionsLight);
+    this.writePartyFiles(partiesData.parties);
+    this.writeAllPartiesFile(partiesData.parties);
+    this.writeMetadataFile(metadata);
+    this.writeVotingImagesFiles(images.votingImages);
+  }
+
+
+  private writeSessionFiles(sessions: SessionDetailsDto[]) {
 
     sessions.forEach(session => {
       console.log(`Writing session file ${session.id}.json`);
@@ -40,7 +58,7 @@ export class AssetsWriter {
   }
 
 
-  writeAllSessionsFile(sessions: SessionLightDto[]) {
+  private writeAllSessionsFile(sessions: SessionLightDto[]) {
 
     console.log('Writing all-sessions.json');
     sessions.sort((a, b) => a.date.localeCompare(b.date));
@@ -52,7 +70,7 @@ export class AssetsWriter {
   }
 
 
-  writePersonFiles(persons: PersonDetailsDto[]) {
+  private writePersonFiles(persons: PersonDetailsDto[]) {
 
     persons.forEach(person => {
       console.log(`Writing person file ${person.id}.json`);
@@ -63,7 +81,7 @@ export class AssetsWriter {
   }
 
 
-  writeAllPersonsFile(persons: PersonLightDto[]) {
+  private writeAllPersonsFile(persons: PersonLightDto[]) {
 
     console.log('Writing all-persons.json');
     persons.sort((a, b) => a.name.localeCompare(b.name));
@@ -75,7 +93,7 @@ export class AssetsWriter {
   }
 
 
-  writePersonsForcesFile(personsForces: PersonsForcesDto) {
+  private writePersonsForcesFile(personsForces: PersonsForcesDto) {
 
     console.log('Writing all-persons-forces.json');
     Deno.writeTextFileSync(
@@ -86,7 +104,7 @@ export class AssetsWriter {
   }
 
 
-  writeFactionFiles(factions: FactionDetailsDto[]) {
+  private writeFactionFiles(factions: FactionDetailsDto[]) {
 
     factions.forEach(faction => {
       console.log(`Writing faction file ${faction.id}.json`);
@@ -97,7 +115,7 @@ export class AssetsWriter {
   }
 
 
-  writeAllFactionsFile(factions: FactionLightDto[]) {
+  private writeAllFactionsFile(factions: FactionLightDto[]) {
 
     console.log('Writing all-factions.json');
     Deno.writeTextFileSync(
@@ -108,7 +126,7 @@ export class AssetsWriter {
   }
 
 
-  writePartyFiles(parties: PartyDto[]) {
+  private writePartyFiles(parties: PartyDto[]) {
 
     parties.forEach(party => {
       console.log(`Writing party file ${party.id}.json`);
@@ -119,7 +137,7 @@ export class AssetsWriter {
   }
 
 
-  writeAllPartiesFile(parties: PartyDto[]) {
+  private writeAllPartiesFile(parties: PartyDto[]) {
 
     console.log('Writing all-parties.json');
     Deno.writeTextFileSync(
@@ -130,7 +148,7 @@ export class AssetsWriter {
   }
 
 
-  writeMetadataFile(metadata: MetadataDto) {
+  private writeMetadataFile(metadata: MetadataDto) {
 
     console.log('Writing metadata.json');
     Deno.writeTextFileSync(
@@ -141,7 +159,7 @@ export class AssetsWriter {
   }
 
 
-  writeVotingImagesFiles(votingImages: GeneratedVotingImage[]) {
+  private writeVotingImagesFiles(votingImages: GeneratedVotingImage[]) {
 
     console.log('Writing votings images...');
 
