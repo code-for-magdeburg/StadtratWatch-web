@@ -1,6 +1,6 @@
-import { SessionConfig } from './session-config';
-import { SessionScan } from './session-scan';
-import { SessionSpeech } from './session-speech';
+import { SessionConfig } from './session-config.ts';
+import { SessionScan } from './session-scan.ts';
+import { SessionSpeech } from './session-speech.ts';
 
 
 export type SessionInputData = {

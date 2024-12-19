@@ -1,4 +1,5 @@
 import { VoteResult } from './Session';
+import { HistoryValue } from './HistoryValue';
 
 
 export type PersonDetailsDto = {
@@ -41,12 +42,6 @@ export type PersonStatsHistoryDto = {
   votingAttendance: HistoryValue[];
   votingSuccessRate: HistoryValue[];
   abstentionRate: HistoryValue[];
-};
-
-
-export type HistoryValue = {
-  date: string;
-  value: number | null;
 };
 
 

@@ -1,42 +1,42 @@
-import * as fs from 'fs';
-import { ScrapedSession } from '../shared/model/scraped-session';
-import { indexPapers } from './index-papers';
-import { indexSpeeches } from './index-speeches';
-import * as dotenv from 'dotenv';
+import { ScrapedSession } from '../shared/model/scraped-session.ts';
+import { IndexSearchEnv, tryGetIndexSearchEnv } from './env.ts';
+import { checkArgs, parseArgs, printHelpText } from './cli.ts';
+import { SearchIndexer } from './search-indexer.ts';
+import { IDocumentsImporter, TypesenseImporter } from './typesense-importer.ts';
+import { BatchedDocumentsImporter } from './batched-documents-importer.ts';
+import { PapersContentSource } from './papers-content-source.ts';
+import { SpeechesSource } from './speeches-source.ts';
 
 
-dotenv.config({ path: '.env.local' });
+const args = parseArgs(Deno.args);
 
-const { TYPESENSE_SERVER_URL, TYPESENSE_COLLECTION_NAME, TYPESENSE_API_KEY } = process.env;
-if (!TYPESENSE_SERVER_URL || !TYPESENSE_COLLECTION_NAME || !TYPESENSE_API_KEY) {
-  console.error('Environment variables TYPESENSE_SERVER_URL, TYPESENSE_COLLECTION_NAME and TYPESENSE_API_KEY must be set.');
-  process.exit(1);
+if (args.help) {
+  printHelpText();
+  Deno.exit(0);
 }
 
-const papersContentDir = process.argv[2];
-const electoralPeriodsBaseDir = process.argv[3];
-const scrapedSessionFilename = process.argv[4];
+checkArgs(args);
 
-if (!papersContentDir || !electoralPeriodsBaseDir || !scrapedSessionFilename) {
-  console.error('Usage: node index.js <papersContentDir> <electoralPeriodsBaseDir> <scrapedSessionFile>');
-  process.exit(1);
+
+const env = tryGetIndexSearchEnv();
+const importer = createImporter(env);
+const indexer = new SearchIndexer(importer);
+
+const papersContentSource = new PapersContentSource(args.papersContentDir);
+const scrapedSession = JSON.parse(Deno.readTextFileSync(args.scrapedSessionFilename)) as ScrapedSession;
+await indexer.indexPapers(papersContentSource, scrapedSession);
+
+const speechesSource = new SpeechesSource(args.electoralPeriodsBaseDir);
+await indexer.indexSpeeches(speechesSource);
+
+console.log('Done.');
+
+
+function createImporter(env: IndexSearchEnv): IDocumentsImporter {
+  const typesenseImporter = new TypesenseImporter(
+    env.typesenseServerUrl,
+    env.typesenseCollectionName,
+    env.typesenseApiKey
+  );
+  return new BatchedDocumentsImporter(typesenseImporter, 100);
 }
-
-
-if (!fs.existsSync(scrapedSessionFilename) || !fs.lstatSync(scrapedSessionFilename).isFile()) {
-  console.error(`Scraped session file "${scrapedSessionFilename}" does not exist or is not a file.`);
-  process.exit(1);
-}
-
-
-(async () => {
-
-  const scrapedSession =
-    JSON.parse(fs.readFileSync(scrapedSessionFilename, 'utf-8')) as ScrapedSession;
-  await indexPapers(papersContentDir, scrapedSession);
-
-  await indexSpeeches(electoralPeriodsBaseDir);
-
-  console.log('Done.');
-
-})();

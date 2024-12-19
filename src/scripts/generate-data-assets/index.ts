@@ -1,82 +1,55 @@
-import { generatePersonsData } from './generate-persons-data';
-import { generateSessionsData } from './generate-sessions-data';
-import { generateFactionsData } from './generate-factions-data';
-import { generatePartiesData } from './generate-parties-data';
-import { generateMetadata } from './generate-metadata';
-import { GeneratedVotingImage, generateImages } from './generate-images';
-import { checkArgs, parseArgs } from './cli';
-import { loadRegistry, loadScrapedSession, loadSessionsInputData } from './input-data-loaders';
-import { AssetsWriter } from './assets-writer';
-import { SessionDetailsDto, SessionLightDto } from '../../interfaces/web-assets/Session';
-import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../../interfaces/web-assets/Person';
-import { FactionDetailsDto, FactionLightDto } from '../../interfaces/web-assets/Faction';
-import { PartyDto } from '../../interfaces/web-assets/Party';
-import { MetadataDto } from '../../interfaces/web-assets/Metadata';
+import { checkArgs, parseArgs, printHelpText } from './cli.ts';
+import { AssetsWriter } from './assets-writer.ts';
+import { SessionsDataGenerator } from './sessions-data-generator.ts';
+import { PersonsDataGenerator } from './persons-data-generator.ts';
+import { FactionsDataGenerator } from './factions-data-generator.ts';
+import { PartiesDataGenerator } from './parties-data-generator.ts';
+import { MetadataGenerator } from './metadata-generator.ts';
+import { ImagesGenerator } from './images-generator.ts';
+import { InputDataLoaders } from './input-data-loaders.ts';
 
 
-const args = parseArgs(process.argv);
+const args = parseArgs(Deno.args);
+
+if (args.help) {
+  printHelpText();
+  Deno.exit(0);
+}
 
 checkArgs(args);
 
 
-const registry = loadRegistry(args.inputDir);
-const scrapedSession = loadScrapedSession(args.scrapedSessionFilename);
-const sessionsInputData = loadSessionsInputData(args.inputDir, registry);
+const loader = new InputDataLoaders(args.inputDir, args.scrapedSessionFilename);
+const { registry, scrapedSession, sessionsInputData } = loader.loadInputData();
 
-const { sessions, sessionsLight } = generateSessionsData(sessionsInputData, registry, scrapedSession);
-const { persons, personsLight, personsForces } = generatePersonsData(registry, sessions);
-const { factions, factionsLight } = generateFactionsData(registry, sessions);
-const { parties } = generatePartiesData(registry, sessions);
-const metadata = generateMetadata(registry, sessions);
-const { votingImages } = generateImages(registry, sessions);
 
-writeSessionFiles(sessions, sessionsLight);
-writePersonFiles(persons, personsLight, personsForces);
-writeFactionFiles(factions, factionsLight);
-writePartyFiles(parties);
-writeMetadataFile(metadata);
-writeVotingImagesFiles(votingImages);
+const sessionsDataGenerator = new SessionsDataGenerator();
+const sessionsData = sessionsDataGenerator.generateSessionsData(sessionsInputData, registry, scrapedSession);
+
+const personsDataGenerator = new PersonsDataGenerator();
+const personsData = personsDataGenerator.generatePersonsData(registry, sessionsData.sessions);
+
+const factionsDataGenerator = new FactionsDataGenerator();
+const factionsData = factionsDataGenerator.generateFactionsData(registry, sessionsData.sessions);
+
+const partiesDataGenerator = new PartiesDataGenerator();
+const partiesData = partiesDataGenerator.generatePartiesData(registry, sessionsData.sessions);
+
+const metadataGenerator = new MetadataGenerator();
+const metadata = metadataGenerator.generateMetadata(registry, sessionsData.sessions);
+
+const imagesGenerator = new ImagesGenerator();
+const images = imagesGenerator.generateImages(registry, sessionsData.sessions);
+
+
+const assetsWriter = new AssetsWriter(args.outputDir);
+assetsWriter.writeAssetsData(
+  sessionsData,
+  personsData,
+  factionsData,
+  partiesData,
+  metadata,
+  images
+);
 
 console.log('Done.');
-
-
-function writeSessionFiles(sessionsDetails: SessionDetailsDto[], sessionsLight: SessionLightDto[]) {
-  const assetsWriter = new AssetsWriter(args.outputDir);
-  assetsWriter.writeSessionFiles(sessionsDetails);
-  assetsWriter.writeAllSessionsFile(sessionsLight);
-}
-
-
-function writePersonFiles(persons: PersonDetailsDto[], personsLight: PersonLightDto[],
-                          personsForces: PersonsForcesDto) {
-  const assetsWriter = new AssetsWriter(args.outputDir);
-  assetsWriter.writePersonFiles(persons);
-  assetsWriter.writeAllPersonsFile(personsLight);
-  assetsWriter.writePersonsForcesFile(personsForces);
-}
-
-
-function writeFactionFiles(factions: FactionDetailsDto[], factionsLight: FactionLightDto[]) {
-  const assetsWriter = new AssetsWriter(args.outputDir);
-  assetsWriter.writeFactionFiles(factions);
-  assetsWriter.writeAllFactionsFile(factionsLight);
-}
-
-
-function writePartyFiles(parties: PartyDto[]) {
-  const assetsWriter = new AssetsWriter(args.outputDir);
-  assetsWriter.writePartyFiles(parties);
-  assetsWriter.writeAllPartiesFile(parties);
-}
-
-
-function writeMetadataFile(metadata: MetadataDto) {
-  const assetsWriter = new AssetsWriter(args.outputDir);
-  assetsWriter.writeMetadataFile(metadata);
-}
-
-
-function writeVotingImagesFiles(votingImages: GeneratedVotingImage[]) {
-  const assetsWriter = new AssetsWriter(args.outputDir);
-  assetsWriter.writeVotingImagesFiles(votingImages);
-}

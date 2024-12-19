@@ -2,12 +2,12 @@
   "id": "spd-tsa-volt",
   "name": "SPD/Tierschutzallianz/Volt",
   "seats": 10,
-  "applicationsSuccessRate": 0.78125,
-  "votingsSuccessRate": 0.8760563380281691,
-  "uniformityScore": 0.9630325866284947,
-  "participationRate": 0.7780281690140846,
-  "abstentionRate": 0.024378519237491805,
-  "speakingTime": 5614,
+  "applicationsSuccessRate": 0.76,
+  "votingsSuccessRate": 0.8535469107551488,
+  "uniformityScore": 0.9628839128128096,
+  "participationRate": 0.7311212814645309,
+  "abstentionRate": 0.02429308617568984,
+  "speakingTime": 6920,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -33,6 +33,10 @@
       {
         "date": "2024-11-14",
         "value": 0.78125
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.76
       }
     ],
     "votingsSuccessRate": [
@@ -59,6 +63,10 @@
       {
         "date": "2024-11-14",
         "value": 0.8760563380281691
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.8535469107551488
       }
     ],
     "uniformityScore": [
@@ -85,6 +93,10 @@
       {
         "date": "2024-11-14",
         "value": 0.9630325866284947
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.9628839128128096
       }
     ],
     "participationRate": [
@@ -111,6 +123,10 @@
       {
         "date": "2024-11-14",
         "value": 0.7780281690140846
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.7311212814645309
       }
     ],
     "abstentionRate": [
@@ -137,6 +153,10 @@
       {
         "date": "2024-11-14",
         "value": 0.024378519237491805
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.02429308617568984
       }
     ]
   },
@@ -1023,6 +1043,160 @@
       "votings": [
         {
           "votingId": 75,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0413/24/1",
+      "type": "Änderungsantrag",
+      "title": "Hebesatzsatzung für die Grundsteuer für 2025",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245271,
+      "votings": [
+        {
+          "votingId": 21,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0320/24/2",
+      "type": "Änderungsantrag",
+      "title": "Satzung zur Änderung der Grünanlagensatzung",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245262,
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0289/24/1",
+      "type": "Geschäftsordnung",
+      "title": "Radverkehrsanlage Glindenberger Weg",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245278,
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0289/24/1/1",
+      "type": "Änderungsantrag",
+      "title": "Radverkehrsanlage Glindenberger Weg",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245313,
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0442/24/1",
+      "type": "Änderungsantrag",
+      "title": "Vorbildhafte Gehwegvorstreckung Goethestraße/ Stadtfeld Ost zur Verbesserung der Sicherheit von Verkehrsteilnehmern insbesondere Fußgängern und Radfahrern",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245279,
+      "votings": [
+        {
+          "votingId": 50,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0272/24",
+      "type": "Geschäftsordnung",
+      "title": "Streetwork für Senioren und Seniorinnen in Magdeburg",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245187,
+      "votings": [
+        {
+          "votingId": 74,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0273/24",
+      "type": "Geschäftsordnung",
+      "title": "Veteranentag ermöglichen",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245189,
+      "votings": [
+        {
+          "votingId": 76,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0274/24",
+      "type": "Geschäftsordnung",
+      "title": "Spielplätzen nach dem Vorbild des Schweizer Projekts \"Privacy Playground\" umsetzen",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245190,
+      "votings": [
+        {
+          "votingId": 77,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0275/24",
+      "type": "Geschäftsordnung",
+      "title": "Errichtung einer Amsterdam-Toilette am Spielplatz Hegelstraße",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245191,
+      "votings": [
+        {
+          "votingId": 78,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0276/24",
+      "type": "Geschäftsordnung",
+      "title": "Bürgerservice entwickeln und Antragszeitverkürzung",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245192,
+      "votings": [
+        {
+          "votingId": 79,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0270/24",
+      "type": "Geschäftsordnung",
+      "title": "Prüfung zur Verbesserung der Verkehrssicherheit an der Fußgänger:innenampel",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245185,
+      "votings": [
+        {
+          "votingId": 81,
           "votingResult": "PASSED"
         }
       ]

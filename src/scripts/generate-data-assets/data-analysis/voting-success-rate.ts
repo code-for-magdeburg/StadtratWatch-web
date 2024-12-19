@@ -4,7 +4,7 @@ import {
   SessionVotingDto,
   VoteResult,
   VotingResult
-} from '../../../interfaces/web-assets/Session';
+} from '@scope/interfaces-web-assets';
 
 
 type VotingsSuccessForSession = {

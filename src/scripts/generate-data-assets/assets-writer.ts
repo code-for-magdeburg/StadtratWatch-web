@@ -1,11 +1,12 @@
-import { SessionDetailsDto, SessionLightDto } from '../../interfaces/web-assets/Session';
-import * as fs from 'fs';
-import * as path from 'path';
-import { PersonDetailsDto, PersonLightDto, PersonsForcesDto } from '../../interfaces/web-assets/Person';
-import { FactionDetailsDto, FactionLightDto } from '../../interfaces/web-assets/Faction';
-import { PartyDto } from '../../interfaces/web-assets/Party';
-import { MetadataDto } from '../../interfaces/web-assets/Metadata';
-import { GeneratedVotingImage } from './generate-images';
+import * as fs from '@std/fs';
+import * as path from '@std/path';
+import { PartyDto, MetadataDto, PersonDetailsDto, PersonLightDto, PersonsForcesDto, SessionDetailsDto, SessionLightDto, FactionDetailsDto, FactionLightDto } from '@scope/interfaces-web-assets';
+import { decodeBase64 } from '@std/encoding';
+import { GeneratedSessionsData } from './sessions-data-generator.ts';
+import { GeneratedPersonsData } from './persons-data-generator.ts';
+import { GeneratedFactionsData } from "./factions-data-generator.ts";
+import { GeneratedPartiesData } from './parties-data-generator.ts';
+import { GeneratedImages, GeneratedVotingImage } from './images-generator.ts';
 
 
 export class AssetsWriter {
@@ -28,125 +29,137 @@ export class AssetsWriter {
   }
 
 
-  writeSessionFiles(sessions: SessionDetailsDto[]) {
+  public writeAssetsData(sessionsData: GeneratedSessionsData, personsData: GeneratedPersonsData,
+                         factionsData: GeneratedFactionsData, partiesData: GeneratedPartiesData,
+                         metadata: MetadataDto, images: GeneratedImages) {
+
+    this.writeSessionFiles(sessionsData.sessions);
+    this.writeAllSessionsFile(sessionsData.sessionsLight);
+    this.writePersonFiles(personsData.persons);
+    this.writeAllPersonsFile(personsData.personsLight);
+    this.writePersonsForcesFile(personsData.personsForces);
+    this.writeFactionFiles(factionsData.factions);
+    this.writeAllFactionsFile(factionsData.factionsLight);
+    this.writePartyFiles(partiesData.parties);
+    this.writeAllPartiesFile(partiesData.parties);
+    this.writeMetadataFile(metadata);
+    this.writeVotingImagesFiles(images.votingImages);
+  }
+
+
+  private writeSessionFiles(sessions: SessionDetailsDto[]) {
 
     sessions.forEach(session => {
       console.log(`Writing session file ${session.id}.json`);
       const data = JSON.stringify(session, null, 2);
-      fs.writeFileSync(path.join(this.sessionsOutputDir, `${session.id}.json`), data, 'utf-8');
+      Deno.writeTextFileSync(path.join(this.sessionsOutputDir, `${session.id}.json`), data);
     });
 
   }
 
 
-  writeAllSessionsFile(sessions: SessionLightDto[]) {
+  private writeAllSessionsFile(sessions: SessionLightDto[]) {
 
     console.log('Writing all-sessions.json');
     sessions.sort((a, b) => a.date.localeCompare(b.date));
-    fs.writeFileSync(
+    Deno.writeTextFileSync(
       path.join(this.sessionsOutputDir, 'all-sessions.json'),
-      JSON.stringify(sessions, null, 2),
-      'utf-8'
+      JSON.stringify(sessions, null, 2)
     );
 
   }
 
 
-  writePersonFiles(persons: PersonDetailsDto[]) {
+  private writePersonFiles(persons: PersonDetailsDto[]) {
 
     persons.forEach(person => {
       console.log(`Writing person file ${person.id}.json`);
       const data = JSON.stringify(person, null, 2);
-      fs.writeFileSync(path.join(this.personsOutputDir, `${person.id}.json`), data, 'utf-8');
+      Deno.writeTextFileSync(path.join(this.personsOutputDir, `${person.id}.json`), data);
     });
 
   }
 
 
-  writeAllPersonsFile(persons: PersonLightDto[]) {
+  private writeAllPersonsFile(persons: PersonLightDto[]) {
 
     console.log('Writing all-persons.json');
     persons.sort((a, b) => a.name.localeCompare(b.name));
-    fs.writeFileSync(
+    Deno.writeTextFileSync(
       path.join(this.personsOutputDir, 'all-persons.json'),
-      JSON.stringify(persons, null, 2),
-      'utf-8'
+      JSON.stringify(persons, null, 2)
     );
 
   }
 
 
-  writePersonsForcesFile(personsForces: PersonsForcesDto) {
+  private writePersonsForcesFile(personsForces: PersonsForcesDto) {
 
     console.log('Writing all-persons-forces.json');
-    fs.writeFileSync(
+    Deno.writeTextFileSync(
       path.join(this.personsOutputDir, 'all-persons-forces.json'),
-      JSON.stringify(personsForces, null, 2),
-      'utf-8'
+      JSON.stringify(personsForces, null, 2)
     );
 
   }
 
 
-  writeFactionFiles(factions: FactionDetailsDto[]) {
+  private writeFactionFiles(factions: FactionDetailsDto[]) {
 
     factions.forEach(faction => {
       console.log(`Writing faction file ${faction.id}.json`);
       const data = JSON.stringify(faction, null, 2);
-      fs.writeFileSync(path.join(this.factionsOutputDir, `${faction.id}.json`), data, 'utf-8');
+      Deno.writeTextFileSync(path.join(this.factionsOutputDir, `${faction.id}.json`), data);
     });
 
   }
 
 
-  writeAllFactionsFile(factions: FactionLightDto[]) {
+  private writeAllFactionsFile(factions: FactionLightDto[]) {
 
     console.log('Writing all-factions.json');
-    fs.writeFileSync(
+    Deno.writeTextFileSync(
       path.join(this.factionsOutputDir, 'all-factions.json'),
-      JSON.stringify(factions, null, 2),
-      'utf-8'
+      JSON.stringify(factions, null, 2)
     );
 
   }
 
 
-  writePartyFiles(parties: PartyDto[]) {
+  private writePartyFiles(parties: PartyDto[]) {
 
     parties.forEach(party => {
       console.log(`Writing party file ${party.id}.json`);
       const data = JSON.stringify(party, null, 2);
-      fs.writeFileSync(path.join(this.partiesOutputDir, `${party.id}.json`), data, 'utf-8');
+      Deno.writeTextFileSync(path.join(this.partiesOutputDir, `${party.id}.json`), data);
     });
 
   }
 
 
-  writeAllPartiesFile(parties: PartyDto[]) {
+  private writeAllPartiesFile(parties: PartyDto[]) {
 
     console.log('Writing all-parties.json');
-    fs.writeFileSync(
+    Deno.writeTextFileSync(
       path.join(this.partiesOutputDir, 'all-parties.json'),
-      JSON.stringify(parties, null, 2),
-      'utf-8'
+      JSON.stringify(parties, null, 2)
     );
 
   }
 
 
-  writeMetadataFile(metadata: MetadataDto) {
+  private writeMetadataFile(metadata: MetadataDto) {
 
     console.log('Writing metadata.json');
-    fs.writeFileSync(
+    Deno.writeTextFileSync(
       path.join(this.outputDir, 'metadata.json'),
-      JSON.stringify(metadata, null, 2),
-      `utf-8`
+      JSON.stringify(metadata, null, 2)
     );
 
   }
 
 
-  writeVotingImagesFiles(votingImages: GeneratedVotingImage[]) {
+  private writeVotingImagesFiles(votingImages: GeneratedVotingImage[]) {
 
     console.log('Writing votings images...');
 
@@ -155,11 +168,12 @@ export class AssetsWriter {
       const { sessionId, votingId, canvas } = votingImage;
 
       const sessionOutputDir = path.join(this.votingsImagesOutputDir, sessionId);
-      this.ensureDirExists(sessionOutputDir);
+      fs.ensureDirSync(sessionOutputDir);
 
-      const buffer = canvas.toBuffer('image/png');
+      const imageBase64Encoded = canvas.toDataURL().replace(/^data:image\/png;base64,/, '');
+      const image = decodeBase64(imageBase64Encoded);
       const filename = `${sessionId}-${votingId.toString().padStart(3, '0')}.png`;
-      fs.writeFileSync(path.join(sessionOutputDir, filename), buffer);
+      Deno.writeFileSync(path.join(sessionOutputDir, filename), image);
 
     });
 
@@ -167,19 +181,12 @@ export class AssetsWriter {
 
 
   private ensureOutputDirsExists() {
-    this.ensureDirExists(this.outputDir);
-    this.ensureDirExists(this.sessionsOutputDir);
-    this.ensureDirExists(this.personsOutputDir);
-    this.ensureDirExists(this.factionsOutputDir);
-    this.ensureDirExists(this.partiesOutputDir);
-    this.ensureDirExists(this.votingsImagesOutputDir);
-  }
-
-
-  private ensureDirExists(dir: string) {
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
+    fs.ensureDirSync(this.outputDir);
+    fs.ensureDirSync(this.sessionsOutputDir);
+    fs.ensureDirSync(this.personsOutputDir);
+    fs.ensureDirSync(this.factionsOutputDir);
+    fs.ensureDirSync(this.partiesOutputDir);
+    fs.ensureDirSync(this.votingsImagesOutputDir);
   }
 
 

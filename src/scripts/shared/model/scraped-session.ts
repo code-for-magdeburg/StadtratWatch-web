@@ -16,7 +16,7 @@ export type ScrapedAgendaItem = {
   meeting_id: number;
   name: string;
   original_id: number;
-  paper_original_id: number;
+  paper_original_id: number | null;
   paper_reference: string | null;
 };
 

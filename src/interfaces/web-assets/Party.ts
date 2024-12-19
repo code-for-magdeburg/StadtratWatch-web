@@ -1,3 +1,5 @@
+import { HistoryValue } from './HistoryValue';
+
 
 export type PartyDto = {
   id: string;
@@ -17,10 +19,4 @@ export type PartyStatsHistoryDto = {
   uniformityScore: HistoryValue[];
   participationRate: HistoryValue[];
   abstentionRate: HistoryValue[];
-};
-
-
-export type HistoryValue = {
-  date: string;
-  value: number | null;
 };
