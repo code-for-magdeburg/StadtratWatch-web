@@ -2,12 +2,12 @@
   "id": "cdu-fdp",
   "name": "CDU/FDP",
   "seats": 15,
-  "applicationsSuccessRate": 0.8928571428571429,
-  "votingsSuccessRate": 0.9154929577464789,
-  "uniformityScore": 0.9547240161105499,
-  "participationRate": 0.7874178403755868,
-  "abstentionRate": 0.0736260764423702,
-  "speakingTime": 10273,
+  "applicationsSuccessRate": 0.9076923076923077,
+  "votingsSuccessRate": 0.9244851258581236,
+  "uniformityScore": 0.9498327188260544,
+  "participationRate": 0.7983218916857361,
+  "abstentionRate": 0.07367477330128293,
+  "speakingTime": 13550,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -33,6 +33,10 @@
       {
         "date": "2024-11-14",
         "value": 0.8928571428571429
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.9076923076923077
       }
     ],
     "votingsSuccessRate": [
@@ -59,6 +63,10 @@
       {
         "date": "2024-11-14",
         "value": 0.9154929577464789
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.9244851258581236
       }
     ],
     "uniformityScore": [
@@ -85,6 +93,10 @@
       {
         "date": "2024-11-14",
         "value": 0.9547240161105499
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.9498327188260544
       }
     ],
     "participationRate": [
@@ -111,6 +123,10 @@
       {
         "date": "2024-11-14",
         "value": 0.7874178403755868
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.7983218916857361
       }
     ],
     "abstentionRate": [
@@ -137,6 +153,10 @@
       {
         "date": "2024-11-14",
         "value": 0.0736260764423702
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.07367477330128293
       }
     ]
   },
@@ -873,6 +893,132 @@
       "votings": [
         {
           "votingId": 74,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0413/24/2/1",
+      "type": "Änderungsantrag",
+      "title": "Hebesatzung für die Grundsteuer 2025",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245325,
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0467/24/1",
+      "type": "Änderungsantrag",
+      "title": "Neufassung Satzung Seniorenbeirat",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245266,
+      "votings": [
+        {
+          "votingId": 38,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0097/24/1",
+      "type": "Geschäftsordnung",
+      "title": "Nach-Nutzungskonzept für unser AMO-Kulturhaus duldet keinen Aufschub",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245297,
+      "votings": [
+        {
+          "votingId": 56,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0263/24",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrsverbesserung Lunochodstraße prüfen",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245153,
+      "votings": [
+        {
+          "votingId": 69,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0265/24",
+      "type": "Geschäftsordnung",
+      "title": "Unkraut effektiv bekämpfen - MVB finanziell entlasten",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245157,
+      "votings": [
+        {
+          "votingId": 71,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0273/24",
+      "type": "Geschäftsordnung",
+      "title": "Veteranentag ermöglichen",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245189,
+      "votings": [
+        {
+          "votingId": 76,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0275/24",
+      "type": "Geschäftsordnung",
+      "title": "Errichtung einer Amsterdam-Toilette am Spielplatz Hegelstraße",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245191,
+      "votings": [
+        {
+          "votingId": 78,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0270/24",
+      "type": "Geschäftsordnung",
+      "title": "Prüfung zur Verbesserung der Verkehrssicherheit an der Fußgänger:innenampel",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245185,
+      "votings": [
+        {
+          "votingId": 81,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0271/24",
+      "type": "Geschäftsordnung",
+      "title": "Optimierung der Verkehrssicherheit der Kreuzung Ottenbergstraße/Stendaler Straße prüfen - Abbiegen auf „Gut Glück” vermeiden",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245186,
+      "votings": [
+        {
+          "votingId": 82,
           "votingResult": "PASSED"
         }
       ]

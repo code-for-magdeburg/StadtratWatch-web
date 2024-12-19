@@ -2,12 +2,12 @@
   "id": "afd",
   "name": "AfD",
   "seats": 13,
-  "applicationsSuccessRate": 0.14285714285714285,
-  "votingsSuccessRate": 0.7408450704225352,
-  "uniformityScore": 0.9876136826552488,
-  "participationRate": 0.8528710725893824,
-  "abstentionRate": 0.071810164366622,
-  "speakingTime": 7588,
+  "applicationsSuccessRate": 0.22580645161290322,
+  "votingsSuccessRate": 0.7597254004576659,
+  "uniformityScore": 0.9879894283386453,
+  "participationRate": 0.8368245027283929,
+  "abstentionRate": 0.07792787607731363,
+  "speakingTime": 8189,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -33,6 +33,10 @@
       {
         "date": "2024-11-14",
         "value": 0.14285714285714285
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.22580645161290322
       }
     ],
     "votingsSuccessRate": [
@@ -59,6 +63,10 @@
       {
         "date": "2024-11-14",
         "value": 0.7408450704225352
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.7597254004576659
       }
     ],
     "uniformityScore": [
@@ -85,6 +93,10 @@
       {
         "date": "2024-11-14",
         "value": 0.9876136826552488
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.9879894283386453
       }
     ],
     "participationRate": [
@@ -111,6 +123,10 @@
       {
         "date": "2024-11-14",
         "value": 0.8528710725893824
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.8368245027283929
       }
     ],
     "abstentionRate": [
@@ -137,6 +153,10 @@
       {
         "date": "2024-11-14",
         "value": 0.071810164366622
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.07792787607731363
       }
     ]
   },
@@ -529,6 +549,48 @@
       "votings": [
         {
           "votingId": 68,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0263/24",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrsverbesserung Lunochodstraße prüfen",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245153,
+      "votings": [
+        {
+          "votingId": 69,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0264/24",
+      "type": "Geschäftsordnung",
+      "title": "Parkplatz Johanniskirche sicherer gestalten",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245155,
+      "votings": [
+        {
+          "votingId": 70,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0265/24",
+      "type": "Geschäftsordnung",
+      "title": "Unkraut effektiv bekämpfen - MVB finanziell entlasten",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245157,
+      "votings": [
+        {
+          "votingId": 71,
           "votingResult": "PASSED"
         }
       ]
