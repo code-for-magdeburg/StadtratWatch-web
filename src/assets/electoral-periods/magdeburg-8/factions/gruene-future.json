@@ -2,12 +2,12 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 6,
-  "applicationsSuccessRate": 0.6610169491525424,
-  "votingsSuccessRate": 0.7859154929577464,
-  "uniformityScore": 0.9726827887594965,
-  "participationRate": 0.8516431924882629,
-  "abstentionRate": 0.05781391193933188,
-  "speakingTime": 4869,
+  "applicationsSuccessRate": 0.65625,
+  "votingsSuccessRate": 0.7734553775743707,
+  "uniformityScore": 0.9687164902491388,
+  "participationRate": 0.864607170099161,
+  "abstentionRate": 0.058584979107116054,
+  "speakingTime": 6071,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -33,6 +33,10 @@
       {
         "date": "2024-11-14",
         "value": 0.6610169491525424
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.65625
       }
     ],
     "votingsSuccessRate": [
@@ -59,6 +63,10 @@
       {
         "date": "2024-11-14",
         "value": 0.7859154929577464
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.7734553775743707
       }
     ],
     "uniformityScore": [
@@ -85,6 +93,10 @@
       {
         "date": "2024-11-14",
         "value": 0.9726827887594965
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.9687164902491388
       }
     ],
     "participationRate": [
@@ -111,6 +123,10 @@
       {
         "date": "2024-11-14",
         "value": 0.8516431924882629
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.864607170099161
       }
     ],
     "abstentionRate": [
@@ -137,6 +153,10 @@
       {
         "date": "2024-11-14",
         "value": 0.05781391193933188
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.058584979107116054
       }
     ]
   },
@@ -893,6 +913,76 @@
       "votings": [
         {
           "votingId": 69,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0289/24/1",
+      "type": "Änderungsantrag",
+      "title": "Radverkehrsanlage Glindenberger Weg",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245278,
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0442/24/1",
+      "type": "Änderungsantrag",
+      "title": "Vorbildhafte Gehwegvorstreckung Goethestraße/ Stadtfeld Ost zur Verbesserung der Sicherheit von Verkehrsteilnehmern insbesondere Fußgängern und Radfahrern",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245279,
+      "votings": [
+        {
+          "votingId": 50,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0272/24",
+      "type": "Antrag",
+      "title": "Streetwork für Senioren und Seniorinnen in Magdeburg",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245187,
+      "votings": [
+        {
+          "votingId": 75,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0273/24",
+      "type": "Geschäftsordnung",
+      "title": "Veteranentag ermöglichen",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245189,
+      "votings": [
+        {
+          "votingId": 76,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0270/24",
+      "type": "Geschäftsordnung",
+      "title": "Prüfung zur Verbesserung der Verkehrssicherheit an der Fußgänger:innenampel",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245185,
+      "votings": [
+        {
+          "votingId": 81,
           "votingResult": "PASSED"
         }
       ]

@@ -2,12 +2,12 @@
   "id": "die-linke",
   "name": "DIE LINKE",
   "seats": 6,
-  "applicationsSuccessRate": 0.6521739130434783,
-  "votingsSuccessRate": 0.7408450704225352,
-  "uniformityScore": 0.9594022161582353,
-  "participationRate": 0.8244131455399061,
-  "abstentionRate": 0.11042077222060424,
-  "speakingTime": 7689,
+  "applicationsSuccessRate": 0.5303030303030303,
+  "votingsSuccessRate": 0.7254004576659039,
+  "uniformityScore": 0.9587559065328427,
+  "participationRate": 0.8184591914569032,
+  "abstentionRate": 0.11572651556191164,
+  "speakingTime": 10301,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -33,6 +33,10 @@
       {
         "date": "2024-11-14",
         "value": 0.6521739130434783
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.5303030303030303
       }
     ],
     "votingsSuccessRate": [
@@ -59,6 +63,10 @@
       {
         "date": "2024-11-14",
         "value": 0.7408450704225352
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.7254004576659039
       }
     ],
     "uniformityScore": [
@@ -85,6 +93,10 @@
       {
         "date": "2024-11-14",
         "value": 0.9594022161582353
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.9587559065328427
       }
     ],
     "participationRate": [
@@ -111,6 +123,10 @@
       {
         "date": "2024-11-14",
         "value": 0.8244131455399061
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.8184591914569032
       }
     ],
     "abstentionRate": [
@@ -137,6 +153,10 @@
       {
         "date": "2024-11-14",
         "value": 0.11042077222060424
+      },
+      {
+        "date": "2024-12-05",
+        "value": 0.11572651556191164
       }
     ]
   },
@@ -771,6 +791,166 @@
       "votings": [
         {
           "votingId": 75,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0529/24/4",
+      "type": "Änderungsantrag",
+      "title": "Überarbeitung der Fachförderrichtlinie Gemeinwesenarbeit",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245294,
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0496/24",
+      "type": "Geschäftsordnung",
+      "title": "2. Änderungssatzung zur Gebührensatzung für das Krematorium der Landeshauptstadt Magdeburg",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 244667,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0466/24/1",
+      "type": "Änderungsantrag",
+      "title": "1. Änderungssatzung der Satzung des Beirates für Integration und Migration",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245287,
+      "votings": [
+        {
+          "votingId": 34,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 35,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 36,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0095/24",
+      "type": "Antrag",
+      "title": "Unterstützung für die Jugendkunstschule",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 243490,
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 55,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0098/24",
+      "type": "Antrag",
+      "title": "Baugebundene Glaskunst in und aus Magdeburg",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 243499,
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0099/24",
+      "type": "Antrag",
+      "title": "Den Hasselbachplatz ganzheitlich entwickeln! - Perspektiven für Gewerbetreibende und die Stadtgesellschaft bieten!",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 243651,
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 60,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 61,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 62,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 63,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 64,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 65,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 66,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 67,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 68,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0276/24",
+      "type": "Geschäftsordnung",
+      "title": "Bürgerservice entwickeln und Antragszeitverkürzung",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245192,
+      "votings": [
+        {
+          "votingId": 79,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0269/24",
+      "type": "Antrag",
+      "title": "Ergebnissicherung der Bildungsreise nach Dänemark",
+      "sessionId": "2024-12-05",
+      "sessionDate": "2024-12-05",
+      "paperId": 245183,
+      "votings": [
+        {
+          "votingId": 80,
           "votingResult": "PASSED"
         }
       ]
