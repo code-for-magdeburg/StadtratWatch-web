@@ -29,21 +29,12 @@ export class VotingImagesScanner {
       const videoTimestamp = await this.textRecognizer.getVideoTimestamp(votingFilepath, config.layout);
       const votingSubject = await this.textRecognizer.getVotingSubject(votingFilepath, config.layout);
       const votes = this.votesRecognizer.getVotesForNames(votingFilepath, config);
-      const confirmations = {
-        videoTimestamp: false,
-        agendaItem: false,
-        applicationId: false,
-        title: false,
-        votes: false,
-        context: false
-      };
 
       summary.push({
         votingFilename,
         videoTimestamp,
         votingSubject,
-        votes,
-        confirmations
+        votes
       });
 
     }
