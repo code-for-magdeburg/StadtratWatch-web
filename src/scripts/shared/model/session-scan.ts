@@ -5,14 +5,6 @@ export type SessionScanItem = {
   videoTimestamp: string;
   votingSubject: SessionScanVotingSubject
   votes: SessionVote[];
-  confirmations: {
-    videoTimestamp: boolean;
-    agendaItem: boolean;
-    applicationId: boolean;
-    title: boolean;
-    votes: boolean;
-    context: boolean;
-  };
 };
 
 export type SessionScanVotingSubject = {
