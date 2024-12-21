@@ -1,6 +1,6 @@
 # Extract speeches
 
-This tool extracts individual speeches from a session audio file and saves them as individual mp3 files.
+This tool extracts individual speech tracks from a session audio file and saves them as individual mp3 files.
 The track information has to be provided by passing a json file containing the speeches data.
 
 ## Build the docker image

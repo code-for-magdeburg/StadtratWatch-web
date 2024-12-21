@@ -20,5 +20,8 @@
     "include": [
       "src/"
     ]
-  }
+  },
+  "unstable": [
+    "sloppy-imports"
+  ]
 }
