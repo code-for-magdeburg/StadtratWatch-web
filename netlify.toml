@@ -2,3 +2,6 @@
   base = "astro"
   command = "astro build"
   publish = "dist"
+
+[deploy.astro]
+  base = "astro"
