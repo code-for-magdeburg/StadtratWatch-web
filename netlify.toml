@@ -1,6 +1,0 @@
-[deploy.astro]
-  base = "astro"
-  command = "astro build"
-  publish = "dist"
-
-[[plugins]]
