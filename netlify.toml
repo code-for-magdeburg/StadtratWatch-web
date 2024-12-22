@@ -1,4 +1,4 @@
 [build]
   base = "astro"
-  publish = "astro/dist"
   command = "astro build"
+  publish = "dist"
