@@ -1,0 +1,23 @@
+---
+import Layout from '../../../../../layouts/Layout.astro';
+import type { InferGetStaticPropsType, InferGetStaticParamsType, GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async () => {
+  return [
+    { params: { electoralPeriod: 'magdeburg-7', person: 'person-1' }},
+    { params: { electoralPeriod: 'magdeburg-7', person: 'person-2' }},
+    { params: { electoralPeriod: 'magdeburg-8', person: 'person-1' }},
+    { params: { electoralPeriod: 'magdeburg-8', person: 'person-2' }}
+  ];
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { electoralPeriod, person } = Astro.params as Params;
+
+---
+<Layout>
+  Electoral Period { electoralPeriod }<br>
+  Person { person }
+</Layout>
