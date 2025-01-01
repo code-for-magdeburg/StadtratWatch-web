@@ -11,7 +11,7 @@ import { getEntry } from 'astro:content';
 
 const electoralPeriodId = Astro.params.electoralPeriod || 'magdeburg-8';
 const electoralPeriodEntry = await getEntry('electoralPeriods', electoralPeriodId);
-const electoralPeriod = electoralPeriodEntry ? electoralPeriodEntry : null;
+const electoralPeriod = electoralPeriodEntry?.data;
 
 ---
 
