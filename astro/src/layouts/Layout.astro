@@ -7,11 +7,7 @@ import interFont800 from '@fontsource/inter/files/inter-latin-800-normal.woff2?u
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 
-import { getEntry } from 'astro:content';
-
-const electoralPeriodId = Astro.params.electoralPeriod || 'magdeburg-8';
-const electoralPeriodEntry = await getEntry('electoralPeriods', electoralPeriodId);
-const electoralPeriod = electoralPeriodEntry?.data;
+const { electoralPeriod } = Astro.props;
 
 ---
 
