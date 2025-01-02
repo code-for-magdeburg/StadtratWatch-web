@@ -12,7 +12,7 @@ export class MetadataGenerator {
     const speakingTime = this.getTotalSpeakingTime(sessions);
 
     return {
-      lastUpdatedTimestamp: new Date().toISOString(),
+      lastUpdatedTimestamp: registry.lastUpdate,
       sessionsPeriodFrom: sessions[0]?.date ?? '',
       sessionsPeriodUntil: sessions[sessions.length - 1]?.date ?? '',
       votingsCount,

@@ -1,6 +1,7 @@
 export type Registry = {
   id: string;
   name: string;
+  lastUpdate: string;
   sessions: RegistrySession[];
   factions: RegistryFaction[];
   parties: RegistryParty[];
