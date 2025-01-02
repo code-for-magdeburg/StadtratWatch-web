@@ -33,10 +33,10 @@ export class SpeechesSource implements ISpeechesSource {
         return registry.sessions
           .map(session => session.id)
           .flatMap<IndexableSpeech>(session => {
-            const config = this.getSessionConfig(registry.electoralPeriod, session);
+            const config = this.getSessionConfig(registry.id, session);
             return this
-              .getSessionSpeeches(registry.electoralPeriod, session)
-              .map(speech => ({ electoralPeriod: registry.electoralPeriod, session, config, speech }));
+              .getSessionSpeeches(registry.id, session)
+              .map(speech => ({ electoralPeriod: registry.id, session, config, speech }));
           });
       });
 

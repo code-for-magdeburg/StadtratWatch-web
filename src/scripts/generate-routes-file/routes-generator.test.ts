@@ -23,7 +23,7 @@ const mockElectoralPeriodsSource: IElectoralPeriodsSource = {
   getElectoralPeriods: function (): Registry[] {
     return [
       {
-        electoralPeriod: 'magdeburg-7',
+        id: 'magdeburg-7',
         sessions: [
           {
             id: 'session-7-1',
@@ -101,7 +101,7 @@ const mockElectoralPeriodsSource: IElectoralPeriodsSource = {
         ]
       },
       {
-        electoralPeriod: 'magdeburg-8',
+        id: 'magdeburg-8',
         sessions: [
           {
             id: 'session-8-1',

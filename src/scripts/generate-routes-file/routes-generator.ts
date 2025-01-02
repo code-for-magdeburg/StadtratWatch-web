@@ -18,20 +18,20 @@ export class RoutesGenerator {
     const registries = this.electoralPeriodsSource.getElectoralPeriods();
     for (const registry of registries) {
 
-      routes.push(`/ep/${registry.electoralPeriod}`);
-      routes.push(`/ep/${registry.electoralPeriod}/parties`);
-      routes.push(...registry.parties.map(party => `/ep/${registry.electoralPeriod}/party/${party.id}`));
-      routes.push(`/ep/${registry.electoralPeriod}/factions`);
-      routes.push(...registry.factions.map(faction => `/ep/${registry.electoralPeriod}/faction/${faction.id}`));
-      routes.push(`/ep/${registry.electoralPeriod}/persons`);
-      routes.push(...registry.persons.map(person => `/ep/${registry.electoralPeriod}/person/${person.id}`));
+      routes.push(`/ep/${registry.id}`);
+      routes.push(`/ep/${registry.id}/parties`);
+      routes.push(...registry.parties.map(party => `/ep/${registry.id}/party/${party.id}`));
+      routes.push(`/ep/${registry.id}/factions`);
+      routes.push(...registry.factions.map(faction => `/ep/${registry.id}/faction/${faction.id}`));
+      routes.push(`/ep/${registry.id}/persons`);
+      routes.push(...registry.persons.map(person => `/ep/${registry.id}/person/${person.id}`));
 
-      routes.push(`/ep/${registry.electoralPeriod}/sessions`);
-      routes.push(...registry.sessions.map(session => `/ep/${registry.electoralPeriod}/session/${session.id}`));
+      routes.push(`/ep/${registry.id}/sessions`);
+      routes.push(...registry.sessions.map(session => `/ep/${registry.id}/session/${session.id}`));
       for (const session of registry.sessions) {
-        const sessionScan = this.electoralPeriodsSource.getSessionScan(session, registry.electoralPeriod);
+        const sessionScan = this.electoralPeriodsSource.getSessionScan(session, registry.id);
         const votingIds = sessionScan.map((_, index: number) => index + 1);
-        routes.push(...votingIds.map(votingId => `/ep/${registry.electoralPeriod}/session/${session.id}/voting/${votingId}`));
+        routes.push(...votingIds.map(votingId => `/ep/${registry.id}/session/${session.id}/voting/${votingId}`));
       }
 
     }
