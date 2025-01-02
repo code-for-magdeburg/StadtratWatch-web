@@ -10,21 +10,20 @@ const electoralPeriods = electoralPeriodsCollection
 }));
 
 const { electoralPeriod } = Astro.props;
-const electoralPeriodId = electoralPeriod.electoralPeriod;
 
 const pathname = Astro.url.pathname.toLowerCase();
 let activePage = '';
 switch (true) {
-  case pathname.startsWith(`/ep/${electoralPeriodId}/session/`) || pathname === `/ep/${electoralPeriodId}/sessions`:
+  case pathname.startsWith(`/ep/${electoralPeriod.id}/session/`) || pathname === `/ep/${electoralPeriod.id}/sessions`:
     activePage = 'sessions';
     break;
-  case pathname.startsWith(`/ep/${electoralPeriodId}/faction/`) || pathname === `/ep/${electoralPeriodId}/factions`:
+  case pathname.startsWith(`/ep/${electoralPeriod.id}/faction/`) || pathname === `/ep/${electoralPeriod.id}/factions`:
     activePage = 'factions';
     break;
-  case pathname.startsWith(`/ep/${electoralPeriodId}/party/`) || pathname === `/ep/${electoralPeriodId}/parties`:
+  case pathname.startsWith(`/ep/${electoralPeriod.id}/party/`) || pathname === `/ep/${electoralPeriod.id}/parties`:
     activePage = 'parties';
     break;
-  case pathname.startsWith(`/ep/${electoralPeriodId}/person/`) || pathname === `/ep/${electoralPeriodId}/persons`:
+  case pathname.startsWith(`/ep/${electoralPeriod.id}/person/`) || pathname === `/ep/${electoralPeriod.id}/persons`:
     activePage = 'persons';
     break;
 }
@@ -49,11 +48,11 @@ switch (true) {
                 class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-sm/6 text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
               >
                 {
-                  electoralPeriods.map(electoralPeriod =>
+                  electoralPeriods.map(electoralPeriodOption =>
                     <option
-                      value={electoralPeriod.id}
-                      selected={electoralPeriod.id === electoralPeriodId}
-                    >{electoralPeriod.title}</option>
+                      value={electoralPeriodOption.id}
+                      selected={electoralPeriodOption.id === electoralPeriod.id}
+                    >{electoralPeriodOption.title}</option>
                   )
                 }
               </select>
@@ -62,7 +61,7 @@ switch (true) {
               </svg>
             </div>
             <a
-              href={`/ep/${electoralPeriodId}/sessions`}
+              href={`/ep/${electoralPeriod.id}/sessions`}
               class="rounded-md px-3 py-2 text-sm font-medium"
               class:list={
                 [
@@ -72,7 +71,7 @@ switch (true) {
               }
             >Sitzungen</a>
             <a
-              href={`/ep/${electoralPeriodId}/factions`}
+              href={`/ep/${electoralPeriod.id}/factions`}
               class="rounded-md px-3 py-2 text-sm font-medium"
               class:list={
                 [
@@ -82,7 +81,7 @@ switch (true) {
               }
             >Fraktionen</a>
             <a
-              href={`/ep/${electoralPeriodId}/parties`}
+              href={`/ep/${electoralPeriod.id}/parties`}
               class="rounded-md px-3 py-2 text-sm font-medium"
               class:list={
                 [
@@ -92,7 +91,7 @@ switch (true) {
               }
             >Parteien</a>
             <a
-              href={`/ep/${electoralPeriodId}/persons`}
+              href={`/ep/${electoralPeriod.id}/persons`}
               class="rounded-md px-3 py-2 text-sm font-medium"
               class:list={
                 [
@@ -174,7 +173,7 @@ switch (true) {
             electoralPeriods.map(electoralPeriodOption =>
               <option
                 value={electoralPeriodOption.id}
-                selected={electoralPeriodOption.id === electoralPeriodId}
+                selected={electoralPeriodOption.id === electoralPeriod.id}
               >{electoralPeriodOption.title}</option>
             )
           }
@@ -187,7 +186,7 @@ switch (true) {
 
     <div class="space-y-1 px-2 pb-3 pt-2">
       <a
-        href={`/ep/${electoralPeriodId}/sessions`}
+        href={`/ep/${electoralPeriod.id}/sessions`}
         class="block rounded-md px-3 py-2 text-base font-medium"
         class:list={
           [
@@ -197,7 +196,7 @@ switch (true) {
         }
       >Sitzungen</a>
       <a
-        href={`/ep/${electoralPeriodId}/factions`}
+        href={`/ep/${electoralPeriod.id}/factions`}
         class="block rounded-md px-3 py-2 text-base font-medium"
         class:list={
           [
@@ -207,7 +206,7 @@ switch (true) {
         }
       >Fraktionen</a>
       <a
-        href={`/ep/${electoralPeriodId}/parties`}
+        href={`/ep/${electoralPeriod.id}/parties`}
         class="block rounded-md px-3 py-2 text-base font-medium"
         class:list={
           [
@@ -217,7 +216,7 @@ switch (true) {
         }
       >Parteien</a>
       <a
-        href={`/ep/${electoralPeriodId}/persons`}
+        href={`/ep/${electoralPeriod.id}/persons`}
         class="block rounded-md px-3 py-2 text-base font-medium"
         class:list={
           [
