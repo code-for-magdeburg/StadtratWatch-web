@@ -1,13 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getEntry } from 'astro:content';
-
-const defaultElectoralPeriodId = 'magdeburg-8'; // TODO: Fetch defaul electoral period
-const electoralPeriodEntry = await getEntry('electoralPeriods', defaultElectoralPeriodId);
-const electoralPeriod = electoralPeriodEntry?.data!;
-
 ---
-
-<Layout electoralPeriod={electoralPeriod}>
+<Layout>
   ...
 </Layout>

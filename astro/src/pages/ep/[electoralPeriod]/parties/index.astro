@@ -1,20 +1,21 @@
 ---
-import Layout from '../../../../layouts/Layout.astro';
-import type { InferGetStaticPropsType, InferGetStaticParamsType, GetStaticPaths } from 'astro';
+import BreadcrumbMenuLayout from '../../../../layouts/BreadcrumbMenuLayout.astro';
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
 
-export const getStaticPaths = (async () => {
-  return [
-    { params: { electoralPeriod: 'magdeburg-7' }},
-    { params: { electoralPeriod: 'magdeburg-8' }}
-  ];
-}) satisfies GetStaticPaths;
-
-type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { electoralPeriod } = Astro.params as Params;
+export const getStaticPaths = (async () => {
+  const electoralPeriods = await getCollection('electoralPeriods');
+  return electoralPeriods.map(electoralPeriod => ({
+    params: { electoralPeriod: electoralPeriod.id },
+    props: { electoralPeriod: electoralPeriod.data}
+  }));
+}) satisfies GetStaticPaths;
+
+const { electoralPeriod } = Astro.props as Props;
 
 ---
-<Layout>
-  Parties of Electoral Period { electoralPeriod }
-</Layout>
+<BreadcrumbMenuLayout pageTitle="Parteien" electoralPeriod={electoralPeriod}>
+  ...
+</BreadcrumbMenuLayout>

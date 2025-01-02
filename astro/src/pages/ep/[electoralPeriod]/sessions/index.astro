@@ -1,5 +1,5 @@
 ---
-import Layout from '../../../../layouts/Layout.astro';
+import BreadcrumbMenuLayout from '../../../../layouts/BreadcrumbMenuLayout.astro';
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 
@@ -16,6 +16,7 @@ export const getStaticPaths = (async () => {
 const { electoralPeriod } = Astro.props as Props;
 
 ---
-<Layout electoralPeriod={electoralPeriod}>
+<BreadcrumbMenuLayout electoralPeriod={electoralPeriod}>
+  <h1 class="text-3xl font-bold tracking-tight text-gray-900">Sitzungen</h1>
   ...
-</Layout>
+</BreadcrumbMenuLayout>

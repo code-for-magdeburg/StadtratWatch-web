@@ -6,8 +6,20 @@ import interFont400 from '@fontsource/inter/files/inter-latin-400-normal.woff2?u
 import interFont800 from '@fontsource/inter/files/inter-latin-800-normal.woff2?url';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { getEntry } from 'astro:content';
 
-const { electoralPeriod } = Astro.props;
+interface Props {
+  electoralPeriod?: {
+    id: string;
+  };
+}
+
+let electoralPeriod = Astro.props.electoralPeriod;
+if (!electoralPeriod) {
+  const defaultElectoralPeriodId = 'magdeburg-8'; // TODO: Fetch defaul electoral period
+  const electoralPeriodEntry = await getEntry('electoralPeriods', defaultElectoralPeriodId);
+  electoralPeriod = electoralPeriodEntry?.data!;
+}
 
 ---
 
