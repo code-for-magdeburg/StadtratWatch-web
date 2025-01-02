@@ -1,0 +1,27 @@
+---
+import Layout from './Layout.astro';
+import BreadcrumbMenu from '../components/BreadcrumbMenu.astro';
+
+interface Props {
+  pageTitle: string;
+  electoralPeriod: {
+    id: string;
+  };
+}
+
+const { pageTitle, electoralPeriod } = Astro.props;
+
+---
+<Layout electoralPeriod={electoralPeriod}>
+
+  <div class="mb-2 md:mb-5">
+    <BreadcrumbMenu
+      electoralPeriodId={electoralPeriod.id}
+      breadcrumbMenuItems={[]}
+      currentPageTitle={pageTitle}
+    />
+  </div>
+
+  <slot />
+
+</Layout>
