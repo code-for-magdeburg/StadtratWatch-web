@@ -1,13 +1,12 @@
 ---
 const { electoralPeriod } = Astro.props;
-const lastUpdatedTimestamp = new Date(electoralPeriod.lastUpdatedTimestamp)
-  .toLocaleString('de-DE', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit'
-  });
+const lastUpdate = new Date(electoralPeriod.lastUpdate).toLocaleString(
+  'de-DE',
+  {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    });
 ---
 
 <footer class="sticky top-[100vh] bg-gray-900">
@@ -26,7 +25,7 @@ const lastUpdatedTimestamp = new Date(electoralPeriod.lastUpdatedTimestamp)
       <a href="/contact" class="text-gray-400 hover:text-white">Kontakt</a>
     </nav>
     <div class="flex md:-mt-6 text-gray-400 text-xs/6 justify-center md:justify-end">
-      Letzte Aktualisierung: {lastUpdatedTimestamp}
+      Letzte Aktualisierung: {lastUpdate}
     </div>
   </div>
 </footer>
