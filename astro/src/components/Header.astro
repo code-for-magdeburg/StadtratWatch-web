@@ -3,10 +3,10 @@ import { getCollection } from 'astro:content';
 
 const electoralPeriodsCollection = await getCollection('electoralPeriods');
 const electoralPeriods = electoralPeriodsCollection
-  .sort((a, b) => a.data.title.localeCompare(b.data.title))
+  .sort((a, b) => a.data.name.localeCompare(b.data.name))
   .map(electoralPeriodEntry => ({
-  id: electoralPeriodEntry.data.electoralPeriod,
-  title: electoralPeriodEntry.data.title
+  id: electoralPeriodEntry.data.id,
+  title: electoralPeriodEntry.data.name
 }));
 
 const { electoralPeriod } = Astro.props;
