@@ -24,6 +24,7 @@ const mockElectoralPeriodsSource: IElectoralPeriodsSource = {
     return [
       {
         id: 'magdeburg-7',
+        name: 'Wahlperiode VII',
         sessions: [
           {
             id: 'session-7-1',
@@ -102,6 +103,7 @@ const mockElectoralPeriodsSource: IElectoralPeriodsSource = {
       },
       {
         id: 'magdeburg-8',
+        name: 'Wahlperiode VIII',
         sessions: [
           {
             id: 'session-8-1',

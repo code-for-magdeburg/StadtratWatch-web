@@ -1,4 +1,4 @@
-import { Environment } from '../app/model/Environment';
+import type { Environment } from '../app/model/Environment';
 
 
 export const environment: Environment = {

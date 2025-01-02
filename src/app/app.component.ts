@@ -39,10 +39,9 @@ export class AppComponent implements OnDestroy {
             ? event.url.split('/')[2]
             : environment.currentElectoralPeriod;
           if (this.electoralPeriodSlug !== electoralPeriodSlug || !this.metadata) {
-            // Temporary fix: The slug "7" is used for the electoral period "Magdeburg 7".
-            this.electoralPeriodSlug = electoralPeriodSlug === '7' ? 'magdeburg-7' : electoralPeriodSlug;
+            this.electoralPeriodSlug = electoralPeriodSlug;
             this.electoralPeriodName = this.availableElectoralPeriods.find(
-              p => p.slug === electoralPeriodSlug
+              p => p.slug === this.electoralPeriodSlug
             )?.name || '';
             this.metadata = await this.metadataService.fetchMetadata(this.electoralPeriodSlug);
           }
