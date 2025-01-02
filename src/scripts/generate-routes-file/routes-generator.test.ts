@@ -23,7 +23,9 @@ const mockElectoralPeriodsSource: IElectoralPeriodsSource = {
   getElectoralPeriods: function (): Registry[] {
     return [
       {
-        electoralPeriod: 'magdeburg-7',
+        id: 'magdeburg-7',
+        name: 'Wahlperiode VII',
+        lastUpdate: '2021-01-01',
         sessions: [
           {
             id: 'session-7-1',
@@ -101,7 +103,9 @@ const mockElectoralPeriodsSource: IElectoralPeriodsSource = {
         ]
       },
       {
-        electoralPeriod: 'magdeburg-8',
+        id: 'magdeburg-8',
+        name: 'Wahlperiode VIII',
+        lastUpdate: '2023-01-01',
         sessions: [
           {
             id: 'session-8-1',
