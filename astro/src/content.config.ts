@@ -6,12 +6,12 @@ const electoralPeriods = defineCollection({
   loader: glob({
     pattern: '**/registry.json',
     base: '../data',
-    generateId: options => options.data.electoralPeriod as string,
+    generateId: options => options.data.id as string,
   }),
   schema: z.object({
-    electoralPeriod: z.string(),
-    title: z.string(),
-    lastUpdatedTimestamp: z.string(),
+    id: z.string(),
+    name: z.string(),
+    lastUpdate: z.string(),
     sessions: z.array(z.object({
       id: z.string(),
       date: z.string(),
