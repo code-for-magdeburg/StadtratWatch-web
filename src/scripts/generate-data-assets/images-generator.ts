@@ -224,7 +224,7 @@ export class ImagesGenerator {
     context.font = 'bold 18pt Verdana';
     context.fillStyle = TEXT_COLOR;
 
-    lines.forEach((line, index) => context.fillText(line, 0, index * 30 + 20));
+    lines.filter(line => line.trim() !== '').forEach((line, index) => context.fillText(line, 0, index * 30 + 20));
 
     return canvas;
 
