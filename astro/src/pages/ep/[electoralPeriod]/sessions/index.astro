@@ -22,7 +22,7 @@ const sessionsByYearAndMonth = groupSessionsByYearAndMonth(sessions);
 ---
 <BreadcrumbMenuLayout pageTitle="Sitzungen" electoralPeriod={electoralPeriod}>
 
-  <h1 class="text-3xl font-bold text-gray-900">Sitzungen</h1>
+  <h1 class="text-3xl font-bold text-gray-900 sm:tracking-tight">Sitzungen</h1>
 
   <div class="space-y-10 py-5 md:py-10">
 
@@ -37,7 +37,7 @@ const sessionsByYearAndMonth = groupSessionsByYearAndMonth(sessions);
         return (
           <div class="sm:w-3/4 md:w-3/5 mx-auto space-y-3">
 
-            <h2 class="text-xl font-bold text-gray-900">{label}</h2>
+            <h2 class="text-xl font-bold text-gray-900 tracking-tight">{label}</h2>
 
             {sessions
               .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
@@ -71,7 +71,7 @@ const sessionsByYearAndMonth = groupSessionsByYearAndMonth(sessions);
                             <div class="order-first text-xl sm:text-3xl font-semibold text-gray-900">{sessionSummary.speeches}</div>
                           </a>
                           <a
-                              href={`/ep/${electoralPeriod.id}/session/${session.id}?tab=speaking-time`}
+                              href={`/ep/${electoralPeriod.id}/session/${session.id}?tab=speaking-times`}
                               class="mx-auto flex max-w-xs flex-col"
                           >
                             <div class="text-base/7 text-gray-600">Redezeit</div>
