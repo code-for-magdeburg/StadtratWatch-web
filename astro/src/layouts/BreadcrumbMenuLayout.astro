@@ -1,15 +1,17 @@
 ---
 import Layout from './Layout.astro';
 import BreadcrumbMenu from '../components/BreadcrumbMenu.astro';
+import type { BreadcrumbMenuItem } from '../components/BreadcrumbMenu.astro';
 
 interface Props {
   pageTitle: string;
   electoralPeriod: {
     id: string;
   };
+  breadcrumbMenuItems?: BreadcrumbMenuItem[];
 }
 
-const { pageTitle, electoralPeriod } = Astro.props;
+const { pageTitle, electoralPeriod, breadcrumbMenuItems } = Astro.props;
 
 ---
 <Layout electoralPeriod={electoralPeriod}>
@@ -17,7 +19,7 @@ const { pageTitle, electoralPeriod } = Astro.props;
   <div class="mb-2 md:mb-5">
     <BreadcrumbMenu
       electoralPeriodId={electoralPeriod.id}
-      breadcrumbMenuItems={[]}
+      breadcrumbMenuItems={breadcrumbMenuItems ?? []}
       currentPageTitle={pageTitle}
     />
   </div>

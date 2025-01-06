@@ -1,23 +1,154 @@
 ---
-import Layout from '../../../../../layouts/Layout.astro';
-import type { InferGetStaticPropsType, InferGetStaticParamsType, GetStaticPaths } from 'astro';
+import BreadcrumbMenuLayout from '../../../../../layouts/BreadcrumbMenuLayout.astro';
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import VotingsComponent from './_votings.astro';
+import SpeechesComponent from './_speeches.astro';
 
-export const getStaticPaths = (async () => {
-  return [
-    { params: { electoralPeriod: 'magdeburg-7', session: 'session-1' }},
-    { params: { electoralPeriod: 'magdeburg-7', session: 'session-2' }},
-    { params: { electoralPeriod: 'magdeburg-8', session: 'session-1' }},
-    { params: { electoralPeriod: 'magdeburg-8', session: 'session-2' }}
-  ];
-}) satisfies GetStaticPaths;
-
-type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { electoralPeriod, session } = Astro.params as Params;
+export const getStaticPaths = (async () => {
+
+  const electoralPeriods = await getCollection('electoralPeriods');
+  const sessionConfigs = await getCollection('sessionConfigs');
+  const sessionScans = await getCollection('sessionScans');
+  const sessionSpeeches = await getCollection('sessionSpeeches');
+
+  return electoralPeriods.flatMap(electoralPeriod =>
+    electoralPeriod.data.sessions.map(session => {
+      const config = sessionConfigs.find(config => config.id === `${electoralPeriod.id}/${session.id}`)!.data;
+      const votings = sessionScans.find(scan => scan.id === `${electoralPeriod.id}/${session.id}`)!.data;
+      const speeches = sessionSpeeches
+        .find(speech => speech.id === `${electoralPeriod.id}/${session.id}`)!.data
+        .filter(speech => !speech.isChairPerson && !!speech.transcription);
+      return {
+        params: { electoralPeriod: electoralPeriod.id, session: session.id },
+        props: {
+          electoralPeriod: electoralPeriod.data,
+          config,
+          session,
+          votings,
+          speeches
+        }
+      };
+    })
+  );
+
+}) satisfies GetStaticPaths;
+
+const {
+  electoralPeriod,
+  config,
+  session,
+  votings,
+  speeches
+} = Astro.props as Props;
+
+const formattedDate = new Date(session.date).toLocaleString(
+  'de-DE',
+  { day: '2-digit', month: '2-digit', year: 'numeric' }
+);
 
 ---
-<Layout>
-  Electoral Period { electoralPeriod }<br>
-  Session { session }
-</Layout>
+<BreadcrumbMenuLayout
+  electoralPeriod={electoralPeriod}
+  breadcrumbMenuItems={[{ title: 'Sitzungen', url: `/ep/${electoralPeriod.id}/sessions` }]}
+  pageTitle={formattedDate}
+>
+
+  <div class="lg:flex lg:items-center lg:justify-between">
+    <div class="min-w-0 flex-1">
+      <h2 class="mt-2 text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Stadtratsitzung - {formattedDate}</h2>
+      <div class="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
+        <a
+          href={session.meetingMinutesUrl}
+          target="_blank"
+          class="mt-2 flex items-center text-sm text-gray-500"
+        >Niederschrift</a>
+        <a
+          href={config.youtubeUrl}
+          target="_blank"
+          class="mt-2 flex items-center text-sm text-gray-500"
+        >YouTube</a>
+      </div>
+    </div>
+  </div>
+
+  <div
+    x-data={`{
+      currentTab: new URLSearchParams(location.search).get('tab') || 'votings',
+      electoralPeriodId: '${electoralPeriod.id}',
+      sessionId: '${session.id}'
+      }`}
+    @popstate.window="currentTab = new URLSearchParams(location.search).get('tab') || 'votings'"
+  >
+
+    <div class="border-b border-gray-200 pb-5 sm:pb-0" >
+      <div class="mt-5 sm:mt-10">
+        <div class="grid grid-cols-1 sm:hidden">
+          <select
+            aria-label="Wähle eine Unterseite aus"
+            class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-2 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+            @change="history.pushState(null, '', `/ep/${electoralPeriodId}/session/${sessionId}?tab=${event.target.value}`); currentTab = event.target.value"
+          >
+            <option :selected="currentTab === 'votings'" value="votings">Abstimmungen</option>
+            <option :selected="currentTab === 'speeches'" value="speeches">Redebeiträge</option>
+            <option :selected="currentTab === 'speaking-times'" value="speaking-times">Redezeiten</option>
+          </select>
+          <svg class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end fill-gray-500" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon">
+            <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </div>
+
+        <div class="hidden sm:block">
+          <nav class="-mb-px flex space-x-8">
+            <a
+              @click="history.pushState(null, '', `/ep/${electoralPeriodId}/session/${sessionId}?tab=votings`); currentTab = 'votings'"
+              href="javascript:void(0)"
+              class="whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium"
+              :class="currentTab === 'votings' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+              :aria-current="currentTab === 'votings' ? 'page' : null"
+            >Abstimmungen</a>
+            <a
+              @click="history.pushState(null, '', `/ep/${electoralPeriodId}/session/${sessionId}?tab=speeches`); currentTab = 'speeches'"
+              href="javascript:void(0)"
+              class="whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium"
+              :class="currentTab === 'speeches' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+              :aria-current="currentTab === 'speeches' ? 'page' : null"
+            >Redebeiträge</a>
+            <a
+              @click="history.pushState(null, '', `/ep/${electoralPeriodId}/session/${sessionId}?tab=speaking-times`); currentTab = 'speaking-times'"
+              href="javascript:void(0)"
+              class="whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium"
+              :class="currentTab === 'speaking-times' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+              :aria-current="currentTab === 'speaking-times' ? 'page' : null"
+            >Redezeiten</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div x-cloak x-show="currentTab === 'votings'" class="py-3 md:py-5 md:px-20 lg:px-48">
+      <VotingsComponent
+        electoralPeriodId={electoralPeriod.id}
+        sessionId={session.id}
+        votings={votings}
+      ></VotingsComponent>
+    </div>
+
+    <div x-cloak x-show="currentTab === 'speeches'" class="py-3 md:py-5 md:px-20 lg:px-48">
+      <SpeechesComponent
+        electoralPeriodId={electoralPeriod.id}
+        session={session}
+        speeches={speeches}
+        config={config}
+      ></SpeechesComponent>
+    </div>
+
+    <div x-cloak x-show="currentTab === 'speaking-times'" class="py-3 md:py-5 md:px-20 lg:px-48">
+      Redezeiten
+    </div>
+
+  </div>
+
+</BreadcrumbMenuLayout>

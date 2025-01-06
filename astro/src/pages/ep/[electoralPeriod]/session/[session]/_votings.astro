@@ -1,0 +1,51 @@
+---
+import type { SessionScan, SessionScanItem } from '../../../../../model/session-scan';
+
+type Props = {
+  electoralPeriodId: string;
+  sessionId: string;
+  votings: SessionScan
+};
+
+const { electoralPeriodId, sessionId, votings } = Astro.props;
+
+function votingAccepted(voting: SessionScanItem) {
+  const votedFor = voting.votes.filter(vote => vote.vote === 'J').length;
+  const votedAgainst = voting.votes.filter(vote => vote.vote === 'N').length;
+  return votedFor > votedAgainst;
+}
+
+---
+
+<ul role="list" class="divide-y divide-gray-300">
+
+  {votings
+    .sort((a, b) => a.votingFilename.localeCompare(b.votingFilename))
+    .map((voting, index) =>
+      <li class="relative flex py-5">
+        <div class="flex-auto">
+          <div class="flex items-baseline justify-between gap-x-4">
+            <p class="text-sm/6 font-semibold text-gray-900">{voting.votingSubject.agendaItem} {voting.votingSubject.type} {voting.votingSubject.applicationId}</p>
+            {votingAccepted(voting)
+              ? <p class="rounded-md bg-green-200 px-1.5 py-0.5 text-xs font-medium text-green-800 ring-1 ring-inset ring-green-800/20">angenommen</p>
+              : <p class="rounded-md bg-red-200 px-1.5 py-0.5 text-xs font-medium text-red-800 ring-1 ring-inset ring-red-800/20">abgelehnt</p>
+            }
+          </div>
+          {voting.votingSubject.authors.length > 0 &&
+            <div>
+              {voting.votingSubject.authors.map(author =>
+                <span class="inline-flex items-center rounded-md bg-gray-200 px-1.5 py-0.5 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/20 me-1">{author}</span>
+              )}
+            </div>
+          }
+          <p class="mt-2 line-clamp-2 text-sm/6 text-gray-900">
+            <a href={`/ep/${electoralPeriodId}/session/${sessionId}/voting/${index+1}`}>
+              <span class="absolute inset-x-0 -top-px bottom-0"></span>
+              {voting.votingSubject.title}
+            </a>
+          </p>
+        </div>
+      </li>
+  )}
+
+</ul>
