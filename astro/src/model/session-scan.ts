@@ -11,7 +11,7 @@ export type SessionScanVotingSubject = {
   agendaItem: string;
   applicationId: string;
   title: string;
-  type: string | null;
+  type: string | null; // TODO: remove null?
   authors: string[];
 };
 
