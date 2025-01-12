@@ -1,0 +1,94 @@
+---
+import type { SessionSpeech } from '../../../../../model/session-speech';
+import type { SessionConfig } from '../../../../../model/session-config';
+import { getSpeakingTimesChartData } from './_helpers';
+
+type Props = {
+  electoralPeriodId: string;
+  speeches: SessionSpeech[];
+  config: SessionConfig;
+};
+
+const { electoralPeriodId, speeches, config } = Astro.props as Props;
+
+const chartData = {
+  datasets: [
+    {
+      data: await getSpeakingTimesChartData(speeches, config),
+      parsing: {
+        xAxisKey: 'value',
+        yAxisKey: 'label'
+      },
+      backgroundColor: 'rgba(219, 234, 254, 1)',
+      borderColor: 'rgba(96, 165, 250, 0.6)',
+      borderRadius: 5,
+      borderWidth: 1
+    }
+  ],
+};
+
+const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  indexAxis: 'y',
+  scales: {
+    x: { display: false, ticks: { display: false } },
+    y: {
+      grid: { display: false, drawTicks: false, drawBorder: false },
+      ticks: { mirror: true, color: 'rgb(29, 78, 216)', font: { size: 14 }, z: 1 }
+    }
+  },
+  plugins: { legend: false }
+};
+
+const chartHeight = chartData.datasets[0].data.length * 40;
+
+---
+
+<div class="space-y-5">
+
+  <div class="rounded-md bg-blue-100 p-4 border border-blue-400/20">
+    <div class="flex">
+      <div class="shrink-0">
+        <svg class="size-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <div class="ml-3 text-sm text-blue-700">
+        <p>Die Redezeiten wurden automatisch mit Hilfe einer Software ermittelt. Sie sind nur eine Schätzung und können von den tatsächlichen Redezeiten abweichen.</p>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+  <div class="relative" style={{ height: `${chartHeight}px` }}>
+    <canvas id="speakingTimesChart"></canvas>
+  </div>
+
+  <script is:inline define:vars={{ chartData, chartOptions, electoralPeriodId }}>
+    const ctx = document.getElementById('speakingTimesChart');
+    const chart = new Chart(ctx, { type: 'bar', data: chartData, options: chartOptions });
+    chart.ctx.canvas.onmousemove = (evt) => {
+      const points = chart.getElementsAtEventForMode(evt, 'y', { intersect: false }, true);
+      if (points.length) {
+        const firstPoint = points[0];
+        const speakerId = chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index].speakerId;
+        chart.ctx.canvas.style.cursor = speakerId ? 'pointer' : 'default';
+      } else {
+        chart.ctx.canvas.style.cursor = 'default';
+      }
+    };
+    chart.ctx.canvas.onclick = (evt) => {
+      const points = chart.getElementsAtEventForMode(evt, 'y', { intersect: false }, true);
+      if (points.length) {
+        const firstPoint = points[0];
+        const speakerId = chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index].speakerId;
+        if (speakerId) {
+          window.location.href = `/ep/${electoralPeriodId}/person/${speakerId}`;
+        }
+      }
+    };
+  </script>
+
+</div>

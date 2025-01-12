@@ -4,6 +4,7 @@ import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import VotingsComponent from './_votings.astro';
 import SpeechesComponent from './_speeches.astro';
+import SpeakingTimesComponent from './_speaking-times.astro';
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
@@ -146,7 +147,11 @@ const formattedDate = new Date(session.date).toLocaleString(
     </div>
 
     <div x-cloak x-show="currentTab === 'speaking-times'" class="py-3 md:py-5 md:px-20 lg:px-48">
-      Redezeiten
+      <SpeakingTimesComponent
+        electoralPeriodId={electoralPeriod.id}
+        speeches={speeches}
+        config={config}
+      ></SpeakingTimesComponent>
     </div>
 
   </div>
