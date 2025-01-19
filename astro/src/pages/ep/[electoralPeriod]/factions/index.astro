@@ -155,38 +155,42 @@ function formatSpeakingTime(speakingTime: number): string {
 ---
 <BreadcrumbMenuLayout pageTitle="Fraktionen" electoralPeriod={electoralPeriod}>
 
-  <table class="min-w-full divide-y divide-gray-300">
-    <thead>
-    <tr>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-left text-sm font-semibold text-gray-900">Name</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Sitze</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Abstimmungserfolg</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Geschlossenheit</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Abstimmungsteilnahme</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Stimmenthaltungen</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Erfolgreiche Anträge</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Redezeit</th>
-    </tr>
-    </thead>
-    <tbody class="divide-y divide-gray-200">
-    {factions.map(faction =>
+  <div class="overflow-x-auto">
+
+    <table class="min-w-full divide-y divide-gray-300">
+      <thead>
       <tr>
-        <td class="whitespace-nowrap py-2 pr-3 text-sm">
-          <a
-            class="text-blue-600 hover:underline"
-            href={`/ep/${electoralPeriod.id}/faction/${faction.id}`}
-          >{faction.name}</a>
-        </td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.seats}</td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.votingSuccessRate}%</td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.uniformityScore}</td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.participationRate}%</td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.abstentionRate}%</td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.applicationsSuccessRate}%</td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.speakingTime}</td>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-left text-sm font-semibold text-gray-900">Name</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Sitze</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Abstimmungserfolg</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Geschlossenheit</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Abstimmungsteilnahme</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Stimmenthaltungen</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Erfolgreiche Anträge</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Redezeit</th>
       </tr>
-    )}
-    </tbody>
-  </table>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+      {factions.map(faction =>
+        <tr>
+          <td class="whitespace-nowrap py-2 pr-3 text-sm">
+            <a
+              class="text-blue-600 hover:underline"
+              href={`/ep/${electoralPeriod.id}/faction/${faction.id}`}
+            >{faction.name}</a>
+          </td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.seats}</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.votingSuccessRate}%</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.uniformityScore}</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.participationRate}%</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.abstentionRate}%</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.applicationsSuccessRate}%</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.speakingTime}</td>
+        </tr>
+      )}
+      </tbody>
+    </table>
+
+  </div>
 
 </BreadcrumbMenuLayout>
