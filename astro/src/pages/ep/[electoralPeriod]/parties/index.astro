@@ -148,36 +148,40 @@ function formatSpeakingTime(speakingTime: number): string {
 ---
 <BreadcrumbMenuLayout pageTitle="Fraktionen" electoralPeriod={electoralPeriod}>
 
-  <table class="min-w-full divide-y divide-gray-300">
-    <thead>
-    <tr>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-left text-sm font-semibold text-gray-900">Name</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Sitze</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Abstimmungserfolg</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Geschlossenheit</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Abstimmungsteilnahme</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Stimmenthaltungen</th>
-      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Redezeit</th>
-    </tr>
-    </thead>
-    <tbody class="divide-y divide-gray-200">
-    {parties.map(party =>
+  <div class="overflow-x-auto">
+
+    <table class="min-w-full divide-y divide-gray-300">
+      <thead>
       <tr>
-        <td class="whitespace-nowrap py-2 pr-3 text-sm">
-          <a
-            class="text-blue-600 hover:underline"
-            href={`/ep/${electoralPeriod.id}/party/${party.id}`}
-          >{party.name}</a>
-        </td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.seats}</td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.votingSuccessRate}%</td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.uniformityScore}</td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.participationRate}%</td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.abstentionRate}%</td>
-        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.speakingTime}</td>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-left text-sm font-semibold text-gray-900">Name</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Sitze</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Abstimmungserfolg</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Geschlossenheit</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Abstimmungsteilnahme</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Stimmenthaltungen</th>
+        <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Redezeit</th>
       </tr>
-    )}
-    </tbody>
-  </table>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+      {parties.map(party =>
+        <tr>
+          <td class="whitespace-nowrap py-2 pr-3 text-sm">
+            <a
+              class="text-blue-600 hover:underline"
+              href={`/ep/${electoralPeriod.id}/party/${party.id}`}
+            >{party.name}</a>
+          </td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.seats}</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.votingSuccessRate}%</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.uniformityScore}</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.participationRate}%</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.abstentionRate}%</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.speakingTime}</td>
+        </tr>
+      )}
+      </tbody>
+    </table>
+
+  </div>
 
 </BreadcrumbMenuLayout>
