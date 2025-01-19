@@ -171,7 +171,12 @@ function formatSpeakingTime(speakingTime: number): string {
     <tbody class="divide-y divide-gray-200">
     {factions.map(faction =>
       <tr>
-        <td class="whitespace-nowrap py-2 pr-3 text-sm text-gray-900">{faction.name}</td>
+        <td class="whitespace-nowrap py-2 pr-3 text-sm">
+          <a
+            class="text-blue-600 hover:underline"
+            href={`/ep/${electoralPeriod.id}/faction/${faction.id}`}
+          >{faction.name}</a>
+        </td>
         <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.seats}</td>
         <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.votingSuccessRate}%</td>
         <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.uniformityScore}</td>
