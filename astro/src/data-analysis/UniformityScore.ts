@@ -1,4 +1,4 @@
-import type { RegistryFaction } from '../model/registry.ts';
+import type { RegistryFaction, RegistryParty } from '../model/registry.ts';
 import type { SessionInput } from '../model/SessionInput.ts';
 import type { SessionScanItem } from '../model/session-scan.ts';
 import { VoteResult } from '../model/Session.ts';
@@ -17,6 +17,20 @@ export class UniformityScore {
        .flatMap(({ config, votings }) => {
          const factionMembers = config.names.filter(name => name.faction === faction.name).map(name => name.name);
          return votings.map(voting => this.calcUniformityScore(factionMembers, voting));
+       })
+       .filter(score => score !== null) as number[];
+
+      return allScores.length === 0 ? 0 : allScores.reduce((a, b) => a + b, 0) / allScores.length;
+
+   }
+
+
+   public forParty(party: RegistryParty): number {
+
+     const allScores = this.sessions
+       .flatMap(({ config, votings }) => {
+         const partyMembers = config.names.filter(name => name.party === party.name).map(name => name.name);
+         return votings.map(voting => this.calcUniformityScore(partyMembers, voting));
        })
        .filter(score => score !== null) as number[];
 

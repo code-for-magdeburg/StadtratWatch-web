@@ -1,5 +1,5 @@
 import type { SessionInput } from '../model/SessionInput.ts';
-import type { RegistryFaction } from '../model/registry.ts';
+import type { RegistryFaction, RegistryParty } from '../model/registry.ts';
 import type { SessionScanItem } from '../model/session-scan.ts';
 import { VoteResult, VotingResult } from '../model/Session.ts';
 
@@ -20,6 +20,22 @@ export class VotingSuccess {
       });
     const successfulVotings = allVotings.filter(
       voting => this.isPersonsVotingSuccessful(voting.factionMembers, voting.voting)
+    );
+
+    return allVotings.length === 0 ? 0 : successfulVotings.length / allVotings.length;
+
+  }
+
+
+  public forParty(party: RegistryParty): number {
+
+    const allVotings = this.sessions.flatMap(
+      ({ config, votings }) => {
+        const partyMembers = config.names.filter(name => name.party === party.name).map(name => name.name);
+        return votings.map(voting => ({ voting, partyMembers }));
+      });
+    const successfulVotings = allVotings.filter(
+      voting => this.isPersonsVotingSuccessful(voting.partyMembers, voting.voting)
     );
 
     return allVotings.length === 0 ? 0 : successfulVotings.length / allVotings.length;

@@ -1,5 +1,5 @@
 import type { SessionInput } from '../model/SessionInput.ts';
-import type { RegistryFaction } from '../model/registry.ts';
+import type { RegistryFaction, RegistryParty } from '../model/registry.ts';
 import type { SessionScanItem } from '../model/session-scan.ts';
 import { VoteResult } from '../model/Session.ts';
 
@@ -16,6 +16,19 @@ export class ParticipationRate {
       .flatMap(({ config, votings }) => {
         const factionMembers = config.names.filter(name => name.faction === faction.name).map(name => name.name);
         return votings.map(voting => this.calcParticipationRate(factionMembers, voting));
+      });
+
+    return allRates.length === 0 ? 0 : allRates.reduce((a, b) => a + b, 0) / allRates.length;
+
+  }
+
+
+  public forParty(party: RegistryParty): number {
+
+    const allRates = this.sessions
+      .flatMap(({ config, votings }) => {
+        const partyMembers = config.names.filter(name => name.party === party.name).map(name => name.name);
+        return votings.map(voting => this.calcParticipationRate(partyMembers, voting));
       });
 
     return allRates.length === 0 ? 0 : allRates.reduce((a, b) => a + b, 0) / allRates.length;
