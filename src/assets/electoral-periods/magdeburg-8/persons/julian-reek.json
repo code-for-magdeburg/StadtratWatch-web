@@ -2191,6 +2191,16 @@
       "sessionId": "2024-12-05",
       "votingId": 82,
       "vote": "O"
+    },
+    {
+      "sessionId": "2025-01-15",
+      "votingId": 1,
+      "vote": "O"
+    },
+    {
+      "sessionId": "2025-01-15",
+      "votingId": 2,
+      "vote": "O"
     }
   ],
   "votingMatrix": [
@@ -2587,7 +2597,7 @@
       "comparisonScore": 0.6245847176079734
     }
   ],
-  "votingAttendance": 0.7986270022883295,
+  "votingAttendance": 0.7949886104783599,
   "votingSuccessCount": 247,
   "votingSuccessRate": 0.7077363896848138,
   "abstentionCount": 27,
@@ -2621,6 +2631,10 @@
       {
         "date": "2024-12-05",
         "value": 0.7986270022883295
+      },
+      {
+        "date": "2025-01-15",
+        "value": 0.7949886104783599
       }
     ],
     "votingSuccessRate": [
@@ -2651,6 +2665,10 @@
       {
         "date": "2024-12-05",
         "value": 0.7077363896848138
+      },
+      {
+        "date": "2025-01-15",
+        "value": 0.7077363896848138
       }
     ],
     "abstentionRate": [
@@ -2680,6 +2698,10 @@
       },
       {
         "date": "2024-12-05",
+        "value": 0.07736389684813753
+      },
+      {
+        "date": "2025-01-15",
         "value": 0.07736389684813753
       }
     ]

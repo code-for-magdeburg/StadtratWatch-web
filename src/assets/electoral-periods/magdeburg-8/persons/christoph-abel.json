@@ -2191,6 +2191,16 @@
       "sessionId": "2024-12-05",
       "votingId": 82,
       "vote": "O"
+    },
+    {
+      "sessionId": "2025-01-15",
+      "votingId": 1,
+      "vote": "J"
+    },
+    {
+      "sessionId": "2025-01-15",
+      "votingId": 2,
+      "vote": "J"
     }
   ],
   "votingMatrix": [
@@ -2206,7 +2216,7 @@
       "personName": "Matthias Boxhorn",
       "faction": "CDU/FDP",
       "party": "CDU",
-      "comparisonScore": null
+      "comparisonScore": 1
     },
     {
       "personId": "florian-buehnemann",
@@ -2234,7 +2244,7 @@
       "personName": "Stefanie Middendorf",
       "faction": "CDU/FDP",
       "party": "CDU",
-      "comparisonScore": null
+      "comparisonScore": 1
     },
     {
       "personId": "tim-rohne",
@@ -2304,70 +2314,70 @@
       "personName": "Margot Häfner",
       "faction": "AfD",
       "party": "AfD",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "marika-heinrichs",
       "personName": "Marika Heinrichs",
       "faction": "AfD",
       "party": "AfD",
-      "comparisonScore": 0.8333333333333334
+      "comparisonScore": 0.8571428571428571
     },
     {
       "personId": "oliver-kirchner",
       "personName": "Oliver Kirchner",
       "faction": "AfD",
       "party": "AfD",
-      "comparisonScore": 0.8
+      "comparisonScore": 0.8571428571428571
     },
     {
       "personId": "hagen-kohl",
       "personName": "Hagen Kohl",
       "faction": "AfD",
       "party": "AfD",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "steffen-kraus",
       "personName": "Steffen Kraus",
       "faction": "AfD",
       "party": "AfD",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "ronny-kumpf",
       "personName": "Ronny Kumpf",
       "faction": "AfD",
       "party": "AfD",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "christian-mertens",
       "personName": "Christian Mertens",
       "faction": "AfD",
       "party": "AfD",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "kevin-michalzik",
       "personName": "Kevin Michalzik",
       "faction": "AfD",
       "party": "AfD",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "jan-moldenhauer",
       "personName": "Dr. Jan Moldenhauer",
       "faction": "AfD",
       "party": "AfD",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "uwe-muelbredt",
       "personName": "Uwe Muelbredt",
       "faction": "AfD",
       "party": "AfD",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "julian-reek",
@@ -2423,7 +2433,7 @@
       "personName": "Jens Rösler",
       "faction": "SPD/Tierschutzallianz/Volt",
       "party": "SPD",
-      "comparisonScore": 0.9285714285714286
+      "comparisonScore": 0.9375
     },
     {
       "personId": "thomas-wiebe",
@@ -2458,14 +2468,14 @@
       "personName": "Nicole Anger",
       "faction": "DIE LINKE",
       "party": "DIE LINKE",
-      "comparisonScore": 0.9285714285714286
+      "comparisonScore": 0.9375
     },
     {
       "personId": "noah-biswanger",
       "personName": "Noah Biswanger",
       "faction": "DIE LINKE",
       "party": "DIE LINKE",
-      "comparisonScore": 0.9285714285714286
+      "comparisonScore": 0.9375
     },
     {
       "personId": "robert-fietzke",
@@ -2479,7 +2489,7 @@
       "personName": "Rebekka Grotjohann",
       "faction": "DIE LINKE",
       "party": "DIE LINKE",
-      "comparisonScore": 0.9285714285714286
+      "comparisonScore": 0.9375
     },
     {
       "personId": "dennis-jannack",
@@ -2493,14 +2503,14 @@
       "personName": "Oliver Müller",
       "faction": "DIE LINKE",
       "party": "DIE LINKE",
-      "comparisonScore": 0.9230769230769231
+      "comparisonScore": 0.9333333333333333
     },
     {
       "personId": "philipp-haendler",
       "personName": "Philipp Händler",
       "faction": "GRÜNE/future!",
       "party": "Bündnis 90/Die Grünen",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "tobias-hartmann",
@@ -2514,49 +2524,49 @@
       "personName": "Julia Lehnert",
       "faction": "GRÜNE/future!",
       "party": "Bündnis 90/Die Grünen",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "madeleine-linke",
       "personName": "Madeleine Linke",
       "faction": "GRÜNE/future!",
       "party": "Bündnis 90/Die Grünen",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "olaf-meister",
       "personName": "Olaf Meister",
       "faction": "GRÜNE/future!",
       "party": "Bündnis 90/Die Grünen",
-      "comparisonScore": 0.8461538461538461
+      "comparisonScore": 0.8666666666666667
     },
     {
       "personId": "stephan-bublitz",
       "personName": "Stephan Bublitz",
       "faction": "GRÜNE/future!",
       "party": "future! Magdeburg",
-      "comparisonScore": 0.8571428571428571
+      "comparisonScore": 0.875
     },
     {
       "personId": "rainer-buller",
       "personName": "Rainer Buller",
       "faction": "Gartenpartei",
       "party": "Gartenpartei",
-      "comparisonScore": null
+      "comparisonScore": 1
     },
     {
       "personId": "marcel-guderjahn",
       "personName": "Marcel Guderjahn",
       "faction": "Gartenpartei",
       "party": "Gartenpartei",
-      "comparisonScore": 0.7857142857142857
+      "comparisonScore": 0.8125
     },
     {
       "personId": "roland-zander",
       "personName": "Roland Zander",
       "faction": "Gartenpartei",
       "party": "Gartenpartei",
-      "comparisonScore": 0.9285714285714286
+      "comparisonScore": 0.9375
     },
     {
       "personId": "burkhard-moll",
@@ -2570,25 +2580,25 @@
       "personName": "Stephan Papenbreer",
       "faction": "Tierschutzpartei",
       "party": "Tierschutzpartei",
-      "comparisonScore": 0.8
+      "comparisonScore": 0.8571428571428571
     },
     {
       "personId": "evelin-schulz",
       "personName": "Evelin Schulz",
       "faction": "Tierschutzpartei",
       "party": "Tierschutzpartei",
-      "comparisonScore": 0.9285714285714286
+      "comparisonScore": 0.9375
     },
     {
       "personId": "simone-borris",
       "personName": "Simone Borris",
       "faction": "Oberbürgermeisterin",
       "party": "",
-      "comparisonScore": 0.9285714285714286
+      "comparisonScore": 0.9375
     }
   ],
-  "votingAttendance": 0.032036613272311214,
-  "votingSuccessCount": 14,
+  "votingAttendance": 0.03644646924829157,
+  "votingSuccessCount": 16,
   "votingSuccessRate": 1,
   "abstentionCount": 0,
   "abstentionRate": 0,
@@ -2621,6 +2631,10 @@
       {
         "date": "2024-12-05",
         "value": 0.032036613272311214
+      },
+      {
+        "date": "2025-01-15",
+        "value": 0.03644646924829157
       }
     ],
     "votingSuccessRate": [
@@ -2651,6 +2665,10 @@
       {
         "date": "2024-12-05",
         "value": 1
+      },
+      {
+        "date": "2025-01-15",
+        "value": 1
       }
     ],
     "abstentionRate": [
@@ -2680,6 +2698,10 @@
       },
       {
         "date": "2024-12-05",
+        "value": 0
+      },
+      {
+        "date": "2025-01-15",
         "value": 0
       }
     ]
