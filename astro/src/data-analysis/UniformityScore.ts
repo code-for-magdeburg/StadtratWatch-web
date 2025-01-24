@@ -25,7 +25,22 @@ export class UniformityScore {
    }
 
 
-   public forParty(party: RegistryParty): number {
+  public historyForFaction(faction: RegistryFaction): { date: string, value: number }[] {
+
+    return this.sessions
+      .map(session => {
+        const sessions = this.sessions.filter(s => s.config.date <= session.config.date);
+        const value = this.calcFactionUniformityScore(faction, sessions);
+        return { date: session.config.date, value };
+      })
+      .filter(({ value }) => value !== null)
+      .map(({ date, value }) => ({ date, value: value! }))
+      .toSorted((a, b) => a.date.localeCompare(b.date));
+
+  }
+
+
+  public forParty(party: RegistryParty): number {
 
      const allScores = this.sessions
        .flatMap(({ config, votings }) => {
@@ -75,6 +90,40 @@ export class UniformityScore {
          : Math.max(votesFor, votesAgainst));
 
      return (max1 - max2 + Math.min(votesAbstained, max2)) / totalVotes;
+
+   }
+
+
+   private calcFactionUniformityScore(faction: RegistryFaction, sessions: SessionInput[]): number | null {
+
+     const uniformityScoresPerSession = sessions
+       .map(session => this.calcFactionUniformityScoreForSession(faction, session))
+       .filter(score => score !== null) as number[];
+
+     if (uniformityScoresPerSession.length === 0) {
+       return null;
+     }
+
+     return uniformityScoresPerSession.reduce((a, b) => a + b, 0) / uniformityScoresPerSession.length;
+
+   }
+
+
+   private calcFactionUniformityScoreForSession(faction: RegistryFaction, session: SessionInput): number | null {
+
+     const persons = session.config.names
+       .filter(name => name.faction === faction.name)
+       .map(name => name.name);
+
+     const uniformityScorePerVoting = session.votings
+       .map(voting => this.calcUniformityScore(persons, voting))
+       .filter(score => score !== null) as number[];
+
+      if (uniformityScorePerVoting.length === 0) {
+        return null;
+      }
+
+      return uniformityScorePerVoting.reduce((a, b) => a + b, 0) / uniformityScorePerVoting.length;
 
    }
 
