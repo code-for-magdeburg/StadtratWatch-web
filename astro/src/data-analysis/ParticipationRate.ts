@@ -23,12 +23,27 @@ export class ParticipationRate {
   }
 
 
+  public historyForFaction(faction: RegistryFaction): { date: string, value: number }[] {
+
+    return this.sessions
+      .map(session => {
+        const sessions = this.sessions.filter(s => s.config.date <= session.config.date);
+        const value = this.calcFactionParticipationRate(faction, sessions);
+        return { date: session.config.date, value };
+      })
+      .filter(({ value }) => value !== null)
+      .map(({ date, value }) => ({ date, value: value! }))
+      .toSorted((a, b) => a.date.localeCompare(b.date));
+
+  }
+
+
   public forParty(party: RegistryParty): number {
 
     const allRates = this.sessions
       .flatMap(({ config, votings }) => {
-        const partyMembers = config.names.filter(name => name.party === party.name).map(name => name.name);
-        return votings.map(voting => this.calcParticipationRate(partyMembers, voting));
+        const persons = config.names.filter(name => name.party === party.name).map(name => name.name);
+        return votings.map(voting => this.calcParticipationRate(persons, voting));
       });
 
     return allRates.length === 0 ? 0 : allRates.reduce((a, b) => a + b, 0) / allRates.length;
@@ -37,12 +52,36 @@ export class ParticipationRate {
 
 
   private calcParticipationRate(persons: string[], voting: SessionScanItem): number {
-    const expectedVotes = persons.length;
-    const actualVotes = voting.votes
+    return this.countVotesInVoting(persons, voting) / persons.length;
+  }
+
+
+  private calcFactionParticipationRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
+
+    const votesPerSession = sessions.map(session => this.countVotesInSession(faction, session));
+    const votes = votesPerSession.reduce((a, b) => a + b, 0);
+
+    const totalVotesPerSession = sessions.map(session => session.votings.length * faction.seats);
+    const totalVotes = totalVotesPerSession.reduce((a, b) => a + b, 0);
+
+    return totalVotes === 0 ? null : votes / totalVotes;
+
+  }
+
+
+  private countVotesInSession(faction: RegistryFaction, session: SessionInput): number {
+    const persons = session.config.names.filter(name => name.faction === faction.name).map(name => name.name);
+    return session.votings
+      .map(voting => this.countVotesInVoting(persons, voting))
+      .reduce((a, b) => a + b, 0);
+  }
+
+
+  private countVotesInVoting(persons: string[], voting: SessionScanItem): number {
+    return voting.votes
       .filter(vote => persons.includes(vote.name))
       .filter(vote => vote.vote !== VoteResult.DID_NOT_VOTE)
       .length;
-    return actualVotes / expectedVotes;
   }
 
 
