@@ -24,6 +24,21 @@ export class AbstentionRate {
   }
 
 
+  public historyForFaction(faction: RegistryFaction): { date: string, value: number }[] {
+
+    return this.sessions
+      .map(session => {
+        const sessions = this.sessions.filter(s => s.config.date <= session.config.date);
+        const value = this.calcFactionAbstentionRate(faction, sessions);
+        return { date: session.config.date, value };
+      })
+      .filter(({ value }) => value !== null)
+      .map(({ date, value }) => ({ date, value: value! }))
+      .toSorted((a, b) => a.date.localeCompare(b.date));
+
+  }
+
+
   public forParty(party: RegistryParty): number {
 
     const allRates = this.sessions
@@ -43,6 +58,39 @@ export class AbstentionRate {
       .filter(vote => vote.vote !== VoteResult.DID_NOT_VOTE);
     const abstentions = allVotes.filter(vote => vote.vote === VoteResult.VOTE_ABSTENTION).length;
     return allVotes.length === 0 ? 0 : abstentions / allVotes.length;
+  }
+
+
+  private calcFactionAbstentionRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
+
+    const abstentionRatePerSession = sessions
+      .map(session => this.calcAbstentionRateForSession(faction, session))
+      .filter(rate => rate !== null)
+      .map(rate => rate!);
+
+    if (abstentionRatePerSession.length === 0) {
+      return null;
+    }
+
+    return abstentionRatePerSession.reduce((a, b) => a + b, 0) / abstentionRatePerSession.length;
+
+  }
+
+
+  private calcAbstentionRateForSession(faction: RegistryFaction, session: SessionInput): number | null {
+
+    const persons = session.config.names.filter(name => name.faction === faction.name).map(name => name.name);
+    const abstentionRatePerVoting = session.votings
+      .map(voting => this.calcAbstentionRate(persons, voting))
+      .filter(rate => rate !== null)
+      .map(rate => rate!);
+
+    if (abstentionRatePerVoting.length === 0) {
+      return null;
+    }
+
+    return abstentionRatePerVoting.reduce((a, b) => a + b, 0) / abstentionRatePerVoting.length;
+
   }
 
 

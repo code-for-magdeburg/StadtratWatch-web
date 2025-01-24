@@ -1,0 +1,62 @@
+---
+import type { Registry, RegistryFaction } from '../../../../../model/registry';
+
+type Props = {
+  electoralPeriod: Registry;
+  faction: RegistryFaction;
+};
+
+const { electoralPeriod, faction } = Astro.props as Props;
+
+const persons = electoralPeriod.persons
+  .filter(person => person.factionId === faction.id)
+  .map(person => ({
+    ...person,
+    party: getPartyName(person.partyId)
+  }))
+  .toSorted((a, b) => {
+    if (a.end && !b.end) {
+      return 1;
+    }
+    if (!a.end && b.end) {
+      return -1;
+    }
+    return a.name.localeCompare(b.name);
+  });
+
+function getPartyName(partyId: string) {
+  const party = electoralPeriod.parties.find(party => party.id === partyId);
+  return party ? party.name : '';
+}
+
+function formatDate(date: string) {
+  return new Date(date).toLocaleDateString('de-DE', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  });
+}
+
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+  {persons.map(person =>
+    <a
+      href={`/ep/${electoralPeriod.id}/person/${person.id}`}
+      class="relative col-span-1 flex flex-col rounded-lg bg-white text-center shadow self-start"
+    >
+      <div
+        class="px-4 py-5 sm:px-6"
+        class:list={[
+          {'opacity-50': person.end}
+        ]}
+      >
+        <h3 class="text-base font-semibold text-gray-900">{person.name}</h3>
+        <span class="text-sm text-gray-600">{person.party}</span>
+        {person.end &&
+          <span class="text-sm text-gray-600">Ratsmitglied bis {formatDate(person.end)}</span>
+        }
+      </div>
+    </a>
+  )}
+</div>

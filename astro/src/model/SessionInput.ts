@@ -1,6 +1,6 @@
-import type { SessionConfig } from '../../../src/scripts/shared/model/session-config.ts';
-import type { SessionScan } from '../../../src/scripts/shared/model/session-scan.ts';
-import type { SessionSpeech } from '../../../src/scripts/shared/model/session-speech.ts';
+import type { SessionConfig } from './session-config.ts';
+import type { SessionScan } from './session-scan.ts';
+import type { SessionSpeech } from './session-speech.ts';
 
 export type SessionInput = {
   sessionId: string;

@@ -88,8 +88,8 @@
             <td class="d-flex flex-column">
               <span>{{ application.type }}</span>
               <span *ngIf="application.paperId">
-              <a [routerLink]="['/paper']" [queryParams]="{ paperId: application.paperId }">{{ application.applicationId }}</a>
-            </span>
+                <a [routerLink]="['/paper']" [queryParams]="{ paperId: application.paperId }">{{ application.applicationId }}</a>
+              </span>
               <span *ngIf="!application.paperId">{{ application.applicationId }}</span>
             </td>
             <td>

@@ -1,0 +1,258 @@
+---
+import type { Registry,RegistryFaction } from '../../../../../model/registry';
+import {
+  getAbstentionRateHistory,
+  getApplicationSuccessRateHistory,
+  getParticipationRateHistory,
+  getUniformityScoreHistory,
+  getVotingsSuccessRateHistory
+} from './_helpers';
+import type { SessionInput } from '../../../../../model/SessionInput';
+
+type Props = {
+  electoralPeriod: Registry;
+  faction: RegistryFaction;
+  sessionInputs: SessionInput[];
+};
+
+const { electoralPeriod, faction, sessionInputs } = Astro.props as Props;
+
+const applicationSuccessRate = getApplicationSuccessRateHistory(faction, sessionInputs);
+const votingsSuccessRate = getVotingsSuccessRateHistory(faction, sessionInputs);
+const uniformityScore = getUniformityScoreHistory(faction, sessionInputs);
+const participationRate = getParticipationRateHistory(faction, sessionInputs);
+const abstentionRate = getAbstentionRateHistory(faction, sessionInputs);
+
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+  <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+    <div class="px-4 py-3 sm:px-6 text-center">Erfolgreiche Anträge</div>
+    <div class="p-6">
+      <h2 class="text-base font-semibold text-gray-900 text-center">84,8%</h2>
+      <p class="text-sm py-2 text-gray-600 text-center">
+        Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde.
+      </p>
+      <canvas id="applicationSuccessRateChart"></canvas>
+    </div>
+  </div>
+
+  <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+    <div class="px-4 py-3 sm:px-6 text-center">Abstimmungserfolg</div>
+    <div class="px-4 py-5 sm:p-6">
+      <h2 class="text-base font-semibold text-gray-900 text-center">85,1%</h2>
+      <p class="text-sm py-2 text-gray-600 text-center">
+        Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmte.
+      </p>
+      <canvas id="votingsSuccessRateChart"></canvas>
+    </div>
+  </div>
+
+  <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+    <div class="px-4 py-3 sm:px-6 text-center">Geschlossenheit</div>
+    <div class="px-4 py-5 sm:p-6">
+      <h2 class="text-base font-semibold text-gray-900 text-center">0,821</h2>
+      <p class="text-sm py-2 text-gray-600 text-center">
+        Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion.
+      </p>
+      <canvas id="uniformityScoreChart"></canvas>
+    </div>
+  </div>
+
+  <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+    <div class="px-4 py-3 sm:px-6 text-center">Abstimmungsteilnahme</div>
+    <div class="px-4 py-5 sm:p-6">
+      <h2 class="text-base font-semibold text-gray-900 text-center">73,7%</h2>
+      <p class="text-sm py-2 text-gray-600 text-center">
+        Gibt an, wie häufig die Fraktionsmitglieder an Abstimmungen teilgenommen haben.
+      </p>
+      <canvas id="participationRateChart"></canvas>
+    </div>
+  </div>
+
+  <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+    <div class="px-4 py-3 sm:px-6 text-center">Stimmenthaltungen</div>
+    <div class="px-4 py-5 sm:p-6">
+      <h2 class="text-base font-semibold text-gray-900 text-center">14,3%</h2>
+      <p class="text-sm py-2 text-gray-600 text-center">
+        Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren.
+      </p>
+      <canvas id="abstentionRateChart"></canvas>
+    </div>
+  </div>
+
+</div>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+<script is:inline define:vars={{ applicationSuccessRate }}>
+
+  const applicationSuccessRateChartData = {
+    datasets: [{
+      data: applicationSuccessRate,
+      fill: 'origin',
+      backgroundColor: 'rgba(219, 234, 254, 1)',
+      borderColor: 'rgba(96, 165, 250, 0.6)',
+    }]
+  };
+  const applicationsSuccessRateChartOptions = {
+    elements: { line: { tension: 0.5 } },
+    scales: {
+      x: { type: 'time' },
+      y: {
+        ticks: {
+          callback: value => `${(value * 100).toFixed(1)}%`
+        }
+      }
+    },
+    plugins: { legend: false }
+  };
+
+  const applicationSuccessRateChartCtx = document.getElementById('applicationSuccessRateChart');
+  new Chart(
+    applicationSuccessRateChartCtx,
+    {
+      type: 'line',
+      data: applicationSuccessRateChartData,
+      options: applicationsSuccessRateChartOptions
+    });
+
+</script>
+
+<script is:inline define:vars={{ votingsSuccessRate }}>
+
+  const votingsSuccessRateChartData = {
+    datasets: [{
+      data: votingsSuccessRate,
+      fill: 'origin',
+      backgroundColor: 'rgba(219, 234, 254, 1)',
+      borderColor: 'rgba(96, 165, 250, 0.6)',
+    }]
+  };
+  const votingsSuccessRateChartOptions = {
+    elements: { line: { tension: 0.5 } },
+    scales: {
+      x: { type: 'time' },
+      y: {
+        ticks: {
+          callback: value => `${(value * 100).toFixed(1)}%`
+        }
+      }
+    },
+    plugins: { legend: false }
+  };
+
+  const votingsSuccessRateChartCtx = document.getElementById('votingsSuccessRateChart');
+  new Chart(
+    votingsSuccessRateChartCtx,
+    {
+      type: 'line',
+      data: votingsSuccessRateChartData,
+      options: votingsSuccessRateChartOptions
+    });
+
+</script>
+
+<script is:inline define:vars={{ uniformityScore }}>
+
+  const uniformityScoreChartData = {
+    datasets: [{
+      data: uniformityScore,
+      fill: 'origin',
+      backgroundColor: 'rgba(219, 234, 254, 1)',
+      borderColor: 'rgba(96, 165, 250, 0.6)',
+    }]
+  };
+  const uniformityScoreChartOptions = {
+    elements: { line: { tension: 0.5 } },
+    scales: {
+      x: { type: 'time' },
+      y: {
+        ticks: {
+          callback: value => value.toFixed(3)
+        }
+      }
+    },
+    plugins: { legend: false }
+  };
+
+  const uniformityScoreChartCtx = document.getElementById('uniformityScoreChart');
+  new Chart(
+    uniformityScoreChartCtx,
+    {
+      type: 'line',
+      data: uniformityScoreChartData,
+      options: uniformityScoreChartOptions
+    });
+
+</script>
+
+<script is:inline define:vars={{ participationRate }}>
+
+  const participationRateChartData = {
+    datasets: [{
+      data: participationRate,
+      fill: 'origin',
+      backgroundColor: 'rgba(219, 234, 254, 1)',
+      borderColor: 'rgba(96, 165, 250, 0.6)',
+    }]
+  };
+  const participationRateChartOptions = {
+    elements: { line: { tension: 0.5 } },
+    scales: {
+      x: { type: 'time' },
+      y: {
+        ticks: {
+          callback: value => `${(value * 100).toFixed(1)}%`
+        }
+      }
+    },
+    plugins: { legend: false }
+  };
+
+  const participationRateChartCtx = document.getElementById('participationRateChart');
+  new Chart(
+    participationRateChartCtx,
+    {
+      type: 'line',
+      data: participationRateChartData,
+      options: participationRateChartOptions
+    });
+
+</script>
+
+<script is:inline define:vars={{ abstentionRate }}>
+
+  const abstentionRateChartData = {
+    datasets: [{
+      data: abstentionRate,
+      fill: 'origin',
+      backgroundColor: 'rgba(219, 234, 254, 1)',
+      borderColor: 'rgba(96, 165, 250, 0.6)',
+    }]
+  };
+  const abstentionRateChartOptions = {
+    elements: { line: { tension: 0.5 } },
+    scales: {
+      x: { type: 'time' },
+      y: {
+        ticks: {
+          callback: value => `${(value * 100).toFixed(1)}%`
+        }
+      }
+    },
+    plugins: { legend: false }
+  };
+
+  const abstentionRateChartCtx = document.getElementById('abstentionRateChart');
+  new Chart(
+    abstentionRateChartCtx,
+    {
+      type: 'line',
+      data: abstentionRateChartData,
+      options: abstentionRateChartOptions
+    });
+
+</script>

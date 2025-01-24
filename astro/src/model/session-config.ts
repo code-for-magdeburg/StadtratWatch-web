@@ -1,4 +1,5 @@
 export type SessionConfig = {
+  date: string;
   youtubeUrl: string;
   layout: SessionConfigLayout;
   names: SessionConfigPerson[];

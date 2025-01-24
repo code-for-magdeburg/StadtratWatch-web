@@ -4,6 +4,12 @@ import type { SessionScanItem } from '../model/session-scan.ts';
 import { VoteResult, VotingResult } from '../model/Session.ts';
 
 
+type VotingsSuccessForSession = {
+  successfulVotings: number;
+  totalVotings: number;
+};
+
+
 export class VotingSuccess {
 
 
@@ -23,6 +29,19 @@ export class VotingSuccess {
     );
 
     return allVotings.length === 0 ? 0 : successfulVotings.length / allVotings.length;
+
+  }
+
+
+  public historyForFaction(faction: RegistryFaction): { date: string, value: number }[] {
+
+    return this.sessions
+      .map(session => {
+        const sessions = this.sessions.filter(s => s.config.date <= session.config.date);
+        const value = this.calcFactionVotingSuccessRate(faction, sessions);
+        return { date: session.config.date, value };
+      })
+      .toSorted((a, b) => a.date.localeCompare(b.date));
 
   }
 
@@ -51,6 +70,18 @@ export class VotingSuccess {
   }
 
 
+  private calcFactionVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number {
+
+    const votingsSuccessPerSession = sessions.map(session => this.calcFactionVotingSuccessForSession(faction, session));
+
+    const successfulVotings = votingsSuccessPerSession.reduce((a, b) => a + b.successfulVotings, 0);
+    const totalVotings = votingsSuccessPerSession.reduce((a, b) => a + b.totalVotings, 0);
+
+    return totalVotings === 0 ? 0 : successfulVotings / totalVotings;
+
+  }
+
+
   private calcVotingResult(voting: SessionScanItem): VotingResult {
     const votedFor = voting.votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
     const votedAgainst = voting.votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
@@ -69,6 +100,21 @@ export class VotingSuccess {
     return personsVotes.length > 0 && votedFor > votedAgainst
       ? VotingResult.PASSED
       : VotingResult.REJECTED;
+  }
+
+
+  private calcFactionVotingSuccessForSession(faction: RegistryFaction, session: SessionInput): VotingsSuccessForSession {
+
+    const persons = session.config.names
+      .filter(name => name.faction === faction.name)
+      .map(name => name.name);
+
+    const successfulVotings = session.votings
+      .filter(voting => this.isPersonsVotingSuccessful(persons, voting))
+      .length;
+
+    return { successfulVotings, totalVotings: session.votings.length };
+
   }
 
 
