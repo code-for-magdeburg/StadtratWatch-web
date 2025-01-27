@@ -1,10 +1,9 @@
 ---
-import type { Registry,RegistryFaction } from '../../../../../model/registry';
+import type { Registry,RegistryParty } from '../../../../../model/registry';
 import {
   formatNumber,
   formatPercent, getAbstentionRate,
-  getAbstentionRateHistory, getApplicationSuccessRate,
-  getApplicationSuccessRateHistory, getParticipationRate,
+  getAbstentionRateHistory, getParticipationRate,
   getParticipationRateHistory, getUniformityScore,
   getUniformityScoreHistory, getVotingsSuccessRate,
   getVotingsSuccessRateHistory
@@ -13,44 +12,31 @@ import type { SessionInput } from '../../../../../model/SessionInput';
 
 type Props = {
   electoralPeriod: Registry;
-  faction: RegistryFaction;
+  party: RegistryParty;
   sessionInputs: SessionInput[];
 };
 
-const { electoralPeriod, faction, sessionInputs } = Astro.props as Props;
+const { electoralPeriod, party, sessionInputs } = Astro.props as Props;
 
-const applicationSuccessRate = getApplicationSuccessRate(faction, sessionInputs);
-const applicationSuccessRateHistory = getApplicationSuccessRateHistory(faction, sessionInputs);
-const votingsSuccessRate = getVotingsSuccessRate(faction, sessionInputs);
-const votingsSuccessRateHistory = getVotingsSuccessRateHistory(faction, sessionInputs);
-const uniformityScore = getUniformityScore(faction, sessionInputs);
-const uniformityScoreHistory = getUniformityScoreHistory(faction, sessionInputs);
-const participationRate = getParticipationRate(faction, sessionInputs);
-const participationRateHistory = getParticipationRateHistory(faction, sessionInputs);
-const abstentionRate = getAbstentionRate(faction, sessionInputs);
-const abstentionRateHistory = getAbstentionRateHistory(faction, sessionInputs);
+const votingsSuccessRate = getVotingsSuccessRate(party, sessionInputs);
+const votingsSuccessRateHistory = getVotingsSuccessRateHistory(party, sessionInputs);
+const uniformityScore = getUniformityScore(party, sessionInputs);
+const uniformityScoreHistory = getUniformityScoreHistory(party, sessionInputs);
+const participationRate = getParticipationRate(party, sessionInputs);
+const participationRateHistory = getParticipationRateHistory(party, sessionInputs);
+const abstentionRate = getAbstentionRate(party, sessionInputs);
+const abstentionRateHistory = getAbstentionRateHistory(party, sessionInputs);
 
 ---
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
   <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
-    <div class="px-4 py-3 sm:px-6 text-center">Erfolgreiche Anträge</div>
-    <div class="p-6">
-      <h2 class="text-base font-semibold text-gray-900 text-center">{formatPercent(applicationSuccessRate)}</h2>
-      <p class="text-sm py-2 text-gray-600 text-center">
-        Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde.
-      </p>
-      <canvas id="applicationSuccessRateChart"></canvas>
-    </div>
-  </div>
-
-  <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
     <div class="px-4 py-3 sm:px-6 text-center">Abstimmungserfolg</div>
     <div class="px-4 py-5 sm:p-6">
       <h2 class="text-base font-semibold text-gray-900 text-center">{formatPercent(votingsSuccessRate)}</h2>
       <p class="text-sm py-2 text-gray-600 text-center">
-        Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmte.
+        Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Partei übereinstimmte.
       </p>
       <canvas id="votingsSuccessRateChart"></canvas>
     </div>
@@ -61,7 +47,7 @@ const abstentionRateHistory = getAbstentionRateHistory(faction, sessionInputs);
     <div class="px-4 py-5 sm:p-6">
       <h2 class="text-base font-semibold text-gray-900 text-center">{formatNumber(uniformityScore, 3)}</h2>
       <p class="text-sm py-2 text-gray-600 text-center">
-        Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion.
+        Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Parteimitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Partei.
       </p>
       <canvas id="uniformityScoreChart"></canvas>
     </div>
@@ -72,7 +58,7 @@ const abstentionRateHistory = getAbstentionRateHistory(faction, sessionInputs);
     <div class="px-4 py-5 sm:p-6">
       <h2 class="text-base font-semibold text-gray-900 text-center">{formatPercent(participationRate)}</h2>
       <p class="text-sm py-2 text-gray-600 text-center">
-        Gibt an, wie häufig die Fraktionsmitglieder an Abstimmungen teilgenommen haben.
+        Gibt an, wie häufig die Parteimitglieder an Abstimmungen teilgenommen haben.
       </p>
       <canvas id="participationRateChart"></canvas>
     </div>
@@ -93,40 +79,6 @@ const abstentionRateHistory = getAbstentionRateHistory(faction, sessionInputs);
 
 <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script is:inline src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-
-<script is:inline define:vars={{ applicationSuccessRateHistory }}>
-
-  const applicationSuccessRateChartData = {
-    datasets: [{
-      data: applicationSuccessRateHistory,
-      fill: 'origin',
-      backgroundColor: 'rgba(219, 234, 254, 1)',
-      borderColor: 'rgba(96, 165, 250, 0.6)',
-    }]
-  };
-  const applicationsSuccessRateChartOptions = {
-    elements: { line: { tension: 0.5 } },
-    scales: {
-      x: { type: 'time' },
-      y: {
-        ticks: {
-          callback: value => `${(value * 100).toFixed(1)}%`
-        }
-      }
-    },
-    plugins: { legend: false }
-  };
-
-  const applicationSuccessRateChartCtx = document.getElementById('applicationSuccessRateChart');
-  new Chart(
-    applicationSuccessRateChartCtx,
-    {
-      type: 'line',
-      data: applicationSuccessRateChartData,
-      options: applicationsSuccessRateChartOptions
-    });
-
-</script>
 
 <script is:inline define:vars={{ votingsSuccessRateHistory }}>
 
