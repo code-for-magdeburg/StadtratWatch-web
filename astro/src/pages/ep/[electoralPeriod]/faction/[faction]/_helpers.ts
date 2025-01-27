@@ -14,6 +14,24 @@ export enum ApplicationResult {
   REJECTED = 'REJECTED',
 }
 
+export function formatNumber(value: number, digits: number): string {
+  return value.toLocaleString(
+    'de-DE',
+    { minimumFractionDigits: digits, maximumFractionDigits: digits }
+  );
+}
+
+export function formatPercent(value: number): string {
+  return `${(value * 100).toLocaleString(
+    'de-DE',
+    { minimumFractionDigits: 1, maximumFractionDigits: 1 }
+  )}%`;
+}
+
+export function formatVotingDate(date: string): string {
+  return new Date(date).toLocaleString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+}
+
 export function getVotingResult(votes: SessionVote[]): VotingResult {
   const votedFor = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
   const votedAgainst = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
@@ -35,8 +53,9 @@ export function getApplicationResult(votings: { votingResult: VotingResult }[]):
       : ApplicationResult.PARTIALLY_ACCEPTED;
 }
 
-export function formatVotingDate(date: string): string {
-  return new Date(date).toLocaleString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+export function getApplicationSuccessRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number {
+  const applicationSuccessRate = new ApplicationsSuccess(sessionInputs);
+  return applicationSuccessRate.forFaction(faction);
 }
 
 export function getApplicationSuccessRateHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
@@ -46,11 +65,21 @@ export function getApplicationSuccessRateHistory(faction: RegistryFaction, sessi
     .map(({ date, value }) => ({ x: date, y: value }));
 }
 
+export function getVotingsSuccessRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number {
+  const votingSuccessRate = new VotingSuccess(sessionInputs);
+  return votingSuccessRate.forFaction(faction);
+}
+
 export function getVotingsSuccessRateHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
   const votingSuccessRate = new VotingSuccess(sessionInputs);
   return votingSuccessRate
     .historyForFaction(faction)
     .map(({ date, value }) => ({ x: date, y: value }));
+}
+
+export function getUniformityScore(faction: RegistryFaction, sessionInputs: SessionInput[]): number {
+  const uniformityScore = new UniformityScore(sessionInputs);
+  return uniformityScore.forFaction(faction);
 }
 
 export function getUniformityScoreHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
@@ -60,11 +89,21 @@ export function getUniformityScoreHistory(faction: RegistryFaction, sessionInput
     .map(({ date, value }) => ({ x: date, y: value }));
 }
 
+export function getParticipationRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number {
+  const participationRate = new ParticipationRate(sessionInputs);
+  return participationRate.forFaction(faction);
+}
+
 export function getParticipationRateHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
   const participationRate = new ParticipationRate(sessionInputs);
   return participationRate
     .historyForFaction(faction)
     .map(({ date, value }) => ({ x: date, y: value }));
+}
+
+export function getAbstentionRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number {
+  const abstentionRate = new AbstentionRate(sessionInputs);
+  return abstentionRate.forFaction(faction);
 }
 
 export function getAbstentionRateHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
