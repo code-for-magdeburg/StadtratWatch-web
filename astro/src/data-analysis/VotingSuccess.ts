@@ -62,6 +62,19 @@ export class VotingSuccess {
   }
 
 
+  public historyForParty(party: RegistryParty): { date: string, value: number }[] {
+
+    return this.sessions
+      .map(session => {
+        const sessions = this.sessions.filter(s => s.config.date <= session.config.date);
+        const value = this.calcPartyVotingSuccessRate(party, sessions);
+        return { date: session.config.date, value };
+      })
+      .toSorted((a, b) => a.date.localeCompare(b.date));
+
+  }
+
+
   private isPersonsVotingSuccessful(persons: string[], voting: SessionScanItem): boolean {
     const votingResult = this.calcVotingResult(voting);
     const personsVotingResult = this.calcPersonsVotingResult(persons, voting);
@@ -107,6 +120,33 @@ export class VotingSuccess {
 
     const persons = session.config.names
       .filter(name => name.faction === faction.name)
+      .map(name => name.name);
+
+    const successfulVotings = session.votings
+      .filter(voting => this.isPersonsVotingSuccessful(persons, voting))
+      .length;
+
+    return { successfulVotings, totalVotings: session.votings.length };
+
+  }
+
+
+  private calcPartyVotingSuccessRate(party: RegistryParty, sessions: SessionInput[]): number {
+
+    const votingsSuccessPerSession = sessions.map(session => this.calcPartyVotingSuccessForSession(party, session));
+
+    const successfulVotings = votingsSuccessPerSession.reduce((a, b) => a + b.successfulVotings, 0);
+    const totalVotings = votingsSuccessPerSession.reduce((a, b) => a + b.totalVotings, 0);
+
+    return totalVotings === 0 ? 0 : successfulVotings / totalVotings;
+
+  }
+
+
+  private calcPartyVotingSuccessForSession(party: RegistryParty, session: SessionInput): VotingsSuccessForSession {
+
+    const persons = session.config.names
+      .filter(name => name.party === party.name)
       .map(name => name.name);
 
     const successfulVotings = session.votings

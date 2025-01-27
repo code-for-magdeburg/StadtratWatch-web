@@ -51,6 +51,21 @@ export class ParticipationRate {
   }
 
 
+  public historyForParty(party: RegistryParty): { date: string, value: number }[] {
+
+    return this.sessions
+      .map(session => {
+        const sessions = this.sessions.filter(s => s.config.date <= session.config.date);
+        const value = this.calcPartyParticipationRate(party, sessions);
+        return { date: session.config.date, value };
+      })
+      .filter(({ value }) => value !== null)
+      .map(({ date, value }) => ({ date, value: value! }))
+      .toSorted((a, b) => a.date.localeCompare(b.date));
+
+  }
+
+
   private calcParticipationRate(persons: string[], voting: SessionScanItem): number {
     return this.countVotesInVoting(persons, voting) / persons.length;
   }
@@ -58,7 +73,7 @@ export class ParticipationRate {
 
   private calcFactionParticipationRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
 
-    const votesPerSession = sessions.map(session => this.countVotesInSession(faction, session));
+    const votesPerSession = sessions.map(session => this.countFactionVotesInSession(faction, session));
     const votes = votesPerSession.reduce((a, b) => a + b, 0);
 
     const totalVotesPerSession = sessions.map(session => session.votings.length * faction.seats);
@@ -69,8 +84,29 @@ export class ParticipationRate {
   }
 
 
-  private countVotesInSession(faction: RegistryFaction, session: SessionInput): number {
+  private calcPartyParticipationRate(party: RegistryParty, sessions: SessionInput[]): number | null {
+
+    const votesPerSession = sessions.map(session => this.countPartyVotesInSession(party, session));
+    const votes = votesPerSession.reduce((a, b) => a + b, 0);
+
+    const totalVotesPerSession = sessions.map(session => session.votings.length * party.seats);
+    const totalVotes = totalVotesPerSession.reduce((a, b) => a + b, 0);
+
+    return totalVotes === 0 ? null : votes / totalVotes;
+
+  }
+
+
+  private countFactionVotesInSession(faction: RegistryFaction, session: SessionInput): number {
     const persons = session.config.names.filter(name => name.faction === faction.name).map(name => name.name);
+    return session.votings
+      .map(voting => this.countVotesInVoting(persons, voting))
+      .reduce((a, b) => a + b, 0);
+  }
+
+
+  private countPartyVotesInSession(party: RegistryParty, session: SessionInput): number {
+    const persons = session.config.names.filter(name => name.party === party.name).map(name => name.name);
     return session.votings
       .map(voting => this.countVotesInVoting(persons, voting))
       .reduce((a, b) => a + b, 0);

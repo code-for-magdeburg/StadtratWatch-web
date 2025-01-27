@@ -52,6 +52,21 @@ export class AbstentionRate {
   }
 
 
+  public historyForParty(party: RegistryParty): { date: string, value: number }[] {
+
+    return this.sessions
+      .map(session => {
+        const sessions = this.sessions.filter(s => s.config.date <= session.config.date);
+        const value = this.calcPartyAbstentionRate(party, sessions);
+        return { date: session.config.date, value };
+      })
+      .filter(({ value }) => value !== null)
+      .map(({ date, value }) => ({ date, value: value! }))
+      .toSorted((a, b) => a.date.localeCompare(b.date));
+
+  }
+
+
   private calcAbstentionRate(persons: string[], voting: SessionScanItem): number {
     const allVotes = voting.votes
       .filter(vote => persons.includes(vote.name))
@@ -64,7 +79,7 @@ export class AbstentionRate {
   private calcFactionAbstentionRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
 
     const abstentionRatePerSession = sessions
-      .map(session => this.calcAbstentionRateForSession(faction, session))
+      .map(session => this.calcFactionAbstentionRateForSession(faction, session))
       .filter(rate => rate !== null)
       .map(rate => rate!);
 
@@ -77,9 +92,42 @@ export class AbstentionRate {
   }
 
 
-  private calcAbstentionRateForSession(faction: RegistryFaction, session: SessionInput): number | null {
+  private calcFactionAbstentionRateForSession(faction: RegistryFaction, session: SessionInput): number | null {
 
     const persons = session.config.names.filter(name => name.faction === faction.name).map(name => name.name);
+    const abstentionRatePerVoting = session.votings
+      .map(voting => this.calcAbstentionRate(persons, voting))
+      .filter(rate => rate !== null)
+      .map(rate => rate!);
+
+    if (abstentionRatePerVoting.length === 0) {
+      return null;
+    }
+
+    return abstentionRatePerVoting.reduce((a, b) => a + b, 0) / abstentionRatePerVoting.length;
+
+  }
+
+
+  private calcPartyAbstentionRate(party: RegistryParty, sessions: SessionInput[]): number | null {
+
+    const abstentionRatePerSession = sessions
+      .map(session => this.calcPartyAbstentionRateForSession(party, session))
+      .filter(rate => rate !== null)
+      .map(rate => rate!);
+
+    if (abstentionRatePerSession.length === 0) {
+      return null;
+    }
+
+    return abstentionRatePerSession.reduce((a, b) => a + b, 0) / abstentionRatePerSession.length;
+
+  }
+
+
+  private calcPartyAbstentionRateForSession(party: RegistryParty, session: SessionInput): number | null {
+
+    const persons = session.config.names.filter(name => name.party === party.name).map(name => name.name);
     const abstentionRatePerVoting = session.votings
       .map(voting => this.calcAbstentionRate(persons, voting))
       .filter(rate => rate !== null)

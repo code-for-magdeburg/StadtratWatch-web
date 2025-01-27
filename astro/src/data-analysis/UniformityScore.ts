@@ -54,6 +54,21 @@ export class UniformityScore {
    }
 
 
+   public historyForParty(party: RegistryParty): { date: string, value: number }[] {
+
+     return this.sessions
+       .map(session => {
+         const sessions = this.sessions.filter(s => s.config.date <= session.config.date);
+         const value = this.calcPartyUniformityScore(party, sessions);
+         return { date: session.config.date, value };
+       })
+       .filter(({ value }) => value !== null)
+       .map(({ date, value }) => ({ date, value: value! }))
+       .toSorted((a, b) => a.date.localeCompare(b.date));
+
+   }
+
+
    private calcUniformityScore(persons: string[], voting: SessionScanItem): number | null {
 
      let votesFor = 0;
@@ -113,6 +128,40 @@ export class UniformityScore {
 
      const persons = session.config.names
        .filter(name => name.faction === faction.name)
+       .map(name => name.name);
+
+     const uniformityScorePerVoting = session.votings
+       .map(voting => this.calcUniformityScore(persons, voting))
+       .filter(score => score !== null) as number[];
+
+      if (uniformityScorePerVoting.length === 0) {
+        return null;
+      }
+
+      return uniformityScorePerVoting.reduce((a, b) => a + b, 0) / uniformityScorePerVoting.length;
+
+   }
+
+
+   private calcPartyUniformityScore(party: RegistryParty, sessions: SessionInput[]): number | null {
+
+     const uniformityScoresPerSession = sessions
+       .map(session => this.calcPartyUniformityScoreForSession(party, session))
+       .filter(score => score !== null) as number[];
+
+     if (uniformityScoresPerSession.length === 0) {
+       return null;
+     }
+
+     return uniformityScoresPerSession.reduce((a, b) => a + b, 0) / uniformityScoresPerSession.length;
+
+   }
+
+
+   private calcPartyUniformityScoreForSession(party: RegistryParty, session: SessionInput): number | null {
+
+     const persons = session.config.names
+       .filter(name => name.party === party.name)
        .map(name => name.name);
 
      const uniformityScorePerVoting = session.votings

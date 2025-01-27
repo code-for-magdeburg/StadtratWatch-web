@@ -1,23 +1,134 @@
 ---
-import Layout from '../../../../../layouts/Layout.astro';
-import type { InferGetStaticPropsType, InferGetStaticParamsType, GetStaticPaths } from 'astro';
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import type { SessionInput } from '../../../../../model/SessionInput';
+import type { Registry } from '../../../../../model/registry';
+import BreadcrumbMenuLayout from '../../../../../layouts/BreadcrumbMenuLayout.astro';
+import CouncilMembersComponent from './_council-members.astro';
+import StatisticsComponent from './_statistics.astro';
+
+type Props = {
+  electoralPeriod: Registry;
+  sessionInputs: SessionInput[];
+};
 
 export const getStaticPaths = (async () => {
-  return [
-    { params: { electoralPeriod: 'magdeburg-7', party: 'party-1' }},
-    { params: { electoralPeriod: 'magdeburg-7', party: 'party-2' }},
-    { params: { electoralPeriod: 'magdeburg-8', party: 'party-1' }},
-    { params: { electoralPeriod: 'magdeburg-8', party: 'party-2' }}
-  ];
+
+  const electoralPeriodsCollection = await getCollection('electoralPeriods');
+  const sessionConfigsCollection = await getCollection('sessionConfigs');
+  const sessionSpeechesCollection = await getCollection('sessionSpeeches');
+  const sessionScansCollection = await getCollection('sessionScans');
+
+  return electoralPeriodsCollection.flatMap(electoralPeriod =>
+    electoralPeriod.data.parties.map(party => {
+
+      const sessionConfigs = sessionConfigsCollection
+        .filter(sessionConfig => sessionConfig.id.startsWith(`${electoralPeriod.id}/`))
+        .map(sessionConfig => ({ sessionId: sessionConfig.id, config: sessionConfig.data }));
+      const sessionScans = sessionScansCollection
+        .filter(sessionScan => sessionScan.id.startsWith(`${electoralPeriod.id}/`))
+        .map(sessionScan => ({ sessionId: sessionScan.id, scan: sessionScan.data }));
+      const sessionSpeeches = sessionSpeechesCollection
+        .filter(sessionSpeech => sessionSpeech.id.startsWith(`${electoralPeriod.id}/`))
+        .map(sessionSpeech => ({ sessionId: sessionSpeech.id, speeches: sessionSpeech.data }));
+
+      const sessionInputs = sessionConfigs.map(sessionConfig => {
+        const sessionScan = sessionScans.find(
+          sessionScan => sessionScan.sessionId === sessionConfig.sessionId
+        );
+        const speeches = sessionSpeeches
+          .filter(sessionSpeech => sessionSpeech.sessionId === sessionConfig.sessionId)
+          .flatMap(sessionSpeech => sessionSpeech.speeches);
+        return {
+          sessionId: sessionConfig.config.date,
+          config: sessionConfig.config,
+          votings: sessionScan?.scan || [],
+          speeches
+        } as SessionInput;
+      });
+
+      return {
+        params: { electoralPeriod: electoralPeriod.id, party: party.id },
+        props: { electoralPeriod: electoralPeriod.data, sessionInputs }
+      };
+
+    })
+  );
+
 }) satisfies GetStaticPaths;
 
-type Params = InferGetStaticParamsType<typeof getStaticPaths>;
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-
-const { electoralPeriod, party } = Astro.params as Params;
+const { electoralPeriod, sessionInputs } = Astro.props as Props;
+const party = electoralPeriod.parties.find(party => party.id === Astro.params.party)!;
 
 ---
-<Layout>
-  Electoral Period { electoralPeriod }<br>
-  Party { party }
-</Layout>
+<BreadcrumbMenuLayout
+  electoralPeriod={electoralPeriod}
+  breadcrumbMenuItems={[{ title: 'Parteien', url: `/ep/${electoralPeriod.id}/parties` }]}
+  pageTitle={party.name}
+>
+
+  <h1 class="text-3xl font-bold text-gray-900 sm:tracking-tight">{party.name}</h1>
+
+  <div
+    x-data={`{
+      currentTab: 'council-members',
+      electoralPeriodId: '${electoralPeriod.id}',
+      partyId: '${party.id}'
+      }`}
+  >
+
+    <div class="border-b border-gray-200 pb-5 sm:pb-0" >
+      <div class="mt-5 sm:mt-10">
+        <div class="grid grid-cols-1 sm:hidden">
+          <select
+            aria-label="Wähle eine Unterseite aus"
+            class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-2 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+            @change="currentTab = event.target.value"
+          >
+            <option :selected="currentTab === 'council-members'" value="council-members">Ratsmitglieder</option>
+            <option :selected="currentTab === 'statistics'" value="statistics">Statistiken</option>
+          </select>
+          <svg class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end fill-gray-500" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon">
+            <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+          </svg>
+        </div>
+
+        <div class="hidden sm:block">
+          <nav class="-mb-px flex space-x-8">
+            <a
+              @click="currentTab = 'council-members'"
+              href="javascript:void(0)"
+              class="whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium"
+              :class="currentTab === 'council-members' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+              :aria-current="currentTab === 'council-members' ? 'page' : null"
+            >Ratsmitglieder</a>
+            <a
+              @click="currentTab = 'statistics'"
+              href="javascript:void(0)"
+              class="whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium"
+              :class="currentTab === 'statistics' ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+              :aria-current="currentTab === 'statistics' ? 'page' : null"
+            >Statistiken</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div x-cloak x-show="currentTab === 'council-members'" class="py-3 md:py-5 md:px-20 lg:px-48">
+      <CouncilMembersComponent
+        electoralPeriod={electoralPeriod}
+        party={party}
+      ></CouncilMembersComponent>
+    </div>
+
+    <div x-cloak x-show="currentTab === 'statistics'" class="py-3 md:py-5 md:px-20 lg:px-48">
+      <StatisticsComponent
+        electoralPeriod={electoralPeriod}
+        party={party}
+        sessionInputs={sessionInputs}
+      ></StatisticsComponent>
+    </div>
+
+  </div>
+
+</BreadcrumbMenuLayout>
