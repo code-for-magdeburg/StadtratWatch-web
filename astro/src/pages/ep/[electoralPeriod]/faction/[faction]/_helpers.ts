@@ -101,7 +101,7 @@ export function getParticipationRateHistory(faction: RegistryFaction, sessionInp
     .map(({ date, value }) => ({ x: date, y: value }));
 }
 
-export function getAbstentionRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number {
+export function getAbstentionRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number | null {
   const abstentionRate = new AbstentionRate(sessionInputs);
   return abstentionRate.forFaction(faction);
 }
