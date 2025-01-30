@@ -1,6 +1,6 @@
 import type { SessionInput } from '../model/SessionInput.ts';
-import type { RegistryFaction, RegistryParty } from '../model/registry.ts';
-import type { SessionScanItem } from '../model/session-scan.ts';
+import type { RegistryFaction, RegistryParty, RegistryPerson } from '../model/registry.ts';
+import type { SessionScanItem, SessionVote } from '../model/session-scan.ts';
 import { VoteResult, VotingResult } from '../model/Session.ts';
 
 
@@ -71,6 +71,35 @@ export class VotingSuccess {
         return { date: session.config.date, value };
       })
       .toSorted((a, b) => a.date.localeCompare(b.date));
+
+  }
+
+
+  public forPerson(person: RegistryPerson): number {
+
+    const votingSuccess = this.sessions
+      .filter(session => session.config.names.some(name => name.name === person.name))
+      .flatMap(session => session.votings)
+      .filter(voting =>
+        // TODO: To be decided => Different results if the abstentions are counted as success or not
+        //  or if the they are not counted at all
+        voting.votes.some(vote => vote.name === person.name && vote.vote !== VoteResult.DID_NOT_VOTE)
+      )
+      .map(voting => {
+        const personVote = voting.votes.find(vote => vote.name === person.name)!.vote;
+        const votingResult = this.getVotingResult(voting.votes);
+        return personVote === VoteResult.VOTE_FOR && votingResult === VotingResult.PASSED
+          || personVote === VoteResult.VOTE_AGAINST && votingResult === VotingResult.REJECTED;
+      });
+
+    if (votingSuccess.length === 0) {
+      return 0;
+    }
+
+    const successCount = votingSuccess.filter(success => success).length;
+    const totalCount = votingSuccess.length;
+
+    return successCount / totalCount;
 
   }
 
@@ -155,6 +184,13 @@ export class VotingSuccess {
 
     return { successfulVotings, totalVotings: session.votings.length };
 
+  }
+
+
+  private getVotingResult(votes: SessionVote[]): VotingResult {
+    const votedFor = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
+    const votedAgainst = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
+    return votedFor > votedAgainst ? VotingResult.PASSED : VotingResult.REJECTED;
   }
 
 

@@ -2,14 +2,20 @@
 import BreadcrumbMenuLayout from '../../../../layouts/BreadcrumbMenuLayout.astro';
 import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
-import type { Registry, RegistryFaction } from '../../../../model/registry';
+import type { Registry } from '../../../../model/registry';
 import type { SessionInput } from '../../../../model/SessionInput';
-import { VotingSuccess } from '../../../../data-analysis/VotingSuccess';
-import { ApplicationsSuccess } from '../../../../data-analysis/ApplicationsSuccess';
-import { UniformityScore } from '../../../../data-analysis/UniformityScore';
-import { ParticipationRate } from '../../../../data-analysis/ParticipationRate';
-import { AbstentionRate } from '../../../../data-analysis/AbstentionRate';
-import { SpeakingTime } from '../../../../data-analysis/SpeakingTime';
+import {
+  getFactionAbstentionRate,
+  getFactionApplicationsSuccessRate,
+  getFactionParticipationRate,
+  getFactionSpeakingTime,
+  getFactionUniformityScore,
+  getFactionVotingSuccessRate, formatAbstentionRate,
+  formatApplicationsSuccessRate,
+  formatParticipationRate, formatSpeakingTime,
+  formatUniformityScore,
+  formatVotingSuccessRate
+} from './_helpers';
 
 type Props = {
   electoralPeriod: Registry;
@@ -59,98 +65,25 @@ const { electoralPeriod, sessionInputs } = Astro.props as Props;
 
 const factions = electoralPeriod.factions
   .map(faction => {
-    const applicationsSuccessRate = calcFactionApplicationsSuccessRate(faction, sessionInputs);
-    const votingSuccessRate = calcFactionVotingSuccessRate(faction, sessionInputs);
-    const uniformityScore = calcFactionUniformityScore(faction, sessionInputs);
-    const participationRate = calcFactionParticipationRate(faction, sessionInputs);
-    const abstentionRate = calcFactionAbstentionRate(faction, sessionInputs);
-    const speakingTime = calcFactionSpeakingTime(faction, sessionInputs);
+    const applicationsSuccessRate = getFactionApplicationsSuccessRate(faction, sessionInputs);
+    const votingSuccessRate = getFactionVotingSuccessRate(faction, sessionInputs);
+    const uniformityScore = getFactionUniformityScore(faction, sessionInputs);
+    const participationRate = getFactionParticipationRate(faction, sessionInputs);
+    const abstentionRate = getFactionAbstentionRate(faction, sessionInputs);
+    const speakingTime = getFactionSpeakingTime(faction, sessionInputs);
     return {
       id: faction.id,
       name: faction.name,
       seats: faction.seats,
-      applicationsSuccessRate: formatApplicationsSuccessRate(applicationsSuccessRate),
-      votingSuccessRate: formatVotingSuccessRate(votingSuccessRate),
-      uniformityScore: formatUniformityScore(uniformityScore),
-      participationRate: formatParticipationRate(participationRate),
-      abstentionRate: formatAbstentionRate(abstentionRate),
-      speakingTime: formatSpeakingTime(speakingTime)
+      applicationsSuccessRate,
+      votingSuccessRate,
+      uniformityScore,
+      participationRate,
+      abstentionRate,
+      speakingTime
     }
   })
   .toSorted((a, b) => b.seats - a.seats);
-
-
-function calcFactionVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number {
-  const votingSuccess = new VotingSuccess(sessions);
-  return votingSuccess.forFaction(faction);
-}
-
-function calcFactionApplicationsSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number {
-  const applicationsSuccessRate = new ApplicationsSuccess(sessions);
-  return applicationsSuccessRate.forFaction(faction);
-}
-
-function calcFactionUniformityScore(faction: RegistryFaction, sessions: SessionInput[]): number {
-  const uniformityScore = new UniformityScore(sessions);
-  return uniformityScore.forFaction(faction);
-}
-
-function calcFactionParticipationRate(faction: RegistryFaction, sessions: SessionInput[]): number {
-  const participationRate = new ParticipationRate(sessions);
-  return participationRate.forFaction(faction);
-}
-
-function calcFactionAbstentionRate(faction: RegistryFaction, sessions: SessionInput[]): number {
-  const abstentionRate = new AbstentionRate(sessions);
-  return abstentionRate.forFaction(faction);
-}
-
-function calcFactionSpeakingTime(faction: RegistryFaction, sessions: SessionInput[]): number {
-  const speakingTime = new SpeakingTime(sessions);
-  return speakingTime.forFaction(faction);
-}
-
-function formatApplicationsSuccessRate(applicationSuccessRate: number): string {
-  return (applicationSuccessRate * 100).toLocaleString(
-    'de-DE',
-    { minimumFractionDigits: 1, maximumFractionDigits: 1 }
-  );
-}
-
-function formatVotingSuccessRate(votingSuccessRate: number): string {
-  return (votingSuccessRate * 100).toLocaleString(
-    'de-DE',
-    { minimumFractionDigits: 1, maximumFractionDigits: 1 }
-  );
-}
-
-function formatUniformityScore(uniformityScore: number): string {
-  return uniformityScore.toLocaleString(
-    'de-DE',
-    { minimumFractionDigits: 3, maximumFractionDigits: 3 }
-  );
-}
-
-function formatParticipationRate(participationRate: number): string {
-  return (participationRate * 100).toLocaleString(
-    'de-DE',
-    { minimumFractionDigits: 1, maximumFractionDigits: 1 }
-  );
-}
-
-function formatAbstentionRate(abstentionRate: number): string {
-  return (abstentionRate * 100).toLocaleString(
-    'de-DE',
-    { minimumFractionDigits: 1, maximumFractionDigits: 1 }
-  );
-}
-
-function formatSpeakingTime(speakingTime: number): string {
-  const hours = Math.floor(speakingTime / 3600);
-  const minutes = Math.floor((speakingTime % 3600) / 60);
-  const seconds = speakingTime % 60;
-  return `${hours}h ${minutes}m ${seconds}s`;
-}
 
 ---
 <BreadcrumbMenuLayout pageTitle="Fraktionen" electoralPeriod={electoralPeriod}>
@@ -182,12 +115,24 @@ function formatSpeakingTime(speakingTime: number): string {
             >{faction.name}</a>
           </td>
           <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.seats}</td>
-          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.votingSuccessRate}%</td>
-          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.uniformityScore}</td>
-          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.participationRate}%</td>
-          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.abstentionRate}%</td>
-          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.applicationsSuccessRate}%</td>
-          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.speakingTime}</td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
+            {formatVotingSuccessRate(faction.votingSuccessRate)}%
+          </td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
+            {formatUniformityScore(faction.uniformityScore)}
+          </td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
+            {formatParticipationRate(faction.participationRate)}%
+          </td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
+            {faction.abstentionRate === null ? 'n/a' : formatAbstentionRate(faction.abstentionRate)}%
+          </td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
+            {formatApplicationsSuccessRate(faction.applicationsSuccessRate)}%
+          </td>
+          <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
+            {formatSpeakingTime(faction.speakingTime)}
+          </td>
         </tr>
       )}
       </tbody>

@@ -1,4 +1,4 @@
-import type { RegistryFaction, RegistryParty } from '../model/registry.ts';
+import type { RegistryFaction, RegistryParty, RegistryPerson } from '../model/registry.ts';
 import type { SessionInput } from '../model/SessionInput.ts';
 
 
@@ -36,6 +36,17 @@ export class SpeakingTime {
       })
       .reduce((a, b) => a + b, 0);
 
+  }
+
+
+  public forPerson(person: RegistryPerson): number {
+    return this.sessions
+      .filter(session => session.config.names.some(name => name.name === person.name))
+      .flatMap(session => session.speeches)
+      .filter(speech => speech.speaker === person.name)
+      .filter(speech => !speech.isChairPerson)
+      .map(speech => Math.round(speech.duration / 10) * 10)
+      .reduce((acc, duration) => acc + duration, 0);
   }
 
 

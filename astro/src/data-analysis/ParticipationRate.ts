@@ -1,5 +1,5 @@
 import type { SessionInput } from '../model/SessionInput.ts';
-import type { RegistryFaction, RegistryParty } from '../model/registry.ts';
+import type { RegistryFaction, RegistryParty, RegistryPerson } from '../model/registry.ts';
 import type { SessionScanItem } from '../model/session-scan.ts';
 import { VoteResult } from '../model/Session.ts';
 
@@ -62,6 +62,19 @@ export class ParticipationRate {
       .filter(({ value }) => value !== null)
       .map(({ date, value }) => ({ date, value: value! }))
       .toSorted((a, b) => a.date.localeCompare(b.date));
+
+  }
+
+
+  public forPerson(person: RegistryPerson): number {
+
+    const allVotings = this.sessions
+      .filter(session => session.config.names.find(name => name.name === person.name))
+      .flatMap(session => session.votings);
+    const participationRates = allVotings.map(voting => this.calcParticipationRate([person.name], voting));
+    return participationRates.length === 0
+      ? 0
+      : participationRates.reduce((a, b) => a + b, 0) / participationRates.length;
 
   }
 

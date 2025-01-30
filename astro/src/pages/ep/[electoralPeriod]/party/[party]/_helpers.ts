@@ -55,7 +55,7 @@ export function getParticipationRateHistory(party: RegistryParty, sessionInputs:
     .map(({ date, value }) => ({ x: date, y: value }));
 }
 
-export function getAbstentionRate(party: RegistryParty, sessionInputs: SessionInput[]): number {
+export function getAbstentionRate(party: RegistryParty, sessionInputs: SessionInput[]): number | null {
   const abstentionRate = new AbstentionRate(sessionInputs);
   return abstentionRate.forParty(party);
 }

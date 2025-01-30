@@ -1,5 +1,29 @@
-import type { SessionVote } from '../../../../model/session-scan.ts';
-import { VoteResult, VotingResult } from '../../../../model/Session.ts';
+import type { RegistryPerson } from '../../../../model/registry.ts';
+import { SpeakingTime } from '../../../../data-analysis/SpeakingTime.ts';
+import type { SessionInput } from '../../../../model/SessionInput.ts';
+import { AbstentionRate } from '../../../../data-analysis/AbstentionRate.ts';
+import { VotingSuccess } from '../../../../data-analysis/VotingSuccess.ts';
+import { ParticipationRate } from '../../../../data-analysis/ParticipationRate.ts';
+
+export function getParticipationRate(person: RegistryPerson, sessions: SessionInput[]): number {
+  const participationRate = new ParticipationRate(sessions);
+  return participationRate.forPerson(person);
+}
+
+export function getVotingsSuccessRate(person: RegistryPerson, sessions: SessionInput[]): number {
+  const votingSuccess = new VotingSuccess(sessions);
+  return votingSuccess.forPerson(person);
+}
+
+export function getAbstentionRate(person: RegistryPerson, sessions: SessionInput[]): number | null {
+  const abstentionRate = new AbstentionRate(sessions);
+  return abstentionRate.forPerson(person);
+}
+
+export function getSpeakingTime(person: RegistryPerson, sessions: SessionInput[]): number {
+  const speakingTime = new SpeakingTime(sessions);
+  return speakingTime.forPerson(person);
+}
 
 export function formatPercent(value: number): string {
   return `${(value * 100).toLocaleString(
@@ -13,11 +37,4 @@ export function formatSpeakingTime(seconds: number): string {
   const minutes = Math.floor((seconds % 3600) / 60);
   const sec = seconds % 60;
   return `${hours}h ${minutes}m ${sec}s`;
-
-}
-
-export function getVotingResult(votes: SessionVote[]): VotingResult {
-  const votedFor = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
-  const votedAgainst = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
-  return votedFor > votedAgainst ? VotingResult.PASSED : VotingResult.REJECTED;
 }
