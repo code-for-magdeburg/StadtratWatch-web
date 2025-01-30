@@ -17,7 +17,7 @@ export const getStaticPaths = (async () => {
       electoralPeriod.data.sessions.map(session => {
         const config = sessionConfigs.find(config => config.id === `${electoralPeriod.id}/${session.id}`)!.data;
         const votings = sessionScans.find(scan => scan.id === `${electoralPeriod.id}/${session.id}`)!.data;
-        return votings.map((voting, index) => {
+        return votings.map(voting => {
           const votingId = +voting.votingFilename.substring(11, 14);
           return {
             params: { electoralPeriod: electoralPeriod.id, session: session.id, voting: votingId },

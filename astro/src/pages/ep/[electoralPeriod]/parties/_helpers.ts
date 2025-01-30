@@ -1,47 +1,34 @@
-import type { RegistryFaction } from '../../../../model/registry.ts';
-import type { SessionInput } from '../../../../model/SessionInput.ts';
 import { VotingSuccess } from '../../../../data-analysis/VotingSuccess.ts';
-import { ApplicationsSuccess } from '../../../../data-analysis/ApplicationsSuccess.ts';
 import { UniformityScore } from '../../../../data-analysis/UniformityScore.ts';
 import { ParticipationRate } from '../../../../data-analysis/ParticipationRate.ts';
 import { AbstentionRate } from '../../../../data-analysis/AbstentionRate.ts';
 import { SpeakingTime } from '../../../../data-analysis/SpeakingTime.ts';
+import type { RegistryFaction } from '../../../../model/registry.ts';
+import type { SessionInput } from '../../../../model/SessionInput.ts';
 
-export function getFactionVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number {
+export function getPartyVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number {
   const votingSuccess = new VotingSuccess(sessions);
-  return votingSuccess.forFaction(faction);
+  return votingSuccess.forParty(faction);
 }
 
-export function getFactionApplicationsSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number {
-  const applicationsSuccessRate = new ApplicationsSuccess(sessions);
-  return applicationsSuccessRate.forFaction(faction);
-}
-
-export function getFactionUniformityScore(faction: RegistryFaction, sessions: SessionInput[]): number {
+export function getPartyUniformityScore(faction: RegistryFaction, sessions: SessionInput[]): number {
   const uniformityScore = new UniformityScore(sessions);
-  return uniformityScore.forFaction(faction);
+  return uniformityScore.forParty(faction);
 }
 
-export function getFactionParticipationRate(faction: RegistryFaction, sessions: SessionInput[]): number {
+export function getPartyParticipationRate(faction: RegistryFaction, sessions: SessionInput[]): number {
   const participationRate = new ParticipationRate(sessions);
-  return participationRate.forFaction(faction);
+  return participationRate.forParty(faction);
 }
 
-export function getFactionAbstentionRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
+export function getPartyAbstentionRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
   const abstentionRate = new AbstentionRate(sessions);
-  return abstentionRate.forFaction(faction);
+  return abstentionRate.forParty(faction);
 }
 
-export function getFactionSpeakingTime(faction: RegistryFaction, sessions: SessionInput[]): number {
+export function getPartySpeakingTime(faction: RegistryFaction, sessions: SessionInput[]): number {
   const speakingTime = new SpeakingTime(sessions);
-  return speakingTime.forFaction(faction);
-}
-
-export function formatApplicationsSuccessRate(applicationSuccessRate: number): string {
-  return (applicationSuccessRate * 100).toLocaleString(
-    'de-DE',
-    { minimumFractionDigits: 1, maximumFractionDigits: 1 }
-  );
+  return speakingTime.forParty(faction);
 }
 
 export function formatVotingSuccessRate(votingSuccessRate: number): string {
