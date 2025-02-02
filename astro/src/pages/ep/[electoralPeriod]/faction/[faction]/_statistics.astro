@@ -3,8 +3,7 @@ import type { Registry,RegistryFaction } from '../../../../../model/registry';
 import {
   formatNumber,
   formatPercent,
-  getApplicationSuccessRate,
-  getApplicationSuccessRateHistory, getParticipationRate,
+  getParticipationRate,
   getParticipationRateHistory, getUniformityScore,
   getUniformityScoreHistory, getVotingsSuccessRate,
   getVotingsSuccessRateHistory
@@ -14,6 +13,10 @@ import {
   calcAbstentionRateOfFaction,
   calcAbstentionRateHistoryOfFaction
 } from '../../../../../data-analysis/AbstentionRate';
+import {
+  calcApplicationsSuccessRateHistoryOfFaction,
+  calcApplicationsSuccessRateOfFaction
+} from '../../../../../data-analysis/ApplicationsSuccess';
 
 type Props = {
   electoralPeriod: Registry;
@@ -23,8 +26,9 @@ type Props = {
 
 const { faction, sessionInputs } = Astro.props as Props;
 
-const applicationSuccessRate = getApplicationSuccessRate(faction, sessionInputs);
-const applicationSuccessRateHistory = getApplicationSuccessRateHistory(faction, sessionInputs);
+const applicationSuccessRate = calcApplicationsSuccessRateOfFaction(faction, sessionInputs);
+const applicationSuccessRateHistory = calcApplicationsSuccessRateHistoryOfFaction(faction, sessionInputs)
+  .map(({ date, value }) => ({ x: date, y: value }));
 const votingsSuccessRate = getVotingsSuccessRate(faction, sessionInputs);
 const votingsSuccessRateHistory = getVotingsSuccessRateHistory(faction, sessionInputs);
 const uniformityScore = getUniformityScore(faction, sessionInputs);

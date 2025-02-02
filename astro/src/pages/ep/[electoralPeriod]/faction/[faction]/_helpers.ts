@@ -5,7 +5,6 @@ import type { RegistryFaction } from '../../../../../model/registry.ts';
 import { ParticipationRate } from '../../../../../data-analysis/ParticipationRate.ts';
 import { UniformityScore } from '../../../../../data-analysis/UniformityScore.ts';
 import { VotingSuccess } from '../../../../../data-analysis/VotingSuccess.ts';
-import { ApplicationsSuccess } from '../../../../../data-analysis/ApplicationsSuccess.ts';
 
 export enum ApplicationResult {
   ACCEPTED = 'ACCEPTED',
@@ -50,18 +49,6 @@ export function getApplicationResult(votings: { votingResult: VotingResult }[]):
     : passedVotings === votings.length
       ? ApplicationResult.ACCEPTED
       : ApplicationResult.PARTIALLY_ACCEPTED;
-}
-
-export function getApplicationSuccessRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number | null {
-  const applicationSuccessRate = new ApplicationsSuccess(sessionInputs);
-  return applicationSuccessRate.forFaction(faction);
-}
-
-export function getApplicationSuccessRateHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
-  const applicationSuccessRate = new ApplicationsSuccess(sessionInputs);
-  return applicationSuccessRate
-    .historyForFaction(faction)
-    .map(({ date, value }) => ({ x: date, y: value }));
 }
 
 export function getVotingsSuccessRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number | null {
