@@ -11,7 +11,7 @@ export function getPartyVotingSuccessRate(faction: RegistryFaction, sessions: Se
   return votingSuccess.forParty(faction);
 }
 
-export function getPartyUniformityScore(faction: RegistryFaction, sessions: SessionInput[]): number {
+export function getPartyUniformityScore(faction: RegistryFaction, sessions: SessionInput[]): number | null {
   const uniformityScore = new UniformityScore(sessions);
   return uniformityScore.forParty(faction);
 }

@@ -31,7 +31,7 @@ export function getVotingsSuccessRateHistory(party: RegistryParty, sessionInputs
     .map(({ date, value }) => ({ x: date, y: value }));
 }
 
-export function getUniformityScore(party: RegistryParty, sessionInputs: SessionInput[]): number {
+export function getUniformityScore(party: RegistryParty, sessionInputs: SessionInput[]): number | null {
   const uniformityScore = new UniformityScore(sessionInputs);
   return uniformityScore.forParty(party);
 }
