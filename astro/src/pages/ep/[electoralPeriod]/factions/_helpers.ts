@@ -17,7 +17,7 @@ export function getFactionApplicationsSuccessRate(faction: RegistryFaction, sess
   return applicationsSuccessRate.forFaction(faction);
 }
 
-export function getFactionUniformityScore(faction: RegistryFaction, sessions: SessionInput[]): number {
+export function getFactionUniformityScore(faction: RegistryFaction, sessions: SessionInput[]): number | null {
   const uniformityScore = new UniformityScore(sessions);
   return uniformityScore.forFaction(faction);
 }
