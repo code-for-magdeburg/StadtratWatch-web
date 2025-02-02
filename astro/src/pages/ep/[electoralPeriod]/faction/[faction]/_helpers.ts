@@ -77,7 +77,7 @@ export function getVotingsSuccessRateHistory(faction: RegistryFaction, sessionIn
     .map(({ date, value }) => ({ x: date, y: value }));
 }
 
-export function getUniformityScore(faction: RegistryFaction, sessionInputs: SessionInput[]): number {
+export function getUniformityScore(faction: RegistryFaction, sessionInputs: SessionInput[]): number | null {
   const uniformityScore = new UniformityScore(sessionInputs);
   return uniformityScore.forFaction(faction);
 }
