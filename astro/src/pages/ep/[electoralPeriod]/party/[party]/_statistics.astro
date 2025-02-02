@@ -2,13 +2,17 @@
 import type { Registry,RegistryParty } from '../../../../../model/registry';
 import {
   formatNumber,
-  formatPercent, getAbstentionRate,
-  getAbstentionRateHistory, getParticipationRate,
+  formatPercent,
+  getParticipationRate,
   getParticipationRateHistory, getUniformityScore,
   getUniformityScoreHistory, getVotingsSuccessRate,
   getVotingsSuccessRateHistory
 } from './_helpers';
 import type { SessionInput } from '../../../../../model/SessionInput';
+import {
+  calcAbstentionRateOfParty,
+  calcAbstentionRateHistoryOfParty
+} from '../../../../../data-analysis/AbstentionRate';
 
 type Props = {
   electoralPeriod: Registry;
@@ -16,7 +20,7 @@ type Props = {
   sessionInputs: SessionInput[];
 };
 
-const { electoralPeriod, party, sessionInputs } = Astro.props as Props;
+const { party, sessionInputs } = Astro.props as Props;
 
 const votingsSuccessRate = getVotingsSuccessRate(party, sessionInputs);
 const votingsSuccessRateHistory = getVotingsSuccessRateHistory(party, sessionInputs);
@@ -24,8 +28,9 @@ const uniformityScore = getUniformityScore(party, sessionInputs);
 const uniformityScoreHistory = getUniformityScoreHistory(party, sessionInputs);
 const participationRate = getParticipationRate(party, sessionInputs);
 const participationRateHistory = getParticipationRateHistory(party, sessionInputs);
-const abstentionRate = getAbstentionRate(party, sessionInputs);
-const abstentionRateHistory = getAbstentionRateHistory(party, sessionInputs);
+const abstentionRate = calcAbstentionRateOfParty(party, sessionInputs);
+const abstentionRateHistory = calcAbstentionRateHistoryOfParty(party, sessionInputs)
+  .map(({ date, value }) => ({ x: date, y: value }));
 
 ---
 
@@ -88,11 +93,11 @@ const abstentionRateHistory = getAbstentionRateHistory(party, sessionInputs);
 <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script is:inline src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 
-<script is:inline define:vars={{ votingsSuccessRateHistory }}>
+<script is:inline define:vars={{ data: votingsSuccessRateHistory }}>
 
   const votingsSuccessRateChartData = {
     datasets: [{
-      data: votingsSuccessRateHistory,
+      data,
       fill: 'origin',
       backgroundColor: 'rgba(219, 234, 254, 1)',
       borderColor: 'rgba(96, 165, 250, 0.6)',

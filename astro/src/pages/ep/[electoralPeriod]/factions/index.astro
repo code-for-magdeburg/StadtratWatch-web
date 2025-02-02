@@ -5,7 +5,6 @@ import { getCollection } from 'astro:content';
 import type { Registry } from '../../../../model/registry';
 import type { SessionInput } from '../../../../model/SessionInput';
 import {
-  getFactionAbstentionRate,
   getFactionApplicationsSuccessRate,
   getFactionParticipationRate,
   getFactionSpeakingTime,
@@ -16,6 +15,7 @@ import {
   formatUniformityScore,
   formatVotingSuccessRate
 } from './_helpers';
+import { calcAbstentionRateOfFaction } from '../../../../data-analysis/AbstentionRate';
 
 type Props = {
   electoralPeriod: Registry;
@@ -69,7 +69,7 @@ const factions = electoralPeriod.factions
     const votingSuccessRate = getFactionVotingSuccessRate(faction, sessionInputs);
     const uniformityScore = getFactionUniformityScore(faction, sessionInputs);
     const participationRate = getFactionParticipationRate(faction, sessionInputs);
-    const abstentionRate = getFactionAbstentionRate(faction, sessionInputs);
+    const abstentionRate = calcAbstentionRateOfFaction(faction, sessionInputs);
     const speakingTime = getFactionSpeakingTime(faction, sessionInputs);
     return {
       id: faction.id,
