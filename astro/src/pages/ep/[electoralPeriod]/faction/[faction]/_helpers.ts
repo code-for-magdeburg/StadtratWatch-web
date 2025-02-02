@@ -53,7 +53,7 @@ export function getApplicationResult(votings: { votingResult: VotingResult }[]):
       : ApplicationResult.PARTIALLY_ACCEPTED;
 }
 
-export function getApplicationSuccessRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number {
+export function getApplicationSuccessRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number | null {
   const applicationSuccessRate = new ApplicationsSuccess(sessionInputs);
   return applicationSuccessRate.forFaction(faction);
 }
