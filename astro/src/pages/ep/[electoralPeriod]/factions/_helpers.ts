@@ -12,7 +12,7 @@ export function getFactionVotingSuccessRate(faction: RegistryFaction, sessions: 
   return votingSuccess.forFaction(faction);
 }
 
-export function getFactionApplicationsSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number {
+export function getFactionApplicationsSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
   const applicationsSuccessRate = new ApplicationsSuccess(sessions);
   return applicationsSuccessRate.forFaction(faction);
 }
