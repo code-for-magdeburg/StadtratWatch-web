@@ -5,7 +5,7 @@ import { AbstentionRate } from '../../../../data-analysis/AbstentionRate.ts';
 import { VotingSuccess } from '../../../../data-analysis/VotingSuccess.ts';
 import { ParticipationRate } from '../../../../data-analysis/ParticipationRate.ts';
 
-export function getParticipationRate(person: RegistryPerson, sessions: SessionInput[]): number {
+export function getParticipationRate(person: RegistryPerson, sessions: SessionInput[]): number | null {
   const participationRate = new ParticipationRate(sessions);
   return participationRate.forPerson(person);
 }

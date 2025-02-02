@@ -118,7 +118,7 @@ const parties = electoralPeriod.parties
             {formatUniformityScore(party.uniformityScore)}
           </td>
           <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
-            {formatParticipationRate(party.participationRate)}%
+            {party.participationRate === null ? 'n/a' : formatParticipationRate(party.participationRate)}%
           </td>
           <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
             {party.abstentionRate === null ? 'n/a' : formatAbstentionRate(party.abstentionRate)}%
