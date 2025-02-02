@@ -1,6 +1,5 @@
 import type { SessionVote } from '../../../../../model/session-scan.ts';
 import { VoteResult, VotingResult } from '../../../../../model/Session.ts';
-import { AbstentionRate } from '../../../../../data-analysis/AbstentionRate.ts';
 import type { SessionInput } from '../../../../../model/SessionInput.ts';
 import type { RegistryFaction } from '../../../../../model/registry.ts';
 import { ParticipationRate } from '../../../../../data-analysis/ParticipationRate.ts';
@@ -97,18 +96,6 @@ export function getParticipationRate(faction: RegistryFaction, sessionInputs: Se
 export function getParticipationRateHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
   const participationRate = new ParticipationRate(sessionInputs);
   return participationRate
-    .historyForFaction(faction)
-    .map(({ date, value }) => ({ x: date, y: value }));
-}
-
-export function getAbstentionRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number | null {
-  const abstentionRate = new AbstentionRate(sessionInputs);
-  return abstentionRate.forFaction(faction);
-}
-
-export function getAbstentionRateHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
-  const abstentionRate = new AbstentionRate(sessionInputs);
-  return abstentionRate
     .historyForFaction(faction)
     .map(({ date, value }) => ({ x: date, y: value }));
 }

@@ -5,13 +5,14 @@ import { getCollection } from 'astro:content';
 import type { Registry } from '../../../../model/registry';
 import type { SessionInput } from '../../../../model/SessionInput';
 import {
-  getAbstentionRate, getParticipationRate,
+  getParticipationRate,
   getSpeakingTime,
   getVotingsSuccessRate,
   formatPercent,
   formatSpeakingTime
 } from './_helpers';
 import { PersonsForces } from '../../../../data-analysis/PersonsForces';
+import { calcAbstentionRateOfPerson } from '../../../../data-analysis/AbstentionRate';
 
 type Props = {
   electoralPeriod: Registry;
@@ -71,7 +72,7 @@ const persons = electoralPeriod.persons
 
     const participationRate = getParticipationRate(person, relevantSessions);
     const votingsSuccessRate = getVotingsSuccessRate(person, relevantSessions);
-    const abstentionRate = getAbstentionRate(person, relevantSessions);
+    const abstentionRate = calcAbstentionRateOfPerson(person, relevantSessions);
     const speakingTime = getSpeakingTime(person, relevantSessions);
 
     return {
