@@ -6,7 +6,7 @@ import { SpeakingTime } from '../../../../data-analysis/SpeakingTime.ts';
 import type { RegistryFaction } from '../../../../model/registry.ts';
 import type { SessionInput } from '../../../../model/SessionInput.ts';
 
-export function getPartyVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number {
+export function getPartyVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
   const votingSuccess = new VotingSuccess(sessions);
   return votingSuccess.forParty(faction);
 }

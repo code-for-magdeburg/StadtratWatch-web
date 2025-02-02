@@ -83,7 +83,7 @@ const parties = electoralPeriod.parties
   .toSorted((a, b) => b.seats - a.seats);
 
 ---
-<BreadcrumbMenuLayout pageTitle="Fraktionen" electoralPeriod={electoralPeriod}>
+<BreadcrumbMenuLayout pageTitle="Parteien" electoralPeriod={electoralPeriod}>
 
   <h1 class="text-3xl font-bold text-gray-900 sm:tracking-tight">Parteien</h1>
 
@@ -112,7 +112,7 @@ const parties = electoralPeriod.parties
           </td>
           <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{party.seats}</td>
           <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
-            {formatVotingSuccessRate(party.votingSuccessRate)}%
+            {party.votingSuccessRate === null ? 'n/a' : formatVotingSuccessRate(party.votingSuccessRate)}%
           </td>
           <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
             {party.uniformityScore === null ? 'n/a' : formatUniformityScore(party.uniformityScore)}

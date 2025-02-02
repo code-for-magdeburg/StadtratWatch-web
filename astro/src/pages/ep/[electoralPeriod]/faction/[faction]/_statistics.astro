@@ -50,7 +50,9 @@ const abstentionRateHistory = getAbstentionRateHistory(faction, sessionInputs);
   <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
     <div class="px-4 py-3 sm:px-6 text-center">Abstimmungserfolg</div>
     <div class="px-4 py-5 sm:p-6">
-      <h2 class="text-base font-semibold text-gray-900 text-center">{formatPercent(votingsSuccessRate)}</h2>
+      <h2 class="text-base font-semibold text-gray-900 text-center">
+        {votingsSuccessRate === null ? 'n/a' : formatPercent(votingsSuccessRate)}
+      </h2>
       <p class="text-sm py-2 text-gray-600 text-center">
         Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmte.
       </p>

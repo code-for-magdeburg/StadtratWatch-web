@@ -1,12 +1,12 @@
 import type { SessionInput } from '../model/SessionInput.ts';
 import type { RegistryFaction, RegistryParty, RegistryPerson } from '../model/registry.ts';
-import type { SessionScanItem, SessionVote } from '../model/session-scan.ts';
+import type { SessionScanItem } from '../model/session-scan.ts';
 import { VoteResult, VotingResult } from '../model/Session.ts';
 
 
-type VotingsSuccessForSession = {
-  successfulVotings: number;
-  totalVotings: number;
+export type HistoryDataPoint = {
+  date: string;
+  value: number;
 };
 
 
@@ -17,23 +17,12 @@ export class VotingSuccess {
   }
 
 
-  public forFaction(faction: RegistryFaction): number {
-
-    const allVotings = this.sessions.flatMap(
-      ({ config, votings }) => {
-        const factionMembers = config.names.filter(name => name.faction === faction.name).map(name => name.name);
-        return votings.map(voting => ({ voting, factionMembers }));
-      });
-    const successfulVotings = allVotings.filter(
-      voting => this.isPersonsVotingSuccessful(voting.factionMembers, voting.voting)
-    );
-
-    return allVotings.length === 0 ? 0 : successfulVotings.length / allVotings.length;
-
+  public forFaction(faction: RegistryFaction): number | null {
+    return this.calcFactionVotingSuccessRate(faction, this.sessions);
   }
 
 
-  public historyForFaction(faction: RegistryFaction): { date: string, value: number }[] {
+  public historyForFaction(faction: RegistryFaction): HistoryDataPoint[] {
 
     return this.sessions
       .map(session => {
@@ -41,28 +30,19 @@ export class VotingSuccess {
         const value = this.calcFactionVotingSuccessRate(faction, sessions);
         return { date: session.config.date, value };
       })
+      .filter(({ value }) => value !== null)
+      .map(({ date, value }) => ({ date, value: value! }))
       .toSorted((a, b) => a.date.localeCompare(b.date));
 
   }
 
 
-  public forParty(party: RegistryParty): number {
-
-    const allVotings = this.sessions.flatMap(
-      ({ config, votings }) => {
-        const partyMembers = config.names.filter(name => name.party === party.name).map(name => name.name);
-        return votings.map(voting => ({ voting, partyMembers }));
-      });
-    const successfulVotings = allVotings.filter(
-      voting => this.isPersonsVotingSuccessful(voting.partyMembers, voting.voting)
-    );
-
-    return allVotings.length === 0 ? 0 : successfulVotings.length / allVotings.length;
-
+  public forParty(party: RegistryParty): number | null {
+    return this.calcPartyVotingSuccessRate(party, this.sessions);
   }
 
 
-  public historyForParty(party: RegistryParty): { date: string, value: number }[] {
+  public historyForParty(party: RegistryParty): HistoryDataPoint[] {
 
     return this.sessions
       .map(session => {
@@ -70,6 +50,8 @@ export class VotingSuccess {
         const value = this.calcPartyVotingSuccessRate(party, sessions);
         return { date: session.config.date, value };
       })
+      .filter(({ value }) => value !== null)
+      .map(({ date, value }) => ({ date, value: value! }))
       .toSorted((a, b) => a.date.localeCompare(b.date));
 
   }
@@ -87,7 +69,7 @@ export class VotingSuccess {
       )
       .map(voting => {
         const personVote = voting.votes.find(vote => vote.name === person.name)!.vote;
-        const votingResult = this.getVotingResult(voting.votes);
+        const votingResult = this.getVotingResult(voting);
         return personVote === VoteResult.VOTE_FOR && votingResult === VotingResult.PASSED
           || personVote === VoteResult.VOTE_AGAINST && votingResult === VotingResult.REJECTED;
       });
@@ -104,33 +86,51 @@ export class VotingSuccess {
   }
 
 
+  private calcFactionVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
+
+    const votingsSuccess = sessions
+      .flatMap(session => {
+        const persons = session.config.names.filter(name => name.faction === faction.name).map(name => name.name);
+        const successfulVotings = session.votings.filter(voting => this.isPersonsVotingSuccessful(persons, voting));
+        return { successfulVotings: successfulVotings.length, totalVotings: session.votings.length };
+      })
+      .reduce((acc, { successfulVotings, totalVotings }) => ({
+        successfulVotings: acc.successfulVotings + successfulVotings,
+        totalVotings: acc.totalVotings + totalVotings
+      }));
+
+    return votingsSuccess.totalVotings === 0
+      ? null
+      : votingsSuccess.successfulVotings / votingsSuccess.totalVotings;
+
+  }
+
+
+  private calcPartyVotingSuccessRate(party: RegistryParty, sessions: SessionInput[]): number | null {
+
+    const votingsSuccess = sessions
+      .flatMap(session => {
+        const persons = session.config.names.filter(name => name.party === party.name).map(name => name.name);
+        const successfulVotings = session.votings.filter(voting => this.isPersonsVotingSuccessful(persons, voting));
+        return { successfulVotings: successfulVotings.length, totalVotings: session.votings.length };
+      })
+      .reduce((acc, { successfulVotings, totalVotings }) => ({
+        successfulVotings: acc.successfulVotings + successfulVotings,
+        totalVotings: acc.totalVotings + totalVotings
+      }));
+
+    return votingsSuccess.totalVotings === 0
+      ? null
+      : votingsSuccess.successfulVotings / votingsSuccess.totalVotings;
+
+  }
+
+
   private isPersonsVotingSuccessful(persons: string[], voting: SessionScanItem): boolean {
-    const votingResult = this.calcVotingResult(voting);
+    const votingResult = this.getVotingResult(voting);
     const personsVotingResult = this.calcPersonsVotingResult(persons, voting);
 
     return votingResult === personsVotingResult;
-  }
-
-
-  private calcFactionVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number {
-
-    const votingsSuccessPerSession = sessions.map(session => this.calcFactionVotingSuccessForSession(faction, session));
-
-    const successfulVotings = votingsSuccessPerSession.reduce((a, b) => a + b.successfulVotings, 0);
-    const totalVotings = votingsSuccessPerSession.reduce((a, b) => a + b.totalVotings, 0);
-
-    return totalVotings === 0 ? 0 : successfulVotings / totalVotings;
-
-  }
-
-
-  private calcVotingResult(voting: SessionScanItem): VotingResult {
-    const votedFor = voting.votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
-    const votedAgainst = voting.votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
-
-    return votedFor > votedAgainst
-      ? VotingResult.PASSED
-      : VotingResult.REJECTED;
   }
 
 
@@ -145,51 +145,9 @@ export class VotingSuccess {
   }
 
 
-  private calcFactionVotingSuccessForSession(faction: RegistryFaction, session: SessionInput): VotingsSuccessForSession {
-
-    const persons = session.config.names
-      .filter(name => name.faction === faction.name)
-      .map(name => name.name);
-
-    const successfulVotings = session.votings
-      .filter(voting => this.isPersonsVotingSuccessful(persons, voting))
-      .length;
-
-    return { successfulVotings, totalVotings: session.votings.length };
-
-  }
-
-
-  private calcPartyVotingSuccessRate(party: RegistryParty, sessions: SessionInput[]): number {
-
-    const votingsSuccessPerSession = sessions.map(session => this.calcPartyVotingSuccessForSession(party, session));
-
-    const successfulVotings = votingsSuccessPerSession.reduce((a, b) => a + b.successfulVotings, 0);
-    const totalVotings = votingsSuccessPerSession.reduce((a, b) => a + b.totalVotings, 0);
-
-    return totalVotings === 0 ? 0 : successfulVotings / totalVotings;
-
-  }
-
-
-  private calcPartyVotingSuccessForSession(party: RegistryParty, session: SessionInput): VotingsSuccessForSession {
-
-    const persons = session.config.names
-      .filter(name => name.party === party.name)
-      .map(name => name.name);
-
-    const successfulVotings = session.votings
-      .filter(voting => this.isPersonsVotingSuccessful(persons, voting))
-      .length;
-
-    return { successfulVotings, totalVotings: session.votings.length };
-
-  }
-
-
-  private getVotingResult(votes: SessionVote[]): VotingResult {
-    const votedFor = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
-    const votedAgainst = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
+  private getVotingResult(voting: SessionScanItem): VotingResult {
+    const votedFor = voting.votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
+    const votedAgainst = voting.votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
     return votedFor > votedAgainst ? VotingResult.PASSED : VotingResult.REJECTED;
   }
 
