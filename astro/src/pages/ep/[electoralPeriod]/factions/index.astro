@@ -116,7 +116,7 @@ const factions = electoralPeriod.factions
           </td>
           <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{faction.seats}</td>
           <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
-            {formatVotingSuccessRate(faction.votingSuccessRate)}%
+            {faction.votingSuccessRate === null ? 'n/a' : formatVotingSuccessRate(faction.votingSuccessRate)}%
           </td>
           <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
             {faction.uniformityScore === null ? 'n/a' : formatUniformityScore(faction.uniformityScore)}
