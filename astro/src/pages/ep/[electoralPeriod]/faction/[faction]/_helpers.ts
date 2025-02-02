@@ -1,8 +1,5 @@
 import type { SessionVote } from '../../../../../model/session-scan.ts';
 import { VoteResult, VotingResult } from '../../../../../model/Session.ts';
-import type { SessionInput } from '../../../../../model/SessionInput.ts';
-import type { RegistryFaction } from '../../../../../model/registry.ts';
-import { VotingSuccess } from '../../../../../data-analysis/VotingSuccess.ts';
 
 export enum ApplicationResult {
   ACCEPTED = 'ACCEPTED',
@@ -47,16 +44,4 @@ export function getApplicationResult(votings: { votingResult: VotingResult }[]):
     : passedVotings === votings.length
       ? ApplicationResult.ACCEPTED
       : ApplicationResult.PARTIALLY_ACCEPTED;
-}
-
-export function getVotingsSuccessRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number | null {
-  const votingSuccessRate = new VotingSuccess(sessionInputs);
-  return votingSuccessRate.forFaction(faction);
-}
-
-export function getVotingsSuccessRateHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
-  const votingSuccessRate = new VotingSuccess(sessionInputs);
-  return votingSuccessRate
-    .historyForFaction(faction)
-    .map(({ date, value }) => ({ x: date, y: value }));
 }
