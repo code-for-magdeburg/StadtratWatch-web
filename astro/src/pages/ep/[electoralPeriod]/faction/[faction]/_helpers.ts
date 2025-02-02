@@ -2,7 +2,6 @@ import type { SessionVote } from '../../../../../model/session-scan.ts';
 import { VoteResult, VotingResult } from '../../../../../model/Session.ts';
 import type { SessionInput } from '../../../../../model/SessionInput.ts';
 import type { RegistryFaction } from '../../../../../model/registry.ts';
-import { UniformityScore } from '../../../../../data-analysis/UniformityScore.ts';
 import { VotingSuccess } from '../../../../../data-analysis/VotingSuccess.ts';
 
 export enum ApplicationResult {
@@ -58,18 +57,6 @@ export function getVotingsSuccessRate(faction: RegistryFaction, sessionInputs: S
 export function getVotingsSuccessRateHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
   const votingSuccessRate = new VotingSuccess(sessionInputs);
   return votingSuccessRate
-    .historyForFaction(faction)
-    .map(({ date, value }) => ({ x: date, y: value }));
-}
-
-export function getUniformityScore(faction: RegistryFaction, sessionInputs: SessionInput[]): number | null {
-  const uniformityScore = new UniformityScore(sessionInputs);
-  return uniformityScore.forFaction(faction);
-}
-
-export function getUniformityScoreHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
-  const uniformityScore = new UniformityScore(sessionInputs);
-  return uniformityScore
     .historyForFaction(faction)
     .map(({ date, value }) => ({ x: date, y: value }));
 }
