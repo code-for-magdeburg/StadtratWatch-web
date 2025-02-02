@@ -10,55 +10,40 @@ export type HistoryDataPoint = {
 };
 
 
-export class ApplicationsSuccess {
+export function calcApplicationsSuccessRateOfFaction(faction: RegistryFaction, sessions: SessionInput[]): number | null {
+
+  const applications = sessions
+    .flatMap(session => session.votings)
+    .filter(voting => voting.votingSubject.authors.includes(faction.name));
+
+  const applicationsPassed = applications.filter(
+    voting => getVotingResult(voting.votes) === VotingResult.PASSED
+  );
+
+  return applications.length === 0
+    ? null
+    : applicationsPassed.length / applications.length;
+
+}
 
 
-  constructor(private readonly sessions: SessionInput[]) {
-  }
+export function calcApplicationsSuccessRateHistoryOfFaction(faction: RegistryFaction, sessions: SessionInput[]): HistoryDataPoint[] {
+
+  return sessions
+    .map(session => {
+      const pastSessions = sessions.filter(s => s.config.date <= session.config.date);
+      const value = calcApplicationsSuccessRateOfFaction(faction, pastSessions);
+      return { date: session.config.date, value };
+    })
+    .filter(({ value }) => value !== null)
+    .map(({ date, value }) => ({ date, value: value! }))
+    .toSorted((a, b) => a.date.localeCompare(b.date));
+
+}
 
 
-  public forFaction(faction: RegistryFaction): number | null {
-    return this.calcFactionApplicationSuccessRate(faction, this.sessions);
-  }
-
-
-  public historyForFaction(faction: RegistryFaction): HistoryDataPoint[] {
-
-    return this.sessions
-      .map(session => {
-        const sessions = this.sessions.filter(s => s.config.date <= session.config.date);
-        const value = this.calcFactionApplicationSuccessRate(faction, sessions);
-        return { date: session.config.date, value };
-      })
-      .filter(({ value }) => value !== null)
-      .map(({ date, value }) => ({ date, value: value! }))
-      .toSorted((a, b) => a.date.localeCompare(b.date));
-
-  }
-
-
-  private calcFactionApplicationSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
-
-    const applications = sessions
-      .flatMap(session => session.votings)
-      .filter(voting => voting.votingSubject.authors.includes(faction.name));
-
-    const applicationsPassed = applications.filter(
-      voting => this.getVotingResult(voting.votes) === VotingResult.PASSED
-    );
-
-    return applications.length === 0
-      ? null
-      : applicationsPassed.length / applications.length;
-
-  }
-
-
-  private getVotingResult(votes: SessionVote[]): VotingResult {
-    const votedFor = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
-    const votedAgainst = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
-    return votedFor > votedAgainst ? VotingResult.PASSED : VotingResult.REJECTED;
-  }
-
-
+function getVotingResult(votes: SessionVote[]): VotingResult {
+  const votedFor = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
+  const votedAgainst = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
+  return votedFor > votedAgainst ? VotingResult.PASSED : VotingResult.REJECTED;
 }
