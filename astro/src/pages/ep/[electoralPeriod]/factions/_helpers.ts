@@ -22,7 +22,7 @@ export function getFactionUniformityScore(faction: RegistryFaction, sessions: Se
   return uniformityScore.forFaction(faction);
 }
 
-export function getFactionParticipationRate(faction: RegistryFaction, sessions: SessionInput[]): number {
+export function getFactionParticipationRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
   const participationRate = new ParticipationRate(sessions);
   return participationRate.forFaction(faction);
 }
