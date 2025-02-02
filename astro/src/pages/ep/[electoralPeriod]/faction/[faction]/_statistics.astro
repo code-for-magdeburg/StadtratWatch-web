@@ -37,7 +37,9 @@ const abstentionRateHistory = getAbstentionRateHistory(faction, sessionInputs);
   <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
     <div class="px-4 py-3 sm:px-6 text-center">Erfolgreiche Anträge</div>
     <div class="p-6">
-      <h2 class="text-base font-semibold text-gray-900 text-center">{formatPercent(applicationSuccessRate)}</h2>
+      <h2 class="text-base font-semibold text-gray-900 text-center">
+        {applicationSuccessRate === null ? 'n/a' : formatPercent(applicationSuccessRate)}
+      </h2>
       <p class="text-sm py-2 text-gray-600 text-center">
         Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde.
       </p>
