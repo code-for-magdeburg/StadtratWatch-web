@@ -1,6 +1,5 @@
 import type { SessionInput } from '../../../../../model/SessionInput.ts';
 import type { RegistryParty } from '../../../../../model/registry.ts';
-import { UniformityScore } from '../../../../../data-analysis/UniformityScore.ts';
 import { VotingSuccess } from '../../../../../data-analysis/VotingSuccess.ts';
 
 export function formatNumber(value: number, digits: number): string {
@@ -25,18 +24,6 @@ export function getVotingsSuccessRate(party: RegistryParty, sessionInputs: Sessi
 export function getVotingsSuccessRateHistory(party: RegistryParty, sessionInputs: SessionInput[]): { x: string, y: number }[] {
   const votingSuccessRate = new VotingSuccess(sessionInputs);
   return votingSuccessRate
-    .historyForParty(party)
-    .map(({ date, value }) => ({ x: date, y: value }));
-}
-
-export function getUniformityScore(party: RegistryParty, sessionInputs: SessionInput[]): number | null {
-  const uniformityScore = new UniformityScore(sessionInputs);
-  return uniformityScore.forParty(party);
-}
-
-export function getUniformityScoreHistory(party: RegistryParty, sessionInputs: SessionInput[]): { x: string, y: number }[] {
-  const uniformityScore = new UniformityScore(sessionInputs);
-  return uniformityScore
     .historyForParty(party)
     .map(({ date, value }) => ({ x: date, y: value }));
 }
