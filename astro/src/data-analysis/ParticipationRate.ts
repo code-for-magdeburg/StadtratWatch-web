@@ -4,6 +4,12 @@ import type { SessionScanItem } from '../model/session-scan.ts';
 import { VoteResult } from '../model/Session.ts';
 
 
+export type HistoryDataPoint = {
+  date: string;
+  value: number;
+};
+
+
 export class ParticipationRate {
 
 
@@ -16,7 +22,7 @@ export class ParticipationRate {
   }
 
 
-  public historyForFaction(faction: RegistryFaction): { date: string, value: number }[] {
+  public historyForFaction(faction: RegistryFaction): HistoryDataPoint[] {
 
     return this.sessions
       .map(session => {
@@ -36,7 +42,7 @@ export class ParticipationRate {
   }
 
 
-  public historyForParty(party: RegistryParty): { date: string, value: number }[] {
+  public historyForParty(party: RegistryParty): HistoryDataPoint[] {
 
     return this.sessions
       .map(session => {
