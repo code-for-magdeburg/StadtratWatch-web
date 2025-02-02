@@ -5,9 +5,7 @@ import { VoteResult } from '../model/Session.ts';
 
 export function calcVotingMatrix(electoralPeriod: Registry, person: RegistryPerson, sessions: SessionInput[]): any {
 
-  const otherPersons = electoralPeriod.persons.filter(
-    otherPerson => otherPerson.name !== person.name
-  );
+  const otherPersons = electoralPeriod.persons.filter(otherPerson => otherPerson.name !== person.name);
   const votings = sessions.flatMap(session => session.votings);
 
   return otherPersons.map(otherPerson => ({
