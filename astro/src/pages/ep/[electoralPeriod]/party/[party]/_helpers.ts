@@ -19,7 +19,7 @@ export function formatPercent(value: number): string {
   )}%`;
 }
 
-export function getVotingsSuccessRate(party: RegistryParty, sessionInputs: SessionInput[]): number {
+export function getVotingsSuccessRate(party: RegistryParty, sessionInputs: SessionInput[]): number | null {
   const votingSuccessRate = new VotingSuccess(sessionInputs);
   return votingSuccessRate.forParty(party);
 }

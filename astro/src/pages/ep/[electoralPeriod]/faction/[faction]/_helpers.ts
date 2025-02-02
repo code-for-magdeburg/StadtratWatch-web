@@ -65,7 +65,7 @@ export function getApplicationSuccessRateHistory(faction: RegistryFaction, sessi
     .map(({ date, value }) => ({ x: date, y: value }));
 }
 
-export function getVotingsSuccessRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number {
+export function getVotingsSuccessRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number | null {
   const votingSuccessRate = new VotingSuccess(sessionInputs);
   return votingSuccessRate.forFaction(faction);
 }
