@@ -7,7 +7,7 @@ import { ParticipationRate } from '../../../../data-analysis/ParticipationRate.t
 import { AbstentionRate } from '../../../../data-analysis/AbstentionRate.ts';
 import { SpeakingTime } from '../../../../data-analysis/SpeakingTime.ts';
 
-export function getFactionVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number {
+export function getFactionVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
   const votingSuccess = new VotingSuccess(sessions);
   return votingSuccess.forFaction(faction);
 }
