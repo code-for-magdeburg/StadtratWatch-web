@@ -1,16 +1,10 @@
 import { VotingSuccess } from '../../../../data-analysis/VotingSuccess.ts';
-import { UniformityScore } from '../../../../data-analysis/UniformityScore.ts';
 import type { RegistryFaction } from '../../../../model/registry.ts';
 import type { SessionInput } from '../../../../model/SessionInput.ts';
 
 export function getPartyVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
   const votingSuccess = new VotingSuccess(sessions);
   return votingSuccess.forParty(faction);
-}
-
-export function getPartyUniformityScore(faction: RegistryFaction, sessions: SessionInput[]): number | null {
-  const uniformityScore = new UniformityScore(sessions);
-  return uniformityScore.forParty(faction);
 }
 
 export function formatVotingSuccessRate(votingSuccessRate: number): string {
