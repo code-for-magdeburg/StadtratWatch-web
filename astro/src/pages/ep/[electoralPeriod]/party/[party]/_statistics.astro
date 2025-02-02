@@ -45,7 +45,9 @@ const abstentionRateHistory = getAbstentionRateHistory(party, sessionInputs);
   <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
     <div class="px-4 py-3 sm:px-6 text-center">Geschlossenheit</div>
     <div class="px-4 py-5 sm:p-6">
-      <h2 class="text-base font-semibold text-gray-900 text-center">{formatNumber(uniformityScore, 3)}</h2>
+      <h2 class="text-base font-semibold text-gray-900 text-center">
+        {uniformityScore === null ? 'n/a' : formatNumber(uniformityScore, 3)}
+      </h2>
       <p class="text-sm py-2 text-gray-600 text-center">
         Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Parteimitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Partei.
       </p>
