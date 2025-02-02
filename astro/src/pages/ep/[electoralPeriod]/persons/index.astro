@@ -10,9 +10,9 @@ import {
   formatPercent,
   formatSpeakingTime
 } from './_helpers';
-import { PersonsForces } from '../../../../data-analysis/PersonsForces';
 import { calcAbstentionRateOfPerson } from '../../../../data-analysis/AbstentionRate';
 import { calcParticipationRateOfPerson } from '../../../../data-analysis/ParticipationRate';
+import { calcPersonsForces } from "../../../../data-analysis/PersonsForces";
 
 type Props = {
   electoralPeriod: Registry;
@@ -90,8 +90,7 @@ const persons = electoralPeriod.persons
   })
   .toSorted((a, b) => a.name.localeCompare(b.name));
 
-const personsForces = new PersonsForces(sessionInputs);
-const personsForcesData = personsForces.calcPersonsForces(electoralPeriod);
+const personsForces = calcPersonsForces(electoralPeriod, sessionInputs);
 
 ---
 <BreadcrumbMenuLayout pageTitle="Personen" electoralPeriod={electoralPeriod}>
