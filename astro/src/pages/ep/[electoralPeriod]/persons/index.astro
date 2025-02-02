@@ -166,7 +166,9 @@ const personsForcesData = personsForces.calcPersonsForces(electoralPeriod);
               </td>
               <td class="py-2 pr-3 text-sm">{person.faction}</td>
               <td class="py-2 pr-3 text-sm">{person.party}</td>
-              <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{formatPercent(person.participationRate)}</td>
+              <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
+                {person.participationRate === null ? 'n/a' : formatPercent(person.participationRate)}
+              </td>
               <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">{formatPercent(person.votingsSuccessRate)}</td>
               <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
                 {person.abstentionRate === null ? 'n/a' : formatPercent(person.abstentionRate)}

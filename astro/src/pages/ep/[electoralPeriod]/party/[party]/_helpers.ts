@@ -43,7 +43,7 @@ export function getUniformityScoreHistory(party: RegistryParty, sessionInputs: S
     .map(({ date, value }) => ({ x: date, y: value }));
 }
 
-export function getParticipationRate(party: RegistryParty, sessionInputs: SessionInput[]): number {
+export function getParticipationRate(party: RegistryParty, sessionInputs: SessionInput[]): number | null {
   const participationRate = new ParticipationRate(sessionInputs);
   return participationRate.forParty(party);
 }

@@ -122,7 +122,7 @@ const factions = electoralPeriod.factions
             {formatUniformityScore(faction.uniformityScore)}
           </td>
           <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
-            {formatParticipationRate(faction.participationRate)}%
+            {faction.participationRate === null ? 'n/a' : formatParticipationRate(faction.participationRate)}%
           </td>
           <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
             {faction.abstentionRate === null ? 'n/a' : formatAbstentionRate(faction.abstentionRate)}%

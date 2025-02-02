@@ -56,7 +56,9 @@ const abstentionRateHistory = getAbstentionRateHistory(party, sessionInputs);
   <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
     <div class="px-4 py-3 sm:px-6 text-center">Abstimmungsteilnahme</div>
     <div class="px-4 py-5 sm:p-6">
-      <h2 class="text-base font-semibold text-gray-900 text-center">{formatPercent(participationRate)}</h2>
+      <h2 class="text-base font-semibold text-gray-900 text-center">
+        {participationRate === null ? 'n/a' : formatPercent(participationRate)}
+      </h2>
       <p class="text-sm py-2 text-gray-600 text-center">
         Gibt an, wie häufig die Parteimitglieder an Abstimmungen teilgenommen haben.
       </p>
