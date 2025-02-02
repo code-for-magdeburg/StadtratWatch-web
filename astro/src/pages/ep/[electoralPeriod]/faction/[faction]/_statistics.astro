@@ -3,8 +3,7 @@ import type { Registry,RegistryFaction } from '../../../../../model/registry';
 import {
   formatNumber,
   formatPercent,
-  getParticipationRate,
-  getParticipationRateHistory, getUniformityScore,
+  getUniformityScore,
   getUniformityScoreHistory, getVotingsSuccessRate,
   getVotingsSuccessRateHistory
 } from './_helpers';
@@ -17,6 +16,10 @@ import {
   calcApplicationsSuccessRateHistoryOfFaction,
   calcApplicationsSuccessRateOfFaction
 } from '../../../../../data-analysis/ApplicationsSuccess';
+import {
+  calcParticipationRateHistoryOfFaction,
+  calcParticipationRateOfFaction
+} from '../../../../../data-analysis/ParticipationRate';
 
 type Props = {
   electoralPeriod: Registry;
@@ -33,8 +36,9 @@ const votingsSuccessRate = getVotingsSuccessRate(faction, sessionInputs);
 const votingsSuccessRateHistory = getVotingsSuccessRateHistory(faction, sessionInputs);
 const uniformityScore = getUniformityScore(faction, sessionInputs);
 const uniformityScoreHistory = getUniformityScoreHistory(faction, sessionInputs);
-const participationRate = getParticipationRate(faction, sessionInputs);
-const participationRateHistory = getParticipationRateHistory(faction, sessionInputs);
+const participationRate = calcParticipationRateOfFaction(faction, sessionInputs);
+const participationRateHistory = calcParticipationRateHistoryOfFaction(faction, sessionInputs)
+  .map(({ date, value }) => ({ x: date, y: value }));
 const abstentionRate = calcAbstentionRateOfFaction(faction, sessionInputs);
 const abstentionRateHistory = calcAbstentionRateHistoryOfFaction(faction, sessionInputs)
   .map(({ date, value }) => ({ x: date, y: value }));

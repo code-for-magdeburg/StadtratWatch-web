@@ -2,12 +2,6 @@ import type { RegistryPerson } from '../../../../model/registry.ts';
 import { SpeakingTime } from '../../../../data-analysis/SpeakingTime.ts';
 import type { SessionInput } from '../../../../model/SessionInput.ts';
 import { VotingSuccess } from '../../../../data-analysis/VotingSuccess.ts';
-import { ParticipationRate } from '../../../../data-analysis/ParticipationRate.ts';
-
-export function getParticipationRate(person: RegistryPerson, sessions: SessionInput[]): number | null {
-  const participationRate = new ParticipationRate(sessions);
-  return participationRate.forPerson(person);
-}
 
 export function getVotingsSuccessRate(person: RegistryPerson, sessions: SessionInput[]): number {
   const votingSuccess = new VotingSuccess(sessions);

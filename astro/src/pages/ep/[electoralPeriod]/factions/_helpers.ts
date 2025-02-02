@@ -2,7 +2,6 @@ import type { RegistryFaction } from '../../../../model/registry.ts';
 import type { SessionInput } from '../../../../model/SessionInput.ts';
 import { VotingSuccess } from '../../../../data-analysis/VotingSuccess.ts';
 import { UniformityScore } from '../../../../data-analysis/UniformityScore.ts';
-import { ParticipationRate } from '../../../../data-analysis/ParticipationRate.ts';
 import { SpeakingTime } from '../../../../data-analysis/SpeakingTime.ts';
 
 export function getFactionVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
@@ -13,11 +12,6 @@ export function getFactionVotingSuccessRate(faction: RegistryFaction, sessions: 
 export function getFactionUniformityScore(faction: RegistryFaction, sessions: SessionInput[]): number | null {
   const uniformityScore = new UniformityScore(sessions);
   return uniformityScore.forFaction(faction);
-}
-
-export function getFactionParticipationRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
-  const participationRate = new ParticipationRate(sessions);
-  return participationRate.forFaction(faction);
 }
 
 export function getFactionSpeakingTime(faction: RegistryFaction, sessions: SessionInput[]): number {
