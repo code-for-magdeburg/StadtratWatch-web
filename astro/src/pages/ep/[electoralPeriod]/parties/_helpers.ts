@@ -1,6 +1,5 @@
 import { VotingSuccess } from '../../../../data-analysis/VotingSuccess.ts';
 import { UniformityScore } from '../../../../data-analysis/UniformityScore.ts';
-import { SpeakingTime } from '../../../../data-analysis/SpeakingTime.ts';
 import type { RegistryFaction } from '../../../../model/registry.ts';
 import type { SessionInput } from '../../../../model/SessionInput.ts';
 
@@ -12,11 +11,6 @@ export function getPartyVotingSuccessRate(faction: RegistryFaction, sessions: Se
 export function getPartyUniformityScore(faction: RegistryFaction, sessions: SessionInput[]): number | null {
   const uniformityScore = new UniformityScore(sessions);
   return uniformityScore.forParty(faction);
-}
-
-export function getPartySpeakingTime(faction: RegistryFaction, sessions: SessionInput[]): number {
-  const speakingTime = new SpeakingTime(sessions);
-  return speakingTime.forParty(faction);
 }
 
 export function formatVotingSuccessRate(votingSuccessRate: number): string {
