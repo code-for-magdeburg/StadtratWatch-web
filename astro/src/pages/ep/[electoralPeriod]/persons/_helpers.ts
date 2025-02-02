@@ -1,16 +1,10 @@
 import type { RegistryPerson } from '../../../../model/registry.ts';
-import { SpeakingTime } from '../../../../data-analysis/SpeakingTime.ts';
 import type { SessionInput } from '../../../../model/SessionInput.ts';
 import { VotingSuccess } from '../../../../data-analysis/VotingSuccess.ts';
 
 export function getVotingsSuccessRate(person: RegistryPerson, sessions: SessionInput[]): number {
   const votingSuccess = new VotingSuccess(sessions);
   return votingSuccess.forPerson(person);
-}
-
-export function getSpeakingTime(person: RegistryPerson, sessions: SessionInput[]): number {
-  const speakingTime = new SpeakingTime(sessions);
-  return speakingTime.forPerson(person);
 }
 
 export function formatPercent(value: number): string {
