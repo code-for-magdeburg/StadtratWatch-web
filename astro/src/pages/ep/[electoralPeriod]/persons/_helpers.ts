@@ -1,7 +1,6 @@
 import type { RegistryPerson } from '../../../../model/registry.ts';
 import { SpeakingTime } from '../../../../data-analysis/SpeakingTime.ts';
 import type { SessionInput } from '../../../../model/SessionInput.ts';
-import { AbstentionRate } from '../../../../data-analysis/AbstentionRate.ts';
 import { VotingSuccess } from '../../../../data-analysis/VotingSuccess.ts';
 import { ParticipationRate } from '../../../../data-analysis/ParticipationRate.ts';
 
@@ -13,11 +12,6 @@ export function getParticipationRate(person: RegistryPerson, sessions: SessionIn
 export function getVotingsSuccessRate(person: RegistryPerson, sessions: SessionInput[]): number {
   const votingSuccess = new VotingSuccess(sessions);
   return votingSuccess.forPerson(person);
-}
-
-export function getAbstentionRate(person: RegistryPerson, sessions: SessionInput[]): number | null {
-  const abstentionRate = new AbstentionRate(sessions);
-  return abstentionRate.forPerson(person);
 }
 
 export function getSpeakingTime(person: RegistryPerson, sessions: SessionInput[]): number {
