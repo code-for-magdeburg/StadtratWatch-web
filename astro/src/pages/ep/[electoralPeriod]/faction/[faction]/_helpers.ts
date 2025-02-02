@@ -2,7 +2,6 @@ import type { SessionVote } from '../../../../../model/session-scan.ts';
 import { VoteResult, VotingResult } from '../../../../../model/Session.ts';
 import type { SessionInput } from '../../../../../model/SessionInput.ts';
 import type { RegistryFaction } from '../../../../../model/registry.ts';
-import { ParticipationRate } from '../../../../../data-analysis/ParticipationRate.ts';
 import { UniformityScore } from '../../../../../data-analysis/UniformityScore.ts';
 import { VotingSuccess } from '../../../../../data-analysis/VotingSuccess.ts';
 
@@ -71,18 +70,6 @@ export function getUniformityScore(faction: RegistryFaction, sessionInputs: Sess
 export function getUniformityScoreHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
   const uniformityScore = new UniformityScore(sessionInputs);
   return uniformityScore
-    .historyForFaction(faction)
-    .map(({ date, value }) => ({ x: date, y: value }));
-}
-
-export function getParticipationRate(faction: RegistryFaction, sessionInputs: SessionInput[]): number | null {
-  const participationRate = new ParticipationRate(sessionInputs);
-  return participationRate.forFaction(faction);
-}
-
-export function getParticipationRateHistory(faction: RegistryFaction, sessionInputs: SessionInput[]): { x: string, y: number }[] {
-  const participationRate = new ParticipationRate(sessionInputs);
-  return participationRate
     .historyForFaction(faction)
     .map(({ date, value }) => ({ x: date, y: value }));
 }
