@@ -2,14 +2,18 @@
 import type { Registry,RegistryFaction } from '../../../../../model/registry';
 import {
   formatNumber,
-  formatPercent, getAbstentionRate,
-  getAbstentionRateHistory, getApplicationSuccessRate,
+  formatPercent,
+  getApplicationSuccessRate,
   getApplicationSuccessRateHistory, getParticipationRate,
   getParticipationRateHistory, getUniformityScore,
   getUniformityScoreHistory, getVotingsSuccessRate,
   getVotingsSuccessRateHistory
 } from './_helpers';
 import type { SessionInput } from '../../../../../model/SessionInput';
+import {
+  calcAbstentionRateOfFaction,
+  calcAbstentionRateHistoryOfFaction
+} from '../../../../../data-analysis/AbstentionRate';
 
 type Props = {
   electoralPeriod: Registry;
@@ -17,7 +21,7 @@ type Props = {
   sessionInputs: SessionInput[];
 };
 
-const { electoralPeriod, faction, sessionInputs } = Astro.props as Props;
+const { faction, sessionInputs } = Astro.props as Props;
 
 const applicationSuccessRate = getApplicationSuccessRate(faction, sessionInputs);
 const applicationSuccessRateHistory = getApplicationSuccessRateHistory(faction, sessionInputs);
@@ -27,8 +31,9 @@ const uniformityScore = getUniformityScore(faction, sessionInputs);
 const uniformityScoreHistory = getUniformityScoreHistory(faction, sessionInputs);
 const participationRate = getParticipationRate(faction, sessionInputs);
 const participationRateHistory = getParticipationRateHistory(faction, sessionInputs);
-const abstentionRate = getAbstentionRate(faction, sessionInputs);
-const abstentionRateHistory = getAbstentionRateHistory(faction, sessionInputs);
+const abstentionRate = calcAbstentionRateOfFaction(faction, sessionInputs);
+const abstentionRateHistory = calcAbstentionRateHistoryOfFaction(faction, sessionInputs)
+  .map(({ date, value }) => ({ x: date, y: value }));
 
 ---
 
@@ -104,17 +109,17 @@ const abstentionRateHistory = getAbstentionRateHistory(faction, sessionInputs);
 <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script is:inline src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 
-<script is:inline define:vars={{ applicationSuccessRateHistory }}>
+<script is:inline define:vars={{ data: applicationSuccessRateHistory }}>
 
   const applicationSuccessRateChartData = {
     datasets: [{
-      data: applicationSuccessRateHistory,
+      data,
       fill: 'origin',
       backgroundColor: 'rgba(219, 234, 254, 1)',
       borderColor: 'rgba(96, 165, 250, 0.6)',
     }]
   };
-  const applicationsSuccessRateChartOptions = {
+  const applicationSuccessRateChartOptions = {
     elements: { line: { tension: 0.5 } },
     scales: {
       x: { type: 'time' },
@@ -133,7 +138,7 @@ const abstentionRateHistory = getAbstentionRateHistory(faction, sessionInputs);
     {
       type: 'line',
       data: applicationSuccessRateChartData,
-      options: applicationsSuccessRateChartOptions
+      options: applicationSuccessRateChartOptions
     });
 
 </script>

@@ -1,4 +1,3 @@
-import { AbstentionRate } from '../../../../../data-analysis/AbstentionRate.ts';
 import type { SessionInput } from '../../../../../model/SessionInput.ts';
 import type { RegistryParty } from '../../../../../model/registry.ts';
 import { ParticipationRate } from '../../../../../data-analysis/ParticipationRate.ts';
@@ -51,18 +50,6 @@ export function getParticipationRate(party: RegistryParty, sessionInputs: Sessio
 export function getParticipationRateHistory(party: RegistryParty, sessionInputs: SessionInput[]): { x: string, y: number }[] {
   const participationRate = new ParticipationRate(sessionInputs);
   return participationRate
-    .historyForParty(party)
-    .map(({ date, value }) => ({ x: date, y: value }));
-}
-
-export function getAbstentionRate(party: RegistryParty, sessionInputs: SessionInput[]): number | null {
-  const abstentionRate = new AbstentionRate(sessionInputs);
-  return abstentionRate.forParty(party);
-}
-
-export function getAbstentionRateHistory(party: RegistryParty, sessionInputs: SessionInput[]): { x: string, y: number }[] {
-  const abstentionRate = new AbstentionRate(sessionInputs);
-  return abstentionRate
     .historyForParty(party)
     .map(({ date, value }) => ({ x: date, y: value }));
 }
