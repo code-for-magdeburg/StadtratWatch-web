@@ -5,7 +5,6 @@ import { getCollection } from 'astro:content';
 import type { Registry } from '../../../../model/registry';
 import type { SessionInput } from '../../../../model/SessionInput';
 import {
-  getPartyVotingSuccessRate,
   formatAbstentionRate,
   formatParticipationRate, formatSpeakingTime,
   formatUniformityScore,
@@ -15,6 +14,7 @@ import { calcAbstentionRateOfParty } from '../../../../data-analysis/AbstentionR
 import { calcParticipationRateOfParty } from '../../../../data-analysis/ParticipationRate';
 import { calcSpeakingTimeOfParty } from '../../../../data-analysis/SpeakingTime';
 import { calcUniformityScoreOfParty } from "../../../../data-analysis/UniformityScore";
+import { calcVotingSuccessRateOfParty } from '../../../../data-analysis/VotingSuccess';
 
 type Props = {
   electoralPeriod: Registry;
@@ -64,7 +64,7 @@ const { electoralPeriod, sessionInputs } = Astro.props as Props;
 
 const parties = electoralPeriod.parties
   .map(party => {
-    const votingSuccessRate = getPartyVotingSuccessRate(party, sessionInputs);
+    const votingSuccessRate = calcVotingSuccessRateOfParty(party, sessionInputs);
     const uniformityScore = calcUniformityScoreOfParty(party, sessionInputs);
     const participationRate = calcParticipationRateOfParty(party, sessionInputs);
     const abstentionRate = calcAbstentionRateOfParty(party, sessionInputs);

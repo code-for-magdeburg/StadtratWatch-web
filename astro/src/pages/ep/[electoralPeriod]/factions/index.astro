@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 import type { Registry } from '../../../../model/registry';
 import type { SessionInput } from '../../../../model/SessionInput';
 import {
-  getFactionVotingSuccessRate, formatAbstentionRate,
+  formatAbstentionRate,
   formatApplicationsSuccessRate,
   formatParticipationRate, formatSpeakingTime,
   formatUniformityScore,
@@ -16,6 +16,7 @@ import { calcApplicationsSuccessRateOfFaction } from '../../../../data-analysis/
 import { calcParticipationRateOfFaction } from '../../../../data-analysis/ParticipationRate';
 import { calcSpeakingTimeOfFaction } from '../../../../data-analysis/SpeakingTime';
 import { calcUniformityScoreOfFaction } from '../../../../data-analysis/UniformityScore';
+import { calcVotingSuccessRateOfFaction } from '../../../../data-analysis/VotingSuccess';
 
 type Props = {
   electoralPeriod: Registry;
@@ -66,7 +67,7 @@ const { electoralPeriod, sessionInputs } = Astro.props as Props;
 const factions = electoralPeriod.factions
   .map(faction => {
     const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(faction, sessionInputs);
-    const votingSuccessRate = getFactionVotingSuccessRate(faction, sessionInputs);
+    const votingSuccessRate = calcVotingSuccessRateOfFaction(faction, sessionInputs);
     const uniformityScore = calcUniformityScoreOfFaction(faction, sessionInputs);
     const participationRate = calcParticipationRateOfFaction(faction, sessionInputs);
     const abstentionRate = calcAbstentionRateOfFaction(faction, sessionInputs);

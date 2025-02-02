@@ -1,11 +1,6 @@
 ---
 import type { Registry,RegistryParty } from '../../../../../model/registry';
-import {
-  formatNumber,
-  formatPercent,
-  getVotingsSuccessRate,
-  getVotingsSuccessRateHistory
-} from './_helpers';
+import { formatNumber, formatPercent } from './_helpers';
 import type { SessionInput } from '../../../../../model/SessionInput';
 import {
   calcAbstentionRateOfParty,
@@ -18,7 +13,8 @@ import {
 import {
   calcUniformityScoreHistoryOfParty,
   calcUniformityScoreOfParty
-} from "../../../../../data-analysis/UniformityScore";
+} from '../../../../../data-analysis/UniformityScore';
+import { calcVotingSuccessRateHistoryOfParty, calcVotingSuccessRateOfParty } from '../../../../../data-analysis/VotingSuccess';
 
 type Props = {
   electoralPeriod: Registry;
@@ -28,8 +24,9 @@ type Props = {
 
 const { party, sessionInputs } = Astro.props as Props;
 
-const votingsSuccessRate = getVotingsSuccessRate(party, sessionInputs);
-const votingsSuccessRateHistory = getVotingsSuccessRateHistory(party, sessionInputs);
+const votingsSuccessRate = calcVotingSuccessRateOfParty(party, sessionInputs);
+const votingsSuccessRateHistory = calcVotingSuccessRateHistoryOfParty(party, sessionInputs)
+  .map(({ date, value }) => ({ x: date, y: value }));
 const uniformityScore = calcUniformityScoreOfParty(party, sessionInputs);
 const uniformityScoreHistory = calcUniformityScoreHistoryOfParty(party, sessionInputs)
   .map(({ date, value }) => ({ x: date, y: value }));

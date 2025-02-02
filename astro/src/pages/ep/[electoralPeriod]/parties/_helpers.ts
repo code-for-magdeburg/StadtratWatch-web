@@ -1,12 +1,3 @@
-import { VotingSuccess } from '../../../../data-analysis/VotingSuccess.ts';
-import type { RegistryFaction } from '../../../../model/registry.ts';
-import type { SessionInput } from '../../../../model/SessionInput.ts';
-
-export function getPartyVotingSuccessRate(faction: RegistryFaction, sessions: SessionInput[]): number | null {
-  const votingSuccess = new VotingSuccess(sessions);
-  return votingSuccess.forParty(faction);
-}
-
 export function formatVotingSuccessRate(votingSuccessRate: number): string {
   return (votingSuccessRate * 100).toLocaleString(
     'de-DE',

@@ -3,6 +3,7 @@ import type { SessionScanItem } from '../model/session-scan.ts';
 import type { SessionInput } from '../model/SessionInput.ts';
 import { VoteResult } from '../model/Session.ts';
 
+
 export function calcVotingMatrix(electoralPeriod: Registry, person: RegistryPerson, sessions: SessionInput[]): any {
 
   const otherPersons = electoralPeriod.persons.filter(otherPerson => otherPerson.name !== person.name);
@@ -17,6 +18,7 @@ export function calcVotingMatrix(electoralPeriod: Registry, person: RegistryPers
   }));
 
 }
+
 
 function calcVotingComparisonScore(votings: SessionScanItem[], person: RegistryPerson, otherPerson: RegistryPerson): number {
 
