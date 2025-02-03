@@ -2,13 +2,14 @@
 import type { GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import type { SessionInput } from '../../../../../model/SessionInput';
-import type { Registry } from '../../../../../model/registry';
+import type { Registry, RegistryParty } from '../../../../../model/registry';
 import BreadcrumbMenuLayout from '../../../../../layouts/BreadcrumbMenuLayout.astro';
 import CouncilMembersComponent from './_council-members.astro';
 import StatisticsComponent from './_statistics.astro';
 
 type Props = {
   electoralPeriod: Registry;
+  party: RegistryParty;
   sessionInputs: SessionInput[];
 };
 
@@ -49,7 +50,7 @@ export const getStaticPaths = (async () => {
 
       return {
         params: { electoralPeriod: electoralPeriod.id, party: party.id },
-        props: { electoralPeriod: electoralPeriod.data, sessionInputs }
+        props: { electoralPeriod: electoralPeriod.data, party, sessionInputs }
       };
 
     })
@@ -57,8 +58,7 @@ export const getStaticPaths = (async () => {
 
 }) satisfies GetStaticPaths;
 
-const { electoralPeriod, sessionInputs } = Astro.props as Props;
-const party = electoralPeriod.parties.find(party => party.id === Astro.params.party)!;
+const { electoralPeriod, party, sessionInputs } = Astro.props as Props;
 
 ---
 <BreadcrumbMenuLayout

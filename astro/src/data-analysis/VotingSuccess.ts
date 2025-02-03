@@ -106,6 +106,20 @@ export function calcVotingSuccessRateOfPerson(person: RegistryPerson, sessions: 
 }
 
 
+export function calcVotingSuccessRateHistoryOfPerson(person: RegistryPerson, sessions: SessionInput[]): HistoryDataPoint[] {
+
+  return sessions
+    .map(session => {
+      const pastSessions = sessions.filter(s => s.config.date <= session.config.date);
+      const value = calcVotingSuccessRateOfPerson(person, pastSessions);
+      return { date: session.config.date, value };
+    })
+    .filter(({ value }) => value !== null)
+    .map(({ date, value }) => ({ date, value: value! }))
+    .toSorted((a, b) => a.date.localeCompare(b.date));
+
+}
+
 function isPersonsVotingSuccessful(persons: string[], voting: SessionScanItem): boolean {
   const votingResult = getVotingResult(voting);
   const personsVotingResult = calcPersonsVotingResult(persons, voting);

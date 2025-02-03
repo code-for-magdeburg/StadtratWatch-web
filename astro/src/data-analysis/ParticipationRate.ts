@@ -90,6 +90,21 @@ export function calcParticipationRateOfPerson(person: RegistryPerson, sessions: 
 }
 
 
+export function calcParticipationRateHistoryOfPerson(person: RegistryPerson, sessions: SessionInput[]): HistoryDataPoint[] {
+
+  return sessions
+    .map(session => {
+      const pastSessions = sessions.filter(s => s.config.date <= session.config.date);
+      const value = calcParticipationRateOfPerson(person, pastSessions);
+      return { date: session.config.date, value };
+    })
+    .filter(({ value }) => value !== null)
+    .map(({ date, value }) => ({ date, value: value! }))
+    .toSorted((a, b) => a.date.localeCompare(b.date));
+
+}
+
+
 function calcParticipationRate(persons: string[], voting: SessionScanItem): number | null {
   const votes = voting.votes
     .filter(vote => persons.includes(vote.name))

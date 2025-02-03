@@ -139,7 +139,7 @@ const formattedDate = new Date(session.date).toLocaleString(
 
     <div x-cloak x-show="currentTab === 'speeches'" class="py-3 md:py-5 md:px-20 lg:px-48">
       <SpeechesComponent
-        electoralPeriodId={electoralPeriod.id}
+        electoralPeriod={electoralPeriod}
         session={session}
         speeches={speeches}
         config={config}

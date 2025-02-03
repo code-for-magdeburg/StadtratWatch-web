@@ -1,23 +1,32 @@
 ---
-import type { SessionSpeech } from '../../../../../model/session-speech';
-import type { SessionConfig } from '../../../../../model/session-config';
-import type { Registry, RegistrySession } from '../../../../../model/registry';
+import type { Registry, RegistryPerson } from '../../../../../model/registry';
+import type { SessionInput } from '../../../../../model/SessionInput';
 import SpeechComponent from '../../../../../components/Speech.astro';
 
 
 type Props = {
   electoralPeriod: Registry;
-  session: RegistrySession;
-  speeches: SessionSpeech[];
-  config: SessionConfig;
+  person: RegistryPerson;
+  sessions: SessionInput[];
 };
 
+const { electoralPeriod, person, sessions } = Astro.props as Props;
 
-const { electoralPeriod, session, speeches, config } = Astro.props;
+const speechesBySessionDate = sessions
+  .flatMap(session => ({
+    sessionId: session.sessionId,
+    sessionDate: session.config.date,
+    config: session.config,
+    speeches: session.speeches
+      .filter(speech => speech.speaker === person.name)
+      .toSorted((a, b) => a.start - b.start)
+  }))
+  .filter(session => session.speeches.length > 0)
+  .toSorted((a, b) => b.sessionId.localeCompare(a.sessionId));
 
 ---
 
-<div class="space-y-5">
+<div class="space-y-10 py-5 md:py-10">
 
   <div class="rounded-md bg-blue-100 p-4 border border-blue-400/20">
     <div class="flex">
@@ -33,14 +42,30 @@ const { electoralPeriod, session, speeches, config } = Astro.props;
     </div>
   </div>
 
-  {speeches
-    .map(speech =>
-      <SpeechComponent
-        electoralPeriod={electoralPeriod}
-        sessionId={session.id}
-        speech={speech}
-        config={config}
-      ></SpeechComponent>
-  )}
+  {speechesBySessionDate.map(session => {
+
+    const label = new Date(session.sessionDate).toLocaleString(
+      'de-DE',
+      { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',  }
+    );
+
+    return <div class="space-y-3">
+
+      <h2 class="text-xl font-bold text-gray-900 tracking-tight">{label}</h2>
+
+      {session.speeches.map(speech =>
+        <SpeechComponent
+          electoralPeriod={electoralPeriod}
+          sessionId={session.sessionId}
+          speech={speech}
+          config={session.config}
+        ></SpeechComponent>
+      )}
+
+    </div>
+
+  })
+
+  }
 
 </div>
