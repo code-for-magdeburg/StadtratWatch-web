@@ -1,0 +1,52 @@
+---
+import { calcVotingMatrix } from '../../../../../data-analysis/VotingMatrix';
+import type { Registry, RegistryPerson } from '../../../../../model/registry';
+import type { SessionInput } from '../../../../../model/SessionInput';
+import { formatComparisonScore } from './_helpers';
+
+
+type Props = {
+  electoralPeriod: Registry;
+  person: RegistryPerson;
+  sessions: SessionInput[];
+};
+
+
+const { electoralPeriod, person, sessions } = Astro.props as Props;
+
+const votingMatrix = calcVotingMatrix(electoralPeriod, person, sessions)
+  .toSorted((a: any, b: any) => b.comparisonScore - a.comparisonScore);
+
+---
+
+<div class="overflow-x-auto">
+
+  <table class="min-w-full divide-y divide-gray-300">
+    <thead>
+    <tr>
+      <th scope="col" class="whitespace-nowrap py-3.5 pr-3 text-left text-sm font-semibold text-gray-900">Name</th>
+      <th scope="col" class="whitespace-nowrap py-3.5 pr-3 text-left text-sm font-semibold text-gray-900">Fraktion</th>
+      <th scope="col" class="whitespace-nowrap py-3.5 pr-3 text-left text-sm font-semibold text-gray-900">Partei</th>
+      <th scope="col" class="whitespace-nowrap py-3.5 text-right text-sm font-semibold text-gray-900">Übereinstimmung</th>
+    </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+    {votingMatrix.map((row: any) =>
+      <tr>
+        <td class="whitespace-nowrap py-2 pr-3 text-sm text-gray-900">
+          <a
+            href={`/ep/${electoralPeriod.id}/person/${row.personId}`}
+            class="text-indigo-600 hover:underline"
+          >{row.personName}</a>
+        </td>
+        <td class="whitespace-nowrap py-2 pr-3 text-sm text-gray-900">{row.faction}</td>
+        <td class="whitespace-nowrap py-2 pr-3 text-sm text-gray-900">{row.party}</td>
+        <td class="whitespace-nowrap py-2 text-right text-sm text-gray-900">
+          {row.comparisonScore === null ? 'n/a' : formatComparisonScore(row.comparisonScore)}%
+        </td>
+      </tr>
+    )}
+    </tbody>
+  </table>
+
+</div>
