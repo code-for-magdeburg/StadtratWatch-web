@@ -91,6 +91,21 @@ export function calcAbstentionRateOfPerson(person: RegistryPerson, sessions: Ses
 }
 
 
+export function calcAbstentionRateHistoryOfPerson(person: RegistryPerson, sessions: SessionInput[]): HistoryDataPoint[] {
+
+  return sessions
+    .map(session => {
+      const pastSessions = sessions.filter(s => s.config.date <= session.config.date);
+      const value = calcAbstentionRateOfPerson(person, pastSessions);
+      return { date: session.config.date, value };
+    })
+    .filter(({ value }) => value !== null)
+    .map(({ date, value }) => ({ date, value: value! }))
+    .toSorted((a, b) => a.date.localeCompare(b.date));
+
+}
+
+
 function calcAbstentionRate(persons: string[], voting: SessionScanItem): number | null {
   const allVotes = voting.votes
     .filter(vote => persons.includes(vote.name))
