@@ -2,12 +2,12 @@
   "id": "cdu-fdp",
   "name": "CDU/FDP",
   "seats": 15,
-  "applicationsSuccessRate": 0.9076923076923077,
-  "votingsSuccessRate": 0.9248291571753986,
-  "uniformityScore": 0.9542675718236384,
-  "participationRate": 0.7989369779802582,
-  "abstentionRate": 0.06580041130573157,
-  "speakingTime": 13764,
+  "applicationsSuccessRate": 0.8974358974358975,
+  "votingsSuccessRate": 0.9166666666666666,
+  "uniformityScore": 0.9491080908058679,
+  "participationRate": 0.7962121212121213,
+  "abstentionRate": 0.06964592969560263,
+  "speakingTime": 15625,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -41,6 +41,10 @@
       {
         "date": "2025-01-15",
         "value": 0.9076923076923077
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.8974358974358975
       }
     ],
     "votingsSuccessRate": [
@@ -75,6 +79,10 @@
       {
         "date": "2025-01-15",
         "value": 0.9248291571753986
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.9166666666666666
       }
     ],
     "uniformityScore": [
@@ -109,6 +117,10 @@
       {
         "date": "2025-01-15",
         "value": 0.9542675718236384
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.9491080908058679
       }
     ],
     "participationRate": [
@@ -143,6 +155,10 @@
       {
         "date": "2025-01-15",
         "value": 0.7989369779802582
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.7962121212121213
       }
     ],
     "abstentionRate": [
@@ -177,6 +193,10 @@
       {
         "date": "2025-01-15",
         "value": 0.06580041130573157
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.06964592969560263
       }
     ]
   },
@@ -1039,6 +1059,188 @@
       "votings": [
         {
           "votingId": 82,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0646/24",
+      "type": "Delegation",
+      "title": "43. Hauptversammlung des Deutschen Städtetages vom 13. bis 15. Mai 2025 in Hannover",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245264,
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0107/24",
+      "type": "Antrag",
+      "title": "Feriensportwoche erneut etablieren",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 243704,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0127/24",
+      "type": "Antrag",
+      "title": "Barrierefreier Zugang vom Nordpark zum Familienhaus",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 243733,
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0198/24/2",
+      "type": "Änderungsantrag",
+      "title": "Schaffung Spielplatz Feuerwehr/Rettungsdienst",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 244910,
+      "votings": [
+        {
+          "votingId": 60,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0198/24",
+      "type": "Antrag",
+      "title": "Schaffung Spielplatz Feuerwehr/Rettungsdienst",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 244514,
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0205/24",
+      "type": "Antrag",
+      "title": "pragmatischer Umwelt- und Naturschutz für Magdeburg",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 244521,
+      "votings": [
+        {
+          "votingId": 64,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0206/24",
+      "type": "Antrag",
+      "title": "Mehr Verkehrssicherheit: Vor der Kita Sonnenland",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 244522,
+      "votings": [
+        {
+          "votingId": 65,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0234/24",
+      "type": "Antrag",
+      "title": "Demokratie ermöglichen: öffentliche Gebäude für parteipolitische Veranstaltungen",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 244774,
+      "votings": [
+        {
+          "votingId": 67,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0004/25",
+      "type": "Antrag",
+      "title": "Verkauf von Grundstücken",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245434,
+      "votings": [
+        {
+          "votingId": 73,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0008/25",
+      "type": "Geschäftsordnung",
+      "title": "Aufwertung und umfängliche Nutzbarkeit des Heinrich-Germer-Stadions",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245438,
+      "votings": [
+        {
+          "votingId": 76,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0009/25",
+      "type": "Geschäftsordnung",
+      "title": "Wie weiter mit der Ruine der ehemaligen Grundschule am Brunnenstieg?",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245439,
+      "votings": [
+        {
+          "votingId": 77,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0010/25",
+      "type": "Geschäftsordnung",
+      "title": "Barrierefreiheit der PKW-Stellplätze für Menschen mit Behinderung",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245440,
+      "votings": [
+        {
+          "votingId": 83,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0001/25",
+      "type": "Geschäftsordnung",
+      "title": "„Mittelfristige Deckelungsquote für Verpflichtungsermächtigungen im Rahmen der Haushaltsaufstellungen der Haushaltsjahre 2027 - 2029“",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245417,
+      "votings": [
+        {
+          "votingId": 84,
           "votingResult": "PASSED"
         }
       ]

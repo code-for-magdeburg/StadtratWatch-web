@@ -2,12 +2,12 @@
   "id": "die-linke",
   "name": "DIE LINKE",
   "seats": 6,
-  "applicationsSuccessRate": 0.5303030303030303,
-  "votingsSuccessRate": 0.7266514806378133,
-  "uniformityScore": 0.9639114182162374,
-  "participationRate": 0.8177676537585421,
-  "abstentionRate": 0.1012607011166727,
-  "speakingTime": 10301,
+  "applicationsSuccessRate": 0.5822784810126582,
+  "votingsSuccessRate": 0.7537878787878788,
+  "uniformityScore": 0.96500823525172,
+  "participationRate": 0.7765151515151515,
+  "abstentionRate": 0.10082932067632662,
+  "speakingTime": 11276,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -41,6 +41,10 @@
       {
         "date": "2025-01-15",
         "value": 0.5303030303030303
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.5822784810126582
       }
     ],
     "votingsSuccessRate": [
@@ -75,6 +79,10 @@
       {
         "date": "2025-01-15",
         "value": 0.7266514806378133
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.7537878787878788
       }
     ],
     "uniformityScore": [
@@ -109,6 +117,10 @@
       {
         "date": "2025-01-15",
         "value": 0.9639114182162374
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.96500823525172
       }
     ],
     "participationRate": [
@@ -143,6 +155,10 @@
       {
         "date": "2025-01-15",
         "value": 0.8177676537585421
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.7765151515151515
       }
     ],
     "abstentionRate": [
@@ -177,6 +193,10 @@
       {
         "date": "2025-01-15",
         "value": 0.1012607011166727
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.10082932067632662
       }
     ]
   },
@@ -971,6 +991,188 @@
       "votings": [
         {
           "votingId": 80,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0018/25/1",
+      "type": "Änderungsantrag",
+      "title": "Bildung eines temporären Ausschusses zur Aufarbeitung des Anschlages am 20.12.2024 in Magdeburg",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": null,
+      "votings": [
+        {
+          "votingId": 9,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0630/24",
+      "type": "Delegation",
+      "title": "Delegiertenversammlung 2025 der Deutschen Sektion des RGRE",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245173,
+      "votings": [
+        {
+          "votingId": 13,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0646/24",
+      "type": "Delegation",
+      "title": "43. Hauptversammlung des Deutschen Städtetages vom 13. bis 15. Mai 2025 in Hannover",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245264,
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0428/24",
+      "type": "Geschäftsordnung",
+      "title": "Aufhebung Beschluss \"Abwanderung junger Menschen stoppen\"",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 244404,
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0194/24",
+      "type": "Antrag",
+      "title": "Inflationsausgleichszahlung auch für Mitarbeitende der Freien Träger der Stadt Magdeburg gewährleisten",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 244510,
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0198/24/1",
+      "type": "Änderungsantrag",
+      "title": "Schaffung Spielplatz Feuerwehr/Rettungsdienst",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 244596,
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0238/24",
+      "type": "Antrag",
+      "title": "Transparenz bei der Datenabfrage in den Bürgerbüros",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 244779,
+      "votings": [
+        {
+          "votingId": 68,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0019/25",
+      "type": "Antrag",
+      "title": "Akteneinsicht zur Causa „Wiehnachtmärt“ 2024",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245535,
+      "votings": [
+        {
+          "votingId": 69,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0005/25",
+      "type": "Geschäftsordnung",
+      "title": "Schaffung von Mikro-Wäldern",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245435,
+      "votings": [
+        {
+          "votingId": 74,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0008/25",
+      "type": "Geschäftsordnung",
+      "title": "Aufwertung und umfängliche Nutzbarkeit des Heinrich-Germer-Stadions",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245438,
+      "votings": [
+        {
+          "votingId": 76,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0001/25",
+      "type": "Geschäftsordnung",
+      "title": "„Mittelfristige Deckelungsquote für Verpflichtungsermächtigungen im Rahmen der Haushaltsaufstellungen der Haushaltsjahre 2027 - 2029“",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245417,
+      "votings": [
+        {
+          "votingId": 84,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0011/25",
+      "type": "Antrag",
+      "title": "Kunst am Bau - Kontrolle der Beschlussumsetzung",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245441,
+      "votings": [
+        {
+          "votingId": 85,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0016/25",
+      "type": "Antrag",
+      "title": "Mit der Linie 10 nicht rund um die Welt, sondern wieder nach Sudenburg!",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245446,
+      "votings": [
+        {
+          "votingId": 89,
           "votingResult": "PASSED"
         }
       ]

@@ -2,12 +2,12 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 6,
-  "applicationsSuccessRate": 0.65625,
-  "votingsSuccessRate": 0.7744874715261959,
-  "uniformityScore": 0.9726269289679964,
-  "participationRate": 0.8644646924829157,
-  "abstentionRate": 0.051261856718726545,
-  "speakingTime": 6071,
+  "applicationsSuccessRate": 0.6575342465753424,
+  "votingsSuccessRate": 0.7954545454545454,
+  "uniformityScore": 0.9721727508429632,
+  "participationRate": 0.8462752525252525,
+  "abstentionRate": 0.04937383518568452,
+  "speakingTime": 7053,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -41,6 +41,10 @@
       {
         "date": "2025-01-15",
         "value": 0.65625
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.6575342465753424
       }
     ],
     "votingsSuccessRate": [
@@ -75,6 +79,10 @@
       {
         "date": "2025-01-15",
         "value": 0.7744874715261959
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.7954545454545454
       }
     ],
     "uniformityScore": [
@@ -109,6 +117,10 @@
       {
         "date": "2025-01-15",
         "value": 0.9726269289679964
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.9721727508429632
       }
     ],
     "participationRate": [
@@ -143,6 +155,10 @@
       {
         "date": "2025-01-15",
         "value": 0.8644646924829157
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.8462752525252525
       }
     ],
     "abstentionRate": [
@@ -177,6 +193,10 @@
       {
         "date": "2025-01-15",
         "value": 0.051261856718726545
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.04937383518568452
       }
     ]
   },
@@ -1003,6 +1023,132 @@
       "votings": [
         {
           "votingId": 81,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0018/25/1",
+      "type": "Änderungsantrag",
+      "title": "Bildung eines temporären Ausschusses zur Aufarbeitung des Anschlages am 20.12.2024 in Magdeburg",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": null,
+      "votings": [
+        {
+          "votingId": 9,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0646/24",
+      "type": "Delegation",
+      "title": "43. Hauptversammlung des Deutschen Städtetages vom 13. bis 15. Mai 2025 in Hannover",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245264,
+      "votings": [
+        {
+          "votingId": 21,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0107/24/1",
+      "type": "Änderungsantrag",
+      "title": "Feriensportwoche erneut etablieren",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245523,
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0127/24",
+      "type": "Antrag",
+      "title": "Barrierefreier Zugang vom Nordpark zum Familienhaus",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 243733,
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0128/24/1",
+      "type": "Änderungsantrag",
+      "title": "Einführung des Deutschland-Tickets als Jobticket für Beschäftigte der Landeshauptstadt Magdeburg",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 243804,
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0019/25",
+      "type": "Antrag",
+      "title": "Akteneinsicht zur Causa „Wiehnachtmärt“ 2024",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245535,
+      "votings": [
+        {
+          "votingId": 69,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0007/25",
+      "type": "Geschäftsordnung",
+      "title": "Demokratie stärken: Schülerinnen und Schüler als Wahlhelfer gewinnen",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245437,
+      "votings": [
+        {
+          "votingId": 75,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0008/25",
+      "type": "Geschäftsordnung",
+      "title": "Aufwertung und umfängliche Nutzbarkeit des Heinrich-Germer-Stadions",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245438,
+      "votings": [
+        {
+          "votingId": 76,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0009/25",
+      "type": "Geschäftsordnung",
+      "title": "Wie weiter mit der Ruine der ehemaligen Grundschule am Brunnenstieg?",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245439,
+      "votings": [
+        {
+          "votingId": 77,
           "votingResult": "PASSED"
         }
       ]

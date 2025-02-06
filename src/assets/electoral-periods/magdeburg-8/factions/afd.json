@@ -2,12 +2,12 @@
   "id": "afd",
   "name": "AfD",
   "seats": 13,
-  "applicationsSuccessRate": 0.22580645161290322,
-  "votingsSuccessRate": 0.7608200455580866,
-  "uniformityScore": 0.9894907497963147,
-  "participationRate": 0.8365165586122306,
-  "abstentionRate": 0.06818689156764943,
-  "speakingTime": 8189,
+  "applicationsSuccessRate": 0.2222222222222222,
+  "votingsSuccessRate": 0.7386363636363636,
+  "uniformityScore": 0.9875512171861263,
+  "participationRate": 0.8175990675990676,
+  "abstentionRate": 0.06485526441468964,
+  "speakingTime": 9518,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -41,6 +41,10 @@
       {
         "date": "2025-01-15",
         "value": 0.22580645161290322
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.2222222222222222
       }
     ],
     "votingsSuccessRate": [
@@ -75,6 +79,10 @@
       {
         "date": "2025-01-15",
         "value": 0.7608200455580866
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.7386363636363636
       }
     ],
     "uniformityScore": [
@@ -109,6 +117,10 @@
       {
         "date": "2025-01-15",
         "value": 0.9894907497963147
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.9875512171861263
       }
     ],
     "participationRate": [
@@ -143,6 +155,10 @@
       {
         "date": "2025-01-15",
         "value": 0.8365165586122306
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.8175990675990676
       }
     ],
     "abstentionRate": [
@@ -177,6 +193,10 @@
       {
         "date": "2025-01-15",
         "value": 0.06818689156764943
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.06485526441468964
       }
     ]
   },
@@ -612,6 +632,76 @@
         {
           "votingId": 71,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0630/24",
+      "type": "Delegation",
+      "title": "Delegiertenversammlung 2025 der Deutschen Sektion des RGRE",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245173,
+      "votings": [
+        {
+          "votingId": 15,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0646/24",
+      "type": "Delegation",
+      "title": "43. Hauptversammlung des Deutschen Städtetages vom 13. bis 15. Mai 2025 in Hannover",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245264,
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0205/24/1",
+      "type": "Änderungsantrag",
+      "title": "pragmatischer Umwelt- und Naturschutz für Magdeburg",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 244586,
+      "votings": [
+        {
+          "votingId": 63,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0002/25",
+      "type": "Geschäftsordnung",
+      "title": "Digitalisierung des Schülertickets",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245432,
+      "votings": [
+        {
+          "votingId": 71,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0014/25",
+      "type": "Geschäftsordnung",
+      "title": "Gewerbeparken ermöglichen - pauschales Ticket einführen",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245444,
+      "votings": [
+        {
+          "votingId": 87,
+          "votingResult": "REJECTED"
         }
       ]
     }

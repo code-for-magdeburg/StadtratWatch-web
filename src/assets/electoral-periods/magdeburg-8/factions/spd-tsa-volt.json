@@ -2,12 +2,12 @@
   "id": "spd-tsa-volt",
   "name": "SPD/Tierschutzallianz/Volt",
   "seats": 10,
-  "applicationsSuccessRate": 0.76,
-  "votingsSuccessRate": 0.8542141230068337,
-  "uniformityScore": 0.9675234237112084,
-  "participationRate": 0.7318906605922552,
-  "abstentionRate": 0.02125645040372861,
-  "speakingTime": 6920,
+  "applicationsSuccessRate": 0.7608695652173914,
+  "votingsSuccessRate": 0.8579545454545454,
+  "uniformityScore": 0.9697249607433162,
+  "participationRate": 0.749810606060606,
+  "abstentionRate": 0.02127260248716189,
+  "speakingTime": 8580,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -41,6 +41,10 @@
       {
         "date": "2025-01-15",
         "value": 0.76
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.7608695652173914
       }
     ],
     "votingsSuccessRate": [
@@ -75,6 +79,10 @@
       {
         "date": "2025-01-15",
         "value": 0.8542141230068337
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.8579545454545454
       }
     ],
     "uniformityScore": [
@@ -109,6 +117,10 @@
       {
         "date": "2025-01-15",
         "value": 0.9675234237112084
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.9697249607433162
       }
     ],
     "participationRate": [
@@ -143,6 +155,10 @@
       {
         "date": "2025-01-15",
         "value": 0.7318906605922552
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.749810606060606
       }
     ],
     "abstentionRate": [
@@ -177,6 +193,10 @@
       {
         "date": "2025-01-15",
         "value": 0.02125645040372861
+      },
+      {
+        "date": "2025-01-23",
+        "value": 0.02127260248716189
       }
     ]
   },
@@ -1218,6 +1238,244 @@
         {
           "votingId": 81,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0630/24",
+      "type": "Delegation",
+      "title": "Delegiertenversammlung 2025 der Deutschen Sektion des RGRE",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245173,
+      "votings": [
+        {
+          "votingId": 14,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0646/24",
+      "type": "Delegation",
+      "title": "43. Hauptversammlung des Deutschen Städtetages vom 13. bis 15. Mai 2025 in Hannover",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245264,
+      "votings": [
+        {
+          "votingId": 18,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0127/24",
+      "type": "Antrag",
+      "title": "Barrierefreier Zugang vom Nordpark zum Familienhaus",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 243733,
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0128/24/2",
+      "type": "Änderungsantrag",
+      "title": "Einführung des Deutschland-Tickets als Jobticket für Beschäftigte der Landeshauptstadt Magdeburg",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245557,
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0128/24",
+      "type": "Antrag",
+      "title": "Einführung des Deutschland-Tickets als Jobticket für Beschäftigte der Landeshauptstadt Magdeburg",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 243734,
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0141/24",
+      "type": "Antrag",
+      "title": "Parktickets verlängern können",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 243968,
+      "votings": [
+        {
+          "votingId": 55,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0183/24/1",
+      "type": "Änderungsantrag",
+      "title": "Zebrastreifen",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 244618,
+      "votings": [
+        {
+          "votingId": 56,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0005/25",
+      "type": "Geschäftsordnung",
+      "title": "Schaffung von Mikro-Wäldern",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245435,
+      "votings": [
+        {
+          "votingId": 74,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0007/25",
+      "type": "Geschäftsordnung",
+      "title": "Demokratie stärken: Schülerinnen und Schüler als Wahlhelfer gewinnen",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245437,
+      "votings": [
+        {
+          "votingId": 75,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0008/25",
+      "type": "Geschäftsordnung",
+      "title": "Aufwertung und umfängliche Nutzbarkeit des Heinrich-Germer-Stadions",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245438,
+      "votings": [
+        {
+          "votingId": 76,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0009/25",
+      "type": "Geschäftsordnung",
+      "title": "Wie weiter mit der Ruine der ehemaligen Grundschule am Brunnenstieg?",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245439,
+      "votings": [
+        {
+          "votingId": 77,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0006/25",
+      "type": "Antrag",
+      "title": "Überprüfung des Verendens von über 500 Schafen an der Berliner Chaussee",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245436,
+      "votings": [
+        {
+          "votingId": 81,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0012/25",
+      "type": "Geschäftsordnung",
+      "title": "Beteiligung der Behindertenbeauftragten an langfristigen Baumaßnahmen, Baustellen und Sondernutzungen",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245442,
+      "votings": [
+        {
+          "votingId": 82,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0010/25",
+      "type": "Geschäftsordnung",
+      "title": "Barrierefreiheit der PKW-Stellplätze für Menschen mit Behinderung",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245440,
+      "votings": [
+        {
+          "votingId": 83,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0001/25",
+      "type": "Geschäftsordnung",
+      "title": "„Mittelfristige Deckelungsquote für Verpflichtungsermächtigungen im Rahmen der Haushaltsaufstellungen der Haushaltsjahre 2027 - 2029“",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245417,
+      "votings": [
+        {
+          "votingId": 84,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0013/25",
+      "type": "Geschäftsordnung",
+      "title": "Querung der Arndtstraße durch einen weiteren Zebrastreifen erleichtern",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245443,
+      "votings": [
+        {
+          "votingId": 86,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0016/25",
+      "type": "Geschäftsordnung",
+      "title": "Mit der Linie 10 nicht rund um die Welt, sondern wieder nach Sudenburg!",
+      "sessionId": "2025-01-23",
+      "sessionDate": "2025-01-23",
+      "paperId": 245446,
+      "votings": [
+        {
+          "votingId": 88,
+          "votingResult": "REJECTED"
         }
       ]
     }
