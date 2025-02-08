@@ -7,9 +7,9 @@ import type { SessionInput } from '../../../../model/SessionInput';
 import { formatPercent, formatSpeakingTime } from './_helpers';
 import { calcAbstentionRateOfPerson } from '../../../../data-analysis/AbstentionRate';
 import { calcParticipationRateOfPerson } from '../../../../data-analysis/ParticipationRate';
-import { calcPersonsForces } from '../../../../data-analysis/PersonsForces';
 import { calcSpeakingTimeOfPerson } from '../../../../data-analysis/SpeakingTime';
 import { calcVotingSuccessRateOfPerson } from '../../../../data-analysis/VotingSuccess';
+import PersonsForcesComponent from './_persons-forces.astro';
 
 type Props = {
   electoralPeriod: Registry;
@@ -86,8 +86,6 @@ const persons = electoralPeriod.persons
     }
   })
   .toSorted((a, b) => a.name.localeCompare(b.name));
-
-const personsForces = calcPersonsForces(electoralPeriod, sessionInputs);
 
 ---
 <BreadcrumbMenuLayout pageTitle="Personen" electoralPeriod={electoralPeriod}>
@@ -184,8 +182,10 @@ const personsForces = calcPersonsForces(electoralPeriod, sessionInputs);
     </div>
 
     <div x-cloak x-show="currentTab === 'persons-graph'" class="py-3">
-      <!-- TODO: https://github.com/code-for-magdeburg/StadtratWatch-web/issues/265 -->
-      <canvas id="personsForcesChart"></canvas>
+      <PersonsForcesComponent
+        electoralPeriod={electoralPeriod}
+        sessions={sessionInputs}
+      ></PersonsForcesComponent>
     </div>
 
   </div>
