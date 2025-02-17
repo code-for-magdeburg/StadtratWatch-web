@@ -43,7 +43,8 @@ export class AppComponent implements OnDestroy {
             this.electoralPeriodSlug = electoralPeriodSlug === '7' ? 'magdeburg-7' : electoralPeriodSlug;
             this.electoralPeriodName = this.availableElectoralPeriods.find(
               p => p.slug === electoralPeriodSlug
-            )?.name || '';            this.metadata = await this.metadataService.fetchMetadata(this.electoralPeriodSlug);
+            )?.name || '';
+            this.metadata = await this.metadataService.fetchMetadata(this.electoralPeriodSlug);
           }
         }
       );

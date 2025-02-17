@@ -106,7 +106,7 @@ switch (true) {
       <div class="hidden md:ml-6 md:flex">
         <form
           class="grid grid-cols-1"
-          @submit.prevent="window.location.href = `/search?q=${$event.target.search.value}`"
+          @submit.prevent="$event.target.search.value.trim() !== '' ? window.location.href = `/search?q=${$event.target.search.value}` : null"
         >
           <input
             type="search"
@@ -231,7 +231,7 @@ switch (true) {
       <div class="flex px-5">
         <form
           class="grid grid-cols-1"
-          @submit.prevent="window.location.href = `/search?q=${$event.target.search.value}`"
+          @submit.prevent="$event.target.search.value.trim() !== '' ? window.location.href = `/search?q=${$event.target.search.value}` : null"
         >
           <input
             type="search"
