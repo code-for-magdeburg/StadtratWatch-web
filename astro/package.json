@@ -10,7 +10,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.4.1",
+    "@astrojs/alpinejs": "^0.4.3",
     "@astrojs/check": "^0.9.4",
     "@astrojs/tailwind": "^5.1.4",
     "@fontsource/inter": "^5.1.0",
@@ -19,6 +19,7 @@
     "astro": "^5.1.7",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
-    "vitest": "^3.0.4"
+    "typesense": "^2.0.0",
+    "vitest": "^3.0.5"
   }
 }
