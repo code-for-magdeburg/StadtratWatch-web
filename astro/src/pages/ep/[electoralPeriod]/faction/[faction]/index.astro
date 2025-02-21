@@ -7,10 +7,20 @@ import BreadcrumbMenuLayout from '../../../../../layouts/BreadcrumbMenuLayout.as
 import StatisticsComponent from './_statistics.astro';
 import ApplicationsComponent from './_applications.astro';
 import CouncilMembersComponent from './_council-members.astro';
+import type {
+  ScrapedAgendaItem,
+  ScrapedFile,
+  ScrapedMeeting,
+  ScrapedPaper
+} from '../../../../../model/scraped-session';
 
 type Props = {
   electoralPeriod: Registry;
   sessionInputs: SessionInput[];
+  scrapedMeetings: ScrapedMeeting[];
+  scrapedAgendaItems: ScrapedAgendaItem[];
+  scrapedPapers: ScrapedPaper[];
+  scrapedFiles: ScrapedFile[];
 };
 
 export const getStaticPaths = (async () => {
@@ -19,6 +29,11 @@ export const getStaticPaths = (async () => {
   const sessionConfigsCollection = await getCollection('sessionConfigs');
   const sessionSpeechesCollection = await getCollection('sessionSpeeches');
   const sessionScansCollection = await getCollection('sessionScans');
+
+  const scrapedMeetings = await getCollection('scrapedMeetings');
+  const scrapedAgendaItems = await getCollection('scrapedAgendaItems');
+  const scrapedPapers = await getCollection('scrapedPapers');
+  const scrapedFiles = await getCollection('scrapedFiles');
 
   return electoralPeriodsCollection.flatMap(electoralPeriod =>
     electoralPeriod.data.factions.map(faction => {
@@ -50,7 +65,14 @@ export const getStaticPaths = (async () => {
 
       return {
         params: { electoralPeriod: electoralPeriod.id, faction: faction.id },
-        props: { electoralPeriod: electoralPeriod.data, sessionInputs }
+        props: {
+          electoralPeriod: electoralPeriod.data,
+          sessionInputs,
+          scrapedMeetings: scrapedMeetings.map(meeting => meeting.data),
+          scrapedAgendaItems: scrapedAgendaItems.map(agendaItem => agendaItem.data),
+          scrapedPapers: scrapedPapers.map(paper => paper.data),
+          scrapedFiles: scrapedFiles.map(file => file.data)
+        }
       };
 
     })
@@ -58,7 +80,14 @@ export const getStaticPaths = (async () => {
 
 }) satisfies GetStaticPaths;
 
-const { electoralPeriod, sessionInputs } = Astro.props as Props;
+const {
+  electoralPeriod,
+  sessionInputs,
+  scrapedMeetings,
+  scrapedAgendaItems,
+  scrapedPapers,
+  scrapedFiles
+} = Astro.props as Props;
 const faction = electoralPeriod.factions.find(
   faction => faction.id === Astro.params.faction
 )!;
@@ -137,6 +166,10 @@ const faction = electoralPeriod.factions.find(
         electoralPeriod={electoralPeriod}
         faction={faction}
         sessionInputs={sessionInputs}
+        scrapedMeetings={scrapedMeetings}
+        scrapedAgendaItems={scrapedAgendaItems}
+        scrapedPapers={scrapedPapers}
+        scrapedFiles={scrapedFiles}
       ></ApplicationsComponent>
     </div>
 
