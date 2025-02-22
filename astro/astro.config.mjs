@@ -4,13 +4,12 @@ import tailwind from '@astrojs/tailwind';
 import alpinejs from '@astrojs/alpinejs';
 
 
-// https://astro.build/config
 export default defineConfig({
 
   env: {
     schema: {
       AWS_CLOUDFRONT_BASE_URL: envField.string({
-        context: 'server',
+        context: 'client',
         access: 'public',
         optional: false
       }),
