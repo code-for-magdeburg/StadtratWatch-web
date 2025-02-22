@@ -1,68 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { AWS_CLOUDFRONT_BASE_URL } from 'astro:env/server'
 ---
-
-<script is:inline define:vars={{ AWS_CLOUDFRONT_BASE_URL }}>
-
-  const queryParams = new URLSearchParams(location.search);
-  const paperId = +queryParams.get('paperId');
-
-  const batchNo = `${Math.floor(paperId / 1000)}`.padStart(4, '0');
-
-  fetch(`${AWS_CLOUDFRONT_BASE_URL}/web-assets/papers/papers-${batchNo}.json`)
-    .then(response => response.json())
-    .then(batch => {
-      document.addEventListener('alpine:init', () => {
-        const paper = batch.find(p => p.id === paperId);
-        Alpine.data('paper', () => ({
-          paper: {
-            ...paper,
-            files: paper.files.map(file => ({
-              ...file,
-              fileSizeDisplay: `(${formatFileSize(file.size || 0)})`
-            }))
-          },
-          selectedFile: paper.files.length > 0 ? paper.files[0].id : null,
-          documentUrl: paper.files.length > 0 ? paper.files[0].url : null,
-          fileSizeOk: paper.files.length > 0 && (paper.files[0].size || 0) <= 1024 * 1024,
-          fileSizeDisplay: formatFileSize(paper.files[0].size || 0),
-          selectFile: function(fileId) {
-
-            if (fileId) {
-              const file = paper?.files.find(f => f.id === fileId);
-              if (file) {
-                this.selectedFile = fileId;
-                this.documentUrl = file.url;
-                this.fileSizeOk = (file.size || 0) <= 1024 * 1024;
-                this.fileSizeDisplay = `(${formatFileSize(file.size || 0)})`;
-              }
-            } else {
-              this.selectedFile = null;
-              this.documentUrl = null;
-              this.fileSizeOk = true;
-              this.fileSizeDisplay = '';
-            }
-
-          }
-        }));
-      })
-
-    });
-
-  function formatFileSize(size) {
-    const units = ['B', 'KB', 'MB', 'GB', 'TB'];
-    let unitIndex = 0;
-    let fileSize = size;
-    while (fileSize >= 1024 && unitIndex < units.length) {
-      fileSize /= 1024;
-      unitIndex++;
-    }
-
-    return `${fileSize.toFixed(2)} ${units[unitIndex]}`;
-  }
-
-</script>
 
 <Layout>
 
@@ -161,3 +99,103 @@ import { AWS_CLOUDFRONT_BASE_URL } from 'astro:env/server'
 
 </Layout>
 
+<script>
+
+  import Alpine from 'alpinejs';
+  import { AWS_CLOUDFRONT_BASE_URL } from 'astro:env/client';
+
+  type PaperFile = {
+    id: number;
+    name: string;
+    url: string;
+    size: number | null;
+  };
+
+  type Paper = {
+    id: number;
+    reference: string | null;
+    type: string | null;
+    title: string;
+    files: PaperFile[];
+  };
+
+  document.addEventListener('alpine:init', () => {
+
+    Alpine.data('paper', () => ({
+      paper: {
+        id: 0,
+        reference: null,
+        type: null,
+        title: '',
+        files: []
+      } as Paper,
+      selectedFile: null as number | null,
+      documentUrl: null as string | null,
+      fileSizeOk: true,
+      fileSizeDisplay: 'fileSizeDisplay',
+      async init() {
+
+        const queryParams = new URLSearchParams(location.search);
+        const paperId = +(queryParams.get('paperId') || '0');
+
+        const batchNo = `${Math.floor(paperId / 1000)}`.padStart(4, '0');
+
+        const batchResponse = await fetch(`${AWS_CLOUDFRONT_BASE_URL}/web-assets/papers/papers-${batchNo}.json`);
+        const batch = await batchResponse.json() as Paper[];
+        const paper = batch.find(p => p.id === paperId);
+
+        if (!paper) {
+          console.error(`Paper with id ${paperId} not found.`);
+        } else {
+
+          this.paper = {
+            ...paper,
+            files: paper.files.map(file => ({
+              ...file,
+              fileSizeDisplay: `(${formatFileSize(file.size || 0)})`
+            }))
+          };
+          this.selectedFile = paper.files.length > 0 ? paper.files[0].id : null;
+          this.documentUrl = paper.files.length > 0 ? paper.files[0].url : null;
+          this.fileSizeOk = paper.files.length > 0 && (paper.files[0].size || 0) <= 1024 * 1024;
+          this.fileSizeDisplay = formatFileSize(paper.files[0].size || 0);
+
+        }
+
+      },
+      selectFile: function(fileId: number) {
+
+        if (fileId) {
+          const file = this.paper.files.find(f => f.id === fileId);
+          if (file) {
+            this.selectedFile = fileId;
+            this.documentUrl = file.url;
+            this.fileSizeOk = (file.size || 0) <= 1024 * 1024;
+            this.fileSizeDisplay = `(${formatFileSize(file.size || 0)})`;
+          }
+        } else {
+          this.selectedFile = null;
+          this.documentUrl = null;
+          this.fileSizeOk = true;
+          this.fileSizeDisplay = '';
+        }
+
+      }
+
+    }));
+
+  });
+
+  function formatFileSize(size: number) {
+    const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+    let unitIndex = 0;
+    let fileSize = size;
+    while (fileSize >= 1024 && unitIndex < units.length) {
+      fileSize /= 1024;
+      unitIndex++;
+    }
+
+    return `${fileSize.toFixed(2)} ${units[unitIndex]}`;
+  }
+
+</script>
