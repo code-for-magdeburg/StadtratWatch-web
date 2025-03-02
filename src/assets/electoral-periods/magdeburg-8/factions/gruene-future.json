@@ -2,12 +2,12 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 6,
-  "applicationsSuccessRate": 0.6575342465753424,
-  "votingsSuccessRate": 0.7954545454545454,
-  "uniformityScore": 0.9721727508429632,
-  "participationRate": 0.8462752525252525,
-  "abstentionRate": 0.04937383518568452,
-  "speakingTime": 7053,
+  "applicationsSuccessRate": 0.691358024691358,
+  "votingsSuccessRate": 0.8067632850241546,
+  "uniformityScore": 0.9724979686872198,
+  "participationRate": 0.8432635534084809,
+  "abstentionRate": 0.04667188829461683,
+  "speakingTime": 8680,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -45,6 +45,14 @@
       {
         "date": "2025-01-23",
         "value": 0.6575342465753424
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.6794871794871795
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.691358024691358
       }
     ],
     "votingsSuccessRate": [
@@ -83,6 +91,14 @@
       {
         "date": "2025-01-23",
         "value": 0.7954545454545454
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.8057921635434412
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.8067632850241546
       }
     ],
     "uniformityScore": [
@@ -121,6 +137,14 @@
       {
         "date": "2025-01-23",
         "value": 0.9721727508429632
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.9719046283010397
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.9724979686872198
       }
     ],
     "participationRate": [
@@ -159,6 +183,14 @@
       {
         "date": "2025-01-23",
         "value": 0.8462752525252525
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.8378762067007383
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.8432635534084809
       }
     ],
     "abstentionRate": [
@@ -197,6 +229,14 @@
       {
         "date": "2025-01-23",
         "value": 0.04937383518568452
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.049182214378980474
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.04667188829461683
       }
     ]
   },
@@ -1149,6 +1189,118 @@
       "votings": [
         {
           "votingId": 77,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0614/24/2",
+      "type": "Änderungsantrag",
+      "title": "Fahrradparkhaus (FPH) am Hauptbahnhof Magdeburg",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245732,
+      "votings": [
+        {
+          "votingId": 17,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0231/24/1",
+      "type": "Änderungsantrag",
+      "title": "Den ÖPNV flüssiger und sicherer machen - mit Kameras in den Stadtbussen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 244877,
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0025/25",
+      "type": "Geschäftsordnung",
+      "title": "Umfrage unter Bürgerinnen und Bürgern der Landeshauptstadt Magdeburg zur Bestimmung des zukünftigen Veranstaltungsortes für den Magdeburger Weihnachtsmarkt",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245599,
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0029/25",
+      "type": "Antrag",
+      "title": "Sicherheitselemente für Veranstaltungen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245604,
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0030/25",
+      "type": "Antrag",
+      "title": "Feldrain Alt Olvenstedt",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245605,
+      "votings": [
+        {
+          "votingId": 47,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/16",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - in:takt und Schauwerk",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245532,
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/30",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Adelheid-Preisverleihung 2025",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245754,
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0142/24",
+      "type": "Antrag",
+      "title": "Erhöhung Haushaltsansatz für die Förderung freier kultureller und künstlerischer Projekte",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 243970,
+      "votings": [
+        {
+          "votingId": 33,
           "votingResult": "PASSED"
         }
       ]

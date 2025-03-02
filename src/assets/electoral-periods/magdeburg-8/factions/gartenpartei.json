@@ -2,12 +2,12 @@
   "id": "gartenpartei",
   "name": "Gartenpartei",
   "seats": 3,
-  "applicationsSuccessRate": 0.4482758620689655,
-  "votingsSuccessRate": 0.6988636363636364,
-  "uniformityScore": 0.9187999812312414,
-  "participationRate": 0.7544191919191919,
-  "abstentionRate": 0.10495766055209671,
-  "speakingTime": 7746,
+  "applicationsSuccessRate": 0.43243243243243246,
+  "votingsSuccessRate": 0.6827697262479872,
+  "uniformityScore": 0.9239560799940556,
+  "participationRate": 0.7380568974771873,
+  "abstentionRate": 0.14288523536696973,
+  "speakingTime": 10441,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -45,6 +45,14 @@
       {
         "date": "2025-01-23",
         "value": 0.4482758620689655
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.45714285714285713
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.43243243243243246
       }
     ],
     "votingsSuccessRate": [
@@ -83,6 +91,14 @@
       {
         "date": "2025-01-23",
         "value": 0.6988636363636364
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.6780238500851788
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.6827697262479872
       }
     ],
     "uniformityScore": [
@@ -121,6 +137,14 @@
       {
         "date": "2025-01-23",
         "value": 0.9187999812312414
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.9192928644640495
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.9239560799940556
       }
     ],
     "participationRate": [
@@ -159,6 +183,14 @@
       {
         "date": "2025-01-23",
         "value": 0.7544191919191919
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.7433276547416241
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.7380568974771873
       }
     ],
     "abstentionRate": [
@@ -197,6 +229,14 @@
       {
         "date": "2025-01-23",
         "value": 0.10495766055209671
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.10717375890366672
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.14288523536696973
       }
     ]
   },
@@ -604,6 +644,104 @@
         {
           "votingId": 70,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0228/24/1",
+      "type": "Änderungsantrag",
+      "title": "Erarbeitung eines Verkehrskonzepts für die ehemalige Karl-Marx-Siedlung im Stadtteil Hopfengarten",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245688,
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0280/24",
+      "type": "Geschäftsordnung",
+      "title": "Einberufung Brückengipfel",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245382,
+      "votings": [
+        {
+          "votingId": 35,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0280/24",
+      "type": "Antrag",
+      "title": "Einberufung Brückengipfel",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245382,
+      "votings": [
+        {
+          "votingId": 36,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0024/25",
+      "type": "Geschäftsordnung",
+      "title": "Gedenkkerze am Eingang Alter Markt",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245598,
+      "votings": [
+        {
+          "votingId": 43,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0025/25",
+      "type": "Geschäftsordnung",
+      "title": "Umfrage unter Bürgerinnen und Bürgern der Landeshauptstadt Magdeburg zur Bestimmung des zukünftigen Veranstaltungsortes für den Magdeburger Weihnachtsmarkt",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245599,
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/19",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025- Sanierung von Straßen der Landeshauptstadt Magdeburg",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245600,
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0142/24",
+      "type": "Geschäftsordnung",
+      "title": "Erhöhung Haushaltsansatz für die Förderung freier kultureller und künstlerischer Projekte",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 243970,
+      "votings": [
+        {
+          "votingId": 31,
+          "votingResult": "REJECTED"
         }
       ]
     }
