@@ -2,12 +2,12 @@
   "id": "die-linke",
   "name": "DIE LINKE",
   "seats": 6,
-  "applicationsSuccessRate": 0.5822784810126582,
-  "votingsSuccessRate": 0.7537878787878788,
-  "uniformityScore": 0.96500823525172,
-  "participationRate": 0.7765151515151515,
-  "abstentionRate": 0.10082932067632662,
-  "speakingTime": 11276,
+  "applicationsSuccessRate": 0.5625,
+  "votingsSuccessRate": 0.7552334943639292,
+  "uniformityScore": 0.9653860545288929,
+  "participationRate": 0.774020397208803,
+  "abstentionRate": 0.10043003816537058,
+  "speakingTime": 14840,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -45,6 +45,14 @@
       {
         "date": "2025-01-23",
         "value": 0.5822784810126582
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.5730337078651685
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.5625
       }
     ],
     "votingsSuccessRate": [
@@ -83,6 +91,14 @@
       {
         "date": "2025-01-23",
         "value": 0.7537878787878788
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.7546848381601363
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.7552334943639292
       }
     ],
     "uniformityScore": [
@@ -121,6 +137,14 @@
       {
         "date": "2025-01-23",
         "value": 0.96500823525172
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.9626599540994294
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.9653860545288929
       }
     ],
     "participationRate": [
@@ -159,6 +183,14 @@
       {
         "date": "2025-01-23",
         "value": 0.7765151515151515
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.78137421919364
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.774020397208803
       }
     ],
     "abstentionRate": [
@@ -197,6 +229,14 @@
       {
         "date": "2025-01-23",
         "value": 0.10082932067632662
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.10238480668779
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.10043003816537058
       }
     ]
   },
@@ -1173,6 +1213,210 @@
       "votings": [
         {
           "votingId": 89,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0239/24",
+      "type": "Antrag",
+      "title": "Prüfen von Parkerleichterungen für ambulante Pflegedienste",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 244780,
+      "votings": [
+        {
+          "votingId": 31,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0028/25",
+      "type": "Geschäftsordnung",
+      "title": "Ein Sportmuseum für die Sportstadt Magdeburg",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245603,
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0031/25",
+      "type": "Geschäftsordnung",
+      "title": "Grundsatzbeschluss: Einführung einer Einwegverpackungsabgabe",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245606,
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0035/25",
+      "type": "Geschäftsordnung",
+      "title": "Umsteigen am Hassel erleichtern und sicherer machen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245610,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0022/25",
+      "type": "Geschäftsordnung",
+      "title": "Schluss mit Cocktail-Shaker-Fahrten! - Ertüchtigung der Rogätzer Straße realisieren und die Alte Neustadt aufwerten",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245596,
+      "votings": [
+        {
+          "votingId": 50,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0023/25",
+      "type": "Geschäftsordnung",
+      "title": "Ein Beschwerde-Briefkasten für’s Rathaus",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245597,
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0034/25",
+      "type": "Geschäftsordnung",
+      "title": "Gesellschaftshaus wirtschaftlich stärken und effizient nutzen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245609,
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 55,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 56,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/14",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 – Beurkundungen durch Standesbeamtinnen und -beamten nachhaltig absichern!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245513,
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/16",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - in:takt und Schauwerk",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245532,
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/23",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Machbarkeitsstudie für den Nordverbinder streichen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245677,
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/26",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Kita-Personal halten, Betreuungsqualität nicht leiden lassen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245678,
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/27",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Projekt „HASSELn gegen Leerstand” initiieren",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245687,
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/30",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Adelheid-Preisverleihung 2025",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245754,
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0142/24",
+      "type": "Antrag",
+      "title": "Erhöhung Haushaltsansatz für die Förderung freier kultureller und künstlerischer Projekte",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 243970,
+      "votings": [
+        {
+          "votingId": 33,
           "votingResult": "PASSED"
         }
       ]

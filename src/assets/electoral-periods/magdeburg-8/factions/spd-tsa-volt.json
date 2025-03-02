@@ -2,12 +2,12 @@
   "id": "spd-tsa-volt",
   "name": "SPD/Tierschutzallianz/Volt",
   "seats": 10,
-  "applicationsSuccessRate": 0.7608695652173914,
-  "votingsSuccessRate": 0.8579545454545454,
-  "uniformityScore": 0.9697249607433162,
-  "participationRate": 0.749810606060606,
-  "abstentionRate": 0.02127260248716189,
-  "speakingTime": 8580,
+  "applicationsSuccessRate": 0.7962962962962963,
+  "votingsSuccessRate": 0.8631239935587761,
+  "uniformityScore": 0.9700156275756924,
+  "participationRate": 0.7494363929146538,
+  "abstentionRate": 0.023191698795462748,
+  "speakingTime": 10828,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -45,6 +45,14 @@
       {
         "date": "2025-01-23",
         "value": 0.7608695652173914
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.7864077669902912
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.7962962962962963
       }
     ],
     "votingsSuccessRate": [
@@ -83,6 +91,14 @@
       {
         "date": "2025-01-23",
         "value": 0.8579545454545454
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.8620102214650767
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.8631239935587761
       }
     ],
     "uniformityScore": [
@@ -121,6 +137,14 @@
       {
         "date": "2025-01-23",
         "value": 0.9697249607433162
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.9701159298290598
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.9700156275756924
       }
     ],
     "participationRate": [
@@ -159,6 +183,14 @@
       {
         "date": "2025-01-23",
         "value": 0.749810606060606
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.747870528109029
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.7494363929146538
       }
     ],
     "abstentionRate": [
@@ -197,6 +229,14 @@
       {
         "date": "2025-01-23",
         "value": 0.02127260248716189
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.02178187707837037
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.023191698795462748
       }
     ]
   },
@@ -1476,6 +1516,230 @@
         {
           "votingId": 88,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0169/23",
+      "type": "Antrag",
+      "title": "Leistungssport-Campus",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 241683,
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0197/24",
+      "type": "Antrag",
+      "title": "Standort für die Schwimmhalle der Leistungssportler festlegen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 244513,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0222/24",
+      "type": "Antrag",
+      "title": "Urbane Aufenthaltsqualität für den Eiskellerplatz",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 244754,
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0228/24",
+      "type": "Antrag",
+      "title": "Erarbeitung eines Verkehrskonzepts für die ehemalige Karl-Marx-Siedlung im Stadtteil Hopfengarten",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 244768,
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0231/24/2",
+      "type": "Änderungsantrag",
+      "title": "Den ÖPNV flüssiger und sicherer machen - mit Kameras in den Stadtbussen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245740,
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0020/25",
+      "type": "Geschäftsordnung",
+      "title": "Anpassung der Öffnungszeiten der Freibäder",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245592,
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0025/25",
+      "type": "Geschäftsordnung",
+      "title": "Umfrage unter Bürgerinnen und Bürgern der Landeshauptstadt Magdeburg zur Bestimmung des zukünftigen Veranstaltungsortes für den Magdeburger Weihnachtsmarkt",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245599,
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0035/25",
+      "type": "Geschäftsordnung",
+      "title": "Umsteigen am Hassel erleichtern und sicherer machen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245610,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0022/25",
+      "type": "Geschäftsordnung",
+      "title": "Schluss mit Cocktail-Shaker-Fahrten! - Ertüchtigung der Rogätzer Straße realisieren und die Alte Neustadt aufwerten",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245596,
+      "votings": [
+        {
+          "votingId": 50,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0032/25",
+      "type": "Geschäftsordnung",
+      "title": "zentrales Fundbüro in Magdeburg",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245607,
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0033/25",
+      "type": "Geschäftsordnung",
+      "title": "Verbesserung der Zuverlässigkeit von Anzeigetafeln und Fahrgastinformationen der MVB",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245608,
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/15",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 – Erhöhung des Etats zur Erweitung des Bibliotheksbestandes",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245520,
+      "votings": [
+        {
+          "votingId": 13,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/16",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - in:takt und Schauwerk",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245532,
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/30",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Adelheid-Preisverleihung 2025",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245754,
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0142/24/2",
+      "type": "Änderungsantrag",
+      "title": "Erhöhung Haushaltsansatz für die Förderung freier kultureller und künstlerischer Projekte",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": null,
+      "votings": [
+        {
+          "votingId": 32,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0142/24",
+      "type": "Antrag",
+      "title": "Erhöhung Haushaltsansatz für die Förderung freier kultureller und künstlerischer Projekte",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 243970,
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "PASSED"
         }
       ]
     }

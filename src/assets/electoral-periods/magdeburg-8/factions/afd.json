@@ -2,12 +2,12 @@
   "id": "afd",
   "name": "AfD",
   "seats": 13,
-  "applicationsSuccessRate": 0.2222222222222222,
-  "votingsSuccessRate": 0.7386363636363636,
-  "uniformityScore": 0.9875512171861263,
-  "participationRate": 0.8175990675990676,
-  "abstentionRate": 0.06485526441468964,
-  "speakingTime": 9518,
+  "applicationsSuccessRate": 0.13793103448275862,
+  "votingsSuccessRate": 0.6956521739130435,
+  "uniformityScore": 0.9860182390536171,
+  "participationRate": 0.8098600272513315,
+  "abstentionRate": 0.07658807206962119,
+  "speakingTime": 13651,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -45,6 +45,14 @@
       {
         "date": "2025-01-23",
         "value": 0.2222222222222222
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.19047619047619047
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.13793103448275862
       }
     ],
     "votingsSuccessRate": [
@@ -83,6 +91,14 @@
       {
         "date": "2025-01-23",
         "value": 0.7386363636363636
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.7240204429301533
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.6956521739130435
       }
     ],
     "uniformityScore": [
@@ -121,6 +137,14 @@
       {
         "date": "2025-01-23",
         "value": 0.9875512171861263
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.9860906511942729
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.9860182390536171
       }
     ],
     "participationRate": [
@@ -159,6 +183,14 @@
       {
         "date": "2025-01-23",
         "value": 0.8175990675990676
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.8119512514742497
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.8098600272513315
       }
     ],
     "abstentionRate": [
@@ -197,6 +229,14 @@
       {
         "date": "2025-01-23",
         "value": 0.06485526441468964
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.06865864398246566
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.07658807206962119
       }
     ]
   },
@@ -701,6 +741,294 @@
       "votings": [
         {
           "votingId": 87,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 39,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0003/25",
+      "type": "Geschäftsordnung",
+      "title": "Denkmal 16. Januar",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245433,
+      "votings": [
+        {
+          "votingId": 37,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0003/25",
+      "type": "Antrag",
+      "title": "Denkmal 16. Januar",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245433,
+      "votings": [
+        {
+          "votingId": 38,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0014/25",
+      "type": "Antrag",
+      "title": "Gewerbeparken ermöglichen - pauschales Ticket einführen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245444,
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0036/25",
+      "type": "Geschäftsordnung",
+      "title": "Neuordnung des Verkehrsraumes im westlichen Brückfeld prüfen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245611,
+      "votings": [
+        {
+          "votingId": 57,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0036/25",
+      "type": "Antrag",
+      "title": "Neuordnung des Verkehrsraumes im westlichen Brückfeld prüfen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245611,
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/1",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Klimabeirat streichen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245360,
+      "votings": [
+        {
+          "votingId": 1,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 14,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/2",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Stadtschreiber einsparen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245361,
+      "votings": [
+        {
+          "votingId": 2,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/5",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Vollzeitäquivalent \"Gender Mainstreaming\" streichen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245364,
+      "votings": [
+        {
+          "votingId": 4,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/8",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Elektromobilitätskonzept streichen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245371,
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/9",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Ausreisepflicht durchsetzen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245372,
+      "votings": [
+        {
+          "votingId": 6,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/10",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Klimarelevanzprüfung streichen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245373,
+      "votings": [
+        {
+          "votingId": 7,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/11",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Austritt aus dem Bündnis Sicherer Häfen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245376,
+      "votings": [
+        {
+          "votingId": 8,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/12",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Solar-Pilotprojekt streichen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245377,
+      "votings": [
+        {
+          "votingId": 9,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/14",
+      "type": "Geschäftsordnung",
+      "title": "Haushaltsplan 2025 – Beurkundungen durch Standesbeamtinnen und -beamten nachhaltig absichern!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245513,
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/21",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Gebärdensprachdolmetscher einsparen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245632,
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/22",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Umweltpreis einsparen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245636,
+      "votings": [
+        {
+          "votingId": 21,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/24",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Fachförderrichtlinie zur Unterstützung der Migrantenorganisationen streichen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245638,
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/25",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Förderung sexueller Vorlieben einstellen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245640,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/29",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Hasselbachplatzmanager einsparen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245750,
+      "votings": [
+        {
+          "votingId": 28,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/3",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Anmietung von Wohnungen für Asylbewerber stoppen!",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245362,
+      "votings": [
+        {
+          "votingId": 3,
           "votingResult": "REJECTED"
         }
       ]

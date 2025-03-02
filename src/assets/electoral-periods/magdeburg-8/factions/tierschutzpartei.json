@@ -2,12 +2,12 @@
   "id": "tierschutzpartei",
   "name": "Tierschutzpartei",
   "seats": 3,
-  "applicationsSuccessRate": 0.8636363636363636,
-  "votingsSuccessRate": 0.8768939393939394,
-  "uniformityScore": 0.9089612597150243,
-  "participationRate": 0.8194444444444444,
-  "abstentionRate": 0.115206204207283,
-  "speakingTime": 2242,
+  "applicationsSuccessRate": 0.8490566037735849,
+  "votingsSuccessRate": 0.8663446054750402,
+  "uniformityScore": 0.9031852093043181,
+  "participationRate": 0.7987117552334944,
+  "abstentionRate": 0.11432065065825042,
+  "speakingTime": 2851,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -45,6 +45,14 @@
       {
         "date": "2025-01-23",
         "value": 0.8636363636363636
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.8461538461538461
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.8490566037735849
       }
     ],
     "votingsSuccessRate": [
@@ -83,6 +91,14 @@
       {
         "date": "2025-01-23",
         "value": 0.8768939393939394
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.8620102214650767
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.8663446054750402
       }
     ],
     "uniformityScore": [
@@ -121,6 +137,14 @@
       {
         "date": "2025-01-23",
         "value": 0.9089612597150243
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.9101703969014165
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.9031852093043181
       }
     ],
     "participationRate": [
@@ -159,6 +183,14 @@
       {
         "date": "2025-01-23",
         "value": 0.8194444444444444
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.7910278250993753
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.7987117552334944
       }
     ],
     "abstentionRate": [
@@ -197,6 +229,14 @@
       {
         "date": "2025-01-23",
         "value": 0.115206204207283
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.11300761768485978
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.11432065065825042
       }
     ]
   },
@@ -803,6 +843,132 @@
       "votings": [
         {
           "votingId": 86,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0048/24",
+      "type": "Antrag",
+      "title": "Aufwertung der Abfallbehälter /Papierkörbe",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 243212,
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0250/24/1",
+      "type": "Änderungsantrag",
+      "title": "Wiederbenennung von Buttergasse und Spiegelbrücke",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245510,
+      "votings": [
+        {
+          "votingId": 32,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0254/24",
+      "type": "Antrag",
+      "title": "Umgang mit der landeseigenen Marina im Bereich des B-Plans Fahlberglist",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245006,
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0280/24",
+      "type": "Geschäftsordnung",
+      "title": "Einberufung Brückengipfel",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245382,
+      "votings": [
+        {
+          "votingId": 35,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0020/25",
+      "type": "Geschäftsordnung",
+      "title": "Anpassung der Öffnungszeiten der Freibäder",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245592,
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0021/25",
+      "type": "Antrag",
+      "title": "Verlängerung der Grünphase an der Ampelanlage Hannoversche Straße / Große-Diesdorfer-Straße",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245593,
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0031/25",
+      "type": "Geschäftsordnung",
+      "title": "Grundsatzbeschluss: Einführung einer Einwegverpackungsabgabe",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245606,
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0035/25",
+      "type": "Geschäftsordnung",
+      "title": "Umsteigen am Hassel erleichtern und sicherer machen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245610,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/30",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Adelheid-Preisverleihung 2025",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245754,
+      "votings": [
+        {
+          "votingId": 29,
           "votingResult": "PASSED"
         }
       ]

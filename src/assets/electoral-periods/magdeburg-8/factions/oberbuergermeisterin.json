@@ -2,12 +2,12 @@
   "id": "oberbuergermeisterin",
   "name": "Oberbürgermeisterin",
   "seats": 1,
-  "applicationsSuccessRate": 0,
-  "votingsSuccessRate": 0.7670454545454546,
+  "applicationsSuccessRate": 1,
+  "votingsSuccessRate": 0.7665056360708534,
   "uniformityScore": 1,
-  "participationRate": 0.8465909090909091,
-  "abstentionRate": 0.08791907840119209,
-  "speakingTime": 7606,
+  "participationRate": 0.8438003220611916,
+  "abstentionRate": 0.08920017408932847,
+  "speakingTime": 8529,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -45,6 +45,14 @@
       {
         "date": "2025-01-23",
         "value": 0
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0
+      },
+      {
+        "date": "2025-02-17",
+        "value": 1
       }
     ],
     "votingsSuccessRate": [
@@ -83,6 +91,14 @@
       {
         "date": "2025-01-23",
         "value": 0.7670454545454546
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.7614991482112436
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.7665056360708534
       }
     ],
     "uniformityScore": [
@@ -120,6 +136,14 @@
       },
       {
         "date": "2025-01-23",
+        "value": 1
+      },
+      {
+        "date": "2025-02-13",
+        "value": 1
+      },
+      {
+        "date": "2025-02-17",
         "value": 1
       }
     ],
@@ -159,6 +183,14 @@
       {
         "date": "2025-01-23",
         "value": 0.8465909090909091
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.8415672913117547
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.8438003220611916
       }
     ],
     "abstentionRate": [
@@ -197,8 +229,45 @@
       {
         "date": "2025-01-23",
         "value": 0.08791907840119209
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.0892966620864966
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.08920017408932847
       }
     ]
   },
-  "applications": []
+  "applications": [
+    {
+      "applicationId": "DS0501/24/13",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Stellenplan",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245451,
+      "votings": [
+        {
+          "votingId": 10,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/28",
+      "type": "Änderungsantrag",
+      "title": "Haushalt 2025 - Stellenplan",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245698,
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "PASSED"
+        }
+      ]
+    }
+  ]
 }

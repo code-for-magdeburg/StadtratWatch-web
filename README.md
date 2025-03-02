@@ -1,4 +1,70 @@
 
+### Parse Speakers
+This tool parses multiple rttm files (from one session) and generates a single json file containing all speakers data.
+
+#### Build the docker image
+```shell
+docker build -t srw-parse-speakers -f docker\parse-speakers.Dockerfile .
+```
+
+#### Run the docker container
+```shell
+docker run \
+  --rm \
+  -v %cd%\sessions-media-files\2022-09-01:/app/input:ro \
+  -v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
+  srw-parse-speakers \
+  2022-09-01
+```
+
+
+### Scan voting images
+This tool scans the voting images and generates a json file containing the voting data.
+
+#### Build the docker image
+```shell
+docker build -t srw-scan-voting-images -f docker\scan-voting-images.Dockerfile .
+```
+
+#### Run the docker container
+```shell
+docker run \
+	--rm \
+	-v %cd%\data\magdeburg-7\2022-09-01\config-2022-09-01.json:/app/session-config.json:ro \
+	-v %cd%\sessions-media-files\2022-09-01:/app/voting-images:ro \
+	-v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
+	srw-scan-voting-images \
+	2022-09-01
+```
+
+
+### Speech transcriptions
+
+#### Build the docker image
+```shell
+docker build -t srw-speech-to-text -f docker\speech-to-text.Dockerfile .
+```
+
+#### Run the docker container
+
+OpenAI API key has to be provided by setting the following environment variable:
+- `OPENAI_ORGANIZATION_ID`
+- `OPENAI_PROJECT_ID`
+- `OPENAI_API_KEY`
+
+```shell
+docker run \
+	--rm \
+	-e OPENAI_ORGANIZATION_ID=<OpenAI organization id> \
+	-e OPENAI_PROJECT_ID=<OpenAI project id> \
+	-e OPENAI_API_KEY=<OpenAI api key> \
+	-v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
+	-v %cd%\output\speeches\2022-09-01:/app/speeches:ro \
+	srw-speech-to-text \
+	2022-09-01
+```
+
+
 ### Generate data assets
 
 #### Build the docker image
@@ -14,24 +80,6 @@ docker run \
   -v %cd%\src\assets\electoral-periods\magdeburg-8:/app/output-dir \
   -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
   srw-generate-data-assets
-```
-
-
-### Generate paper assets
-
-#### Build the docker image
-```shell
-docker build -t srw-generate-paper-assets -f docker\generate-paper-assets.Dockerfile .
-```
-
-#### Run the docker container
-```shell
-docker run \
-  --rm \
-  -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
-  -v %cd%\output\papers:/app/papers:ro \
-  -v %cd%\src\assets\papers:/app/generated \
-  srw-generate-paper-assets
 ```
 
 
@@ -63,10 +111,28 @@ docker build -t srw-download-paper-files -f docker\download-paper-files.Dockerfi
 ```shell
 docker run \
   --rm \
-  -v %cd%\output\papers\2024:/app/papers \
+  -v %cd%\output\papers\2025:/app/papers \
   -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
   srw-download-paper-files \
   2024
+```
+
+
+### Generate paper assets
+
+#### Build the docker image
+```shell
+docker build -t srw-generate-paper-assets -f docker\generate-paper-assets.Dockerfile .
+```
+
+#### Run the docker container
+```shell
+docker run \
+  --rm \
+  -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
+  -v %cd%\output\papers:/app/papers:ro \
+  -v %cd%\src\assets\papers:/app/generated \
+  srw-generate-paper-assets
 ```
 
 
@@ -85,26 +151,6 @@ docker run \
   -v %cd%\output\papers\2023:/input \
   -v %cd%\output\papers\2023-extracted:/output \
   srw-tika
-```
-
-
-### Scan voting images
-This tool scans the voting images and generates a json file containing the voting data.
-
-#### Build the docker image
-```shell
-docker build -t srw-scan-voting-images -f docker\scan-voting-images.Dockerfile .
-```
-
-#### Run the docker container
-```shell
-docker run \
-	--rm \
-	-v %cd%\data\magdeburg-7\2022-09-01\config-2022-09-01.json:/app/session-config.json:ro \
-	-v %cd%\sessions-media-files\2022-09-01:/app/voting-images:ro \
-	-v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
-	srw-scan-voting-images \
-	2022-09-01
 ```
 
 
@@ -132,52 +178,6 @@ docker run \
 	-v %cd%\output\papers\all-extracted:/app/papers-content:ro \
 	-v %cd%\data:/app/electoral-periods:ro \
 	srw-index-search
-```
-
-
-### Parse Speakers
-This tool parses multiple rttm files (from one session) and generates a single json file containing all speakers data.
-
-#### Build the docker image
-```shell
-docker build -t srw-parse-speakers -f docker\parse-speakers.Dockerfile .
-```
-
-#### Run the docker container
-```shell
-docker run \
-  --rm \
-  -v %cd%\sessions-media-files\2022-09-01:/app/input:ro \
-  -v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
-  srw-parse-speakers \
-  2022-09-01
-```
-
-
-### Speech transcriptions
-
-#### Build the docker image
-```shell
-docker build -t srw-speech-to-text -f docker\speech-to-text.Dockerfile .
-```
-
-#### Run the docker container
-
-OpenAI API key has to be provided by setting the following environment variable:
-- `OPENAI_ORGANIZATION_ID`
-- `OPENAI_PROJECT_ID`
-- `OPENAI_API_KEY`
-
-```shell
-docker run \
-	--rm \
-	-e OPENAI_ORGANIZATION_ID=<OpenAI organization id> \
-	-e OPENAI_PROJECT_ID=<OpenAI project id> \
-	-e OPENAI_API_KEY=<OpenAI api key> \
-	-v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
-	-v %cd%\output\speeches\2022-09-01:/app/speeches:ro \
-	srw-speech-to-text \
-	2022-09-01
 ```
 
 

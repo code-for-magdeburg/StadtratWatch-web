@@ -2,12 +2,12 @@
   "id": "cdu-fdp",
   "name": "CDU/FDP",
   "seats": 15,
-  "applicationsSuccessRate": 0.8974358974358975,
-  "votingsSuccessRate": 0.9166666666666666,
-  "uniformityScore": 0.9491080908058679,
-  "participationRate": 0.7962121212121213,
-  "abstentionRate": 0.06964592969560263,
-  "speakingTime": 15625,
+  "applicationsSuccessRate": 0.9130434782608695,
+  "votingsSuccessRate": 0.9227053140096618,
+  "uniformityScore": 0.9373229101277532,
+  "participationRate": 0.8036500268384327,
+  "abstentionRate": 0.07887401288728196,
+  "speakingTime": 20124,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -45,6 +45,14 @@
       {
         "date": "2025-01-23",
         "value": 0.8974358974358975
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.9101123595505618
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.9130434782608695
       }
     ],
     "votingsSuccessRate": [
@@ -83,6 +91,14 @@
       {
         "date": "2025-01-23",
         "value": 0.9166666666666666
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.9182282793867121
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.9227053140096618
       }
     ],
     "uniformityScore": [
@@ -121,6 +137,14 @@
       {
         "date": "2025-01-23",
         "value": 0.9491080908058679
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.9406393424893758
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.9373229101277532
       }
     ],
     "participationRate": [
@@ -159,6 +183,14 @@
       {
         "date": "2025-01-23",
         "value": 0.7962121212121213
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.796252129471891
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.8036500268384327
       }
     ],
     "abstentionRate": [
@@ -197,6 +229,14 @@
       {
         "date": "2025-01-23",
         "value": 0.06964592969560263
+      },
+      {
+        "date": "2025-02-13",
+        "value": 0.07494715000880481
+      },
+      {
+        "date": "2025-02-17",
+        "value": 0.07887401288728196
       }
     ]
   },
@@ -1241,6 +1281,192 @@
       "votings": [
         {
           "votingId": 84,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0614/24/1",
+      "type": "Änderungsantrag",
+      "title": "Fahrradparkhaus (FPH) am Hauptbahnhof Magdeburg",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245729,
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0048/24/2",
+      "type": "Änderungsantrag",
+      "title": "Aufwertung der Abfallbehälter /Papierkörbe",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245710,
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 21,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0048/24",
+      "type": "Antrag",
+      "title": "Aufwertung der Abfallbehälter /Papierkörbe",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 243212,
+      "votings": [
+        {
+          "votingId": 22,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0231/24",
+      "type": "Antrag",
+      "title": "Den ÖPNV flüssiger und sicherer machen - mit Kameras in den Stadtbussen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 244771,
+      "votings": [
+        {
+          "votingId": 30,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0257/24",
+      "type": "Antrag",
+      "title": "Ein Zeichen für mehr Familienfreundlichkeit in Magdeburg",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245009,
+      "votings": [
+        {
+          "votingId": 34,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0025/25",
+      "type": "Geschäftsordnung",
+      "title": "Umfrage unter Bürgerinnen und Bürgern der Landeshauptstadt Magdeburg zur Bestimmung des zukünftigen Veranstaltungsortes für den Magdeburger Weihnachtsmarkt",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245599,
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0028/25",
+      "type": "Geschäftsordnung",
+      "title": "Ein Sportmuseum für die Sportstadt Magdeburg",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245603,
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0035/25",
+      "type": "Geschäftsordnung",
+      "title": "Umsteigen am Hassel erleichtern und sicherer machen",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245610,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0032/25",
+      "type": "Geschäftsordnung",
+      "title": "zentrales Fundbüro in Magdeburg",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": 245607,
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0037/25/2",
+      "type": "Geschäftsordnung",
+      "title": "Sicherstellung des Spiel- und Trainingsbetriebs des 1. FC Magdeburgs",
+      "sessionId": "2025-02-13",
+      "sessionDate": "2025-02-13",
+      "paperId": null,
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/32",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - in:takt und Schauwerk neu",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245764,
+      "votings": [
+        {
+          "votingId": 15,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/30",
+      "type": "Änderungsantrag",
+      "title": "Haushaltsplan 2025 - Adelheid-Preisverleihung 2025",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245754,
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0501/24/31",
+      "type": "Änderungsantrag",
+      "title": "Änderungsantrag zum Haushalt 2025 Elektromobilitätskonzept evaluieren",
+      "sessionId": "2025-02-17",
+      "sessionDate": "2025-02-17",
+      "paperId": 245760,
+      "votings": [
+        {
+          "votingId": 30,
           "votingResult": "PASSED"
         }
       ]
