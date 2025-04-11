@@ -2,12 +2,12 @@
   "id": "gartenpartei",
   "name": "Gartenpartei",
   "seats": 3,
-  "applicationsSuccessRate": 0.43243243243243246,
-  "votingsSuccessRate": 0.6827697262479872,
-  "uniformityScore": 0.9239560799940556,
-  "participationRate": 0.7380568974771873,
-  "abstentionRate": 0.14288523536696973,
-  "speakingTime": 10441,
+  "applicationsSuccessRate": 0.3541666666666667,
+  "votingsSuccessRate": 0.6732954545454546,
+  "uniformityScore": 0.9094346607627523,
+  "participationRate": 0.7604166666666666,
+  "abstentionRate": 0.14245149352143563,
+  "speakingTime": 12234,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -53,6 +53,14 @@
       {
         "date": "2025-02-17",
         "value": 0.43243243243243246
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.35555555555555557
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.3541666666666667
       }
     ],
     "votingsSuccessRate": [
@@ -99,6 +107,14 @@
       {
         "date": "2025-02-17",
         "value": 0.6827697262479872
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.675
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.6732954545454546
       }
     ],
     "uniformityScore": [
@@ -145,6 +161,14 @@
       {
         "date": "2025-02-17",
         "value": 0.9239560799940556
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.9204060676781668
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.9094346607627523
       }
     ],
     "participationRate": [
@@ -191,6 +215,14 @@
       {
         "date": "2025-02-17",
         "value": 0.7380568974771873
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.7544117647058823
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.7604166666666666
       }
     ],
     "abstentionRate": [
@@ -237,6 +269,14 @@
       {
         "date": "2025-02-17",
         "value": 0.14288523536696973
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.14274837724081454
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.14245149352143563
       }
     ]
   },
@@ -741,6 +781,160 @@
       "votings": [
         {
           "votingId": 31,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0081/25",
+      "type": "Geschäftsordnung",
+      "title": "Projektgenaue Beschlussfassung zur Ausreichung der Fördermittel für Kunst und Kultur in Magdeburg für das Haushaltsjahr 2025 auf der Grundlage der Veränderungslisten zum konsumtiven Haushalt 2025 der DS0501/24",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245746,
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0006/25/1",
+      "type": "Geschäftsordnung",
+      "title": "Lärmaktionsplan der Landeshauptstadt Magdeburg 2024",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245917,
+      "votings": [
+        {
+          "votingId": 36,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0157/24",
+      "type": "Antrag",
+      "title": "Tempolimit von 20 km/h für die Überquerung der Strombrücke, Kaiser-Otto-Brücke und Königin-Editha-Brücke",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 244215,
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0168/24",
+      "type": "Antrag",
+      "title": "Bedarfsampel Alt Westerhüsen/ Sohlener Straße",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 244291,
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0218/24/1",
+      "type": "Änderungsantrag",
+      "title": "Fahrgastunterstand Sohlener Hauptstraße/ Am Kirschberg und Sohlener Straße/ Langenweddinger Straße",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245950,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0218/24",
+      "type": "Antrag",
+      "title": "Fahrgastunterstand Sohlener Hauptstraße/ Am Kirschberg und Sohlener Straße/ Langenweddinger Straße",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 244738,
+      "votings": [
+        {
+          "votingId": 50,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0219/24",
+      "type": "Antrag",
+      "title": "Neue Sporthalle für Beyendorf- Sohlen",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 244739,
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0227/24",
+      "type": "Antrag",
+      "title": "Künstlerische Gestaltung von Schallschutzwänden, 2. Nord-Süd-Verbindung, Neustädter Feld",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 244765,
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0241/24",
+      "type": "Antrag",
+      "title": "Reparieren statt kassieren!",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 244983,
+      "votings": [
+        {
+          "votingId": 1,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0058/25",
+      "type": "Geschäftsordnung",
+      "title": "Ausstattung der Freiwilligen Feuerwehren mit Brandmeldeanlage oder Brandwarnanlage",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245843,
+      "votings": [
+        {
+          "votingId": 18,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0059/25",
+      "type": "Antrag",
+      "title": "Vorverlegung Umgestaltung Alter Markt 2025/ 2026",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245844,
+      "votings": [
+        {
+          "votingId": 20,
           "votingResult": "REJECTED"
         }
       ]

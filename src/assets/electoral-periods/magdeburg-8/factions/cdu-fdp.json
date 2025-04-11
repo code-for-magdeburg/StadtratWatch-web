@@ -2,12 +2,12 @@
   "id": "cdu-fdp",
   "name": "CDU/FDP",
   "seats": 15,
-  "applicationsSuccessRate": 0.9130434782608695,
-  "votingsSuccessRate": 0.9227053140096618,
-  "uniformityScore": 0.9373229101277532,
-  "participationRate": 0.8036500268384327,
-  "abstentionRate": 0.07887401288728196,
-  "speakingTime": 20112,
+  "applicationsSuccessRate": 0.92,
+  "votingsSuccessRate": 0.9289772727272727,
+  "uniformityScore": 0.9363183377488699,
+  "participationRate": 0.7924242424242425,
+  "abstentionRate": 0.07640633620455867,
+  "speakingTime": 22519,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -53,6 +53,14 @@
       {
         "date": "2025-02-17",
         "value": 0.9130434782608695
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.9166666666666666
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.92
       }
     ],
     "votingsSuccessRate": [
@@ -99,6 +107,14 @@
       {
         "date": "2025-02-17",
         "value": 0.9227053140096618
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.9279411764705883
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.9289772727272727
       }
     ],
     "uniformityScore": [
@@ -145,6 +161,14 @@
       {
         "date": "2025-02-17",
         "value": 0.9373229101277532
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.935252729250389
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.9363183377488699
       }
     ],
     "participationRate": [
@@ -191,6 +215,14 @@
       {
         "date": "2025-02-17",
         "value": 0.8036500268384327
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.7965686274509803
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.7924242424242425
       }
     ],
     "abstentionRate": [
@@ -237,6 +269,14 @@
       {
         "date": "2025-02-17",
         "value": 0.07887401288728196
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.07756782802631902
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.07640633620455867
       }
     ]
   },
@@ -1467,6 +1507,118 @@
       "votings": [
         {
           "votingId": 30,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0006/25/2",
+      "type": "Änderungsantrag",
+      "title": "Lärmaktionsplan der Landeshauptstadt Magdeburg 2024",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245967,
+      "votings": [
+        {
+          "votingId": 38,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0086/24",
+      "type": "Antrag",
+      "title": "Kunstwerk „Spielende Kinder”",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 243461,
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0232/24",
+      "type": "Antrag",
+      "title": "Festungsanlage Ravelin 2 an den Radverkehr und touristische Ströme anbinden",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 244772,
+      "votings": [
+        {
+          "votingId": 56,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0233/24",
+      "type": "Antrag",
+      "title": "Schulwegsicherheit in der Wilhelm-Külz-Straße gewährleisten",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 244773,
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0048/25",
+      "type": "Geschäftsordnung",
+      "title": "Autobahnring für Magdeburg vervollständigen",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245815,
+      "votings": [
+        {
+          "votingId": 9,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0049/25",
+      "type": "Geschäftsordnung",
+      "title": "Absicherung des Alten Marktes",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245816,
+      "votings": [
+        {
+          "votingId": 10,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0051/25",
+      "type": "Geschäftsordnung",
+      "title": "Prüfung Parkhaus an der AVNET Arena",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245818,
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0055/25/1",
+      "type": "Änderungsantrag",
+      "title": "Freiwillige Feuerwehren 2.0 - Entlastung durch verbesserte Digitalisierung",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245937,
+      "votings": [
+        {
+          "votingId": 14,
           "votingResult": "PASSED"
         }
       ]

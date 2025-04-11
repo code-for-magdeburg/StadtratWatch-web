@@ -2,12 +2,12 @@
   "id": "tierschutzpartei",
   "name": "Tierschutzpartei",
   "seats": 3,
-  "applicationsSuccessRate": 0.8490566037735849,
-  "votingsSuccessRate": 0.8663446054750402,
-  "uniformityScore": 0.9031852093043181,
-  "participationRate": 0.7987117552334944,
-  "abstentionRate": 0.11432065065825042,
-  "speakingTime": 2851,
+  "applicationsSuccessRate": 0.8275862068965517,
+  "votingsSuccessRate": 0.8707386363636364,
+  "uniformityScore": 0.9066173848394209,
+  "participationRate": 0.8053977272727273,
+  "abstentionRate": 0.11721308423798939,
+  "speakingTime": 3014,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -53,6 +53,14 @@
       {
         "date": "2025-02-17",
         "value": 0.8490566037735849
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.8518518518518519
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.8275862068965517
       }
     ],
     "votingsSuccessRate": [
@@ -99,6 +107,14 @@
       {
         "date": "2025-02-17",
         "value": 0.8663446054750402
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.8735294117647059
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.8707386363636364
       }
     ],
     "uniformityScore": [
@@ -145,6 +161,14 @@
       {
         "date": "2025-02-17",
         "value": 0.9031852093043181
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.9023077224649282
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.9066173848394209
       }
     ],
     "participationRate": [
@@ -191,6 +215,14 @@
       {
         "date": "2025-02-17",
         "value": 0.7987117552334944
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.8112745098039216
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.8053977272727273
       }
     ],
     "abstentionRate": [
@@ -237,6 +269,14 @@
       {
         "date": "2025-02-17",
         "value": 0.11432065065825042
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.11656417459115516
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.11721308423798939
       }
     ]
   },
@@ -970,6 +1010,76 @@
         {
           "votingId": 29,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0086/24",
+      "type": "Antrag",
+      "title": "Kunstwerk „Spielende Kinder”",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 243461,
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0258/24",
+      "type": "Antrag",
+      "title": "Einbeziehung der Ideen der Schülerinnen und Schüler der Gemeinschaftsschule \"Thomas Mann\" in die Schulumfeldgestaltung entlang der Cracauer Straße",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245011,
+      "votings": [
+        {
+          "votingId": 4,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0047/25",
+      "type": "Geschäftsordnung",
+      "title": "Entfernung der Berliner Kissen am Hasselbachplatz",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245812,
+      "votings": [
+        {
+          "votingId": 7,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0052/25",
+      "type": "Geschäftsordnung",
+      "title": "Schriftskulpturen zur Aufwertung der Innenstadt",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245819,
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0059/25",
+      "type": "Geschäftsordnung",
+      "title": "Vorverlegung Umgestaltung Alter Markt 2025/ 2026",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245844,
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "REJECTED"
         }
       ]
     }
