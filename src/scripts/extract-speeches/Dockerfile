@@ -6,4 +6,6 @@ COPY ./extract-speeches.sh /extract-speeches.sh
 
 WORKDIR /output
 
+RUN chmod +x /extract-speeches.sh
+
 ENTRYPOINT ["/extract-speeches.sh"]
