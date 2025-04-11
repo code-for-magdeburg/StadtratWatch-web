@@ -2,12 +2,12 @@
   "id": "afd",
   "name": "AfD",
   "seats": 13,
-  "applicationsSuccessRate": 0.13793103448275862,
-  "votingsSuccessRate": 0.6956521739130435,
-  "uniformityScore": 0.9860182390536171,
-  "participationRate": 0.8098600272513315,
-  "abstentionRate": 0.07658807206962119,
-  "speakingTime": 13651,
+  "applicationsSuccessRate": 0.14925373134328357,
+  "votingsSuccessRate": 0.6917613636363636,
+  "uniformityScore": 0.9868516702544868,
+  "participationRate": 0.8159965034965035,
+  "abstentionRate": 0.08018990713583332,
+  "speakingTime": 15798,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -53,6 +53,14 @@
       {
         "date": "2025-02-17",
         "value": 0.13793103448275862
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.14285714285714285
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.14925373134328357
       }
     ],
     "votingsSuccessRate": [
@@ -99,6 +107,14 @@
       {
         "date": "2025-02-17",
         "value": 0.6956521739130435
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.6882352941176471
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.6917613636363636
       }
     ],
     "uniformityScore": [
@@ -145,6 +161,14 @@
       {
         "date": "2025-02-17",
         "value": 0.9860182390536171
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.9857559761090274
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.9868516702544868
       }
     ],
     "participationRate": [
@@ -191,6 +215,14 @@
       {
         "date": "2025-02-17",
         "value": 0.8098600272513315
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.8127828054298643
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.8159965034965035
       }
     ],
     "abstentionRate": [
@@ -237,6 +269,14 @@
       {
         "date": "2025-02-17",
         "value": 0.07658807206962119
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.07992795495270831
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.08018990713583332
       }
     ]
   },
@@ -1030,6 +1070,132 @@
         {
           "votingId": 3,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0081/25/2",
+      "type": "Änderungsantrag",
+      "title": "Projektgenaue Beschlussfassung zur Ausreichung der Fördermittel für Kunst und Kultur in Magdeburg für das Haushaltsjahr 2025 auf der Grundlage der Veränderungslisten zum konsumtiven Haushalt 2025 der DS0501/24",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245915,
+      "votings": [
+        {
+          "votingId": 13,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0081/25/3",
+      "type": "Änderungsantrag",
+      "title": "Projektgenaue Beschlussfassung zur Ausreichung der Fördermittel für Kunst und Kultur in Magdeburg für das Haushaltsjahr 2025 auf der Grundlage der Veränderungslisten zum konsumtiven Haushalt 2025 der DS0501/24",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245944,
+      "votings": [
+        {
+          "votingId": 14,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0081/25/4",
+      "type": "Änderungsantrag",
+      "title": "Projektgenaue Beschlussfassung zur Ausreichung der Fördermittel für Kunst und Kultur in Magdeburg für das Haushaltsjahr 2025 auf der Grundlage der Veränderungslisten zum konsumtiven Haushalt 2025 der DS0501/24",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245946,
+      "votings": [
+        {
+          "votingId": 15,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0657/24",
+      "type": "Geschäftsordnung",
+      "title": "Entgeltordnung für die Benutzung der kommunalen Sportstätten und Bäder",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245330,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0006/25/1",
+      "type": "Änderungsantrag",
+      "title": "Lärmaktionsplan der Landeshauptstadt Magdeburg 2024",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245917,
+      "votings": [
+        {
+          "votingId": 37,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0244/24",
+      "type": "Antrag",
+      "title": "Vollzeitäquivalente für den Aufgabenbereich „Gender Mainstreaming” einsparen!",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 244986,
+      "votings": [
+        {
+          "votingId": 2,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0046/25",
+      "type": "Geschäftsordnung",
+      "title": "Flagge zeigen - denn wir sind ein Magdeburger Kind",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245811,
+      "votings": [
+        {
+          "votingId": 5,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0046/25",
+      "type": "Antrag",
+      "title": "Flagge zeigen - denn wir sind ein Magdeburger Kind",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245811,
+      "votings": [
+        {
+          "votingId": 6,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0047/25",
+      "type": "Antrag",
+      "title": "Entfernung der Berliner Kissen am Hasselbachplatz",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245812,
+      "votings": [
+        {
+          "votingId": 8,
+          "votingResult": "PASSED"
         }
       ]
     }

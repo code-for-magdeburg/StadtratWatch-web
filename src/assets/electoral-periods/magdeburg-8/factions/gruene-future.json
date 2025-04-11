@@ -2,12 +2,12 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 6,
-  "applicationsSuccessRate": 0.691358024691358,
-  "votingsSuccessRate": 0.8067632850241546,
-  "uniformityScore": 0.9724979686872198,
-  "participationRate": 0.8432635534084809,
-  "abstentionRate": 0.04667188829461683,
-  "speakingTime": 8680,
+  "applicationsSuccessRate": 0.6666666666666666,
+  "votingsSuccessRate": 0.8068181818181818,
+  "uniformityScore": 0.9720571686371215,
+  "participationRate": 0.837594696969697,
+  "abstentionRate": 0.05088881638836114,
+  "speakingTime": 9702,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -53,6 +53,14 @@
       {
         "date": "2025-02-17",
         "value": 0.691358024691358
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.6823529411764706
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.6666666666666666
       }
     ],
     "votingsSuccessRate": [
@@ -99,6 +107,14 @@
       {
         "date": "2025-02-17",
         "value": 0.8067632850241546
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.8117647058823529
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.8068181818181818
       }
     ],
     "uniformityScore": [
@@ -145,6 +161,14 @@
       {
         "date": "2025-02-17",
         "value": 0.9724979686872198
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.9711174882457706
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.9720571686371215
       }
     ],
     "participationRate": [
@@ -191,6 +215,14 @@
       {
         "date": "2025-02-17",
         "value": 0.8432635534084809
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.8384803921568628
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.837594696969697
       }
     ],
     "abstentionRate": [
@@ -237,6 +269,14 @@
       {
         "date": "2025-02-17",
         "value": 0.04667188829461683
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.05026843997628012
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.05088881638836114
       }
     ]
   },
@@ -1302,6 +1342,90 @@
         {
           "votingId": 33,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0078/24/1",
+      "type": "Änderungsantrag",
+      "title": "Portal für Kurzzeitpflege",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245945,
+      "votings": [
+        {
+          "votingId": 43,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0078/24",
+      "type": "Antrag",
+      "title": "Portal für Kurzzeitpflege",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 243427,
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0232/24/1",
+      "type": "Änderungsantrag",
+      "title": "Festungsanlage Ravelin 2 an den Radverkehr und touristische Ströme anbinden",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 244845,
+      "votings": [
+        {
+          "votingId": 55,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0233/24/2",
+      "type": "Änderungsantrag",
+      "title": "Schulwegsicherheit in der Wilhelm-Külz-Straße gewährleisten",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 244878,
+      "votings": [
+        {
+          "votingId": 57,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0060/25",
+      "type": "Geschäftsordnung",
+      "title": "Compliance in der kommunalen Welt im Kontext des städtischen Public Corporate Governance Kodex: Risiken erkennen, Richtlinien einführen, Verstöße meiden!",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245845,
+      "votings": [
+        {
+          "votingId": 21,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0038/25",
+      "type": "Geschäftsordnung",
+      "title": "In Lebenslagen von Energie- und Wasserzufuhrsperren niemanden alleine lassen - Leid von Mieterinnen und Mietern zuvorkommen!",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245706,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "REJECTED"
         }
       ]
     }

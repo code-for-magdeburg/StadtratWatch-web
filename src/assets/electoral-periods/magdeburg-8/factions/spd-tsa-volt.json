@@ -2,12 +2,12 @@
   "id": "spd-tsa-volt",
   "name": "SPD/Tierschutzallianz/Volt",
   "seats": 10,
-  "applicationsSuccessRate": 0.7962962962962963,
-  "votingsSuccessRate": 0.8631239935587761,
-  "uniformityScore": 0.9700156275756924,
-  "participationRate": 0.7494363929146538,
-  "abstentionRate": 0.023191698795462748,
-  "speakingTime": 10828,
+  "applicationsSuccessRate": 0.7739130434782608,
+  "votingsSuccessRate": 0.8607954545454546,
+  "uniformityScore": 0.9687590067400785,
+  "participationRate": 0.7392045454545455,
+  "abstentionRate": 0.02458794289543026,
+  "speakingTime": 13059,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -53,6 +53,14 @@
       {
         "date": "2025-02-17",
         "value": 0.7962962962962963
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.7946428571428571
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.7739130434782608
       }
     ],
     "votingsSuccessRate": [
@@ -99,6 +107,14 @@
       {
         "date": "2025-02-17",
         "value": 0.8631239935587761
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.8632352941176471
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.8607954545454546
       }
     ],
     "uniformityScore": [
@@ -145,6 +161,14 @@
       {
         "date": "2025-02-17",
         "value": 0.9700156275756924
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.9694624689419634
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.9687590067400785
       }
     ],
     "participationRate": [
@@ -191,6 +215,14 @@
       {
         "date": "2025-02-17",
         "value": 0.7494363929146538
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.7438235294117647
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.7392045454545455
       }
     ],
     "abstentionRate": [
@@ -237,6 +269,14 @@
       {
         "date": "2025-02-17",
         "value": 0.023191698795462748
+      },
+      {
+        "date": "2025-03-13",
+        "value": 0.024487467237245212
+      },
+      {
+        "date": "2025-03-17",
+        "value": 0.02458794289543026
       }
     ]
   },
@@ -1740,6 +1780,104 @@
         {
           "votingId": 33,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0409/24/1",
+      "type": "Änderungsantrag",
+      "title": "Grundsatzbeschluss zur Neugestaltung des Knotenpunktes Friedrich-Ebert-Straße / Gübser Weg",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245512,
+      "votings": [
+        {
+          "votingId": 34,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0209/24/1",
+      "type": "Änderungsantrag",
+      "title": "Schulwegsicherheit - Gefahrenstelle an der Salbker Chaussee Höhe Magdeburger Ring beseitigen",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245346,
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0224/24",
+      "type": "Antrag",
+      "title": "Magdeburger Familien unterstützen wie in Berlin - Drei kostenfreie Geburtsurkunden zur Verfügung stellen",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 244756,
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0232/24/1",
+      "type": "Änderungsantrag",
+      "title": "Festungsanlage Ravelin 2 an den Radverkehr und touristische Ströme anbinden",
+      "sessionId": "2025-03-13",
+      "sessionDate": "2025-03-13",
+      "paperId": 245900,
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0059/25",
+      "type": "Geschäftsordnung",
+      "title": "Vorverlegung Umgestaltung Alter Markt 2025/ 2026",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245844,
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0060/25",
+      "type": "Geschäftsordnung",
+      "title": "Compliance in der kommunalen Welt im Kontext des städtischen Public Corporate Governance Kodex: Risiken erkennen, Richtlinien einführen, Verstöße meiden!",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245845,
+      "votings": [
+        {
+          "votingId": 21,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0038/25",
+      "type": "Geschäftsordnung",
+      "title": "In Lebenslagen von Energie- und Wasserzufuhrsperren niemanden alleine lassen - Leid von Mieterinnen und Mietern zuvorkommen!",
+      "sessionId": "2025-03-17",
+      "sessionDate": "2025-03-17",
+      "paperId": 245706,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "REJECTED"
         }
       ]
     }
