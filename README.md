@@ -114,7 +114,7 @@ docker run \
   -v %cd%\output\papers\2025:/app/papers \
   -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
   srw-download-paper-files \
-  2024
+  2025
 ```
 
 
