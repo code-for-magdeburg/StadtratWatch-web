@@ -1,0 +1,21 @@
+---
+import SidebarLayout from "@/layouts/SidebarLayout.astro";
+import {getCollection} from "astro:content";
+import type {GetStaticPaths, InferGetStaticPropsType} from "astro";
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+export const getStaticPaths = (async () => {
+  const electoralPeriods = await getCollection('electoralPeriods');
+  return electoralPeriods.map(electoralPeriod => ({
+    params: { electoralPeriod: electoralPeriod.id },
+    props: { electoralPeriod: electoralPeriod.data}
+  }));
+}) satisfies GetStaticPaths;
+
+const { electoralPeriod } = Astro.props as Props;
+
+---
+<SidebarLayout electoralPeriod={electoralPeriod}>
+  ...
+</SidebarLayout>

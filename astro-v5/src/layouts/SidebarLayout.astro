@@ -1,0 +1,44 @@
+---
+import RootLayout from "./RootLayout.astro";
+import AppSidebarWrapper from "../components/app-sidebar/app-sidebar-wrapper";
+import {getCollection, getEntry} from "astro:content";
+import type {Registry} from "../model/registry";
+import type {BreadcrumbMenuItem} from "../components/app-header/app-header";
+
+interface Props {
+  pageTitle: string;
+  electoralPeriod?: Registry;
+  breadcrumbMenuItems?: BreadcrumbMenuItem[];
+}
+
+const electoralPeriodsCollection = await getCollection('electoralPeriods');
+const electoralPeriods = electoralPeriodsCollection
+  .sort((a, b) => a.data.name.localeCompare(b.data.name))
+  .map(entry => entry.data);
+
+
+let {electoralPeriod} = Astro.props as Props;
+if (!electoralPeriod) {
+  const defaultElectoralPeriodId = 'magdeburg-8'; // TODO: Fetch default electoral period
+  const electoralPeriodEntry = await getEntry('electoralPeriods', defaultElectoralPeriodId);
+  electoralPeriod = electoralPeriodEntry?.data!;
+}
+
+const {pageTitle, breadcrumbMenuItems} = Astro.props as Props;
+
+---
+
+<RootLayout>
+  {
+    electoralPeriod &&
+    <AppSidebarWrapper
+      electoralPeriod={electoralPeriod}
+      electoralPeriods={electoralPeriods}
+      pageTitle={pageTitle}
+      breadcrumbMenuItems={breadcrumbMenuItems ?? []}
+      client:load
+    >
+      <slot />
+    </AppSidebarWrapper>
+  }
+</RootLayout>

@@ -1,0 +1,12 @@
+---
+import SidebarLayout from "@/layouts/SidebarLayout.astro";
+import {type ElectoralPeriodProps, getElectoralPeriodStaticPaths} from "../_helpers";
+
+export const getStaticPaths = getElectoralPeriodStaticPaths;
+
+const { electoralPeriod } = Astro.props as ElectoralPeriodProps;
+
+---
+<SidebarLayout electoralPeriod={electoralPeriod} pageTitle="Fraktionen">
+  Factions - tbd
+</SidebarLayout>
