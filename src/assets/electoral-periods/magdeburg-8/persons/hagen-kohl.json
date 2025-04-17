@@ -3526,6 +3526,36 @@
       "sessionId": "2025-03-17",
       "votingId": 24,
       "vote": "N"
+    },
+    {
+      "sessionId": "2025-04-04",
+      "votingId": 1,
+      "vote": "O"
+    },
+    {
+      "sessionId": "2025-04-04",
+      "votingId": 2,
+      "vote": "O"
+    },
+    {
+      "sessionId": "2025-04-04",
+      "votingId": 3,
+      "vote": "O"
+    },
+    {
+      "sessionId": "2025-04-04",
+      "votingId": 4,
+      "vote": "O"
+    },
+    {
+      "sessionId": "2025-04-04",
+      "votingId": 5,
+      "vote": "O"
+    },
+    {
+      "sessionId": "2025-04-04",
+      "votingId": 6,
+      "vote": "O"
     }
   ],
   "votingMatrix": [
@@ -3922,7 +3952,7 @@
       "comparisonScore": 0.6238532110091743
     }
   ],
-  "votingAttendance": 0.9204545454545454,
+  "votingAttendance": 0.9126760563380282,
   "votingSuccessCount": 425,
   "votingSuccessRate": 0.6558641975308642,
   "abstentionCount": 53,
@@ -3980,6 +4010,10 @@
       {
         "date": "2025-03-17",
         "value": 0.9204545454545454
+      },
+      {
+        "date": "2025-04-04",
+        "value": 0.9126760563380282
       }
     ],
     "votingSuccessRate": [
@@ -4034,6 +4068,10 @@
       {
         "date": "2025-03-17",
         "value": 0.6558641975308642
+      },
+      {
+        "date": "2025-04-04",
+        "value": 0.6558641975308642
       }
     ],
     "abstentionRate": [
@@ -4087,6 +4125,10 @@
       },
       {
         "date": "2025-03-17",
+        "value": 0.08179012345679013
+      },
+      {
+        "date": "2025-04-04",
         "value": 0.08179012345679013
       }
     ]
