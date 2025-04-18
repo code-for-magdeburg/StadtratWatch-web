@@ -1,0 +1,210 @@
+---
+import { type SessionInput } from '@models/SessionInput';
+import { type RegistryFaction } from '@models/registry';
+import { type SessionScanItem } from '@models/session-scan';
+import {
+  type ScrapedAgendaItem,
+  type ScrapedFile,
+  type ScrapedMeeting,
+  type ScrapedPaper,
+} from '@models/scraped-session';
+import {
+  ApplicationResult,
+  getApplicationResult,
+  getVotingId,
+  getVotingResult,
+} from './_helpers';
+import { formatDate } from '@utils/format-date';
+
+type Props = {
+  electoralPeriodId: string;
+  faction: RegistryFaction;
+  sessionInputs: SessionInput[];
+  scrapedMeetings: ScrapedMeeting[];
+  scrapedAgendaItems: ScrapedAgendaItem[];
+  scrapedPapers: ScrapedPaper[];
+  scrapedFiles: ScrapedFile[];
+};
+
+const {
+  electoralPeriodId,
+  faction,
+  sessionInputs,
+  scrapedMeetings,
+  scrapedAgendaItems,
+  scrapedPapers,
+  scrapedFiles,
+} = Astro.props as Props;
+
+const factionApplicationVotings = sessionInputs
+  .flatMap((sessionInput) =>
+    sessionInput.votings.map((voting) => ({
+      voting,
+      sessionId: sessionInput.sessionId,
+      sessionDate: sessionInput.config.date,
+    })),
+  )
+  .filter((voting) => !!voting.voting.votingSubject.applicationId)
+  .filter((voting) =>
+    voting.voting.votingSubject.authors.includes(faction.name),
+  );
+const applicationsMap = Map.groupBy(
+  factionApplicationVotings,
+  (voting) =>
+    `${voting.voting.votingSubject.applicationId}-${voting.voting.votingSubject.type}`,
+);
+const applications = Array.from(applicationsMap)
+  .map(([_, applicationVotings]) => {
+    const applicationVoting = applicationVotings[0];
+    const applicationId = applicationVoting.voting.votingSubject.applicationId;
+    const applicationType = applicationVoting.voting.votingSubject.type;
+    const applicationTitle = applicationVoting.voting.votingSubject.title;
+    const sessionId = applicationVoting.sessionId;
+    const sessionDate = applicationVoting.sessionDate;
+    const paperId = getPaperId(
+      applicationVoting.sessionDate,
+      applicationVoting.voting,
+    );
+    const votings = applicationVotings.map((applicationVoting) => ({
+      votingId: +applicationVoting.voting.votingFilename.substring(11, 14),
+      votingResult: getVotingResult(applicationVoting.voting.votes),
+    }));
+    return {
+      applicationId,
+      type: applicationType,
+      title: applicationTitle,
+      sessionId,
+      sessionDate,
+      paperId,
+      votings,
+    };
+  })
+  .toSorted((a, b) => b.sessionDate.localeCompare(a.sessionDate))
+  .map((application) => ({
+    sessionId: application.sessionId,
+    votingDate: formatDate(application.sessionDate),
+    votingId: getVotingId(application.votings),
+    type: application.type,
+    applicationId: application.applicationId,
+    title: application.title,
+    result: getApplicationResult(application.votings),
+    paperId: application.paperId,
+  }));
+
+function getPaperId(
+  sessionDate: string,
+  voting: SessionScanItem,
+): number | null {
+  const scrapedMeeting = scrapedMeetings.find(
+    (meeting) => meeting.start && meeting.start.slice(0, 10) === sessionDate,
+  );
+  if (!scrapedMeeting) {
+    console.warn('No scraped meeting found for session', sessionDate);
+  }
+
+  const agendaItem = scrapedAgendaItems.find(
+    (agendaItem) =>
+      scrapedMeeting?.original_id &&
+      agendaItem.key === `Ö ${voting.votingSubject.agendaItem}` &&
+      agendaItem.meeting_id === scrapedMeeting.original_id,
+  );
+  if (!agendaItem) {
+    console.warn(
+      'No scraped agenda item found for voting',
+      sessionDate,
+      voting.votingSubject.agendaItem,
+    );
+  }
+
+  const scrapedPaperOriginalId = agendaItem?.paper_original_id;
+  if (!scrapedPaperOriginalId) {
+    console.warn(
+      'No scraped paper original id found for voting',
+      sessionDate,
+      voting.votingSubject.agendaItem,
+    );
+  }
+
+  const paper = scrapedPaperOriginalId
+    ? scrapedPapers.find(
+        (paper) => paper.original_id === scrapedPaperOriginalId,
+      ) || null
+    : null;
+
+  const files = scrapedPaperOriginalId
+    ? scrapedFiles.filter(
+        (file) => file.paper_original_id === scrapedPaperOriginalId,
+      )
+    : [];
+  if (files.length === 0) {
+    console.warn(
+      'No scraped file found for voting',
+      sessionDate,
+      voting.votingSubject.agendaItem,
+    );
+  }
+
+  return paper?.original_id || null;
+}
+---
+
+<div class="overflow-x-auto">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Abgestimmt am</th>
+        <th scope="col">Antrag</th>
+        <th scope="col">Titel</th>
+        <th scope="col" class="text-center">Ergebnis</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        applications.map((application) => (
+          <tr>
+            <td>{application.votingDate}</td>
+            <td class="flex flex-col">
+              <span>{application.type}</span>
+              {application.paperId && (
+                <a
+                  href={`/paper?paperId=${application.paperId}`}
+                  class="link link-primary"
+                >
+                  {application.applicationId}
+                </a>
+              )}
+            </td>
+            <td>
+              <a
+                href={`/ep/${electoralPeriodId}/session/${application.sessionId}/voting/${application.votingId}`}
+                class="link link-primary"
+              >
+                {application.title}
+              </a>
+            </td>
+            <td class="text-center">
+              {application.result === ApplicationResult.ACCEPTED && (
+                <div class="badge badge-success badge-soft badge-sm">
+                  <span class="iconify lucide--check-check" />
+                  <span>Angenommen</span>
+                </div>
+              )}
+              {application.result === ApplicationResult.PARTIALLY_ACCEPTED && (
+                <div class="badge badge-warning badge-soft badge-sm">
+                  <span class="iconify lucide--check" />
+                  <span>Teilweise</span>
+                </div>
+              )}
+              {application.result === ApplicationResult.REJECTED && (
+                <div class="badge badge-error badge-soft badge-sm">
+                  <span class="iconify lucide--x" />
+                  <span>Abgelehnt</span>
+                </div>
+              )}
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
