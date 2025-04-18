@@ -1,0 +1,15 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import {
+  type ElectoralPeriodProps,
+  getElectoralPeriodStaticPaths,
+} from './_helpers';
+
+export const getStaticPaths = getElectoralPeriodStaticPaths;
+
+const { electoralPeriod } = Astro.props as ElectoralPeriodProps;
+---
+
+<PageLayout pageTitle={electoralPeriod.name} electoralPeriod={electoralPeriod}>
+  tbd
+</PageLayout>
