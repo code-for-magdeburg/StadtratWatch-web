@@ -1,0 +1,581 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import {
+  type ElectoralPeriodWithSessionsProps,
+  getElectoralPeriodWithSessionsPaths
+} from '../_helpers';
+import { calcApplicationsSuccessRateOfFaction } from '@data-analysis/ApplicationsSuccess';
+import { calcVotingSuccessRateOfFaction } from '@data-analysis/VotingSuccess';
+import { calcUniformityScoreOfFaction } from '@data-analysis/UniformityScore';
+import { calcParticipationRateOfFaction } from '@data-analysis/ParticipationRate';
+import { calcAbstentionRateOfFaction } from '@data-analysis/AbstentionRate';
+import { calcSpeakingTimeOfFaction } from '@data-analysis/SpeakingTime';
+import {
+  formatAbstentionRate,
+  formatApplicationsSuccessRate,
+  formatParticipationRate,
+  formatUniformityScore,
+  formatVotingSuccessRate
+} from '@utils/format-number';
+import { formatSpeakingTime } from '@utils/format-time';
+import { type ChartDataPoint, type FactionListItem } from './_models';
+import { type BreadcrumbItem } from '@components/BreadcrumbMenu.astro';
+
+export const getStaticPaths = getElectoralPeriodWithSessionsPaths;
+
+const { electoralPeriodId } = Astro.params;
+const { electoralPeriod, sessionInputs } =
+  Astro.props as ElectoralPeriodWithSessionsProps;
+
+const breadcrumbItems: BreadcrumbItem[] = [
+  {
+    name: electoralPeriod.name,
+    href: `/ep/${electoralPeriodId}`
+  },
+  {
+    name: 'Fraktionen',
+    href: null
+  }
+];
+
+const factions = electoralPeriod.factions
+  .map<FactionListItem>((faction) => {
+    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+      faction,
+      sessionInputs
+    );
+    const votingSuccessRate = calcVotingSuccessRateOfFaction(
+      faction,
+      sessionInputs
+    );
+    const uniformityScore = calcUniformityScoreOfFaction(
+      faction,
+      sessionInputs
+    );
+    const participationRate = calcParticipationRateOfFaction(
+      faction,
+      sessionInputs
+    );
+    const abstentionRate = calcAbstentionRateOfFaction(faction, sessionInputs);
+    const speakingTime = calcSpeakingTimeOfFaction(faction, sessionInputs);
+    return {
+      id: faction.id,
+      name: faction.name,
+      seats: faction.seats,
+      applicationsSuccessRate,
+      applicationsSuccessRateDisplay: formatApplicationsSuccessRate(
+        applicationsSuccessRate
+      ),
+      votingSuccessRate,
+      votingSuccessRateDisplay: formatVotingSuccessRate(votingSuccessRate),
+      uniformityScore,
+      uniformityScoreDisplay: formatUniformityScore(uniformityScore),
+      participationRate,
+      participationRateDisplay: formatParticipationRate(participationRate),
+      abstentionRate,
+      abstentionRateDisplay: formatAbstentionRate(abstentionRate),
+      speakingTime,
+      speakingTimeDisplay: formatSpeakingTime(speakingTime)
+    } satisfies FactionListItem;
+  })
+  .toSorted((a, b) => b.seats - a.seats);
+
+const votingSuccessRateChartData: ChartDataPoint[] = factions
+  .map(faction => ({
+    value: faction.votingSuccessRate || 0,
+    factionId: faction.id,
+    label: `${faction.name} ${faction.votingSuccessRateDisplay}`
+  }))
+  .toSorted((a, b) => b.value - a.value);
+
+const uniformityScoreChartData: ChartDataPoint[] = factions
+  .map(faction => ({
+    value: faction.uniformityScore || 0,
+    factionId: faction.id,
+    label: `${faction.name} ${faction.uniformityScoreDisplay}`
+  }))
+  .toSorted((a, b) => b.value - a.value);
+
+const participationRateChartData: ChartDataPoint[] = factions
+  .map(faction => ({
+    value: faction.participationRate || 0,
+    factionId: faction.id,
+    label: `${faction.name} ${faction.participationRateDisplay}`
+  }))
+  .toSorted((a, b) => b.value - a.value);
+
+const abstentionRateChartData: ChartDataPoint[] = factions
+  .map(faction => ({
+    value: faction.abstentionRate || 0,
+    factionId: faction.id,
+    label: `${faction.name} ${faction.abstentionRateDisplay}`
+  }))
+  .toSorted((a, b) => b.value - a.value);
+
+const applicationsSuccessRateChartData: ChartDataPoint[] = factions
+  .map(faction => ({
+    value: faction.applicationsSuccessRate || 0,
+    factionId: faction.id,
+    label: `${faction.name} ${faction.applicationsSuccessRateDisplay}`
+  }))
+  .toSorted((a, b) => b.value - a.value);
+
+const speakingTimesChartData: ChartDataPoint[] = factions
+  .map(faction => ({
+    value: faction.speakingTime,
+    factionId: faction.id,
+    label: `${faction.name} ${faction.speakingTimeDisplay}`
+  }))
+  .toSorted((a, b) => b.value - a.value);
+
+const barHeight = factions.length * 40;
+---
+
+<PageLayout
+  pageTitle="Fraktionen"
+  electoralPeriod={electoralPeriod}
+  breadcrumbItems={breadcrumbItems}
+>
+
+  <div class="space-y-3">
+    <div class="bg-base-100 border border-base-200 rounded-box">
+      <div class="overflow-x-auto">
+        <table
+          class="table"
+          x-data="factions"
+          data-electoral-period-id={electoralPeriod.id}
+          data-factions={JSON.stringify(factions)}
+        >
+          <thead>
+          <tr>
+            <th class="px-0">
+              <button
+                class="btn btn-ghost btn-block flex justify-between"
+                @click="sortTextColumn('name', (faction) => faction.name)"
+              >
+                <span class="text-left">Name</span>
+                <span class="iconify lucide--chevrons-up-down"></span>
+              </button>
+            </th>
+            <th class="px-0">
+              <button
+                class="btn btn-ghost btn-block flex justify-between"
+                @click="sortNumberColumn('seats', (faction) => faction.seats)"
+              >
+                <span class="grow">Sitze</span>
+                <span class="iconify lucide--chevrons-up-down"></span>
+              </button>
+            </th>
+            <th class="px-0">
+              <button
+                class="btn btn-ghost btn-block flex justify-between"
+                @click="sortNumberColumn('votingSuccessRate', (faction) => faction.votingSuccessRate)"
+              >
+                <span class="grow">Abstimmungserfolg</span>
+                <span class="iconify lucide--chevrons-up-down"></span>
+              </button>
+            </th>
+            <th class="px-0">
+              <button
+                class="btn btn-ghost btn-block flex justify-between"
+                @click="sortNumberColumn('uniformityScore', (faction) => faction.uniformityScore)"
+              >
+                <span class="grow">Geschlossenheit</span>
+                <span class="iconify lucide--chevrons-up-down"></span>
+              </button>
+            </th>
+            <th class="px-0">
+              <button
+                class="btn btn-ghost btn-block flex justify-between"
+                @click="sortNumberColumn('participationRate', (faction) => faction.participationRate)"
+              >
+                <span class="grow">Abstimmungsteilnahme</span>
+                <span class="iconify lucide--chevrons-up-down"></span>
+              </button>
+            </th>
+            <th class="px-0">
+              <button
+                class="btn btn-ghost btn-block flex justify-between"
+                @click="sortNumberColumn('abstentionRate', (faction) => faction.abstentionRate)"
+              >
+                <span class="grow">Stimmenthaltungen</span>
+                <span class="iconify lucide--chevrons-up-down"></span>
+              </button>
+            </th>
+            <th class="px-0">
+              <button
+                class="btn btn-ghost btn-block flex justify-between"
+                @click="sortNumberColumn('applicationsSuccessRate', (faction) => faction.applicationsSuccessRate)"
+              >
+                <span class="grow">Erfolgreiche Anträge</span>
+                <span class="iconify lucide--chevrons-up-down"></span>
+              </button>
+            </th>
+            <th class="px-0">
+              <button
+                class="btn btn-ghost btn-block flex justify-between"
+                @click="sortNumberColumn('speakingTime', (faction) => faction.speakingTime)"
+              >
+                <span class="grow">Redezeit</span>
+                <span class="iconify lucide--chevrons-up-down"></span>
+              </button>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <template x-for="faction in factions">
+            <tr>
+              <td>
+                <a
+                  :href="`/ep/${electoralPeriodId}/faction/${faction.id}`"
+                  class="link link-primary"
+                  x-text="faction.name"></a>
+              </td>
+              <td class="text-right" x-text="faction.seats"></td>
+              <td class="text-right" x-text="faction.votingSuccessRateDisplay"
+              ></td>
+              <td class="text-right" x-text="faction.uniformityScoreDisplay"></td>
+              <td class="text-right" x-text="faction.participationRateDisplay"
+              ></td>
+              <td class="text-right" x-text="faction.abstentionRateDisplay"></td>
+              <td
+                class="text-right"
+                x-text="faction.applicationsSuccessRateDisplay"></td>
+              <td class="text-right" x-text="faction.speakingTimeDisplay"></td>
+            </tr>
+          </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="card card-border bg-base-100">
+        <div class="card-body">
+          <div class="card-title flex justify-between">
+            <div>Abstimmungserfolg</div>
+            <div
+              class="tooltip tooltip-left"
+              data-tip="Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmte."
+            >
+              <span class="iconify lucide--info"></span>
+            </div>
+          </div>
+          <div
+            id="voting-success-rate-chart-container"
+            class="relative"
+            style={{ height: `${barHeight}px` }}
+            data-electoral-period-id={electoralPeriod.id}
+            data-chart-data={JSON.stringify(votingSuccessRateChartData)}
+          >
+            <canvas id="voting-success-rate-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-border bg-base-100">
+        <div class="card-body">
+          <div class="card-title flex justify-between">
+            <div>Geschlossenheit</div>
+            <div
+              class="tooltip tooltip-left"
+              data-tip="Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion."
+            >
+              <span class="iconify lucide--info"></span>
+            </div>
+          </div>
+          <div
+            id="uniformity-score-chart-container"
+            class="relative"
+            style={{ height: `${barHeight}px` }}
+            data-electoral-period-id={electoralPeriod.id}
+            data-chart-data={JSON.stringify(uniformityScoreChartData)}
+          >
+            <canvas id="uniformity-score-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-border bg-base-100">
+        <div class="card-body">
+          <div class="card-title flex justify-between">
+            <div>Abstimmungsteilnahme</div>
+            <div
+              class="tooltip tooltip-left"
+              data-tip="Gibt an, wie häufig die Fraktionsmitglieder an Abstimmungen teilgenommen haben."
+            >
+              <span class="iconify lucide--info"></span>
+            </div>
+          </div>
+          <div
+            id="participation-rate-chart-container"
+            class="relative"
+            style={{ height: `${barHeight}px` }}
+            data-electoral-period-id={electoralPeriod.id}
+            data-chart-data={JSON.stringify(participationRateChartData)}
+          >
+            <canvas id="participation-rate-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-border bg-base-100">
+        <div class="card-body">
+          <div class="card-title flex justify-between">
+            <div>Stimmenthaltungen</div>
+            <div
+              class="tooltip tooltip-left"
+              data-tip="Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren"
+            >
+              <span class="iconify lucide--info"></span>
+            </div>
+          </div>
+          <div
+            id="abstention-rate-chart-container"
+            class="relative"
+            style={{ height: `${barHeight}px` }}
+            data-electoral-period-id={electoralPeriod.id}
+            data-chart-data={JSON.stringify(abstentionRateChartData)}
+          >
+            <canvas id="abstention-rate-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-border bg-base-100">
+        <div class="card-body">
+          <div class="card-title flex justify-between">
+            <div>Erfolgreiche Anträge</div>
+            <div
+              class="tooltip tooltip-left"
+              data-tip="Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurden."
+            >
+              <span class="iconify lucide--info"></span>
+            </div>
+          </div>
+          <div
+            id="applications-success-rate-chart-container"
+            class="relative"
+            style={{ height: `${barHeight}px` }}
+            data-electoral-period-id={electoralPeriod.id}
+            data-chart-data={JSON.stringify(applicationsSuccessRateChartData)}
+          >
+            <canvas id="applications-success-rate-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-border bg-base-100">
+        <div class="card-body">
+          <div class="card-title flex justify-between">
+            <div>Redezeit</div>
+            <div
+              class="tooltip tooltip-left"
+              data-tip="Gibt an, wieviel Zeit die Mitglieder der Fraktionen insgesamt in den Ratssitzungen gesprochen haben."
+            >
+              <span class="iconify lucide--info"></span>
+            </div>
+          </div>
+          <div
+            id="speaking-time-chart-container"
+            class="relative"
+            style={{ height: `${barHeight}px` }}
+            data-electoral-period-id={electoralPeriod.id}
+            data-chart-data={JSON.stringify(speakingTimesChartData)}
+          >
+            <canvas id="speaking-times-chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</PageLayout>
+
+<script>
+  import Alpine from 'alpinejs';
+  import { type FactionListItem } from './_models';
+  import Chart from 'chart.js/auto';
+  import { type ChartDataPoint } from './_models';
+
+  document.addEventListener('alpine:init', () => {
+    const factionsTableElement = document.querySelector(
+      '[data-factions]'
+    ) as HTMLTableElement;
+    const factions = JSON.parse(
+      factionsTableElement.dataset.factions || '[]'
+    ) as FactionListItem[];
+    const electoralPeriodId = factionsTableElement.dataset.electoralPeriodId;
+
+    Alpine.data('factions', () => ({
+      electoralPeriodId,
+      factions,
+      sortTextColumn: function(
+        column: string,
+        getText: (faction: FactionListItem) => string
+      ) {
+        this._updateSortColumn(column);
+        this.factions.sort((a, b) =>
+          this._sortedDesc
+            ? getText(b).localeCompare(getText(a))
+            : getText(a).localeCompare(getText(b))
+        );
+      },
+      sortNumberColumn: function(
+        column: string,
+        getNumber: (faction: FactionListItem) => number | null
+      ) {
+        this._updateSortColumn(column);
+        this.factions.sort((a, b) =>
+          this._sortedDesc
+            ? (getNumber(a) || 0) - (getNumber(b) || 0)
+            : (getNumber(b) || 0) - (getNumber(a) || 0)
+        );
+      },
+      _sortedColumn: 'seats',
+      _sortedDesc: false,
+      _updateSortColumn: function(column: string) {
+        if (this._sortedColumn === column) {
+          this._sortedDesc = !this._sortedDesc;
+        } else {
+          this._sortedColumn = column;
+          this._sortedDesc = false;
+        }
+      }
+    }));
+  });
+
+  createChart(
+    'voting-success-rate-chart-container',
+    'voting-success-rate-chart',
+    'Abstimmungserfolg'
+  );
+
+  createChart(
+    'uniformity-score-chart-container',
+    'uniformity-score-chart',
+    'Geschlossenheit'
+  );
+
+  createChart(
+    'participation-rate-chart-container',
+    'participation-rate-chart',
+    'Abstimmungsteilnahme'
+  );
+
+  createChart(
+    'abstention-rate-chart-container',
+    'abstention-rate-chart',
+    'Stimmenthaltungen'
+  );
+
+  createChart(
+    'applications-success-rate-chart-container',
+    'applications-success-rate-chart',
+    'Erfolgreiche Anträge'
+  );
+
+  createChart(
+    'speaking-time-chart-container',
+    'speaking-times-chart',
+    'Redezeiten'
+  );
+
+  function createChart(chartContainerElementId: string, chartElementId: string,
+                       label: string) {
+
+    const chartContainerDiv = document.getElementById(
+      chartContainerElementId
+    ) as HTMLDivElement;
+    const data = JSON.parse(
+      chartContainerDiv.dataset.chartData || '[]'
+    ) as ChartDataPoint[];
+    const electoralPeriodId = chartContainerDiv.dataset.electoralPeriodId;
+
+    const chart = new Chart(
+      document.getElementById(chartElementId) as HTMLCanvasElement,
+      {
+        type: 'bar',
+        data: {
+          datasets: [
+            {
+              label,
+              data,
+              parsing: {
+                xAxisKey: 'value',
+                yAxisKey: 'label'
+              },
+              borderWidth: 1,
+              backgroundColor: ['#167bff30'],
+              borderColor: ['#167bff'],
+              borderRadius: 5,
+              animation: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: {
+            x: {
+              display: false,
+              ticks: {
+                display: false
+              }
+            },
+            y: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+                drawTicks: false
+              },
+              ticks: {
+                mirror: true,
+                z: 1,
+                color: '#167bff'
+              }
+            }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+
+    chart.ctx.canvas.onmousemove = (evt) => {
+      const points = chart.getElementsAtEventForMode(
+        evt,
+        'y',
+        { intersect: false },
+        true
+      );
+      if (points.length) {
+        const firstPoint = points[0];
+        const factionId =
+          chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index]
+            .factionId;
+        chart.ctx.canvas.style.cursor = factionId ? 'pointer' : 'default';
+      } else {
+        chart.ctx.canvas.style.cursor = 'default';
+      }
+    };
+
+    chart.ctx.canvas.onclick = (evt) => {
+      const points = chart.getElementsAtEventForMode(
+        evt,
+        'y',
+        { intersect: false },
+        true
+      );
+      if (points.length) {
+        const firstPoint = points[0];
+        const factionId =
+          chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index]
+            .factionId;
+        if (factionId) {
+          window.location.href = `/ep/${electoralPeriodId}/faction/${factionId}`;
+        }
+      }
+    };
+  }
+
+</script>

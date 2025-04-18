@@ -1,0 +1,187 @@
+---
+import { formatPercentage } from '@utils/format-number';
+import { type RegistryPerson } from '@models/registry';
+import { type SessionInput } from '@models/SessionInput';
+import { calcVotingSuccessRateOfPerson } from '@data-analysis/VotingSuccess';
+import { calcVotingSuccessRateHistoryOfPerson } from '@data-analysis/VotingSuccess';
+import {
+  calcParticipationRateHistoryOfPerson,
+  calcParticipationRateOfPerson
+} from '@data-analysis/ParticipationRate';
+import {
+  calcAbstentionRateHistoryOfPerson,
+  calcAbstentionRateOfPerson
+} from '@data-analysis/AbstentionRate';
+
+type Props = {
+  person: RegistryPerson;
+  sessionInputs: SessionInput[];
+};
+
+const { person, sessionInputs } = Astro.props as Props;
+
+const votingsSuccessRate = calcVotingSuccessRateOfPerson(
+  person,
+  sessionInputs
+);
+const votingsSuccessRateHistory = calcVotingSuccessRateHistoryOfPerson(
+  person,
+  sessionInputs
+);
+const participationRate = calcParticipationRateOfPerson(
+  person,
+  sessionInputs
+);
+const participationRateHistory = calcParticipationRateHistoryOfPerson(
+  person,
+  sessionInputs
+);
+const abstentionRate = calcAbstentionRateOfPerson(
+  person,
+  sessionInputs
+);
+const abstentionRateHistory = calcAbstentionRateHistoryOfPerson(
+  person,
+  sessionInputs
+);
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+  <div
+    id="participation-rate"
+    class="card card-border bg-base-100"
+    data-history={JSON.stringify(participationRateHistory)}
+  >
+    <div class="card-body space-y-3">
+      <div class="card-title flex justify-between">
+        <div>Abstimmungsteilnahme</div>
+        <span class="text-3xl">{formatPercentage(participationRate)}</span>
+      </div>
+      <p class="text-base-content/60 text-sm">
+        Gibt an, wie häufig das Ratsmitglied an Abstimmungen teilgenommen hat.
+      </p>
+      <canvas id="participation-chart"></canvas>
+    </div>
+  </div>
+
+  <div
+    id="voting-success-rate"
+    class="card card-border bg-base-100"
+    data-history={JSON.stringify(votingsSuccessRateHistory)}
+  >
+    <div class="card-body space-y-3">
+      <div class="card-title flex justify-between">
+        <div>Abstimmungserfolg</div>
+        <span class="text-3xl">{formatPercentage(votingsSuccessRate)}</span>
+      </div>
+      <p class="text-base-content/60 text-sm">
+        Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum des Ratsmitglieds übereinstimmte.
+      </p>
+      <canvas id="voting-success-chart"></canvas>
+    </div>
+  </div>
+
+  <div
+    id="abstention-rate"
+    class="card card-border bg-base-100"
+    data-history={JSON.stringify(abstentionRateHistory)}
+  >
+    <div class="card-body space-y-3">
+      <div class="card-title flex justify-between">
+        <div>Stimmenthaltungen</div>
+        <span class="text-3xl">{formatPercentage(abstentionRate)}</span>
+      </div>
+      <p class="text-base-content/60 text-sm">
+        Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren.
+      </p>
+      <canvas id="abstention-chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+  import Chart from 'chart.js/auto';
+  import 'chartjs-adapter-date-fns';
+  import {
+    type ChartConfiguration,
+    type ChartData,
+    type ChartOptions
+  } from 'chart.js';
+  import {
+    type HistoryDataPoint as VotingSuccessRateHistoryDataPoint
+  } from '@data-analysis/VotingSuccess';
+  import {
+    type HistoryDataPoint as ParticipationRateHistoryDataPoint
+  } from '@data-analysis/ParticipationRate';
+  import {
+    type HistoryDataPoint as AbstentionRateHistoryDataPoint
+  } from '@data-analysis/AbstentionRate';
+  import { formatPercentage } from '@utils/format-number';
+
+  function makeChart<TData>(chartContainerId: string, chartCanvasId: string,
+                            numberFormatter: (value: number | null) => string) {
+    const containerDiv = document.getElementById(
+      chartContainerId
+    ) as HTMLDivElement;
+    const parsedHistoryData = JSON.parse(
+      containerDiv.dataset.history ||
+      '[]'
+    ) as TData[];
+
+    const data: ChartData<'line', TData[]> = {
+      datasets: [
+        {
+          data: parsedHistoryData,
+          fill: 'origin',
+          backgroundColor: '#167bff30',
+          borderColor: '#167bff'
+        }
+      ]
+    };
+    const options: ChartOptions<'line'> = {
+      elements: { line: { tension: 0.5 } },
+      scales: {
+        x: { type: 'time' },
+        y: {
+          ticks: {
+            callback: (value: string | number) =>
+              typeof value === 'number' ? numberFormatter(value) : value
+          }
+        }
+      },
+      parsing: {
+        xAxisKey: 'date',
+        yAxisKey: 'value'
+      },
+      plugins: { legend: { display: false } }
+    };
+    const config: ChartConfiguration<'line', TData[]> = {
+      type: 'line',
+      data,
+      options
+    };
+    new Chart<'line', TData[]>(
+      document.getElementById(chartCanvasId) as HTMLCanvasElement,
+      config
+    );
+  }
+
+  makeChart<ParticipationRateHistoryDataPoint>(
+    'participation-rate',
+    'participation-chart',
+    formatPercentage
+  );
+
+  makeChart<VotingSuccessRateHistoryDataPoint>(
+    'voting-success-rate',
+    'voting-success-chart',
+    formatPercentage
+  );
+
+  makeChart<AbstentionRateHistoryDataPoint>(
+    'abstention-rate',
+    'abstention-chart',
+    formatPercentage
+  );
+
+</script>

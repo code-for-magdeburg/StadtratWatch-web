@@ -1,0 +1,182 @@
+---
+import { getCollection } from 'astro:content';
+import { type Registry } from '@models/registry';
+import { formatDate } from '@utils/format-date';
+
+const electoralPeriodsCollection = await getCollection('electoralPeriods');
+const electoralPeriods = electoralPeriodsCollection
+  .sort((a, b) => a.data.name.localeCompare(b.data.name))
+  .map((electoralPeriodEntry) => electoralPeriodEntry.data);
+
+type Props = {
+  electoralPeriod: Registry;
+};
+
+const { electoralPeriod } = Astro.props as Props;
+
+const pathname = Astro.url.pathname.toLowerCase();
+let activePage = '';
+switch (true) {
+  case pathname.startsWith(`/ep/${electoralPeriod.id}/session/`) ||
+    pathname === `/ep/${electoralPeriod.id}/sessions`:
+    activePage = 'sessions';
+    break;
+  case pathname.startsWith(`/ep/${electoralPeriod.id}/faction/`) ||
+    pathname === `/ep/${electoralPeriod.id}/factions`:
+    activePage = 'factions';
+    break;
+  case pathname.startsWith(`/ep/${electoralPeriod.id}/party/`) ||
+    pathname === `/ep/${electoralPeriod.id}/parties`:
+    activePage = 'parties';
+    break;
+  case pathname.startsWith(`/ep/${electoralPeriod.id}/person/`) ||
+    pathname === `/ep/${electoralPeriod.id}/persons`:
+    activePage = 'persons';
+    break;
+}
+---
+
+<input
+  type="checkbox"
+  id="layout-sidebar-toggle-trigger"
+  class="hidden"
+  aria-label="Toggle layout sidebar"
+/>
+
+<div id="layout-sidebar">
+  <a
+    class="flex min-h-16 items-center px-5 text-xl md:text-2xl font-bold text-primary"
+    href="/"
+  >
+    StadtratWatch
+  </a>
+  <div class="relative min-h-0 grow">
+    <div class="size-full">
+      <div class="dropdown w-full">
+        <div
+          tabindex="0"
+          role="button"
+          class="bg-base-200 hover:bg-base-300 rounded-box mx-2 mt-0 flex cursor-pointer items-center gap-2.5 px-3 py-2 transition-all"
+        >
+          <div class="grow">
+            <p class="text-sm font-medium">{electoralPeriod.name}</p>
+            <p class="text-base-content/60 text-xs">
+              Stand: {formatDate(electoralPeriod.lastUpdate)}
+            </p>
+          </div>
+          <span
+            class="iconify lucide--chevrons-up-down text-base-content/60 size-4"
+          ></span>
+        </div>
+        <ul
+          role="menu"
+          class="dropdown-content menu bg-base-100 rounded-box shadow-base-content/4 mb-1 w-48 p-1 shadow-[0px_-10px_40px_0px]"
+          tabindex="0"
+        >
+          {
+            electoralPeriods.map((electoralPeriod) => (
+              <li>
+                <a href={`/ep/${electoralPeriod.id}`}>
+                  <span>{electoralPeriod.name}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div id="sidebar-menu" class="mt-3">
+        <a
+          class="sidebar-menu-item"
+          class:list={[{ active: activePage === 'sessions' }]}
+          href={`/ep/${electoralPeriod.id}/sessions`}
+        >
+          Sitzungen
+        </a>
+        <a
+          class="sidebar-menu-item"
+          class:list={[{ active: activePage === 'factions' }]}
+          href={`/ep/${electoralPeriod.id}/factions`}
+        >
+          Fraktionen
+        </a>
+        <a
+          class="sidebar-menu-item"
+          class:list={[{ active: activePage === 'parties' }]}
+          href={`/ep/${electoralPeriod.id}/parties`}
+        >
+          Parteien
+        </a>
+        <a
+          class="sidebar-menu-item"
+          class:list={[{ active: activePage === 'persons' }]}
+          href={`/ep/${electoralPeriod.id}/persons`}
+        >
+          Personen
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-3" x-data>
+    <form
+      class="md:hidden"
+      @submit.prevent="$event.target.search.value.trim() !== '' ? window.location.href = `/search?q=${$event.target.search.value}` : null; $event.target.search.value = null"
+    >
+      <label class="input">
+        <span class="iconify lucide--search text-base-content/60 size-5"></span>
+        <input
+          class="grow"
+          placeholder="Suche"
+          type="search"
+          name="search"
+        />
+      </label>
+    </form>
+  </div>
+
+  <div
+    class="alert alert-soft alert-info m-3 text-xs dark:opacity-60"
+    role="alert"
+  >
+    <span>
+      Diese Seite ist <em>keine</em> offizielle Seite der Stadt Magdeburg. Es handelt
+      sich hierbei um ein Privatprojekt und wird ehrenamtlich entwickelt von
+      <a class="link" href="https://codefor.de/magdeburg" target="_blank">
+        Code for Magdeburg
+      </a>.
+    </span>
+  </div>
+
+  <div class="mb-2">
+    <hr class="border-base-300" />
+    <ul class="menu w-full">
+      <li>
+        <a href="https://github.com/code-for-magdeburg/stadtratWatch-web" class="flex items-center gap-2">
+          <span class="iconify lucide--github size-4"></span>
+          Quellcode
+        </a>
+      </li>
+      <li>
+        <a href="/privacy" class="flex items-center gap-2">
+          <span class="iconify lucide--cookie size-4"></span>
+          Datenschutz
+        </a>
+      </li>
+      <li>
+        <a href="/impressum" class="flex items-center gap-2">
+          <span class="iconify lucide--section size-4"></span>
+          Impressum
+        </a>
+      </li>
+      <li>
+        <a href="/contact" class="flex items-center gap-2">
+          <span class="iconify lucide--mail size-4"></span>
+          Kontakt
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<label for="layout-sidebar-toggle-trigger" id="layout-sidebar-backdrop"></label>

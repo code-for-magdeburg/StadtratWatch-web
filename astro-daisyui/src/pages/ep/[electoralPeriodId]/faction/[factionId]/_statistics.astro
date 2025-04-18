@@ -1,0 +1,260 @@
+---
+import { type RegistryFaction } from '@models/registry';
+import { type SessionInput } from '@models/SessionInput';
+import {
+  calcApplicationsSuccessRateOfFaction,
+  calcApplicationsSuccessRateHistoryOfFaction
+} from '@data-analysis/ApplicationsSuccess';
+import {
+  calcVotingSuccessRateOfFaction,
+  calcVotingSuccessRateHistoryOfFaction
+} from '@data-analysis/VotingSuccess';
+import {
+  calcUniformityScoreHistoryOfFaction,
+  calcUniformityScoreOfFaction
+} from '@data-analysis/UniformityScore';
+import {
+  calcParticipationRateHistoryOfFaction,
+  calcParticipationRateOfFaction
+} from '@data-analysis/ParticipationRate';
+import {
+  calcAbstentionRateHistoryOfFaction,
+  calcAbstentionRateOfFaction
+} from '@data-analysis/AbstentionRate';
+import { formatPercentage, formatScore } from '@utils/format-number';
+
+type Props = {
+  faction: RegistryFaction;
+  sessionInputs: SessionInput[];
+};
+
+const { faction, sessionInputs } = Astro.props as Props;
+
+const applicationSuccessRate = calcApplicationsSuccessRateOfFaction(
+  faction,
+  sessionInputs
+);
+const applicationSuccessRateHistory = calcApplicationsSuccessRateHistoryOfFaction(
+  faction,
+  sessionInputs
+);
+const votingsSuccessRate = calcVotingSuccessRateOfFaction(
+  faction,
+  sessionInputs
+);
+const votingsSuccessRateHistory = calcVotingSuccessRateHistoryOfFaction(
+  faction,
+  sessionInputs
+);
+const uniformityScore = calcUniformityScoreOfFaction(faction, sessionInputs);
+const uniformityScoreHistory = calcUniformityScoreHistoryOfFaction(
+  faction,
+  sessionInputs
+);
+const participationRate = calcParticipationRateOfFaction(
+  faction,
+  sessionInputs
+);
+const participationRateHistory = calcParticipationRateHistoryOfFaction(
+  faction,
+  sessionInputs
+);
+const abstentionRate = calcAbstentionRateOfFaction(faction, sessionInputs);
+const abstentionRateHistory = calcAbstentionRateHistoryOfFaction(
+  faction,
+  sessionInputs
+);
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+  <div
+    id="applications-success-rate"
+    class="card card-border bg-base-100"
+    data-history={JSON.stringify(applicationSuccessRateHistory)}
+  >
+    <div class="card-body space-y-3">
+      <div class="card-title flex justify-between">
+        <div>Erfolgreiche Anträge</div>
+        <span class="text-3xl">{formatPercentage(applicationSuccessRate)}</span>
+      </div>
+      <p class="text-base-content/60 text-sm">
+        Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde.
+      </p>
+      <canvas id="applications-success-chart"></canvas>
+    </div>
+  </div>
+
+  <div
+    id="voting-success-rate"
+    class="card card-border bg-base-100"
+    data-history={JSON.stringify(votingsSuccessRateHistory)}
+  >
+    <div class="card-body space-y-3">
+      <div class="card-title flex justify-between">
+        <div>Abstimmungserfolg</div>
+        <span class="text-3xl">{formatPercentage(votingsSuccessRate)}</span>
+      </div>
+      <p class="text-base-content/60 text-sm">
+        Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Fraktion übereinstimmte.
+      </p>
+      <canvas id="voting-success-chart"></canvas>
+    </div>
+  </div>
+
+  <div
+    id="uniformity-score"
+    class="card card-border bg-base-100"
+    data-history={JSON.stringify(uniformityScoreHistory)}
+  >
+    <div class="card-body space-y-3">
+      <div class="card-title flex justify-between">
+        <div>Geschlossenheit</div>
+        <span class="text-3xl">{formatScore(uniformityScore)}</span>
+      </div>
+      <p class="text-base-content/60 text-sm">
+        Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Fraktionsmitglieder abgestimmt haben. Je größer der Wert
+        ist, desto geschlossener ist das Abstimmungsverhalten der Fraktion.
+      </p>
+      <canvas id="uniformity-chart"></canvas>
+    </div>
+  </div>
+
+  <div
+    id="participation-rate"
+    class="card card-border bg-base-100"
+    data-history={JSON.stringify(participationRateHistory)}
+  >
+    <div class="card-body space-y-3">
+      <div class="card-title flex justify-between">
+        <div>Abstimmungsteilnahme</div>
+        <span class="text-3xl">{formatPercentage(participationRate)}</span>
+      </div>
+      <p class="text-base-content/60 text-sm">
+        Gibt an, wie häufig die Fraktionsmitglieder an Abstimmungen teilgenommen haben.
+      </p>
+      <canvas id="participation-chart"></canvas>
+    </div>
+  </div>
+
+  <div
+    id="abstention-rate"
+    class="card card-border bg-base-100"
+    data-history={JSON.stringify(abstentionRateHistory)}
+  >
+    <div class="card-body space-y-3">
+      <div class="card-title flex justify-between">
+        <div>Stimmenthaltungen</div>
+        <span class="text-3xl">{formatPercentage(abstentionRate)}</span>
+      </div>
+      <p class="text-base-content/60 text-sm">
+        Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren.
+      </p>
+      <canvas id="abstention-chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+  import Chart from 'chart.js/auto';
+  import 'chartjs-adapter-date-fns';
+  import {
+    type ChartConfiguration,
+    type ChartData,
+    type ChartOptions
+  } from 'chart.js';
+  import {
+    type HistoryDataPoint as ApplicationsSuccessRateHistoryDataPoint
+  } from '@data-analysis/ApplicationsSuccess';
+  import {
+    type HistoryDataPoint as VotingSuccessRateHistoryDataPoint
+  } from '@data-analysis/VotingSuccess';
+  import {
+    type HistoryDataPoint as UniformityScoreHistoryDataPoint
+  } from '@data-analysis/UniformityScore';
+  import {
+    type HistoryDataPoint as ParticipationRateHistoryDataPoint
+  } from '@data-analysis/ParticipationRate';
+  import {
+    type HistoryDataPoint as AbstentionRateHistoryDataPoint
+  } from '@data-analysis/AbstentionRate';
+  import { formatPercentage, formatScore } from '@utils/format-number';
+
+  function makeChart<TData>(chartContainerId: string, chartCanvasId: string,
+                            numberFormatter: (value: number | null) => string) {
+    const containerDiv = document.getElementById(
+      chartContainerId
+    ) as HTMLDivElement;
+    const parsedHistoryData = JSON.parse(
+      containerDiv.dataset.history ||
+      '[]'
+    ) as TData[];
+
+    const data: ChartData<'line', TData[]> = {
+      datasets: [
+        {
+          data: parsedHistoryData,
+          fill: 'origin',
+          backgroundColor: '#167bff30',
+          borderColor: '#167bff'
+        }
+      ]
+    };
+    const options: ChartOptions<'line'> = {
+      elements: { line: { tension: 0.5 } },
+      scales: {
+        x: { type: 'time' },
+        y: {
+          ticks: {
+            callback: (value: string | number) =>
+              typeof value === 'number' ? numberFormatter(value) : value
+          }
+        }
+      },
+      parsing: {
+        xAxisKey: 'date',
+        yAxisKey: 'value'
+      },
+      plugins: { legend: { display: false } }
+    };
+    const config: ChartConfiguration<'line', TData[]> = {
+      type: 'line',
+      data,
+      options
+    };
+    new Chart<'line', TData[]>(
+      document.getElementById(chartCanvasId) as HTMLCanvasElement,
+      config
+    );
+  }
+
+  makeChart<ApplicationsSuccessRateHistoryDataPoint>(
+    'applications-success-rate',
+    'applications-success-chart',
+    formatPercentage
+  );
+
+  makeChart<VotingSuccessRateHistoryDataPoint>(
+    'voting-success-rate',
+    'voting-success-chart',
+    formatPercentage
+  );
+
+  makeChart<UniformityScoreHistoryDataPoint>(
+    'uniformity-score',
+    'uniformity-chart',
+    formatScore
+  );
+
+  makeChart<ParticipationRateHistoryDataPoint>(
+    'participation-rate',
+    'participation-chart',
+    formatPercentage
+  );
+
+  makeChart<AbstentionRateHistoryDataPoint>(
+    'abstention-rate',
+    'abstention-chart',
+    formatPercentage
+  );
+
+</script>

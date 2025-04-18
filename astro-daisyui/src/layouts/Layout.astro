@@ -1,0 +1,61 @@
+---
+import '@styles/global.css';
+import Sidebar from '@components/Sidebar.astro';
+import Topbar from '@components/Topbar.astro';
+import { getEntry } from 'astro:content';
+import { type Registry } from '@models/registry';
+
+type Props = {
+  electoralPeriod?: Registry;
+};
+
+let electoralPeriod = Astro.props.electoralPeriod;
+if (!electoralPeriod) {
+  const defaultElectoralPeriodId = 'magdeburg-8'; // TODO: Fetch default electoral period
+  const electoralPeriodEntry = await getEntry(
+    'electoralPeriods',
+    defaultElectoralPeriodId,
+  );
+  electoralPeriod = electoralPeriodEntry?.data!;
+}
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="shortcut icon"
+      href="/images/favicon-dark.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="/images/favicon-light.png"
+      media="(prefers-color-scheme: light)"
+    />
+    <title>StadtratWatch</title>
+  </head>
+
+  <body>
+    <div class="size-full" id="layout-main">
+      {
+        electoralPeriod && (
+          <div class="flex">
+            <Sidebar electoralPeriod={electoralPeriod} />
+
+            <div class="flex h-screen min-w-0 grow flex-col overflow-auto">
+              <Topbar />
+
+              <div id="layout-content">
+                <slot />
+              </div>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </body>
+</html>

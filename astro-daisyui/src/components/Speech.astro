@@ -1,0 +1,135 @@
+---
+import { type SessionSpeech } from '@models/session-speech';
+import { type SessionConfig } from '@models/session-config';
+
+type Props = {
+  speech: SessionSpeech;
+  sessionConfig: SessionConfig;
+  speechElementId: string;
+  link: string;
+};
+
+const {
+  speech,
+  sessionConfig,
+  speechElementId,
+  link
+} = Astro.props as Props;
+
+const faction = getFactionName(speech.speaker, sessionConfig);
+const youtubeUrl = getYoutubeUrl(sessionConfig.youtubeUrl, speech.start);
+const linkTitle = getLinkTitle(speech.speaker, sessionConfig.date);
+const hintMailHref = getHintMailHref(speech, sessionConfig.date);
+const hintMailTitle = getHintMailTitle(speech);
+
+function getFactionName(
+  speaker: string,
+  config: SessionConfig
+): string | null {
+  return config.names.find((name) => name.name === speaker)?.faction || null;
+}
+
+function getYoutubeUrl(baseUrl: string, start: number): string {
+  return `${baseUrl}?t=${start}`;
+}
+
+function getLinkTitle(speaker: string, date: string): string {
+  const formattedDate = new Date(date).toLocaleString('de-DE', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+  return `Redebeitrag von ${speaker} am ${formattedDate}`;
+}
+
+function getHintMailHref(speech: SessionSpeech, date: string): string {
+  const formattedDate = new Date(date).toLocaleString('de-DE', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+  const subject = encodeURIComponent(
+    `Hinweis zum Redebeitrag von ${speech.speaker} am ${formattedDate}`
+  );
+  const hintMailBodyText = encodeURIComponent(
+    `Hallo StadtratWatch-Team!
+
+Ich habe einen Hinweis zum Redebeitrag von ${speech.speaker} aus der Sitzung vom ${formattedDate} (Zeitmarke: ${speech.start}):
+
+
+
+
+Mit freundlichen Grüßen,
+
+`
+  );
+  return `mailto:stadtratwatch@gmail.com?subject=${subject}&body=${hintMailBodyText}`;
+}
+
+function getHintMailTitle(speech: SessionSpeech): string {
+  return `Hinweis zum Redebeitrag von ${speech.speaker} geben`;
+}
+---
+
+<div
+  id={speechElementId}
+  class="timeline-start text-sm flex flex-row flex-wrap gap-2 w-full items-center"
+>
+  <span class="text-base-content/80">{speech.speaker}</span>
+  {faction && <span class="badge badge-sm badge-neutral">{faction}</span>}
+  {
+    speech.onBehalfOf && (
+      <span class="badge badge-sm badge-neutral">{speech.onBehalfOf}</span>
+    )
+  }
+  <div class="dropdown dropdown-end ml-auto">
+    <button tabindex="0" class="btn btn-sm btn-ghost">
+      <span class="iconify lucide--more-horizontal"></span>
+    </button>
+    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-200 rounded-box w-60">
+      <li>
+        <a
+          class="copy-speech-link-btn"
+          href={`${link}#${speechElementId}`}
+          title={linkTitle}
+          aria-label={linkTitle}
+        >
+          <span class="iconify lucide--link"></span>
+          Link zum Beitrag kopieren
+        </a>
+      </li>
+      <li>
+        <a
+          href={hintMailHref}
+          title={hintMailTitle}
+          aria-label={hintMailTitle}
+        >
+          <span class="iconify lucide--flag"></span>
+          Beitrag melden
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="timeline-middle">
+  <div
+    class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1"
+  >
+    <span class="iconify lucide--message-circle"></span>
+  </div>
+</div>
+<div class="timeline-end timeline-box w-full">
+  <div class="space-y-3">
+    {(speech.transcription || '').split('\n\n').map((line) => <p>{line}</p>)}
+  </div>
+  <div class="flex justify-between items-center mt-5">
+    <a
+      href={youtubeUrl}
+      target="_blank"
+      class="btn btn-soft btn-primary btn-sm flex flex-row items-center gap-1"
+    >
+      <span class="iconify lucide--youtube"></span>
+      In YouTube öffnen
+    </a>
+  </div>
+</div>
