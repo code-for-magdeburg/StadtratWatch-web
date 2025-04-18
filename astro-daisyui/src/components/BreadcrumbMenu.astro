@@ -1,0 +1,32 @@
+---
+export type BreadcrumbItem = {
+  name: string;
+  href: string | null;
+};
+
+type Props = {
+  breadcrumbItems?: BreadcrumbItem[];
+};
+
+const { breadcrumbItems } = Astro.props as Props;
+---
+
+<div class="breadcrumbs hidden p-0 text-sm sm:inline">
+  <ul>
+    {
+      breadcrumbItems &&
+        breadcrumbItems.map((breadcrumbItem) => (
+          <li>
+            <a
+              href={breadcrumbItem.href}
+              class:list={{
+                'opacity-75 pointer-events-none': !breadcrumbItem.href,
+              }}
+            >
+              {breadcrumbItem.name}
+            </a>
+          </li>
+        ))
+    }
+  </ul>
+</div>

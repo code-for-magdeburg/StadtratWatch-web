@@ -1,0 +1,222 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import {
+  type ElectoralPeriodWithSessionsProps,
+  getElectoralPeriodWithSessionsPaths,
+} from '../_helpers';
+import { type PartyListItem } from './_models';
+import { calcVotingSuccessRateOfParty } from '@data-analysis/VotingSuccess';
+import { calcParticipationRateOfParty } from '@data-analysis/ParticipationRate';
+import { calcUniformityScoreOfParty } from '@data-analysis/UniformityScore';
+import { calcAbstentionRateOfParty } from '@data-analysis/AbstentionRate';
+import { calcSpeakingTimeOfParty } from '@data-analysis/SpeakingTime';
+import {
+  formatAbstentionRate,
+  formatParticipationRate,
+  formatUniformityScore,
+  formatVotingSuccessRate,
+} from '@utils/format-number';
+import { formatSpeakingTime } from '@utils/format-time';
+import { type BreadcrumbItem } from '@components/BreadcrumbMenu.astro';
+
+export const getStaticPaths = getElectoralPeriodWithSessionsPaths;
+
+const { electoralPeriodId } = Astro.params;
+const { electoralPeriod, sessionInputs } =
+  Astro.props as ElectoralPeriodWithSessionsProps;
+
+const breadcrumbItems: BreadcrumbItem[] = [
+  {
+    name: electoralPeriod.name,
+    href: `/ep/${electoralPeriodId}`,
+  },
+  {
+    name: 'Parteien',
+    href: null,
+  },
+];
+
+const parties = electoralPeriod.parties
+  .map((party) => {
+    const votingSuccessRate = calcVotingSuccessRateOfParty(
+      party,
+      sessionInputs,
+    );
+    const uniformityScore = calcUniformityScoreOfParty(party, sessionInputs);
+    const participationRate = calcParticipationRateOfParty(
+      party,
+      sessionInputs,
+    );
+    const abstentionRate = calcAbstentionRateOfParty(party, sessionInputs);
+    const speakingTime = calcSpeakingTimeOfParty(party, sessionInputs);
+    return {
+      id: party.id,
+      name: party.name,
+      seats: party.seats,
+      votingSuccessRate,
+      votingSuccessRateDisplay: formatVotingSuccessRate(votingSuccessRate),
+      uniformityScore,
+      uniformityScoreDisplay: formatUniformityScore(uniformityScore),
+      participationRate,
+      participationRateDisplay: formatParticipationRate(participationRate),
+      abstentionRate,
+      abstentionRateDisplay: formatAbstentionRate(abstentionRate),
+      speakingTime,
+      speakingTimeDisplay: formatSpeakingTime(speakingTime),
+    } satisfies PartyListItem;
+  })
+  .toSorted((a, b) => b.seats - a.seats);
+---
+
+<PageLayout
+  pageTitle="Parteien"
+  electoralPeriod={electoralPeriod}
+  breadcrumbItems={breadcrumbItems}
+>
+  <div class="overflow-x-auto">
+    <table
+      class="table"
+      x-data="parties"
+      data-parties={JSON.stringify(parties)}
+      data-electoral-period-id={electoralPeriod.id}
+    >
+      <thead>
+        <tr>
+          <th class="px-0">
+            <button
+              class="btn btn-ghost btn-block flex justify-between"
+              @click="sortTextColumn('name', (party) => party.name)"
+            >
+              <span class="text-left">Name</span>
+              <span class="iconify lucide--chevrons-up-down"></span>
+            </button>
+          </th>
+          <th class="px-0">
+            <button
+              class="btn btn-ghost btn-block flex justify-between"
+              @click="sortNumberColumn('seats', (party) => party.seats)"
+            >
+              <span class="grow">Sitze</span>
+              <span class="iconify lucide--chevrons-up-down"></span>
+            </button>
+          </th>
+          <th class="px-0">
+            <button
+              class="btn btn-ghost btn-block flex justify-between"
+              @click="sortNumberColumn('votingSuccessRate', (party) => party.votingSuccessRate)"
+            >
+              <span class="grow">Abstimmungserfolg</span>
+              <span class="iconify lucide--chevrons-up-down"></span>
+            </button>
+          </th>
+          <th class="px-0">
+            <button
+              class="btn btn-ghost btn-block flex justify-between"
+              @click="sortNumberColumn('uniformityScore', (party) => party.uniformityScore)"
+            >
+              <span class="grow">Geschlossenheit</span>
+              <span class="iconify lucide--chevrons-up-down"></span>
+            </button>
+          </th>
+          <th class="px-0">
+            <button
+              class="btn btn-ghost btn-block flex justify-between"
+              @click="sortNumberColumn('participationRate', (party) => party.participationRate)"
+            >
+              <span class="grow">Abstimmungsteilnahme</span>
+              <span class="iconify lucide--chevrons-up-down"></span>
+            </button>
+          </th>
+          <th class="px-0">
+            <button
+              class="btn btn-ghost btn-block flex justify-between"
+              @click="sortNumberColumn('abstentionRate', (party) => party.abstentionRate)"
+            >
+              <span class="grow">Stimmenthaltungen</span>
+              <span class="iconify lucide--chevrons-up-down"></span>
+            </button>
+          </th>
+          <th class="px-0">
+            <button
+              class="btn btn-ghost btn-block flex justify-between"
+              @click="sortNumberColumn('speakingTime', (party) => party.speakingTime)"
+            >
+              <span class="grow">Redezeit</span>
+              <span class="iconify lucide--chevrons-up-down"></span>
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <template x-for="party in parties">
+          <tr>
+            <td>
+              <a
+                :href="`/ep/${electoralPeriodId}/party/${party.id}`"
+                class="link link-primary"
+                x-text="party.name"></a>
+            </td>
+            <td class="text-right" x-text="party.seats"></td>
+            <td class="text-right" x-text="party.votingSuccessRateDisplay"></td>
+            <td class="text-right" x-text="party.uniformityScoreDisplay"></td>
+            <td class="text-right" x-text="party.participationRateDisplay"></td>
+            <td class="text-right" x-text="party.abstentionRateDisplay"></td>
+            <td class="text-right" x-text="party.speakingTimeDisplay"></td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div>
+</PageLayout>
+
+<script>
+  import Alpine from 'alpinejs';
+  import { type PartyListItem } from './_models';
+
+  document.addEventListener('alpine:init', () => {
+    const partiesTableElement = document.querySelector(
+      'table[data-parties]',
+    ) as HTMLTableElement;
+    const parties = JSON.parse(
+      partiesTableElement.dataset.parties || '[]',
+    ) as PartyListItem[];
+    const electoralPeriodId = partiesTableElement.dataset.electoralPeriodId;
+
+    Alpine.data('parties', () => ({
+      electoralPeriodId,
+      parties,
+      sortTextColumn: function (
+        column: string,
+        getText: (party: PartyListItem) => string,
+      ) {
+        this._updateSortColumn(column);
+        this.parties.sort((a, b) =>
+          this._sortedDesc
+            ? getText(b).localeCompare(getText(a))
+            : getText(a).localeCompare(getText(b)),
+        );
+      },
+      sortNumberColumn: function (
+        column: string,
+        getNumber: (party: PartyListItem) => number | null,
+      ) {
+        this._updateSortColumn(column);
+        this.parties.sort((a, b) =>
+          this._sortedDesc
+            ? (getNumber(a) || 0) - (getNumber(b) || 0)
+            : (getNumber(b) || 0) - (getNumber(a) || 0),
+        );
+      },
+      _sortedColumn: 'seats',
+      _sortedDesc: false,
+      _updateSortColumn: function (column: string) {
+        if (this._sortedColumn === column) {
+          this._sortedDesc = !this._sortedDesc;
+        } else {
+          this._sortedColumn = column;
+          this._sortedDesc = false;
+        }
+      },
+    }));
+  });
+</script>
