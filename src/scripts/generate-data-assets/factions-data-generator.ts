@@ -78,32 +78,14 @@ export class FactionsDataGenerator {
 
   private calcUniformityScore(factionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number | null {
 
-    const uniformityScoresPerSession = sessions
-      .map(session => this.calcUniformityScoreForSession(factionMembers, session))
+    const scores = sessions
+      .flatMap(session => session.votings)
+      .map(voting => this.calcUniformityScoreForVoting(factionMembers, voting))
       .filter(score => score !== null) as number[];
+    return scores.length === 0
+      ? null
+      : scores.reduce((acc, val) => acc + val, 0) / scores.length;
 
-    if (uniformityScoresPerSession.length === 0) {
-      return null;
-    }
-
-    return uniformityScoresPerSession.reduce((a, b) => a + b, 0) / uniformityScoresPerSession.length;
-
-  }
-
-
-  private calcUniformityScoreForSession(factionMembers: RegistryPerson[], session: SessionDetailsDto): number | null {
-    const relevantFactionMembers = factionMembers.filter(
-      member => session.persons.some(person => person.id === member.id)
-    );
-    const uniformityScorePerVoting = session.votings
-      .map(voting => this.calcUniformityScoreForVoting(relevantFactionMembers, voting))
-      .filter(score => score !== null) as number[];
-
-    if (uniformityScorePerVoting.length === 0) {
-      return null;
-    }
-
-    return uniformityScorePerVoting.reduce((a, b) => a + b, 0) / uniformityScorePerVoting.length;
   }
 
 
@@ -179,43 +161,30 @@ export class FactionsDataGenerator {
   }
 
 
-  private calcAbstentionRate(factionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number {
-    const abstentionRatePerSession = sessions
-      .map(session => this.calcAbstentionRateForSession(factionMembers, session))
-      .filter(rate => rate !== null) as number[];
+  private calcAbstentionRate(factionMembers: RegistryPerson[], sessions: SessionDetailsDto[]): number | null {
 
-    if (abstentionRatePerSession.length === 0) {
-      return 0;
-    }
-
-    return abstentionRatePerSession.reduce((a, b) => a + b, 0) / abstentionRatePerSession.length;
-  }
-
-
-  private calcAbstentionRateForSession(factionMembers: RegistryPerson[], session: SessionDetailsDto): number {
-    const abstentionRatePerVoting = session.votings
+    const rates = sessions
+      .flatMap(session => session.votings)
       .map(voting => this.calcAbstentionRateForVoting(factionMembers, voting))
       .filter(rate => rate !== null) as number[];
+    return rates.length === 0
+      ? null
+      : rates.reduce((a, b) => a + b, 0) / rates.length;
 
-    if (abstentionRatePerVoting.length === 0) {
-      return 0;
-    }
-
-    return abstentionRatePerVoting.reduce((a, b) => a + b, 0) / abstentionRatePerVoting.length;
   }
 
 
-  private calcAbstentionRateForVoting(factionMembers: RegistryPerson[], voting: SessionVotingDto): number {
+  private calcAbstentionRateForVoting(factionMembers: RegistryPerson[], voting: SessionVotingDto): number | null {
+
     const allVotes = voting.votes.filter(vote =>
       factionMembers.some(member => member.id === vote.personId) && vote.vote !== VoteResult.DID_NOT_VOTE
     );
     const abstentions = allVotes.filter(vote => vote.vote === VoteResult.VOTE_ABSTENTION);
 
-    if (allVotes.length === 0) {
-      return 0;
-    }
+    return allVotes.length === 0
+      ? null
+      : abstentions.length / allVotes.length;
 
-    return abstentions.length / allVotes.length;
   }
 
 
