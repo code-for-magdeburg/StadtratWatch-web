@@ -24,6 +24,7 @@ class SpeechesSourceStub implements ISpeechesSource {
   getSpeeches(): IndexableSpeech[] {
 
     const config: SessionConfig = {
+      title: 'Session Title',
       youtubeUrl: '',
       layout: {
         namesRowHeight: 0,
