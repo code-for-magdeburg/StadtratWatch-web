@@ -2,12 +2,12 @@
   "id": "spd-tsa-volt",
   "name": "SPD/Tierschutzallianz/Volt",
   "seats": 10,
-  "applicationsSuccessRate": 0.7739130434782608,
-  "votingsSuccessRate": 0.8619718309859155,
-  "uniformityScore": 0.9660468365750053,
-  "participationRate": 0.7387323943661972,
-  "abstentionRate": 0.0263939190699754,
-  "speakingTime": 13601,
+  "applicationsSuccessRate": 0.7426470588235294,
+  "votingsSuccessRate": 0.8480697384806973,
+  "uniformityScore": 0.9635790389215043,
+  "participationRate": 0.7302615193026152,
+  "abstentionRate": 0.028347071497756417,
+  "speakingTime": 15083,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -65,6 +65,14 @@
       {
         "date": "2025-04-04",
         "value": 0.7739130434782608
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.7758620689655172
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.7426470588235294
       }
     ],
     "votingsSuccessRate": [
@@ -123,6 +131,14 @@
       {
         "date": "2025-04-04",
         "value": 0.8619718309859155
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.863697705802969
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.8480697384806973
       }
     ],
     "uniformityScore": [
@@ -181,6 +197,14 @@
       {
         "date": "2025-04-04",
         "value": 0.9660468365750053
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.9636998479103741
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.9635790389215043
       }
     ],
     "participationRate": [
@@ -239,6 +263,14 @@
       {
         "date": "2025-04-04",
         "value": 0.7387323943661972
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.7395411605937922
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.7302615193026152
       }
     ],
     "abstentionRate": [
@@ -297,6 +329,14 @@
       {
         "date": "2025-04-04",
         "value": 0.0263939190699754
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.02757641968168283
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.028347071497756417
       }
     ]
   },
@@ -1897,6 +1937,300 @@
       "votings": [
         {
           "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0657/24/5",
+      "type": "Änderungsantrag",
+      "title": "Entgeltordnung für die Benutzung der kommunalen Sportstätten und Bäder",
+      "sessionId": "2025-04-24",
+      "sessionDate": "2025-04-24",
+      "paperId": 246227,
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0192/24",
+      "type": "Antrag",
+      "title": "Verkehrssicherheit steigern. Haltestellen beleuchten.",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 244508,
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0268/24",
+      "type": "Antrag",
+      "title": "Ermäßigter Eintritt für Freiwilligendienstleistende in städtischen Einrichtungen",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 245176,
+      "votings": [
+        {
+          "votingId": 15,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0278/24",
+      "type": "Antrag",
+      "title": "Verbesserung der Verkehrssituation am Kroatenweg/ Ecke Bergstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 245221,
+      "votings": [
+        {
+          "votingId": 20,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0072/25",
+      "type": "Geschäftsordnung",
+      "title": "Anti-Graffiti Beschichtung",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246139,
+      "votings": [
+        {
+          "votingId": 35,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0087/25",
+      "type": "Geschäftsordnung",
+      "title": "Europäisches Praktikum für Auszubildende der Magdeburger Verwaltung",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246187,
+      "votings": [
+        {
+          "votingId": 38,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0085/25",
+      "type": "Geschäftsordnung",
+      "title": "Bestandsaufnahme zum Zustand der Schwimmhalle Große-Diesdorfer-Straße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246183,
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0078/25",
+      "type": "Geschäftsordnung",
+      "title": "Anpassung des Domplatzkonzeptes",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246152,
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0076/25",
+      "type": "Geschäftsordnung",
+      "title": "Lichtsignalanlage Große Diesdorfer/Arndtstraße erneuern und ergänzen sowie barrierefreie Haltestelle schaffen",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246150,
+      "votings": [
+        {
+          "votingId": 42,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0069/25",
+      "type": "Geschäftsordnung",
+      "title": "Fußgänger*innenüberweg Hegelstraße und Leibnizstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246135,
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0069/25",
+      "type": "Antrag",
+      "title": "Fußgänger*innenüberweg Hegelstraße und Leibnizstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246135,
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0074/25",
+      "type": "Geschäftsordnung",
+      "title": "Ausbau der Theodor-Kozlowski-Straße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246142,
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0075/25",
+      "type": "Geschäftsordnung",
+      "title": "Digitalisierung Baugenehmigungsverfahren",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246143,
+      "votings": [
+        {
+          "votingId": 47,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0090/25",
+      "type": "Geschäftsordnung",
+      "title": "Beleuchtung für den Fußverkehr an der Blauebeilstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246193,
+      "votings": [
+        {
+          "votingId": 50,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0091/25",
+      "type": "Geschäftsordnung",
+      "title": "Beschäftigtenvertreter in Eigenbetrieben",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246194,
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0091/25",
+      "type": "Antrag",
+      "title": "Beschäftigtenvertreter in Eigenbetrieben",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246194,
+      "votings": [
+        {
+          "votingId": 52,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0084/25",
+      "type": "Geschäftsordnung",
+      "title": "Landeshauptstadt Magdeburg wird kinderfreundliche Kommune",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246172,
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0081/25",
+      "type": "Geschäftsordnung",
+      "title": "Kommunalen Gebäudebestand und -sanierungsbedarf abbilden - Transparenz für zukünftige Standortfragen schaffen",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246162,
+      "votings": [
+        {
+          "votingId": 57,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0092/25",
+      "type": "Geschäftsordnung",
+      "title": "Vergabe der Kulturfördermittel an die freie Szene",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246195,
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0093/25",
+      "type": "Geschäftsordnung",
+      "title": "Bundesweiter Baum-Gipfel: Kongress in Magdeburg",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246196,
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0094/25",
+      "type": "Geschäftsordnung",
+      "title": "Gebührenerhebung für Lehrer*innen und Schüler*innen-Parkplätze",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246197,
+      "votings": [
+        {
+          "votingId": 61,
           "votingResult": "REJECTED"
         }
       ]

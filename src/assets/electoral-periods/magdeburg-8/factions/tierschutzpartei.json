@@ -2,12 +2,12 @@
   "id": "tierschutzpartei",
   "name": "Tierschutzpartei",
   "seats": 3,
-  "applicationsSuccessRate": 0.8275862068965517,
-  "votingsSuccessRate": 0.8718309859154929,
-  "uniformityScore": 0.903882575757575,
-  "participationRate": 0.8065727699530516,
-  "abstentionRate": 0.1463068181818182,
-  "speakingTime": 3117,
+  "applicationsSuccessRate": 0.7878787878787878,
+  "votingsSuccessRate": 0.8592777085927771,
+  "uniformityScore": 0.9098532494758901,
+  "participationRate": 0.7737650477376504,
+  "abstentionRate": 0.15429769392033546,
+  "speakingTime": 3513,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -65,6 +65,14 @@
       {
         "date": "2025-04-04",
         "value": 0.8275862068965517
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.8275862068965517
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.7878787878787878
       }
     ],
     "votingsSuccessRate": [
@@ -123,6 +131,14 @@
       {
         "date": "2025-04-04",
         "value": 0.8718309859154929
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.8704453441295547
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.8592777085927771
       }
     ],
     "uniformityScore": [
@@ -181,6 +197,14 @@
       {
         "date": "2025-04-04",
         "value": 0.903882575757575
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.9024943310657586
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.9098532494758901
       }
     ],
     "participationRate": [
@@ -239,6 +263,14 @@
       {
         "date": "2025-04-04",
         "value": 0.8065727699530516
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.8115159694107063
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.7737650477376504
       }
     ],
     "abstentionRate": [
@@ -297,6 +329,14 @@
       {
         "date": "2025-04-04",
         "value": 0.1463068181818182
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.15464852607709753
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.15429769392033546
       }
     ]
   },
@@ -1100,6 +1140,118 @@
         {
           "votingId": 19,
           "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0167/24",
+      "type": "Antrag",
+      "title": "Verbesserung der Verkehrssituation in der Harsdorfer Straße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 244287,
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0085/25",
+      "type": "Geschäftsordnung",
+      "title": "Bestandsaufnahme zum Zustand der Schwimmhalle Große-Diesdorfer-Straße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246183,
+      "votings": [
+        {
+          "votingId": 40,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0069/25",
+      "type": "Geschäftsordnung",
+      "title": "Fußgänger*innenüberweg Hegelstraße und Leibnizstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246135,
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0069/25",
+      "type": "Antrag",
+      "title": "Fußgänger*innenüberweg Hegelstraße und Leibnizstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246135,
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0074/25",
+      "type": "Geschäftsordnung",
+      "title": "Ausbau der Theodor-Kozlowski-Straße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246142,
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0091/25",
+      "type": "Geschäftsordnung",
+      "title": "Beschäftigtenvertreter in Eigenbetrieben",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246194,
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0084/25",
+      "type": "Geschäftsordnung",
+      "title": "Landeshauptstadt Magdeburg wird kinderfreundliche Kommune",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246172,
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0092/25",
+      "type": "Geschäftsordnung",
+      "title": "Vergabe der Kulturfördermittel an die freie Szene",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246195,
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "PASSED"
         }
       ]
     }

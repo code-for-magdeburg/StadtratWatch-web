@@ -3,11 +3,11 @@
   "name": "Oberbürgermeisterin",
   "seats": 1,
   "applicationsSuccessRate": 1,
-  "votingsSuccessRate": 0.7746478873239436,
+  "votingsSuccessRate": 0.7708592777085927,
   "uniformityScore": 1,
-  "participationRate": 0.8492957746478873,
-  "abstentionRate": 0.10613598673300166,
-  "speakingTime": 9161,
+  "participationRate": 0.8480697384806973,
+  "abstentionRate": 0.10866372980910426,
+  "speakingTime": 10008,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -64,6 +64,14 @@
       },
       {
         "date": "2025-04-04",
+        "value": 1
+      },
+      {
+        "date": "2025-04-24",
+        "value": 1
+      },
+      {
+        "date": "2025-04-28",
         "value": 1
       }
     ],
@@ -123,6 +131,14 @@
       {
         "date": "2025-04-04",
         "value": 0.7746478873239436
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.7692307692307693
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.7708592777085927
       }
     ],
     "uniformityScore": [
@@ -180,6 +196,14 @@
       },
       {
         "date": "2025-04-04",
+        "value": 1
+      },
+      {
+        "date": "2025-04-24",
+        "value": 1
+      },
+      {
+        "date": "2025-04-28",
         "value": 1
       }
     ],
@@ -239,6 +263,14 @@
       {
         "date": "2025-04-04",
         "value": 0.8492957746478873
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.8434547908232118
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.8480697384806973
       }
     ],
     "abstentionRate": [
@@ -297,6 +329,14 @@
       {
         "date": "2025-04-04",
         "value": 0.10613598673300166
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.1072
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.10866372980910426
       }
     ]
   },
@@ -325,6 +365,20 @@
       "votings": [
         {
           "votingId": 27,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0474/22/3",
+      "type": "Änderungsantrag",
+      "title": "Variantenentscheidung zur Umgestaltung der Schönebecker Straße zwischen Bleckenburgstraße und den Haltestellen Thiemplatz",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 244981,
+      "votings": [
+        {
+          "votingId": 7,
           "votingResult": "PASSED"
         }
       ]

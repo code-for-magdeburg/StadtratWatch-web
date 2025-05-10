@@ -2,12 +2,12 @@
   "id": "afd",
   "name": "AfD",
   "seats": 13,
-  "applicationsSuccessRate": 0.14925373134328357,
-  "votingsSuccessRate": 0.6929577464788732,
-  "uniformityScore": 0.9843506024491939,
-  "participationRate": 0.8152762730227519,
-  "abstentionRate": 0.08192794685752433,
-  "speakingTime": 16064,
+  "applicationsSuccessRate": 0.18571428571428572,
+  "votingsSuccessRate": 0.7073474470734745,
+  "uniformityScore": 0.9828536345348299,
+  "participationRate": 0.8221093974518632,
+  "abstentionRate": 0.08370035250483569,
+  "speakingTime": 17890,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -65,6 +65,14 @@
       {
         "date": "2025-04-04",
         "value": 0.14925373134328357
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.14925373134328357
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.18571428571428572
       }
     ],
     "votingsSuccessRate": [
@@ -123,6 +131,14 @@
       {
         "date": "2025-04-04",
         "value": 0.6929577464788732
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.7004048582995951
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.7073474470734745
       }
     ],
     "uniformityScore": [
@@ -181,6 +197,14 @@
       {
         "date": "2025-04-04",
         "value": 0.9843506024491939
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.9833553535982685
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.9828536345348299
       }
     ],
     "participationRate": [
@@ -239,6 +263,14 @@
       {
         "date": "2025-04-04",
         "value": 0.8152762730227519
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.8204090106924115
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.8221093974518632
       }
     ],
     "abstentionRate": [
@@ -297,6 +329,14 @@
       {
         "date": "2025-04-04",
         "value": 0.08192794685752433
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.08703331456367895
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.08370035250483569
       }
     ]
   },
@@ -1215,6 +1255,48 @@
       "votings": [
         {
           "votingId": 8,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0264/24",
+      "type": "Antrag",
+      "title": "Parkplatz Johanniskirche sicherer gestalten",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 245155,
+      "votings": [
+        {
+          "votingId": 14,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0062/25",
+      "type": "Geschäftsordnung",
+      "title": "Digitaler Schülerausweis - die Zukunft ist jetzt!",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246017,
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0083/25",
+      "type": "Antrag",
+      "title": "Akteneinsicht Grundstückskauf INTEL / Eulenberg",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246170,
+      "votings": [
+        {
+          "votingId": 37,
           "votingResult": "PASSED"
         }
       ]
