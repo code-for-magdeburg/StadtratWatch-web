@@ -2,12 +2,12 @@
   "id": "die-linke",
   "name": "DIE LINKE",
   "seats": 6,
-  "applicationsSuccessRate": 0.5545454545454546,
-  "votingsSuccessRate": 0.7577464788732394,
-  "uniformityScore": 0.9530281690140848,
-  "participationRate": 0.7859154929577464,
-  "abstentionRate": 0.12312206572769956,
-  "speakingTime": 18604,
+  "applicationsSuccessRate": 0.5,
+  "votingsSuccessRate": 0.7322540473225405,
+  "uniformityScore": 0.9502698215026982,
+  "participationRate": 0.7611041926110419,
+  "abstentionRate": 0.12141967621419676,
+  "speakingTime": 21097,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -65,6 +65,14 @@
       {
         "date": "2025-04-04",
         "value": 0.5545454545454546
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.5245901639344263
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.5
       }
     ],
     "votingsSuccessRate": [
@@ -123,6 +131,14 @@
       {
         "date": "2025-04-04",
         "value": 0.7577464788732394
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.7530364372469636
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.7322540473225405
       }
     ],
     "uniformityScore": [
@@ -181,6 +197,14 @@
       {
         "date": "2025-04-04",
         "value": 0.9530281690140848
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.9517318938371572
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.9502698215026982
       }
     ],
     "participationRate": [
@@ -239,6 +263,14 @@
       {
         "date": "2025-04-04",
         "value": 0.7859154929577464
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.7795771479982007
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.7611041926110419
       }
     ],
     "abstentionRate": [
@@ -297,6 +329,14 @@
       {
         "date": "2025-04-04",
         "value": 0.12312206572769956
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.12190733243364824
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.12141967621419676
       }
     ]
   },
@@ -1654,6 +1694,318 @@
         {
           "votingId": 4,
           "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0095/25",
+      "type": "Tagesordnung",
+      "title": "Erweiterung der Tagesordnung bei 2/3 Mehrheit",
+      "sessionId": "2025-04-24",
+      "sessionDate": "2025-04-24",
+      "paperId": null,
+      "votings": [
+        {
+          "votingId": 2,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0657/24/1",
+      "type": "Änderungsantrag",
+      "title": "Entgeltordnung für die Benutzung der kommunalen Sportstätten und Bäder",
+      "sessionId": "2025-04-24",
+      "sessionDate": "2025-04-24",
+      "paperId": 245864,
+      "votings": [
+        {
+          "votingId": 15,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 16,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 17,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 18,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 19,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 20,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 21,
+          "votingResult": "PASSED"
+        },
+        {
+          "votingId": 22,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0657/24/3",
+      "type": "Änderungsantrag",
+      "title": "Entgeltordnung für die Benutzung der kommunalen Sportstätten und Bäder",
+      "sessionId": "2025-04-24",
+      "sessionDate": "2025-04-24",
+      "paperId": 245951,
+      "votings": [
+        {
+          "votingId": 24,
+          "votingResult": "REJECTED"
+        },
+        {
+          "votingId": 25,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0429/24/1",
+      "type": "Änderungsantrag",
+      "title": "Grundsatzbeschluss Konzept zur Prävention und Beendigung von Wohnungs- und Obdachlosigkeit in der Landeshauptstadt Magdeburg",
+      "sessionId": "2025-04-24",
+      "sessionDate": "2025-04-24",
+      "paperId": 244409,
+      "votings": [
+        {
+          "votingId": 29,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0191/24",
+      "type": "Antrag",
+      "title": "Zur Umsetzung der Kulturstrategie 2030 - Eine Halbzeitbilanz",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 244506,
+      "votings": [
+        {
+          "votingId": 11,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0271/24",
+      "type": "Antrag",
+      "title": "Optimierung der Verkehrssicherheit der Kreuzung Ottenbergstraße/Stendaler Straße prüfen — Abbiegen auf „Gut Glück” vermeiden",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 245186,
+      "votings": [
+        {
+          "votingId": 16,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0067/25",
+      "type": "Geschäftsordnung",
+      "title": "Bordsteinabsenkung Zollstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246117,
+      "votings": [
+        {
+          "votingId": 32,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0068/25",
+      "type": "Geschäftsordnung",
+      "title": "Verbesserung von Elberadweg und Promenade am Schleinufer",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246118,
+      "votings": [
+        {
+          "votingId": 33,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0087/25",
+      "type": "Geschäftsordnung",
+      "title": "Europäisches Praktikum für Auszubildende der Magdeburger Verwaltung",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246187,
+      "votings": [
+        {
+          "votingId": 38,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0069/25",
+      "type": "Geschäftsordnung",
+      "title": "Fußgänger*innenüberweg Hegelstraße und Leibnizstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246135,
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0069/25",
+      "type": "Antrag",
+      "title": "Fußgänger*innenüberweg Hegelstraße und Leibnizstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246135,
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0089/25",
+      "type": "Geschäftsordnung",
+      "title": "Erneute Geruchsbelästigung in Magdeburg Diesdorf, Stadtfeld Ost und West",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246191,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0090/25",
+      "type": "Geschäftsordnung",
+      "title": "Beleuchtung für den Fußverkehr an der Blauebeilstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246193,
+      "votings": [
+        {
+          "votingId": 50,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0091/25",
+      "type": "Geschäftsordnung",
+      "title": "Beschäftigtenvertreter in Eigenbetrieben",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246194,
+      "votings": [
+        {
+          "votingId": 51,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0084/25",
+      "type": "Geschäftsordnung",
+      "title": "Landeshauptstadt Magdeburg wird kinderfreundliche Kommune",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246172,
+      "votings": [
+        {
+          "votingId": 53,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0084/25",
+      "type": "Antrag",
+      "title": "Landeshauptstadt Magdeburg wird kinderfreundliche Kommune",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246172,
+      "votings": [
+        {
+          "votingId": 54,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0080/25",
+      "type": "Geschäftsordnung",
+      "title": "Magdeburg an Gewinnen durch Erneuerbare Energien beteiligen - Möglichkeit der freiwilligen Abgabe nach § 6 EEG anbieten",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246157,
+      "votings": [
+        {
+          "votingId": 55,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0080/25",
+      "type": "Antrag",
+      "title": "Magdeburg an Gewinnen durch Erneuerbare Energien beteiligen - Möglichkeit der freiwilligen Abgabe nach § 6 EEG anbieten",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246157,
+      "votings": [
+        {
+          "votingId": 56,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0093/25",
+      "type": "Antrag",
+      "title": "Bundesweiter Baum-Gipfel: Kongress in Magdeburg",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246196,
+      "votings": [
+        {
+          "votingId": 60,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0094/25",
+      "type": "Antrag",
+      "title": "Gebührenerhebung für Lehrer*innen und Schüler*innen-Parkplätze",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246197,
+      "votings": [
+        {
+          "votingId": 62,
+          "votingResult": "REJECTED"
         }
       ]
     }

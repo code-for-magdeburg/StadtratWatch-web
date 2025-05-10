@@ -2,12 +2,12 @@
   "id": "gruene-future",
   "name": "GRÜNE/future!",
   "seats": 6,
-  "applicationsSuccessRate": 0.6666666666666666,
-  "votingsSuccessRate": 0.8070422535211268,
-  "uniformityScore": 0.9641314553990609,
-  "participationRate": 0.8373239436619718,
-  "abstentionRate": 0.057793427230046976,
-  "speakingTime": 9968,
+  "applicationsSuccessRate": 0.6336633663366337,
+  "votingsSuccessRate": 0.7833125778331258,
+  "uniformityScore": 0.9620589456205891,
+  "participationRate": 0.8239933582399336,
+  "abstentionRate": 0.06189290161892904,
+  "speakingTime": 10965,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -65,6 +65,14 @@
       {
         "date": "2025-04-04",
         "value": 0.6666666666666666
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.6704545454545454
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.6336633663366337
       }
     ],
     "votingsSuccessRate": [
@@ -123,6 +131,14 @@
       {
         "date": "2025-04-04",
         "value": 0.8070422535211268
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.8029689608636977
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.7833125778331258
       }
     ],
     "uniformityScore": [
@@ -181,6 +197,14 @@
       {
         "date": "2025-04-04",
         "value": 0.9641314553990609
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.961358524516419
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.9620589456205891
       }
     ],
     "participationRate": [
@@ -239,6 +263,14 @@
       {
         "date": "2025-04-04",
         "value": 0.8373239436619718
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.8396311291048133
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.8239933582399336
       }
     ],
     "abstentionRate": [
@@ -297,6 +329,14 @@
       {
         "date": "2025-04-04",
         "value": 0.057793427230046976
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.05987404408457042
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.06189290161892904
       }
     ]
   },
@@ -1445,6 +1485,202 @@
       "votings": [
         {
           "votingId": 23,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0657/24/2",
+      "type": "Änderungsantrag",
+      "title": "Entgeltordnung für die Benutzung der kommunalen Sportstätten und Bäder",
+      "sessionId": "2025-04-24",
+      "sessionDate": "2025-04-24",
+      "paperId": 245947,
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0012/25",
+      "type": "Antrag",
+      "title": "Beteiligung der Behindertenbeauftragten an langfristigen Baumaßnahmen, Baustellen und Sondernutzungen",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 245442,
+      "votings": [
+        {
+          "votingId": 23,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0247/24",
+      "type": "Antrag",
+      "title": "Barrierefreie Veranstaltungen in Magdeburg - Verleih überfahrbarer Kabelbrücken",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 244996,
+      "votings": [
+        {
+          "votingId": 26,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0243/24/1",
+      "type": "Änderungsantrag",
+      "title": "Tempo 30 in der Kritzmannstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 245120,
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0087/25",
+      "type": "Antrag",
+      "title": "Europäisches Praktikum für Auszubildende der Magdeburger Verwaltung",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246187,
+      "votings": [
+        {
+          "votingId": 39,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0078/25",
+      "type": "Geschäftsordnung",
+      "title": "Anpassung des Domplatzkonzeptes",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246152,
+      "votings": [
+        {
+          "votingId": 41,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0069/25",
+      "type": "Geschäftsordnung",
+      "title": "Fußgänger*innenüberweg Hegelstraße und Leibnizstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246135,
+      "votings": [
+        {
+          "votingId": 44,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0069/25",
+      "type": "Antrag",
+      "title": "Fußgänger*innenüberweg Hegelstraße und Leibnizstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246135,
+      "votings": [
+        {
+          "votingId": 45,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0074/25",
+      "type": "Geschäftsordnung",
+      "title": "Ausbau der Theodor-Kozlowski-Straße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246142,
+      "votings": [
+        {
+          "votingId": 46,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0089/25",
+      "type": "Geschäftsordnung",
+      "title": "Erneute Geruchsbelästigung in Magdeburg Diesdorf, Stadtfeld Ost und West",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246191,
+      "votings": [
+        {
+          "votingId": 49,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0092/25",
+      "type": "Geschäftsordnung",
+      "title": "Vergabe der Kulturfördermittel an die freie Szene",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246195,
+      "votings": [
+        {
+          "votingId": 58,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0093/25",
+      "type": "Geschäftsordnung",
+      "title": "Bundesweiter Baum-Gipfel: Kongress in Magdeburg",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246196,
+      "votings": [
+        {
+          "votingId": 59,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0094/25",
+      "type": "Geschäftsordnung",
+      "title": "Gebührenerhebung für Lehrer*innen und Schüler*innen-Parkplätze",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246197,
+      "votings": [
+        {
+          "votingId": 61,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0076/25",
+      "type": "Antrag",
+      "title": "Lichtsignalanlage Große Diesdorfer/Arndtstraße erneuern und ergänzen sowie barrierefreie Haltestelle schaffen",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246150,
+      "votings": [
+        {
+          "votingId": 43,
           "votingResult": "REJECTED"
         }
       ]

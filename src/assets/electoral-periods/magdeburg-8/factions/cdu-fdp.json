@@ -2,12 +2,12 @@
   "id": "cdu-fdp",
   "name": "CDU/FDP",
   "seats": 15,
-  "applicationsSuccessRate": 0.92,
-  "votingsSuccessRate": 0.928169014084507,
-  "uniformityScore": 0.9263028598944086,
-  "participationRate": 0.7914553990610329,
-  "abstentionRate": 0.08458922142020746,
-  "speakingTime": 23484,
+  "applicationsSuccessRate": 0.9009009009009009,
+  "votingsSuccessRate": 0.9190535491905355,
+  "uniformityScore": 0.9253238632130283,
+  "participationRate": 0.7852220838522208,
+  "abstentionRate": 0.08816044547675946,
+  "speakingTime": 25710,
   "statsHistory": {
     "applicationsSuccessRate": [
       {
@@ -65,6 +65,14 @@
       {
         "date": "2025-04-04",
         "value": 0.92
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.9215686274509803
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.9009009009009009
       }
     ],
     "votingsSuccessRate": [
@@ -123,6 +131,14 @@
       {
         "date": "2025-04-04",
         "value": 0.928169014084507
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.9284750337381916
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.9190535491905355
       }
     ],
     "uniformityScore": [
@@ -181,6 +197,14 @@
       {
         "date": "2025-04-04",
         "value": 0.9263028598944086
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.9272303794570994
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.9253238632130283
       }
     ],
     "participationRate": [
@@ -239,6 +263,14 @@
       {
         "date": "2025-04-04",
         "value": 0.7914553990610329
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.7930724246513721
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.7852220838522208
       }
     ],
     "abstentionRate": [
@@ -297,6 +329,14 @@
       {
         "date": "2025-04-04",
         "value": 0.08458922142020746
+      },
+      {
+        "date": "2025-04-24",
+        "value": 0.08299840809962282
+      },
+      {
+        "date": "2025-04-28",
+        "value": 0.08816044547675946
       }
     ]
   },
@@ -1639,6 +1679,160 @@
       "votings": [
         {
           "votingId": 14,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0132/25/2",
+      "type": "Änderungsantrag",
+      "title": "Verbesserung der Infrastruktur für den Spiel- und Trainingsbetrieb auf dem Nebengelände der AVNET-Arena",
+      "sessionId": "2025-04-24",
+      "sessionDate": "2025-04-24",
+      "paperId": 246245,
+      "votings": [
+        {
+          "votingId": 12,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "DS0657/24/5",
+      "type": "Änderungsantrag",
+      "title": "Entgeltordnung für die Benutzung der kommunalen Sportstätten und Bäder",
+      "sessionId": "2025-04-24",
+      "sessionDate": "2025-04-24",
+      "paperId": 246227,
+      "votings": [
+        {
+          "votingId": 27,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0200/24",
+      "type": "Antrag",
+      "title": "Unverzügliche Umsetzung der Gestaltung des Areals um den City Tunnel",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 244516,
+      "votings": [
+        {
+          "votingId": 13,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0273/24/2",
+      "type": "Änderungsantrag",
+      "title": "Veteranentag ermöglichen",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 245847,
+      "votings": [
+        {
+          "votingId": 17,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0273/24",
+      "type": "Antrag",
+      "title": "Veteranentag ermöglichen",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 245189,
+      "votings": [
+        {
+          "votingId": 18,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0275/24",
+      "type": "Antrag",
+      "title": "Errichtung einer Amsterdam-Toilette am Spielplatz Hegelstraße",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 245191,
+      "votings": [
+        {
+          "votingId": 19,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0007/25",
+      "type": "Antrag",
+      "title": "Demokratie stärken: Schülerinnen und Schüler als Wahlhelfer gewinnen",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 245437,
+      "votings": [
+        {
+          "votingId": 21,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0229/24",
+      "type": "Antrag",
+      "title": "Eine gute Lösung für Radfahrer: Radweg auf der Südseite der Brenneckstraße ertüchtigen",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 244769,
+      "votings": [
+        {
+          "votingId": 25,
+          "votingResult": "REJECTED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0075/25",
+      "type": "Geschäftsordnung",
+      "title": "Digitalisierung Baugenehmigungsverfahren",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246143,
+      "votings": [
+        {
+          "votingId": 47,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0086/25",
+      "type": "Geschäftsordnung",
+      "title": "Verkehrsprojekt/Verkehrskonzept Sportcampus Magdeburg",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246186,
+      "votings": [
+        {
+          "votingId": 48,
+          "votingResult": "PASSED"
+        }
+      ]
+    },
+    {
+      "applicationId": "A0092/25",
+      "type": "Geschäftsordnung",
+      "title": "Vergabe der Kulturfördermittel an die freie Szene",
+      "sessionId": "2025-04-28",
+      "sessionDate": "2025-04-28",
+      "paperId": 246195,
+      "votings": [
+        {
+          "votingId": 58,
           "votingResult": "PASSED"
         }
       ]
