@@ -41,7 +41,9 @@ export class SessionsDataGenerator {
     const sessions = registry.sessions
       .filter(session => sessionDataMap.has(session.id))
       .map(session => {
-        const scrapedStadtratMeeting = scrapedStadtratMeetings.find(meeting => meeting.date === session.date);
+        const scrapedStadtratMeeting = scrapedStadtratMeetings.find(
+          meeting => meeting.date === session.date
+        );
         if (!scrapedStadtratMeeting) {
           console.warn('No scraped meeting found for session', session.date);
         }
