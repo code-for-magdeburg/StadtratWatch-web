@@ -7,6 +7,7 @@ import PageLayout from '@layouts/PageLayout.astro';
 import Statistics from './_statistics.astro';
 import VotingMatrix from './_voting-matrix.astro';
 import Speeches from './_speeches.astro';
+import MetaTags from '@components/MetaTags.astro';
 
 export const getStaticPaths = getElectoralPeriodWithPersonPaths;
 
@@ -44,6 +45,8 @@ if (!party) {
     }
   ]}
 >
+  <MetaTags slot="srw-meta-tags" personName={person.name} />
+
   <div slot="sub-page-header">
     <div class="flex flex-row flex-wrap text-base-content/60 text-sm gap-x-4">
       <div>

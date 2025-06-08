@@ -14,12 +14,18 @@ const { pageTitle, electoralPeriod, breadcrumbItems } = Astro.props as Props;
 ---
 
 <Layout electoralPeriod={electoralPeriod}>
+  <Fragment slot="srw-meta-tags">
+    <slot name="srw-meta-tags" />
+  </Fragment>
+
   <PageHeader
     pageTitle={pageTitle}
     electoralPeriod={electoralPeriod}
     breadcrumbItems={breadcrumbItems}
   />
+
   <slot name="sub-page-header" />
+
   <div class="pt-4">
     <slot />
   </div>

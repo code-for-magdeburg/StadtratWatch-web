@@ -9,6 +9,7 @@ import Votings from './_votings.astro';
 import Speeches from './_speeches.astro';
 import SpeakingTimes from './_speaking-times.astro';
 import { formatDate } from '@utils/format-date';
+import MetaTags from '@components/MetaTags.astro';
 
 export const getStaticPaths = getElectoralPeriodWithSessionPaths;
 
@@ -45,6 +46,8 @@ const youtubeUrl = sessionInput.config.youtubeUrl;
   pageTitle={`Stadtratssitzung vom ${formatDate(sessionInput.config.date)}`}
   breadcrumbItems={breadcrumbItems}
 >
+  <MetaTags slot="srw-meta-tags" sessionDate={sessionInput.config.date} />
+
   <div slot="sub-page-header">
     <div class="flex items-center mt-1 gap-4">
       {

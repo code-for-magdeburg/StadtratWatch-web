@@ -6,6 +6,7 @@ import {
   getElectoralPeriodWithSessionAndVotingPaths
 } from '../../../../_helpers';
 import { convertVideoTimestampToSeconds, getPaperId } from './_helpers';
+import MetaTags from '@components/MetaTags.astro';
 
 export const getStaticPaths = getElectoralPeriodWithSessionAndVotingPaths;
 
@@ -83,6 +84,15 @@ const votingAccepted = votedFor > votedAgainst;
   pageTitle="Abstimmung"
   breadcrumbItems={breadcrumbItems}
 >
+  <MetaTags
+    slot="srw-meta-tags"
+    sessionDate={sessionInput.config.date}
+    voting={voting}
+    electoralPeriodId={electoralPeriodId}
+    sessionId={sessionId}
+    votingId={votingId}
+  />
+
   {
     youtubeUrl && (
       <div slot="sub-page-header">

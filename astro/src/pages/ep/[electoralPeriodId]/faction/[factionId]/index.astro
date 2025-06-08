@@ -7,6 +7,7 @@ import {
 import Councilors from './_councilors.astro';
 import Applications from './_applications.astro';
 import Statistics from './_statistics.astro';
+import MetaTags from '@components/MetaTags.astro';
 
 export const getStaticPaths = getElectoralPeriodWithFactionPaths;
 
@@ -42,6 +43,8 @@ const breadcrumbItems = [
   pageTitle={faction.name}
   breadcrumbItems={breadcrumbItems}
 >
+  <MetaTags slot="srw-meta-tags" factionName={faction.name} />
+
   <div
     id="tabs"
     role="tablist"

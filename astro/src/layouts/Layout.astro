@@ -4,6 +4,7 @@ import Sidebar from '@components/Sidebar.astro';
 import Topbar from '@components/Topbar.astro';
 import { getEntry } from 'astro:content';
 import { type Registry } from '@models/registry';
+import MetaTags from '@components/MetaTags.astro';
 
 type Props = {
   electoralPeriod?: Registry;
@@ -24,6 +25,10 @@ if (!electoralPeriod) {
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
+
+    <slot name="srw-meta-tags" />
+    <MetaTags />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
@@ -36,7 +41,7 @@ if (!electoralPeriod) {
       href="/images/favicon-light.png"
       media="(prefers-color-scheme: light)"
     />
-    <title>StadtratWatch</title>
+
   </head>
 
   <body>
