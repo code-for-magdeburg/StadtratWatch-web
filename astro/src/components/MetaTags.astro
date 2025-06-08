@@ -1,0 +1,116 @@
+---
+import { Seo } from 'astro-seo-meta';
+import { formatDate } from "@utils/format-date";
+import { type SessionScanItem } from "@models/session-scan";
+import { AWS_CLOUDFRONT_BASE_URL } from 'astro:env/client';
+
+export interface MetaTagsProps {
+    factionName?: string;
+    partyName?: string;
+    personName?: string;
+    sessionDate?: string;
+    voting?: SessionScanItem;
+    electoralPeriodId?: string;
+    sessionId?: string;
+    votingId?: number;
+}
+
+const {
+    factionName,
+    partyName,
+    personName,
+    sessionDate,
+    voting,
+    electoralPeriodId,
+    sessionId,
+    votingId
+} = Astro.props as MetaTagsProps;
+
+let title = 'StadtratWatch';
+let description = 'Abstimmungen, Anträge, Redebeiträge - Daten und Analysen des Magdeburger Stadtrates.';
+let image: string | undefined = undefined;
+
+if (factionName) {
+    title = `StadtratWatch: ${factionName}`;
+    description = `${factionName}: Abstimmungen, Anwesenheiten und andere Daten und Analysen der Fraktion im Magdeburger Stadtrat`;
+}
+
+if (partyName) {
+    title = `StadtratWatch: ${partyName}`;
+    description = `${partyName}: Abstimmungen, Anwesenheiten und andere Daten und Analysen der Partei im Magdeburger Stadtrat`;
+}
+
+if (personName) {
+    title = `StadtratWatch: ${personName}`;
+    description = `${personName}: Abstimmungen, Anwesenheiten, Redebeiträge und andere Analysen im Magdeburger Stadtrat`;
+}
+
+if (sessionDate) {
+    const sessionDateDisplay = formatDate(sessionDate);
+    title = `StadtratWatch: Sitzung vom ${sessionDateDisplay}`;
+    description = `${sessionDateDisplay}: Abstimmungen, Redebeiträge und andere Daten und Analysen der Sitzung des Magdeburger Stadtrates`;
+}
+
+if (voting) {
+    title = getTitleForVoting(voting, sessionDate!);
+    description = voting.votingSubject.title
+    image = getVotingImageUrl(electoralPeriodId!, sessionId!, votingId!);
+}
+
+function getTitleForVoting(voting: SessionScanItem, sessionDate: string): string {
+    switch (voting.votingSubject.type) {
+
+        case 'Änderungsantrag':
+            return voting.votingSubject.applicationId
+                ? `StadtratWatch: Änderungsantrag ${voting.votingSubject.applicationId}`
+                : `StadtratWatch: Änderungsantrag am ${formatDate(sessionDate)}`;
+
+        case 'Antrag':
+            return voting.votingSubject.applicationId
+                ? `StadtratWatch: Antrag ${voting.votingSubject.applicationId}`
+                : `StadtratWatch: Antrag am ${formatDate(sessionDate)}`;
+
+        case 'Beschlussvorlage':
+            return voting.votingSubject.applicationId
+                ? `StadtratWatch: Beschlussvorlage ${voting.votingSubject.applicationId}`
+                : `StadtratWatch: Beschlussvorlage am ${formatDate(sessionDate)}`;
+
+        case 'Delegation':
+            return `StadtratWatch: Abstimmung zur Delegation am ${formatDate(sessionDate)}`;
+
+        case 'Geschäftsordnung':
+            return voting.votingSubject.applicationId
+                ? `StadtratWatch: Geschäftsordnungsantrag zu ${voting.votingSubject.applicationId}`
+                : `StadtratWatch: Geschäftsordnungsantrag am ${formatDate(sessionDate)}`;
+
+        case 'Niederschrift':
+            return `StadtratWatch: Abstimmung zur Niederschrift am ${formatDate(sessionDate)}`;
+
+        case 'Redaktionelle Änderung':
+            return voting.votingSubject.applicationId
+                ? `StadtratWatch: Redaktionelle Änderung zu ${voting.votingSubject.applicationId}`
+                : `StadtratWatch: Redaktionelle Änderung am ${formatDate(sessionDate)}`;
+
+        case 'Tagesordnung':
+            return `StadtratWatch: Abstimmung zur Tagesordnung am ${formatDate(sessionDate)}`;
+    }
+
+    return `StadtratWatch: Abstimmung am ${formatDate(sessionDate)}`;
+}
+
+function getVotingImageUrl(electoralPeriodId: string, sessionId: string, votingId: number): string {
+    return `${AWS_CLOUDFRONT_BASE_URL}/web-assets/electoral-periods/${electoralPeriodId}/images/votings/${sessionId}/${sessionId}-${votingId.toString().padStart(3, '0')}.png`;
+}
+---
+<Seo
+        title={title}
+        description={description}
+        facebook={{
+            type: 'website',
+            image,
+        }}
+        twitter={{
+            card: 'summary_large_image',
+            image
+        }}
+/>

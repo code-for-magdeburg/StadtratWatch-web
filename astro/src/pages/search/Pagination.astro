@@ -1,0 +1,52 @@
+---
+---
+
+<div class="join" x-data="pagination">
+  <a
+    :href="`/search?q=${searchTerm}&page=${currentPage - 1}`"
+    class="btn btn-square btn-soft join-item"
+    :disabled="prevPageButtonDisabled"
+    :aria-disabled="prevPageButtonDisabled"
+    aria-label="Pagination controls"
+  >
+    <span class="sr-only">Zurück</span>
+    <span class="iconify lucide--chevrons-left"></span>
+  </a>
+
+  <a
+    :href="`/search?q=${searchTerm}&page=${prevPagesPage}`"
+    x-show="!prevPagesBlockButtonHidden"
+    class="btn btn-square btn-soft join-item"
+  >
+    <span class="iconify lucide--ellipsis"></span>
+  </a>
+
+  <template x-for="page in pages">
+    <a
+      :href="`http://localhost:4321/search?q=${searchTerm}&page=${page}`"
+      class="btn btn-square btn-soft join-item"
+      :disabled="page === currentPage"
+      :class="{ 'pointer-events-none': page === currentPage, 'bg-indigo-600': page === currentPage, 'text-white': page === currentPage }"
+      x-text="page"
+    ></a>
+  </template>
+
+  <a
+    :href="`/search?q=${searchTerm}&page=${nextPagesPage}`"
+    x-show="!nextPagesBlockButtonHidden"
+    class="btn btn-square btn-soft join-item"
+  >
+    <span class="iconify lucide--ellipsis"></span>
+  </a>
+
+  <a
+    :href="`/search?q=${searchTerm}&page=${currentPage + 1}`"
+    class="btn btn-square btn-soft join-item"
+    :disabled="nextPageButtonDisabled"
+    :aria-disabled="nextPageButtonDisabled"
+    aria-label="Pagination controls"
+  >
+    <span class="sr-only">Vor</span>
+    <span class="iconify lucide--chevrons-right"></span>
+  </a>
+</div>

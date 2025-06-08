@@ -1,0 +1,195 @@
+---
+import Layout from '@layouts/Layout.astro';
+import PaginationComponent from './Pagination.astro';
+---
+<Layout>
+
+  <div
+    class="space-y-3 grow"
+    x-data="search"
+  >
+    <h3 class="text-lg font-medium">Suche</h3>
+
+    <form action="/search" method="get" @submit.prevent="search()">
+      <label class="input">
+        <span class="iconify lucide--search text-base-content/60 size-5"></span>
+        <input
+          placeholder="Suche"
+          id="search"
+          type="search"
+          name="search"
+        />
+      </label>
+      <button type="submit" class="btn btn-primary">Suchen</button>
+    </form>
+
+    <div
+      x-cloak
+      x-show="isReady && searchResult.totalResultItems > 0"
+      class="space-y-3"
+    >
+      <ul class="list bg-base-100 rounded-box shadow">
+        <template x-for="searchResultItem in searchResult.searchResultItems">
+          <li class="list-row">
+            <div>
+              <span
+                class="iconify size-10"
+                :class="searchResultItem.type === 'paper' ? 'lucide--file-text' : 'lucide--message-circle'"
+              ></span>
+            </div>
+            <template x-if="searchResultItem.type === 'paper'">
+              <div>
+                <div
+                  class="opacity-60"
+                  x-text="searchResultItem.paper.reference"
+                ></div>
+                <div x-text="searchResultItem.paper.title"></div>
+              </div>
+            </template>
+            <template x-if="searchResultItem.type === 'paper'">
+              <div class="list-col-wrap col-start-1 col-span-2 space-y-2">
+                <p
+                  class="text-base-content/80"
+                  x-html="searchResultItem.paper.content"
+                ></p>
+                <a
+                  :href="`/paper?paperId=${searchResultItem.paper.id}`"
+                  class="btn btn-soft btn-primary btn-sm"
+                >Dokument öffnen</a>
+              </div>
+            </template>
+            <template x-if="searchResultItem.type === 'speech'">
+              <div>
+                <div
+                  class="opacity-60"
+                  x-text="formatDate(searchResultItem.speech.sessionDate)"
+                ></div>
+                <div class="flex flex-row items-center gap-2">
+                  <div x-text="searchResultItem.speech.speaker"></div>
+                  <span
+                    class="badge badge-neutral badge-sm"
+                    x-text="searchResultItem.speech.faction"
+                    x-show="searchResultItem.speech.faction"
+                  ></span>
+                </div>
+              </div>
+            </template>
+            <template x-if="searchResultItem.type === 'speech'">
+              <div class="list-col-wrap col-start-1 col-span-2 space-y-2">
+                <p
+                  class=" text-base-content/80"
+                  x-html="searchResultItem.speech.content"
+                ></p>
+                <a
+                  :href="`/ep/${searchResultItem.speech.electoralPeriod}/session/${searchResultItem.speech.session}?tab=speeches#speech-${searchResultItem.speech.start}`"
+                  class="btn btn-soft btn-primary btn-sm"
+                >Zum Redebeitrag</a>
+              </div>
+            </template>
+          </li>
+        </template>
+      </ul>
+
+      <!--<PaginationComponent></PaginationComponent>-->
+    </div>
+
+    <PaginationComponent></PaginationComponent>
+
+  </div>
+
+</Layout>
+
+<script>
+
+  import { search } from './_search';
+  import type { SearchResult } from './_search';
+  import Alpine from 'alpinejs';
+
+  const searchParams = new URLSearchParams(window.location.search);
+  const q = searchParams.get('q');
+  const page = +(searchParams.get('page') || 1);
+
+  const MAX_SELECTABLE_PAGES = 5;
+  const ITEMS_PER_PAGE = 10;
+
+  type PaginationStatus = {
+    prevPageButtonDisabled: boolean;
+    nextPageButtonDisabled: boolean;
+    prevPagesBlockButtonHidden: boolean;
+    prevPagesPage: number;
+    nextPagesBlockButtonHidden: boolean;
+    nextPagesPage: number;
+    currentPage: number;
+    pages: number[];
+  };
+
+  function getPaginationStatus(totalItems: number, currentPage: number): PaginationStatus {
+    const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+    const firstBlockPage = Math.ceil(currentPage / MAX_SELECTABLE_PAGES) * MAX_SELECTABLE_PAGES - MAX_SELECTABLE_PAGES + 1;
+    const lastBlockPage = Math.min(firstBlockPage + MAX_SELECTABLE_PAGES - 1, totalPages);
+    return {
+      prevPageButtonDisabled: currentPage <= 1,
+      nextPageButtonDisabled: currentPage >= totalPages,
+      prevPagesBlockButtonHidden: currentPage <= MAX_SELECTABLE_PAGES,
+      prevPagesPage: firstBlockPage - 1,
+      nextPagesBlockButtonHidden: lastBlockPage >= totalPages,
+      nextPagesPage: lastBlockPage + 1,
+      currentPage,
+      pages: Array.from({ length: lastBlockPage - firstBlockPage + 1 }, (_, i) => firstBlockPage + i)
+    };
+  }
+
+  document.addEventListener('alpine:init', () => {
+
+    Alpine.data('search', () => ({
+      isReady: false,
+      searchTerm: q,
+      pagination: {
+        prevPageButtonDisabled: true,
+        nextPageButtonDisabled: true,
+        prevPagesBlockButtonHidden: true,
+        prevPagesPage: 1,
+        nextPagesBlockButtonHidden: true,
+        nextPagesPage: 1,
+        currentPage: 1,
+        pages: []
+      } as PaginationStatus,
+      searchResult: {
+        totalResultItems: 0,
+        searchResultItems: []
+      } as SearchResult,
+      async init() {
+        if (q) {
+          (document.getElementById('search') as HTMLInputElement).value = q || '';
+          const searchResult = await search(q, page);
+          this.searchResult = searchResult;
+          const pagination = getPaginationStatus(searchResult.totalResultItems, page);
+          this.pagination.prevPageButtonDisabled = pagination.prevPageButtonDisabled;
+          this.pagination.nextPageButtonDisabled = pagination.nextPageButtonDisabled;
+          this.pagination.prevPagesBlockButtonHidden = pagination.prevPagesBlockButtonHidden;
+          this.pagination.prevPagesPage = pagination.prevPagesPage;
+          this.pagination.nextPagesBlockButtonHidden = pagination.nextPagesBlockButtonHidden;
+          this.pagination.nextPagesPage = pagination.nextPagesPage;
+          this.pagination.currentPage = page;
+          this.pagination.pages = pagination.pages;
+          this.isReady = true;
+        }
+      },
+      search() {
+        const newSearchQuery = (document.getElementById('search') as HTMLInputElement).value;
+        if (newSearchQuery !== q && newSearchQuery !== '') {
+          window.location.href = `/search?q=${newSearchQuery}`;
+        }
+      },
+      formatDate(date: string) {
+        return new Date(date).toLocaleDateString('de-DE', {
+          year: 'numeric',
+          month: 'long',
+          day: '2-digit'
+        });
+      }
+    }));
+
+  });
+
+</script>

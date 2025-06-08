@@ -1,0 +1,100 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import {
+  type ElectoralPeriodWithPartyProps,
+  getElectoralPeriodWithPartyPaths
+} from '../../_helpers';
+import Councilors from './_councilors.astro';
+import Statistics from './_statistics.astro';
+import MetaTags from '@components/MetaTags.astro';
+
+export const getStaticPaths = getElectoralPeriodWithPartyPaths;
+
+const { electoralPeriodId, partyId } = Astro.params;
+const {
+  electoralPeriod,
+  party,
+  sessionInputs
+} = Astro.props as ElectoralPeriodWithPartyProps;
+
+const breadcrumbItems = [
+  {
+    name: electoralPeriod.name,
+    href: `/ep/${electoralPeriodId}`
+  },
+  {
+    name: 'Parteien',
+    href: `/ep/${electoralPeriodId}/parties`
+  },
+  {
+    name: party.name,
+    href: null
+  }
+];
+---
+
+<PageLayout
+  electoralPeriod={electoralPeriod}
+  pageTitle={party.name}
+  breadcrumbItems={breadcrumbItems}
+>
+  <MetaTags slot="srw-meta-tags" partyName={party.name} />
+
+  <div
+    id="tabs"
+    role="tablist"
+    class="tabs tabs-lift"
+    x-data="party"
+    data-electoral-period-id={electoralPeriodId}
+    data-party-id={partyId}
+  >
+    <input
+      role="tab"
+      class="tab"
+      aria-label="Ratsmitglieder"
+      type="radio"
+      name="demo-tabs-radio"
+      :checked="currentTab === 'councilors'"
+      @change="history.pushState(null, '', `/ep/${electoralPeriodId}/party/${partyId}?tab=councilors`); currentTab = 'councilors'"
+    />
+    <div class="tab-content border-base-200 bg-base-100 p-6">
+      <Councilors electoralPeriod={electoralPeriod} party={party} />
+    </div>
+
+    <input
+      role="tab"
+      class="tab"
+      aria-label="Statistiken"
+      type="radio"
+      name="demo-tabs-radio"
+      :checked="currentTab === 'statistics'"
+      @change="history.pushState(null, '', `/ep/${electoralPeriodId}/party/${partyId}?tab=statistics`); currentTab = 'statistics'"
+    />
+    <div class="tab-content border-base-200 bg-base-100 p-6">
+      <Statistics
+        party={party}
+        sessionInputs={sessionInputs}
+      />
+    </div>
+  </div>
+</PageLayout>
+
+<script>
+  import Alpine from 'alpinejs';
+
+  document.addEventListener('alpine:init', () => {
+    const currentUrl = new URL(window.location.href);
+    const currentTab = currentUrl.searchParams.get('tab') || 'councilors';
+
+    const sessionsDivElement = document.getElementById(
+      'tabs'
+    ) as HTMLDivElement;
+    const electoralPeriodId = sessionsDivElement.dataset.electoralPeriodId;
+    const partyId = sessionsDivElement.dataset.partyId;
+    Alpine.data('party', () => ({
+      electoralPeriodId,
+      partyId,
+      currentTab
+    }));
+  });
+</script>

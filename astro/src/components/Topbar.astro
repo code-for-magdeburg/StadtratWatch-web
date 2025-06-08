@@ -1,0 +1,35 @@
+---
+
+---
+
+<div
+  id="layout-topbar"
+  role="navigation"
+  aria-label="Navbar"
+  class="flex items-center justify-between px-3"
+  x-data
+>
+  <div class="inline-flex items-center gap-3 justify-between w-full">
+    <label
+      class="btn btn-square btn-ghost btn-sm"
+      aria-label="Leftmenu toggle"
+      for="layout-sidebar-toggle-trigger"
+    >
+      <span class="iconify lucide--menu size-5"></span>
+    </label>
+    <form
+      class="hidden w-48 md:block"
+      @submit.prevent="$event.target.search.value.trim() !== '' ? window.location.href = `/search?q=${$event.target.search.value}` : null; $event.target.search.value = null"
+    >
+      <label class="input">
+        <span class="iconify lucide--search text-base-content/60 size-5"></span>
+        <input
+          class="grow"
+          placeholder="Suche"
+          type="search"
+          name="search"
+        />
+      </label>
+    </form>
+  </div>
+</div>
