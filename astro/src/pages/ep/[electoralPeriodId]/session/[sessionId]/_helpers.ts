@@ -38,19 +38,28 @@ export function getSpeakingTimesChartData(
     }))
     .filter((speech) => !!speech.speakerId)
     .toSorted((a, b) => b.totalDurationSeconds - a.totalDurationSeconds)
-    .map((speech) => ({
-      value: speech.totalDurationSeconds,
-      speakerId: speech.speakerId!,
-      label: generateSpeakingTimesBarLabel(
-        speech.speaker,
-        speech.totalDurationSeconds,
-      ),
-    }));
+    .map((speech) => {
+      const faction = sessionConfig.names.find(
+        (name) => name.name === speech.speaker,
+      )?.faction || null;
+      return {
+        value: speech.totalDurationSeconds,
+        speakerId: speech.speakerId!,
+        label: generateSpeakingTimesBarLabel(
+          speech.speaker,
+          faction,
+          speech.totalDurationSeconds,
+        ),
+      };
+    });
 }
 
 function generateSpeakingTimesBarLabel(
   speaker: string,
+  faction: string | null,
   totalDurationSeconds: number,
 ): string {
-  return `${speaker} ${formatSpeakingTime(totalDurationSeconds, { showZeroHours: false })}`;
+  return faction
+    ? `${speaker} (${faction}) ${formatSpeakingTime(totalDurationSeconds, { showZeroHours: false })}`
+    : `${speaker} ${formatSpeakingTime(totalDurationSeconds, { showZeroHours: false })}`;
 }
