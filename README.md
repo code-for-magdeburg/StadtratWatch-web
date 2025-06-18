@@ -83,23 +83,6 @@ docker run \
 ```
 
 
-### Generate routes file
-
-#### Build the docker image
-```shell
-docker build -t srw-generate-routes-file -f docker\generate-routes-file.Dockerfile .
-```
-
-#### Run the docker container
-```shell
-docker run \
-  --rm \
-  -v %cd%\data:/app/data:ro \
-  -v %cd%:/app/generated \
-  srw-generate-routes-file
-```
-
-
 ### Download paper files
 
 #### Build the docker image
