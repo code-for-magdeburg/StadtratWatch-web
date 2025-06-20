@@ -26,10 +26,9 @@ assignees: ''
 - [ ] Redebeiträge in Einzeldateien extrahieren (extract-speeches)
 - [ ] Redebeiträge transkribieren (speech-to-text)
   - [ ] Transkriptionen überprüfen und überarbeitete Daten im Storage ablegen
-- [ ] Routen erzeugen (generate-routes-file)
-- [ ] Data Assets erzeugen (generate-data-assets)
 - [ ] Paper Files herunterladen (download-paper-files)
 - [ ] Paper Assets erzeugen (generate-paper-assets)
 - [ ] Paper Assets im Storage ablegen
+- [ ] Voting Images erzeugen (generate-voting-images)
 - [ ] Neue Voting Images im Storage ablegen
 - [ ] Neue Web-App-Version veröffentlichen
