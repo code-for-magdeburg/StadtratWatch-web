@@ -22,7 +22,7 @@ docker run `
 ```
 
 ```bash
-SESSION=2024-07-08
+SESSION=2025-05-22
 docker run \
     --rm \
     -v $(pwd)/output/sessions-scan-results/$SESSION/session-speeches-$SESSION.json:/session-speeches.json:ro \
