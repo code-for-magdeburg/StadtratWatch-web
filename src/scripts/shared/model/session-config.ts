@@ -1,4 +1,5 @@
 export type SessionConfig = {
+  date: string;
   title: string;
   youtubeUrl: string;
   layout: SessionConfigLayout;
