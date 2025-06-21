@@ -77,7 +77,7 @@ docker build -t srw-generate-image-assets -f docker/generate-image-assets.Docker
 docker run \
   --rm \
   -v $(pwd)/data/magdeburg-8:/app/input-dir:ro \
-  -v $(pwd)/src/assets/electoral-periods/magdeburg-8:/app/output-dir \
+  -v $(pwd)/output/image-assets/magdeburg-8:/app/output-dir \
   -v $(pwd)/data/Magdeburg.json:/app/Magdeburg.json:ro \
   srw-generate-image-assets
 ```
