@@ -55,9 +55,12 @@ export class TextRecognizer implements ITextRecognizer {
       .trim();
 
     const parts = votingSubjectId.data.text.split('-');
+    const agendaItem = parts[0].replace(/,/g, '.').replace(/[^0-9.]/g, '');
+    const applicationId = parts.length > 1 ? parts[1].replace(/[^0-9\/]+$/g, '') : '';
+
     return {
-      agendaItem: parts[0].trim(),
-      applicationId: parts.length > 1 ? parts[1].trim() : '',
+      agendaItem,
+      applicationId,
       title,
       type: null,
       authors: []
