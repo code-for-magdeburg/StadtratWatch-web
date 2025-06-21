@@ -9,7 +9,7 @@ docker run \
   --rm \
   -d \
   -p 8108:8108 \
-  -v ${pwd}/data:/data \
+  -v $(pwd)/data:/data \
   typesense/typesense:27.0 \
   --data-dir /data \
   --api-key <API KEY> \
@@ -45,4 +45,7 @@ To run the script, you need to provide the following arguments:
 .\init-schema.ps1 "http://localhost:8108" "papers-and-speeches-0001" "abc123"
 ```
 
+```bash
+init-schema.sh "http://localhost:8108" "papers-and-speeches-0001" "abc123"
+```
 This command will initialize the specified collection on the Typesense server running at `http://localhost:8108` using the provided API key.
