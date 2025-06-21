@@ -4,7 +4,7 @@ import { decodeBase64 } from '@std/encoding';
 import { GeneratedImages, GeneratedVotingImage } from './images-generator.ts';
 
 
-export class AssetsWriter {
+export class ImageAssetsWriter {
 
 
   private readonly votingsImagesOutputDir: string;
@@ -16,7 +16,7 @@ export class AssetsWriter {
   }
 
 
-  public writeAssetsData(images: GeneratedImages) {
+  public writeImageAssets(images: GeneratedImages) {
     this.writeVotingImagesFiles(images.votingImages);
   }
 

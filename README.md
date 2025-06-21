@@ -65,21 +65,21 @@ docker run \
 ```
 
 
-### Generate data assets
+### Generate image assets
 
 #### Build the docker image
 ```bash
-docker build -t srw-generate-data-assets -f docker/generate-data-assets.Dockerfile .
+docker build -t srw-generate-image-assets -f docker/generate-image-assets.Dockerfile .
 ```
 
 #### Run the docker container
-```shell
+```bash
 docker run \
   --rm \
   -v $(pwd)/data/magdeburg-8:/app/input-dir:ro \
   -v $(pwd)/src/assets/electoral-periods/magdeburg-8:/app/output-dir \
   -v $(pwd)/data/Magdeburg.json:/app/Magdeburg.json:ro \
-  srw-generate-data-assets
+  srw-generate-image-assets
 ```
 
 

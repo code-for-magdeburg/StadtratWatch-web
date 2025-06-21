@@ -1,4 +1,4 @@
-FROM denoland/deno:2.1.4
+FROM denoland/deno:2.3.3
 
 ARG MS_CORE_FONTS_VERSION=3.8
 ARG SKIA_CANVAS_VERSION=0.5.8
@@ -16,9 +16,9 @@ COPY deno.json /app
 COPY deno.lock /app
 COPY src /app/src
 
-RUN deno install --entrypoint src/scripts/generate-data-assets/index.ts --unstable-sloppy-imports
+RUN deno install --entrypoint src/scripts/generate-image-assets/index.ts --unstable-sloppy-imports
 
-RUN deno cache src/scripts/generate-data-assets/index.ts --unstable-sloppy-imports
+RUN deno cache src/scripts/generate-image-assets/index.ts --unstable-sloppy-imports
 
 ENV DENO_SKIA_PATH=/libnative_canvas.so
 
@@ -27,7 +27,7 @@ CMD ["run", \
       "--allow-ffi", \
       "-R=/app/input-dir,/app/output-dir,/app/Magdeburg.json", \
       "-W=/app/output-dir", \
-      "src/scripts/generate-data-assets/index.ts", \
+      "src/scripts/generate-image-assets/index.ts", \
       "-i=./input-dir", \
       "-o=./output-dir", \
       "-s=./Magdeburg.json"]
