@@ -3,16 +3,16 @@
 This tool parses multiple rttm files (from one session) and generates a single json file containing all speakers data.
 
 #### Build the docker image
-```shell
-docker build -t srw-parse-speakers -f docker\parse-speakers.Dockerfile .
+```bash
+docker build -t srw-parse-speakers -f docker/parse-speakers.Dockerfile .
 ```
 
 #### Run the docker container
-```shell
+```bash
 docker run \
   --rm \
-  -v %cd%\sessions-media-files\2022-09-01:/app/input:ro \
-  -v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
+  -v $(pwd)/sessions-media-files/2022-09-01:/app/input:ro \
+  -v $(pwd)/output/sessions-scan-results/2022-09-01:/app/output \
   srw-parse-speakers \
   2022-09-01
 ```
@@ -22,17 +22,17 @@ docker run \
 This tool scans the voting images and generates a json file containing the voting data.
 
 #### Build the docker image
-```shell
-docker build -t srw-scan-voting-images -f docker\scan-voting-images.Dockerfile .
+```bash
+docker build -t srw-scan-voting-images -f docker/scan-voting-images.Dockerfile .
 ```
 
 #### Run the docker container
-```shell
+```bash
 docker run \
 	--rm \
-	-v %cd%\data\magdeburg-7\2022-09-01\config-2022-09-01.json:/app/session-config.json:ro \
-	-v %cd%\sessions-media-files\2022-09-01:/app/voting-images:ro \
-	-v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
+	-v $(pwd)/data/magdeburg-7/2022-09-01/config-2022-09-01.json:/app/session-config.json:ro \
+	-v $(pwd)/sessions-media-files/2022-09-01:/app/voting-images:ro \
+	-v $(pwd)/output/sessions-scan-results/2022-09-01:/app/output \
 	srw-scan-voting-images \
 	2022-09-01
 ```
@@ -41,8 +41,8 @@ docker run \
 ### Speech transcriptions
 
 #### Build the docker image
-```shell
-docker build -t srw-speech-to-text -f docker\speech-to-text.Dockerfile .
+```bash
+docker build -t srw-speech-to-text -f docker/speech-to-text.Dockerfile .
 ```
 
 #### Run the docker container
@@ -58,8 +58,8 @@ docker run \
 	-e OPENAI_ORGANIZATION_ID=<OpenAI organization id> \
 	-e OPENAI_PROJECT_ID=<OpenAI project id> \
 	-e OPENAI_API_KEY=<OpenAI api key> \
-	-v %cd%\output\sessions-scan-results\2022-09-01:/app/output \
-	-v %cd%\output\speeches\2022-09-01:/app/speeches:ro \
+	-v $(pwd)/output/sessions-scan-results/2022-09-01:/app/output \
+	-v $(pwd)/output/speeches/2022-09-01:/app/speeches:ro \
 	srw-speech-to-text \
 	2022-09-01
 ```
@@ -68,17 +68,17 @@ docker run \
 ### Generate data assets
 
 #### Build the docker image
-```shell
-docker build -t srw-generate-data-assets -f docker\generate-data-assets.Dockerfile .
+```bash
+docker build -t srw-generate-data-assets -f docker/generate-data-assets.Dockerfile .
 ```
 
 #### Run the docker container
 ```shell
 docker run \
   --rm \
-  -v %cd%\data\magdeburg-8:/app/input-dir:ro \
-  -v %cd%\src\assets\electoral-periods\magdeburg-8:/app/output-dir \
-  -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
+  -v $(pwd)/data/magdeburg-8:/app/input-dir:ro \
+  -v $(pwd)/src/assets/electoral-periods/magdeburg-8:/app/output-dir \
+  -v $(pwd)/data/Magdeburg.json:/app/Magdeburg.json:ro \
   srw-generate-data-assets
 ```
 
@@ -86,16 +86,16 @@ docker run \
 ### Download paper files
 
 #### Build the docker image
-```shell
-docker build -t srw-download-paper-files -f docker\download-paper-files.Dockerfile .
+```bash
+docker build -t srw-download-paper-files -f docker/download-paper-files.Dockerfile .
 ```
 
 #### Run the docker container
 ```shell
 docker run \
   --rm \
-  -v %cd%\output\papers\2025:/app/papers \
-  -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
+  -v $(pwd)/output/papers/2025:/app/papers \
+  -v $(pwd)/data/Magdeburg.json:/app/Magdeburg.json:ro \
   srw-download-paper-files \
   2025
 ```
@@ -104,17 +104,17 @@ docker run \
 ### Generate paper assets
 
 #### Build the docker image
-```shell
-docker build -t srw-generate-paper-assets -f docker\generate-paper-assets.Dockerfile .
+```bash
+docker build -t srw-generate-paper-assets -f docker/generate-paper-assets.Dockerfile .
 ```
 
 #### Run the docker container
 ```shell
 docker run \
   --rm \
-  -v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
-  -v %cd%\output\papers:/app/papers:ro \
-  -v %cd%\src\assets\papers:/app/generated \
+  -v $(pwd)/data/Magdeburg.json:/app/Magdeburg.json:ro \
+  -v $(pwd)/output/papers:/app/papers:ro \
+  -v $(pwd)/data/papers:/app/generated \
   srw-generate-paper-assets
 ```
 
@@ -122,7 +122,7 @@ docker run \
 ### Extract text from paper files
 
 #### Build the tika tool docker image 
-```shell
+```bash
 docker build -t srw-tika -f docker\tika-batch-extract.Dockerfile .
 ```
 
@@ -131,8 +131,8 @@ When running the container, the input and output folders have to be provided as 
 ```shell 
 docker run \
   --rm \
-  -v %cd%\output\papers\2023:/input \
-  -v %cd%\output\papers\2023-extracted:/output \
+  -v $(pwd)/output/papers/2025:/input \
+  -v $(pwd)/output/papers/2025-extracted:/output \
   srw-tika
 ```
 
@@ -140,8 +140,8 @@ docker run \
 ### Index Typesense search data
 
 #### Build the docker image
-```shell
-docker build -t srw-index-search -f docker\index-search.Dockerfile .
+```bash
+docker build -t srw-index-search -f docker/index-search.Dockerfile .
 ```
 
 #### Run the docker container
@@ -157,9 +157,9 @@ docker run \
 	-e TYPESENSE_SERVER_URL=http://host.docker.internal:8108 \
 	-e TYPESENSE_COLLECTION_NAME=papers-and-speeches-0001 \
 	-e TYPESENSE_API_KEY=abc123 \
-	-v %cd%\data\Magdeburg.json:/app/Magdeburg.json:ro \
-	-v %cd%\output\papers\all-extracted:/app/papers-content:ro \
-	-v %cd%\data:/app/electoral-periods:ro \
+	-v $(pwd)/data/Magdeburg.json:/app/Magdeburg.json:ro \
+	-v $(pwd)/output/papers/all-extracted:/app/papers-content:ro \
+	-v $(pwd)/data:/app/electoral-periods:ro \
 	srw-index-search
 ```
 
@@ -167,11 +167,11 @@ docker run \
 ### Web App
 
 #### Build the docker image
-```shell
-docker build -t srw-stadtratwatch-web -f docker\stadtrat-watch-web.Dockerfile .
+```bash
+docker build -t srw-stadtratwatch-web -f docker/stadtrat-watch-web.Dockerfile .
 ```
 
 #### Run the docker container
-```shell
+```bash
 docker run --rm -p 8080:80 srw-stadtratwatch-web
 ```
