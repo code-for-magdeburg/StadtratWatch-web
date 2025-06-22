@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, envField } from 'astro/config';
+import { defineConfig, envField, passthroughImageService } from 'astro/config';
 import alpinejs from '@astrojs/alpinejs';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -38,5 +38,9 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+  },
+
+  image: {
+    service: passthroughImageService(),
   },
 });
