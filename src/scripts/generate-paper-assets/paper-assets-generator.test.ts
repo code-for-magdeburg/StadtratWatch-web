@@ -2,7 +2,7 @@ import { ScrapedFile, ScrapedMeeting } from '../shared/model/scraped-session.ts'
 import { PaperAssetsGenerator } from './paper-assets-generator.ts';
 import { IPaperFilesStore } from './paper-files-store.ts';
 import { IPaperAssetsStore } from './paper-assets-store.ts';
-import { PaperDto } from '@scope/astro-models';
+import { PaperDto } from '@srw-astro/models';
 import { assertSpyCall, assertSpyCalls, spy } from '@std/testing/mock';
 import { EMPTY_SCRAPED_SESSION, TEST_SCRAPED_SESSION } from '../shared/test-data/scraped-sessions.ts';
 

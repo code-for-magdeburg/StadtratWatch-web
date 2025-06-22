@@ -2,7 +2,7 @@ import { SessionConfig, SessionConfigLayout, SessionConfigPerson } from '../shar
 import { IVotingImagesSource } from './voting-images-source.ts';
 import { SessionVote } from '../shared/model/session-scan.ts';
 import { CanvasRenderingContext2D } from '@gfx/canvas';
-import { VoteResult } from '@scope/interfaces-web-assets';
+import { VoteResult } from '@srw-astro/models';
 
 
 type CategorizedColor = 'red' | 'green' | 'yellow' | 'white' | 'unknown';

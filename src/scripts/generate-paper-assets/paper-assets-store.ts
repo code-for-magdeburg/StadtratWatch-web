@@ -1,5 +1,5 @@
 import * as path from '@std/path';
-import { PaperDto } from '@scope/astro-models';
+import { PaperDto } from '@srw-astro/models';
 
 
 export interface IPaperAssetsStore {

@@ -1,7 +1,7 @@
 import { SessionInputData } from '../shared/model/session-input-data.ts';
 import { Registry } from '../shared/model/registry.ts';
 import { ScrapedSession } from '../shared/model/scraped-session.ts';
-import { SessionDetailsDto, SessionFactionDto, SessionLightDto, SessionPartyDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VoteResult, VotingResult } from '@scope/astro-models';
+import { SessionDetailsDto, SessionFactionDto, SessionLightDto, SessionPartyDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VoteResult, VotingResult } from '@srw-astro/models';
 import { SessionVote } from '../shared/model/session-scan.ts';
 
 
