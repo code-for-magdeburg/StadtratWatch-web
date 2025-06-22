@@ -1,8 +1,8 @@
 import * as fs from '@std/fs';
 import * as path from '@std/path';
-import { Registry } from '../shared/model/registry.ts';
-import { SessionConfig } from '../shared/model/session-config.ts';
-import { SessionSpeech } from '../shared/model/session-speech.ts';
+import { Registry } from '@srw-astro/models/registry';
+import { SessionConfig } from '@srw-astro/models/session-config';
+import { SessionSpeech } from '@srw-astro/models/session-speech';
 
 
 export type IndexableSpeech = {

@@ -1,8 +1,8 @@
-import { SessionConfig, SessionConfigLayout, SessionConfigPerson } from '../shared/model/session-config.ts';
+import { SessionConfig, SessionConfigLayout, SessionConfigPerson } from '@srw-astro/models/session-config';
 import { IVotingImagesSource } from './voting-images-source.ts';
-import { SessionVote } from '../shared/model/session-scan.ts';
+import { SessionVote } from '@srw-astro/models/session-scan';
 import { CanvasRenderingContext2D } from '@gfx/canvas';
-import { VoteResult } from '@srw-astro/models';
+import { VoteResult } from '@srw-astro/models/session';
 
 
 type CategorizedColor = 'red' | 'green' | 'yellow' | 'white' | 'unknown';

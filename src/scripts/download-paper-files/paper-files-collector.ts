@@ -1,4 +1,4 @@
-import { ScrapedMeeting, ScrapedSession } from '../shared/model/scraped-session.ts';
+import { ScrapedMeeting, ScrapedSession } from '@srw-astro/models/scraped-session';
 import { IPaperFilesDownloader } from './paper-files-downloader.ts';
 
 

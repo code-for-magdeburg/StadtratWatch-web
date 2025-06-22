@@ -1,8 +1,8 @@
-import { SessionInputData } from '../shared/model/session-input-data.ts';
-import { Registry } from '../shared/model/registry.ts';
-import { ScrapedSession } from '../shared/model/scraped-session.ts';
-import { SessionDetailsDto, SessionFactionDto, SessionLightDto, SessionPartyDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VoteResult, VotingResult } from '@srw-astro/models';
-import { SessionVote } from '../shared/model/session-scan.ts';
+import { SessionInput } from '@srw-astro/models/session-input';
+import { Registry } from '@srw-astro/models/registry';
+import { ScrapedSession } from '@srw-astro/models/scraped-session';
+import { SessionDetailsDto, SessionFactionDto, SessionLightDto, SessionPartyDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VoteResult, VotingResult } from '@srw-astro/models/session';
+import { SessionVote } from '@srw-astro/models/session-scan';
 
 
 export type GeneratedSessionsData = {
@@ -14,7 +14,7 @@ export type GeneratedSessionsData = {
 export class SessionsDataGenerator {
 
 
-  public generateSessionsData(sessionsData: SessionInputData[], registry: Registry,
+  public generateSessionsData(sessionsData: SessionInput[], registry: Registry,
                               scrapedSession: ScrapedSession): GeneratedSessionsData {
 
     const scrapedStadtratMeetings = scrapedSession.meetings
@@ -50,7 +50,7 @@ export class SessionsDataGenerator {
 
         const sessionData = sessionDataMap.get(session.id)!;
         const sessionConfig = sessionData.config;
-        const sessionScan = sessionData.scan;
+        const sessionScan = sessionData.votings;
         const sessionSpeeches = sessionData.speeches;
 
         const sessionFactionNames = Array.from(new Set(

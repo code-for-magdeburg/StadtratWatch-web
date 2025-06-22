@@ -1,4 +1,4 @@
-import { ScrapedPaper, ScrapedSession } from '../shared/model/scraped-session.ts';
+import { ScrapedPaper, ScrapedSession } from '@srw-astro/models/scraped-session';
 import { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-importer.ts';
 import { IPapersContentSource } from './papers-content-source.ts';
 import { ISpeechesSource } from './speeches-source.ts';

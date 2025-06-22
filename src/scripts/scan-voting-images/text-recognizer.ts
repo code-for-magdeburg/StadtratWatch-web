@@ -1,5 +1,5 @@
-import { SessionConfigLayout } from '../shared/model/session-config.ts';
-import { SessionScanVotingSubject } from '../shared/model/session-scan.ts';
+import { SessionConfigLayout } from '@srw-astro/models/session-config';
+import { SessionScanVotingSubject } from '@srw-astro/models/session-scan';
 import { Worker } from 'npm:tesseract.js';
 
 

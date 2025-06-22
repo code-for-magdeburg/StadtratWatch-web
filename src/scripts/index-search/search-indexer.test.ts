@@ -4,7 +4,7 @@ import { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-imp
 import { EMPTY_SCRAPED_SESSION, TEST_SCRAPED_SESSION } from '../shared/test-data/scraped-sessions.ts';
 import { IPapersContentSource } from './papers-content-source.ts';
 import { IndexableSpeech, ISpeechesSource } from './speeches-source.ts';
-import { SessionConfig } from '../shared/model/session-config.ts';
+import { SessionConfig } from '@srw-astro/models/session-config';
 
 
 const mockImporter: IDocumentsImporter = {

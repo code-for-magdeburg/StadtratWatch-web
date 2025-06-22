@@ -1,7 +1,7 @@
-import { ScrapedSession } from '../shared/model/scraped-session.ts';
+import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { IPaperAssetsStore } from './paper-assets-store.ts';
 import { IPaperFilesStore } from './paper-files-store.ts';
-import { PaperFileDto, PapersDto } from '@srw-astro/models';
+import { PaperFileDto, PapersDto } from '@srw-astro/models/paper';
 
 
 export class PaperAssetsGenerator {

@@ -1,4 +1,4 @@
-import { ScrapedSession } from '../shared/model/scraped-session.ts';
+import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { PaperFilesStore } from "./paper-files-store.ts";
 import { PaperAssetsGenerator } from './paper-assets-generator.ts';

@@ -1,6 +1,6 @@
 import * as fs from '@std/fs';
 import * as path from '@std/path';
-import { ScrapedFile, ScrapedMeeting } from '../shared/model/scraped-session.ts';
+import { ScrapedFile, ScrapedMeeting } from '@srw-astro/models/scraped-session';
 
 
 export interface IPaperFilesStore {
