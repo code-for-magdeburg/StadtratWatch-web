@@ -1,6 +1,4 @@
-
 export type PapersDto = PaperDto[];
-
 
 export type PaperFileDto = {
   id: number;
@@ -8,7 +6,6 @@ export type PaperFileDto = {
   url: string;
   size: number | null;
 };
-
 
 export type PaperDto = {
   id: number;
