@@ -136,6 +136,7 @@ const fillColors = Array
           .attr('viewBox', [0, 0, width, height])
           .classed('w-full h-auto', true)
           .call(
+            // @ts-ignore
             d3
               .zoom()
               .on(
@@ -158,10 +159,13 @@ const fillColors = Array
           .attr('fill', (d) => fillColors.get(d.faction) || '#000')
           .on('mouseover', mouseOver)
           .on('mouseleave', mouseLeave)
-          .call(d3.drag()
-            .on('start', dragstarted)
-            .on('drag', dragged)
-            .on('end', dragended));
+          .call(
+            // @ts-ignore
+            d3
+              .drag()
+              .on('start', dragstarted)
+              .on('drag', dragged)
+              .on('end', dragended));
 
         function ticked() {
           node

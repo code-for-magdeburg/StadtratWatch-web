@@ -1,5 +1,4 @@
 ---
-const CURRENT_ELECTORAL_PERIOD_ID = 'magdeburg-8'; // TODO: move to config/env variable
-
-return Astro.redirect(`/ep/${CURRENT_ELECTORAL_PERIOD_ID}`, 302);
+// TODO: Use a configuration/env variable to determine the redirect path
+return Astro.redirect('/ep/magdeburg-8', 302);
 ---

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.6",
+    "@astrojs/check": "^0.9.4",
     "@fontsource/dm-sans": "^5.2.5",
     "@iconify-json/lucide": "^1.2.37",
     "@iconify/tailwind4": "^1.0.6",
@@ -27,6 +28,7 @@
     "daisyui": "^5.0.25",
     "date-fns": "^4.1.0",
     "tailwindcss": "^4.1.4",
+    "typescript": "^5.8.3",
     "typesense": "^2.0.3"
   },
   "devDependencies": {
