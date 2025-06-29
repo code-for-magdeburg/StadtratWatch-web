@@ -58,7 +58,7 @@ export class InputDataLoaders {
         Deno.readTextFileSync(path.join(sessionDir, `session-speeches-${session.date}.json`))
       ) as SessionSpeech[];
 
-      return { sessionId: session.id, config, votings, speeches } satisfies SessionInput;
+      return { session, config, votings, speeches } satisfies SessionInput;
 
     });
 

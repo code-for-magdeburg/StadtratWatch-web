@@ -46,10 +46,10 @@ export function calcVotingSuccessRateHistoryOfFaction(
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
       const value = calcVotingSuccessRateOfFaction(faction, pastSessions);
-      return { date: session.config.date, value };
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))
@@ -90,10 +90,10 @@ export function calcVotingSuccessRateHistoryOfParty(
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
       const value = calcVotingSuccessRateOfParty(party, pastSessions);
-      return { date: session.config.date, value };
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))
@@ -144,10 +144,10 @@ export function calcVotingSuccessRateHistoryOfPerson(
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
       const value = calcVotingSuccessRateOfPerson(person, pastSessions);
-      return { date: session.config.date, value };
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))

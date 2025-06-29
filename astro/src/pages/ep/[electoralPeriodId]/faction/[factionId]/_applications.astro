@@ -51,8 +51,8 @@ const factionApplicationVotings = sessionInputs
   .flatMap((sessionInput) =>
     sessionInput.votings.map((voting) => ({
       voting,
-      sessionId: sessionInput.sessionId,
-      sessionDate: sessionInput.config.date
+      sessionId: sessionInput.session.id,
+      sessionDate: sessionInput.session.date
     }))
   )
   .filter((voting) => !!voting.voting.votingSubject.applicationId)

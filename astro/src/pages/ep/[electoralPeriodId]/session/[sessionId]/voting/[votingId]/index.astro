@@ -30,7 +30,7 @@ const breadcrumbItems = [
     href: `/ep/${electoralPeriodId}/sessions`
   },
   {
-    name: formatDate(sessionInput.config.date),
+    name: formatDate(sessionInput.session.date),
     href: `/ep/${electoralPeriodId}/session/${sessionId}`
   },
   {
@@ -64,14 +64,14 @@ const groupsSortedByVotes = Object
 
 const paperId = getPaperId(
   sessionId,
-  sessionInput.config.date,
+  sessionInput.session.date,
   voting,
   scrapedMeetings,
   scrapedAgendaItems,
   scrapedPapers
 );
 
-const youtubeUrl = `${sessionInput.config.youtubeUrl}?t=${convertVideoTimestampToSeconds(voting.videoTimestamp)}s`;
+const youtubeUrl = `${sessionInput.session.youtubeUrl}?t=${convertVideoTimestampToSeconds(voting.videoTimestamp)}s`;
 
 const votedFor = voting.votes.filter(vote => vote.vote === 'J').length;
 const votedAgainst = voting.votes.filter(vote => vote.vote === 'N').length;
@@ -86,7 +86,7 @@ const votingAccepted = votedFor > votedAgainst;
 >
   <MetaTags
     slot="srw-meta-tags"
-    sessionDate={sessionInput.config.date}
+    sessionDate={sessionInput.session.date}
     voting={voting}
     electoralPeriodId={electoralPeriodId}
     sessionId={sessionId}

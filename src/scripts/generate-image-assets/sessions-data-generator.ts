@@ -36,7 +36,7 @@ export class SessionsDataGenerator {
     const partiesByNameMap =
       new Map(registry.parties.map(party => [party.name, party.id]));
 
-    const sessionDataMap = new Map(sessionsData.map(sessionData => [sessionData.sessionId, sessionData]));
+    const sessionDataMap = new Map(sessionsData.map(sessionData => [sessionData.session.id, sessionData]));
 
     const sessions = registry.sessions
       .filter(session => sessionDataMap.has(session.id))
@@ -63,7 +63,7 @@ export class SessionsDataGenerator {
           id: session.id,
           date: session.date,
           meetingMinutesUrl: session.meetingMinutesUrl,
-          youtubeUrl: sessionConfig.youtubeUrl,
+          youtubeUrl: session.youtubeUrl,
           factions: sessionFactionNames.map<SessionFactionDto>(sessionFactionName => ({
             id: factionsByNameMap.get(sessionFactionName) || '',
             name: sessionFactionName

@@ -40,10 +40,10 @@ export function calcParticipationRateHistoryOfFaction(
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
       const value = calcParticipationRateOfFaction(faction, pastSessions);
-      return { date: session.config.date, value };
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))
@@ -78,10 +78,10 @@ export function calcParticipationRateHistoryOfParty(
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
       const value = calcParticipationRateOfParty(party, pastSessions);
-      return { date: session.config.date, value };
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))
@@ -113,10 +113,10 @@ export function calcParticipationRateHistoryOfPerson(
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
       const value = calcParticipationRateOfPerson(person, pastSessions);
-      return { date: session.config.date, value };
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))

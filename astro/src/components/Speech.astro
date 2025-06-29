@@ -4,6 +4,7 @@ import { type SessionConfig } from '@models/session-config';
 
 type Props = {
   speech: SessionSpeech;
+  sessionYoutubeUrl: string;
   sessionConfig: SessionConfig;
   speechElementId: string;
   link: string;
@@ -11,13 +12,14 @@ type Props = {
 
 const {
   speech,
+  sessionYoutubeUrl,
   sessionConfig,
   speechElementId,
   link
 } = Astro.props as Props;
 
 const faction = getFactionName(speech.speaker, sessionConfig);
-const youtubeUrl = getYoutubeUrl(sessionConfig.youtubeUrl, speech.start);
+const youtubeUrl = getYoutubeUrl(sessionYoutubeUrl, speech.start);
 const linkTitle = getLinkTitle(speech.speaker, sessionConfig.date);
 const hintMailHref = getHintMailHref(speech, sessionConfig.date);
 const hintMailTitle = getHintMailTitle(speech);

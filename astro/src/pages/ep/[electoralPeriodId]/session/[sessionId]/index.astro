@@ -14,12 +14,7 @@ import MetaTags from '@components/MetaTags.astro';
 export const getStaticPaths = getElectoralPeriodWithSessionPaths;
 
 const { electoralPeriodId, sessionId } = Astro.params;
-const { electoralPeriod, sessionInput } =
-  Astro.props as ElectoralPeriodWithSessionProps;
-
-const speeches = sessionInput.speeches.filter(
-  (speech) => !speech.isChairPerson && !!speech.transcription,
-);
+const { electoralPeriod, sessionInput } = Astro.props as ElectoralPeriodWithSessionProps;
 
 const breadcrumbItems: BreadcrumbItem[] = [
   {
@@ -31,22 +26,21 @@ const breadcrumbItems: BreadcrumbItem[] = [
     href: `/ep/${electoralPeriodId}/sessions`,
   },
   {
-    name: formatDate(sessionInput.config.date),
+    name: formatDate(sessionInput.session.date),
     href: null,
   },
 ];
 
-const session = electoralPeriod.sessions.find((s) => s.id === sessionId);
-const meetingMinutesUrl = session?.meetingMinutesUrl;
-const youtubeUrl = sessionInput.config.youtubeUrl;
+const meetingMinutesUrl = sessionInput.session.meetingMinutesUrl;
+const youtubeUrl = sessionInput.session.youtubeUrl;
 ---
 
 <PageLayout
   electoralPeriod={electoralPeriod}
-  pageTitle={`Stadtratssitzung vom ${formatDate(sessionInput.config.date)}`}
+  pageTitle={`Stadtratssitzung vom ${formatDate(sessionInput.session.date)}`}
   breadcrumbItems={breadcrumbItems}
 >
-  <MetaTags slot="srw-meta-tags" sessionDate={sessionInput.config.date} />
+  <MetaTags slot="srw-meta-tags" sessionDate={sessionInput.session.date} />
 
   <div slot="sub-page-header">
     <div class="flex items-center mt-1 gap-4">
@@ -112,12 +106,7 @@ const youtubeUrl = sessionInput.config.youtubeUrl;
       @change="history.pushState(null, '', `/ep/${electoralPeriodId}/session/${sessionId}?tab=speeches`); currentTab = 'speeches'"
     />
     <div class="tab-content border-base-200 bg-base-100 p-6">
-      <Speeches
-        electoralPeriodId={electoralPeriodId}
-        sessionId={sessionId}
-        speeches={speeches}
-        sessionConfig={sessionInput.config}
-      />
+      <Speeches electoralPeriodId={electoralPeriodId} sessionInput={sessionInput} />
     </div>
 
     <input
@@ -130,11 +119,7 @@ const youtubeUrl = sessionInput.config.youtubeUrl;
       @change="history.pushState(null, '', `/ep/${electoralPeriodId}/session/${sessionId}?tab=speaking-times`); currentTab = 'speaking-times'"
     />
     <div class="tab-content border-base-200 bg-base-100 p-6">
-      <SpeakingTimes
-        electoralPeriod={electoralPeriod}
-        speeches={speeches}
-        sessionConfig={sessionInput.config}
-      />
+      <SpeakingTimes electoralPeriod={electoralPeriod} sessionInput={sessionInput} />
     </div>
   </div>
 </PageLayout>

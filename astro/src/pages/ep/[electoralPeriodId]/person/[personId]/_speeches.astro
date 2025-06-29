@@ -19,8 +19,10 @@ const {
 
 const speechesBySessionDate = sessions
   .flatMap(session => ({
-    sessionId: session.sessionId,
-    sessionDate: session.config.date,
+    sessionId: session.session.id,
+    sessionDate: session.session.date,
+    sessionTitle: session.session.title,
+    sessionYoutubeUrl: session.session.youtubeUrl,
     config: session.config,
     speeches: session.speeches
       .filter(speech => speech.speaker === person.name)
@@ -29,7 +31,10 @@ const speechesBySessionDate = sessions
       .toSorted((a, b) => a.start - b.start)
   }))
   .filter(session => session.speeches.length > 0)
-  .toSorted((a, b) => b.sessionId.localeCompare(a.sessionId));
+  .toSorted(
+    (a, b) =>
+      b.sessionId.localeCompare(a.sessionId)
+  );
 ---
 <div class="alert alert-soft alert-info" role="alert">
   <span class="iconify lucide--info size-5"></span>
@@ -61,7 +66,7 @@ const speechesBySessionDate = sessions
             name="accordion-multiple" />
           <div class="collapse-title">
             {formatDate(speechesBySessionDate.sessionDate)}
-            {speechesBySessionDate.config.title}
+            {speechesBySessionDate.sessionTitle}
           </div>
           <div class="collapse-content">
             <ul class="timeline timeline-vertical timeline-compact">
@@ -73,6 +78,7 @@ const speechesBySessionDate = sessions
                         <hr />}
                       <Speech
                         speech={speech}
+                        sessionYoutubeUrl={speechesBySessionDate.sessionYoutubeUrl}
                         sessionConfig={speechesBySessionDate.config}
                         speechElementId={`speech-${speechesBySessionDate.sessionId}-${speech.start}`}
                         link={`/ep/${electoralPeriod.id}/person/${person.id}?tab=speeches`}

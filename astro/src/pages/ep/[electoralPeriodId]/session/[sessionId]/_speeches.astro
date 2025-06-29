@@ -1,17 +1,17 @@
 ---
-import { type SessionConfig } from '@models/session-config';
-import { type SessionSpeech } from '@models/session-speech';
 import Speech from '@components/Speech.astro';
+import { type SessionInput } from '@models/SessionInput';
 
 type Props = {
   electoralPeriodId: string;
-  sessionId: string;
-  speeches: SessionSpeech[];
-  sessionConfig: SessionConfig;
+  sessionInput: SessionInput;
 };
 
-const { electoralPeriodId, sessionId, speeches, sessionConfig } =
-  Astro.props as Props;
+const { electoralPeriodId, sessionInput } = Astro.props as Props;
+
+const speeches = sessionInput.speeches.filter(
+  (speech) => !speech.isChairPerson && !!speech.transcription
+);
 ---
 
 <div class="alert alert-soft alert-info" role="alert">
@@ -39,9 +39,10 @@ const { electoralPeriodId, sessionId, speeches, sessionConfig } =
         {index > 0 && <hr />}
         <Speech
           speech={speech}
-          sessionConfig={sessionConfig}
+          sessionYoutubeUrl={sessionInput.session.youtubeUrl}
+          sessionConfig={sessionInput.config}
           speechElementId={`speech-${speech.start}`}
-          link={`/ep/${electoralPeriodId}/session/${sessionId}?tab=speeches`}
+          link={`/ep/${electoralPeriodId}/session/${sessionInput.session.id}?tab=speeches`}
         />
         {index < speeches.length - 1 && <hr />}
       </li>
