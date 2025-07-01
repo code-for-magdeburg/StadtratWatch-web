@@ -3,7 +3,6 @@ import { glob } from 'astro/loaders';
 import type { Registry } from '@models/registry.ts';
 import type { SessionScan } from '@models/session-scan.ts';
 import type { SessionSpeech } from '@models/session-speech.ts';
-import type { SessionConfig } from '@models/session-config.ts';
 import type {
   ScrapedAgendaItem,
   ScrapedFile,
@@ -44,18 +43,6 @@ const sessionSpeeches = defineCollection({
     },
   }),
   schema: z.array(z.custom<SessionSpeech>()),
-});
-
-const sessionConfigs = defineCollection({
-  loader: glob({
-    pattern: '**/config-*.json',
-    base: '../data',
-    generateId: (options) => {
-      const entryParts = options.entry.split('/');
-      return `${entryParts[0]}/${entryParts[1]}`;
-    },
-  }),
-  schema: z.custom<SessionConfig>(),
 });
 
 const magdeburg = JSON.parse(
@@ -109,7 +96,6 @@ export const collections = {
   electoralPeriods,
   sessionScans,
   sessionSpeeches,
-  sessionConfigs,
   scrapedMeetings,
   scrapedAgendaItems,
   scrapedPapers,

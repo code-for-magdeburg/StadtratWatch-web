@@ -33,7 +33,6 @@ export type ElectoralPeriodWithSessionsProps = InferGetStaticPropsType<
 >;
 
 export const getElectoralPeriodWithSessionsPaths = (async () => {
-  const sessionConfigsCollection = await getCollection('sessionConfigs');
   const sessionSpeechesCollection = await getCollection('sessionSpeeches');
   const sessionScansCollection = await getCollection('sessionScans');
 
@@ -41,14 +40,6 @@ export const getElectoralPeriodWithSessionsPaths = (async () => {
   return electoralPeriodStaticPaths.map((path) => {
     const { electoralPeriod } = path.props;
 
-    const sessionConfigs = sessionConfigsCollection
-      .filter((sessionConfig) =>
-        sessionConfig.id.startsWith(`${electoralPeriod.id}/`),
-      )
-      .map((sessionConfig) => ({
-        sessionId: sessionConfig.id,
-        config: sessionConfig.data,
-      }));
     const sessionScans = sessionScansCollection
       .filter((sessionScan) =>
         sessionScan.id.startsWith(`${electoralPeriod.id}/`),
@@ -66,33 +57,24 @@ export const getElectoralPeriodWithSessionsPaths = (async () => {
         speeches: sessionSpeech.data,
       }));
 
-    const sessionInputs = sessionConfigs
-      .filter(
-        (sessionConfig) =>
-          electoralPeriod.sessions.some(session => `${electoralPeriod.id}/${session.id}` === sessionConfig.sessionId)
-      )
-      .map((sessionConfig) => {
-        const session = electoralPeriod.sessions.find(
-          (session) => `${electoralPeriod.id}/${session.id}` === sessionConfig.sessionId
-        );
-        const sessionScan = sessionScans.find(
-          (sessionScan) => sessionScan.sessionId === sessionConfig.sessionId,
-        );
-        const speeches = sessionSpeeches
-          .filter(
-            (sessionSpeech) =>
-              sessionSpeech.sessionId === sessionConfig.sessionId,
-          )
-          .flatMap((sessionSpeech) => sessionSpeech.speeches);
-        return {
-          session,
-          config: sessionConfig.config,
-          votings: sessionScan?.scan || [],
-          speeches,
-        } as SessionInput;
-      });
-    const { scrapedMeetings, scrapedAgendaItems, scrapedPapers, scrapedFiles } =
-      path.props;
+    const sessionInputs = electoralPeriod.sessions.map((session) => {
+      const sessionScan = sessionScans.find(
+        (sessionScan) =>
+          sessionScan.sessionId === `${electoralPeriod.id}/${session.id}`
+      );
+      const speeches = sessionSpeeches
+        .filter(
+          (sessionSpeech) =>
+            sessionSpeech.sessionId === `${electoralPeriod.id}/${session.id}`
+        )
+        .flatMap((sessionSpeech) => sessionSpeech.speeches);
+      return {
+        session,
+        votings: sessionScan?.scan || [],
+        speeches,
+      } as SessionInput;
+    });
+    const { scrapedMeetings, scrapedAgendaItems, scrapedPapers, scrapedFiles } = path.props;
     return {
       params: { electoralPeriodId: electoralPeriod.id },
       props: {

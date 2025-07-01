@@ -39,16 +39,18 @@ const breadcrumbItems: BreadcrumbItem[] = [
 const parties = electoralPeriod.parties
   .map((party) => {
     const votingSuccessRate = calcVotingSuccessRateOfParty(
+      electoralPeriod,
       party,
       sessionInputs
     );
-    const uniformityScore = calcUniformityScoreOfParty(party, sessionInputs);
+    const uniformityScore = calcUniformityScoreOfParty(electoralPeriod, party, sessionInputs);
     const participationRate = calcParticipationRateOfParty(
+      electoralPeriod,
       party,
       sessionInputs
     );
-    const abstentionRate = calcAbstentionRateOfParty(party, sessionInputs);
-    const speakingTime = calcSpeakingTimeOfParty(party, sessionInputs);
+    const abstentionRate = calcAbstentionRateOfParty(electoralPeriod, party, sessionInputs);
+    const speakingTime = calcSpeakingTimeOfParty(electoralPeriod, party, sessionInputs);
     return {
       id: party.id,
       name: party.name,

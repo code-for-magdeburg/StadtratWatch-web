@@ -106,7 +106,7 @@ const youtubeUrl = sessionInput.session.youtubeUrl;
       @change="history.pushState(null, '', `/ep/${electoralPeriodId}/session/${sessionId}?tab=speeches`); currentTab = 'speeches'"
     />
     <div class="tab-content border-base-200 bg-base-100 p-6">
-      <Speeches electoralPeriodId={electoralPeriodId} sessionInput={sessionInput} />
+      <Speeches electoralPeriod={electoralPeriod} sessionInput={sessionInput} />
     </div>
 
     <input

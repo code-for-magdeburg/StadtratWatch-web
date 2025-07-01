@@ -1,35 +1,31 @@
 ---
 import { type SessionSpeech } from '@models/session-speech';
-import { type SessionConfig } from '@models/session-config';
+import { getFactionOfPerson, getPersonByName } from '@utils/session-utils';
+import { type Registry, type RegistrySession } from '@models/registry';
 
 type Props = {
+  electoralPeriod: Registry;
+  session: RegistrySession;
   speech: SessionSpeech;
-  sessionYoutubeUrl: string;
-  sessionConfig: SessionConfig;
   speechElementId: string;
   link: string;
 };
 
 const {
+  electoralPeriod,
+  session,
   speech,
-  sessionYoutubeUrl,
-  sessionConfig,
   speechElementId,
   link
 } = Astro.props as Props;
 
-const faction = getFactionName(speech.speaker, sessionConfig);
-const youtubeUrl = getYoutubeUrl(sessionYoutubeUrl, speech.start);
-const linkTitle = getLinkTitle(speech.speaker, sessionConfig.date);
-const hintMailHref = getHintMailHref(speech, sessionConfig.date);
-const hintMailTitle = getHintMailTitle(speech);
+const person = getPersonByName(electoralPeriod, session, speech.speaker);
+const faction = person ? getFactionOfPerson(electoralPeriod, session, person) : null;
 
-function getFactionName(
-  speaker: string,
-  config: SessionConfig
-): string | null {
-  return config.names.find((name) => name.name === speaker)?.faction || null;
-}
+const youtubeUrl = getYoutubeUrl(session.youtubeUrl, speech.start);
+const linkTitle = getLinkTitle(speech.speaker, session.date);
+const hintMailHref = getHintMailHref(speech, session.date);
+const hintMailTitle = getHintMailTitle(speech);
 
 function getYoutubeUrl(baseUrl: string, start: number): string {
   return `${baseUrl}?t=${start}`;
@@ -78,7 +74,7 @@ function getHintMailTitle(speech: SessionSpeech): string {
   class="timeline-start text-sm flex flex-row flex-wrap gap-2 w-full items-center"
 >
   <span class="text-base-content/80">{speech.speaker}</span>
-  {faction && <span class="badge badge-sm badge-neutral">{faction}</span>}
+  {faction && <span class="badge badge-sm badge-neutral">{faction.name}</span>}
   {
     speech.onBehalfOf && (
       <span class="badge badge-sm badge-neutral">{speech.onBehalfOf}</span>

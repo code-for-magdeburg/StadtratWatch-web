@@ -2,7 +2,6 @@ import { Registry } from '@srw-astro/models/registry';
 import * as path from '@std/path';
 import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { SessionInput } from '@srw-astro/models/session-input';
-import { SessionConfig } from '@srw-astro/models/session-config';
 import { SessionScan } from '@srw-astro/models/session-scan';
 import { SessionSpeech } from '@srw-astro/models/session-speech';
 
@@ -46,10 +45,6 @@ export class InputDataLoaders {
 
       const sessionDir = path.join(this.inputDir, session.date);
 
-      const config = JSON.parse(
-        Deno.readTextFileSync(path.join(sessionDir, `config-${session.date}.json`))
-      ) as SessionConfig;
-
       const votings = JSON.parse(
         Deno.readTextFileSync(path.join(sessionDir, `session-scan-${session.date}.json`))
       ) as SessionScan;
@@ -58,7 +53,7 @@ export class InputDataLoaders {
         Deno.readTextFileSync(path.join(sessionDir, `session-speeches-${session.date}.json`))
       ) as SessionSpeech[];
 
-      return { session, config, votings, speeches } satisfies SessionInput;
+      return { session, votings, speeches } satisfies SessionInput;
 
     });
 

@@ -12,8 +12,8 @@ const { electoralPeriod, sessionInput } = Astro.props as Props;
 
 const chartData = getSpeakingTimesChartData(
   electoralPeriod,
-  sessionInput.speeches,
-  sessionInput.config,
+  sessionInput.session,
+  sessionInput.speeches
 );
 
 const chartHeight = chartData.length * 40;

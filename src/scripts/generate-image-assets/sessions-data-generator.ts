@@ -1,7 +1,7 @@
 import { SessionInput } from '@srw-astro/models/session-input';
-import { Registry } from '@srw-astro/models/registry';
+import { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
 import { ScrapedSession } from '@srw-astro/models/scraped-session';
-import { SessionDetailsDto, SessionFactionDto, SessionLightDto, SessionPartyDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VoteResult, VotingResult } from '@srw-astro/models/session';
+import { SessionDetailsDto, SessionLightDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VoteResult, VotingResult } from '@srw-astro/models/session';
 import { SessionVote } from '@srw-astro/models/session-scan';
 
 
@@ -9,6 +9,28 @@ export type GeneratedSessionsData = {
   sessions: SessionDetailsDto[];
   sessionsLight: SessionLightDto[];
 };
+
+
+function isPersonInSession (person: RegistryPerson, session: RegistrySession): boolean {
+  const sessionDate = session.date;
+  return (person.start === null || person.start <= sessionDate) && (person.end === null || person.end >= sessionDate);
+}
+
+function getPersonsOfSession(electoralPeriod: Registry, session: RegistrySession): RegistryPerson[] {
+  return electoralPeriod.persons.filter(person => isPersonInSession(person, session))
+}
+
+function getPersonByName(electoralPeriod: Registry, session: RegistrySession,
+                         personName: string): RegistryPerson | null {
+  return getPersonsOfSession(electoralPeriod, session).find(person => person.name === personName) || null;
+}
+
+function getFactionOfPerson(electoralPeriod: Registry, session: RegistrySession,
+                            person: RegistryPerson): RegistryFaction | null {
+  return electoralPeriod.factions.find(
+    faction => faction.id === person.factionId && isPersonInSession(person, session)
+  ) || null;
+}
 
 
 export class SessionsDataGenerator {
@@ -30,11 +52,15 @@ export class SessionsDataGenerator {
     const personIdsByNameMap =
       new Map(registry.persons.map(person => [person.name, person.id]));
 
-    const factionsByNameMap =
-      new Map(registry.factions.map(faction => [faction.name, faction.id]));
+    const factionsByIdMap = new Map(
+      registry.factions.map(faction => [faction.id, faction])
+    );
+    const factions = Array.from(factionsByIdMap.values());
 
-    const partiesByNameMap =
-      new Map(registry.parties.map(party => [party.name, party.id]));
+    const partiesByIdMap = new Map(
+      registry.parties.map(party => [party.id, party])
+    );
+    const parties = Array.from(partiesByIdMap.values());
 
     const sessionDataMap = new Map(sessionsData.map(sessionData => [sessionData.session.id, sessionData]));
 
@@ -49,34 +75,21 @@ export class SessionsDataGenerator {
         }
 
         const sessionData = sessionDataMap.get(session.id)!;
-        const sessionConfig = sessionData.config;
         const sessionScan = sessionData.votings;
         const sessionSpeeches = sessionData.speeches;
 
-        const sessionFactionNames = Array.from(new Set(
-          sessionConfig.names.map(sessionConfigPerson => sessionConfigPerson.faction)
-        ));
-        const sessionPartyNames = Array.from(new Set(
-          sessionConfig.names.map(sessionConfigPerson => sessionConfigPerson.party)
-        ));
         return {
           id: session.id,
           date: session.date,
           meetingMinutesUrl: session.meetingMinutesUrl,
           youtubeUrl: session.youtubeUrl,
-          factions: sessionFactionNames.map<SessionFactionDto>(sessionFactionName => ({
-            id: factionsByNameMap.get(sessionFactionName) || '',
-            name: sessionFactionName
-          })),
-          parties: sessionPartyNames.map<SessionPartyDto>(sessionPartyName => ({
-            id: partiesByNameMap.get(sessionPartyName) || '',
-            name: sessionPartyName
-          })),
-          persons: sessionConfig.names.map<SessionPersonDto>(sessionConfigPerson => ({
-            id: personIdsByNameMap.get(sessionConfigPerson.name) || '',
-            name: sessionConfigPerson.name,
-            party: sessionConfigPerson.party,
-            faction: sessionConfigPerson.faction
+          factions,
+          parties,
+          persons: getPersonsOfSession(registry, session).map<SessionPersonDto>(person => ({
+            id: person.id,
+            name: person.name,
+            party: partiesByIdMap.get(person.partyId)?.name || '',
+            faction: factionsByIdMap.get(person.factionId)?.name || '',
           })),
           votings: sessionScan.map<SessionVotingDto>(voting => {
             const agendaItem = scrapedAgendaItems.find(
@@ -123,9 +136,8 @@ export class SessionsDataGenerator {
           speeches: sessionSpeeches
             .filter(sessionSpeech => !sessionSpeech.isChairPerson)
             .map(sessionSpeech => {
-              const faction = sessionConfig.names.find(
-                name => name.name === sessionSpeech.speaker
-              )?.faction;
+              const person = getPersonByName(registry, session, sessionSpeech.speaker);
+              const faction = person ? getFactionOfPerson(registry, session, person)?.name || '' : '';
               return {
                 speaker: sessionSpeech.speaker,
                 start: sessionSpeech.start,

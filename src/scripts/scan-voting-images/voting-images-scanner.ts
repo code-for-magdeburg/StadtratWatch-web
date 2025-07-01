@@ -1,4 +1,4 @@
-import { SessionConfig } from '@srw-astro/models/session-config';
+import { SessionConfig } from './session-config.ts';
 import { IVotingImagesSource } from './voting-images-source.ts';
 import { SessionScan } from '@srw-astro/models/session-scan';
 import { ISessionScanStore } from './session-scan-store.ts';

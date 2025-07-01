@@ -1,5 +1,4 @@
 export type SessionConfig = {
-  date: string;
   layout: SessionConfigLayout;
   names: SessionConfigPerson[];
 };

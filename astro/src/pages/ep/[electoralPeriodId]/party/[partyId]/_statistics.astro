@@ -18,37 +18,45 @@ import {
   calcAbstentionRateOfParty
 } from '@data-analysis/AbstentionRate';
 import { formatPercentage, formatScore } from '@utils/format-number';
+import { type Registry } from '@models/registry';
 
 type Props = {
+  electoralPeriod: Registry;
   party: RegistryParty;
   sessionInputs: SessionInput[];
 };
 
-const { party, sessionInputs } = Astro.props as Props;
+const { electoralPeriod, party, sessionInputs } = Astro.props as Props;
 
 const votingsSuccessRate = calcVotingSuccessRateOfParty(
+  electoralPeriod,
   party,
   sessionInputs
 );
 const votingsSuccessRateHistory = calcVotingSuccessRateHistoryOfParty(
+  electoralPeriod,
   party,
   sessionInputs
 );
-const uniformityScore = calcUniformityScoreOfParty(party, sessionInputs);
+const uniformityScore = calcUniformityScoreOfParty(electoralPeriod, party, sessionInputs);
 const uniformityScoreHistory = calcUniformityScoreHistoryOfParty(
+  electoralPeriod,
   party,
   sessionInputs
 );
 const participationRate = calcParticipationRateOfParty(
+  electoralPeriod,
   party,
   sessionInputs
 );
 const participationRateHistory = calcParticipationRateHistoryOfParty(
+  electoralPeriod,
   party,
   sessionInputs
 );
-const abstentionRate = calcAbstentionRateOfParty(party, sessionInputs);
+const abstentionRate = calcAbstentionRateOfParty(electoralPeriod, party, sessionInputs);
 const abstentionRateHistory = calcAbstentionRateHistoryOfParty(
+  electoralPeriod,
   party,
   sessionInputs
 );

@@ -1,4 +1,4 @@
-import { SessionConfig, SessionConfigLayout, SessionConfigPerson } from '@srw-astro/models/session-config';
+import { SessionConfig, SessionConfigLayout, SessionConfigPerson } from './session-config.ts';
 import { IVotingImagesSource } from './voting-images-source.ts';
 import { SessionVote } from '@srw-astro/models/session-scan';
 import { CanvasRenderingContext2D } from '@gfx/canvas';

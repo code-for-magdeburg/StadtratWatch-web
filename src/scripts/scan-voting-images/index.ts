@@ -1,4 +1,4 @@
-import { SessionConfig } from '@srw-astro/models/session-config';
+import { SessionConfig } from './session-config.ts';
 import { createWorker } from 'npm:tesseract.js';
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { VotingImagesScanner } from './voting-images-scanner.ts';
