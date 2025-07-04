@@ -1,7 +1,7 @@
 import type { SessionInput } from '@models/SessionInput.ts';
 import type { RegistryFaction } from '@models/registry.ts';
 import { VoteResult, VotingResult } from '@models/Session.ts';
-import type { SessionVote } from '@models/session-scan.ts';
+import type { SessionScanVote } from '@models/session-scan.ts';
 
 export type HistoryDataPoint = {
   date: string;
@@ -42,7 +42,7 @@ export function calcApplicationsSuccessRateHistoryOfFaction(
     .toSorted((a, b) => a.date.localeCompare(b.date));
 }
 
-function getVotingResult(votes: SessionVote[]): VotingResult {
+function getVotingResult(votes: SessionScanVote[]): VotingResult {
   const votedFor = votes.filter(
     (vote) => vote.vote === VoteResult.VOTE_FOR,
   ).length;

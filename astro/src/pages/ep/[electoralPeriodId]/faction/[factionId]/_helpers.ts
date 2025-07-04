@@ -1,5 +1,5 @@
 import { VoteResult, VotingResult } from '@models/Session.ts';
-import type { SessionVote } from '@models/session-scan.ts';
+import type { SessionScanVote } from '@models/session-scan.ts';
 
 export enum ApplicationResult {
   ACCEPTED = 'ACCEPTED',
@@ -7,7 +7,7 @@ export enum ApplicationResult {
   REJECTED = 'REJECTED',
 }
 
-export function getVotingResult(votes: SessionVote[]): VotingResult {
+export function getVotingResult(votes: SessionScanVote[]): VotingResult {
   const votedFor = votes.filter(
     (vote) => vote.vote === VoteResult.VOTE_FOR,
   ).length;

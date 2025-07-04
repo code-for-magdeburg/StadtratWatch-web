@@ -1,4 +1,4 @@
-import { SessionConfig } from './session-config.ts';
+import { ScanConfig } from './scan-config.ts';
 import { createWorker } from 'npm:tesseract.js';
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { VotingImagesScanner } from './voting-images-scanner.ts';
@@ -30,8 +30,8 @@ const scanner = new VotingImagesScanner(
   textRecognizer,
   votesRecognizer
 );
-const sessionConfig = JSON.parse(Deno.readTextFileSync(args.sessionConfigFile)) as SessionConfig;
-await scanner.processSession(args.session, sessionConfig);
+const scanConfig = JSON.parse(Deno.readTextFileSync(args.scanConfigFile)) as ScanConfig;
+await scanner.processSession(args.session, scanConfig);
 
 await worker.terminate();
 

@@ -1,4 +1,4 @@
-import { SessionConfig } from './session-config.ts';
+import { ScanConfig } from './scan-config.ts';
 import { IVotingImagesSource } from './voting-images-source.ts';
 import { SessionScan } from '@srw-astro/models/session-scan';
 import { ISessionScanStore } from './session-scan-store.ts';
@@ -14,7 +14,7 @@ export class VotingImagesScanner {
   }
 
 
-  public async processSession(session: string, config: SessionConfig): Promise<void> {
+  public async processSession(session: string, config: ScanConfig): Promise<void> {
 
     const summary: SessionScan = [];
 

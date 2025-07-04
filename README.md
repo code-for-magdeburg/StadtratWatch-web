@@ -30,7 +30,7 @@ docker build -t srw-scan-voting-images -f docker/scan-voting-images.Dockerfile .
 ```bash
 docker run \
 	--rm \
-	-v $(pwd)/data/magdeburg-7/2022-09-01/config-2022-09-01.json:/app/session-config.json:ro \
+	-v $(pwd)/data/magdeburg-7/2022-09-01/config-2022-09-01.json:/app/scan-config.json:ro \
 	-v $(pwd)/sessions-media-files/2022-09-01:/app/voting-images:ro \
 	-v $(pwd)/output/sessions-scan-results/2022-09-01:/app/output \
 	srw-scan-voting-images \

@@ -2,7 +2,7 @@ import { SessionInput } from '@srw-astro/models/session-input';
 import { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
 import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { SessionDetailsDto, SessionLightDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VoteResult, VotingResult } from '@srw-astro/models/session';
-import { SessionVote } from '@srw-astro/models/session-scan';
+import { SessionScanVote } from '@srw-astro/models/session-scan';
 
 
 export type GeneratedSessionsData = {
@@ -191,7 +191,7 @@ export class SessionsDataGenerator {
   }
 
 
-  private getVotingResult(votes: SessionVote[]): VotingResult {
+  private getVotingResult(votes: SessionScanVote[]): VotingResult {
     const votedFor = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
     const votedAgainst = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
     return votedFor > votedAgainst ? VotingResult.PASSED : VotingResult.REJECTED;
