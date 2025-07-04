@@ -45,19 +45,22 @@ const factions = electoralPeriod.factions
       sessionInputs
     );
     const votingSuccessRate = calcVotingSuccessRateOfFaction(
+      electoralPeriod,
       faction,
       sessionInputs
     );
     const uniformityScore = calcUniformityScoreOfFaction(
+      electoralPeriod,
       faction,
       sessionInputs
     );
     const participationRate = calcParticipationRateOfFaction(
+      electoralPeriod,
       faction,
       sessionInputs
     );
-    const abstentionRate = calcAbstentionRateOfFaction(faction, sessionInputs);
-    const speakingTime = calcSpeakingTimeOfFaction(faction, sessionInputs);
+    const abstentionRate = calcAbstentionRateOfFaction(electoralPeriod, faction, sessionInputs);
+    const speakingTime = calcSpeakingTimeOfFaction(electoralPeriod, faction, sessionInputs);
     return {
       id: faction.id,
       name: faction.name,

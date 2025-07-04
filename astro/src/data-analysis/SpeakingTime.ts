@@ -1,33 +1,35 @@
 import type {
+  Registry,
   RegistryFaction,
   RegistryParty,
   RegistryPerson,
 } from '@models/registry.ts';
 import type { SessionInput } from '@models/SessionInput.ts';
+import { getPersonsOfSessionAndFaction, getPersonsOfSessionAndParty, isPersonInSession } from '@utils/session-utils.ts';
 
 export function calcSpeakingTimeOfFaction(
+  electoralPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): number {
   return sessions
     .flatMap((session) => {
-      const persons = session.config.names
-        .filter((name) => name.faction === faction.name)
-        .map((name) => name.name);
+      const persons = getPersonsOfSessionAndFaction(electoralPeriod, session.session, faction)
+        .map((person) => person.name);
       return calcSpeakingTime(persons, session);
     })
     .reduce((acc, duration) => acc + duration, 0);
 }
 
 export function calcSpeakingTimeOfParty(
+  electoralPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): number {
   return sessions
     .flatMap((session) => {
-      const persons = session.config.names
-        .filter((name) => name.party === party.name)
-        .map((name) => name.name);
+      const persons = getPersonsOfSessionAndParty(electoralPeriod, session.session, party)
+        .map((person) => person.name);
       return calcSpeakingTime(persons, session);
     })
     .reduce((acc, duration) => acc + duration, 0);
@@ -38,9 +40,7 @@ export function calcSpeakingTimeOfPerson(
   sessions: SessionInput[],
 ): number {
   return sessions
-    .filter((session) =>
-      session.config.names.some((name) => name.name === person.name),
-    )
+    .filter((session) => isPersonInSession(person, session.session))
     .flatMap((session) => calcSpeakingTime([person.name], session))
     .reduce((acc, duration) => acc + duration, 0);
 }

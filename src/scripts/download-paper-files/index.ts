@@ -1,7 +1,7 @@
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { PaperFilesCollector } from './paper-files-collector.ts';
 import { PaperFilesDownloader } from './paper-files-downloader.ts';
-import { ScrapedSession } from '../shared/model/scraped-session.ts';
+import { ScrapedSession } from '@srw-astro/models/scraped-session';
 
 
 const args = parseArgs(Deno.args);

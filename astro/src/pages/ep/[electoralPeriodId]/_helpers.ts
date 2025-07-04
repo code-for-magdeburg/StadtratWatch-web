@@ -33,7 +33,6 @@ export type ElectoralPeriodWithSessionsProps = InferGetStaticPropsType<
 >;
 
 export const getElectoralPeriodWithSessionsPaths = (async () => {
-  const sessionConfigsCollection = await getCollection('sessionConfigs');
   const sessionSpeechesCollection = await getCollection('sessionSpeeches');
   const sessionScansCollection = await getCollection('sessionScans');
 
@@ -41,14 +40,6 @@ export const getElectoralPeriodWithSessionsPaths = (async () => {
   return electoralPeriodStaticPaths.map((path) => {
     const { electoralPeriod } = path.props;
 
-    const sessionConfigs = sessionConfigsCollection
-      .filter((sessionConfig) =>
-        sessionConfig.id.startsWith(`${electoralPeriod.id}/`),
-      )
-      .map((sessionConfig) => ({
-        sessionId: sessionConfig.id,
-        config: sessionConfig.data,
-      }));
     const sessionScans = sessionScansCollection
       .filter((sessionScan) =>
         sessionScan.id.startsWith(`${electoralPeriod.id}/`),
@@ -66,25 +57,24 @@ export const getElectoralPeriodWithSessionsPaths = (async () => {
         speeches: sessionSpeech.data,
       }));
 
-    const sessionInputs = sessionConfigs.map((sessionConfig) => {
+    const sessionInputs = electoralPeriod.sessions.map((session) => {
       const sessionScan = sessionScans.find(
-        (sessionScan) => sessionScan.sessionId === sessionConfig.sessionId,
+        (sessionScan) =>
+          sessionScan.sessionId === `${electoralPeriod.id}/${session.id}`
       );
       const speeches = sessionSpeeches
         .filter(
           (sessionSpeech) =>
-            sessionSpeech.sessionId === sessionConfig.sessionId,
+            sessionSpeech.sessionId === `${electoralPeriod.id}/${session.id}`
         )
         .flatMap((sessionSpeech) => sessionSpeech.speeches);
       return {
-        sessionId: sessionConfig.sessionId.split('/')[1],
-        config: sessionConfig.config,
+        session,
         votings: sessionScan?.scan || [],
         speeches,
       } as SessionInput;
     });
-    const { scrapedMeetings, scrapedAgendaItems, scrapedPapers, scrapedFiles } =
-      path.props;
+    const { scrapedMeetings, scrapedAgendaItems, scrapedPapers, scrapedFiles } = path.props;
     return {
       params: { electoralPeriodId: electoralPeriod.id },
       props: {
@@ -118,7 +108,7 @@ export const getElectoralPeriodWithSessionPaths = async () => {
     return sessionInputs.map((sessionInput) => ({
       params: {
         electoralPeriodId: electoralPeriod.id,
-        sessionId: sessionInput.sessionId,
+        sessionId: sessionInput.session.id,
       },
       props: {
         electoralPeriod,
@@ -220,7 +210,7 @@ export const getElectoralPeriodWithSessionAndVotingPaths = async () => {
       return {
         params: {
           electoralPeriodId: electoralPeriod.id,
-          sessionId: sessionInput.sessionId,
+          sessionId: sessionInput.session.id,
           votingId: +voting.votingFilename.substring(11, 14),
         },
         props: {

@@ -1,4 +1,4 @@
-import { ScrapedSession } from '../shared/model/scraped-session.ts';
+import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { IndexSearchEnv, tryGetIndexSearchEnv } from './env.ts';
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { SearchIndexer } from './search-indexer.ts';

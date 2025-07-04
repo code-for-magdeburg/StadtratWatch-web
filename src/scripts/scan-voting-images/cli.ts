@@ -4,7 +4,7 @@ import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
 export type ScanVotingImagesArgs = {
   help: boolean;
-  sessionConfigFile: string;
+  scanConfigFile: string;
   votingImagesDir: string;
   outputDir: string;
   session: string;
@@ -14,10 +14,10 @@ export type ScanVotingImagesArgs = {
 export function parseArgs(args: string[]): ScanVotingImagesArgs {
   return stdCliParseArgs(args, {
     boolean: ['help'],
-    string: ['sessionConfigFile', 'votingImagesDir', 'outputDir', 'session'],
+    string: ['scanConfigFile', 'votingImagesDir', 'outputDir', 'session'],
     alias: {
       help: 'h',
-      'session-config-file': ['c', 'sessionConfigFile'],
+      'scan-config-file': ['c', 'scanConfigFile'],
       'voting-images-dir': ['i', 'votingImagesDir'],
       'output-dir': ['o', 'outputDir'],
       'session': ['s'],
@@ -27,10 +27,10 @@ export function parseArgs(args: string[]): ScanVotingImagesArgs {
 
 
 export function checkArgs(args: ScanVotingImagesArgs) {
-  const { sessionConfigFile, votingImagesDir, outputDir, session } = args;
+  const { scanConfigFile, votingImagesDir, outputDir, session } = args;
 
-  if (!sessionConfigFile) {
-    console.error('Missing session-config-file parameter. See --help for usage.');
+  if (!scanConfigFile) {
+    console.error('Missing scan-config-file parameter. See --help for usage.');
     Deno.exit(1);
   }
 
@@ -49,8 +49,8 @@ export function checkArgs(args: ScanVotingImagesArgs) {
     Deno.exit(1);
   }
 
-  if (!fs.existsSync(sessionConfigFile)) {
-    console.error(`Session config file "${sessionConfigFile}" does not exist.`);
+  if (!fs.existsSync(scanConfigFile)) {
+    console.error(`Scan config file "${scanConfigFile}" does not exist.`);
     Deno.exit(1);
   }
 
@@ -63,9 +63,9 @@ export function checkArgs(args: ScanVotingImagesArgs) {
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts -c <session-config-file> -o <output-dir> -s <session>
+Usage: deno run index.ts -c <scan-config-file> -o <output-dir> -s <session>
 -h, --help                  Show this help message and exit.
--c, --session-config-file   Specify the session config file.
+-c, --scan-config-file      Specify the scan config file.
 -i, --voting-images-dir     Specify the directory containing the voting images.
 -o, --output-dir            Specify the output directory where the resulting JSON file will be saved.
 -s, --session               Specify the session to process. Use the format 'YYYY-MM-DD'.

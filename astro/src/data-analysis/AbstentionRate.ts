@@ -1,11 +1,13 @@
 import type { SessionInput } from '@models/SessionInput.ts';
 import type {
+  Registry,
   RegistryFaction,
   RegistryParty,
   RegistryPerson,
 } from '@models/registry.ts';
 import type { SessionScanItem } from '@models/session-scan.ts';
 import { VoteResult } from '@models/Session.ts';
+import { getPersonsOfSessionAndFaction, getPersonsOfSessionAndParty, isPersonInSession } from '@utils/session-utils.ts';
 
 export type HistoryDataPoint = {
   date: string;
@@ -13,17 +15,15 @@ export type HistoryDataPoint = {
 };
 
 export function calcAbstentionRateOfFaction(
+  electoralPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): number | null {
   const abstentionRates = sessions
     .flatMap((session) => {
-      const persons = session.config.names
-        .filter((name) => name.faction === faction.name)
-        .map((name) => name.name);
-      return session.votings.map((voting) =>
-        calcAbstentionRate(persons, voting),
-      );
+      const persons = getPersonsOfSessionAndFaction(electoralPeriod, session.session, faction)
+        .map(person => person.name);
+      return session.votings.map((voting) => calcAbstentionRate(persons, voting));
     })
     .filter((rate) => rate !== null)
     .map((rate) => rate!);
@@ -34,16 +34,17 @@ export function calcAbstentionRateOfFaction(
 }
 
 export function calcAbstentionRateHistoryOfFaction(
+  electoralPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
-      const value = calcAbstentionRateOfFaction(faction, pastSessions);
-      return { date: session.config.date, value };
+      const value = calcAbstentionRateOfFaction(electoralPeriod, faction, pastSessions);
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))
@@ -51,17 +52,15 @@ export function calcAbstentionRateHistoryOfFaction(
 }
 
 export function calcAbstentionRateOfParty(
+  electoralPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): number | null {
   const abstentionRates = sessions
     .flatMap((session) => {
-      const persons = session.config.names
-        .filter((name) => name.party === party.name)
-        .map((name) => name.name);
-      return session.votings.map((voting) =>
-        calcAbstentionRate(persons, voting),
-      );
+      const persons = getPersonsOfSessionAndParty(electoralPeriod, session.session, party)
+        .map((person) => person.name);
+      return session.votings.map((voting) => calcAbstentionRate(persons, voting));
     })
     .filter((rate) => rate !== null)
     .map((rate) => rate!);
@@ -72,16 +71,17 @@ export function calcAbstentionRateOfParty(
 }
 
 export function calcAbstentionRateHistoryOfParty(
+  electoralPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
-      const value = calcAbstentionRateOfParty(party, pastSessions);
-      return { date: session.config.date, value };
+      const value = calcAbstentionRateOfParty(electoralPeriod, party, pastSessions);
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))
@@ -93,9 +93,7 @@ export function calcAbstentionRateOfPerson(
   sessions: SessionInput[],
 ): number | null {
   const abstentionRates = sessions
-    .filter((session) =>
-      session.config.names.find((name) => name.name === person.name),
-    )
+    .filter((session) => isPersonInSession(person, session.session))
     .flatMap((session) => session.votings)
     .filter((voting) =>
       voting.votes.some(
@@ -119,10 +117,10 @@ export function calcAbstentionRateHistoryOfPerson(
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
       const value = calcAbstentionRateOfPerson(person, pastSessions);
-      return { date: session.config.date, value };
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))

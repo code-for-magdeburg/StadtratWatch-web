@@ -22,13 +22,15 @@ import {
   calcAbstentionRateOfFaction
 } from '@data-analysis/AbstentionRate';
 import { formatPercentage, formatScore } from '@utils/format-number';
+import { type Registry } from '@models/registry';
 
 type Props = {
+  electoralPeriod: Registry,
   faction: RegistryFaction;
   sessionInputs: SessionInput[];
 };
 
-const { faction, sessionInputs } = Astro.props as Props;
+const { electoralPeriod, faction, sessionInputs } = Astro.props as Props;
 
 const applicationSuccessRate = calcApplicationsSuccessRateOfFaction(
   faction,
@@ -39,28 +41,34 @@ const applicationSuccessRateHistory = calcApplicationsSuccessRateHistoryOfFactio
   sessionInputs
 );
 const votingsSuccessRate = calcVotingSuccessRateOfFaction(
+  electoralPeriod,
   faction,
   sessionInputs
 );
 const votingsSuccessRateHistory = calcVotingSuccessRateHistoryOfFaction(
+  electoralPeriod,
   faction,
   sessionInputs
 );
-const uniformityScore = calcUniformityScoreOfFaction(faction, sessionInputs);
+const uniformityScore = calcUniformityScoreOfFaction(electoralPeriod, faction, sessionInputs);
 const uniformityScoreHistory = calcUniformityScoreHistoryOfFaction(
+  electoralPeriod,
   faction,
   sessionInputs
 );
 const participationRate = calcParticipationRateOfFaction(
+  electoralPeriod,
   faction,
   sessionInputs
 );
 const participationRateHistory = calcParticipationRateHistoryOfFaction(
+  electoralPeriod,
   faction,
   sessionInputs
 );
-const abstentionRate = calcAbstentionRateOfFaction(faction, sessionInputs);
+const abstentionRate = calcAbstentionRateOfFaction(electoralPeriod, faction, sessionInputs);
 const abstentionRateHistory = calcAbstentionRateHistoryOfFaction(
+  electoralPeriod,
   faction,
   sessionInputs
 );

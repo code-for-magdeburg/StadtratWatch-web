@@ -1,16 +1,15 @@
-import { Registry } from '../shared/model/registry.ts';
+import { Registry } from '@srw-astro/models/registry';
 import * as path from '@std/path';
-import { ScrapedSession } from '../shared/model/scraped-session.ts';
-import { SessionInputData } from '../shared/model/session-input-data.ts';
-import { SessionConfig } from '../shared/model/session-config.ts';
-import { SessionScan } from '../shared/model/session-scan.ts';
-import { SessionSpeech } from '../shared/model/session-speech.ts';
+import { ScrapedSession } from '@srw-astro/models/scraped-session';
+import { SessionInput } from '@srw-astro/models/session-input';
+import { SessionScan } from '@srw-astro/models/session-scan';
+import { SessionSpeech } from '@srw-astro/models/session-speech';
 
 
 export type InputData = {
   registry: Registry;
   scrapedSession: ScrapedSession;
-  sessionsInputData: SessionInputData[];
+  sessionsInputData: SessionInput[];
 };
 
 
@@ -40,17 +39,13 @@ export class InputDataLoaders {
   }
 
 
-  private loadSessionsInputData(registry: Registry): SessionInputData[] {
+  private loadSessionsInputData(registry: Registry): SessionInput[] {
 
-    return registry.sessions.map<SessionInputData>(session => {
+    return registry.sessions.map<SessionInput>(session => {
 
       const sessionDir = path.join(this.inputDir, session.date);
 
-      const config = JSON.parse(
-        Deno.readTextFileSync(path.join(sessionDir, `config-${session.date}.json`))
-      ) as SessionConfig;
-
-      const scan = JSON.parse(
+      const votings = JSON.parse(
         Deno.readTextFileSync(path.join(sessionDir, `session-scan-${session.date}.json`))
       ) as SessionScan;
 
@@ -58,7 +53,7 @@ export class InputDataLoaders {
         Deno.readTextFileSync(path.join(sessionDir, `session-speeches-${session.date}.json`))
       ) as SessionSpeech[];
 
-      return { sessionId: session.id, config, scan, speeches } satisfies SessionInputData;
+      return { session, votings, speeches } satisfies SessionInput;
 
     });
 
