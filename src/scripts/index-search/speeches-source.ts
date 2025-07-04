@@ -1,14 +1,12 @@
 import * as fs from '@std/fs';
 import * as path from '@std/path';
-import { Registry } from '../shared/model/registry.ts';
-import { SessionConfig } from '../shared/model/session-config.ts';
-import { SessionSpeech } from '../shared/model/session-speech.ts';
+import { Registry, RegistrySession } from '@srw-astro/models/registry';
+import { SessionSpeech } from '@srw-astro/models/session-speech';
 
 
 export type IndexableSpeech = {
-  electoralPeriod: string;
-  session: string;
-  config: SessionConfig;
+  electoralPeriod: Registry;
+  session: RegistrySession;
   speech: SessionSpeech;
 };
 
@@ -31,13 +29,10 @@ export class SpeechesSource implements ISpeechesSource {
       .getElectoralPeriods()
       .flatMap<IndexableSpeech>(registry => {
         return registry.sessions
-          .map(session => session.id)
-          .flatMap<IndexableSpeech>(session => {
-            const config = this.getSessionConfig(registry.id, session);
-            return this
-              .getSessionSpeeches(registry.id, session)
-              .map(speech => ({ electoralPeriod: registry.id, session, config, speech }));
-          });
+          .flatMap<IndexableSpeech>(session => this
+            .getSessionSpeeches(registry, session)
+            .map(speech => ({ electoralPeriod: registry, session, speech }))
+          );
       });
 
   }
@@ -55,17 +50,10 @@ export class SpeechesSource implements ISpeechesSource {
   }
 
 
-  private getSessionConfig(electoralPeriod: string, session: string): SessionConfig {
-    return JSON.parse(
-      Deno.readTextFileSync(path.join(this.electoralPeriodsBaseDir, electoralPeriod, session, `config-${session}.json`))
-    ) as SessionConfig;
-  }
-
-
-  private getSessionSpeeches(electoralPeriod: string, session: string): SessionSpeech[] {
+  private getSessionSpeeches(electoralPeriod: Registry, session: RegistrySession): SessionSpeech[] {
     return JSON.parse(
       Deno.readTextFileSync(
-        path.join(this.electoralPeriodsBaseDir, electoralPeriod, session, `session-speeches-${session}.json`)
+        path.join(this.electoralPeriodsBaseDir, electoralPeriod.id, session.id, `session-speeches-${session.id}.json`)
       )
     ) as SessionSpeech[];
   }

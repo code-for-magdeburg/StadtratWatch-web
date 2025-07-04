@@ -1,11 +1,11 @@
-import { SessionConfigLayout } from '../shared/model/session-config.ts';
-import { SessionScanVotingSubject } from '../shared/model/session-scan.ts';
+import { ScanConfigLayout } from './scan-config.ts';
+import { SessionScanVotingSubject } from '@srw-astro/models/session-scan';
 import { Worker } from 'npm:tesseract.js';
 
 
 export interface ITextRecognizer {
-  getVideoTimestamp(filepath: string, layout: SessionConfigLayout): Promise<string>;
-  getVotingSubject(filepath: string, layout: SessionConfigLayout): Promise<SessionScanVotingSubject>;
+  getVideoTimestamp(filepath: string, layout: ScanConfigLayout): Promise<string>;
+  getVotingSubject(filepath: string, layout: ScanConfigLayout): Promise<SessionScanVotingSubject>;
 }
 
 
@@ -16,7 +16,7 @@ export class TextRecognizer implements ITextRecognizer {
  }
 
 
-  public async getVideoTimestamp(filepath: string, layout: SessionConfigLayout): Promise<string> {
+  public async getVideoTimestamp(filepath: string, layout: ScanConfigLayout): Promise<string> {
 
     const { data: { text } } = await this.worker.recognize(
       filepath,
@@ -38,7 +38,7 @@ export class TextRecognizer implements ITextRecognizer {
  }
 
 
-  public async getVotingSubject(filepath: string, layout: SessionConfigLayout): Promise<SessionScanVotingSubject> {
+  public async getVotingSubject(filepath: string, layout: ScanConfigLayout): Promise<SessionScanVotingSubject> {
 
     const votingSubjectId = await this.worker.recognize(
       filepath,

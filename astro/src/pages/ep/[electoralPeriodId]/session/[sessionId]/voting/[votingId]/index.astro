@@ -30,7 +30,7 @@ const breadcrumbItems = [
     href: `/ep/${electoralPeriodId}/sessions`
   },
   {
-    name: formatDate(sessionInput.config.date),
+    name: formatDate(sessionInput.session.date),
     href: `/ep/${electoralPeriodId}/session/${sessionId}`
   },
   {
@@ -40,22 +40,30 @@ const breadcrumbItems = [
 ];
 
 const votesWithFaction = voting.votes.map(vote => {
-  const person = sessionInput.config.names.find(name => name.name === vote.name);
+  const person = electoralPeriod.persons.find(person => person.name === vote.name)
   if (!person) {
-    console.error(`Person ${vote.name} not found in config`);
+    throw new Error(`Person ${vote.name} not found`);
   }
-  const personId = electoralPeriod.persons.find(person => person.name === vote.name)?.id;
+
+  const faction = electoralPeriod.factions.find(
+    faction => faction.id === person?.factionId
+  );
+  if (!faction) {
+    throw new Error(`Person ${person.name} not found`);
+  }
+
   return {
-    ...vote,
-    personId,
-    faction: person?.faction!
+    personId: person.id,
+    personName: person.name,
+    factionName: faction.name,
+    vote: vote.vote
   };
 });
 const votesGroupedByFaction = votesWithFaction.reduce((acc, vote) => {
-  if (!acc[vote.faction]) {
-    acc[vote.faction] = [];
+  if (!acc[vote.factionName]) {
+    acc[vote.factionName] = [];
   }
-  acc[vote.faction].push(vote);
+  acc[vote.factionName].push(vote);
   return acc;
 }, {} as Record<string, typeof votesWithFaction>);
 const groupsSortedByVotes = Object
@@ -64,14 +72,14 @@ const groupsSortedByVotes = Object
 
 const paperId = getPaperId(
   sessionId,
-  sessionInput.config.date,
+  sessionInput.session.date,
   voting,
   scrapedMeetings,
   scrapedAgendaItems,
   scrapedPapers
 );
 
-const youtubeUrl = `${sessionInput.config.youtubeUrl}?t=${convertVideoTimestampToSeconds(voting.videoTimestamp)}s`;
+const youtubeUrl = `${sessionInput.session.youtubeUrl}?t=${convertVideoTimestampToSeconds(voting.videoTimestamp)}s`;
 
 const votedFor = voting.votes.filter(vote => vote.vote === 'J').length;
 const votedAgainst = voting.votes.filter(vote => vote.vote === 'N').length;
@@ -86,7 +94,7 @@ const votingAccepted = votedFor > votedAgainst;
 >
   <MetaTags
     slot="srw-meta-tags"
-    sessionDate={sessionInput.config.date}
+    sessionDate={sessionInput.session.date}
     voting={voting}
     electoralPeriodId={electoralPeriodId}
     sessionId={sessionId}
@@ -194,7 +202,7 @@ const votingAccepted = votedFor > votedAgainst;
                     href={`/ep/${electoralPeriod.id}/person/${vote.personId}`}
                     class="flex flex-row justify-between items-center py-2 space-x-1"
                   >
-                    <div class="truncate text-sm">{vote.name}</div>
+                    <div class="truncate text-sm">{vote.personName}</div>
                     {
                       vote.vote === 'J' &&
                       <div aria-label="status" class="status status-lg status-success"></div>

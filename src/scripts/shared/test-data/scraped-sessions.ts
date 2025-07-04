@@ -1,4 +1,4 @@
-import { ScrapedSession } from '../model/scraped-session.ts';
+import { ScrapedSession } from '@srw-astro/models/scraped-session';
 
 
 // Sessions with meetings:

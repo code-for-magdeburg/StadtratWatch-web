@@ -11,6 +11,8 @@ export type Registry = {
 export type RegistrySession = {
   id: string;
   date: string;
+  title: string;
+  youtubeUrl: string;
   meetingMinutesUrl: string;
 };
 

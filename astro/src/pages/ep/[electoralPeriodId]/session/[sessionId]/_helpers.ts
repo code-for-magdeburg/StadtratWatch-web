@@ -1,7 +1,7 @@
-import type { SessionConfig } from '@models/session-config.ts';
 import type { SessionSpeech } from '@models/session-speech.ts';
-import type { Registry } from '@models/registry.ts';
+import type { Registry, RegistrySession } from '@models/registry.ts';
 import { formatSpeakingTime } from '@utils/format-time.ts';
+import { getFactionOfPerson, getPersonByName } from '@utils/session-utils.ts';
 
 export type SpeakingTimesChartDataPoint = {
   value: number;
@@ -10,18 +10,16 @@ export type SpeakingTimesChartDataPoint = {
 };
 
 export function getSpeakingTimesChartData(
-  registry: Registry,
+  electoralPeriod: Registry,
+  session: RegistrySession,
   sessionSpeeches: SessionSpeech[],
-  sessionConfig: SessionConfig,
 ): SpeakingTimesChartDataPoint[] {
   const speechesGroupedBySpeaker = sessionSpeeches
     .filter(
       (speech) =>
         !speech.isChairPerson && speech.duration && speech.transcription,
     )
-    .filter((speech) =>
-      sessionConfig.names.some((name) => name.name === speech.speaker),
-    )
+    .filter((speech) => !!getPersonByName(electoralPeriod, session, speech.speaker))
     .reduce(
       (obj, speech) => {
         obj[speech.speaker] = (obj[speech.speaker] || 0) + speech.duration;
@@ -32,22 +30,23 @@ export function getSpeakingTimesChartData(
 
   return Object.entries(speechesGroupedBySpeaker)
     .map(([speaker, totalDurationSeconds]) => ({
-      speakerId: registry.persons.find((person) => person.name === speaker)?.id,
-      speaker,
+      person: getPersonByName(electoralPeriod, session, speaker),
       totalDurationSeconds: Math.round(totalDurationSeconds / 10) * 10,
     }))
-    .filter((speech) => !!speech.speakerId)
+    .filter((speech) => !!speech.person)
+    .map((speech) => ({
+      ...speech,
+      person: speech.person!
+    }))
     .toSorted((a, b) => b.totalDurationSeconds - a.totalDurationSeconds)
     .map((speech) => {
-      const faction = sessionConfig.names.find(
-        (name) => name.name === speech.speaker,
-      )?.faction || null;
+      const faction = getFactionOfPerson(electoralPeriod, session, speech.person)
       return {
         value: speech.totalDurationSeconds,
-        speakerId: speech.speakerId!,
+        speakerId: speech.person.id,
         label: generateSpeakingTimesBarLabel(
-          speech.speaker,
-          faction,
+          speech.person.name,
+          faction?.name || null,
           speech.totalDurationSeconds,
         ),
       };

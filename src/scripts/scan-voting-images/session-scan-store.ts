@@ -1,5 +1,5 @@
 import * as path from '@std/path';
-import { SessionScan } from '../shared/model/session-scan.ts';
+import { SessionScan } from '@srw-astro/models/session-scan';
 
 
 export interface ISessionScanStore {

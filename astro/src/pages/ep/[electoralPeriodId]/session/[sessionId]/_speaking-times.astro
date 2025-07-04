@@ -1,21 +1,19 @@
 ---
 import { getSpeakingTimesChartData } from './_helpers';
 import { type Registry } from '@models/registry';
-import { type SessionConfig } from '@models/session-config';
-import { type SessionSpeech } from '@models/session-speech';
+import { type SessionInput } from '@models/SessionInput';
 
 type Props = {
   electoralPeriod: Registry;
-  speeches: SessionSpeech[];
-  sessionConfig: SessionConfig;
+  sessionInput: SessionInput;
 };
 
-const { electoralPeriod, speeches, sessionConfig } = Astro.props as Props;
+const { electoralPeriod, sessionInput } = Astro.props as Props;
 
 const chartData = getSpeakingTimesChartData(
   electoralPeriod,
-  speeches,
-  sessionConfig,
+  sessionInput.session,
+  sessionInput.speeches
 );
 
 const chartHeight = chartData.length * 40;

@@ -15,7 +15,7 @@ const { electoralPeriod, sessionInputs } =
   Astro.props as ElectoralPeriodWithSessionsProps;
 
 const groupedByMonthMap = Map.groupBy(sessionInputs, (sessionInput) => {
-  const date = new Date(sessionInput.config.date);
+  const date = new Date(sessionInput.session.date);
   const month = `${date.getMonth() + 1}`.padStart(2, '0');
   const year = date.getFullYear();
   return `${year}-${month}`;
@@ -33,10 +33,10 @@ const groupedByMonth = Array.from(groupedByMonthMap)
       year,
       label,
       sessions: value.map((sessionInput) => ({
-        sessionId: sessionInput.sessionId,
-        date: sessionInput.config.date,
-        dateDisplay: formatDate(sessionInput.config.date),
-        title: sessionInput.config.title,
+        sessionId: sessionInput.session.id,
+        date: sessionInput.session.date,
+        dateDisplay: formatDate(sessionInput.session.date),
+        title: sessionInput.session.title,
       })),
     };
   })

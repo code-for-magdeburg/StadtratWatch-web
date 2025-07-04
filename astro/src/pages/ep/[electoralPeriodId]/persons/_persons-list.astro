@@ -12,6 +12,7 @@ import {
   formatVotingSuccessRate
 } from '@utils/format-number';
 import { formatSpeakingTime } from '@utils/format-time';
+import { isPersonInSession } from '@utils/session-utils';
 
 type Props = {
   electoralPeriod: Registry;
@@ -29,9 +30,7 @@ const persons = electoralPeriod.persons
       electoralPeriod.parties.find((party) => party.id === person.partyId)
         ?.name || 'parteilos';
 
-    const relevantSessions = sessionInputs.filter((session) =>
-      session.config.names.find((name) => name.name === person.name)
-    );
+    const relevantSessions = sessionInputs.filter((session) => isPersonInSession(person, session.session));
 
     const participationRate = calcParticipationRateOfPerson(
       person,

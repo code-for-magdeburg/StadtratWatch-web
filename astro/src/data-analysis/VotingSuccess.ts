@@ -1,11 +1,13 @@
 import type { SessionInput } from '@models/SessionInput.ts';
 import type {
+  Registry,
   RegistryFaction,
   RegistryParty,
   RegistryPerson,
 } from '@models/registry.ts';
 import type { SessionScanItem } from '@models/session-scan.ts';
 import { VoteResult, VotingResult } from '@models/Session.ts';
+import { getPersonsOfSessionAndFaction, getPersonsOfSessionAndParty, isPersonInSession } from '@utils/session-utils.ts';
 
 export type HistoryDataPoint = {
   date: string;
@@ -13,16 +15,16 @@ export type HistoryDataPoint = {
 };
 
 export function calcVotingSuccessRateOfFaction(
+  electoralPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): number | null {
   const votingsSuccess = sessions
     .flatMap((session) => {
-      const persons = session.config.names
-        .filter((name) => name.faction === faction.name)
+      const persons = getPersonsOfSessionAndFaction(electoralPeriod, session.session, faction)
         .map((name) => name.name);
-      const successfulVotings = session.votings.filter((voting) =>
-        isPersonsVotingSuccessful(persons, voting),
+      const successfulVotings = session.votings.filter(
+        (voting) => isPersonsVotingSuccessful(persons, voting)
       );
       return {
         successfulVotings: successfulVotings.length,
@@ -40,16 +42,17 @@ export function calcVotingSuccessRateOfFaction(
 }
 
 export function calcVotingSuccessRateHistoryOfFaction(
+  electoralPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
-      const value = calcVotingSuccessRateOfFaction(faction, pastSessions);
-      return { date: session.config.date, value };
+      const value = calcVotingSuccessRateOfFaction(electoralPeriod, faction, pastSessions);
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))
@@ -57,16 +60,16 @@ export function calcVotingSuccessRateHistoryOfFaction(
 }
 
 export function calcVotingSuccessRateOfParty(
+  electoralPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): number | null {
   const votingsSuccess = sessions
     .flatMap((session) => {
-      const persons = session.config.names
-        .filter((name) => name.party === party.name)
+      const persons = getPersonsOfSessionAndParty(electoralPeriod, session.session, party)
         .map((name) => name.name);
-      const successfulVotings = session.votings.filter((voting) =>
-        isPersonsVotingSuccessful(persons, voting),
+      const successfulVotings = session.votings.filter(
+        (voting) => isPersonsVotingSuccessful(persons, voting)
       );
       return {
         successfulVotings: successfulVotings.length,
@@ -84,16 +87,17 @@ export function calcVotingSuccessRateOfParty(
 }
 
 export function calcVotingSuccessRateHistoryOfParty(
+  electoralPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
-      const value = calcVotingSuccessRateOfParty(party, pastSessions);
-      return { date: session.config.date, value };
+      const value = calcVotingSuccessRateOfParty(electoralPeriod, party, pastSessions);
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))
@@ -105,9 +109,7 @@ export function calcVotingSuccessRateOfPerson(
   sessions: SessionInput[],
 ): number | null {
   const votingSuccess = sessions
-    .filter((session) =>
-      session.config.names.some((name) => name.name === person.name),
-    )
+    .filter((session) => isPersonInSession(person, session.session))
     .flatMap((session) => session.votings)
     .filter((voting) =>
       // TODO: To be decided => Different results if the abstentions are counted as success or not
@@ -144,10 +146,10 @@ export function calcVotingSuccessRateHistoryOfPerson(
   return sessions
     .map((session) => {
       const pastSessions = sessions.filter(
-        (s) => s.config.date <= session.config.date,
+        (s) => s.session.date <= session.session.date,
       );
       const value = calcVotingSuccessRateOfPerson(person, pastSessions);
-      return { date: session.config.date, value };
+      return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
     .map(({ date, value }) => ({ date, value: value! }))

@@ -19,9 +19,7 @@ const {
 
 const speechesBySessionDate = sessions
   .flatMap(session => ({
-    sessionId: session.sessionId,
-    sessionDate: session.config.date,
-    config: session.config,
+    session: session.session,
     speeches: session.speeches
       .filter(speech => speech.speaker === person.name)
       .filter(speech => !speech.isChairPerson)
@@ -29,7 +27,10 @@ const speechesBySessionDate = sessions
       .toSorted((a, b) => a.start - b.start)
   }))
   .filter(session => session.speeches.length > 0)
-  .toSorted((a, b) => b.sessionId.localeCompare(a.sessionId));
+  .toSorted(
+    (a, b) =>
+      b.session.id.localeCompare(a.session.id)
+  );
 ---
 <div class="alert alert-soft alert-info" role="alert">
   <span class="iconify lucide--info size-5"></span>
@@ -60,8 +61,8 @@ const speechesBySessionDate = sessions
             checked
             name="accordion-multiple" />
           <div class="collapse-title">
-            {formatDate(speechesBySessionDate.sessionDate)}
-            {speechesBySessionDate.config.title}
+            {formatDate(speechesBySessionDate.session.date)}
+            {speechesBySessionDate.session.title}
           </div>
           <div class="collapse-content">
             <ul class="timeline timeline-vertical timeline-compact">
@@ -72,9 +73,10 @@ const speechesBySessionDate = sessions
                       {index > 0 &&
                         <hr />}
                       <Speech
+                        electoralPeriod={electoralPeriod}
+                        session={speechesBySessionDate.session}
                         speech={speech}
-                        sessionConfig={speechesBySessionDate.config}
-                        speechElementId={`speech-${speechesBySessionDate.sessionId}-${speech.start}`}
+                        speechElementId={`speech-${speechesBySessionDate.session.id}-${speech.start}`}
                         link={`/ep/${electoralPeriod.id}/person/${person.id}?tab=speeches`}
                       />
                       {index < speechesBySessionDate.speeches.length - 1 &&

@@ -29,6 +29,6 @@ assignees: ''
 - [ ] Paper Files herunterladen (download-paper-files)
 - [ ] Paper Assets erzeugen (generate-paper-assets)
 - [ ] Paper Assets im Storage ablegen
-- [ ] Voting Images erzeugen (generate-voting-images)
+- [ ] Voting Images erzeugen (generate-image-assets)
 - [ ] Neue Voting Images im Storage ablegen
 - [ ] Neue Web-App-Version veröffentlichen

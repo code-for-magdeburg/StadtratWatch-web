@@ -4,7 +4,6 @@ import { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-imp
 import { EMPTY_SCRAPED_SESSION, TEST_SCRAPED_SESSION } from '../shared/test-data/scraped-sessions.ts';
 import { IPapersContentSource } from './papers-content-source.ts';
 import { IndexableSpeech, ISpeechesSource } from './speeches-source.ts';
-import { SessionConfig } from '../shared/model/session-config.ts';
 
 
 const mockImporter: IDocumentsImporter = {
@@ -23,75 +22,10 @@ class PapersContentSourceStub implements IPapersContentSource {
 class SpeechesSourceStub implements ISpeechesSource {
   getSpeeches(): IndexableSpeech[] {
 
-    const config: SessionConfig = {
-      title: 'Session Title',
-      youtubeUrl: '',
-      layout: {
-        namesRowHeight: 0,
-        namesColumns: [],
-        videoTimestampRectangle: {
-          left: 0,
-          top: 0,
-          width: 0,
-          height: 0
-        },
-        votingSubjectIdRectangle: {
-          left: 0,
-          top: 0,
-          width: 0,
-          height: 0
-        },
-        votingSubjectTitleRectangle: {
-          left: 0,
-          top: 0,
-          width: 0,
-          height: 0
-        }
-      },
-      names: [
-        {
-          name: 'Speaker-01',
-          columnIndex: 0,
-          rowIndex: 0,
-          party: 'Party-01',
-          faction: 'Faction-01'
-        },
-        {
-          name: 'Speaker-02',
-          columnIndex: 0,
-          rowIndex: 0,
-          party: 'Party-02',
-          faction: 'Faction-02'
-        },
-        {
-          name: 'Speaker-03',
-          columnIndex: 0,
-          rowIndex: 0,
-          party: 'Party-03',
-          faction: 'Faction-02'
-        },
-        {
-          name: 'Speaker-04',
-          columnIndex: 0,
-          rowIndex: 0,
-          party: 'Party-02',
-          faction: 'Faction-03'
-        },
-        {
-          name: 'Speaker-05',
-          columnIndex: 0,
-          rowIndex: 0,
-          party: 'Party-02',
-          faction: 'Faction-03'
-        },
-      ]
-    };
-
     return [
       {
         electoralPeriod: 'EP01',
         session: '2000-01-01',
-        config,
         speech: {
           speaker: 'Speaker-01',
           start: 0,
@@ -102,7 +36,6 @@ class SpeechesSourceStub implements ISpeechesSource {
       {
         electoralPeriod: 'EP01',
         session: '2000-01-01',
-        config,
         speech: {
           speaker: 'Speaker-02',
           start: 1,
@@ -113,7 +46,6 @@ class SpeechesSourceStub implements ISpeechesSource {
       {
         electoralPeriod: 'EP01',
         session: '2000-02-01',
-        config,
         speech: {
           speaker: 'Speaker-03',
           start: 1,
@@ -124,7 +56,6 @@ class SpeechesSourceStub implements ISpeechesSource {
       {
         electoralPeriod: 'EP01',
         session: '2000-02-01',
-        config,
         speech: {
           speaker: 'Speaker-04',
           start: 10,
@@ -135,7 +66,6 @@ class SpeechesSourceStub implements ISpeechesSource {
       {
         electoralPeriod: 'EP02',
         session: '2001-01-01',
-        config,
         speech: {
           speaker: 'Speaker-05',
           start: 10,
@@ -146,7 +76,6 @@ class SpeechesSourceStub implements ISpeechesSource {
       {
         electoralPeriod: 'EP02',
         session: '2001-01-01',
-        config,
         speech: {
           speaker: 'Speaker-06',
           start: 10,
@@ -157,7 +86,6 @@ class SpeechesSourceStub implements ISpeechesSource {
       {
         electoralPeriod: 'EP03',
         session: '2002-01-01',
-        config,
         speech: {
           speaker: 'Speaker-07',
           start: 10,
@@ -167,7 +95,6 @@ class SpeechesSourceStub implements ISpeechesSource {
       {
         electoralPeriod: 'EP03',
         session: '2002-01-01',
-        config,
         speech: {
           speaker: 'Speaker-01',
           start: 10,

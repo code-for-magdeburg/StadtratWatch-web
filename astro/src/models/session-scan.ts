@@ -4,7 +4,7 @@ export type SessionScanItem = {
   votingFilename: string;
   videoTimestamp: string;
   votingSubject: SessionScanVotingSubject;
-  votes: SessionVote[];
+  votes: SessionScanVote[];
 };
 
 export type SessionScanVotingSubject = {
@@ -15,7 +15,7 @@ export type SessionScanVotingSubject = {
   authors: string[];
 };
 
-export type SessionVote = {
+export type SessionScanVote = {
   name: string;
   vote: string;
 };
