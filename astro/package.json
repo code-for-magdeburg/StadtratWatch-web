@@ -7,8 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --config ../.prettierrc src/ --write",
-    "format:check": "prettier --config ../.prettierrc src/ --check"
+    "format": "prettier --config .prettierrc src/ --write",
+    "format:check": "prettier --config .prettierrc src/ --check"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.6",
@@ -32,7 +32,7 @@
     "typesense": "^2.0.3"
   },
   "devDependencies": {
-    "prettier": "3.5.3",
+    "prettier": "^3.5.3",
     "prettier-plugin-astro": "0.14.1"
   }
 }
