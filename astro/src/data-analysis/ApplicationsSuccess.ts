@@ -1,7 +1,7 @@
 import type { SessionInput } from '@models/SessionInput.ts';
 import type { RegistryFaction } from '@models/registry.ts';
 import { VoteResult, VotingResult } from '@models/Session.ts';
-import type { SessionScanVote } from '@models/session-scan.ts';
+import type { SessionScanItem, SessionScanVote } from '@models/session-scan.ts';
 
 export type HistoryDataPoint = {
   date: string;
@@ -12,17 +12,30 @@ export function calcApplicationsSuccessRateOfFaction(
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): number | null {
-  const applications = sessions
+  const votings = sessions
     .flatMap((session) => session.votings)
     .filter((voting) => voting.votingSubject.authors.includes(faction.name));
 
-  const applicationsPassed = applications.filter(
-    (voting) => getVotingResult(voting.votes) === VotingResult.PASSED,
-  );
+  // Group votings to take item-by-item votings into account
+  const groupedVotings = Object.groupBy(votings, (voting: SessionScanItem) => {
+    const { votingSubject } = voting;
+    const { agendaItem, applicationId, type } = votingSubject;
+    return `${agendaItem}|${applicationId}|${type}`;
+  });
 
-  return applications.length === 0
+  const votingGroupsResults = Array.from(Object.values(groupedVotings))
+    .map((votings) => votings!)
+    .map((votings) => {
+      const votingsPassed = votings.filter(
+        (voting) => getVotingResult(voting.votes) === VotingResult.PASSED,
+      );
+      return votingsPassed.length / votings.length;
+    });
+
+  return votingGroupsResults.length === 0
     ? null
-    : applicationsPassed.length / applications.length;
+    : votingGroupsResults.reduce((acc, curr) => acc + curr, 0) /
+        votingGroupsResults.length;
 }
 
 export function calcApplicationsSuccessRateHistoryOfFaction(
