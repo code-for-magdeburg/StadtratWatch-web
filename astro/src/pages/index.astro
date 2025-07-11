@@ -1,4 +1,4 @@
 ---
-// TODO: Use a configuration/env variable to determine the redirect path
-return Astro.redirect('/ep/magdeburg-8', 302);
+import { DEFAULT_ELECTORAL_PERIOD } from 'astro:env/server';
+return Astro.rewrite(`/ep/${DEFAULT_ELECTORAL_PERIOD}`);
 ---
