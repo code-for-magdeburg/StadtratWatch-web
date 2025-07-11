@@ -3,7 +3,10 @@ import { defineConfig, envField, passthroughImageService } from 'astro/config';
 import alpinejs from '@astrojs/alpinejs';
 import tailwindcss from '@tailwindcss/vite';
 
+import sitemap from '@astrojs/sitemap';
+
 export default defineConfig({
+  site: 'https://www.stadtratwatch.de',
   env: {
     schema: {
       DEFAULT_ELECTORAL_PERIOD: envField.string({
@@ -39,7 +42,7 @@ export default defineConfig({
     },
   },
 
-  integrations: [alpinejs()],
+  integrations: [alpinejs(), sitemap()],
 
   vite: {
     // TODO: The following @ts-expect-error directive should be safely removed after upgrading to Astro 7
