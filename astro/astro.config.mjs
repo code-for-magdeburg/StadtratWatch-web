@@ -6,6 +6,11 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   env: {
     schema: {
+      DEFAULT_ELECTORAL_PERIOD: envField.string({
+        context: 'server',
+        access: 'public',
+        optional: false
+      }),
       AWS_CLOUDFRONT_BASE_URL: envField.string({
         context: 'client',
         access: 'public',
