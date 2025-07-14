@@ -46,6 +46,6 @@ To run the script, you need to provide the following arguments:
 ```
 
 ```bash
-init-schema.sh "http://localhost:8108" "papers-and-speeches-0001" "abc123"
+./init-schema.sh "http://localhost:8108" "papers-and-speeches-0001" "abc123"
 ```
 This command will initialize the specified collection on the Typesense server running at `http://localhost:8108` using the provided API key.
