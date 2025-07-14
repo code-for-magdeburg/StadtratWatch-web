@@ -17,20 +17,20 @@ const { parliamentPeriod } = Astro.props as Props;
 const pathname = Astro.url.pathname.toLowerCase();
 let activePage = '';
 switch (true) {
-  case pathname.startsWith(`/ep/${parliamentPeriod.id}/session/`) ||
-    pathname === `/ep/${parliamentPeriod.id}/sessions`:
+  case pathname.startsWith(`/pp/${parliamentPeriod.id}/session/`) ||
+    pathname === `/pp/${parliamentPeriod.id}/sessions`:
     activePage = 'sessions';
     break;
-  case pathname.startsWith(`/ep/${parliamentPeriod.id}/faction/`) ||
-    pathname === `/ep/${parliamentPeriod.id}/factions`:
+  case pathname.startsWith(`/pp/${parliamentPeriod.id}/faction/`) ||
+    pathname === `/pp/${parliamentPeriod.id}/factions`:
     activePage = 'factions';
     break;
-  case pathname.startsWith(`/ep/${parliamentPeriod.id}/party/`) ||
-    pathname === `/ep/${parliamentPeriod.id}/parties`:
+  case pathname.startsWith(`/pp/${parliamentPeriod.id}/party/`) ||
+    pathname === `/pp/${parliamentPeriod.id}/parties`:
     activePage = 'parties';
     break;
-  case pathname.startsWith(`/ep/${parliamentPeriod.id}/person/`) ||
-    pathname === `/ep/${parliamentPeriod.id}/persons`:
+  case pathname.startsWith(`/pp/${parliamentPeriod.id}/person/`) ||
+    pathname === `/pp/${parliamentPeriod.id}/persons`:
     activePage = 'persons';
     break;
 }
@@ -76,7 +76,7 @@ switch (true) {
           {
             parliamentPeriods.map((parliamentPeriod) => (
               <li>
-                <a href={`/ep/${parliamentPeriod.id}`}>
+                <a href={`/pp/${parliamentPeriod.id}`}>
                   <span>{parliamentPeriod.name}</span>
                 </a>
               </li>
@@ -89,28 +89,28 @@ switch (true) {
         <a
           class="sidebar-menu-item"
           class:list={[{ active: activePage === 'sessions' }]}
-          href={`/ep/${parliamentPeriod.id}/sessions`}
+          href={`/pp/${parliamentPeriod.id}/sessions`}
         >
           Sitzungen
         </a>
         <a
           class="sidebar-menu-item"
           class:list={[{ active: activePage === 'factions' }]}
-          href={`/ep/${parliamentPeriod.id}/factions`}
+          href={`/pp/${parliamentPeriod.id}/factions`}
         >
           Fraktionen
         </a>
         <a
           class="sidebar-menu-item"
           class:list={[{ active: activePage === 'parties' }]}
-          href={`/ep/${parliamentPeriod.id}/parties`}
+          href={`/pp/${parliamentPeriod.id}/parties`}
         >
           Parteien
         </a>
         <a
           class="sidebar-menu-item"
           class:list={[{ active: activePage === 'persons' }]}
-          href={`/ep/${parliamentPeriod.id}/persons`}
+          href={`/pp/${parliamentPeriod.id}/persons`}
         >
           Personen
         </a>
