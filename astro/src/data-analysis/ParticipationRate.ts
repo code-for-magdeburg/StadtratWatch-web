@@ -15,13 +15,13 @@ export type HistoryDataPoint = {
 };
 
 export function calcParticipationRateOfFaction(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): number | null {
   const participationRates = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndFaction(electoralPeriod, session.session, faction)
+      const persons = getPersonsOfSessionAndFaction(parliamentPeriod, session.session, faction)
         .map((person) => person.name);
       return session.votings.map((voting) => calcParticipationRate(persons, voting));
     })
@@ -34,7 +34,7 @@ export function calcParticipationRateOfFaction(
 }
 
 export function calcParticipationRateHistoryOfFaction(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
@@ -43,7 +43,7 @@ export function calcParticipationRateHistoryOfFaction(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcParticipationRateOfFaction(electoralPeriod, faction, pastSessions);
+      const value = calcParticipationRateOfFaction(parliamentPeriod, faction, pastSessions);
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
@@ -52,13 +52,13 @@ export function calcParticipationRateHistoryOfFaction(
 }
 
 export function calcParticipationRateOfParty(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): number | null {
   const participationRates = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndParty(electoralPeriod, session.session, party)
+      const persons = getPersonsOfSessionAndParty(parliamentPeriod, session.session, party)
         .map((person) => person.name);
       return session.votings.map((voting) =>
         calcParticipationRate(persons, voting),
@@ -73,7 +73,7 @@ export function calcParticipationRateOfParty(
 }
 
 export function calcParticipationRateHistoryOfParty(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
@@ -82,7 +82,7 @@ export function calcParticipationRateHistoryOfParty(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcParticipationRateOfParty(electoralPeriod, party, pastSessions);
+      const value = calcParticipationRateOfParty(parliamentPeriod, party, pastSessions);
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)

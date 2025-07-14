@@ -1,0 +1,349 @@
+---
+import { type SessionInput } from '@models/SessionInput';
+import { type RegistryFaction } from '@models/registry';
+import { type SessionScanItem } from '@models/session-scan';
+import {
+  type ScrapedAgendaItem,
+  type ScrapedFile,
+  type ScrapedMeeting,
+  type ScrapedPaper
+} from '@models/scraped-session';
+import {
+  getApplicationResult,
+  getVotingId,
+  getVotingResult
+} from './_helpers';
+import { formatDate } from '@utils/format-date';
+
+export type ApplicationListItem = {
+  sessionId: string;
+  votingId: number;
+  votingDate: string;
+  votingDateFormatted: string;
+  type: string | null;
+  applicationId: string;
+  paperId: number | null;
+  title: string;
+  result: string;
+};
+
+type Props = {
+  parliamentPeriodId: string;
+  faction: RegistryFaction;
+  sessionInputs: SessionInput[];
+  scrapedMeetings: ScrapedMeeting[];
+  scrapedAgendaItems: ScrapedAgendaItem[];
+  scrapedPapers: ScrapedPaper[];
+  scrapedFiles: ScrapedFile[];
+};
+
+const {
+  parliamentPeriodId,
+  faction,
+  sessionInputs,
+  scrapedMeetings,
+  scrapedAgendaItems,
+  scrapedPapers,
+  scrapedFiles
+} = Astro.props as Props;
+
+const factionApplicationVotings = sessionInputs
+  .flatMap((sessionInput) =>
+    sessionInput.votings.map((voting) => ({
+      voting,
+      sessionId: sessionInput.session.id,
+      sessionDate: sessionInput.session.date
+    }))
+  )
+  .filter((voting) => !!voting.voting.votingSubject.applicationId)
+  .filter((voting) =>
+    voting.voting.votingSubject.authors.includes(faction.name)
+  );
+const applicationsMap = Map.groupBy(
+  factionApplicationVotings,
+  (voting) =>
+    `${voting.voting.votingSubject.applicationId}-${voting.voting.votingSubject.type}`
+);
+const applications = Array.from(applicationsMap)
+  .map(([_, applicationVotings]) => {
+    const applicationVoting = applicationVotings[0];
+    const applicationId = applicationVoting.voting.votingSubject.applicationId;
+    const applicationType = applicationVoting.voting.votingSubject.type;
+    const applicationTitle = applicationVoting.voting.votingSubject.title;
+    const sessionId = applicationVoting.sessionId;
+    const sessionDate = applicationVoting.sessionDate;
+    const paperId = getPaperId(
+      applicationVoting.sessionDate,
+      applicationVoting.voting
+    );
+    const votings = applicationVotings.map((applicationVoting) => ({
+      votingId: +applicationVoting.voting.votingFilename.substring(11, 14),
+      votingResult: getVotingResult(applicationVoting.voting.votes)
+    }));
+    return {
+      applicationId,
+      type: applicationType,
+      title: applicationTitle,
+      sessionId,
+      sessionDate,
+      paperId,
+      votings
+    };
+  })
+  .toSorted((a, b) => b.sessionDate.localeCompare(a.sessionDate))
+  .map<ApplicationListItem>((application) => ({
+    sessionId: application.sessionId,
+    votingId: getVotingId(application.votings),
+    votingDate: application.sessionDate,
+    votingDateFormatted: formatDate(application.sessionDate),
+    type: application.type,
+    applicationId: application.applicationId,
+    paperId: application.paperId,
+    title: application.title,
+    result: getApplicationResult(application.votings)
+  } satisfies ApplicationListItem));
+
+function getPaperId(
+  sessionDate: string,
+  voting: SessionScanItem
+): number | null {
+  const scrapedMeeting = scrapedMeetings.find(
+    (meeting) => meeting.start && meeting.start.slice(0, 10) === sessionDate
+  );
+  if (!scrapedMeeting) {
+    console.warn('No scraped meeting found for session', sessionDate);
+  }
+
+  const agendaItem = scrapedAgendaItems.find(
+    (agendaItem) =>
+      scrapedMeeting?.original_id &&
+      agendaItem.key === `Ö ${voting.votingSubject.agendaItem}` &&
+      agendaItem.meeting_id === scrapedMeeting.original_id
+  );
+  if (!agendaItem) {
+    console.warn(
+      'No scraped agenda item found for voting',
+      sessionDate,
+      voting.votingSubject.agendaItem
+    );
+  }
+
+  const scrapedPaperOriginalId = agendaItem?.paper_original_id;
+  if (!scrapedPaperOriginalId) {
+    console.warn(
+      'No scraped paper original id found for voting',
+      sessionDate,
+      voting.votingSubject.agendaItem
+    );
+  }
+
+  const paper = scrapedPaperOriginalId
+    ? scrapedPapers.find(
+    (paper) => paper.original_id === scrapedPaperOriginalId
+  ) || null
+    : null;
+
+  const files = scrapedPaperOriginalId
+    ? scrapedFiles.filter(
+      (file) => file.paper_original_id === scrapedPaperOriginalId
+    )
+    : [];
+  if (files.length === 0) {
+    console.warn(
+      'No scraped file found for voting',
+      sessionDate,
+      voting.votingSubject.agendaItem
+    );
+  }
+
+  return paper?.original_id || null;
+}
+---
+
+<div
+    class="overflow-x-auto space-y-4"
+    x-data="applications"
+    data-applications={JSON.stringify(applications)}
+    data-parliament-period-id={parliamentPeriodId}
+>
+  <div class="flex flex-row flex-wrap gap-4">
+    <div class="flex items-center gap-2">
+      <input
+          class="toggle toggle-sm"
+          id="applicationsFilterCheckbox"
+          x-ref="applicationsFilterCheckbox"
+          type="checkbox"
+          checked
+          @change="filterList($event.target.checked, $refs.changeRequestsFilterCheckbox.checked, $refs.pointsOfOrderFilterCheckbox.checked)"
+      />
+      <label class="label text-sm" for="applicationsFilterCheckbox">
+        Anträge
+      </label>
+    </div>
+    <div class="flex items-center gap-2">
+      <input
+          class="toggle toggle-sm"
+          id="changeRequestsFilterCheckbox"
+          x-ref="changeRequestsFilterCheckbox"
+          type="checkbox"
+          checked
+          @change="filterList($refs.applicationsFilterCheckbox.checked, $event.target.checked, $refs.pointsOfOrderFilterCheckbox.checked)"
+      />
+      <label class="label text-sm" for="changeRequestsFilterCheckbox">
+        Änderungsanträge
+      </label>
+    </div>
+    <div class="flex items-center gap-2">
+      <input
+          class="toggle toggle-sm"
+          id="pointsOfOrderFilterCheckbox"
+          x-ref="pointsOfOrderFilterCheckbox"
+          type="checkbox"
+          checked
+          @change="filterList($refs.applicationsFilterCheckbox.checked, $refs.changeRequestsFilterCheckbox.checked, $event.target.checked)"
+      />
+      <label class="label text-sm" for="pointsOfOrderFilterCheckbox">
+        Geschäftsordnungsanträge
+      </label>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col" class="px-0">
+        <button
+          class="btn btn-ghost btn-block flex justify-between"
+          @click="sortTextColumn('votingDate', (application) => application.votingDate)"
+        >
+          <span class="text-left">Abgestimmt am</span>
+          <span class="iconify lucide--chevrons-up-down"></span>
+        </button>
+      </th>
+      <th scope="col" class="px-0">
+        <button
+          class="btn btn-ghost btn-block flex justify-between"
+          @click="sortTextColumn('applicationId', (application) => application.applicationId)"
+        >
+          <span class="text-left">Antrag</span>
+          <span class="iconify lucide--chevrons-up-down"></span>
+        </button>
+      </th>
+      <th scope="col" class="px-0">
+        <button
+          class="btn btn-ghost btn-block flex justify-between"
+          @click="sortTextColumn('title', (application) => application.title)"
+        >
+          <span class="text-left">Titel</span>
+          <span class="iconify lucide--chevrons-up-down"></span>
+        </button>
+      </th>
+      <th scope="col" class="text-center">
+        <button
+          class="btn btn-ghost btn-block flex justify-between"
+          @click="sortTextColumn('result', (application) => application.result)"
+        >
+          <span class="text-left">Ergebnis</span>
+          <span class="iconify lucide--chevrons-up-down"></span>
+        </button>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <template x-for="application in applications">
+      <tr>
+        <td x-text="application.votingDateFormatted"></td>
+        <td class="flex flex-col">
+          <span x-text="application.type"></span>
+          <template x-if="application.paperId">
+            <a
+              :href="`/paper?paperId=${application.paperId}`"
+              class="link link-primary"
+              x-text="application.applicationId"
+            ></a>
+          </template>
+          <template x-if="!application.paperId">
+            <span x-text="application.applicationId"></span>
+          </template>
+        </td>
+        <td>
+          <a
+            :href="`/ep/${parliamentPeriodId}/session/${application.sessionId}/voting/${application.votingId}`"
+            class="link link-primary"
+            x-text="application.title"
+          ></a>
+        </td>
+        <td class="text-center">
+          <template x-if="application.result === 'ACCEPTED'">
+            <div class="badge badge-success badge-soft badge-sm">
+              <span class="iconify lucide--check-check" />
+              <span>Angenommen</span>
+            </div>
+          </template>
+          <template x-if="application.result === 'PARTIALLY_ACCEPTED'">
+            <div class="badge badge-warning badge-soft badge-sm">
+              <span class="iconify lucide--check" />
+              <span>Teilweise</span>
+            </div>
+          </template>
+          <template x-if="application.result === 'REJECTED'">
+            <div class="badge badge-error badge-soft badge-sm">
+              <span class="iconify lucide--x" />
+              <span>Abgelehnt</span>
+            </div>
+          </template>
+        </td>
+      </tr>
+    </template>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  import Alpine from 'alpinejs';
+  import { type ApplicationListItem } from './_applications.astro';
+
+  document.addEventListener('alpine:init', () => {
+    const applicationsTableElement = document.querySelector(
+      '[data-applications]'
+    ) as HTMLTableElement;
+    const applications = JSON.parse(
+      applicationsTableElement.dataset.applications || '[]'
+    ) as ApplicationListItem[];
+    const parliamentPeriodId = applicationsTableElement.dataset.parliamentPeriodId;
+
+    Alpine.data('applications', () => ({
+      parliamentPeriodId,
+      applications,
+      filterList: function(withApplications: boolean, withChangeRequests: boolean, withPointsOfOrder: boolean) {
+        this.applications = applications.filter((application) => {
+          if (application.type === 'Antrag' && !withApplications) return false;
+          if (application.type === 'Änderungsantrag' && !withChangeRequests) return false;
+          if (application.type === 'Geschäftsordnung' && !withPointsOfOrder) return false;
+          return true;
+        });
+      },
+      sortTextColumn: function(
+        column: string,
+        getText: (application: ApplicationListItem) => string
+      ) {
+        this._updateSortColumn(column);
+        this.applications.sort((a, b) =>
+          this._sortedDesc
+            ? getText(b).localeCompare(getText(a))
+            : getText(a).localeCompare(getText(b))
+        );
+      },
+      _sortedColumn: 'votingDate',
+      _sortedDesc: true,
+      _updateSortColumn: function(column: string) {
+        if (this._sortedColumn === column) {
+          this._sortedDesc = !this._sortedDesc;
+        } else {
+          this._sortedColumn = column;
+          this._sortedDesc = false;
+        }
+      }
+
+    }));
+  });
+</script>

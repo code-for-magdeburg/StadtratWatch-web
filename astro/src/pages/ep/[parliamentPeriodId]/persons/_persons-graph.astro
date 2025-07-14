@@ -1,0 +1,236 @@
+---
+import { type Registry } from '@models/registry';
+import { type SessionInput } from '@models/SessionInput';
+import { calcPersonsForces } from '@data-analysis/PersonsForces';
+import { fillColorsMap } from './_constants';
+
+type Props = {
+  parliamentPeriod: Registry;
+  sessionInputs: SessionInput[];
+};
+
+const { parliamentPeriod, sessionInputs } = Astro.props as Props;
+
+const personsForces = calcPersonsForces(parliamentPeriod, sessionInputs);
+const fillColors = Array
+  .from(
+    fillColorsMap.get(parliamentPeriod.id) || new Map<string, string>().entries()
+  )
+  .map(([faction, color]) => ({ faction, color }));
+---
+<style is:inline>
+  .person-tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    pointer-events: none; /* keep the mouseover when over the tooltip */
+  }
+</style>
+
+<div class="space-y-5">
+  <div class="alert alert-soft alert-info" role="alert">
+    <span class="iconify lucide--info size-5"></span>
+    <div
+      class="flex flex-col gap-2"
+      x-data="{ isMobile: /Mobi|Android/i.test(navigator.userAgent) }"
+    >
+      <p>
+        Jedes Kreissymbol repräsentiert ein Ratsmitglied. Je ähnlicher das Abstimmungsverhalten zweier Ratsmitglieder
+        ist, desto näher liegen ihre Kreise beieinander.
+      </p>
+      <template x-if="isMobile">
+        <p>
+          Tippen Sie auf ein Kreissymbol, um den Namen des Ratsmitglieds und die Fraktion anzuzeigen.
+        </p>
+      </template>
+      <template x-if="!isMobile">
+        <p>
+          Bewegen Sie die Maus über ein Kreissymbol, um den Namen des Ratsmitglieds und die Fraktion anzuzeigen.
+        </p>
+      </template>
+    </div>
+  </div>
+
+  <div class="rounded-box rounded-md border border-base-300 relative">
+    <div
+      id="graph-container"
+      style="min-height: 500px;"
+      x-data="graph"
+      data-parliament-period-id={parliamentPeriod.id}
+      data-persons-forces={JSON.stringify(personsForces)}
+      x-init="showGraph(); $watch('currentTab', value => value === 'graph' && showGraph());"
+      @resize.window="showGraph()"
+    ></div>
+    <div class="absolute top-4 right-4 tooltip tooltip-left">
+      <div class="tooltip-content bg-base-200 border border-base-300 shadow p-3">
+        <ul class="list-none p-0 m-0 text-sm text-base-content/60 space-y-1">
+          {fillColors.map(fillColor => (
+            <li class="flex items-center gap-2">
+              <span class="inline-block w-3 h-3 rounded-full" style={`background-color: ${fillColor.color};`}></span>
+              <span>{fillColor.faction}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <span class="iconify lucide--info size-5 text-base-content/80"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+  import * as d3 from 'd3';
+  import Alpine from 'alpinejs';
+  import { type PersonsForces } from '@data-analysis/PersonsForces';
+  import { type SimulationLinkDatum, type SimulationNodeDatum } from 'd3';
+  import { fillColorsMap } from './_constants';
+
+  interface PersonForcesNodeDatum extends SimulationNodeDatum {
+    id: string;
+    name: string;
+    faction: string;
+  }
+
+  interface PersonForcesLinkDatum extends SimulationLinkDatum<PersonForcesNodeDatum> {
+    value: number;
+  }
+
+  const FORCE_THRESHOLD = .65;
+  const FORCE_DISTANCE = 200;
+
+  const graphContainer = document.getElementById('graph-container');
+  if (graphContainer) {
+
+    const parliamentPeriodId = graphContainer.dataset.parliamentPeriodId;
+    const personsForces = JSON.parse(
+      graphContainer.dataset.personsForces || '{nodes: [], links: []}'
+    ) as PersonsForces;
+
+    const nodes = personsForces.nodes.map(
+      d => ({ ...d }) as PersonForcesNodeDatum
+    );
+    const links = personsForces.links
+      .filter(d => d.value > FORCE_THRESHOLD)
+      .map(d => ({ ...d }) as PersonForcesLinkDatum);
+
+    const fillColors = fillColorsMap.get(parliamentPeriodId || '') || new Map<string, string>();
+
+    const svg = d3.select(graphContainer).append('svg');
+
+    const tooltip = d3
+      .select(graphContainer)
+      .append('div')
+      .classed('person-tooltip bg-gray-300', true)
+      .style('opacity', 0);
+
+    Alpine.data('graph', () => ({
+      showGraph() {
+        setTimeout(() => this.drawGraph(graphContainer.clientWidth, graphContainer.clientHeight), 100);
+      },
+      drawGraph(width: number, height: number) {
+
+        svg
+          .attr('width', width)
+          .attr('height', height)
+          .attr('viewBox', [0, 0, width, height])
+          .classed('w-full h-auto', true)
+          .call(
+            // @ts-ignore
+            d3
+              .zoom()
+              .on(
+                'zoom',
+                (event: any) => d3
+                  .select('svg g')
+                  .attr('transform', event.transform)
+              )
+          );
+
+        svg.selectAll('g').remove();
+        const node = svg
+          .append('g')
+          .attr('stroke', '#aaa')
+          .attr('stroke-width', 1)
+          .selectAll('circle')
+          .data(nodes)
+          .join('circle')
+          .attr('r', 5)
+          .attr('fill', (d) => fillColors.get(d.faction) || '#000')
+          .on('mouseover', mouseOver)
+          .on('mouseleave', mouseLeave)
+          .call(
+            // @ts-ignore
+            d3
+              .drag()
+              .on('start', dragstarted)
+              .on('drag', dragged)
+              .on('end', dragended));
+
+        function ticked() {
+          node
+            .attr('cx', d => d.x || null)
+            .attr('cy', d => d.y || null);
+        }
+
+        const simulation = d3
+          .forceSimulation(nodes)
+          .force('charge', d3.forceManyBody())
+          .force(
+            'link',
+            d3.forceLink<PersonForcesNodeDatum, PersonForcesLinkDatum>(links)
+              .id((d) => d.id)
+              .distance(l => FORCE_DISTANCE * (1 - l.value))
+          )
+          .force('center', d3.forceCenter(width / 3, height / 3))
+          .force('collision', d3.forceCollide(5))
+          .on('tick', ticked);
+
+        function dragstarted(event: any) {
+          if (!event.active) simulation.alphaTarget(0.3).restart();
+          event.subject.fx = event.subject.x;
+          event.subject.fy = event.subject.y;
+        }
+
+        function dragged(event: any) {
+          event.subject.fx = event.x;
+          event.subject.fy = event.y;
+        }
+
+        function dragended(event: any) {
+          if (!event.active) simulation.alphaTarget(0);
+          event.subject.fx = null;
+          event.subject.fy = null;
+        }
+
+        function mouseOver(event: any, node: PersonForcesNodeDatum) {
+          tooltip
+            .transition()
+            .duration(300)
+            .style('opacity', 1)
+            .style('left', `${event.layerX - tooltip.node()!.offsetWidth - 5}px`)
+            .style('top', `${event.layerY - tooltip.node()!.offsetHeight}px`);
+          tooltip
+            .html(`
+<span class="font-bold text-gray-900">
+    ${node.name}
+</span>
+<br>
+<span class="text-gray-600">
+    ${node.faction}
+</span>`);
+        }
+
+        function mouseLeave() {
+          tooltip
+            .transition()
+            .duration(200)
+            .style('opacity', 0);
+        }
+
+      }
+    }));
+
+  }
+
+</script>

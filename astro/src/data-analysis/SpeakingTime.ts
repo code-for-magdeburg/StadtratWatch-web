@@ -8,13 +8,13 @@ import type { SessionInput } from '@models/SessionInput.ts';
 import { getPersonsOfSessionAndFaction, getPersonsOfSessionAndParty, isPersonInSession } from '@utils/session-utils.ts';
 
 export function calcSpeakingTimeOfFaction(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): number {
   return sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndFaction(electoralPeriod, session.session, faction)
+      const persons = getPersonsOfSessionAndFaction(parliamentPeriod, session.session, faction)
         .map((person) => person.name);
       return calcSpeakingTime(persons, session);
     })
@@ -22,13 +22,13 @@ export function calcSpeakingTimeOfFaction(
 }
 
 export function calcSpeakingTimeOfParty(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): number {
   return sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndParty(electoralPeriod, session.session, party)
+      const persons = getPersonsOfSessionAndParty(parliamentPeriod, session.session, party)
         .map((person) => person.name);
       return calcSpeakingTime(persons, session);
     })

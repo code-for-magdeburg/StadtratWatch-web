@@ -15,13 +15,13 @@ export type HistoryDataPoint = {
 };
 
 export function calcAbstentionRateOfFaction(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): number | null {
   const abstentionRates = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndFaction(electoralPeriod, session.session, faction)
+      const persons = getPersonsOfSessionAndFaction(parliamentPeriod, session.session, faction)
         .map(person => person.name);
       return session.votings.map((voting) => calcAbstentionRate(persons, voting));
     })
@@ -34,7 +34,7 @@ export function calcAbstentionRateOfFaction(
 }
 
 export function calcAbstentionRateHistoryOfFaction(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
@@ -43,7 +43,7 @@ export function calcAbstentionRateHistoryOfFaction(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcAbstentionRateOfFaction(electoralPeriod, faction, pastSessions);
+      const value = calcAbstentionRateOfFaction(parliamentPeriod, faction, pastSessions);
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
@@ -52,13 +52,13 @@ export function calcAbstentionRateHistoryOfFaction(
 }
 
 export function calcAbstentionRateOfParty(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): number | null {
   const abstentionRates = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndParty(electoralPeriod, session.session, party)
+      const persons = getPersonsOfSessionAndParty(parliamentPeriod, session.session, party)
         .map((person) => person.name);
       return session.votings.map((voting) => calcAbstentionRate(persons, voting));
     })
@@ -71,7 +71,7 @@ export function calcAbstentionRateOfParty(
 }
 
 export function calcAbstentionRateHistoryOfParty(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
@@ -80,7 +80,7 @@ export function calcAbstentionRateHistoryOfParty(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcAbstentionRateOfParty(electoralPeriod, party, pastSessions);
+      const value = calcAbstentionRateOfParty(parliamentPeriod, party, pastSessions);
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)

@@ -4,7 +4,7 @@ import { getFactionOfPerson, getPersonByName } from '@utils/session-utils';
 import { type Registry, type RegistrySession } from '@models/registry';
 
 type Props = {
-  electoralPeriod: Registry;
+  parliamentPeriod: Registry;
   session: RegistrySession;
   speech: SessionSpeech;
   speechElementId: string;
@@ -12,15 +12,15 @@ type Props = {
 };
 
 const {
-  electoralPeriod,
+  parliamentPeriod,
   session,
   speech,
   speechElementId,
   link
 } = Astro.props as Props;
 
-const person = getPersonByName(electoralPeriod, session, speech.speaker);
-const faction = person ? getFactionOfPerson(electoralPeriod, session, person) : null;
+const person = getPersonByName(parliamentPeriod, session, speech.speaker);
+const faction = person ? getFactionOfPerson(parliamentPeriod, session, person) : null;
 
 const youtubeUrl = getYoutubeUrl(session.youtubeUrl, speech.start);
 const linkTitle = getLinkTitle(speech.speaker, session.date);

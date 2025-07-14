@@ -5,7 +5,7 @@ import { SessionSpeech } from '@srw-astro/models/session-speech';
 
 
 export type IndexableSpeech = {
-  electoralPeriod: Registry;
+  parliamentPeriod: Registry;
   session: RegistrySession;
   speech: SessionSpeech;
 };
@@ -19,41 +19,41 @@ export interface ISpeechesSource {
 export class SpeechesSource implements ISpeechesSource {
 
 
-  constructor(private readonly electoralPeriodsBaseDir: string) {
+  constructor(private readonly parliamentPeriodsBaseDir: string) {
   }
 
 
   public getSpeeches(): IndexableSpeech[] {
 
     return this
-      .getElectoralPeriods()
+      .getParliamentPeriods()
       .flatMap<IndexableSpeech>(registry => {
         return registry.sessions
           .flatMap<IndexableSpeech>(session => this
             .getSessionSpeeches(registry, session)
-            .map(speech => ({ electoralPeriod: registry, session, speech }))
+            .map(speech => ({ parliamentPeriod: registry, session, speech }))
           );
       });
 
   }
 
 
-  private getElectoralPeriods(): Registry[] {
+  private getParliamentPeriods(): Registry[] {
     return Array
-      .from(Deno.readDirSync(this.electoralPeriodsBaseDir))
-      .filter(entry => Deno.statSync(path.join(this.electoralPeriodsBaseDir, entry.name)).isDirectory)
-      .filter(entry => fs.existsSync(path.join(this.electoralPeriodsBaseDir, entry.name, 'registry.json')))
+      .from(Deno.readDirSync(this.parliamentPeriodsBaseDir))
+      .filter(entry => Deno.statSync(path.join(this.parliamentPeriodsBaseDir, entry.name)).isDirectory)
+      .filter(entry => fs.existsSync(path.join(this.parliamentPeriodsBaseDir, entry.name, 'registry.json')))
       .map((entry) => {
-        const registryFilename = path.join(this.electoralPeriodsBaseDir, entry.name, 'registry.json');
+        const registryFilename = path.join(this.parliamentPeriodsBaseDir, entry.name, 'registry.json');
         return JSON.parse(Deno.readTextFileSync(registryFilename)) as Registry;
       });
   }
 
 
-  private getSessionSpeeches(electoralPeriod: Registry, session: RegistrySession): SessionSpeech[] {
+  private getSessionSpeeches(parliamentPeriod: Registry, session: RegistrySession): SessionSpeech[] {
     return JSON.parse(
       Deno.readTextFileSync(
-        path.join(this.electoralPeriodsBaseDir, electoralPeriod.id, session.id, `session-speeches-${session.id}.json`)
+        path.join(this.parliamentPeriodsBaseDir, parliamentPeriod.id, session.id, `session-speeches-${session.id}.json`)
       )
     ) as SessionSpeech[];
   }

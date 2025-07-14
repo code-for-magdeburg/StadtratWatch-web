@@ -5,7 +5,7 @@ import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 export type IndexSearchArgs = {
   help: boolean;
   papersContentDir: string;
-  electoralPeriodsBaseDir: string;
+  parliamentPeriodsBaseDir: string;
   scrapedSessionFilename: string;
 };
 
@@ -13,11 +13,11 @@ export type IndexSearchArgs = {
 export function parseArgs(args: string[]): IndexSearchArgs {
   return stdCliParseArgs(args, {
     boolean: ['help'],
-    string: ['papers-content-dir', 'electoral-periods-base-dir', 'scraped-session-filename'],
+    string: ['papers-content-dir', 'parliament-periods-base-dir', 'scraped-session-filename'],
     alias: {
       help: 'h',
-      'papers-content-dir': ['p', 'papersContentDir'],
-      'electoral-periods-base-dir': ['e', 'electoralPeriodsBaseDir'],
+      'papers-content-dir': ['c', 'papersContentDir'],
+      'parliament-periods-base-dir': ['p', 'parliamentPeriodsBaseDir'],
       'scraped-session-filename': ['s', 'scrapedSessionFilename'],
     },
   }) as IndexSearchArgs;
@@ -25,15 +25,15 @@ export function parseArgs(args: string[]): IndexSearchArgs {
 
 
 export function checkArgs(args: IndexSearchArgs) {
-  const { papersContentDir, electoralPeriodsBaseDir, scrapedSessionFilename } = args;
+  const { papersContentDir, parliamentPeriodsBaseDir, scrapedSessionFilename } = args;
 
   if (!papersContentDir) {
     console.error('Missing papers content directory. See --help for usage.');
     Deno.exit(1);
   }
 
-  if (!electoralPeriodsBaseDir) {
-    console.error('Missing electoral periods base directory. See --help for usage.');
+  if (!parliamentPeriodsBaseDir) {
+    console.error('Missing parliament periods base directory. See --help for usage.');
     Deno.exit(1);
   }
 
@@ -51,10 +51,10 @@ export function checkArgs(args: IndexSearchArgs) {
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts -i <papers-content-dir> -e <electoral-periods-base-dir> -s <scraped-session-filename>
+Usage: deno run index.ts -c <papers-content-dir> -p <parliament-periods-base-dir> -s <scraped-session-filename>
 -h, --help                          Show this help message and exit.
--p, --papers-content-dir            The papers content directory.
--e, --electoral-periods-base-dir    The electoral periods base directory. It contains subdirectories for each electoral period.
+-c, --papers-content-dir            The papers content directory.
+-p, --parliament-periods-base-dir   The parliament periods base directory. It contains subdirectories for each parliament period.
 -s, --scraped-session-filename      The scraped session file.
   `);
 }

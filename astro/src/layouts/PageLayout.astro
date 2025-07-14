@@ -6,23 +6,19 @@ import { type BreadcrumbItem } from '@components/BreadcrumbMenu.astro';
 
 type Props = {
   pageTitle: string;
-  electoralPeriod?: Registry;
+  parliamentPeriod?: Registry;
   breadcrumbItems?: BreadcrumbItem[];
 };
 
-const { pageTitle, electoralPeriod, breadcrumbItems } = Astro.props as Props;
+const { pageTitle, parliamentPeriod, breadcrumbItems } = Astro.props as Props;
 ---
 
-<Layout electoralPeriod={electoralPeriod}>
+<Layout parliamentPeriod={parliamentPeriod}>
   <Fragment slot="srw-meta-tags">
     <slot name="srw-meta-tags" />
   </Fragment>
 
-  <PageHeader
-    pageTitle={pageTitle}
-    electoralPeriod={electoralPeriod}
-    breadcrumbItems={breadcrumbItems}
-  />
+  <PageHeader pageTitle={pageTitle} breadcrumbItems={breadcrumbItems} />
 
   <slot name="sub-page-header" />
 

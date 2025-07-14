@@ -10,25 +10,25 @@ function isPersonInSession (person: RegistryPerson, session: RegistrySession): b
   return (person.start === null || person.start <= sessionDate) && (person.end === null || person.end >= sessionDate);
 }
 
-function getPersonsOfSession(electoralPeriod: Registry, session: RegistrySession): RegistryPerson[] {
-  return electoralPeriod.persons.filter(person => isPersonInSession(person, session))
+function getPersonsOfSession(parliamentPeriod: Registry, session: RegistrySession): RegistryPerson[] {
+  return parliamentPeriod.persons.filter(person => isPersonInSession(person, session))
 }
 
-function getPersonByName(electoralPeriod: Registry, session: RegistrySession,
+function getPersonByName(parliamentPeriod: Registry, session: RegistrySession,
                          personName: string): RegistryPerson | null {
-  return getPersonsOfSession(electoralPeriod, session).find(person => person.name === personName) || null;
+  return getPersonsOfSession(parliamentPeriod, session).find(person => person.name === personName) || null;
 }
 
-function getFactionOfPerson(electoralPeriod: Registry, session: RegistrySession,
+function getFactionOfPerson(parliamentPeriod: Registry, session: RegistrySession,
                             person: RegistryPerson): RegistryFaction | null {
-  return electoralPeriod.factions.find(
+  return parliamentPeriod.factions.find(
     faction => faction.id === person.factionId && isPersonInSession(person, session)
   ) || null;
 }
 
-function getPartyOfPerson(electoralPeriod: Registry, session: RegistrySession,
+function getPartyOfPerson(parliamentPeriod: Registry, session: RegistrySession,
                           person: RegistryPerson): RegistryFaction | null {
-  return electoralPeriod.parties.find(
+  return parliamentPeriod.parties.find(
     party => party.id === person.partyId && isPersonInSession(person, session)
   ) || null;
 }
@@ -97,17 +97,17 @@ export class SearchIndexer {
       .getSpeeches()
       .filter(indexableSpeech => indexableSpeech.speech.transcription)
       .map<IndexedSpeech>(indexableSpeech => {
-        const { electoralPeriod, session, speech } = indexableSpeech;
+        const { parliamentPeriod, session, speech } = indexableSpeech;
 
-        const person = getPersonByName(electoralPeriod, session, speech.speaker);
-        const party = person ? getPartyOfPerson(electoralPeriod, session, person) : null;
-        const faction = person ? getFactionOfPerson(electoralPeriod, session, person) : null;
+        const person = getPersonByName(parliamentPeriod, session, speech.speaker);
+        const party = person ? getPartyOfPerson(parliamentPeriod, session, person) : null;
+        const faction = person ? getFactionOfPerson(parliamentPeriod, session, person) : null;
 
         return {
-          id: `speech-${session}-${speech.start}`,
+          id: `speech-${session.id}-${speech.start}`,
           content: speech.transcription ? [speech.transcription] : [],
 
-          speech_electoral_period: electoralPeriod.id,
+          speech_parliament_period: parliamentPeriod.id,
           speech_session: session.id,
           speech_start: speech.start,
           speech_session_date: Date.parse(session.date),

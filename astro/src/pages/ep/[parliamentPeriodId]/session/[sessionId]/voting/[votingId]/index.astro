@@ -1,0 +1,232 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import { formatDate } from '@utils/format-date';
+import {
+  type ParliamentPeriodWithSessionAndVotingProps,
+  getParliamentPeriodWithSessionAndVotingPaths
+} from '../../../../_helpers';
+import { convertVideoTimestampToSeconds, getPaperId } from './_helpers';
+import MetaTags from '@components/MetaTags.astro';
+
+export const getStaticPaths = getParliamentPeriodWithSessionAndVotingPaths;
+
+const { parliamentPeriodId, sessionId, votingId } = Astro.params;
+const {
+  parliamentPeriod,
+  sessionInput,
+  voting,
+  scrapedMeetings,
+  scrapedAgendaItems,
+  scrapedPapers
+} = Astro.props as ParliamentPeriodWithSessionAndVotingProps;
+
+const breadcrumbItems = [
+  {
+    name: parliamentPeriod.name,
+    href: `/ep/${parliamentPeriodId}`
+  },
+  {
+    name: 'Sitzungen',
+    href: `/ep/${parliamentPeriodId}/sessions`
+  },
+  {
+    name: formatDate(sessionInput.session.date),
+    href: `/ep/${parliamentPeriodId}/session/${sessionId}`
+  },
+  {
+    name: `${voting.votingSubject.type || ''} ${voting.votingSubject.applicationId}`,
+    href: null
+  }
+];
+
+const votesWithFaction = voting.votes.map(vote => {
+  const person = parliamentPeriod.persons.find(person => person.name === vote.name)
+  if (!person) {
+    throw new Error(`Person ${vote.name} not found`);
+  }
+
+  const faction = parliamentPeriod.factions.find(
+    faction => faction.id === person?.factionId
+  );
+  if (!faction) {
+    throw new Error(`Person ${person.name} not found`);
+  }
+
+  return {
+    personId: person.id,
+    personName: person.name,
+    factionName: faction.name,
+    vote: vote.vote
+  };
+});
+const votesGroupedByFaction = votesWithFaction.reduce((acc, vote) => {
+  if (!acc[vote.factionName]) {
+    acc[vote.factionName] = [];
+  }
+  acc[vote.factionName].push(vote);
+  return acc;
+}, {} as Record<string, typeof votesWithFaction>);
+const groupsSortedByVotes = Object
+  .entries(votesGroupedByFaction)
+  .sort((a, b) => b[1].length - a[1].length);
+
+const paperId = getPaperId(
+  sessionId,
+  sessionInput.session.date,
+  voting,
+  scrapedMeetings,
+  scrapedAgendaItems,
+  scrapedPapers
+);
+
+const youtubeUrl = `${sessionInput.session.youtubeUrl}?t=${convertVideoTimestampToSeconds(voting.videoTimestamp)}s`;
+
+const votedFor = voting.votes.filter(vote => vote.vote === 'J').length;
+const votedAgainst = voting.votes.filter(vote => vote.vote === 'N').length;
+const abstentions = voting.votes.filter(vote => vote.vote === 'E').length;
+const totalVotes = votedFor + votedAgainst + abstentions;
+const votingAccepted = votedFor > votedAgainst;
+---
+<PageLayout
+  parliamentPeriod={parliamentPeriod}
+  pageTitle="Abstimmung"
+  breadcrumbItems={breadcrumbItems}
+>
+  <MetaTags
+    slot="srw-meta-tags"
+    sessionDate={sessionInput.session.date}
+    voting={voting}
+    parliamentPeriodId={parliamentPeriodId}
+    sessionId={sessionId}
+    votingId={votingId}
+  />
+
+  {
+    youtubeUrl && (
+      <div slot="sub-page-header">
+        <a
+          href={youtubeUrl}
+          target="_blank"
+          class="link link-primary text-xs"
+        >
+          <span class="iconify lucide--youtube" />
+          YouTube
+        </a>
+      </div>
+    )
+  }
+
+  <div class="space-y-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="card bg-base-100 border border-base-300 md:col-span-2 lg:col-span-3">
+        <div class="card-body">
+          <div class="text-base-content/60 text-sm space-x-1">
+            <span>TOP {voting.votingSubject.agendaItem}</span>
+            <span>
+              {voting.votingSubject.type}
+              {
+                voting.votingSubject.applicationId && paperId && (
+                  <a href={`/paper?paperId=${paperId}`} class="link link-primary">
+                    {voting.votingSubject.applicationId}
+                  </a>
+                )
+              }
+            </span>
+          </div>
+          <p class="mt-1 mb-3">{voting.votingSubject.title}</p>
+          <div class="flex flex-wrap gap-1">
+            {
+              voting.votingSubject.authors.map(author => (
+                <span class="badge badge-neutral badge-sm">{author}</span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-base-100 border border-base-300">
+        <div class="card-body">
+          <div class="flex flex-col">
+            <div class="flex flex-row items-center gap-x-2">
+              <progress
+                class="progress progress-success"
+                value={votedFor}
+                max={totalVotes} />
+              <span class="w-8 text-right text-sm">{votedFor}</span>
+            </div>
+            <div class="flex flex-row items-center gap-x-2">
+              <progress
+                class="progress progress-error"
+                value={votedAgainst}
+                max={totalVotes} />
+              <span class="w-8 text-right text-sm">{votedAgainst}</span>
+            </div>
+            <div class="flex flex-row items-center gap-x-2">
+              <progress
+                class="progress progress-warning"
+                value={abstentions}
+                max={totalVotes} />
+              <span class="w-8 text-right text-sm">{abstentions}</span>
+            </div>
+            {
+              votingAccepted && (
+                <div class="badge badge-success badge-lg w-full mt-3">
+                  <span class="iconify lucide--check" />
+                  Angenommen
+                </div>
+              )
+            }
+            {
+              !votingAccepted && (
+                <div class="badge badge-error badge-lg w-full mt-3">
+                  <span class="iconify lucide--x" />
+                  Abgelehnt
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {
+        groupsSortedByVotes.map(([faction, votes]) => (
+          <div class="card bg-base-100 border border-base-300 self-start">
+            <div class="card-body">
+              <h2 class="card-title mb-3">{faction}</h2>
+
+              <div role="list" class="border-base-300">
+                {votes.map(vote => (
+                  <a
+                    href={`/ep/${parliamentPeriod.id}/person/${vote.personId}`}
+                    class="flex flex-row justify-between items-center py-2 space-x-1"
+                  >
+                    <div class="truncate text-sm">{vote.personName}</div>
+                    {
+                      vote.vote === 'J' &&
+                      <div aria-label="status" class="status status-lg status-success"></div>
+                    }
+                    {
+                      vote.vote === 'N' &&
+                      <div aria-label="status" class="status status-lg status-error"></div>
+                    }
+                    {
+                      vote.vote === 'E' &&
+                      <div aria-label="status" class="status status-lg status-warning"></div>
+                    }
+                    {
+                      vote.vote === 'O' &&
+                      <div aria-label="status" class="status status-lg"></div>
+                    }
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+</PageLayout>

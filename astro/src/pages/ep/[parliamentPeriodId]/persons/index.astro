@@ -1,0 +1,89 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import {
+  type ParliamentPeriodWithSessionsProps,
+  getParliamentPeriodWithSessionsPaths
+} from '../_helpers';
+import { type BreadcrumbItem } from '@components/BreadcrumbMenu.astro';
+import PersonsList from './_persons-list.astro';
+import PersonsGraph from './_persons-graph.astro';
+
+export const getStaticPaths = getParliamentPeriodWithSessionsPaths;
+
+const { parliamentPeriodId } = Astro.params;
+const { parliamentPeriod, sessionInputs } =
+  Astro.props as ParliamentPeriodWithSessionsProps;
+
+const breadcrumbItems: BreadcrumbItem[] = [
+  {
+    name: parliamentPeriod.name,
+    href: `/ep/${parliamentPeriodId}`
+  },
+  {
+    name: 'Personen',
+    href: null
+  }
+];
+---
+
+<PageLayout
+  pageTitle="Persons"
+  parliamentPeriod={parliamentPeriod}
+  breadcrumbItems={breadcrumbItems}
+>
+  <div
+    id="tabs"
+    role="tablist"
+    class="tabs tabs-lift"
+    x-data="tabs"
+    data-parliament-period-id={parliamentPeriod.id}
+  >
+    <input
+      role="tab"
+      class="tab"
+      aria-label="Liste"
+      type="radio"
+      name="demo-tabs-radio"
+      :checked="currentTab === 'list'"
+      @change="history.pushState(null, '', `/ep/${parliamentPeriodId}/persons?tab=list`); currentTab = 'list'"
+    />
+    <div class="tab-content border-base-200 bg-base-100 p-6">
+      <PersonsList
+        parliamentPeriod={parliamentPeriod}
+        sessionInputs={sessionInputs}
+      />
+    </div>
+
+    <input
+      role="tab"
+      class="tab"
+      aria-label="Grafik"
+      type="radio"
+      name="demo-tabs-radio"
+      :checked="currentTab === 'graph'"
+      @change="history.pushState(null, '', `/ep/${parliamentPeriodId}/persons?tab=graph`); currentTab = 'graph'"
+    />
+    <div class="tab-content border-base-200 bg-base-100 p-6">
+      <PersonsGraph
+        parliamentPeriod={parliamentPeriod}
+        sessionInputs={sessionInputs}
+      />
+    </div>
+  </div>
+</PageLayout>
+
+<script>
+  import Alpine from 'alpinejs';
+
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('tabs', () => {
+      const currentUrl = new URL(window.location.href);
+      const currentTab = currentUrl.searchParams.get('tab') || 'list';
+      const tabsDivElement = document.getElementById(
+        'tabs'
+      ) as HTMLDivElement;
+      const parliamentPeriodId = tabsDivElement.dataset.parliamentPeriodId;
+      return { currentTab, parliamentPeriodId };
+    });
+  });
+</script>

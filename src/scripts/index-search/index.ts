@@ -26,7 +26,7 @@ const papersContentSource = new PapersContentSource(args.papersContentDir);
 const scrapedSession = JSON.parse(Deno.readTextFileSync(args.scrapedSessionFilename)) as ScrapedSession;
 await indexer.indexPapers(papersContentSource, scrapedSession);
 
-const speechesSource = new SpeechesSource(args.electoralPeriodsBaseDir);
+const speechesSource = new SpeechesSource(args.parliamentPeriodsBaseDir);
 await indexer.indexSpeeches(speechesSource);
 
 console.log('Done.');

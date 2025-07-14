@@ -3,34 +3,34 @@ import { getCollection } from 'astro:content';
 import { type Registry } from '@models/registry';
 import { formatDate } from '@utils/format-date';
 
-const electoralPeriodsCollection = await getCollection('electoralPeriods');
-const electoralPeriods = electoralPeriodsCollection
+const parliamentPeriodsCollection = await getCollection('parliamentPeriods');
+const parliamentPeriods = parliamentPeriodsCollection
   .sort((a, b) => a.data.name.localeCompare(b.data.name))
-  .map((electoralPeriodEntry) => electoralPeriodEntry.data);
+  .map((parliamentPeriodEntry) => parliamentPeriodEntry.data);
 
 type Props = {
-  electoralPeriod: Registry;
+  parliamentPeriod: Registry;
 };
 
-const { electoralPeriod } = Astro.props as Props;
+const { parliamentPeriod } = Astro.props as Props;
 
 const pathname = Astro.url.pathname.toLowerCase();
 let activePage = '';
 switch (true) {
-  case pathname.startsWith(`/ep/${electoralPeriod.id}/session/`) ||
-    pathname === `/ep/${electoralPeriod.id}/sessions`:
+  case pathname.startsWith(`/ep/${parliamentPeriod.id}/session/`) ||
+    pathname === `/ep/${parliamentPeriod.id}/sessions`:
     activePage = 'sessions';
     break;
-  case pathname.startsWith(`/ep/${electoralPeriod.id}/faction/`) ||
-    pathname === `/ep/${electoralPeriod.id}/factions`:
+  case pathname.startsWith(`/ep/${parliamentPeriod.id}/faction/`) ||
+    pathname === `/ep/${parliamentPeriod.id}/factions`:
     activePage = 'factions';
     break;
-  case pathname.startsWith(`/ep/${electoralPeriod.id}/party/`) ||
-    pathname === `/ep/${electoralPeriod.id}/parties`:
+  case pathname.startsWith(`/ep/${parliamentPeriod.id}/party/`) ||
+    pathname === `/ep/${parliamentPeriod.id}/parties`:
     activePage = 'parties';
     break;
-  case pathname.startsWith(`/ep/${electoralPeriod.id}/person/`) ||
-    pathname === `/ep/${electoralPeriod.id}/persons`:
+  case pathname.startsWith(`/ep/${parliamentPeriod.id}/person/`) ||
+    pathname === `/ep/${parliamentPeriod.id}/persons`:
     activePage = 'persons';
     break;
 }
@@ -59,9 +59,9 @@ switch (true) {
           class="bg-base-200 hover:bg-base-300 rounded-box mx-2 mt-0 flex cursor-pointer items-center gap-2.5 px-3 py-2 transition-all"
         >
           <div class="grow">
-            <p class="text-sm font-medium">{electoralPeriod.name}</p>
+            <p class="text-sm font-medium">{parliamentPeriod.name}</p>
             <p class="text-base-content/60 text-xs">
-              Stand: {formatDate(electoralPeriod.lastUpdate)}
+              Stand: {formatDate(parliamentPeriod.lastUpdate)}
             </p>
           </div>
           <span
@@ -74,10 +74,10 @@ switch (true) {
           tabindex="0"
         >
           {
-            electoralPeriods.map((electoralPeriod) => (
+            parliamentPeriods.map((parliamentPeriod) => (
               <li>
-                <a href={`/ep/${electoralPeriod.id}`}>
-                  <span>{electoralPeriod.name}</span>
+                <a href={`/ep/${parliamentPeriod.id}`}>
+                  <span>{parliamentPeriod.name}</span>
                 </a>
               </li>
             ))
@@ -89,28 +89,28 @@ switch (true) {
         <a
           class="sidebar-menu-item"
           class:list={[{ active: activePage === 'sessions' }]}
-          href={`/ep/${electoralPeriod.id}/sessions`}
+          href={`/ep/${parliamentPeriod.id}/sessions`}
         >
           Sitzungen
         </a>
         <a
           class="sidebar-menu-item"
           class:list={[{ active: activePage === 'factions' }]}
-          href={`/ep/${electoralPeriod.id}/factions`}
+          href={`/ep/${parliamentPeriod.id}/factions`}
         >
           Fraktionen
         </a>
         <a
           class="sidebar-menu-item"
           class:list={[{ active: activePage === 'parties' }]}
-          href={`/ep/${electoralPeriod.id}/parties`}
+          href={`/ep/${parliamentPeriod.id}/parties`}
         >
           Parteien
         </a>
         <a
           class="sidebar-menu-item"
           class:list={[{ active: activePage === 'persons' }]}
-          href={`/ep/${electoralPeriod.id}/persons`}
+          href={`/ep/${parliamentPeriod.id}/persons`}
         >
           Personen
         </a>

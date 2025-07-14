@@ -14,11 +14,11 @@ export type VotingMatrixItem = {
 };
 
 export function calcVotingMatrix(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   person: RegistryPerson,
   sessions: SessionInput[],
 ): VotingMatrixItem[] {
-  const otherPersons = electoralPeriod.persons.filter(
+  const otherPersons = parliamentPeriod.persons.filter(
     (otherPerson) => otherPerson.name !== person.name,
   );
   const votings = sessions.flatMap((session) => session.votings);
@@ -28,12 +28,12 @@ export function calcVotingMatrix(
     personName: otherPerson.name,
     factionId: otherPerson.factionId,
     factionName:
-      electoralPeriod.factions.find(
+      parliamentPeriod.factions.find(
         (faction) => faction.id === otherPerson.factionId,
       )?.name || '',
     partyId: otherPerson.partyId,
     partyName:
-      electoralPeriod.parties.find((party) => party.id === otherPerson.partyId)
+      parliamentPeriod.parties.find((party) => party.id === otherPerson.partyId)
         ?.name || '',
     comparisonScore: calcVotingComparisonScore(votings, person, otherPerson),
   }));
