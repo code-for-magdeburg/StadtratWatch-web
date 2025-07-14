@@ -1,0 +1,127 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import {
+  type ParliamentPeriodWithFactionProps,
+  getParliamentPeriodWithFactionPaths
+} from '../../_helpers';
+import Councilors from './_councilors.astro';
+import Applications from './_applications.astro';
+import Statistics from './_statistics.astro';
+import MetaTags from '@components/MetaTags.astro';
+
+export const getStaticPaths = getParliamentPeriodWithFactionPaths;
+
+const { parliamentPeriodId, factionId } = Astro.params;
+const {
+  parliamentPeriod,
+  faction,
+  sessionInputs,
+  scrapedMeetings,
+  scrapedAgendaItems,
+  scrapedPapers,
+  scrapedFiles
+} = Astro.props as ParliamentPeriodWithFactionProps;
+
+const breadcrumbItems = [
+  {
+    name: parliamentPeriod.name,
+    href: `/pp/${parliamentPeriodId}`
+  },
+  {
+    name: 'Fraktionen',
+    href: `/pp/${parliamentPeriodId}/factions`
+  },
+  {
+    name: faction.name,
+    href: null
+  }
+];
+---
+
+<PageLayout
+  parliamentPeriod={parliamentPeriod}
+  pageTitle={faction.name}
+  breadcrumbItems={breadcrumbItems}
+>
+  <MetaTags slot="srw-meta-tags" factionName={faction.name} />
+
+  <div
+    id="tabs"
+    role="tablist"
+    class="tabs tabs-lift"
+    x-data="faction"
+    data-parliament-period-id={parliamentPeriodId}
+    data-faction-id={factionId}
+  >
+    <input
+      role="tab"
+      class="tab"
+      aria-label="Ratsmitglieder"
+      type="radio"
+      name="demo-tabs-radio"
+      :checked="currentTab === 'councilors'"
+      @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/faction/${factionId}?tab=councilors`); currentTab = 'councilors'"
+    />
+    <div class="tab-content border-base-200 bg-base-100 p-6">
+      <Councilors parliamentPeriod={parliamentPeriod} faction={faction} />
+    </div>
+
+    <input
+      role="tab"
+      class="tab"
+      aria-label="Anträge"
+      type="radio"
+      name="demo-tabs-radio"
+      :checked="currentTab === 'applications'"
+      @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/faction/${factionId}?tab=applications`); currentTab = 'applications'"
+    />
+    <div class="tab-content border-base-200 bg-base-100 p-6">
+      <Applications
+        parliamentPeriodId={parliamentPeriodId}
+        faction={faction}
+        sessionInputs={sessionInputs}
+        scrapedMeetings={scrapedMeetings}
+        scrapedAgendaItems={scrapedAgendaItems}
+        scrapedPapers={scrapedPapers}
+        scrapedFiles={scrapedFiles}
+      />
+    </div>
+
+    <input
+      role="tab"
+      class="tab"
+      aria-label="Statistiken"
+      type="radio"
+      name="demo-tabs-radio"
+      :checked="currentTab === 'statistics'"
+      @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/faction/${factionId}?tab=statistics`); currentTab = 'statistics'"
+    />
+    <div class="tab-content border-base-200 bg-base-100 p-6">
+      <Statistics
+        parliamentPeriod={parliamentPeriod}
+        faction={faction}
+        sessionInputs={sessionInputs}
+      />
+    </div>
+  </div>
+</PageLayout>
+
+<script>
+  import Alpine from 'alpinejs';
+
+  document.addEventListener('alpine:init', () => {
+    const currentUrl = new URL(window.location.href);
+    const currentTab = currentUrl.searchParams.get('tab') || 'councilors';
+
+    const sessionsDivElement = document.getElementById(
+      'tabs'
+    ) as HTMLDivElement;
+    const parliamentPeriodId = sessionsDivElement.dataset.parliamentPeriodId;
+    const factionId = sessionsDivElement.dataset.factionId;
+    Alpine.data('faction', () => ({
+      parliamentPeriodId,
+      factionId,
+      currentTab
+    }));
+  });
+</script>

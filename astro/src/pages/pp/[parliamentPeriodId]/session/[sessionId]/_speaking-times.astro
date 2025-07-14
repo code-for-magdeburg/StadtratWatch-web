@@ -1,0 +1,137 @@
+---
+import { getSpeakingTimesChartData } from './_helpers';
+import { type Registry } from '@models/registry';
+import { type SessionInput } from '@models/SessionInput';
+
+type Props = {
+  parliamentPeriod: Registry;
+  sessionInput: SessionInput;
+};
+
+const { parliamentPeriod, sessionInput } = Astro.props as Props;
+
+const chartData = getSpeakingTimesChartData(
+  parliamentPeriod,
+  sessionInput.session,
+  sessionInput.speeches
+);
+
+const chartHeight = chartData.length * 40;
+---
+
+<div class="alert alert-soft alert-info" role="alert">
+  <span class="iconify lucide--info size-5"></span>
+  <div class="flex flex-col gap-2">
+    <p>
+      Die Redezeiten wurden automatisch mit Hilfe einer Software ermittelt. Sie
+      sind nur eine Schätzung und können von den tatsächlichen Redezeiten
+      abweichen.
+    </p>
+  </div>
+</div>
+
+<div
+  class="relative mt-5"
+  style={{ height: `${chartHeight}px` }}
+  data-parliament-period-id={parliamentPeriod.id}
+  data-speaking-times={JSON.stringify(chartData)}
+>
+  <canvas id="speaking-times-chart"></canvas>
+</div>
+
+<script>
+  import Chart from 'chart.js/auto';
+  import { type SpeakingTimesChartDataPoint } from './_helpers';
+
+  const speakingTimesContainerDiv = document.querySelector(
+    '[data-speaking-times]',
+  ) as HTMLDivElement;
+  const parliamentPeriodId = speakingTimesContainerDiv.dataset.parliamentPeriodId;
+  const speakingTimes = JSON.parse(
+    speakingTimesContainerDiv.dataset.speakingTimes || '[]',
+  ) as SpeakingTimesChartDataPoint[];
+
+  const ctx = document.getElementById(
+    'speaking-times-chart',
+  ) as HTMLCanvasElement;
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      datasets: [
+        {
+          label: 'Redezeiten',
+          data: speakingTimes,
+          parsing: {
+            xAxisKey: 'value',
+            yAxisKey: 'label',
+          },
+          borderWidth: 1,
+          backgroundColor: ['#167bff30'],
+          borderColor: ['#167bff'],
+          borderRadius: 5,
+          animation: false,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      indexAxis: 'y',
+      scales: {
+        x: {
+          display: false,
+          ticks: {
+            display: false,
+          },
+        },
+        y: {
+          beginAtZero: true,
+          grid: {
+            display: false,
+            drawTicks: false,
+          },
+          ticks: {
+            mirror: true,
+            z: 1,
+            color: '#167bff',
+          },
+        },
+      },
+      plugins: { legend: { display: false } },
+    },
+  });
+  chart.ctx.canvas.onmousemove = (evt) => {
+    const points = chart.getElementsAtEventForMode(
+      evt,
+      'y',
+      { intersect: false },
+      true,
+    );
+    if (points.length) {
+      const firstPoint = points[0];
+      const speakerId =
+        chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index]
+          .speakerId;
+      chart.ctx.canvas.style.cursor = speakerId ? 'pointer' : 'default';
+    } else {
+      chart.ctx.canvas.style.cursor = 'default';
+    }
+  };
+  chart.ctx.canvas.onclick = (evt) => {
+    const points = chart.getElementsAtEventForMode(
+      evt,
+      'y',
+      { intersect: false },
+      true,
+    );
+    if (points.length) {
+      const firstPoint = points[0];
+      const speakerId =
+        chart.data.datasets[firstPoint.datasetIndex].data[firstPoint.index]
+          .speakerId;
+      if (speakerId) {
+        window.location.href = `/pp/${parliamentPeriodId}/person/${speakerId}`;
+      }
+    }
+  };
+</script>
