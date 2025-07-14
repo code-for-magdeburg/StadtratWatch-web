@@ -16,7 +16,7 @@ Body=$(cat <<EOF
     {"name": "paper_name", "type": "string", "locale": "de"},
     {"name": "paper_type", "type": "string", "facet": true, "locale": "de"},
     {"name": "paper_reference", "type": "string"},
-    {"name": "speech_electoral_period", "type": "string", "facet": true},
+    {"name": "speech_parliament_period", "type": "string", "facet": true},
     {"name": "speech_session", "type": "string", "index": false},
     {"name": "speech_start", "type": "int32", "index": false},
     {"name": "speech_session_date", "type": "int64", "sort": true},

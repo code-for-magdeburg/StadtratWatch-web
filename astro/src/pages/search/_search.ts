@@ -20,7 +20,7 @@ interface PaperAndSpeechDocumentSchema extends DocumentSchema {
   paper_type: string;
   paper_reference: string;
 
-  speech_electoral_period: string;
+  speech_parliament_period: string;
   speech_session: string;
   speech_start: number;
   speech_session_date: number;
@@ -40,7 +40,7 @@ type PaperSearchResultItem = {
 
 type SpeechSearchResultItem = {
   id: string;
-  electoralPeriod: string;
+  parliamentPeriod: string;
   session: string;
   sessionDate: number;
   start: number;
@@ -115,7 +115,7 @@ export async function search(q: string, page: number): Promise<SearchResult> {
           paper: null,
           speech: {
             id: document.id,
-            electoralPeriod: document.speech_electoral_period,
+            parliamentPeriod: document.speech_parliament_period,
             session: document.speech_session,
             sessionDate: document.speech_session_date,
             start: document.speech_start,

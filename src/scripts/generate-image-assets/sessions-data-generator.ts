@@ -16,18 +16,18 @@ function isPersonInSession (person: RegistryPerson, session: RegistrySession): b
   return (person.start === null || person.start <= sessionDate) && (person.end === null || person.end >= sessionDate);
 }
 
-function getPersonsOfSession(electoralPeriod: Registry, session: RegistrySession): RegistryPerson[] {
-  return electoralPeriod.persons.filter(person => isPersonInSession(person, session))
+function getPersonsOfSession(parliamentPeriod: Registry, session: RegistrySession): RegistryPerson[] {
+  return parliamentPeriod.persons.filter(person => isPersonInSession(person, session))
 }
 
-function getPersonByName(electoralPeriod: Registry, session: RegistrySession,
+function getPersonByName(parliamentPeriod: Registry, session: RegistrySession,
                          personName: string): RegistryPerson | null {
-  return getPersonsOfSession(electoralPeriod, session).find(person => person.name === personName) || null;
+  return getPersonsOfSession(parliamentPeriod, session).find(person => person.name === personName) || null;
 }
 
-function getFactionOfPerson(electoralPeriod: Registry, session: RegistrySession,
+function getFactionOfPerson(parliamentPeriod: Registry, session: RegistrySession,
                             person: RegistryPerson): RegistryFaction | null {
-  return electoralPeriod.factions.find(
+  return parliamentPeriod.factions.find(
     faction => faction.id === person.factionId && isPersonInSession(person, session)
   ) || null;
 }

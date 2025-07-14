@@ -15,13 +15,13 @@ export type HistoryDataPoint = {
 };
 
 export function calcVotingSuccessRateOfFaction(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): number | null {
   const votingsSuccess = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndFaction(electoralPeriod, session.session, faction)
+      const persons = getPersonsOfSessionAndFaction(parliamentPeriod, session.session, faction)
         .map((name) => name.name);
       const successfulVotings = session.votings.filter(
         (voting) => isPersonsVotingSuccessful(persons, voting)
@@ -42,7 +42,7 @@ export function calcVotingSuccessRateOfFaction(
 }
 
 export function calcVotingSuccessRateHistoryOfFaction(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
@@ -51,7 +51,7 @@ export function calcVotingSuccessRateHistoryOfFaction(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcVotingSuccessRateOfFaction(electoralPeriod, faction, pastSessions);
+      const value = calcVotingSuccessRateOfFaction(parliamentPeriod, faction, pastSessions);
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
@@ -60,13 +60,13 @@ export function calcVotingSuccessRateHistoryOfFaction(
 }
 
 export function calcVotingSuccessRateOfParty(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): number | null {
   const votingsSuccess = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndParty(electoralPeriod, session.session, party)
+      const persons = getPersonsOfSessionAndParty(parliamentPeriod, session.session, party)
         .map((name) => name.name);
       const successfulVotings = session.votings.filter(
         (voting) => isPersonsVotingSuccessful(persons, voting)
@@ -87,7 +87,7 @@ export function calcVotingSuccessRateOfParty(
 }
 
 export function calcVotingSuccessRateHistoryOfParty(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
@@ -96,7 +96,7 @@ export function calcVotingSuccessRateHistoryOfParty(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcVotingSuccessRateOfParty(electoralPeriod, party, pastSessions);
+      const value = calcVotingSuccessRateOfParty(parliamentPeriod, party, pastSessions);
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)

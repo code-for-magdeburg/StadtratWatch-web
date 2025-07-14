@@ -4,13 +4,13 @@ import { formatDate } from "@utils/format-date";
 import { type SessionScanItem } from "@models/session-scan";
 import { AWS_CLOUDFRONT_BASE_URL } from 'astro:env/client';
 
-export interface MetaTagsProps {
+interface MetaTagsProps {
     factionName?: string;
     partyName?: string;
     personName?: string;
     sessionDate?: string;
     voting?: SessionScanItem;
-    electoralPeriodId?: string;
+    parliamentPeriodId?: string;
     sessionId?: string;
     votingId?: number;
 }
@@ -21,7 +21,7 @@ const {
     personName,
     sessionDate,
     voting,
-    electoralPeriodId,
+    parliamentPeriodId,
     sessionId,
     votingId
 } = Astro.props as MetaTagsProps;
@@ -54,7 +54,7 @@ if (sessionDate) {
 if (voting) {
     title = getTitleForVoting(voting, sessionDate!);
     description = voting.votingSubject.title
-    image = getVotingImageUrl(electoralPeriodId!, sessionId!, votingId!);
+    image = getVotingImageUrl(parliamentPeriodId!, sessionId!, votingId!);
 }
 
 function getTitleForVoting(voting: SessionScanItem, sessionDate: string): string {
@@ -98,8 +98,8 @@ function getTitleForVoting(voting: SessionScanItem, sessionDate: string): string
     return `StadtratWatch: Abstimmung am ${formatDate(sessionDate)}`;
 }
 
-function getVotingImageUrl(electoralPeriodId: string, sessionId: string, votingId: number): string {
-    return `${AWS_CLOUDFRONT_BASE_URL}/web-assets/electoral-periods/${electoralPeriodId}/images/votings/${sessionId}/${sessionId}-${votingId.toString().padStart(3, '0')}.png`;
+function getVotingImageUrl(parliamentPeriodId: string, sessionId: string, votingId: number): string {
+    return `${AWS_CLOUDFRONT_BASE_URL}/web-assets/parliament-periods/${parliamentPeriodId}/images/votings/${sessionId}/${sessionId}-${votingId.toString().padStart(3, '0')}.png`;
 }
 ---
 <Seo

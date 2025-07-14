@@ -9,7 +9,7 @@ export default defineConfig({
   site: 'https://www.stadtratwatch.de',
   env: {
     schema: {
-      DEFAULT_ELECTORAL_PERIOD: envField.string({
+      DEFAULT_PARLIAMENT_PERIOD: envField.string({
         context: 'server',
         access: 'public',
         optional: false

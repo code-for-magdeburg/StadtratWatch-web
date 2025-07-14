@@ -20,16 +20,16 @@ export type PersonsForces = {
 };
 
 export function calcPersonsForces(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   sessions: SessionInput[],
 ): PersonsForces {
-  const persons = electoralPeriod.persons
+  const persons = parliamentPeriod.persons
     .filter((person) => !person.end)
     .map((person) => {
-      const faction = electoralPeriod.factions.find(
+      const faction = parliamentPeriod.factions.find(
         (faction) => faction.id === person.factionId,
       )!.name;
-      const votingMatrix = calcVotingMatrix(electoralPeriod, person, sessions);
+      const votingMatrix = calcVotingMatrix(parliamentPeriod, person, sessions);
       return { ...person, faction, votingMatrix };
     })
     .toSorted((a, b) => a.name.localeCompare(b.name));

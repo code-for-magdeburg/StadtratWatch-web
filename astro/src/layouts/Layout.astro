@@ -5,19 +5,19 @@ import Topbar from '@components/Topbar.astro';
 import { getEntry } from 'astro:content';
 import { type Registry } from '@models/registry';
 import MetaTags from '@components/MetaTags.astro';
+import { DEFAULT_PARLIAMENT_PERIOD } from 'astro:env/server';
 
 type Props = {
-  electoralPeriod?: Registry;
+  parliamentPeriod?: Registry;
 };
 
-let electoralPeriod = Astro.props.electoralPeriod;
-if (!electoralPeriod) {
-  const defaultElectoralPeriodId = 'magdeburg-8'; // TODO: Fetch default electoral period
-  const electoralPeriodEntry = await getEntry(
-    'electoralPeriods',
-    defaultElectoralPeriodId,
+let { parliamentPeriod } = Astro.props as Props;
+if (!parliamentPeriod) {
+  const parliamentPeriodEntry = await getEntry(
+    'parliamentPeriods',
+    DEFAULT_PARLIAMENT_PERIOD,
   );
-  electoralPeriod = electoralPeriodEntry?.data!;
+  parliamentPeriod = parliamentPeriodEntry?.data!;
 }
 ---
 
@@ -57,9 +57,9 @@ if (!electoralPeriod) {
   <body>
     <div class="size-full" id="layout-main">
       {
-        electoralPeriod && (
+        parliamentPeriod && (
           <div class="flex">
-            <Sidebar electoralPeriod={electoralPeriod} />
+            <Sidebar parliamentPeriod={parliamentPeriod} />
 
             <div class="flex h-screen min-w-0 grow flex-col overflow-auto">
               <Topbar />

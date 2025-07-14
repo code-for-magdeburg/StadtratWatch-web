@@ -10,13 +10,13 @@ export type HistoryDataPoint = {
 };
 
 export function calcUniformityScoreOfFaction(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): number | null {
   const uniformityScores = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndFaction(electoralPeriod, session.session, faction)
+      const persons = getPersonsOfSessionAndFaction(parliamentPeriod, session.session, faction)
         .map((person) => person.name);
       return session.votings.map((voting) => calcUniformityScore(persons, voting));
     })
@@ -29,7 +29,7 @@ export function calcUniformityScoreOfFaction(
 }
 
 export function calcUniformityScoreHistoryOfFaction(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
@@ -38,7 +38,7 @@ export function calcUniformityScoreHistoryOfFaction(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcUniformityScoreOfFaction(electoralPeriod, faction, pastSessions);
+      const value = calcUniformityScoreOfFaction(parliamentPeriod, faction, pastSessions);
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
@@ -47,13 +47,13 @@ export function calcUniformityScoreHistoryOfFaction(
 }
 
 export function calcUniformityScoreOfParty(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): number | null {
   const uniformityScores = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndParty(electoralPeriod, session.session, party)
+      const persons = getPersonsOfSessionAndParty(parliamentPeriod, session.session, party)
         .map((person) => person.name);
       return session.votings.map((voting) => calcUniformityScore(persons, voting));
     })
@@ -66,7 +66,7 @@ export function calcUniformityScoreOfParty(
 }
 
 export function calcUniformityScoreHistoryOfParty(
-  electoralPeriod: Registry,
+  parliamentPeriod: Registry,
   party: RegistryParty,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
@@ -75,7 +75,7 @@ export function calcUniformityScoreHistoryOfParty(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcUniformityScoreOfParty(electoralPeriod, party, pastSessions);
+      const value = calcUniformityScoreOfParty(parliamentPeriod, party, pastSessions);
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)

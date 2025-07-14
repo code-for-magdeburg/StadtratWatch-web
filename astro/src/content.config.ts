@@ -12,7 +12,7 @@ import type {
 } from '@models/scraped-session.ts';
 import * as fs from 'fs';
 
-const electoralPeriods = defineCollection({
+const parliamentPeriods = defineCollection({
   loader: glob({
     pattern: '**/registry.json',
     base: '../data',
@@ -93,7 +93,7 @@ const scrapedFiles = defineCollection({
 });
 
 export const collections = {
-  electoralPeriods,
+  parliamentPeriods,
   sessionScans,
   sessionSpeeches,
   scrapedMeetings,

@@ -15,6 +15,6 @@ CMD ["run", \
         "-E=TYPESENSE_SERVER_URL,TYPESENSE_COLLECTION_NAME,TYPESENSE_API_KEY", \
         "--allow-net", \
         "src/scripts/index-search/index.ts", \
-        "-p=./papers-content", \
-        "-e=./electoral-periods", \
+        "-c=./papers-content", \
+        "-p=./parliament-periods", \
         "-s=./Magdeburg.json"]

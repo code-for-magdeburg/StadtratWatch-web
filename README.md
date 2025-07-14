@@ -159,7 +159,7 @@ docker run \
 	-e TYPESENSE_API_KEY=abc123 \
 	-v $(pwd)/data/Magdeburg.json:/app/Magdeburg.json:ro \
 	-v $(pwd)/output/papers/all-extracted:/app/papers-content:ro \
-	-v $(pwd)/data:/app/electoral-periods:ro \
+	-v $(pwd)/data:/app/parliament-periods:ro \
 	srw-index-search
 ```
 
