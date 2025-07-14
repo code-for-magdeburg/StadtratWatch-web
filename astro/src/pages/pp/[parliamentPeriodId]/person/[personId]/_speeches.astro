@@ -1,0 +1,146 @@
+---
+import { type Registry } from '@models/registry';
+import { type SessionInput } from '@models/SessionInput';
+import { type RegistryPerson } from '@models/registry';
+import Speech from '@components/Speech.astro';
+import { formatDate } from '@utils/format-date';
+
+type Props = {
+  parliamentPeriod: Registry;
+  person: RegistryPerson;
+  sessions: SessionInput[];
+};
+
+const {
+  parliamentPeriod,
+  person,
+  sessions
+} = Astro.props as Props;
+
+const speechesBySessionDate = sessions
+  .flatMap(session => ({
+    session: session.session,
+    speeches: session.speeches
+      .filter(speech => speech.speaker === person.name)
+      .filter(speech => !speech.isChairPerson)
+      .filter(speech => !!speech.transcription)
+      .toSorted((a, b) => a.start - b.start)
+  }))
+  .filter(session => session.speeches.length > 0)
+  .toSorted(
+    (a, b) =>
+      b.session.id.localeCompare(a.session.id)
+  );
+---
+<div class="alert alert-soft alert-info" role="alert">
+  <span class="iconify lucide--info size-5"></span>
+  <div class="flex flex-col gap-2">
+    <p>
+      Die folgenden Redebeiträge wurden automatisiert erstellt und können Fehler
+      enthalten. Die Texte dienen nur zur Orientierung und sind nicht als
+      offizielle Protokolle zu verstehen. Um Aufzeichnungen der Redebeiträge
+      anzuhören, nutzen Sie bitte die Links zum jeweiligen YouTube-Video.
+    </p>
+    <p>
+      Sollten Sie einen Fehler entdecken, können Sie uns diesen gern melden.
+      Klicken Sie dazu auf das Flaggen-Symbol unter dem jeweiligen Redebeitrag
+      und senden Sie uns eine Nachricht. Wir werden den Fehler umgehend prüfen
+      und korrigieren.
+    </p>
+  </div>
+</div>
+
+<div class="mt-4 space-y-4">
+  {
+    speechesBySessionDate.map((speechesBySessionDate) => {
+      return (
+        <div class="bg-base-200 rounded-box rounded-md border border-base-300 collapse collapse-arrow">
+          <input
+            aria-label="Collapse trigger"
+            type="checkbox"
+            checked
+            name="accordion-multiple" />
+          <div class="collapse-title">
+            {formatDate(speechesBySessionDate.session.date)}
+            {speechesBySessionDate.session.title}
+          </div>
+          <div class="collapse-content">
+            <ul class="timeline timeline-vertical timeline-compact">
+              {
+                speechesBySessionDate.speeches.map((speech, index) => {
+                  return (
+                    <li>
+                      {index > 0 &&
+                        <hr />}
+                      <Speech
+                        parliamentPeriod={parliamentPeriod}
+                        session={speechesBySessionDate.session}
+                        speech={speech}
+                        speechElementId={`speech-${speechesBySessionDate.session.id}-${speech.start}`}
+                        link={`/pp/${parliamentPeriod.id}/person/${person.id}?tab=speeches`}
+                      />
+                      {index < speechesBySessionDate.speeches.length - 1 &&
+                        <hr />}
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </div>
+        </div>
+      );
+    })
+  }
+</div>
+
+<div
+  id="speech-link-copied"
+  class="alert alert-success fixed bottom-5 right-5 hidden"
+>
+  <span class="iconify lucide--check"></span>
+  <div class="flex flex-col gap-2">
+    <p>Link zum Redebeitrag kopiert</p>
+  </div>
+</div>
+
+<div class="alert alert-soft alert-info fixed bottom-5 right-5 hidden">
+  <span class="iconify lucide--info size-5"></span>
+  <div class="flex flex-col gap-2">
+    <p>
+      Die folgenden Redebeiträge wurden automatisiert erstellt und können Fehler
+      enthalten. Die Texte dienen nur zur Orientierung und sind nicht als
+      offizielle Protokolle zu verstehen. Um Aufzeichnungen der Redebeiträge
+      anzuhören, nutzen Sie bitte die Links zum jeweiligen YouTube-Video.
+    </p>
+    <p>
+      Sollten Sie einen Fehler entdecken, können Sie uns diesen gern melden.
+      Klicken Sie dazu auf das Flaggen-Symbol unter dem jeweiligen Redebeitrag
+      und senden Sie uns eine Nachricht. Wir werden den Fehler umgehend prüfen
+      und korrigieren.
+    </p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.copy-speech-link-btn').forEach((button) => {
+    button.addEventListener('click', async (event) => {
+      event.preventDefault();
+      if (document.activeElement) {
+        (document.activeElement as HTMLElement).blur();
+      }
+      const href = button.getAttribute('href');
+      if (!href) {
+        return;
+      }
+      await navigator.clipboard.writeText(
+        new URL(href, window.location.origin).toString()
+      );
+
+      const alert = document.getElementById('speech-link-copied');
+      if (alert) {
+        alert.classList.remove('hidden');
+        setTimeout(() => alert.classList.add('hidden'), 3000);
+      }
+    });
+  });
+</script>

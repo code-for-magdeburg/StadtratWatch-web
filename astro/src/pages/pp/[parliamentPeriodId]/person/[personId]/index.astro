@@ -1,0 +1,152 @@
+---
+import {
+  type ParliamentPeriodWithPersonProps,
+  getParliamentPeriodWithPersonPaths
+} from '../../_helpers';
+import PageLayout from '@layouts/PageLayout.astro';
+import Statistics from './_statistics.astro';
+import VotingMatrix from './_voting-matrix.astro';
+import Speeches from './_speeches.astro';
+import MetaTags from '@components/MetaTags.astro';
+
+export const getStaticPaths = getParliamentPeriodWithPersonPaths;
+
+const { parliamentPeriodId, personId } = Astro.params;
+const {
+  parliamentPeriod,
+  sessionInputs,
+  person
+} = Astro.props as ParliamentPeriodWithPersonProps;
+
+const faction = parliamentPeriod.factions.find((faction) => faction.id === person.factionId);
+if (!faction) {
+  throw new Error(`Faction with ID ${person.factionId} not found in parliament period ${parliamentPeriodId}`);
+}
+const party = parliamentPeriod.parties.find((party) => party.id === person.partyId);
+if (!party) {
+  throw new Error(`Party with ID ${person.partyId} not found in parliament period ${parliamentPeriodId}`);
+}
+---
+<PageLayout
+  parliamentPeriod={parliamentPeriod}
+  pageTitle={person.name}
+  breadcrumbItems={[
+    {
+      name: parliamentPeriod.name,
+      href: `/pp/${parliamentPeriodId}`
+    },
+    {
+      name: 'Personen',
+      href: `/pp/${parliamentPeriodId}/persons`
+    },
+    {
+      name: person.name,
+      href: null
+    }
+  ]}
+>
+  <MetaTags slot="srw-meta-tags" personName={person.name} />
+
+  <div slot="sub-page-header">
+    <div class="flex flex-row flex-wrap text-base-content/60 text-sm gap-x-4">
+      <div>
+        Fraktion
+        <a
+          href={`/pp/${parliamentPeriodId}/faction/${person.factionId}`}
+          class="link link-primary"
+        >{faction.name}</a>
+      </div>
+      <div>
+        Partei
+        <a
+          href={`/pp/${parliamentPeriodId}/party/${person.partyId}`}
+          class="link link-primary"
+        >{party.name}</a>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="tabs"
+    role="tablist"
+    class="tabs tabs-lift"
+    x-data="person"
+    data-parliament-period-id={parliamentPeriodId}
+    data-person-id={personId}
+  >
+    <input
+      role="tab"
+      class="tab"
+      aria-label="Statistiken"
+      type="radio"
+      name="demo-tabs-radio"
+      :checked="currentTab === 'statistics'"
+      @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/person/${personId}?tab=statistics`); currentTab = 'statistics'"
+    />
+    <div class="tab-content border-base-200 bg-base-100 p-6">
+      <Statistics
+        person={person}
+        sessionInputs={sessionInputs}
+      />
+    </div>
+
+    <input
+      role="tab"
+      class="tab"
+      aria-label="Redebeiträge"
+      type="radio"
+      name="demo-tabs-radio"
+      :checked="currentTab === 'speeches'"
+      @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/person/${personId}?tab=speeches`); currentTab = 'speeches'"
+    />
+    <div class="tab-content border-base-200 bg-base-100 p-6">
+      <Speeches
+        parliamentPeriod={parliamentPeriod}
+        person={person}
+        sessions={sessionInputs}
+      />
+    </div>
+
+    <input
+      role="tab"
+      class="tab"
+      aria-label="Vergleiche"
+      type="radio"
+      name="demo-tabs-radio"
+      :checked="currentTab === 'voting-matrix'"
+      @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/person/${personId}?tab=voting-matrix`); currentTab = 'voting-matrix'"
+    />
+    <div class="tab-content border-base-200 bg-base-100 p-6">
+      <VotingMatrix
+        parliamentPeriod={parliamentPeriod}
+        person={person}
+        sessions={sessionInputs}
+      />
+    </div>
+  </div>
+
+</PageLayout>
+
+<script>
+  import Alpine from 'alpinejs';
+
+  document.addEventListener('alpine:init', () => {
+    const currentUrl = new URL(window.location.href);
+    const currentTab = currentUrl.searchParams.get('tab') || 'statistics';
+
+    const sessionsDivElement = document.getElementById(
+      'tabs'
+    ) as HTMLDivElement;
+    const parliamentPeriodId = sessionsDivElement.dataset.parliamentPeriodId;
+    const personId = sessionsDivElement.dataset.personId;
+    Alpine.data('person', () => ({
+      parliamentPeriodId,
+      personId,
+      currentTab
+    }));
+  });
+
+  window.addEventListener('popstate', () => {
+    // TODO: Manage back/forward navigation
+  });
+</script>

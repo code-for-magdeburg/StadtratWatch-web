@@ -1,0 +1,151 @@
+---
+import { type Registry, type RegistryPerson } from '@models/registry';
+import { type SessionInput } from '@models/SessionInput';
+import { calcVotingMatrix } from '@data-analysis/VotingMatrix';
+import { formatPercentage } from '@utils/format-number';
+
+type Props = {
+  parliamentPeriod: Registry;
+  person: RegistryPerson;
+  sessions: SessionInput[];
+};
+
+const { parliamentPeriod, person, sessions } = Astro.props as Props;
+
+const votingMatrix = calcVotingMatrix(parliamentPeriod, person, sessions)
+  .map((row) => ({
+    ...row,
+    comparisonScoreDisplay: formatPercentage(row.comparisonScore)
+  }))
+  .toSorted((a, b) => b.comparisonScore - a.comparisonScore);
+---
+<div class="overflow-x-auto">
+  <table
+    class="table"
+    x-data="votingMatrix"
+    data-voting-matrix={JSON.stringify(votingMatrix)}
+    data-parliament-period-id={parliamentPeriod.id}
+  >
+    <thead>
+    <tr>
+      <th scope="col" class="px-0">
+        <button
+          class="btn btn-ghost btn-block flex justify-between"
+          @click="sortTextColumn('name', (person) => person.personName)"
+        >
+          <span class="text-left">Name</span>
+          <span class="iconify lucide--chevrons-up-down"></span>
+        </button>
+      </th>
+      <th scope="col" class="px-0">
+        <button
+          class="btn btn-ghost btn-block flex justify-between"
+          @click="sortTextColumn('faction', (person) => person.factionName)"
+        >
+          <span class="text-left">Fraktion</span>
+          <span class="iconify lucide--chevrons-up-down"></span>
+        </button>
+      </th>
+      <th scope="col" class="px-0">
+        <button
+          class="btn btn-ghost btn-block flex justify-between"
+          @click="sortTextColumn('party', (person) => person.partyName)"
+        >
+          <span class="text-left">Partei</span>
+          <span class="iconify lucide--chevrons-up-down"></span>
+        </button>
+      </th>
+      <th scope="col" class="px-0">
+        <button
+          class="btn btn-ghost btn-block flex justify-between"
+          @click="sortNumberColumn('comparison-score', (person) => person.comparisonScore)"
+        >
+          <span class="text-right">Übereinstimmung</span>
+          <span class="iconify lucide--chevrons-up-down"></span>
+        </button>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <template x-for="item in votingMatrix">
+      <tr>
+        <td>
+          <a
+            :href="`/pp/${parliamentPeriodId}/person/${item.personId}`"
+            class="link link-primary"
+            x-text="item.personName"
+          ></a>
+        </td>
+        <td>
+          <a
+            :href="`/pp/${parliamentPeriodId}/faction/${item.factionId}`"
+            class="link link-primary"
+            x-text="item.factionName"
+          ></a>
+        </td>
+        <td>
+          <a
+            :href="`/pp/${parliamentPeriodId}/party/${item.partyId}`"
+            class="link link-primary"
+            x-text="item.partyName"
+          ></a>
+        </td>
+        <td class="text-right" x-text="item.comparisonScoreDisplay"></td>
+      </tr>
+    </template>
+    </tbody>
+  </table>
+
+</div>
+
+<script>
+  import Alpine from 'alpinejs';
+  import { type VotingMatrixItem } from '@data-analysis/VotingMatrix';
+
+  document.addEventListener('alpine:init', () => {
+    const votingMatrixTableElement = document.querySelector(
+      'table[data-voting-matrix]'
+    ) as HTMLTableElement;
+    const parliamentPeriodId = votingMatrixTableElement.dataset.parliamentPeriodId;
+    const votingMatrix = JSON.parse(
+      votingMatrixTableElement.dataset.votingMatrix || '[]'
+    ) as VotingMatrixItem[];
+
+    Alpine.data('votingMatrix', () => ({
+      parliamentPeriodId,
+      votingMatrix,
+      sortTextColumn: function(
+        column: string,
+        getText: (item: VotingMatrixItem) => string
+      ) {
+        this._updateSortColumn(column);
+        this.votingMatrix.sort((a, b) =>
+          this._sortedDesc
+            ? getText(b).localeCompare(getText(a))
+            : getText(a).localeCompare(getText(b))
+        );
+      },
+      sortNumberColumn: function(
+        column: string,
+        getNumber: (item: VotingMatrixItem) => number | null
+      ) {
+        this._updateSortColumn(column);
+        this.votingMatrix.sort((a, b) =>
+          this._sortedDesc
+            ? (getNumber(a) || 0) - (getNumber(b) || 0)
+            : (getNumber(b) || 0) - (getNumber(a) || 0)
+        );
+      },
+      _sortedColumn: 'comparison-score',
+      _sortedDesc: false,
+      _updateSortColumn: function(column: string) {
+        if (this._sortedColumn === column) {
+          this._sortedDesc = !this._sortedDesc;
+        } else {
+          this._sortedColumn = column;
+          this._sortedDesc = false;
+        }
+      }
+    }));
+  });
+</script>
