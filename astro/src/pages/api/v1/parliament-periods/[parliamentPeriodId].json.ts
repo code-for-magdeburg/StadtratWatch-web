@@ -11,19 +11,15 @@ async function getStaticParliamentPeriodPaths() {
 }
 
 export async function GET({
-  params,
-  props
+  props,
 }: {
   params: { parliamentPeriodId: string };
   props: { parliamentPeriod: Registry };
 }) {
-  const { parliamentPeriodId } = params;
-
-  const meta = generateMeta();
-
-  const { parliamentPeriod } = props;
-
-  const response = { meta, parliamentPeriod };
+  const response = {
+    meta: generateMeta(),
+    parliamentPeriod: props.parliamentPeriod,
+  };
 
   return new Response(JSON.stringify(response), {
     status: 200,

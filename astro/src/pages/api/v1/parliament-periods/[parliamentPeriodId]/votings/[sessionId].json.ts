@@ -40,10 +40,10 @@ function translateVote(vote: string): string {
 
 export async function GET({
   params,
-  props
+  props,
 }: {
-  params: { parliamentPeriodId: string; sessionId: string; };
-  props: { parliamentPeriod: Registry; session: RegistrySession; };
+  params: { parliamentPeriodId: string; sessionId: string };
+  props: { parliamentPeriod: Registry; session: RegistrySession };
 }) {
   const { parliamentPeriodId, sessionId } = params;
 
@@ -59,8 +59,6 @@ export async function GET({
     });
   }
 
-  const meta = generateMeta();
-
   const { parliamentPeriod } = props;
   const personsMap = new Map(
     parliamentPeriod.persons.map((person) => [person.name, person]),
@@ -75,7 +73,10 @@ export async function GET({
     })),
   }));
 
-  const response = { meta, data };
+  const response = {
+    meta: generateMeta(),
+    data,
+  };
 
   return new Response(JSON.stringify(response), {
     status: 200,
