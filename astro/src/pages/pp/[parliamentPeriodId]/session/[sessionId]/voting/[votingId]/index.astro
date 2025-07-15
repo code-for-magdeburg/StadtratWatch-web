@@ -5,8 +5,9 @@ import {
   type ParliamentPeriodWithSessionAndVotingProps,
   getParliamentPeriodWithSessionAndVotingPaths
 } from '../../../../_helpers';
-import { convertVideoTimestampToSeconds, getPaperId } from './_helpers';
+import { getPaperId } from './_helpers';
 import MetaTags from '@components/MetaTags.astro';
+import { getVideoTimestampAsSeconds } from '@utils/session-utils';
 
 export const getStaticPaths = getParliamentPeriodWithSessionAndVotingPaths;
 
@@ -79,7 +80,7 @@ const paperId = getPaperId(
   scrapedPapers
 );
 
-const youtubeUrl = `${sessionInput.session.youtubeUrl}?t=${convertVideoTimestampToSeconds(voting.videoTimestamp)}s`;
+const youtubeUrl = `${sessionInput.session.youtubeUrl}?t=${getVideoTimestampAsSeconds(voting)}s`;
 
 const votedFor = voting.votes.filter(vote => vote.vote === 'J').length;
 const votedAgainst = voting.votes.filter(vote => vote.vote === 'N').length;

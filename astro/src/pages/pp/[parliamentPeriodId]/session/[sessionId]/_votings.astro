@@ -1,6 +1,7 @@
 ---
 import { type SessionScan, type SessionScanItem } from '@models/session-scan';
 import { type VotingListItem } from './_model';
+import { getVotingId } from '@utils/session-utils';
 
 type Props = {
   parliamentPeriodId: string;
@@ -24,10 +25,6 @@ const votings = sessionScan
       }) satisfies VotingListItem,
   )
   .toSorted((a, b) => a.id - b.id);
-
-function getVotingId(voting: SessionScanItem) {
-  return +voting.votingFilename.substring(11, 14);
-}
 
 function votingAccepted(voting: SessionScanItem) {
   const votedFor = voting.votes.filter((vote) => vote.vote === 'J').length;
