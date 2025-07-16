@@ -1,4 +1,5 @@
 import type { Registry, RegistryFaction, RegistryParty, RegistryPerson, RegistrySession } from '@models/registry.ts';
+import type { SessionScanItem } from '@models/session-scan.ts';
 
 function getPersonsOfSession(parliamentPeriod: Registry, session: RegistrySession): RegistryPerson[] {
   return parliamentPeriod.persons.filter(person => isPersonInSession(person, session))
@@ -29,4 +30,26 @@ export function getFactionOfPerson(parliamentPeriod: Registry, session: Registry
   return parliamentPeriod.factions.find(
     faction => faction.id === person.factionId && isPersonInSession(person, session)
   ) || null;
+}
+
+export function getVotingId(voting: SessionScanItem) {
+  return +voting.votingFilename.substring(11, 14);
+}
+
+export function getVideoTimestampAsSeconds(voting: SessionScanItem): number {
+  const timeParts = voting.videoTimestamp.split(':');
+  switch (timeParts.length) {
+    case 1:
+      return parseInt(timeParts[0] || '0');
+    case 2:
+      return parseInt(timeParts[0] || '0') * 60 + parseInt(timeParts[1] || '0');
+    case 3:
+      return (
+        parseInt(timeParts[0] || '0') * 3600 +
+        parseInt(timeParts[1] || '0') * 60 +
+        parseInt(timeParts[2] || '0')
+      );
+    default:
+      return 0;
+  }
 }
