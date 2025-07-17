@@ -14,6 +14,7 @@ export type RegistrySession = {
   title: string;
   youtubeUrl: string;
   meetingMinutesUrl: string | null;
+  approved: boolean;
 };
 
 export type RegistryFaction = {

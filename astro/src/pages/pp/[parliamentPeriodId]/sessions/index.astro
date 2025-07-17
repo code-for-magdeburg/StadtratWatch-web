@@ -37,7 +37,7 @@ const groupedByMonth = Array.from(groupedByMonthMap)
         date: sessionInput.session.date,
         dateDisplay: formatDate(sessionInput.session.date),
         title: sessionInput.session.title,
-        pending: !sessionInput.session.meetingMinutesUrl,
+        approved: sessionInput.session.approved,
       })),
     };
   })
@@ -64,7 +64,7 @@ const timelineEntries = groupedByMonth
           date: session.date,
           dateDisplay: formatDate(session.date),
           title: session.title,
-          pending: session.pending,
+          approved: session.approved,
         };
       });
 
@@ -92,8 +92,8 @@ const breadcrumbItems: BreadcrumbItem[] = [
   <ul class="timeline timeline-vertical">
     {
       timelineEntries.map((entry, index) => {
-        const pending =
-          entry.type === 'session' && (entry as SessionEntry).pending;
+        const approved =
+          entry.type === 'session' && (entry as SessionEntry).approved;
         return entry.type === 'month' ? (
           <li>
             {index !== 0 && <hr />}
@@ -114,11 +114,11 @@ const breadcrumbItems: BreadcrumbItem[] = [
             <a
               href={`/pp/${parliamentPeriodId}/session/${(entry as SessionEntry).sessionId}`}
               class="timeline-end timeline-box ms-3 hover:bg-base-200 hover:cursor-pointer space-y-2"
-              class:list={pending ? 'border-dashed' : undefined}
+              class:list={approved ? undefined : 'border-dashed'}
             >
               <div
                 class:list={
-                  pending ? 'text-base-content/40' : 'text-base-content/70'
+                  approved ? 'text-base-content/70' : 'text-base-content/40'
                 }
               >
                 {(entry as SessionEntry).dateDisplay}
@@ -126,12 +126,12 @@ const breadcrumbItems: BreadcrumbItem[] = [
               {(entry as SessionEntry).title && (
                 <div
                   class="text-base"
-                  class:list={pending ? 'text-base-content/50' : undefined}
+                  class:list={approved ? undefined : 'text-base-content/50'}
                 >
                   {(entry as SessionEntry).title}
                 </div>
               )}
-              {pending && (
+              {!approved && (
                 <div class="text-warning flex items-center gap-1">
                   <span class="iconify lucide--alert-triangle" />
                   Prüfung noch nicht abgeschlossen
