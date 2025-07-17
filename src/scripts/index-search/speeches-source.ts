@@ -51,11 +51,11 @@ export class SpeechesSource implements ISpeechesSource {
 
 
   private getSessionSpeeches(parliamentPeriod: Registry, session: RegistrySession): SessionSpeech[] {
-    return JSON.parse(
-      Deno.readTextFileSync(
-        path.join(this.parliamentPeriodsBaseDir, parliamentPeriod.id, session.id, `session-speeches-${session.id}.json`)
-      )
-    ) as SessionSpeech[];
+    const sessionSpeechesFilename = path.join(
+      this.parliamentPeriodsBaseDir, parliamentPeriod.id, session.id, `session-speeches-${session.id}.json`);
+    return fs.existsSync(sessionSpeechesFilename)
+      ? JSON.parse(Deno.readTextFileSync(sessionSpeechesFilename)) as SessionSpeech[]
+      : [];
   }
 
 

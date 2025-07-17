@@ -124,28 +124,32 @@ class SpeechesSourceStub implements ISpeechesSource {
       date: '2000-01-01',
       title: 'Session 2000-01-01',
       youtubeUrl: 'https://youtube.com/session-2000-01-01',
-      meetingMinutesUrl: 'https://example.com/minutes/2000-01-01'
+      meetingMinutesUrl: 'https://example.com/minutes/2000-01-01',
+      approved: true
     };
     const session20000201: RegistrySession = {
       id: '2000-02-01',
       date: '2000-02-01',
       title: 'Session 2000-02-01',
       youtubeUrl: 'https://youtube.com/session-2000-02-01',
-      meetingMinutesUrl: 'https://example.com/minutes/2000-02-01'
+      meetingMinutesUrl: 'https://example.com/minutes/2000-02-01',
+      approved: true
     };
     const session20010101: RegistrySession = {
       id: '2001-01-01',
       date: '2001-01-01',
       title: 'Session 2001-01-01',
       youtubeUrl: 'https://youtube.com/session-2001-01-01',
-      meetingMinutesUrl: 'https://example.com/minutes/2001-01-01'
+      meetingMinutesUrl: 'https://example.com/minutes/2001-01-01',
+      approved: true
     };
     const session20020101: RegistrySession = {
       id: '2002-01-01',
       date: '2002-01-01',
       title: 'Session 2002-01-01',
       youtubeUrl: 'https://youtube.com/session-2002-01-01',
-      meetingMinutesUrl: 'https://example.com/minutes/2002-01-01'
+      meetingMinutesUrl: 'https://example.com/minutes/2002-01-01',
+      approved: true
     };
     return [
       {
@@ -230,6 +234,13 @@ class SpeechesSourceStub implements ISpeechesSource {
       }
     ];
 
+  }
+}
+
+
+class EmptySpeechesSourceStub implements ISpeechesSource {
+  getSpeeches(): IndexableSpeech[] {
+    return [];
   }
 }
 
@@ -418,6 +429,22 @@ Deno.test('Speech transcriptions are indexed', async () => {
         }
       ]
     ]
+  });
+
+});
+
+
+Deno.test('No speech transcriptions are indexed from empty speeches source', async () => {
+
+  using importSpeechesSpy = spy(mockImporter, 'importSpeeches');
+
+  const searchIndex = new SearchIndexer(mockImporter);
+  const speechesSourceStub = new EmptySpeechesSourceStub();
+  await searchIndex.indexSpeeches(speechesSourceStub);
+
+  assertSpyCalls(importSpeechesSpy, 1);
+  assertSpyCall(importSpeechesSpy, 0, {
+    args: [[]]
   });
 
 });
