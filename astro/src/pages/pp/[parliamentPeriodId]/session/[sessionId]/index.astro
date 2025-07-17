@@ -71,6 +71,15 @@ const youtubeUrl = sessionInput.session.youtubeUrl;
     </div>
   </div>
 
+  {
+    !sessionInput.session.approved && (
+      <div class="alert alert-warning alert-soft mb-4">
+        <span class="iconify lucide--alert-triangle" />
+        Die Prüfung dieser Sitzung ist noch nicht abgeschlossen. Die Daten sind unter Umständen noch unvollständig oder werden sich noch ändern.
+      </div>
+    )
+  }
+
   <div
     id="tabs"
     role="tablist"
