@@ -4,6 +4,7 @@ import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { SessionInput } from '@srw-astro/models/session-input';
 import { SessionScan } from '@srw-astro/models/session-scan';
 import { SessionSpeech } from '@srw-astro/models/session-speech';
+import { existsSync } from '@std/fs';
 
 
 export type InputData = {
@@ -45,13 +46,15 @@ export class InputDataLoaders {
 
       const sessionDir = path.join(this.inputDir, session.date);
 
-      const votings = JSON.parse(
-        Deno.readTextFileSync(path.join(sessionDir, `session-scan-${session.date}.json`))
-      ) as SessionScan;
+      const sessionScanFilename = path.join(sessionDir, `session-scan-${session.date}.json`);
+      const votings = existsSync(sessionScanFilename)
+        ? JSON.parse(Deno.readTextFileSync(sessionScanFilename)) as SessionScan
+        : [];
 
-      const speeches = JSON.parse(
-        Deno.readTextFileSync(path.join(sessionDir, `session-speeches-${session.date}.json`))
-      ) as SessionSpeech[];
+      const sessionSpeechesFilename = path.join(sessionDir, `session-speeches-${session.date}.json`);
+      const speeches = existsSync(sessionSpeechesFilename)
+        ? JSON.parse(Deno.readTextFileSync(sessionSpeechesFilename)) as SessionSpeech[]
+        : [];
 
       return { session, votings, speeches } satisfies SessionInput;
 
