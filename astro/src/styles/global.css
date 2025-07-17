@@ -18,6 +18,7 @@
   prefixes: lucide;
 }
 
+@plugin '@tailwindcss/typography';
 
 [x-cloak] {
   display: none !important;
