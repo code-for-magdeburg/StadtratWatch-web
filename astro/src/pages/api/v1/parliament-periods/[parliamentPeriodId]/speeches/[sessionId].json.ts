@@ -34,9 +34,11 @@ export async function GET({
   );
   const { data: sessionSpeeches } = sessionSpeechesEntry || {};
   if (!sessionSpeeches) {
-    return new Response(null, {
-      status: 404,
-      statusText: 'Session speeches not found',
+    return new Response(JSON.stringify([]), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
   }
 
