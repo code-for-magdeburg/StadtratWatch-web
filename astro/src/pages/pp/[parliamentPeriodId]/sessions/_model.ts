@@ -13,6 +13,7 @@ export type SessionEntry = {
   date: string;
   dateDisplay: string;
   title: string;
+  pending: boolean;
 };
 
 export type TimelineEntry = EntryType & (MonthEntry | SessionEntry);

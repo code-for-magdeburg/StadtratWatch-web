@@ -61,7 +61,7 @@ export type SessionSpeechDto = {
 export type SessionDetailsDto = {
   id: string;
   date: string;
-  meetingMinutesUrl: string;
+  meetingMinutesUrl: string | null;
   youtubeUrl: string;
   factions: SessionFactionDto[];
   parties: SessionPartyDto[];

@@ -13,7 +13,7 @@ export type RegistrySession = {
   date: string;
   title: string;
   youtubeUrl: string;
-  meetingMinutesUrl: string;
+  meetingMinutesUrl: string | null;
 };
 
 export type RegistryFaction = {
