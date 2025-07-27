@@ -1,15 +1,17 @@
 ---
 import { type SessionScan, type SessionScanItem } from '@models/session-scan';
-import { type VotingListItem } from './_model';
+import { type VotesByFaction, type VotingListItem } from './_model';
 import { getVotingId } from '@utils/session-utils';
+import { type SessionScanVote } from '@models/session-scan';
+import { type Registry } from '@models/registry';
 
 type Props = {
-  parliamentPeriodId: string;
+  parliamentPeriod: Registry;
   sessionId: string;
   sessionScan: SessionScan;
 };
 
-const { parliamentPeriodId, sessionId, sessionScan } = Astro.props as Props;
+const { parliamentPeriod, sessionId, sessionScan } = Astro.props as Props;
 
 const votings = sessionScan
   .map(
@@ -21,10 +23,55 @@ const votings = sessionScan
         title: voting.votingSubject.title,
         type: voting.votingSubject.type || '',
         authors: voting.votingSubject.authors,
+        votesByFactions: getVotesByFactions(voting.votes),
         accepted: votingAccepted(voting),
       }) satisfies VotingListItem,
   )
   .toSorted((a, b) => a.id - b.id);
+
+function getVotesByFactions(votes: SessionScanVote[]): VotesByFaction[] {
+
+  const votesWithFactionId = votes.map(vote => {
+    const person = parliamentPeriod.persons.find(p => p.name === vote.name);
+    if (!person) {
+      throw new Error(`Person ${vote.name} not found`);
+    }
+    return {
+      personName: person.name,
+      factionId: person.factionId,
+      vote: vote.vote,
+    };
+  });
+
+  return parliamentPeriod.factions
+    .toSorted((a, b) => b.seats - a.seats)
+    .map((faction, orderIndex) => {
+      const votes = votesWithFactionId
+        .filter(v => v.factionId === faction.id)
+        .map(vote => ({
+          ...vote,
+          orderIndex: vote.vote === 'J'
+            ? 1
+            : vote.vote === 'N'
+              ? 2
+              : vote.vote === 'E'
+                ? 3
+                : 4
+        }))
+        .toSorted((a, b) => a.orderIndex - b.orderIndex)
+        .map(vote => ({
+          personName: vote.personName,
+          vote: vote.vote,
+        }));
+      return {
+        factionId: faction.id,
+        factionName: faction.name,
+        orderIndex,
+        votes
+      };
+    });
+
+}
 
 function votingAccepted(voting: SessionScanItem) {
   const votedFor = voting.votes.filter((vote) => vote.vote === 'J').length;
@@ -60,13 +107,15 @@ function votingAccepted(voting: SessionScanItem) {
             </div>
           </div>
           <a
-            href={`/pp/${parliamentPeriodId}/session/${sessionId}/voting/${voting.id}`}
+            href={`/pp/${parliamentPeriod.id}/session/${sessionId}/voting/${voting.id}`}
             class="timeline-end timeline-box mt-5 ms-3 w-full hover:bg-base-200 hover:cursor-pointer space-y-2"
           >
-            <div class="text-base-content/70">
-              {voting.agendaItem} {voting.type} {voting.applicationId}
+            <div class="text-base-content/70 space-x-1">
+              <span>{voting.agendaItem}</span>
+              <span>{voting.type}</span>
+              <span>{voting.applicationId}</span>
             </div>
-            <div>{voting.title}</div>
+            <div class="text-base">{voting.title}</div>
             {voting.authors.length > 0 && (
               <div class="flex flex-wrap gap-1">
                 {voting.authors.map((author) => (
@@ -74,6 +123,34 @@ function votingAccepted(voting: SessionScanItem) {
                 ))}
               </div>
             )}
+
+            <div class="grid grid-cols-[auto_1fr] gap-x-2">
+              {
+                voting.votesByFactions.map((votesByFaction) => (
+                  <>
+                    <div class="text-base-content/70">
+                      {votesByFaction.factionName}:
+                    </div>
+                    <div class="space-x-1">
+                      {
+                        votesByFaction.votes.map((vote) => (
+                          <div class="tooltip" data-tip={vote.personName}>
+                            <div
+                              class="status status-lg"
+                              class:list={[
+                                { 'status-success': vote.vote === 'J' },
+                                { 'status-error': vote.vote === 'N' },
+                                { 'status-warning': vote.vote === 'E' },
+                              ]}
+                            ></div>
+                          </div>
+                        ))
+                      }
+                    </div>
+                  </>
+                ))
+              }
+            </div>
           </a>
           {index < votings.length - 1 && <hr />}
         </li>
