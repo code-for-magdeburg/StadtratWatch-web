@@ -207,7 +207,25 @@
     {
       "id": "afd",
       "name": "AfD",
-      "seats": 13
+      "seats": 13,
+      "additionalInformation": [
+        {
+          "key": "EXTREMIST_CLASSIFICATION",
+          "value": "RIGHT_WING"
+        },
+        {
+          "key": "EXTREMIST_CLASSIFICATION_REASON",
+          "value": "Der Verfassungsschutz Sachsen-Anhalt hat den Landesverband der AfD am 7. November 2023 als gesichert rechtsextremistisch eingestuft."
+        },
+        {
+          "key": "EXTREMIST_CLASSIFICATION_SOURCE",
+          "value": "Verfassungsschutz Sachsen-Anhalt"
+        },
+        {
+          "key": "EXTREMIST_CLASSIFICATION_SOURCE_URL",
+          "value": "https://mi.sachsen-anhalt.de/verfassungsschutz/themenfelder/rechtsextremismus/rechtsextremistische-parteien"
+        }
+      ]
     },
     {
       "id": "spd",
