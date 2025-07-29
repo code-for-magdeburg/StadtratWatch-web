@@ -7,6 +7,8 @@ import {
 import Councilors from './_councilors.astro';
 import Statistics from './_statistics.astro';
 import MetaTags from '@components/MetaTags.astro';
+import ExtremistClassificationAlert from '@components/ExtremistClassificationAlert.astro';
+import { extractExtremistClassificationInformation } from '@utils/party-utils';
 
 export const getStaticPaths = getParliamentPeriodWithPartyPaths;
 
@@ -31,6 +33,14 @@ const breadcrumbItems = [
     href: null
   }
 ];
+
+const {
+  extremistClassification,
+  extremistClassificationReason,
+  extremistClassificationSource,
+  extremistClassificationSourceUrl
+} = extractExtremistClassificationInformation(party);
+
 ---
 
 <PageLayout
@@ -39,6 +49,18 @@ const breadcrumbItems = [
   breadcrumbItems={breadcrumbItems}
 >
   <MetaTags slot="srw-meta-tags" partyName={party.name} />
+
+  {
+    extremistClassification && (
+      <div class="mb-4">
+        <ExtremistClassificationAlert
+          extremistClassificationReason={extremistClassificationReason}
+          extremistClassificationSource={extremistClassificationSource}
+          extremistClassificationSourceUrl={extremistClassificationSourceUrl}
+        />
+      </div>
+    )
+  }
 
   <div
     id="tabs"

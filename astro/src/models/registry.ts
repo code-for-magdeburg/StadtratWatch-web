@@ -27,6 +27,7 @@ export type RegistryParty = {
   id: string;
   name: string;
   seats: number;
+  additionalInformation?: { key: string; value: string }[];
 };
 
 export type RegistryPerson = {

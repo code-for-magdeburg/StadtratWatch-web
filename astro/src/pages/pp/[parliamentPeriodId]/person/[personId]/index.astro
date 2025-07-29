@@ -8,6 +8,8 @@ import Statistics from './_statistics.astro';
 import VotingMatrix from './_voting-matrix.astro';
 import Speeches from './_speeches.astro';
 import MetaTags from '@components/MetaTags.astro';
+import ExtremistClassificationAlert from '@components/ExtremistClassificationAlert.astro';
+import { extractExtremistClassificationInformation } from '@utils/party-utils';
 
 export const getStaticPaths = getParliamentPeriodWithPersonPaths;
 
@@ -26,6 +28,14 @@ const party = parliamentPeriod.parties.find((party) => party.id === person.party
 if (!party) {
   throw new Error(`Party with ID ${person.partyId} not found in parliament period ${parliamentPeriodId}`);
 }
+
+const {
+  extremistClassification,
+  extremistClassificationReason,
+  extremistClassificationSource,
+  extremistClassificationSourceUrl
+} = extractExtremistClassificationInformation(party);
+
 ---
 <PageLayout
   parliamentPeriod={parliamentPeriod}
@@ -46,6 +56,18 @@ if (!party) {
   ]}
 >
   <MetaTags slot="srw-meta-tags" personName={person.name} />
+
+  {
+    extremistClassification && (
+      <div class="mb-4">
+        <ExtremistClassificationAlert
+          extremistClassificationReason={extremistClassificationReason}
+          extremistClassificationSource={extremistClassificationSource}
+          extremistClassificationSourceUrl={extremistClassificationSourceUrl}
+        />
+      </div>
+    )
+  }
 
   <div slot="sub-page-header">
     <div class="flex flex-row flex-wrap text-base-content/60 text-sm gap-x-4">

@@ -1,0 +1,29 @@
+---
+type Props = {
+  extremistClassificationReason: string;
+  extremistClassificationSource: string;
+  extremistClassificationSourceUrl: string;
+};
+
+const {
+  extremistClassificationReason,
+  extremistClassificationSource,
+  extremistClassificationSourceUrl
+} = Astro.props as Props;
+---
+<div class="alert alert-soft alert-warning" role="alert">
+  <span class="iconify lucide--alert-triangle text-warning size-5"></span>
+  <div class="space-y-2">
+    <div>
+      {extremistClassificationReason}
+    </div>
+    <div class="text-base-content/70 text-xs">
+      Quelle:
+      <a
+        href={extremistClassificationSourceUrl}
+        target="_blank"
+        class="link"
+      >{extremistClassificationSource}</a>
+    </div>
+  </div>
+</div>
