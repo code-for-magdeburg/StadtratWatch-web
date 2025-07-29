@@ -91,13 +91,13 @@ function votingAccepted(voting: SessionScanItem) {
       <div class="flex items-center gap-2">
         <input
           class="toggle toggle-sm"
-          id="votingsFilterCheckbox"
-          x-ref="votingsFilterCheckbox"
+          id="onlyPrimaryVotingsFilterCheckbox"
+          x-ref="onlyPrimaryVotingsFilterCheckbox"
           type="checkbox"
           checked
           @change="filterList($event.target.checked)"
         />
-        <label class="label text-sm" for="votingsFilterCheckbox">
+        <label class="label text-sm" for="onlyPrimaryVotingsFilterCheckbox">
           Nur Sachbeschlüsse anzeigen
         </label>
         <div class="tooltip">
@@ -109,7 +109,7 @@ function votingAccepted(voting: SessionScanItem) {
         </div>
       </div>
       <ul class="timeline timeline-vertical timeline-compact">
-        {votings.map((voting, index) => (
+        {votings.map(voting => (
           <li class="voting-item" data-voting-type={voting.type}>
             <hr class="voting-item-leading-line" />
             <div class="timeline-middle">
@@ -189,17 +189,16 @@ function votingAccepted(voting: SessionScanItem) {
     const votingItemsElements = document.querySelectorAll('.voting-item');
 
     Alpine.data('votings', () => ({
-      init: async function(){
-        this.filterList(true);
+      init: function(){
+        this.filterList(this.$refs.onlyPrimaryVotingsFilterCheckbox.checked);
       },
       filterList: function(onlyPrimaryVotings: boolean) {
         votingItemsElements.forEach((item) => {
           const votingType = item.getAttribute('data-voting-type');
-          if (onlyPrimaryVotings && votingType !== 'Beschlussvorlage' && votingType !== 'Antrag' && votingType !== 'Änderungsantrag') {
-            item.style.display = 'none';
-          } else {
-            item.style.display = 'grid';
-          }
+          const isPrimaryVoting = ['Beschlussvorlage', 'Antrag', 'Änderungsantrag'].includes(votingType);
+          item.style.display = onlyPrimaryVotings && !isPrimaryVoting
+            ? 'none'
+            : 'grid';
         });
 
         // Unhide all vertical lines
