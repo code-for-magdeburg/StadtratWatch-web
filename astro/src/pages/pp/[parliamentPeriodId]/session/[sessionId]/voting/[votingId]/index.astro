@@ -35,7 +35,7 @@ const breadcrumbItems = [
     href: `/pp/${parliamentPeriodId}/session/${sessionId}`
   },
   {
-    name: `${voting.votingSubject.type || ''} ${voting.votingSubject.applicationId}`,
+    name: `${voting.votingSubject.type || ''} ${voting.votingSubject.motionId}`,
     href: null
   }
 ];
@@ -126,9 +126,9 @@ const votingAccepted = votedFor > votedAgainst;
             <span>
               {voting.votingSubject.type}
               {
-                voting.votingSubject.applicationId && paperId && (
+                voting.votingSubject.motionId && paperId && (
                   <a href={`/paper?paperId=${paperId}`} class="link link-primary">
-                    {voting.votingSubject.applicationId}
+                    {voting.votingSubject.motionId}
                   </a>
                 )
               }

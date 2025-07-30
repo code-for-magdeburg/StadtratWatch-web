@@ -19,8 +19,8 @@ export function calcApplicationsSuccessRateOfFaction(
   // Group votings to take item-by-item votings into account
   const groupedVotings = Object.groupBy(votings, (voting: SessionScanItem) => {
     const { votingSubject } = voting;
-    const { agendaItem, applicationId, type } = votingSubject;
-    return `${agendaItem}|${applicationId}|${type}`;
+    const { agendaItem, motionId, type } = votingSubject;
+    return `${agendaItem}|${motionId}|${type}`;
   });
 
   const votingGroupsResults = Array.from(Object.values(groupedVotings))

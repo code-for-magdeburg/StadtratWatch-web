@@ -67,7 +67,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
+              motionId: 'app-1',
               title: 'Application 1',
               type: 'Antrag',
               authors: [faction2.name],
@@ -97,7 +97,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
+              motionId: 'app-1',
               title: 'Application 1',
               type: 'Antrag',
               authors: [faction1.name],
@@ -127,7 +127,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
+              motionId: 'app-1',
               title: 'Application 1',
               type: 'Antrag',
               authors: [faction1.name],
@@ -159,7 +159,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
+              motionId: 'app-1',
               title: 'Application 1',
               type: 'Antrag',
               authors: [faction1.name],
@@ -191,7 +191,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
+              motionId: 'app-1',
               title: 'Application 1',
               type: 'Antrag',
               authors: [faction1.name],
@@ -205,7 +205,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 2',
-              applicationId: 'app-2',
+              motionId: 'app-2',
               title: 'Application 2',
               type: 'Antrag',
               authors: [faction1.name],
@@ -219,7 +219,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 3',
-              applicationId: 'app-3',
+              motionId: 'app-3',
               title: 'Application 3',
               type: 'Antrag',
               authors: [faction1.name],
@@ -233,7 +233,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 4',
-              applicationId: 'app-4',
+              motionId: 'app-4',
               title: 'Application 4',
               type: 'Antrag',
               authors: [faction1.name],
@@ -247,7 +247,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 5',
-              applicationId: 'app-5',
+              motionId: 'app-5',
               title: 'Application 5',
               type: 'Antrag',
               authors: [faction1.name],
@@ -279,7 +279,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
+              motionId: 'app-1',
               title: 'Application 1',
               type: 'Antrag',
               authors: [faction1.name],
@@ -293,7 +293,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 2',
-              applicationId: 'app-2',
+              motionId: 'app-2',
               title: 'Application 2',
               type: 'Antrag',
               authors: [faction1.name],
@@ -307,7 +307,7 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 2',
-              applicationId: 'app-2',
+              motionId: 'app-2',
               title: 'Application 2',
               type: 'Antrag',
               authors: [faction1.name],

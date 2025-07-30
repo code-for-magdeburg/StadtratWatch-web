@@ -21,7 +21,7 @@ export type ApplicationListItem = {
   votingDate: string;
   votingDateFormatted: string;
   type: string | null;
-  applicationId: string;
+  motionId: string;
   paperId: number | null;
   title: string;
   result: string;
@@ -55,21 +55,21 @@ const factionApplicationVotings = sessionInputs
       sessionDate: sessionInput.session.date
     }))
   )
-  .filter((voting) => !!voting.voting.votingSubject.applicationId)
+  .filter((voting) => !!voting.voting.votingSubject.motionId)
   .filter((voting) =>
     voting.voting.votingSubject.authors.includes(faction.name)
   );
 const applicationsMap = Map.groupBy(
   factionApplicationVotings,
   (voting) =>
-    `${voting.voting.votingSubject.applicationId}-${voting.voting.votingSubject.type}`
+    `${voting.voting.votingSubject.motionId}-${voting.voting.votingSubject.type}`
 );
 const applications = Array.from(applicationsMap)
   .map(([_, applicationVotings]) => {
     const applicationVoting = applicationVotings[0];
-    const applicationId = applicationVoting.voting.votingSubject.applicationId;
-    const applicationType = applicationVoting.voting.votingSubject.type;
-    const applicationTitle = applicationVoting.voting.votingSubject.title;
+    const motionId = applicationVoting.voting.votingSubject.motionId;
+    const motionType = applicationVoting.voting.votingSubject.type;
+    const motionTitle = applicationVoting.voting.votingSubject.title;
     const sessionId = applicationVoting.sessionId;
     const sessionDate = applicationVoting.sessionDate;
     const paperId = getPaperId(
@@ -81,9 +81,9 @@ const applications = Array.from(applicationsMap)
       votingResult: getVotingResult(applicationVoting.voting.votes)
     }));
     return {
-      applicationId,
-      type: applicationType,
-      title: applicationTitle,
+      motionId,
+      type: motionType,
+      title: motionTitle,
       sessionId,
       sessionDate,
       paperId,
@@ -97,7 +97,7 @@ const applications = Array.from(applicationsMap)
     votingDate: application.sessionDate,
     votingDateFormatted: formatDate(application.sessionDate),
     type: application.type,
-    applicationId: application.applicationId,
+    motionId: application.motionId,
     paperId: application.paperId,
     title: application.title,
     result: getApplicationResult(application.votings)
@@ -222,7 +222,7 @@ function getPaperId(
       <th scope="col" class="px-0">
         <button
           class="btn btn-ghost btn-block flex justify-between"
-          @click="sortTextColumn('applicationId', (application) => application.applicationId)"
+          @click="sortTextColumn('motionId', (application) => application.motionId)"
         >
           <span class="text-left">Antrag</span>
           <span class="iconify lucide--chevrons-up-down"></span>
@@ -258,11 +258,11 @@ function getPaperId(
             <a
               :href="`/paper?paperId=${application.paperId}`"
               class="link link-primary"
-              x-text="application.applicationId"
+              x-text="application.motionId"
             ></a>
           </template>
           <template x-if="!application.paperId">
-            <span x-text="application.applicationId"></span>
+            <span x-text="application.motionId"></span>
           </template>
         </td>
         <td>

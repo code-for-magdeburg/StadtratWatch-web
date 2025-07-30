@@ -61,34 +61,34 @@ function getTitleForVoting(voting: SessionScanItem, sessionDate: string): string
     switch (voting.votingSubject.type) {
 
         case 'Änderungsantrag':
-            return voting.votingSubject.applicationId
-                ? `StadtratWatch: Änderungsantrag ${voting.votingSubject.applicationId}`
+            return voting.votingSubject.motionId
+                ? `StadtratWatch: Änderungsantrag ${voting.votingSubject.motionId}`
                 : `StadtratWatch: Änderungsantrag am ${formatDate(sessionDate)}`;
 
         case 'Antrag':
-            return voting.votingSubject.applicationId
-                ? `StadtratWatch: Antrag ${voting.votingSubject.applicationId}`
+            return voting.votingSubject.motionId
+                ? `StadtratWatch: Antrag ${voting.votingSubject.motionId}`
                 : `StadtratWatch: Antrag am ${formatDate(sessionDate)}`;
 
         case 'Beschlussvorlage':
-            return voting.votingSubject.applicationId
-                ? `StadtratWatch: Beschlussvorlage ${voting.votingSubject.applicationId}`
+            return voting.votingSubject.motionId
+                ? `StadtratWatch: Beschlussvorlage ${voting.votingSubject.motionId}`
                 : `StadtratWatch: Beschlussvorlage am ${formatDate(sessionDate)}`;
 
         case 'Delegation':
             return `StadtratWatch: Abstimmung zur Delegation am ${formatDate(sessionDate)}`;
 
         case 'Geschäftsordnung':
-            return voting.votingSubject.applicationId
-                ? `StadtratWatch: Geschäftsordnungsantrag zu ${voting.votingSubject.applicationId}`
+            return voting.votingSubject.motionId
+                ? `StadtratWatch: Geschäftsordnungsantrag zu ${voting.votingSubject.motionId}`
                 : `StadtratWatch: Geschäftsordnungsantrag am ${formatDate(sessionDate)}`;
 
         case 'Niederschrift':
             return `StadtratWatch: Abstimmung zur Niederschrift am ${formatDate(sessionDate)}`;
 
         case 'Redaktionelle Änderung':
-            return voting.votingSubject.applicationId
-                ? `StadtratWatch: Redaktionelle Änderung zu ${voting.votingSubject.applicationId}`
+            return voting.votingSubject.motionId
+                ? `StadtratWatch: Redaktionelle Änderung zu ${voting.votingSubject.motionId}`
                 : `StadtratWatch: Redaktionelle Änderung am ${formatDate(sessionDate)}`;
 
         case 'Tagesordnung':

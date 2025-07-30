@@ -120,7 +120,7 @@ export class SessionsDataGenerator {
               videoTimestamp: this.convertVideoTimestampToSeconds(voting.videoTimestamp),
               votingSubject: {
                 agendaItem: voting.votingSubject.agendaItem,
-                applicationId: voting.votingSubject.applicationId,
+                motionId: voting.votingSubject.motionId,
                 title: voting.votingSubject.title,
                 type: voting.votingSubject.type || 'Sonstige',
                 authors: voting.votingSubject.authors,
