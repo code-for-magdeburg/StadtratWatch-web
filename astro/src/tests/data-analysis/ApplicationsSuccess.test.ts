@@ -27,6 +27,7 @@ describe('ApplicationsSuccess', () => {
       title: 'Session 1',
       youtubeUrl: 'https://youtube.com/session1',
       meetingMinutesUrl: 'https://example.com/minutes1',
+      approved: true,
     };
   });
 
