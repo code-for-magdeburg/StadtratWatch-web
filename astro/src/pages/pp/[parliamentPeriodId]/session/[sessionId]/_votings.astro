@@ -182,19 +182,19 @@ function votingAccepted(voting: SessionScanItem) {
 }
 
 <script>
-  import { Alpine } from 'alpinejs';
+  import Alpine from 'alpinejs';
 
   document.addEventListener('alpine:init', () => {
 
-    const votingItemsElements = document.querySelectorAll('.voting-item');
+    const votingItemsElements = document.querySelectorAll('.voting-item') as NodeListOf<HTMLElement>;
 
     Alpine.data('votings', () => ({
       init: function(){
-        this.filterList(this.$refs.onlyPrimaryVotingsFilterCheckbox.checked);
+        this.filterList((this.$refs.onlyPrimaryVotingsFilterCheckbox as HTMLInputElement).checked);
       },
       filterList: function(onlyPrimaryVotings: boolean) {
         votingItemsElements.forEach((item) => {
-          const votingType = item.getAttribute('data-voting-type');
+          const votingType = item.getAttribute('data-voting-type') || '';
           const isPrimaryVoting = ['Beschlussvorlage', 'Antrag', 'Änderungsantrag'].includes(votingType);
           item.style.display = onlyPrimaryVotings && !isPrimaryVoting
             ? 'none'
@@ -202,7 +202,7 @@ function votingAccepted(voting: SessionScanItem) {
         });
 
         // Unhide all vertical lines
-        const hrElements = document.querySelectorAll('.voting-item-leading-line, .voting-item-trailing-line');
+        const hrElements = document.querySelectorAll('.voting-item-leading-line, .voting-item-trailing-line') as NodeListOf<HTMLElement>;
         hrElements.forEach((hr) => {
           hr.style.display = 'block';
         });
@@ -212,7 +212,7 @@ function votingAccepted(voting: SessionScanItem) {
           .from(votingItemsElements)
           .find(item => item.style.display !== 'none');
         if (firstVisibleItem) {
-          const leadingHr = firstVisibleItem.querySelector('.voting-item-leading-line');
+          const leadingHr = firstVisibleItem.querySelector('.voting-item-leading-line') as HTMLElement;
           if (leadingHr) {
             leadingHr.style.display = 'none';
           }
@@ -224,7 +224,7 @@ function votingAccepted(voting: SessionScanItem) {
           .reverse()
           .find(item => item.style.display !== 'none');
         if (lastVisibleItem) {
-          const trailingHr = lastVisibleItem.querySelector('.voting-item-trailing-line');
+          const trailingHr = lastVisibleItem.querySelector('.voting-item-trailing-line') as HTMLElement;
           if (trailingHr) {
             trailingHr.style.display = 'none';
           }
