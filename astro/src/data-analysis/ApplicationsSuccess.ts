@@ -8,7 +8,7 @@ export type HistoryDataPoint = {
   value: number;
 };
 
-export function calcApplicationsSuccessRateOfFaction(
+export function calcMotionsSuccessRateOfFaction(
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): number | null {
@@ -38,7 +38,7 @@ export function calcApplicationsSuccessRateOfFaction(
         votingGroupsResults.length;
 }
 
-export function calcApplicationsSuccessRateHistoryOfFaction(
+export function calcMotionsSuccessRateHistoryOfFaction(
   faction: RegistryFaction,
   sessions: SessionInput[],
 ): HistoryDataPoint[] {
@@ -47,7 +47,7 @@ export function calcApplicationsSuccessRateHistoryOfFaction(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcApplicationsSuccessRateOfFaction(faction, pastSessions);
+      const value = calcMotionsSuccessRateOfFaction(faction, pastSessions);
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)

@@ -1,5 +1,5 @@
 import { assert, describe, beforeEach, test } from 'vitest';
-import { calcApplicationsSuccessRateOfFaction } from '@data-analysis/ApplicationsSuccess.ts';
+import { calcMotionsSuccessRateOfFaction } from '@data-analysis/ApplicationsSuccess.ts';
 import type { RegistryFaction, RegistrySession } from '@models/registry.ts';
 import type { SessionInput } from '@models/SessionInput.ts';
 
@@ -32,12 +32,12 @@ describe('MotionsSuccess', () => {
   });
 
   test('is null when no sessions are provided', () => {
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       [],
     );
 
-    assert.isNull(applicationsSuccessRate);
+    assert.isNull(motionsSuccessRate);
   });
 
   test('is null when no votings are provided at all', () => {
@@ -49,12 +49,12 @@ describe('MotionsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.isNull(applicationsSuccessRate);
+    assert.isNull(motionsSuccessRate);
   });
 
   test('is null when no motions are provided by faction', () => {
@@ -79,12 +79,12 @@ describe('MotionsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.isNull(applicationsSuccessRate);
+    assert.isNull(motionsSuccessRate);
   });
 
   test('is not null when motions are provided by faction', () => {
@@ -109,12 +109,12 @@ describe('MotionsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.isNotNull(applicationsSuccessRate);
+    assert.isNotNull(motionsSuccessRate);
   });
 
   test('is 100% when all motions passed', () => {
@@ -141,12 +141,12 @@ describe('MotionsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.equal(applicationsSuccessRate, 1);
+    assert.equal(motionsSuccessRate, 1);
   });
 
   test('is 0% when no motions passed', () => {
@@ -173,12 +173,12 @@ describe('MotionsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.equal(applicationsSuccessRate, 0);
+    assert.equal(motionsSuccessRate, 0);
   });
 
   test('is 40% when two out of five motions passed', () => {
@@ -261,12 +261,12 @@ describe('MotionsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.equal(applicationsSuccessRate, .4);
+    assert.equal(motionsSuccessRate, .4);
   });
 
   test('counts partial votings proportionately', () => {
@@ -321,12 +321,12 @@ describe('MotionsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.equal(applicationsSuccessRate, .75);
+    assert.equal(motionsSuccessRate, .75);
   });
 
 });

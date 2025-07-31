@@ -4,7 +4,7 @@ import {
   type ParliamentPeriodWithSessionsProps,
   getParliamentPeriodWithSessionsPaths
 } from '../_helpers';
-import { calcApplicationsSuccessRateOfFaction } from '@data-analysis/ApplicationsSuccess';
+import { calcMotionsSuccessRateOfFaction } from '@data-analysis/ApplicationsSuccess';
 import { calcVotingSuccessRateOfFaction } from '@data-analysis/VotingSuccess';
 import { calcUniformityScoreOfFaction } from '@data-analysis/UniformityScore';
 import { calcParticipationRateOfFaction } from '@data-analysis/ParticipationRate';
@@ -12,7 +12,7 @@ import { calcAbstentionRateOfFaction } from '@data-analysis/AbstentionRate';
 import { calcSpeakingTimeOfFaction } from '@data-analysis/SpeakingTime';
 import {
   formatAbstentionRate,
-  formatApplicationsSuccessRate,
+  formatMotionsSuccessRate,
   formatParticipationRate,
   formatUniformityScore,
   formatVotingSuccessRate
@@ -40,7 +40,7 @@ const breadcrumbItems: BreadcrumbItem[] = [
 
 const factions = parliamentPeriod.factions
   .map<FactionListItem>((faction) => {
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction,
       sessionInputs
     );
@@ -65,10 +65,8 @@ const factions = parliamentPeriod.factions
       id: faction.id,
       name: faction.name,
       seats: faction.seats,
-      applicationsSuccessRate,
-      applicationsSuccessRateDisplay: formatApplicationsSuccessRate(
-        applicationsSuccessRate
-      ),
+      motionsSuccessRate,
+      motionsSuccessRateDisplay: formatMotionsSuccessRate(motionsSuccessRate),
       votingSuccessRate,
       votingSuccessRateDisplay: formatVotingSuccessRate(votingSuccessRate),
       uniformityScore,
@@ -115,11 +113,11 @@ const abstentionRateChartData: ChartDataPoint[] = factions
   }))
   .toSorted((a, b) => b.value - a.value);
 
-const applicationsSuccessRateChartData: ChartDataPoint[] = factions
+const motionsSuccessRateChartData: ChartDataPoint[] = factions
   .map(faction => ({
-    value: faction.applicationsSuccessRate || 0,
+    value: faction.motionsSuccessRate || 0,
     factionId: faction.id,
-    label: `${faction.name} ${faction.applicationsSuccessRateDisplay}`
+    label: `${faction.name} ${faction.motionsSuccessRateDisplay}`
   }))
   .toSorted((a, b) => b.value - a.value);
 
@@ -199,7 +197,7 @@ const barHeight = factions.length * 40;
             <th class="px-0">
               <button
                 class="btn btn-ghost btn-block flex justify-between"
-                @click="sortNumberColumn('abstentionRate', (faction) => faction.abstentionRate)"
+                @click="sortNumberColumn('abstentionRate', faction => faction.abstentionRate)"
               >
                 <span class="grow">Stimmenthaltungen</span>
                 <span class="iconify lucide--chevrons-up-down"></span>
@@ -208,7 +206,7 @@ const barHeight = factions.length * 40;
             <th class="px-0">
               <button
                 class="btn btn-ghost btn-block flex justify-between"
-                @click="sortNumberColumn('applicationsSuccessRate', (faction) => faction.applicationsSuccessRate)"
+                @click="sortNumberColumn('motionsSuccessRate', faction => faction.motionsSuccessRate)"
               >
                 <span class="grow">Erfolgreiche Anträge</span>
                 <span class="iconify lucide--chevrons-up-down"></span>
@@ -217,7 +215,7 @@ const barHeight = factions.length * 40;
             <th class="px-0">
               <button
                 class="btn btn-ghost btn-block flex justify-between"
-                @click="sortNumberColumn('speakingTime', (faction) => faction.speakingTime)"
+                @click="sortNumberColumn('speakingTime', faction => faction.speakingTime)"
               >
                 <span class="grow">Redezeit</span>
                 <span class="iconify lucide--chevrons-up-down"></span>
@@ -235,15 +233,11 @@ const barHeight = factions.length * 40;
                   x-text="faction.name"></a>
               </td>
               <td class="text-right" x-text="faction.seats"></td>
-              <td class="text-right" x-text="faction.votingSuccessRateDisplay"
-              ></td>
+              <td class="text-right" x-text="faction.votingSuccessRateDisplay"></td>
               <td class="text-right" x-text="faction.uniformityScoreDisplay"></td>
-              <td class="text-right" x-text="faction.participationRateDisplay"
-              ></td>
+              <td class="text-right" x-text="faction.participationRateDisplay"></td>
               <td class="text-right" x-text="faction.abstentionRateDisplay"></td>
-              <td
-                class="text-right"
-                x-text="faction.applicationsSuccessRateDisplay"></td>
+              <td class="text-right" x-text="faction.motionsSuccessRateDisplay"></td>
               <td class="text-right" x-text="faction.speakingTimeDisplay"></td>
             </tr>
           </template>
@@ -357,13 +351,13 @@ const barHeight = factions.length * 40;
             </div>
           </div>
           <div
-            id="applications-success-rate-chart-container"
+            id="motions-success-rate-chart-container"
             class="relative"
             style={{ height: `${barHeight}px` }}
             data-parliament-period-id={parliamentPeriod.id}
-            data-chart-data={JSON.stringify(applicationsSuccessRateChartData)}
+            data-chart-data={JSON.stringify(motionsSuccessRateChartData)}
           >
-            <canvas id="applications-success-rate-chart"></canvas>
+            <canvas id="motions-success-rate-chart"></canvas>
           </div>
         </div>
       </div>
@@ -473,8 +467,8 @@ const barHeight = factions.length * 40;
   );
 
   createChart(
-    'applications-success-rate-chart-container',
-    'applications-success-rate-chart',
+    'motions-success-rate-chart-container',
+    'motions-success-rate-chart',
     'Erfolgreiche Anträge'
   );
 
