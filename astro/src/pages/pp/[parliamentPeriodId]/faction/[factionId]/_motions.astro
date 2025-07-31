@@ -9,19 +9,19 @@ import {
   type ScrapedPaper
 } from '@models/scraped-session';
 import {
-  getApplicationResult,
+  getMotionResult,
   getVotingId,
   getVotingResult
 } from './_helpers';
 import { formatDate } from '@utils/format-date';
 
-export type ApplicationListItem = {
+export type MotionListItem = {
   sessionId: string;
   votingId: number;
   votingDate: string;
   votingDateFormatted: string;
   type: string | null;
-  applicationId: string;
+  motionId: string;
   paperId: number | null;
   title: string;
   result: string;
@@ -47,7 +47,7 @@ const {
   scrapedFiles
 } = Astro.props as Props;
 
-const factionApplicationVotings = sessionInputs
+const factionMotionVotings = sessionInputs
   .flatMap((sessionInput) =>
     sessionInput.votings.map((voting) => ({
       voting,
@@ -55,35 +55,35 @@ const factionApplicationVotings = sessionInputs
       sessionDate: sessionInput.session.date
     }))
   )
-  .filter((voting) => !!voting.voting.votingSubject.applicationId)
+  .filter((voting) => !!voting.voting.votingSubject.motionId)
   .filter((voting) =>
     voting.voting.votingSubject.authors.includes(faction.name)
   );
-const applicationsMap = Map.groupBy(
-  factionApplicationVotings,
+const motionsMap = Map.groupBy(
+  factionMotionVotings,
   (voting) =>
-    `${voting.voting.votingSubject.applicationId}-${voting.voting.votingSubject.type}`
+    `${voting.voting.votingSubject.motionId}-${voting.voting.votingSubject.type}`
 );
-const applications = Array.from(applicationsMap)
-  .map(([_, applicationVotings]) => {
-    const applicationVoting = applicationVotings[0];
-    const applicationId = applicationVoting.voting.votingSubject.applicationId;
-    const applicationType = applicationVoting.voting.votingSubject.type;
-    const applicationTitle = applicationVoting.voting.votingSubject.title;
-    const sessionId = applicationVoting.sessionId;
-    const sessionDate = applicationVoting.sessionDate;
+const motions = Array.from(motionsMap)
+  .map(([_, motionVotings]) => {
+    const motionVoting = motionVotings[0];
+    const motionId = motionVoting.voting.votingSubject.motionId;
+    const motionType = motionVoting.voting.votingSubject.type;
+    const motionTitle = motionVoting.voting.votingSubject.title;
+    const sessionId = motionVoting.sessionId;
+    const sessionDate = motionVoting.sessionDate;
     const paperId = getPaperId(
-      applicationVoting.sessionDate,
-      applicationVoting.voting
+      motionVoting.sessionDate,
+      motionVoting.voting
     );
-    const votings = applicationVotings.map((applicationVoting) => ({
-      votingId: +applicationVoting.voting.votingFilename.substring(11, 14),
-      votingResult: getVotingResult(applicationVoting.voting.votes)
+    const votings = motionVotings.map((motionVoting) => ({
+      votingId: +motionVoting.voting.votingFilename.substring(11, 14),
+      votingResult: getVotingResult(motionVoting.voting.votes)
     }));
     return {
-      applicationId,
-      type: applicationType,
-      title: applicationTitle,
+      motionId,
+      type: motionType,
+      title: motionTitle,
       sessionId,
       sessionDate,
       paperId,
@@ -91,17 +91,17 @@ const applications = Array.from(applicationsMap)
     };
   })
   .toSorted((a, b) => b.sessionDate.localeCompare(a.sessionDate))
-  .map<ApplicationListItem>((application) => ({
-    sessionId: application.sessionId,
-    votingId: getVotingId(application.votings),
-    votingDate: application.sessionDate,
-    votingDateFormatted: formatDate(application.sessionDate),
-    type: application.type,
-    applicationId: application.applicationId,
-    paperId: application.paperId,
-    title: application.title,
-    result: getApplicationResult(application.votings)
-  } satisfies ApplicationListItem));
+  .map<MotionListItem>((motion) => ({
+    sessionId: motion.sessionId,
+    votingId: getVotingId(motion.votings),
+    votingDate: motion.sessionDate,
+    votingDateFormatted: formatDate(motion.sessionDate),
+    type: motion.type,
+    motionId: motion.motionId,
+    paperId: motion.paperId,
+    title: motion.title,
+    result: getMotionResult(motion.votings)
+  } satisfies MotionListItem));
 
 function getPaperId(
   sessionDate: string,
@@ -162,21 +162,21 @@ function getPaperId(
 
 <div
     class="overflow-x-auto space-y-4"
-    x-data="applications"
-    data-applications={JSON.stringify(applications)}
+    x-data="motions"
+    data-motions={JSON.stringify(motions)}
     data-parliament-period-id={parliamentPeriodId}
 >
   <div class="flex flex-row flex-wrap gap-4">
     <div class="flex items-center gap-2">
       <input
           class="toggle toggle-sm"
-          id="applicationsFilterCheckbox"
-          x-ref="applicationsFilterCheckbox"
+          id="motionsFilterCheckbox"
+          x-ref="motionsFilterCheckbox"
           type="checkbox"
           checked
           @change="filterList($event.target.checked, $refs.changeRequestsFilterCheckbox.checked, $refs.pointsOfOrderFilterCheckbox.checked)"
       />
-      <label class="label text-sm" for="applicationsFilterCheckbox">
+      <label class="label text-sm" for="motionsFilterCheckbox">
         Anträge
       </label>
     </div>
@@ -187,7 +187,7 @@ function getPaperId(
           x-ref="changeRequestsFilterCheckbox"
           type="checkbox"
           checked
-          @change="filterList($refs.applicationsFilterCheckbox.checked, $event.target.checked, $refs.pointsOfOrderFilterCheckbox.checked)"
+          @change="filterList($refs.motionsFilterCheckbox.checked, $event.target.checked, $refs.pointsOfOrderFilterCheckbox.checked)"
       />
       <label class="label text-sm" for="changeRequestsFilterCheckbox">
         Änderungsanträge
@@ -200,7 +200,7 @@ function getPaperId(
           x-ref="pointsOfOrderFilterCheckbox"
           type="checkbox"
           checked
-          @change="filterList($refs.applicationsFilterCheckbox.checked, $refs.changeRequestsFilterCheckbox.checked, $event.target.checked)"
+          @change="filterList($refs.motionsFilterCheckbox.checked, $refs.changeRequestsFilterCheckbox.checked, $event.target.checked)"
       />
       <label class="label text-sm" for="pointsOfOrderFilterCheckbox">
         Geschäftsordnungsanträge
@@ -213,7 +213,7 @@ function getPaperId(
       <th scope="col" class="px-0">
         <button
           class="btn btn-ghost btn-block flex justify-between"
-          @click="sortTextColumn('votingDate', (application) => application.votingDate)"
+          @click="sortTextColumn('votingDate', (motion) => motion.votingDate)"
         >
           <span class="text-left">Abgestimmt am</span>
           <span class="iconify lucide--chevrons-up-down"></span>
@@ -222,7 +222,7 @@ function getPaperId(
       <th scope="col" class="px-0">
         <button
           class="btn btn-ghost btn-block flex justify-between"
-          @click="sortTextColumn('applicationId', (application) => application.applicationId)"
+          @click="sortTextColumn('motionId', motion => motion.motionId)"
         >
           <span class="text-left">Antrag</span>
           <span class="iconify lucide--chevrons-up-down"></span>
@@ -231,7 +231,7 @@ function getPaperId(
       <th scope="col" class="px-0">
         <button
           class="btn btn-ghost btn-block flex justify-between"
-          @click="sortTextColumn('title', (application) => application.title)"
+          @click="sortTextColumn('title', motion => motion.title)"
         >
           <span class="text-left">Titel</span>
           <span class="iconify lucide--chevrons-up-down"></span>
@@ -240,7 +240,7 @@ function getPaperId(
       <th scope="col" class="text-center">
         <button
           class="btn btn-ghost btn-block flex justify-between"
-          @click="sortTextColumn('result', (application) => application.result)"
+          @click="sortTextColumn('result', motion => motion.result)"
         >
           <span class="text-left">Ergebnis</span>
           <span class="iconify lucide--chevrons-up-down"></span>
@@ -249,43 +249,43 @@ function getPaperId(
     </tr>
     </thead>
     <tbody>
-    <template x-for="application in applications">
+    <template x-for="motion in motions">
       <tr>
-        <td x-text="application.votingDateFormatted"></td>
+        <td x-text="motion.votingDateFormatted"></td>
         <td class="flex flex-col">
-          <span x-text="application.type"></span>
-          <template x-if="application.paperId">
+          <span x-text="motion.type"></span>
+          <template x-if="motion.paperId">
             <a
-              :href="`/paper?paperId=${application.paperId}`"
+              :href="`/paper?paperId=${motion.paperId}`"
               class="link link-primary"
-              x-text="application.applicationId"
+              x-text="motion.motionId"
             ></a>
           </template>
-          <template x-if="!application.paperId">
-            <span x-text="application.applicationId"></span>
+          <template x-if="!motion.paperId">
+            <span x-text="motion.motionId"></span>
           </template>
         </td>
         <td>
           <a
-            :href="`/pp/${parliamentPeriodId}/session/${application.sessionId}/voting/${application.votingId}`"
+            :href="`/pp/${parliamentPeriodId}/session/${motion.sessionId}/voting/${motion.votingId}`"
             class="link link-primary"
-            x-text="application.title"
+            x-text="motion.title"
           ></a>
         </td>
         <td class="text-center">
-          <template x-if="application.result === 'ACCEPTED'">
+          <template x-if="motion.result === 'ACCEPTED'">
             <div class="badge badge-success badge-soft badge-sm">
               <span class="iconify lucide--check-check" />
               <span>Angenommen</span>
             </div>
           </template>
-          <template x-if="application.result === 'PARTIALLY_ACCEPTED'">
+          <template x-if="motion.result === 'PARTIALLY_ACCEPTED'">
             <div class="badge badge-warning badge-soft badge-sm">
               <span class="iconify lucide--check" />
               <span>Teilweise</span>
             </div>
           </template>
-          <template x-if="application.result === 'REJECTED'">
+          <template x-if="motion.result === 'REJECTED'">
             <div class="badge badge-error badge-soft badge-sm">
               <span class="iconify lucide--x" />
               <span>Abgelehnt</span>
@@ -300,34 +300,34 @@ function getPaperId(
 
 <script>
   import Alpine from 'alpinejs';
-  import { type ApplicationListItem } from './_applications.astro';
+  import { type MotionListItem } from './_motions.astro';
 
   document.addEventListener('alpine:init', () => {
-    const applicationsTableElement = document.querySelector(
-      '[data-applications]'
+    const motionsTableElement = document.querySelector(
+      '[data-motions]'
     ) as HTMLTableElement;
-    const applications = JSON.parse(
-      applicationsTableElement.dataset.applications || '[]'
-    ) as ApplicationListItem[];
-    const parliamentPeriodId = applicationsTableElement.dataset.parliamentPeriodId;
+    const motions = JSON.parse(
+      motionsTableElement.dataset.motions || '[]'
+    ) as MotionListItem[];
+    const parliamentPeriodId = motionsTableElement.dataset.parliamentPeriodId;
 
-    Alpine.data('applications', () => ({
+    Alpine.data('motions', () => ({
       parliamentPeriodId,
-      applications,
-      filterList: function(withApplications: boolean, withChangeRequests: boolean, withPointsOfOrder: boolean) {
-        this.applications = applications.filter((application) => {
-          if (application.type === 'Antrag' && !withApplications) return false;
-          if (application.type === 'Änderungsantrag' && !withChangeRequests) return false;
-          if (application.type === 'Geschäftsordnung' && !withPointsOfOrder) return false;
+      motions,
+      filterList: function(withMotions: boolean, withChangeRequests: boolean, withPointsOfOrder: boolean) {
+        this.motions = motions.filter((motion) => {
+          if (motion.type === 'Antrag' && !withMotions) return false;
+          if (motion.type === 'Änderungsantrag' && !withChangeRequests) return false;
+          if (motion.type === 'Geschäftsordnung' && !withPointsOfOrder) return false;
           return true;
         });
       },
       sortTextColumn: function(
         column: string,
-        getText: (application: ApplicationListItem) => string
+        getText: (motion: MotionListItem) => string
       ) {
         this._updateSortColumn(column);
-        this.applications.sort((a, b) =>
+        this.motions.sort((a, b) =>
           this._sortedDesc
             ? getText(b).localeCompare(getText(a))
             : getText(a).localeCompare(getText(b))

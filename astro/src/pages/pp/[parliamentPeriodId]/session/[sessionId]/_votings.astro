@@ -19,7 +19,7 @@ const votings = sessionScan
       ({
         id: getVotingId(voting),
         agendaItem: voting.votingSubject.agendaItem,
-        applicationId: voting.votingSubject.applicationId,
+        motionId: voting.votingSubject.motionId,
         title: voting.votingSubject.title,
         type: voting.votingSubject.type || '',
         authors: voting.votingSubject.authors,
@@ -134,7 +134,7 @@ function votingAccepted(voting: SessionScanItem) {
               <div class="text-base-content/70 space-x-1">
                 <span>{voting.agendaItem}</span>
                 <span>{voting.type}</span>
-                <span>{voting.applicationId}</span>
+                <span>{voting.motionId}</span>
               </div>
               <div class="text-base">{voting.title}</div>
               {voting.authors.length > 0 && (

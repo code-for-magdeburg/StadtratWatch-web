@@ -1,9 +1,9 @@
 import { assert, describe, beforeEach, test } from 'vitest';
-import { calcApplicationsSuccessRateOfFaction } from '@data-analysis/ApplicationsSuccess.ts';
+import { calcMotionsSuccessRateOfFaction } from '@data-analysis/MotionsSuccess.ts';
 import type { RegistryFaction, RegistrySession } from '@models/registry.ts';
 import type { SessionInput } from '@models/SessionInput.ts';
 
-describe('ApplicationsSuccess', () => {
+describe('MotionsSuccess', () => {
   let faction1: RegistryFaction;
   let faction2: RegistryFaction;
   let session1: RegistrySession;
@@ -32,12 +32,12 @@ describe('ApplicationsSuccess', () => {
   });
 
   test('is null when no sessions are provided', () => {
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       [],
     );
 
-    assert.isNull(applicationsSuccessRate);
+    assert.isNull(motionsSuccessRate);
   });
 
   test('is null when no votings are provided at all', () => {
@@ -49,15 +49,15 @@ describe('ApplicationsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.isNull(applicationsSuccessRate);
+    assert.isNull(motionsSuccessRate);
   });
 
-  test('is null when no applications are provided by faction', () => {
+  test('is null when no motions are provided by faction', () => {
     const sessions: SessionInput[] = [
       {
         session: session1,
@@ -67,8 +67,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
-              title: 'Application 1',
+              motionId: 'motion-1',
+              title: 'Motion 1',
               type: 'Antrag',
               authors: [faction2.name],
             },
@@ -79,15 +79,15 @@ describe('ApplicationsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.isNull(applicationsSuccessRate);
+    assert.isNull(motionsSuccessRate);
   });
 
-  test('is not null when application are provided by faction', () => {
+  test('is not null when motions are provided by faction', () => {
     const sessions: SessionInput[] = [
       {
         session: session1,
@@ -97,8 +97,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
-              title: 'Application 1',
+              motionId: 'motion-1',
+              title: 'Motion 1',
               type: 'Antrag',
               authors: [faction1.name],
             },
@@ -109,15 +109,15 @@ describe('ApplicationsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.isNotNull(applicationsSuccessRate);
+    assert.isNotNull(motionsSuccessRate);
   });
 
-  test('is 100% when all applications passed', () => {
+  test('is 100% when all motions passed', () => {
     const sessions: SessionInput[] = [
       {
         session: session1,
@@ -127,8 +127,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
-              title: 'Application 1',
+              motionId: 'motion-1',
+              title: 'Motion 1',
               type: 'Antrag',
               authors: [faction1.name],
             },
@@ -141,15 +141,15 @@ describe('ApplicationsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.equal(applicationsSuccessRate, 1);
+    assert.equal(motionsSuccessRate, 1);
   });
 
-  test('is 0% when no applications passed', () => {
+  test('is 0% when no motions passed', () => {
     const sessions: SessionInput[] = [
       {
         session: session1,
@@ -159,8 +159,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
-              title: 'Application 1',
+              motionId: 'motion-1',
+              title: 'Motion 1',
               type: 'Antrag',
               authors: [faction1.name],
             },
@@ -173,15 +173,15 @@ describe('ApplicationsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.equal(applicationsSuccessRate, 0);
+    assert.equal(motionsSuccessRate, 0);
   });
 
-  test('is 40% when two out of five applications passed', () => {
+  test('is 40% when two out of five motions passed', () => {
     const sessions: SessionInput[] = [
       {
         session: session1,
@@ -191,8 +191,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
-              title: 'Application 1',
+              motionId: 'motion-1',
+              title: 'Motion 1',
               type: 'Antrag',
               authors: [faction1.name],
             },
@@ -205,8 +205,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 2',
-              applicationId: 'app-2',
-              title: 'Application 2',
+              motionId: 'motion-2',
+              title: 'Motion 2',
               type: 'Antrag',
               authors: [faction1.name],
             },
@@ -219,8 +219,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 3',
-              applicationId: 'app-3',
-              title: 'Application 3',
+              motionId: 'motion-3',
+              title: 'Motion 3',
               type: 'Antrag',
               authors: [faction1.name],
             },
@@ -233,8 +233,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 4',
-              applicationId: 'app-4',
-              title: 'Application 4',
+              motionId: 'motion-4',
+              title: 'Motion 4',
               type: 'Antrag',
               authors: [faction1.name],
             },
@@ -247,8 +247,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 5',
-              applicationId: 'app-5',
-              title: 'Application 5',
+              motionId: 'motion-5',
+              title: 'Motion 5',
               type: 'Antrag',
               authors: [faction1.name],
             },
@@ -261,12 +261,12 @@ describe('ApplicationsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.equal(applicationsSuccessRate, .4);
+    assert.equal(motionsSuccessRate, .4);
   });
 
   test('counts partial votings proportionately', () => {
@@ -279,8 +279,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 1',
-              applicationId: 'app-1',
-              title: 'Application 1',
+              motionId: 'motion-1',
+              title: 'Motion 1',
               type: 'Antrag',
               authors: [faction1.name],
             },
@@ -293,8 +293,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 2',
-              applicationId: 'app-2',
-              title: 'Application 2',
+              motionId: 'motion-2',
+              title: 'Motion 2',
               type: 'Antrag',
               authors: [faction1.name],
             },
@@ -307,8 +307,8 @@ describe('ApplicationsSuccess', () => {
             videoTimestamp: '00:00:00',
             votingSubject: {
               agendaItem: 'Agenda Item 2',
-              applicationId: 'app-2',
-              title: 'Application 2',
+              motionId: 'motion-2',
+              title: 'Motion 2',
               type: 'Antrag',
               authors: [faction1.name],
             },
@@ -321,12 +321,12 @@ describe('ApplicationsSuccess', () => {
       }
     ];
 
-    const applicationsSuccessRate = calcApplicationsSuccessRateOfFaction(
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction1,
       sessions,
     );
 
-    assert.equal(applicationsSuccessRate, .75);
+    assert.equal(motionsSuccessRate, .75);
   });
 
 });

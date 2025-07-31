@@ -13,8 +13,8 @@ type VotingPerFaction = {
 
 type Voting = {
   date: string;
-  applicationType: string;
-  applicationId: string;
+  motionType: string;
+  motionId: string;
   subjectTitle: string;
   votes: VotingPerFaction[]
 };
@@ -79,8 +79,8 @@ export class ImagesGenerator {
 
     const voting: Voting = {
       date: session.date,
-      applicationType: sessionVoting.votingSubject.type,
-      applicationId: sessionVoting.votingSubject.applicationId,
+      motionType: sessionVoting.votingSubject.type,
+      motionId: sessionVoting.votingSubject.motionId,
       subjectTitle: sessionVoting.votingSubject.title,
       votes
     };
@@ -129,15 +129,15 @@ export class ImagesGenerator {
     const votingHeaderCanvas = this.writeVotingHeader(voting);
     context.drawImage(votingHeaderCanvas, 0, 0);
 
-    const applicationIdCanvas = this.writeApplicationId(voting);
-    if (applicationIdCanvas) {
-      context.drawImage(applicationIdCanvas, 0, votingHeaderCanvas.height + 20);
+    const motionIdCanvas = this.writeMotionId(voting);
+    if (motionIdCanvas) {
+      context.drawImage(motionIdCanvas, 0, votingHeaderCanvas.height + 20);
     }
 
     const subjectLines = this.getWrappedLines(voting.subjectTitle, COLUMN_WIDTH);
     const subjectLinesCanvas = this.writeSubject(subjectLines);
-    const applicationIdYOffset = applicationIdCanvas ? applicationIdCanvas.height : 0;
-    context.drawImage(subjectLinesCanvas, 0, votingHeaderCanvas.height + 20 + applicationIdYOffset);
+    const motionIdYOffset = motionIdCanvas ? motionIdCanvas.height : 0;
+    context.drawImage(subjectLinesCanvas, 0, votingHeaderCanvas.height + 20 + motionIdYOffset);
 
     const votingResultCanvas = this.drawVotingResult(voting);
     context.drawImage(votingResultCanvas, 0, canvasHeight - votingResultCanvas.height);
@@ -165,33 +165,33 @@ export class ImagesGenerator {
   }
 
 
-  private writeApplicationId(voting: Voting): Canvas | null {
+  private writeMotionId(voting: Voting): Canvas | null {
 
     let text = '';
-    switch (voting.applicationType) {
+    switch (voting.motionType) {
 
       case 'Änderungsantrag':
-        text = voting.applicationId ? `Änderungsantrag ${voting.applicationId}` : 'Änderungsantrag';
+        text = voting.motionId ? `Änderungsantrag ${voting.motionId}` : 'Änderungsantrag';
         break;
 
       case 'Antrag':
-        text = voting.applicationId ? `Antrag ${voting.applicationId}` : 'Antrag';
+        text = voting.motionId ? `Antrag ${voting.motionId}` : 'Antrag';
         break;
 
       case 'Beschlussvorlage':
-        text = voting.applicationId ? `Beschlussvorlage ${voting.applicationId}` : 'Beschlussvorlage';
+        text = voting.motionId ? `Beschlussvorlage ${voting.motionId}` : 'Beschlussvorlage';
         break;
 
       case 'Delegation': return null;
 
       case 'Geschäftsordnung':
-        text = voting.applicationId ? `Geschäftsordnungsantrag zu ${voting.applicationId}` : 'Geschäftsordnungsantrag';
+        text = voting.motionId ? `Geschäftsordnungsantrag zu ${voting.motionId}` : 'Geschäftsordnungsantrag';
         break;
 
       case 'Niederschrift': return null;
 
       case 'Redaktionelle Änderung':
-        text = voting.applicationId ? `Redaktionelle Änderung zu ${voting.applicationId}` : 'Redaktionelle Änderung';
+        text = voting.motionId ? `Redaktionelle Änderung zu ${voting.motionId}` : 'Redaktionelle Änderung';
         break;
 
       case 'Sonstige': return null;

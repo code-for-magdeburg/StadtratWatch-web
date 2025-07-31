@@ -2,9 +2,9 @@
 import { type RegistryFaction } from '@models/registry';
 import { type SessionInput } from '@models/SessionInput';
 import {
-  calcApplicationsSuccessRateOfFaction,
-  calcApplicationsSuccessRateHistoryOfFaction
-} from '@data-analysis/ApplicationsSuccess';
+  calcMotionsSuccessRateOfFaction,
+  calcMotionsSuccessRateHistoryOfFaction
+} from '@data-analysis/MotionsSuccess';
 import {
   calcVotingSuccessRateOfFaction,
   calcVotingSuccessRateHistoryOfFaction
@@ -32,11 +32,11 @@ type Props = {
 
 const { parliamentPeriod, faction, sessionInputs } = Astro.props as Props;
 
-const applicationSuccessRate = calcApplicationsSuccessRateOfFaction(
+const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
   faction,
   sessionInputs
 );
-const applicationSuccessRateHistory = calcApplicationsSuccessRateHistoryOfFaction(
+const motionsSuccessRateHistory = calcMotionsSuccessRateHistoryOfFaction(
   faction,
   sessionInputs
 );
@@ -76,19 +76,19 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfFaction(
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
   <div
-    id="applications-success-rate"
+    id="motions-success-rate"
     class="card card-border bg-base-100"
-    data-history={JSON.stringify(applicationSuccessRateHistory)}
+    data-history={JSON.stringify(motionsSuccessRateHistory)}
   >
     <div class="card-body space-y-3">
       <div class="card-title flex justify-between">
         <div>Erfolgreiche Anträge</div>
-        <span class="text-3xl">{formatPercentage(applicationSuccessRate)}</span>
+        <span class="text-3xl">{formatPercentage(motionsSuccessRate)}</span>
       </div>
       <p class="text-base-content/60 text-sm">
         Anteil der Anträge, die durch die Fraktion gestellt wurde und durch einen Mehrheitsbeschluss angenommen wurde.
       </p>
-      <canvas id="applications-success-chart"></canvas>
+      <canvas id="motions-success-chart"></canvas>
     </div>
   </div>
 
@@ -171,8 +171,8 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfFaction(
     type ChartOptions
   } from 'chart.js';
   import {
-    type HistoryDataPoint as ApplicationsSuccessRateHistoryDataPoint
-  } from '@data-analysis/ApplicationsSuccess';
+    type HistoryDataPoint as MotionsSuccessRateHistoryDataPoint
+  } from '@data-analysis/MotionsSuccess';
   import {
     type HistoryDataPoint as VotingSuccessRateHistoryDataPoint
   } from '@data-analysis/VotingSuccess';
@@ -235,9 +235,9 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfFaction(
     );
   }
 
-  makeChart<ApplicationsSuccessRateHistoryDataPoint>(
-    'applications-success-rate',
-    'applications-success-chart',
+  makeChart<MotionsSuccessRateHistoryDataPoint>(
+    'motions-success-rate',
+    'motions-success-chart',
     formatPercentage
   );
 

@@ -2,8 +2,8 @@ export type FactionListItem = {
   id: string;
   name: string;
   seats: number;
-  applicationsSuccessRate: number | null;
-  applicationsSuccessRateDisplay: string;
+  motionsSuccessRate: number | null;
+  motionsSuccessRateDisplay: string;
   votingSuccessRate: number | null;
   votingSuccessRateDisplay: string;
   uniformityScore: number | null;

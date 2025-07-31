@@ -1,7 +1,7 @@
 import { VoteResult, VotingResult } from '@models/Session.ts';
 import type { SessionScanVote } from '@models/session-scan.ts';
 
-export enum ApplicationResult {
+export enum MotionResult {
   ACCEPTED = 'ACCEPTED',
   PARTIALLY_ACCEPTED = 'PARTIALLY_ACCEPTED',
   REJECTED = 'REJECTED',
@@ -21,13 +21,13 @@ export function getVotingId(votings: { votingId: number }[]): number {
   return votings.toSorted((a, b) => a.votingId - b.votingId)[0].votingId;
 }
 
-export function getApplicationResult(votings: { votingResult: VotingResult }[]): ApplicationResult {
+export function getMotionResult(votings: { votingResult: VotingResult }[]): MotionResult {
   const passedVotings = votings
     .filter(voting => voting.votingResult === VotingResult.PASSED)
     .length;
   return passedVotings === 0
-    ? ApplicationResult.REJECTED
+    ? MotionResult.REJECTED
     : passedVotings === votings.length
-      ? ApplicationResult.ACCEPTED
-      : ApplicationResult.PARTIALLY_ACCEPTED;
+      ? MotionResult.ACCEPTED
+      : MotionResult.PARTIALLY_ACCEPTED;
 }

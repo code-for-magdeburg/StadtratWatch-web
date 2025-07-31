@@ -1,7 +1,7 @@
-export function formatApplicationsSuccessRate(
-  applicationSuccessRate: number | null,
+export function formatMotionsSuccessRate(
+  motionsSuccessRate: number | null,
 ): string {
-  return formatPercentage(applicationSuccessRate);
+  return formatPercentage(motionsSuccessRate);
 }
 
 export function formatVotingSuccessRate(

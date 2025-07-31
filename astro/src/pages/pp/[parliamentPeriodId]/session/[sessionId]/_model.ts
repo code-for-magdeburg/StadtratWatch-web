@@ -8,7 +8,7 @@ export type VotesByFaction = {
 export type VotingListItem = {
   id: number;
   agendaItem: string;
-  applicationId: string;
+  motionId: string;
   title: string;
   type: string | null;
   authors: string[];

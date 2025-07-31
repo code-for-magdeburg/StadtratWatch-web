@@ -56,11 +56,11 @@ export class TextRecognizer implements ITextRecognizer {
 
     const parts = votingSubjectId.data.text.split('-');
     const agendaItem = parts[0].replace(/,/g, '.').replace(/[^0-9.]/g, '');
-    const applicationId = parts.length > 1 ? parts[1].replace(/[^0-9\/]+$/g, '') : '';
+    const motionId = parts.length > 1 ? parts[1].replace(/[^0-9\/]+$/g, '') : '';
 
     return {
       agendaItem,
-      applicationId,
+      motionId,
       title,
       type: null,
       authors: []

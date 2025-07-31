@@ -9,7 +9,7 @@ export type SessionScanItem = {
 
 export type SessionScanVotingSubject = {
   agendaItem: string;
-  applicationId: string;
+  motionId: string;
   title: string;
   type: string | null; // TODO: remove null?
   authors: string[];
