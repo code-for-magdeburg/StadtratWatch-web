@@ -21,7 +21,7 @@ export function getVotingId(votings: { votingId: number }[]): number {
   return votings.toSorted((a, b) => a.votingId - b.votingId)[0].votingId;
 }
 
-export function getApplicationResult(votings: { votingResult: VotingResult }[]): ApplicationResult {
+export function getMotionResult(votings: { votingResult: VotingResult }[]): ApplicationResult {
   const passedVotings = votings
     .filter(voting => voting.votingResult === VotingResult.PASSED)
     .length;

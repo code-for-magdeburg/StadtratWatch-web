@@ -72,8 +72,8 @@ const breadcrumbItems = [
       aria-label="Anträge"
       type="radio"
       name="demo-tabs-radio"
-      :checked="currentTab === 'applications'"
-      @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/faction/${factionId}?tab=applications`); currentTab = 'applications'"
+      :checked="currentTab === 'motions'"
+      @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/faction/${factionId}?tab=motions`); currentTab = 'motions'"
     />
     <div class="tab-content border-base-200 bg-base-100 p-6">
       <Applications
