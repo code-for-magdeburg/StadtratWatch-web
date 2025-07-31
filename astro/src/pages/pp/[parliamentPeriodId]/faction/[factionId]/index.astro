@@ -5,7 +5,7 @@ import {
   getParliamentPeriodWithFactionPaths
 } from '../../_helpers';
 import Councilors from './_councilors.astro';
-import Applications from './_applications.astro';
+import Motions from './_motions.astro';
 import Statistics from './_statistics.astro';
 import MetaTags from '@components/MetaTags.astro';
 
@@ -76,7 +76,7 @@ const breadcrumbItems = [
       @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/faction/${factionId}?tab=motions`); currentTab = 'motions'"
     />
     <div class="tab-content border-base-200 bg-base-100 p-6">
-      <Applications
+      <Motions
         parliamentPeriodId={parliamentPeriodId}
         faction={faction}
         sessionInputs={sessionInputs}
