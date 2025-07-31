@@ -4,7 +4,7 @@ import { type SessionInput } from '@models/SessionInput';
 import {
   calcMotionsSuccessRateOfFaction,
   calcMotionsSuccessRateHistoryOfFaction
-} from '@data-analysis/ApplicationsSuccess';
+} from '@data-analysis/MotionsSuccess';
 import {
   calcVotingSuccessRateOfFaction,
   calcVotingSuccessRateHistoryOfFaction
@@ -172,7 +172,7 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfFaction(
   } from 'chart.js';
   import {
     type HistoryDataPoint as MotionsSuccessRateHistoryDataPoint
-  } from '@data-analysis/ApplicationsSuccess';
+  } from '@data-analysis/MotionsSuccess';
   import {
     type HistoryDataPoint as VotingSuccessRateHistoryDataPoint
   } from '@data-analysis/VotingSuccess';

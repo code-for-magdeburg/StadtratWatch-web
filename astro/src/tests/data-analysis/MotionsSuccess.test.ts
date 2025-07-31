@@ -1,5 +1,5 @@
 import { assert, describe, beforeEach, test } from 'vitest';
-import { calcMotionsSuccessRateOfFaction } from '@data-analysis/ApplicationsSuccess.ts';
+import { calcMotionsSuccessRateOfFaction } from '@data-analysis/MotionsSuccess.ts';
 import type { RegistryFaction, RegistrySession } from '@models/registry.ts';
 import type { SessionInput } from '@models/SessionInput.ts';
 
