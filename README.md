@@ -48,7 +48,7 @@ StadtratWatch-web/
 
 ## Öffentliche API
 
-StadtratWatch bietet eine öffentliche REST API v1 für den Zugriff auf Parlamentsdaten. Mehr Informationen finden Sie in der [API-Dokumentation](./astro/src/pages/api/README.md).
+StadtratWatch bietet eine öffentliche REST API v1 für den Zugriff auf Parlamentsdaten. Mehr Informationen finden Sie in der [API-Dokumentation](./astro/src/pages/api/v1/README.md).
 
 ### Daten-Lizenz
 

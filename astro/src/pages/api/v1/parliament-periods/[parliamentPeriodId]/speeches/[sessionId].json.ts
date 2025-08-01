@@ -56,6 +56,7 @@ export async function GET({
         speaker: person?.name || speech.speaker,
         start: speech.start,
         duration: speech.duration,
+        onBehalfOf: speech.onBehalfOf,
         transcription: speech.transcription,
       };
     });

@@ -106,6 +106,7 @@ Gibt alle Redebeiträge einer spezifischen Stadtratssitzung zurück.
       "speaker": "Max Mustermann",
       "start": "00:15:30",
       "duration": "00:03:45",
+      "onBehalfOf": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
       "transcription": "Meine Damen und Herren, ich möchte zu diesem Punkt folgendes sagen..."
     }
   ]
@@ -117,6 +118,7 @@ Gibt alle Redebeiträge einer spezifischen Stadtratssitzung zurück.
 - `speaker`: Name der sprechenden Person
 - `start`: Startzeit des Redebeitrags im Video in Sekunden
 - `duration`: Dauer des Redebeitrags in Sekunden
+- `onBehalfOf`: Name des Gremiums, für das die Person spricht (bspw. ein Ausschuss, optional)
 - `transcription`: Transkription des Redebeitrags
 
 **Hinweise:**
