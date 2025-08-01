@@ -189,8 +189,11 @@ function votingAccepted(voting: SessionScanItem) {
     const votingItemsElements = document.querySelectorAll('.voting-item') as NodeListOf<HTMLElement>;
 
     Alpine.data('votings', () => ({
-      init: function(){
-        this.filterList((this.$refs.onlyPrimaryVotingsFilterCheckbox as HTMLInputElement).checked);
+      init: function() {
+        setTimeout(
+          () => this.filterList((this.$refs.onlyPrimaryVotingsFilterCheckbox as HTMLInputElement).checked),
+          100
+        );
       },
       filterList: function(onlyPrimaryVotings: boolean) {
         votingItemsElements.forEach((item) => {
