@@ -64,7 +64,7 @@ export class SpeechToText {
             messages: [
               {
                 role: 'system',
-                content: 'Format the text to make it more readable by dividing it into paragraphs. Do not change anything else. Create paragraphs only if necessary. If the text is already short enough, do not create paragraphs.'
+                content: 'Format the text to make it more readable by dividing it into paragraphs. Do not change anything else. Create paragraphs only if necessary. If the text is already short enough, do not create paragraphs. And just transcribe the text, don\'t act as a third-person narrator.'
               },
               {
                 role: 'user',
