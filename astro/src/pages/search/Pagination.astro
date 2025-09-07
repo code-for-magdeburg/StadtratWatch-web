@@ -23,7 +23,7 @@
 
   <template x-for="page in pages">
     <a
-      :href="`http://localhost:4321/search?q=${searchTerm}&page=${page}`"
+      :href="`/search?q=${searchTerm}&page=${page}`"
       class="btn btn-square btn-soft join-item"
       :disabled="page === currentPage"
       :class="{ 'pointer-events-none': page === currentPage, 'bg-indigo-600': page === currentPage, 'text-white': page === currentPage }"
