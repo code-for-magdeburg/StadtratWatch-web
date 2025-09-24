@@ -1,6 +1,9 @@
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { tryGetScrapeOparlEnv } from './env.ts';
-import { OparlObjectsFileStore, OparlScraper, OparlSystemClient, ScraperMetadataFileStore } from './scrape-oparl.ts';
+import { ScraperMetadataFileStore } from './scraper-metadata-store.ts';
+import { OparlScraper } from './oparl-scraper.ts';
+import { OparlSystemClient } from './oparl-system-client.ts';
+import { OparlObjectsFileStore } from './oparl-file-store.ts';
 
 
 const args = parseArgs(Deno.args);
@@ -16,20 +19,20 @@ checkArgs(args);
 const env = tryGetScrapeOparlEnv();
 const oparlSystemClient = new OparlSystemClient(+env.fetchDelayMs);
 const oparlObjectsStore = new OparlObjectsFileStore(args.ratsinfosystemDir);
-const scrapeOparl = new OparlScraper(oparlSystemClient, oparlObjectsStore);
+const oparlScraper = new OparlScraper(oparlSystemClient, oparlObjectsStore);
 
 switch (args.mode) {
   case 'full':
-    await scrapeOparl.fetchFull(env.bodyUrl, args.date!);
+    await oparlScraper.fetchFull(env.bodyUrl, args.date!);
     setLastSuccessfulRunDate(new Date().toISOString());
     break;
 
   case 'incremental':
     if (args.date) {
-      await scrapeOparl.fetchIncremental(env.bodyUrl, args.date);
+      await oparlScraper.fetchIncremental(env.bodyUrl, args.date);
     } else {
       const modifiedSince = tryGetLastSuccessfulRunDate();
-      await scrapeOparl.fetchIncremental(env.bodyUrl, modifiedSince);
+      await oparlScraper.fetchIncremental(env.bodyUrl, modifiedSince);
     }
     setLastSuccessfulRunDate(new Date().toISOString());
     break;

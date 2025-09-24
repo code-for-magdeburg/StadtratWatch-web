@@ -1,8 +1,9 @@
-import * as path from '@std/path';
-import { existsSync } from '@std/fs/exists';
+import { type OparlObject, type OparlSystem } from './model.ts';
+import { type OparlSystemClient } from './oparl-system-client.ts';
+import { type IOparlObjectFileStore } from './oparl-file-store.ts';
 
 
-export enum OparlObjectType {
+enum OparlObjectType {
   Organization,
   Person,
   Meeting,
@@ -12,58 +13,6 @@ export enum OparlObjectType {
   AgendaItem,
   Consultation,
   File,
-}
-
-export type OparlSystem = {
-  organization: string;
-  person: string;
-  meeting: string;
-  paper: string;
-  membership: string;
-  locationList: string;
-  agendaItem: string;
-  consultations: string;
-  files: string;
-};
-
-
-export type OparlObject = {
-  id: string;
-};
-
-
-export interface IOparlObjectFileStore {
-  saveObjects(objects: OparlObject[], filename: string): void;
-  loadObjects(filename: string): OparlObject[];
-}
-
-
-export class OparlObjectsFileStore implements IOparlObjectFileStore {
-
-
-  constructor(private readonly directory: string) {
-  }
-
-
-  public saveObjects(objects: OparlObject[], filename: string): void {
-    Deno.writeTextFileSync(
-      this.getObjectFilePath(filename),
-      JSON.stringify(objects, null, 2)
-    );
-  }
-
-
-  public loadObjects(filename: string): OparlObject[] {
-    const objectsJson = Deno.readTextFileSync(this.getObjectFilePath(filename));
-    return JSON.parse(objectsJson) as OparlObject[];
-  }
-
-
-  private getObjectFilePath(filename: string) {
-    return path.join(this.directory, filename);
-  }
-
-
 }
 
 
@@ -185,148 +134,6 @@ export class OparlScraper {
       default:
         throw new Error('Unknown OParl object type');
     }
-  }
-
-
-}
-
-
-export class OparlSystemClient {
-
-
-  constructor(private readonly fetchDelayMs: number) {}
-
-
-  public async fetchObjects(objectsUrl: string, createdSince: string | null): Promise<OparlObject[]> {
-
-    console.log('Fetching objects from', objectsUrl);
-
-    let pageIndex = 1;
-    const objects = [];
-
-    let url = OparlSystemClient.buildUrlWithParams(objectsUrl, createdSince);
-    while (url) {
-
-      const response = await fetch(url);
-      if (response.ok) {
-        const page = await response.json();
-        objects.push(...page.data);
-
-        pageIndex++;
-        url = OparlSystemClient.buildUrlWithParams(page.links.next, createdSince);
-
-        await new Promise(resolve => setTimeout(resolve, this.fetchDelayMs));
-      } else {
-        console.error('Failed to fetch objects:', response.status, response.statusText);
-        url = null;
-      }
-
-    }
-
-    console.log('Fetched', objects.length, 'objects.');
-
-    return Promise.resolve(objects);
-
-  }
-
-
-  public async fetchModifiedObjects(objectsUrl: string, modifiedSince: string): Promise<OparlObject[]> {
-
-    console.log('Fetching objects from', objectsUrl);
-
-    let pageIndex = 1;
-    const objects = [];
-
-    let url = OparlSystemClient.buildUrlWithModifiedSinceParams(objectsUrl, modifiedSince);
-    while (url) {
-
-      console.log('Fetching page: ', pageIndex);
-
-      const response = await fetch(url);
-      if (response.ok) {
-        const page = await response.json();
-        objects.push(...page.data);
-
-        pageIndex++;
-        url = OparlSystemClient.buildUrlWithModifiedSinceParams(page.links.next, modifiedSince);
-
-        await new Promise(resolve => setTimeout(resolve, this.fetchDelayMs));
-      } else {
-        console.error('Failed to fetch objects:', response.status, response.statusText);
-        url = null;
-      }
-
-    }
-
-    console.log('Fetched', objects.length, 'objects.');
-
-    return Promise.resolve(objects);
-
-  }
-
-
-  private static buildUrlWithParams(baseUrl: string, createdSince: string | null): URL | null {
-    if (!baseUrl) {
-      return null;
-    }
-
-    const url = new URL(baseUrl);
-    if (createdSince) {
-      url.searchParams.set('created_since', createdSince);
-      url.searchParams.set('omit_internal', 'true');
-    }
-
-    return url;
-  }
-
-
-  private static buildUrlWithModifiedSinceParams(baseUrl: string, modifiedSince: string): URL | null {
-    if (!baseUrl) {
-      return null;
-    }
-
-    const url = this.buildUrlWithParams(baseUrl, null);
-    if (url) {
-      url.searchParams.set('modified_since', modifiedSince);
-    }
-
-    return url;
-  }
-
-
-}
-
-
-export interface IScraperMetadataStore {
-  getLastSuccessfulRunDate(): string | null;
-  setLastSuccessfulRunDate(date: string): void;
-}
-
-
-export class ScraperMetadataFileStore implements IScraperMetadataStore {
-
-
-  constructor(private readonly directory: string) {
-  }
-
-
-  public getLastSuccessfulRunDate(): string | null {
-    const metadataFilePath = this.getMetadataFilePath();
-    if (!existsSync(metadataFilePath)) {
-      return null;
-    }
-
-    return Deno.readTextFileSync(metadataFilePath);
-  }
-
-
-  public setLastSuccessfulRunDate(date: string): void {
-    Deno.writeTextFileSync(this.getMetadataFilePath(), date);
-  }
-
-
-  private getMetadataFilePath(): string {
-    return path.join(this.directory, 'scraper-metadata.txt');
   }
 
 
