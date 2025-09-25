@@ -1,7 +1,7 @@
 import { type OparlObject} from '../shared/model/oparl.ts';
 
 
-export class OparlSystemClient {
+export class OparlClient {
 
 
   constructor(private readonly fetchDelayMs: number) {}
@@ -14,7 +14,7 @@ export class OparlSystemClient {
     let pageIndex = 1;
     const objects = [];
 
-    let url = OparlSystemClient.buildUrlWithParams(objectsUrl, createdSince);
+    let url = OparlClient.buildUrlWithParams(objectsUrl, createdSince);
     while (url) {
 
       const response = await fetch(url);
@@ -23,7 +23,7 @@ export class OparlSystemClient {
         objects.push(...page.data);
 
         pageIndex++;
-        url = OparlSystemClient.buildUrlWithParams(page.links.next, createdSince);
+        url = OparlClient.buildUrlWithParams(page.links.next, createdSince);
 
         await new Promise(resolve => setTimeout(resolve, this.fetchDelayMs));
       } else {
@@ -47,7 +47,7 @@ export class OparlSystemClient {
     let pageIndex = 1;
     const objects = [];
 
-    let url = OparlSystemClient.buildUrlWithModifiedSinceParams(objectsUrl, modifiedSince);
+    let url = OparlClient.buildUrlWithModifiedSinceParams(objectsUrl, modifiedSince);
     while (url) {
 
       console.log('Fetching page: ', pageIndex);
@@ -58,7 +58,7 @@ export class OparlSystemClient {
         objects.push(...page.data);
 
         pageIndex++;
-        url = OparlSystemClient.buildUrlWithModifiedSinceParams(page.links.next, modifiedSince);
+        url = OparlClient.buildUrlWithModifiedSinceParams(page.links.next, modifiedSince);
 
         await new Promise(resolve => setTimeout(resolve, this.fetchDelayMs));
       } else {

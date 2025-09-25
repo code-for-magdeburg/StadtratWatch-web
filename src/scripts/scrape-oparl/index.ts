@@ -2,7 +2,7 @@ import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { tryGetScrapeOparlEnv } from './env.ts';
 import { ScraperMetadataFileStore } from './scraper-metadata-store.ts';
 import { OparlScraper } from './oparl-scraper.ts';
-import { OparlSystemClient } from './oparl-system-client.ts';
+import { OparlClient } from './oparl-client.ts';
 import { OparlObjectsFileStore } from './oparl-file-store.ts';
 
 
@@ -17,9 +17,9 @@ checkArgs(args);
 
 
 const env = tryGetScrapeOparlEnv();
-const oparlSystemClient = new OparlSystemClient(+env.fetchDelayMs);
+const oparlClient = new OparlClient(+env.fetchDelayMs);
 const oparlObjectsStore = new OparlObjectsFileStore(args.ratsinfosystemDir);
-const oparlScraper = new OparlScraper(oparlSystemClient, oparlObjectsStore);
+const oparlScraper = new OparlScraper(oparlClient, oparlObjectsStore);
 
 switch (args.mode) {
   case 'full':

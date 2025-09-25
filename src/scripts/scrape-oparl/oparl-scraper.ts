@@ -1,5 +1,5 @@
-import { type OparlObject, type OparlSystem } from '../shared/model/oparl.ts';
-import { type OparlSystemClient } from './oparl-system-client.ts';
+import { type OparlObject, type OparlBody } from '../shared/model/oparl.ts';
+import { type OparlClient } from './oparl-client.ts';
 import { type IOparlObjectFileStore } from './oparl-file-store.ts';
 
 
@@ -19,51 +19,51 @@ enum OparlObjectType {
 export class OparlScraper {
 
 
-  constructor(private readonly client: OparlSystemClient, private readonly oparlObjectsStore: IOparlObjectFileStore) {}
+  constructor(private readonly client: OparlClient, private readonly oparlObjectsStore: IOparlObjectFileStore) {}
 
 
-  public async fetchFull(oparlSystemUrl: string, createdSince: string): Promise<void> {
+  public async fetchFull(oparlBodyUrl: string, createdSince: string): Promise<void> {
 
     console.log(`Fetching all data created since ${createdSince}...`);
 
-    const oparlSystem = await this.fetchOparlSystem(oparlSystemUrl);
+    const oparlBody = await this.fetchOparlBody(oparlBodyUrl);
 
-    await this.fetchAndStoreObjects(oparlSystem.organization, createdSince, OparlObjectType.Organization);
-    await this.fetchAndStoreObjects(oparlSystem.person, createdSince, OparlObjectType.Person);
-    await this.fetchAndStoreObjects(oparlSystem.meeting, createdSince, OparlObjectType.Meeting);
-    await this.fetchAndStoreObjects(oparlSystem.paper, createdSince, OparlObjectType.Paper);
-    await this.fetchAndStoreObjects(oparlSystem.membership, createdSince, OparlObjectType.Membership);
-    await this.fetchAndStoreObjects(oparlSystem.locationList, createdSince, OparlObjectType.Location);
-    await this.fetchAndStoreObjects(oparlSystem.agendaItem, createdSince, OparlObjectType.AgendaItem);
-    await this.fetchAndStoreObjects(oparlSystem.consultations, createdSince, OparlObjectType.Consultation);
-    await this.fetchAndStoreObjects(oparlSystem.files, createdSince, OparlObjectType.File);
+    await this.fetchAndStoreObjects(oparlBody.organization, createdSince, OparlObjectType.Organization);
+    await this.fetchAndStoreObjects(oparlBody.person, createdSince, OparlObjectType.Person);
+    await this.fetchAndStoreObjects(oparlBody.meeting, createdSince, OparlObjectType.Meeting);
+    await this.fetchAndStoreObjects(oparlBody.paper, createdSince, OparlObjectType.Paper);
+    await this.fetchAndStoreObjects(oparlBody.membership, createdSince, OparlObjectType.Membership);
+    await this.fetchAndStoreObjects(oparlBody.locationList, createdSince, OparlObjectType.Location);
+    await this.fetchAndStoreObjects(oparlBody.agendaItem, createdSince, OparlObjectType.AgendaItem);
+    await this.fetchAndStoreObjects(oparlBody.consultations, createdSince, OparlObjectType.Consultation);
+    await this.fetchAndStoreObjects(oparlBody.files, createdSince, OparlObjectType.File);
 
   }
 
 
-  public async fetchIncremental(oparlSystemUrl: string, modifiedSince: string): Promise<void> {
+  public async fetchIncremental(oparlBodyUrl: string, modifiedSince: string): Promise<void> {
 
     console.log(`Fetching changes since ${modifiedSince}...`);
 
-    const oparlSystem = await this.fetchOparlSystem(oparlSystemUrl);
+    const oparlBody = await this.fetchOparlBody(oparlBodyUrl);
 
-    await this.fetchAndStoreIncrementalObjects(oparlSystem.organization, modifiedSince, OparlObjectType.Organization);
-    await this.fetchAndStoreIncrementalObjects(oparlSystem.person, modifiedSince, OparlObjectType.Person);
-    await this.fetchAndStoreIncrementalObjects(oparlSystem.meeting, modifiedSince, OparlObjectType.Meeting);
-    await this.fetchAndStoreIncrementalObjects(oparlSystem.paper, modifiedSince, OparlObjectType.Paper);
-    await this.fetchAndStoreIncrementalObjects(oparlSystem.membership, modifiedSince, OparlObjectType.Membership);
-    await this.fetchAndStoreIncrementalObjects(oparlSystem.locationList, modifiedSince, OparlObjectType.Location);
-    await this.fetchAndStoreIncrementalObjects(oparlSystem.agendaItem, modifiedSince, OparlObjectType.AgendaItem);
-    await this.fetchAndStoreIncrementalObjects(oparlSystem.consultations, modifiedSince, OparlObjectType.Consultation);
-    await this.fetchAndStoreIncrementalObjects(oparlSystem.files, modifiedSince, OparlObjectType.File);
+    await this.fetchAndStoreIncrementalObjects(oparlBody.organization, modifiedSince, OparlObjectType.Organization);
+    await this.fetchAndStoreIncrementalObjects(oparlBody.person, modifiedSince, OparlObjectType.Person);
+    await this.fetchAndStoreIncrementalObjects(oparlBody.meeting, modifiedSince, OparlObjectType.Meeting);
+    await this.fetchAndStoreIncrementalObjects(oparlBody.paper, modifiedSince, OparlObjectType.Paper);
+    await this.fetchAndStoreIncrementalObjects(oparlBody.membership, modifiedSince, OparlObjectType.Membership);
+    await this.fetchAndStoreIncrementalObjects(oparlBody.locationList, modifiedSince, OparlObjectType.Location);
+    await this.fetchAndStoreIncrementalObjects(oparlBody.agendaItem, modifiedSince, OparlObjectType.AgendaItem);
+    await this.fetchAndStoreIncrementalObjects(oparlBody.consultations, modifiedSince, OparlObjectType.Consultation);
+    await this.fetchAndStoreIncrementalObjects(oparlBody.files, modifiedSince, OparlObjectType.File);
 
   }
 
 
-  private async fetchOparlSystem(oparlSystemUrl: string): Promise<OparlSystem> {
-    const response = await fetch(oparlSystemUrl);
+  private async fetchOparlBody(oparlBodyUrl: string): Promise<OparlBody> {
+    const response = await fetch(oparlBodyUrl);
     if (!response.ok) {
-      throw new Error(`Failed to fetch OParl system from ${oparlSystemUrl}: ${response.status} ${response.statusText}`);
+      throw new Error(`Failed to fetch OParl body from ${oparlBodyUrl}: ${response.status} ${response.statusText}`);
     }
     return await response.json();
   }

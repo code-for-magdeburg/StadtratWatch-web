@@ -1,4 +1,4 @@
-export type OparlSystem = {
+export type OparlBody = {
   organization: string;
   person: string;
   meeting: string;
