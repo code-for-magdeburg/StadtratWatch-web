@@ -1,4 +1,4 @@
-import { type OparlObject} from './model.ts';
+import { type OparlObject} from '../shared/model/oparl.ts';
 
 
 export class OparlSystemClient {

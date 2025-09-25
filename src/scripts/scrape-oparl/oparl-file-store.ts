@@ -1,4 +1,4 @@
-import { OparlObject } from './model.ts';
+import { type OparlObject } from '../shared/model/oparl.ts';
 import * as path from '@std/path';
 
 

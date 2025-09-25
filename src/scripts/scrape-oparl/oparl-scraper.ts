@@ -1,4 +1,4 @@
-import { type OparlObject, type OparlSystem } from './model.ts';
+import { type OparlObject, type OparlSystem } from '../shared/model/oparl.ts';
 import { type OparlSystemClient } from './oparl-system-client.ts';
 import { type IOparlObjectFileStore } from './oparl-file-store.ts';
 
