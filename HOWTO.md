@@ -175,3 +175,41 @@ docker build -t srw-stadtratwatch-web -f docker/stadtrat-watch-web.Dockerfile .
 ```bash
 docker run --rm -p 8080:80 srw-stadtratwatch-web
 ```
+
+
+### Scrape OParl data
+
+Running the OParl scraper requires to set the following environment variables:
+- `SCRAPE_OPARL_FETCH_DELAY_MS` - Delay between requests to the OParl API in milliseconds (e.g. `2000`)
+- `SCRAPE_OPARL_BODY_URL` - URL of the OParl body endpoint (e.g. `https://ratsinfo.magdeburg.de/oparl/bodies/0001`)
+
+
+#### Scrape all data (full)
+This command scrapes all data from the OParl API and stores it in the `output/ratsinfosystem` folder. It may take several hours to complete.
+A date has to be specified (format: YYYY-MM-DD) to limit the amount of data to be scraped. Only objects that where created or modified since that date will be fetched.
+
+```bash
+deno run \
+  --allow-net \
+  --allow-read \
+  --allow-write \
+  src/scripts/scrape-oparl/scrape-oparl/index.ts \
+  -m full \
+  -d 2019-01-01 \
+  -r output/ratsinfosystem
+```
+
+#### Scrape only new and updated data (incremental)
+This command scrapes only new and updated data from the OParl API and stores it in the `output/ratsinfosystem` folder. It may take several minutes to complete.
+
+Provide an optional `-d` parameter to limit the amount of data to be scraped. Only objects that where created or modified since that date will be fetched. If no date is provided, the tool will try to read the last modified date from a file named `scraper-metadata.txt` in the output folder. If the file does not exist, it will stop with an error message.
+
+```bash
+deno run \
+  --allow-net \
+  --allow-read \
+  --allow-write \
+  src/scripts/scrape-oparl/scrape-oparl/index.ts \
+  -m incremental \
+  -r output/ratsinfosystem
+```
