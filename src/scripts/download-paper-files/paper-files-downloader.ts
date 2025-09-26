@@ -3,7 +3,7 @@ import * as path from '@std/path';
 
 
 export interface IPaperFilesDownloader {
-  downloadFile(url: string, id: number): Promise<void>;
+  downloadFile(fileId: number): Promise<void>;
 }
 
 
@@ -13,23 +13,40 @@ export class PaperFilesDownloader implements IPaperFilesDownloader {
   constructor(private readonly directory: string) {}
 
 
-  async downloadFile(url: string, id: number): Promise<void> {
+  async downloadFile(fileId: number): Promise<void> {
 
-    const filename = `${id}.pdf`;
-    const filePath = path.join(this.directory, filename);
-
+    const filePath = this.getFilePath(fileId);
     if (fs.existsSync(filePath)) {
-      console.log('File already exists. Skipping: ', filename);
+      console.log('File already exists. Skipping: ', fileId);
       return;
     }
 
-    const fileResponse = await fetch(url);
+    const downloadUrl = PaperFilesDownloader.getDownloadUrl(fileId);
+    const fileResponse = await fetch(downloadUrl);
     if (fileResponse.body) {
       const file = await Deno.open(filePath, { write: true, create: true });
       await fileResponse.body.pipeTo(file.writable);
-      console.log('Download finished: ', filename);
+      console.log('Download finished: ', fileId);
     }
 
+  }
+
+
+  private getFilePath(oparlFileId: string): string {
+    const fileId = PaperFilesDownloader.extractIdFromOparlId(oparlFileId);
+    const filename = `${fileId}.pdf`;
+    return path.join(this.directory, filename);
+  }
+
+
+  private static getDownloadUrl(oparlFileId: string): string {
+    const fileId = PaperFilesDownloader.extractIdFromOparlId(oparlFileId);
+    return `https://ratsinfo.magdeburg.de/getfile.asp?id=${fileId}&type=do`;
+  }
+
+
+  private static extractIdFromOparlId(oparlId: string): number {
+    return oparlId.split('/').pop();
   }
 
 

@@ -1,10 +1,9 @@
-import * as fs from '@std/fs';
 import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
 
 export type DownloadPaperFilesArgs = {
   help: boolean;
-  scrapedSessionFilename: string;
+  ratsinfoDir: string;
   papersDir: string;
   year: string;
 };
@@ -13,10 +12,10 @@ export type DownloadPaperFilesArgs = {
 export function parseArgs(args: string[]): DownloadPaperFilesArgs {
   return stdCliParseArgs(args, {
     boolean: ['help'],
-    string: ['scraped-session-filename', 'papers-dir', 'year'],
+    string: ['papers-dir', 'year'],
     alias: {
       help: 'h',
-      'scraped-session-filename': ['s', 'scrapedSessionFilename'],
+      'ratsinfo-dir': ['r', 'ratsinfoDir'],
       'papers-dir': ['p', 'papersDir'],
       'year': ['y'],
     },
@@ -25,10 +24,10 @@ export function parseArgs(args: string[]): DownloadPaperFilesArgs {
 
 
 export function checkArgs(args: DownloadPaperFilesArgs) {
-  const { scrapedSessionFilename, papersDir, year } = args;
+  const { ratsinfoDir, papersDir, year } = args;
 
-  if (!scrapedSessionFilename) {
-    console.error('Missing scraped session file. See --help for usage.');
+  if (!ratsinfoDir) {
+    console.error('Missing ratsinfo directory. See --help for usage.');
     Deno.exit(1);
   }
 
@@ -42,11 +41,6 @@ export function checkArgs(args: DownloadPaperFilesArgs) {
     Deno.exit(1);
   }
 
-  if (!fs.existsSync(scrapedSessionFilename)) {
-    console.error(`Scraped session file "${scrapedSessionFilename}" does not exist.`);
-    Deno.exit(1);
-  }
-
   if (isNaN(parseInt(year))) {
     console.error('Year must be a number.');
     Deno.exit(1);
@@ -56,9 +50,9 @@ export function checkArgs(args: DownloadPaperFilesArgs) {
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts -s <scraped-session-file> -p <papers-dir> -y <year>
+Usage: deno run index.ts -r <ratsinfo-dir> -p <papers-dir> -y <year>
 -h, --help                  Show this help message and exit.
--s, --scraped-session-file  The scraped session file.
+-r, --ratsinfo-dir          The directory containing the OParl files (meetings.json, papers.json, files.json).
 -p, --papers-dir            The output directory.
 -y, --year                  The year to process.
   `);

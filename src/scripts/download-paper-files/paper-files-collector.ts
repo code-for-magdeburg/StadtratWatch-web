@@ -1,6 +1,6 @@
-import type { ScrapedMeeting } from '@srw-astro/models/scraped-session';
 import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
 import type { IOparlObjectsStore } from './oparl-objects-store.ts';
+import type { OparlMeeting } from '../shared/model/oparl.ts';
 
 
 export class PaperFilesCollector {
@@ -12,24 +12,17 @@ export class PaperFilesCollector {
 
 
   public async collectFiles(year: number): Promise<void> {
-
     const meetings = this.oparlObjectsStore.getStadtratMeetings(year);
-    if (meetings.length === 0) {
-      console.log('No meetings found for year: ', year);
-      return;
-    }
-
     for (const meeting of meetings) {
       await this.processMeeting(meeting);
     }
-
   }
 
 
-  private async processMeeting(meeting: ScrapedMeeting): Promise<void> {
-    const files = this.oparlObjectsStore.getFiles(meeting);
+  private async processMeeting(meeting: OparlMeeting): Promise<void> {
+    const files = this.oparlObjectsStore.getFiles(meeting.id);
     for (const file of files) {
-      await this.downloader.downloadFile(file.url, file.original_id);
+      await this.downloader.downloadFile(file.id);
     }
   }
 

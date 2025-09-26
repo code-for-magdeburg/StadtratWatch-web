@@ -1,34 +1,53 @@
-import type { ScrapedSession, ScrapedMeeting, ScrapedFile } from '@srw-astro/models/scraped-session';
+import type { OparlFile, OparlMeeting, OparlPaper, OparlConsultation } from '../shared/model/oparl.ts';
+import * as path from '@std/path';
 
 
 export interface IOparlObjectsStore {
-  getStadtratMeetings(year: number): ScrapedMeeting[];
-  getFiles(meeting: ScrapedMeeting): ScrapedFile[];
+  getStadtratMeetings(year: number): OparlMeeting[];
+  getFiles(meeting_id: string): OparlFile[];
 }
 
 
 export class OparlObjectsFileStore implements IOparlObjectsStore {
 
 
-  constructor(private readonly scrapedSession: ScrapedSession) {}
+  private meetings: OparlMeeting[];
+  private consultations: OparlConsultation[];
+  private papers: OparlPaper[];
+  private files: OparlFile[];
 
 
-  public getStadtratMeetings(year: number): ScrapedMeeting[] {
-    return this.scrapedSession.meetings
-      .filter(meeting => !meeting.cancelled)
-      .filter(meeting => !!meeting.original_id)
-      .filter(meeting => meeting.start.startsWith(`${year}`))
-      .filter(meeting => meeting.organization_name === 'Stadtrat');
+  constructor(private readonly organizationId: string, directory: string) {
+    this.meetings = JSON.parse(Deno.readTextFileSync(path.join(directory, 'meetings.json'))) as OparlMeeting[];
+    this.consultations = JSON.parse(
+      Deno.readTextFileSync(path.join(directory, 'consultations.json'))
+    ) as OparlConsultation[];
+    this.papers = JSON.parse(Deno.readTextFileSync(path.join(directory, 'papers.json'))) as OparlPaper[];
+    this.files = JSON.parse(Deno.readTextFileSync(path.join(directory, 'files.json'))) as OparlFile[];
   }
 
 
-  public getFiles(meeting: ScrapedMeeting): ScrapedFile[] {
+  public getStadtratMeetings(year: number): OparlMeeting[] {
+    return this.meetings
+      .filter(meeting => meeting.organization.includes(this.organizationId))
+      .filter(meeting => meeting.start.startsWith(`${year}`))
+      .filter(meeting => !meeting.cancelled);
+  }
 
-    const paperIds = this.scrapedSession.agenda_items
-      .filter(agendaItem => agendaItem.meeting_id === meeting.original_id)
-      .filter(agendaItem => !!agendaItem.paper_original_id)
-      .map(agendaItem => agendaItem.paper_original_id!);
-    return this.scrapedSession.files.filter(file => paperIds.includes(file.paper_original_id));
+
+  public getFiles(meetingId: string): OparlFile[] {
+
+    const paperIds = this.consultations
+      .filter(consultation => consultation.meeting === meetingId)
+      .map(consultation => consultation.paper)
+      .filter(paperId => !!paperId)
+      .map(paperId => this.papers.find(paper => paper.id === paperId))
+      .filter(paper => !!paper)
+      .map(paper => paper.id);
+
+    return this.files
+      .filter(file => !!file.paper)
+      .filter(file => file.paper.some(paperId => paperIds.includes(paperId)));
 
   }
 

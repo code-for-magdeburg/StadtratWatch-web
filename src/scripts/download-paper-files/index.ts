@@ -1,8 +1,8 @@
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { PaperFilesCollector } from './paper-files-collector.ts';
 import { PaperFilesDownloader } from './paper-files-downloader.ts';
-import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { OparlObjectsFileStore } from './oparl-objects-store.ts';
+import { tryGetDownloadPaperFilesEnv } from './env.ts';
 
 
 const args = parseArgs(Deno.args);
@@ -15,8 +15,8 @@ if (args.help) {
 checkArgs(args);
 
 
-const scrapedSession = JSON.parse(Deno.readTextFileSync(args.scrapedSessionFilename)) as ScrapedSession;
-const oparlObjectsStore = new OparlObjectsFileStore(scrapedSession);
+const env = tryGetDownloadPaperFilesEnv();
+const oparlObjectsStore = new OparlObjectsFileStore(env.councilOrganizationId, args.ratsinfoDir);
 const downloader = new PaperFilesDownloader(args.papersDir);
 const collector = new PaperFilesCollector(oparlObjectsStore, downloader);
 await collector.collectFiles(parseInt(args.year))
