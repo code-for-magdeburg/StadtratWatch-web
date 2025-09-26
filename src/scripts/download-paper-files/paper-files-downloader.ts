@@ -3,7 +3,7 @@ import * as path from '@std/path';
 
 
 export interface IPaperFilesDownloader {
-  downloadFile(fileId: number): Promise<void>;
+  downloadFile(fileId: string): Promise<void>;
 }
 
 
@@ -13,11 +13,17 @@ export class PaperFilesDownloader implements IPaperFilesDownloader {
   constructor(private readonly directory: string) {}
 
 
-  async downloadFile(fileId: number): Promise<void> {
+  async downloadFile(oparlFileId: string): Promise<void> {
 
-    const filePath = this.getFilePath(fileId);
+    const fileId = PaperFilesDownloader.extractIdFromOparlId(oparlFileId);
+    if (!fileId) {
+      console.error('Could not extract file ID from OParl ID: ', oparlFileId);
+      return;
+    }
+
+    const filePath = this.getFilePath(fileId)
     if (fs.existsSync(filePath)) {
-      console.log('File already exists. Skipping: ', fileId);
+      console.log('File already exists. Skipping: ', oparlFileId);
       return;
     }
 
@@ -26,26 +32,24 @@ export class PaperFilesDownloader implements IPaperFilesDownloader {
     if (fileResponse.body) {
       const file = await Deno.open(filePath, { write: true, create: true });
       await fileResponse.body.pipeTo(file.writable);
-      console.log('Download finished: ', fileId);
+      console.log('Download finished: ', oparlFileId);
     }
 
   }
 
 
-  private getFilePath(oparlFileId: string): string {
-    const fileId = PaperFilesDownloader.extractIdFromOparlId(oparlFileId);
+  private getFilePath(fileId: string): string {
     const filename = `${fileId}.pdf`;
     return path.join(this.directory, filename);
   }
 
 
-  private static getDownloadUrl(oparlFileId: string): string {
-    const fileId = PaperFilesDownloader.extractIdFromOparlId(oparlFileId);
+  private static getDownloadUrl(fileId: string): string {
     return `https://ratsinfo.magdeburg.de/getfile.asp?id=${fileId}&type=do`;
   }
 
 
-  private static extractIdFromOparlId(oparlId: string): number {
+  private static extractIdFromOparlId(oparlId: string): string | undefined {
     return oparlId.split('/').pop();
   }
 

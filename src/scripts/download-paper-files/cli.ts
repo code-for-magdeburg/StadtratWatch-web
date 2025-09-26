@@ -12,7 +12,7 @@ export type DownloadPaperFilesArgs = {
 export function parseArgs(args: string[]): DownloadPaperFilesArgs {
   return stdCliParseArgs(args, {
     boolean: ['help'],
-    string: ['papers-dir', 'year'],
+    string: ['ratsinfoDir', 'papers-dir', 'year'],
     alias: {
       help: 'h',
       'ratsinfo-dir': ['r', 'ratsinfoDir'],
