@@ -11,11 +11,12 @@ RUN deno install --entrypoint src/scripts/download-paper-files/index.ts
 RUN deno cache src/scripts/download-paper-files/index.ts
 
 ENTRYPOINT ["deno", "run", \
-        "-R=/app/Magdeburg.json,/app/papers", \
+        "-R=/app/oparl,/app/papers", \
         "-W=/app/papers", \
+        "-E=OPARL_COUNCIL_ORGANIZATION_ID", \
         "--allow-net", \
         "src/scripts/download-paper-files/index.ts", \
-        "-s=./Magdeburg.json", \
+        "-r=./oparl", \
         "-p=./papers", \
         "-y"]
-CMD ["2024"]
+CMD ["2025"]
