@@ -94,8 +94,9 @@ docker build -t srw-download-paper-files -f docker/download-paper-files.Dockerfi
 ```shell
 docker run \
   --rm \
+  -e OPARL_COUNCIL_ORGANIZATION_ID=https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1 \
   -v $(pwd)/output/papers/2025:/app/papers \
-  -v $(pwd)/data/Magdeburg.json:/app/Magdeburg.json:ro \
+  -v $(pwd)/output/ratsinfosystem:/app/oparl:ro \
   srw-download-paper-files \
   2025
 ```
