@@ -11,15 +11,11 @@ export class SessionsDataGenerator {
 
   public generateVotingsImageData(registry: Registry, sessionsInput: SessionInput[]): Voting[] {
 
-    const personIdsByNameMap = new Map(
-      registry.persons.map(person => [person.name, person.id])
-    );
-
     return sessionsInput.flatMap(sessionInput => {
       const persons = getPersonsOfSession(registry, sessionInput.session);
       return sessionInput.votings.map<Voting>(sessionVoting => {
         const allVotes = sessionVoting.votes.map<Vote>(vote => ({
-          personId: personIdsByNameMap.get(vote.name) || '',
+          personId: registry.persons.find(p => p.name === vote.name)?.id || '',
           vote: getVoteResult(vote.vote)
         }));
         return {

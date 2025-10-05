@@ -1,6 +1,5 @@
-import { VoteResult } from '../shared/model/session.ts';
+import { Vote, VoteResult } from '../shared/model/session.ts';
 import type { VotingPerFaction } from './model.ts';
-import type { Vote } from '../shared/model/session.ts';
 import type { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
 
 
@@ -23,16 +22,16 @@ export function getVotingForFactions(votes: Vote[], factions: RegistryFaction[],
 
     const factionPersons = persons.filter(person => person.factionId === faction.id);
     const votesFor = votes.filter(
-      vote => vote.vote === 'J' && factionPersons.some(person => person.id === vote.personId)
+      vote => vote.vote === VoteResult.VOTE_FOR && factionPersons.some(person => person.id === vote.personId)
     ).length;
     const votesAgainst = votes.filter(
-      vote => vote.vote === 'N' && factionPersons.some(person => person.id === vote.personId)
+      vote => vote.vote === VoteResult.VOTE_AGAINST && factionPersons.some(person => person.id === vote.personId)
     ).length;
     const abstentions = votes.filter(
-      vote => vote.vote === 'E' && factionPersons.some(person => person.id === vote.personId)
+      vote => vote.vote === VoteResult.VOTE_ABSTENTION && factionPersons.some(person => person.id === vote.personId)
     ).length;
     const notVoted = votes.filter(
-      vote => vote.vote === 'O' && factionPersons.some(person => person.id === vote.personId)
+      vote => vote.vote === VoteResult.DID_NOT_VOTE && factionPersons.some(person => person.id === vote.personId)
     ).length;
 
     return { faction: faction.name, votesFor, votesAgainst, abstentions, notVoted };
