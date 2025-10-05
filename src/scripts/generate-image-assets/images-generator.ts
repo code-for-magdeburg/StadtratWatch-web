@@ -20,10 +20,6 @@ const TEXT_COLOR = '#DDDDDD';
 const TEXT_COLOR_DARK = '#3C3C3C';
 
 
-export type GeneratedImages = {
-  votingImages: GeneratedVotingImage[];
-};
-
 export type GeneratedVotingImage = {
   sessionId: string;
   votingId: number;
@@ -34,12 +30,7 @@ export type GeneratedVotingImage = {
 export class ImagesGenerator {
 
 
-  public generateImages(votings: Voting[]): GeneratedImages {
-    return { votingImages: this.generateVotingImages(votings) };
-  }
-
-
-  private generateVotingImages(votings: Voting[]): GeneratedVotingImage[] {
+  public generateVotingImages(votings: Voting[]): GeneratedVotingImage[] {
     return votings.map(voting => this.generateVotingImage(voting));
   }
 

@@ -44,10 +44,10 @@ const votings = sessions.flatMap(
 
 console.log('Generating images...');
 const imagesGenerator = new ImagesGenerator();
-const images = imagesGenerator.generateImages(votings);
+const votingImages = imagesGenerator.generateVotingImages(votings);
 
 
 const assetsWriter = new ImageAssetsWriter(args.outputDir);
-assetsWriter.writeImageAssets(images);
+assetsWriter.writeImageAssets(votingImages);
 
 console.log('Done.');
