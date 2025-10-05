@@ -1,6 +1,5 @@
-import { SessionInput } from '@srw-astro/models/session-input';
-import { Registry } from '@srw-astro/models/registry';
-import { SessionPersonDto } from '../shared/model/session.ts';
+import { type SessionInput } from '@srw-astro/models/session-input';
+import { type Registry } from '@srw-astro/models/registry';
 import { type Voting } from './model.ts';
 import { getVotingForFactions, getVoteResult } from './helpers.ts';
 import { type Vote } from '../shared/model/session.ts';
@@ -16,20 +15,8 @@ export class SessionsDataGenerator {
       registry.persons.map(person => [person.name, person.id])
     );
 
-    const factionNamesByIdMap = new Map(
-      registry.factions.map(faction => [faction.id, faction.name])
-    );
-
-    const factionNames = registry.factions
-      .toSorted((a, b) => b.seats - a.seats)
-      .map(faction => faction.name);
-
     return sessionsInput.flatMap(sessionInput => {
-      const personsOfSession = getPersonsOfSession(registry, sessionInput.session);
-      const persons = personsOfSession.map<SessionPersonDto>(person => ({
-        id: person.id,
-        faction: factionNamesByIdMap.get(person.factionId) || '',
-      }));
+      const persons = getPersonsOfSession(registry, sessionInput.session);
       return sessionInput.votings.map<Voting>(sessionVoting => {
         const allVotes = sessionVoting.votes.map<Vote>(vote => ({
           personId: personIdsByNameMap.get(vote.name) || '',
@@ -42,7 +29,7 @@ export class SessionsDataGenerator {
           motionType: sessionVoting.votingSubject.type || 'Sonstige',
           motionId: sessionVoting.votingSubject.motionId,
           subjectTitle: sessionVoting.votingSubject.title,
-          votes: getVotingForFactions(allVotes, factionNames, persons)
+          votes: getVotingForFactions(allVotes, registry.factions, persons)
         };
       });
     });

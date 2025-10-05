@@ -7,12 +7,6 @@ export enum VoteResult {
 }
 
 
-export type SessionPersonDto = {
-  id: string;
-  faction: string;
-};
-
-
 export type Vote = {
   personId: string;
   vote: VoteResult;

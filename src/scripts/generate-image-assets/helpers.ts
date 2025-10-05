@@ -1,7 +1,7 @@
-import { SessionPersonDto, VoteResult } from '../shared/model/session.ts';
+import { VoteResult } from '../shared/model/session.ts';
 import type { VotingPerFaction } from './model.ts';
 import type { Vote } from '../shared/model/session.ts';
-import { Registry, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
+import type { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
 
 
 export function getPersonsOfSession(parliamentPeriod: Registry, session: RegistrySession): RegistryPerson[] {
@@ -16,12 +16,12 @@ export function getPersonsOfSession(parliamentPeriod: Registry, session: Registr
 }
 
 
-export function getVotingForFactions(votes: Vote[], factionNames: string[],
-  persons: SessionPersonDto[]): VotingPerFaction[] {
+export function getVotingForFactions(votes: Vote[], factions: RegistryFaction[],
+                                     persons: RegistryPerson[]): VotingPerFaction[] {
 
-  return factionNames.map(faction => {
+  return factions.map(faction => {
 
-    const factionPersons = persons.filter(person => person.faction === faction);
+    const factionPersons = persons.filter(person => person.factionId === faction.id);
     const votesFor = votes.filter(
       vote => vote.vote === 'J' && factionPersons.some(person => person.id === vote.personId)
     ).length;
@@ -35,7 +35,7 @@ export function getVotingForFactions(votes: Vote[], factionNames: string[],
       vote => vote.vote === 'O' && factionPersons.some(person => person.id === vote.personId)
     ).length;
 
-    return { faction, votesFor, votesAgainst, abstentions, notVoted };
+    return { faction: faction.name, votesFor, votesAgainst, abstentions, notVoted };
 
   });
 
