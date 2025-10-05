@@ -1,8 +1,8 @@
 import { SessionInput } from '@srw-astro/models/session-input';
 import { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
 import { ScrapedSession } from '@srw-astro/models/scraped-session';
-import { SessionDetailsDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VoteResult, VotingResult } from '@srw-astro/models/session';
 import { SessionScanVote } from '@srw-astro/models/session-scan';
+import { SessionDetailsDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VotingResult, VoteResult } from '../shared/model/session.ts';
 
 
 function isPersonInSession (person: RegistryPerson, session: RegistrySession): boolean {

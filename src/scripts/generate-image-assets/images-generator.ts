@@ -1,5 +1,5 @@
 import { Registry } from '@srw-astro/models/registry';
-import { SessionDetailsDto, SessionVotingDto, SessionPersonDto } from '@srw-astro/models/session';
+import { SessionDetailsDto, SessionVotingDto, SessionPersonDto } from '../shared/model/session.ts';
 import { Canvas, CanvasRenderingContext2D, createCanvas } from '@gfx/canvas';
 
 
