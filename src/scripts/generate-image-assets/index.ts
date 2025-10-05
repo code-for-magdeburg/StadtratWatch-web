@@ -23,8 +23,13 @@ const { registry, sessionsInputData } = loader.loadInputData();
 const sessionsDataGenerator = new SessionsDataGenerator();
 const sessionsData = sessionsDataGenerator.generateSessionsData(sessionsInputData, registry);
 
+
+const factionNames = registry.factions
+  .toSorted((a, b) => b.seats - a.seats)
+  .map(faction => faction.name);
+
 const imagesGenerator = new ImagesGenerator();
-const images = imagesGenerator.generateImages(registry, sessionsData);
+const images = imagesGenerator.generateImages(factionNames, sessionsData);
 
 
 const assetsWriter = new ImageAssetsWriter(args.outputDir);

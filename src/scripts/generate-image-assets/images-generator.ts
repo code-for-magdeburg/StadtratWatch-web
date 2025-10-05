@@ -1,4 +1,3 @@
-import { Registry } from '@srw-astro/models/registry';
 import { SessionDetailsDto, SessionVotingDto, SessionPersonDto } from '../shared/model/session.ts';
 import { Canvas, CanvasRenderingContext2D, createCanvas } from '@gfx/canvas';
 
@@ -52,28 +51,24 @@ export type GeneratedVotingImage = {
 export class ImagesGenerator {
 
 
-  public generateImages(registry: Registry, sessions: SessionDetailsDto[]): GeneratedImages {
+  public generateImages(factionNames: string[], sessions: SessionDetailsDto[]): GeneratedImages {
     console.log('Generating images...');
-    const votingImages = sessions.flatMap(session => this.generateVotingImages(registry, session));
+    const votingImages = sessions.flatMap(session => this.generateVotingImages(factionNames, session));
     return { votingImages };
   }
 
 
-  private generateVotingImages(registry: Registry, session: SessionDetailsDto): GeneratedVotingImage[] {
+  private generateVotingImages(factionNames: string[], session: SessionDetailsDto): GeneratedVotingImage[] {
     console.log(`Generating voting images for session ${session.id}`);
-    return session.votings.map(voting => this.generateVotingImage(voting, registry, session));
+    return session.votings.map(voting => this.generateVotingImage(voting, factionNames, session));
   }
 
 
-  private generateVotingImage(sessionVoting: SessionVotingDto, registry: Registry,
+  private generateVotingImage(sessionVoting: SessionVotingDto, factionNames: string[],
                               session: SessionDetailsDto): GeneratedVotingImage {
 
     const canvas = createCanvas(TOTAL_WIDTH, TOTAL_HEIGHT);
     const context = canvas.getContext('2d');
-
-    const factionNames = [...registry.factions]
-      .sort((a, b) => b.seats - a.seats)
-      .map(faction => faction.name);
 
     const votes = this.getVotingForFactions(sessionVoting, factionNames, session.persons);
 
