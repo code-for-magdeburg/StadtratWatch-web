@@ -1,6 +1,5 @@
 import { Registry } from '@srw-astro/models/registry';
 import * as path from '@std/path';
-import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { SessionInput } from '@srw-astro/models/session-input';
 import { SessionScan } from '@srw-astro/models/session-scan';
 import { SessionSpeech } from '@srw-astro/models/session-speech';
@@ -9,7 +8,6 @@ import { existsSync } from '@std/fs';
 
 export type InputData = {
   registry: Registry;
-  scrapedSession: ScrapedSession;
   sessionsInputData: SessionInput[];
 };
 
@@ -17,26 +15,20 @@ export type InputData = {
 export class InputDataLoaders {
 
 
-  constructor(private readonly inputDir: string, private readonly scrapedSessionFilename: string) {
+  constructor(private readonly inputDir: string) {
   }
 
 
   public loadInputData(): InputData {
     const registry = this.loadRegistry();
-    const scrapedSession = this.loadScrapedSession();
     const sessionsInputData = this.loadSessionsInputData(registry);
-    return { registry, scrapedSession, sessionsInputData };
+    return { registry, sessionsInputData };
   }
 
 
   private loadRegistry(): Registry {
     const registryFilename = path.join(this.inputDir, 'registry.json');
     return JSON.parse(Deno.readTextFileSync(registryFilename)) as Registry;
-  }
-
-
-  private loadScrapedSession(): ScrapedSession {
-    return JSON.parse(Deno.readTextFileSync(this.scrapedSessionFilename)) as ScrapedSession;
   }
 
 

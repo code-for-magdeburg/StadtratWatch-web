@@ -1,6 +1,5 @@
 import { SessionInput } from '@srw-astro/models/session-input';
 import { Registry, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
-import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { SessionDetailsDto, SessionPersonDto, SessionVotingDto, VoteResult } from '../shared/model/session.ts';
 
 
@@ -18,17 +17,7 @@ function getPersonsOfSession(parliamentPeriod: Registry, session: RegistrySessio
 export class SessionsDataGenerator {
 
 
-  public generateSessionsData(sessionsData: SessionInput[], registry: Registry,
-                              scrapedSession: ScrapedSession): SessionDetailsDto[] {
-
-    const scrapedStadtratMeetings = scrapedSession.meetings
-      .filter(meeting => meeting.organization_name === 'Stadtrat')
-      .map<{ date: string | null, original_id: number | null }>(meeting => ({
-        date: meeting.start ? meeting.start.slice(0, 10) : null,
-        original_id: meeting.original_id
-      }));
-    const scrapedAgendaItems = scrapedSession.agenda_items;
-    const scrapedFiles = scrapedSession.files;
+  public generateSessionsData(sessionsData: SessionInput[], registry: Registry): SessionDetailsDto[] {
 
     const personIdsByNameMap =
       new Map(registry.persons.map(person => [person.name, person.id]));
@@ -42,12 +31,6 @@ export class SessionsDataGenerator {
     return registry.sessions
       .filter(session => sessionDataMap.has(session.id))
       .map(session => {
-        const scrapedStadtratMeeting = scrapedStadtratMeetings.find(
-          meeting => meeting.date === session.date
-        );
-        if (!scrapedStadtratMeeting) {
-          console.warn('No scraped meeting found for session', session.date);
-        }
 
         const sessionData = sessionDataMap.get(session.id)!;
         const sessionScan = sessionData.votings;
@@ -60,25 +43,6 @@ export class SessionsDataGenerator {
             faction: factionsByIdMap.get(person.factionId)?.name || '',
           })),
           votings: sessionScan.map<SessionVotingDto>(voting => {
-            const agendaItem = scrapedAgendaItems.find(
-              agendaItem =>
-                scrapedStadtratMeeting?.original_id &&
-                agendaItem.key === `Ö ${voting.votingSubject.agendaItem}` &&
-                agendaItem.meeting_id === scrapedStadtratMeeting.original_id
-            );
-            if (!agendaItem) {
-              console.warn('No scraped agenda item found for voting', session.date, voting.votingSubject.agendaItem);
-            }
-            const scrapedPaperOriginalId = agendaItem?.paper_original_id;
-            if (!scrapedPaperOriginalId) {
-              console.warn('No scraped paper original id found for voting', session.date, voting.votingSubject.agendaItem);
-            }
-            const files = scrapedPaperOriginalId
-              ? scrapedFiles.filter(file => file.paper_original_id === scrapedPaperOriginalId)
-              : [];
-            if (files.length === 0) {
-              console.warn('No scraped file found for voting', session.date, voting.votingSubject.agendaItem);
-            }
 
             return {
               id: +voting.votingFilename.substring(11, 14),

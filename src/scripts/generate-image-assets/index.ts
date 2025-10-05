@@ -15,17 +15,13 @@ if (args.help) {
 checkArgs(args);
 
 
-const loader = new InputDataLoaders(args.inputDir, args.scrapedSessionFilename);
-const { registry, scrapedSession, sessionsInputData } = loader.loadInputData();
+const loader = new InputDataLoaders(args.inputDir);
+const { registry, sessionsInputData } = loader.loadInputData();
 
 
 // TODO: SessionsDataGenerator is legacy stuff. Should be removed in the future.
 const sessionsDataGenerator = new SessionsDataGenerator();
-const sessionsData = sessionsDataGenerator.generateSessionsData(
-  sessionsInputData,
-  registry,
-  scrapedSession
-);
+const sessionsData = sessionsDataGenerator.generateSessionsData(sessionsInputData, registry);
 
 const imagesGenerator = new ImagesGenerator();
 const images = imagesGenerator.generateImages(registry, sessionsData);
