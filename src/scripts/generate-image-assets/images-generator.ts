@@ -66,7 +66,7 @@ export class ImagesGenerator {
 
 
   private generateVotingImage(sessionVoting: SessionVotingDto, registry: Registry,
-                               session: SessionDetailsDto): GeneratedVotingImage {
+                              session: SessionDetailsDto): GeneratedVotingImage {
 
     const canvas = createCanvas(TOTAL_WIDTH, TOTAL_HEIGHT);
     const context = canvas.getContext('2d');

@@ -1,32 +1,17 @@
 import { SessionInput } from '@srw-astro/models/session-input';
-import { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
+import { Registry, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
 import { ScrapedSession } from '@srw-astro/models/scraped-session';
-import { SessionScanVote } from '@srw-astro/models/session-scan';
-import { SessionDetailsDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VotingResult, VoteResult } from '../shared/model/session.ts';
-
-
-function isPersonInSession (person: RegistryPerson, session: RegistrySession): boolean {
-  const sessionDate = session.date;
-  return (person.start === null || person.start <= sessionDate) && (person.end === null || person.end >= sessionDate);
-}
+import { SessionDetailsDto, SessionPersonDto, SessionVotingDto, VoteResult } from '../shared/model/session.ts';
 
 
 function getPersonsOfSession(parliamentPeriod: Registry, session: RegistrySession): RegistryPerson[] {
+
+  const isPersonInSession = (person: RegistryPerson, session: RegistrySession): boolean => {
+    const sessionDate = session.date;
+    return (person.start === null || person.start <= sessionDate) && (person.end === null || person.end >= sessionDate);
+  };
+
   return parliamentPeriod.persons.filter(person => isPersonInSession(person, session))
-}
-
-
-function getPersonByName(parliamentPeriod: Registry, session: RegistrySession,
-                         personName: string): RegistryPerson | null {
-  return getPersonsOfSession(parliamentPeriod, session).find(person => person.name === personName) || null;
-}
-
-
-function getFactionOfPerson(parliamentPeriod: Registry, session: RegistrySession,
-                            person: RegistryPerson): RegistryFaction | null {
-  return parliamentPeriod.factions.find(
-    faction => faction.id === person.factionId && isPersonInSession(person, session)
-  ) || null;
 }
 
 
@@ -43,7 +28,6 @@ export class SessionsDataGenerator {
         original_id: meeting.original_id
       }));
     const scrapedAgendaItems = scrapedSession.agenda_items;
-    const scrapedPapers = scrapedSession.papers;
     const scrapedFiles = scrapedSession.files;
 
     const personIdsByNameMap =
@@ -52,12 +36,6 @@ export class SessionsDataGenerator {
     const factionsByIdMap = new Map(
       registry.factions.map(faction => [faction.id, faction])
     );
-    const factions = Array.from(factionsByIdMap.values());
-
-    const partiesByIdMap = new Map(
-      registry.parties.map(party => [party.id, party])
-    );
-    const parties = Array.from(partiesByIdMap.values());
 
     const sessionDataMap = new Map(sessionsData.map(sessionData => [sessionData.session.id, sessionData]));
 
@@ -73,19 +51,12 @@ export class SessionsDataGenerator {
 
         const sessionData = sessionDataMap.get(session.id)!;
         const sessionScan = sessionData.votings;
-        const sessionSpeeches = sessionData.speeches;
 
         return {
           id: session.id,
           date: session.date,
-          meetingMinutesUrl: session.meetingMinutesUrl,
-          youtubeUrl: session.youtubeUrl,
-          factions,
-          parties,
           persons: getPersonsOfSession(registry, session).map<SessionPersonDto>(person => ({
             id: person.id,
-            name: person.name,
-            party: partiesByIdMap.get(person.partyId)?.name || '',
             faction: factionsByIdMap.get(person.factionId)?.name || '',
           })),
           votings: sessionScan.map<SessionVotingDto>(voting => {
@@ -102,9 +73,6 @@ export class SessionsDataGenerator {
             if (!scrapedPaperOriginalId) {
               console.warn('No scraped paper original id found for voting', session.date, voting.votingSubject.agendaItem);
             }
-            const paper = scrapedPaperOriginalId
-              ? scrapedPapers.find(paper => paper.original_id === scrapedPaperOriginalId) || null
-              : null;
             const files = scrapedPaperOriginalId
               ? scrapedFiles.filter(file => file.paper_original_id === scrapedPaperOriginalId)
               : [];
@@ -114,55 +82,19 @@ export class SessionsDataGenerator {
 
             return {
               id: +voting.votingFilename.substring(11, 14),
-              videoTimestamp: this.convertVideoTimestampToSeconds(voting.videoTimestamp),
               votingSubject: {
-                agendaItem: voting.votingSubject.agendaItem,
                 motionId: voting.votingSubject.motionId,
                 title: voting.votingSubject.title,
                 type: voting.votingSubject.type || 'Sonstige',
-                authors: voting.votingSubject.authors,
-                paperId: paper?.original_id || null
               },
               votes: voting.votes.map(vote => ({
                 personId: personIdsByNameMap.get(vote.name) || '',
                 vote: this.getVoteResult(vote.vote)
               })),
-              votingResult: this.getVotingResult(voting.votes)
             };
-          }),
-          speeches: sessionSpeeches
-            .filter(sessionSpeech => !sessionSpeech.isChairPerson)
-            .map(sessionSpeech => {
-              const person = getPersonByName(registry, session, sessionSpeech.speaker);
-              const faction = person ? getFactionOfPerson(registry, session, person)?.name || '' : '';
-              return {
-                speaker: sessionSpeech.speaker,
-                start: sessionSpeech.start,
-                duration: sessionSpeech.duration,
-                faction,
-                onBehalfOf: sessionSpeech.onBehalfOf,
-                transcription: sessionSpeech.transcription
-              } satisfies SessionSpeechDto;
-            })
+          })
         } satisfies SessionDetailsDto;
       });
-
-  }
-
-
-  private convertVideoTimestampToSeconds(videoTimestamp: string): number {
-
-    const timeParts = videoTimestamp.split(':');
-    switch (timeParts.length) {
-      case 1:
-        return parseInt(timeParts[0] || '0');
-      case 2:
-        return parseInt(timeParts[0] || '0') * 60 + parseInt(timeParts[1] || '0');
-      case 3:
-        return parseInt(timeParts[0] || '0') * 3600 + parseInt(timeParts[1] || '0') * 60 + parseInt(timeParts[2] || '0');
-      default:
-        return 0;
-    }
 
   }
 
@@ -175,13 +107,6 @@ export class SessionsDataGenerator {
         : vote === 'E'
           ? VoteResult.VOTE_ABSTENTION
           : VoteResult.DID_NOT_VOTE;
-  }
-
-
-  private getVotingResult(votes: SessionScanVote[]): VotingResult {
-    const votedFor = votes.filter(vote => vote.vote === VoteResult.VOTE_FOR).length;
-    const votedAgainst = votes.filter(vote => vote.vote === VoteResult.VOTE_AGAINST).length;
-    return votedFor > votedAgainst ? VotingResult.PASSED : VotingResult.REJECTED;
   }
 
 
