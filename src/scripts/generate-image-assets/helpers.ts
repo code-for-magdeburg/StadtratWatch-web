@@ -1,4 +1,4 @@
-import { SessionVotingDto, SessionPersonDto } from '../shared/model/session.ts';
+import { SessionVotingDto, SessionPersonDto, VoteResult } from '../shared/model/session.ts';
 import type { VotingPerFaction } from './model.ts';
 
 
@@ -25,4 +25,15 @@ export function getVotingForFactions(sessionVoting: SessionVotingDto, factionNam
 
   });
 
+}
+
+
+export function getVoteResult(vote: string): VoteResult {
+  return vote === 'J'
+    ? VoteResult.VOTE_FOR
+    : vote === 'N'
+      ? VoteResult.VOTE_AGAINST
+      : vote === 'E'
+        ? VoteResult.VOTE_ABSTENTION
+        : VoteResult.DID_NOT_VOTE;
 }

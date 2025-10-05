@@ -1,6 +1,8 @@
 import { SessionInput } from '@srw-astro/models/session-input';
 import { Registry, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
-import { SessionDetailsDto, SessionPersonDto, SessionVotingDto, VoteResult } from '../shared/model/session.ts';
+import { SessionDetailsDto, SessionPersonDto, SessionVotingDto } from '../shared/model/session.ts';
+import { type Voting } from './model.ts';
+import { getVotingForFactions, getVoteResult } from './helpers.ts';
 
 
 function getPersonsOfSession(parliamentPeriod: Registry, session: RegistrySession): RegistryPerson[] {
@@ -17,60 +19,53 @@ function getPersonsOfSession(parliamentPeriod: Registry, session: RegistrySessio
 export class SessionsDataGenerator {
 
 
-  public generateSessionsData(sessionsData: SessionInput[], registry: Registry): SessionDetailsDto[] {
+  public generateVotingsImageData(registry: Registry, sessionsInput: SessionInput[]): Voting[] {
 
-    const personIdsByNameMap =
-      new Map(registry.persons.map(person => [person.name, person.id]));
-
-    const factionsByIdMap = new Map(
-      registry.factions.map(faction => [faction.id, faction])
+    const personIdsByNameMap = new Map(
+      registry.persons.map(person => [person.name, person.id])
     );
 
-    const sessionDataMap = new Map(sessionsData.map(sessionData => [sessionData.session.id, sessionData]));
+    const factionNamesByIdMap = new Map(
+      registry.factions.map(faction => [faction.id, faction.name])
+    );
 
-    return registry.sessions
-      .filter(session => sessionDataMap.has(session.id))
-      .map(session => {
+    const factionNames = registry.factions
+      .toSorted((a, b) => b.seats - a.seats)
+      .map(faction => faction.name);
 
-        const sessionData = sessionDataMap.get(session.id)!;
-        const sessionScan = sessionData.votings;
-
-        return {
-          id: session.id,
-          date: session.date,
-          persons: getPersonsOfSession(registry, session).map<SessionPersonDto>(person => ({
-            id: person.id,
-            faction: factionsByIdMap.get(person.factionId)?.name || '',
+    return sessionsInput
+      .map<SessionDetailsDto>(sessionInput => ({
+        id: sessionInput.session.id,
+        date: sessionInput.session.date,
+        persons: getPersonsOfSession(registry, sessionInput.session).map<SessionPersonDto>(person => ({
+          id: person.id,
+          faction: factionNamesByIdMap.get(person.factionId) || '',
+        })),
+        votings: sessionInput.votings.map<SessionVotingDto>(voting => ({
+          id: +voting.votingFilename.substring(11, 14),
+          votingSubject: {
+            motionId: voting.votingSubject.motionId,
+            title: voting.votingSubject.title,
+            type: voting.votingSubject.type || 'Sonstige',
+          },
+          votes: voting.votes.map(vote => ({
+            personId: personIdsByNameMap.get(vote.name) || '',
+            vote: getVoteResult(vote.vote)
           })),
-          votings: sessionScan.map<SessionVotingDto>(voting => {
+        }))
+      }))
+      .flatMap(session =>
+        session.votings.map<Voting>(sessionVoting => ({
+          sessionId: session.id,
+          votingId: sessionVoting.id,
+          date: session.date,
+          motionType: sessionVoting.votingSubject.type,
+          motionId: sessionVoting.votingSubject.motionId,
+          subjectTitle: sessionVoting.votingSubject.title,
+          votes: getVotingForFactions(sessionVoting, factionNames, session.persons)
+        }))
+      );
 
-            return {
-              id: +voting.votingFilename.substring(11, 14),
-              votingSubject: {
-                motionId: voting.votingSubject.motionId,
-                title: voting.votingSubject.title,
-                type: voting.votingSubject.type || 'Sonstige',
-              },
-              votes: voting.votes.map(vote => ({
-                personId: personIdsByNameMap.get(vote.name) || '',
-                vote: this.getVoteResult(vote.vote)
-              })),
-            };
-          })
-        } satisfies SessionDetailsDto;
-      });
-
-  }
-
-
-  private getVoteResult(vote: string): VoteResult {
-    return vote === 'J'
-      ? VoteResult.VOTE_FOR
-      : vote === 'N'
-        ? VoteResult.VOTE_AGAINST
-        : vote === 'E'
-          ? VoteResult.VOTE_ABSTENTION
-          : VoteResult.DID_NOT_VOTE;
   }
 
 

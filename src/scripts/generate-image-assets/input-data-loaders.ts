@@ -8,7 +8,7 @@ import { existsSync } from '@std/fs';
 
 export type InputData = {
   registry: Registry;
-  sessionsInputData: SessionInput[];
+  sessionsInput: SessionInput[];
 };
 
 
@@ -21,8 +21,8 @@ export class InputDataLoaders {
 
   public loadInputData(): InputData {
     const registry = this.loadRegistry();
-    const sessionsInputData = this.loadSessionsInputData(registry);
-    return { registry, sessionsInputData };
+    const sessionsInput = this.loadSessionsInputData(registry);
+    return { registry, sessionsInput };
   }
 
 
