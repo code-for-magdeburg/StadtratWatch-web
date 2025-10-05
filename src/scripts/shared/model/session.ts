@@ -13,25 +13,6 @@ export type SessionPersonDto = {
 };
 
 
-export type SessionDetailsDto = {
-  id: string;
-  date: string;
-  persons: SessionPersonDto[];
-  votings: SessionVotingDto[];
-};
-
-
-export type SessionVotingDto = {
-  id: number;
-  votingSubject: {
-    motionId: string;
-    title: string;
-    type: string;
-  },
-  votes: Vote[]
-};
-
-
 export type Vote = {
   personId: string;
   vote: VoteResult;
