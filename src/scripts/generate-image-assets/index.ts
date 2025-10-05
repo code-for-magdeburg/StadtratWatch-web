@@ -20,8 +20,6 @@ const { registry, scrapedSession, sessionsInputData } = loader.loadInputData();
 
 
 // TODO: SessionsDataGenerator is legacy stuff. Should be removed in the future.
-// (only used as a temporary input for the ImagesGenerator)
-// Best to take care if it in #299
 const sessionsDataGenerator = new SessionsDataGenerator();
 const sessionsData = sessionsDataGenerator.generateSessionsData(
   sessionsInputData,
@@ -30,7 +28,7 @@ const sessionsData = sessionsDataGenerator.generateSessionsData(
 );
 
 const imagesGenerator = new ImagesGenerator();
-const images = imagesGenerator.generateImages(registry, sessionsData.sessions);
+const images = imagesGenerator.generateImages(registry, sessionsData);
 
 
 const assetsWriter = new ImageAssetsWriter(args.outputDir);

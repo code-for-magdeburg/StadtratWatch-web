@@ -69,12 +69,3 @@ export type SessionDetailsDto = {
   votings: SessionVotingDto[];
   speeches: SessionSpeechDto[];
 };
-
-
-export type SessionLightDto = {
-  id: string;
-  date: string;
-  votingsCount: number;
-  speechesCount: number;
-  totalSpeakingTime: number;
-};

@@ -1,14 +1,8 @@
 import { SessionInput } from '@srw-astro/models/session-input';
 import { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
 import { ScrapedSession } from '@srw-astro/models/scraped-session';
-import { SessionDetailsDto, SessionLightDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VoteResult, VotingResult } from '@srw-astro/models/session';
+import { SessionDetailsDto, SessionPersonDto, SessionSpeechDto, SessionVotingDto, VoteResult, VotingResult } from '@srw-astro/models/session';
 import { SessionScanVote } from '@srw-astro/models/session-scan';
-
-
-export type GeneratedSessionsData = {
-  sessions: SessionDetailsDto[];
-  sessionsLight: SessionLightDto[];
-};
 
 
 function isPersonInSession (person: RegistryPerson, session: RegistrySession): boolean {
@@ -16,14 +10,17 @@ function isPersonInSession (person: RegistryPerson, session: RegistrySession): b
   return (person.start === null || person.start <= sessionDate) && (person.end === null || person.end >= sessionDate);
 }
 
+
 function getPersonsOfSession(parliamentPeriod: Registry, session: RegistrySession): RegistryPerson[] {
   return parliamentPeriod.persons.filter(person => isPersonInSession(person, session))
 }
+
 
 function getPersonByName(parliamentPeriod: Registry, session: RegistrySession,
                          personName: string): RegistryPerson | null {
   return getPersonsOfSession(parliamentPeriod, session).find(person => person.name === personName) || null;
 }
+
 
 function getFactionOfPerson(parliamentPeriod: Registry, session: RegistrySession,
                             person: RegistryPerson): RegistryFaction | null {
@@ -37,7 +34,7 @@ export class SessionsDataGenerator {
 
 
   public generateSessionsData(sessionsData: SessionInput[], registry: Registry,
-                              scrapedSession: ScrapedSession): GeneratedSessionsData {
+                              scrapedSession: ScrapedSession): SessionDetailsDto[] {
 
     const scrapedStadtratMeetings = scrapedSession.meetings
       .filter(meeting => meeting.organization_name === 'Stadtrat')
@@ -64,7 +61,7 @@ export class SessionsDataGenerator {
 
     const sessionDataMap = new Map(sessionsData.map(sessionData => [sessionData.session.id, sessionData]));
 
-    const sessions = registry.sessions
+    return registry.sessions
       .filter(session => sessionDataMap.has(session.id))
       .map(session => {
         const scrapedStadtratMeeting = scrapedStadtratMeetings.find(
@@ -149,16 +146,6 @@ export class SessionsDataGenerator {
             })
         } satisfies SessionDetailsDto;
       });
-
-    const sessionsLight = sessions.map(session => ({
-      id: session.id,
-      date: session.date,
-      votingsCount: session.votings.length || 0,
-      speechesCount: session.speeches.length || 0,
-      totalSpeakingTime: session.speeches.reduce((total, speech) => total + speech.duration, 0) || 0
-    }));
-
-    return { sessions, sessionsLight };
 
   }
 
