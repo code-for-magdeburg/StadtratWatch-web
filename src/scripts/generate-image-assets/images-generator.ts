@@ -1,7 +1,5 @@
-import { SessionDetailsDto } from '../shared/model/session.ts';
 import { Canvas, CanvasRenderingContext2D, createCanvas } from '@gfx/canvas';
 import type { Voting } from './model.ts';
-import { getVotingForFactions } from './helpers.ts';
 
 
 const TOTAL_WIDTH = 1200;
@@ -36,24 +34,8 @@ export type GeneratedVotingImage = {
 export class ImagesGenerator {
 
 
-  public generateImages(factionNames: string[], sessions: SessionDetailsDto[]): GeneratedImages {
-
-    console.log('Generating images...');
-
-    const votings = sessions.flatMap(
-      session => session.votings.map<Voting>(sessionVoting => ({
-        sessionId: session.id,
-        votingId: sessionVoting.id,
-        date: session.date,
-        motionType: sessionVoting.votingSubject.type,
-        motionId: sessionVoting.votingSubject.motionId,
-        subjectTitle: sessionVoting.votingSubject.title,
-        votes: getVotingForFactions(sessionVoting, factionNames, session.persons)
-      }))
-    );
-
+  public generateImages(votings: Voting[]): GeneratedImages {
     return { votingImages: this.generateVotingImages(votings) };
-
   }
 
 
