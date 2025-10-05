@@ -37,17 +37,11 @@ export class ImagesGenerator {
 
 
   public generateImages(factionNames: string[], sessions: SessionDetailsDto[]): GeneratedImages {
+
     console.log('Generating images...');
-    const votingImages = sessions.flatMap(session => this.generateVotingImages(factionNames, session));
-    return { votingImages };
-  }
 
-
-  private generateVotingImages(factionNames: string[], session: SessionDetailsDto): GeneratedVotingImage[] {
-    console.log(`Generating voting images for session ${session.id}`);
-
-    return session.votings
-      .map<Voting>(sessionVoting => ({
+    const votings = sessions.flatMap(
+      session => session.votings.map<Voting>(sessionVoting => ({
         sessionId: session.id,
         votingId: sessionVoting.id,
         date: session.date,
@@ -56,7 +50,15 @@ export class ImagesGenerator {
         subjectTitle: sessionVoting.votingSubject.title,
         votes: getVotingForFactions(sessionVoting, factionNames, session.persons)
       }))
-      .map(voting => this.generateVotingImage(voting));
+    );
+
+    return { votingImages: this.generateVotingImages(votings) };
+
+  }
+
+
+  private generateVotingImages(votings: Voting[]): GeneratedVotingImage[] {
+    return votings.map(voting => this.generateVotingImage(voting));
   }
 
 
