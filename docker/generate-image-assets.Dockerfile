@@ -25,9 +25,8 @@ ENV DENO_SKIA_PATH=/libnative_canvas.so
 CMD ["run", \
       "-E=DENO_SKIA_LOCAL,DENO_SKIA_PATH,CANVAS_DISABLE_SYSTEM_FONTS", \
       "--allow-ffi", \
-      "-R=/app/input-dir,/app/output-dir,/app/Magdeburg.json", \
+      "-R=/app/input-dir,/app/output-dir", \
       "-W=/app/output-dir", \
       "src/scripts/generate-image-assets/index.ts", \
       "-i=./input-dir", \
-      "-o=./output-dir", \
-      "-s=./Magdeburg.json"]
+      "-o=./output-dir"]
