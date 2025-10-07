@@ -1,6 +1,6 @@
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { ImageAssetsWriter } from './image-assets-writer.ts';
-import { SessionsDataGenerator } from './sessions-data-generator.ts';
+import { VotingsImageDataGenerator } from './votings-image-data-generator.ts';
 import { ImagesGenerator } from './images-generator.ts';
 import { InputDataLoaders } from './input-data-loaders.ts';
 
@@ -18,8 +18,8 @@ checkArgs(args);
 const loader = new InputDataLoaders(args.inputDir);
 const { registry, sessionsInput } = loader.loadInputData();
 
-const sessionsDataGenerator = new SessionsDataGenerator();
-const votingsImageData = sessionsDataGenerator.generateVotingsImageData(registry, sessionsInput);
+const votingsImageDataGenerator = new VotingsImageDataGenerator();
+const votingsImageData = votingsImageDataGenerator.generateVotingsImageData(registry, sessionsInput);
 
 const imagesGenerator = new ImagesGenerator();
 const votingImages = imagesGenerator.generateVotingImages(votingsImageData);

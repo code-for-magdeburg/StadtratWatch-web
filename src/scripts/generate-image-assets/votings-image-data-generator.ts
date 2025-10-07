@@ -6,7 +6,7 @@ import { type Vote } from '../shared/model/session.ts';
 import { getPersonsOfSession } from './helpers.ts';
 
 
-export class SessionsDataGenerator {
+export class VotingsImageDataGenerator {
 
 
   public generateVotingsImageData(parliamentPeriod: Registry, sessionsInput: SessionInput[]): Voting[] {
