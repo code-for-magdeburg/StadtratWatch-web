@@ -9,25 +9,32 @@ import { getPersonsOfSession } from './helpers.ts';
 export class SessionsDataGenerator {
 
 
-  public generateVotingsImageData(registry: Registry, sessionsInput: SessionInput[]): Voting[] {
+  public generateVotingsImageData(parliamentPeriod: Registry, sessionsInput: SessionInput[]): Voting[] {
 
     return sessionsInput.flatMap(sessionInput => {
-      const persons = getPersonsOfSession(registry, sessionInput.session);
+
+      const sessionId = sessionInput.session.id;
+      const factions = parliamentPeriod.factions;
+      const date = sessionInput.session.date;
+      const persons = getPersonsOfSession(parliamentPeriod, date);
+
       return sessionInput.votings.map<Voting>(sessionVoting => {
         const allVotes = sessionVoting.votes.map<Vote>(vote => ({
-          personId: registry.persons.find(p => p.name === vote.name)?.id || '',
+          personId: persons.find(p => p.name === vote.name)?.id || '',
           vote: getVoteResult(vote.vote)
         }));
+        const votes = getVotingForFactions(allVotes, factions, persons);
         return {
-          sessionId: sessionInput.session.id,
+          sessionId,
           votingId: +sessionVoting.votingFilename.substring(11, 14),
-          date: sessionInput.session.date,
+          date,
           motionType: sessionVoting.votingSubject.type || 'Sonstige',
           motionId: sessionVoting.votingSubject.motionId,
           subjectTitle: sessionVoting.votingSubject.title,
-          votes: getVotingForFactions(allVotes, registry.factions, persons)
+          votes
         };
       });
+
     });
 
   }

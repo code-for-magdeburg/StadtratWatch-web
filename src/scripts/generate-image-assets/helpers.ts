@@ -1,17 +1,13 @@
 import { Vote, VoteResult } from '../shared/model/session.ts';
 import type { VotingPerFaction } from './model.ts';
-import type { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
+import type { Registry, RegistryFaction, RegistryPerson } from '@srw-astro/models/registry';
 
 
-export function getPersonsOfSession(parliamentPeriod: Registry, session: RegistrySession): RegistryPerson[] {
-
-  const isPersonInSession = (person: RegistryPerson, session: RegistrySession): boolean => {
-    const sessionDate = session.date;
-    return (person.start === null || person.start <= sessionDate) && (person.end === null || person.end >= sessionDate);
-  };
-
-  return parliamentPeriod.persons.filter(person => isPersonInSession(person, session))
-
+export function getPersonsOfSession(parliamentPeriod: Registry, sessionDate: string): RegistryPerson[] {
+  return parliamentPeriod.persons.filter(person =>
+    (person.start === null || person.start <= sessionDate)
+    && (person.end === null || person.end >= sessionDate)
+  );
 }
 
 
