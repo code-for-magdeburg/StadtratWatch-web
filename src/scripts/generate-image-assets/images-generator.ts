@@ -1,23 +1,5 @@
-import { Registry } from '@srw-astro/models/registry';
-import { SessionDetailsDto, SessionVotingDto, SessionPersonDto } from '@srw-astro/models/session';
 import { Canvas, CanvasRenderingContext2D, createCanvas } from '@gfx/canvas';
-
-
-type VotingPerFaction = {
-  faction: string;
-  votesFor: number;
-  votesAgainst: number;
-  abstentions: number;
-  notVoted: number;
-};
-
-type Voting = {
-  date: string;
-  motionType: string;
-  motionId: string;
-  subjectTitle: string;
-  votes: VotingPerFaction[]
-};
+import type { Voting } from './model.ts';
 
 
 const TOTAL_WIDTH = 1200;
@@ -38,10 +20,6 @@ const TEXT_COLOR = '#DDDDDD';
 const TEXT_COLOR_DARK = '#3C3C3C';
 
 
-export type GeneratedImages = {
-  votingImages: GeneratedVotingImage[];
-};
-
 export type GeneratedVotingImage = {
   sessionId: string;
   votingId: number;
@@ -52,38 +30,15 @@ export type GeneratedVotingImage = {
 export class ImagesGenerator {
 
 
-  public generateImages(registry: Registry, sessions: SessionDetailsDto[]): GeneratedImages {
-    console.log('Generating images...');
-    const votingImages = sessions.flatMap(session => this.generateVotingImages(registry, session));
-    return { votingImages };
+  public generateVotingImages(votings: Voting[]): GeneratedVotingImage[] {
+    return votings.map(voting => this.generateVotingImage(voting));
   }
 
 
-  private generateVotingImages(registry: Registry, session: SessionDetailsDto): GeneratedVotingImage[] {
-    console.log(`Generating voting images for session ${session.id}`);
-    return session.votings.map(voting => this.generateVotingImage(voting, registry, session));
-  }
-
-
-  private generateVotingImage(sessionVoting: SessionVotingDto, registry: Registry,
-                               session: SessionDetailsDto): GeneratedVotingImage {
+  private generateVotingImage(voting: Voting): GeneratedVotingImage {
 
     const canvas = createCanvas(TOTAL_WIDTH, TOTAL_HEIGHT);
     const context = canvas.getContext('2d');
-
-    const factionNames = [...registry.factions]
-      .sort((a, b) => b.seats - a.seats)
-      .map(faction => faction.name);
-
-    const votes = this.getVotingForFactions(sessionVoting, factionNames, session.persons);
-
-    const voting: Voting = {
-      date: session.date,
-      motionType: sessionVoting.votingSubject.type,
-      motionId: sessionVoting.votingSubject.motionId,
-      subjectTitle: sessionVoting.votingSubject.title,
-      votes
-    };
 
     this.fillCanvas(context);
 
@@ -93,7 +48,7 @@ export class ImagesGenerator {
     const votingDistributionCanvas = this.drawVotingDistributionCanvas(voting);
     context.drawImage(votingDistributionCanvas, PADDING_LEFT + summaryCanvas.width + GAP, PADDING_TOP);
 
-    return { sessionId: session.id, votingId: sessionVoting.id, canvas };
+    return { sessionId: voting.sessionId, votingId: voting.votingId, canvas };
 
   }
 
@@ -362,34 +317,6 @@ export class ImagesGenerator {
     lines.push(currentLine);
 
     return lines;
-
-  }
-
-
-  private getVotingForFactions(sessionVoting: SessionVotingDto, factionNames: string[],
-                                persons: SessionPersonDto[]): VotingPerFaction[] {
-    return factionNames.map(faction => this.getVotingForFaction(faction, sessionVoting, persons));
-  }
-
-
-  private getVotingForFaction(faction: string, sessionVoting: SessionVotingDto,
-                               persons: SessionPersonDto[]): VotingPerFaction {
-
-    const factionPersons = persons.filter(person => person.faction === faction);
-    const votesFor = sessionVoting.votes.filter(
-      vote => vote.vote === 'J' && factionPersons.some(person => person.id === vote.personId)
-    ).length;
-    const votesAgainst = sessionVoting.votes.filter(
-      vote => vote.vote === 'N' && factionPersons.some(person => person.id === vote.personId)
-    ).length;
-    const abstentions = sessionVoting.votes.filter(
-      vote => vote.vote === 'E' && factionPersons.some(person => person.id === vote.personId)
-    ).length;
-    const notVoted = sessionVoting.votes.filter(
-      vote => vote.vote === 'O' && factionPersons.some(person => person.id === vote.personId)
-    ).length;
-
-    return { faction, votesFor, votesAgainst, abstentions, notVoted };
 
   }
 

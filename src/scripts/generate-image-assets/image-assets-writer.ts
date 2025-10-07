@@ -1,7 +1,7 @@
 import * as fs from '@std/fs';
 import * as path from '@std/path';
 import { decodeBase64 } from '@std/encoding';
-import { GeneratedImages, GeneratedVotingImage } from './images-generator.ts';
+import { type GeneratedVotingImage } from './images-generator.ts';
 
 
 export class ImageAssetsWriter {
@@ -16,8 +16,8 @@ export class ImageAssetsWriter {
   }
 
 
-  public writeImageAssets(images: GeneratedImages) {
-    this.writeVotingImagesFiles(images.votingImages);
+  public writeImageAssets(votingImages: GeneratedVotingImage[]) {
+    this.writeVotingImagesFiles(votingImages);
   }
 
 
