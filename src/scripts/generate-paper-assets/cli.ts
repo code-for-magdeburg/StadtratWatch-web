@@ -4,7 +4,7 @@ import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
 export type GeneratePaperAssetsArgs = {
   help: boolean;
-  scrapedSessionFilename: string;
+  ratsinfoDir: string;
   papersDir: string;
   outputDir: string;
 };
@@ -13,10 +13,10 @@ export type GeneratePaperAssetsArgs = {
 export function parseArgs(args: string[]): GeneratePaperAssetsArgs {
   return stdCliParseArgs(args, {
     boolean: ['help'],
-    string: ['scraped-session-filename', 'papers-dir', 'output-dir'],
+    string: ['ratsinfoDir', 'papers-dir', 'output-dir'],
     alias: {
       help: 'h',
-      'scraped-session-filename': ['s', 'scrapedSessionFilename'],
+      'ratsinfo-dir': ['r', 'ratsinfoDir'],
       'papers-dir': ['p', 'papersDir'],
       'output-dir': ['o', 'outputDir']
     },
@@ -25,10 +25,10 @@ export function parseArgs(args: string[]): GeneratePaperAssetsArgs {
 
 
 export function checkArgs(args: GeneratePaperAssetsArgs) {
-  const { scrapedSessionFilename, papersDir, outputDir } = args;
+  const { ratsinfoDir, papersDir, outputDir } = args;
 
-  if (!scrapedSessionFilename) {
-    console.error('Missing scraped session file. See --help for usage.');
+  if (!ratsinfoDir) {
+    console.error('Missing ratsinfo directory. See --help for usage.');
     Deno.exit(1);
   }
 
@@ -41,19 +41,14 @@ export function checkArgs(args: GeneratePaperAssetsArgs) {
     console.error('Missing output directory. See --help for usage.');
     Deno.exit(1);
   }
-
-  if (!fs.existsSync(scrapedSessionFilename)) {
-    console.error(`Scraped session file "${scrapedSessionFilename}" does not exist.`);
-    Deno.exit(1);
-  }
 }
 
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts -s <scraped-session-file> -p <papers-dir> -o <output-dir>
+Usage: deno run index.ts -r <ratsinfo-dir> -p <papers-dir> -o <output-dir>
 -h, --help                  Show this help message and exit.
--s, --scraped-session-file  The scraped session file.
+-r, --ratsinfo-dir          The directory containing the OParl files (meetings.json, papers.json, files.json).
 -p, --papers-dir            The papers directory. It should contain directories with the paper files per year.
 -o, --output-dir            The output directory. Json files with the papers data will be written here.
   `);

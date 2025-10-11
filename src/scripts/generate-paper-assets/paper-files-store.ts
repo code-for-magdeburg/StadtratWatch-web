@@ -1,10 +1,9 @@
 import * as fs from '@std/fs';
 import * as path from '@std/path';
-import { ScrapedFile, ScrapedMeeting } from '@srw-astro/models/scraped-session';
 
 
 export interface IPaperFilesStore {
-  getFileSize(meeting: ScrapedMeeting, file: ScrapedFile): number | null;
+  getFileSize(year: string, fileId: number): number | null;
 }
 
 
@@ -14,10 +13,9 @@ export class PaperFilesStore implements IPaperFilesStore {
   constructor(private readonly papersDir: string) {}
 
 
-  getFileSize(meeting: ScrapedMeeting, file: ScrapedFile): number | null {
+  getFileSize(year: string, fileId: number): number | null {
 
-    const year = meeting.start.split('-')[0];
-    const paperFilename = path.join(this.papersDir, year, `${file.original_id}.pdf`);
+    const paperFilename = path.join(this.papersDir, `${year}`, `${fileId}.pdf`);
 
     return fs.existsSync(paperFilename) ? Deno.statSync(paperFilename).size : null;
 
