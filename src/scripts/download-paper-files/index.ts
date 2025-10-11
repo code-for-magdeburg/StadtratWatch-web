@@ -1,7 +1,7 @@
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { PaperFilesCollector } from './paper-files-collector.ts';
 import { PaperFilesDownloader } from './paper-files-downloader.ts';
-import { OparlObjectsFileStore } from './oparl-objects-store.ts';
+import { OparlObjectsFileStore } from '../shared/oparl/oparl-objects-store.ts';
 import { tryGetDownloadPaperFilesEnv } from './env.ts';
 
 
@@ -19,5 +19,5 @@ const env = tryGetDownloadPaperFilesEnv();
 const oparlObjectsStore = new OparlObjectsFileStore(env.councilOrganizationId, args.ratsinfoDir);
 const downloader = new PaperFilesDownloader(args.papersDir);
 const collector = new PaperFilesCollector(oparlObjectsStore, downloader);
-await collector.collectFiles(parseInt(args.year))
+await collector.collectFiles(args.year)
 console.log('Done.');

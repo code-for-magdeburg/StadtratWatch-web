@@ -1,9 +1,9 @@
 import * as path from '@std/path';
-import { PaperDto } from '@srw-astro/models/paper';
+import { PaperAssetDto } from './model.ts';
 
 
 export interface IPaperAssetsStore {
-  writePaperAssets(papers: PaperDto[]): unknown;
+  writePaperAssets(papers: PaperAssetDto[]): unknown;
 }
 
 
@@ -14,7 +14,7 @@ export class PaperAssetsStore implements IPaperAssetsStore {
   }
 
 
-  writePaperAssets(papers: PaperDto[]): void {
+  writePaperAssets(papers: PaperAssetDto[]): void {
 
     // Group papers in batches of 1000.
     const grouped = papers
@@ -26,7 +26,7 @@ export class PaperAssetsStore implements IPaperAssetsStore {
         }
         acc[batchNo].push(paper);
         return acc;
-      }, {} as { [batchNo: string]: PaperDto[] });
+      }, {} as { [batchNo: string]: PaperAssetDto[] });
 
     for (const batchNo in grouped) {
       const filename = path.join(this.paperAssetsDir, `papers-${batchNo}.json`);

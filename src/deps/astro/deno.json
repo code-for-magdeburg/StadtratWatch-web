@@ -2,7 +2,6 @@
   "name": "@srw-astro/models",
   "version": "0.1.0",
   "exports": {
-    "./paper": "./paper.ts",
     "./registry": "./registry.ts",
     "./scraped-session": "./scraped-session.ts",
     "./session-input": "./session-input.ts",

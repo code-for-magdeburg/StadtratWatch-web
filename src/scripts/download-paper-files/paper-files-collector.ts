@@ -1,5 +1,5 @@
 import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
-import type { IOparlObjectsStore } from './oparl-objects-store.ts';
+import type { IOparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
 import type { OparlMeeting } from '../shared/model/oparl.ts';
 
 
@@ -11,8 +11,10 @@ export class PaperFilesCollector {
   }
 
 
-  public async collectFiles(year: number): Promise<void> {
-    const meetings = this.oparlObjectsStore.getStadtratMeetings(year);
+  public async collectFiles(year: string): Promise<void> {
+    const meetings = this.oparlObjectsStore
+      .getMeetings()
+      .filter(meeting => meeting.start && meeting.start.startsWith(year));
     for (const meeting of meetings) {
       await this.processMeeting(meeting);
     }

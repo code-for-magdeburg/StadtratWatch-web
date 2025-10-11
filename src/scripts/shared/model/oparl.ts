@@ -1,5 +1,7 @@
 export type OparlObject = {
   id: string;
+  type: string;
+  name: string;
 };
 
 
@@ -17,30 +19,36 @@ export type OparlBody = OparlObject & {
 
 
 export type OparlMeeting = OparlObject & {
-  name: string;
-  cancelled: boolean;
-  start: string;
-  end: string;
-  organization: string;
+  cancelled?: boolean;
+  start?: string;
+  end?: string;
+  organization?: string[];
 };
 
 
 export type OparlAgendaItem = OparlObject & {
-  consultation: string;
+  order: number;
+  meeting?: string;
+  consultation?: string;
 };
 
 
 export type OparlConsultation = OparlObject & {
-  meeting: string;
-  paper: string;
+  meeting?: string;
+  paper?: string;
+  organization?: string[];
+  agendaItem?: string;
 };
 
 
 export type OparlPaper = OparlObject & {
-
+  consultation?: OparlConsultation[];
+  reference?: string;
+  paperType?: string;
 };
 
 
 export type OparlFile = OparlObject & {
-  paper: string[];
+  paper?: string[];
+  accessUrl: string;
 };
