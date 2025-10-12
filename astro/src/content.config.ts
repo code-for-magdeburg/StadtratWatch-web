@@ -11,6 +11,11 @@ import type {
   ScrapedSession,
 } from '@models/scraped-session.ts';
 import * as fs from 'fs';
+import type {
+  OparlAgendaItem,
+  OparlConsultation,
+  OparlMeeting,
+} from '@models/oparl.ts';
 
 const parliamentPeriods = defineCollection({
   loader: glob({
@@ -92,6 +97,39 @@ const scrapedFiles = defineCollection({
   schema: z.custom<ScrapedFile>(),
 });
 
+const oparlMeetings = defineCollection({
+  loader: () =>
+    JSON.parse(
+      fs.readFileSync(
+        '../data/oparl-magdeburg/meetings.json',
+        'utf8'
+      ),
+    ) as OparlMeeting[],
+  schema: z.custom<OparlMeeting>(),
+});
+
+const oparlAgendaItems = defineCollection({
+  loader: () =>
+    JSON.parse(
+      fs.readFileSync(
+        '../data/oparl-magdeburg/agenda-items.json',
+        'utf8'
+      ),
+    ) as OparlAgendaItem[],
+  schema: z.custom<OparlAgendaItem>(),
+});
+
+const oparlConsultations = defineCollection({
+  loader: () =>
+    JSON.parse(
+      fs.readFileSync(
+        '../data/oparl-magdeburg/consultations.json',
+        'utf8'
+      ),
+    ) as OparlConsultation[],
+  schema: z.custom<OparlConsultation>(),
+});
+
 export const collections = {
   parliamentPeriods,
   sessionScans,
@@ -100,4 +138,7 @@ export const collections = {
   scrapedAgendaItems,
   scrapedPapers,
   scrapedFiles,
+  oparlMeetings,
+  oparlAgendaItems,
+  oparlConsultations,
 };

@@ -2,12 +2,25 @@ import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
 import type { SessionInput } from '@models/SessionInput.ts';
 
-export const getParliamentPeriodStaticPaths = (async () => {
+const getParliamentPeriodStaticPaths = (async () => {
   const parliamentPeriods = await getCollection('parliamentPeriods');
   const scrapedMeetings = await getCollection('scrapedMeetings');
   const scrapedAgendaItems = await getCollection('scrapedAgendaItems');
   const scrapedPapers = await getCollection('scrapedPapers');
   const scrapedFiles = await getCollection('scrapedFiles');
+  const oparlMeetings = (await getCollection('oparlMeetings'))
+    .filter(meeting => meeting.data.organization && meeting.data.organization.includes('https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1'));
+  const oparlAgendaItems = (await getCollection('oparlAgendaItems'))
+    .filter(agendaItem =>
+      agendaItem.data.meeting &&
+      oparlMeetings.some(meeting => meeting.id === agendaItem.data.meeting)
+    );
+  const oparlConsultations = (await getCollection('oparlConsultations'))
+    .filter(consultation =>
+      consultation.data.meeting &&
+      oparlMeetings.some(meeting => meeting.id === consultation.data.meeting)
+    );
+
   return parliamentPeriods.map((parliamentPeriod) => {
     return {
       params: { parliamentPeriodId: parliamentPeriod.id },
@@ -19,6 +32,9 @@ export const getParliamentPeriodStaticPaths = (async () => {
         ),
         scrapedPapers: scrapedPapers.map((paper) => paper.data),
         scrapedFiles: scrapedFiles.map((file) => file.data),
+        oparlMeetings: oparlMeetings.map(meeting => meeting.data),
+        oparlAgendaItems: oparlAgendaItems.map(agendaItem => agendaItem.data),
+        oparlConsultations: oparlConsultations.map(consultation => consultation.data),
       },
     };
   });
@@ -70,7 +86,15 @@ export const getParliamentPeriodWithSessionsPaths = (async () => {
         speeches,
       } as SessionInput;
     });
-    const { scrapedMeetings, scrapedAgendaItems, scrapedPapers, scrapedFiles } = path.props;
+    const {
+      scrapedMeetings,
+      scrapedAgendaItems,
+      scrapedPapers,
+      scrapedFiles,
+      oparlMeetings,
+      oparlAgendaItems,
+      oparlConsultations,
+    } = path.props;
     return {
       params: { parliamentPeriodId: parliamentPeriod.id },
       props: {
@@ -80,6 +104,9 @@ export const getParliamentPeriodWithSessionsPaths = (async () => {
         scrapedAgendaItems,
         scrapedPapers,
         scrapedFiles,
+        oparlMeetings,
+        oparlAgendaItems,
+        oparlConsultations,
       },
     };
   });
@@ -100,6 +127,7 @@ export const getParliamentPeriodWithSessionPaths = async () => {
       scrapedAgendaItems,
       scrapedPapers,
       scrapedFiles,
+      oparlMeetings,
     } = path.props;
     return sessionInputs.map((sessionInput) => ({
       params: {
@@ -113,6 +141,7 @@ export const getParliamentPeriodWithSessionPaths = async () => {
         scrapedAgendaItems,
         scrapedPapers,
         scrapedFiles,
+        oparlMeetings,
       },
     }));
   });
@@ -129,11 +158,10 @@ export const getParliamentPeriodWithFactionPaths = async () => {
     const {
       parliamentPeriod,
       sessionInputs,
-      scrapedMeetings,
-      scrapedAgendaItems,
-      scrapedPapers,
-      scrapedFiles,
-    } = path.props;
+      oparlMeetings,
+      oparlAgendaItems,
+      oparlConsultations,
+    } = path.props as ParliamentPeriodWithSessionsProps;
     return parliamentPeriod.factions.map((faction) => ({
       params: {
         parliamentPeriodId: parliamentPeriod.id,
@@ -143,10 +171,9 @@ export const getParliamentPeriodWithFactionPaths = async () => {
         parliamentPeriod,
         faction,
         sessionInputs,
-        scrapedMeetings,
-        scrapedAgendaItems,
-        scrapedPapers,
-        scrapedFiles,
+        oparlMeetings,
+        oparlAgendaItems,
+        oparlConsultations,
       },
     }));
   });
@@ -200,6 +227,7 @@ export const getParliamentPeriodWithSessionAndVotingPaths = async () => {
       scrapedMeetings,
       scrapedAgendaItems,
       scrapedPapers,
+      oparlMeetings,
     } = path.props;
 
     return sessionInput.votings.map((voting) => {
@@ -215,6 +243,7 @@ export const getParliamentPeriodWithSessionAndVotingPaths = async () => {
           scrapedMeetings,
           scrapedAgendaItems,
           scrapedPapers,
+          oparlMeetings,
           voting,
         },
       };
