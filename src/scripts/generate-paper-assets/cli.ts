@@ -1,4 +1,3 @@
-import * as fs from '@std/fs';
 import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
 

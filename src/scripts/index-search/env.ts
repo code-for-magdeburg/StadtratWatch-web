@@ -3,6 +3,7 @@ export type IndexSearchEnv = {
   typesenseServerUrl: string;
   typesenseCollectionName: string;
   typesenseApiKey: string;
+  councilOrganizationId: string;
 };
 
 
@@ -26,6 +27,12 @@ export function tryGetIndexSearchEnv(): IndexSearchEnv {
     Deno.exit(1);
   }
 
-  return { typesenseServerUrl, typesenseCollectionName, typesenseApiKey };
+  const councilOrganizationId = Deno.env.get('OPARL_COUNCIL_ORGANIZATION_ID');
+  if (!councilOrganizationId) {
+    console.error('Environment variable OPARL_COUNCIL_ORGANIZATION_ID must be set.');
+    Deno.exit(1);
+  }
+
+  return { typesenseServerUrl, typesenseCollectionName, typesenseApiKey, councilOrganizationId };
 
 }

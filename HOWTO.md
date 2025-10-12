@@ -158,7 +158,7 @@ docker run \
 	-e TYPESENSE_SERVER_URL=http://host.docker.internal:8108 \
 	-e TYPESENSE_COLLECTION_NAME=papers-and-speeches-0001 \
 	-e TYPESENSE_API_KEY=abc123 \
-	-v $(pwd)/data/Magdeburg.json:/app/Magdeburg.json:ro \
+  -e OPARL_COUNCIL_ORGANIZATION_ID=https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1 \
 	-v $(pwd)/output/papers/all-extracted:/app/papers-content:ro \
 	-v $(pwd)/data:/app/parliament-periods:ro \
 	srw-index-search

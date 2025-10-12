@@ -1,4 +1,3 @@
-import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { IndexSearchEnv, tryGetIndexSearchEnv } from './env.ts';
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { SearchIndexer } from './search-indexer.ts';
@@ -6,6 +5,7 @@ import { IDocumentsImporter, TypesenseImporter } from './typesense-importer.ts';
 import { BatchedDocumentsImporter } from './batched-documents-importer.ts';
 import { PapersContentSource } from './papers-content-source.ts';
 import { SpeechesSource } from './speeches-source.ts';
+import { OparlObjectsFileStore } from '../shared/oparl/oparl-objects-store.ts';
 
 
 const args = parseArgs(Deno.args);
@@ -20,11 +20,11 @@ checkArgs(args);
 
 const env = tryGetIndexSearchEnv();
 const importer = createImporter(env);
-const indexer = new SearchIndexer(importer);
+const oparlObjectsStore = new OparlObjectsFileStore(env.councilOrganizationId, args.ratsinfoDir);
+const indexer = new SearchIndexer(importer, oparlObjectsStore);
 
 const papersContentSource = new PapersContentSource(args.papersContentDir);
-const scrapedSession = JSON.parse(Deno.readTextFileSync(args.scrapedSessionFilename)) as ScrapedSession;
-await indexer.indexPapers(papersContentSource, scrapedSession);
+await indexer.indexPapers(papersContentSource);
 
 const speechesSource = new SpeechesSource(args.parliamentPeriodsBaseDir);
 await indexer.indexSpeeches(speechesSource);
