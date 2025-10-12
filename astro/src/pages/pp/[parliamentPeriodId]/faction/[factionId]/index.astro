@@ -16,10 +16,9 @@ const {
   parliamentPeriod,
   faction,
   sessionInputs,
-  scrapedMeetings,
-  scrapedAgendaItems,
-  scrapedPapers,
-  scrapedFiles
+  oparlMeetings,
+  oparlAgendaItems,
+  oparlConsultations,
 } = Astro.props as ParliamentPeriodWithFactionProps;
 
 const breadcrumbItems = [
@@ -80,10 +79,9 @@ const breadcrumbItems = [
         parliamentPeriodId={parliamentPeriodId}
         faction={faction}
         sessionInputs={sessionInputs}
-        scrapedMeetings={scrapedMeetings}
-        scrapedAgendaItems={scrapedAgendaItems}
-        scrapedPapers={scrapedPapers}
-        scrapedFiles={scrapedFiles}
+        oparlMeetings={oparlMeetings}
+        oparlAgendaItems={oparlAgendaItems}
+        oparlConsultations={oparlConsultations}
       />
     </div>
 

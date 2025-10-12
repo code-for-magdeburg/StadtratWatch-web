@@ -1,19 +1,18 @@
 ---
 import { type SessionInput } from '@models/SessionInput';
 import { type RegistryFaction } from '@models/registry';
-import { type SessionScanItem } from '@models/session-scan';
-import {
-  type ScrapedAgendaItem,
-  type ScrapedFile,
-  type ScrapedMeeting,
-  type ScrapedPaper
-} from '@models/scraped-session';
 import {
   getMotionResult,
   getVotingId,
   getVotingResult
 } from './_helpers';
 import { formatDate } from '@utils/format-date';
+import type {
+  OparlAgendaItem,
+  OparlMeeting,
+  OparlConsultation
+} from '@models/oparl.ts';
+import { getPaperId } from '../../_helpers2';
 
 export type MotionListItem = {
   sessionId: string;
@@ -31,20 +30,18 @@ type Props = {
   parliamentPeriodId: string;
   faction: RegistryFaction;
   sessionInputs: SessionInput[];
-  scrapedMeetings: ScrapedMeeting[];
-  scrapedAgendaItems: ScrapedAgendaItem[];
-  scrapedPapers: ScrapedPaper[];
-  scrapedFiles: ScrapedFile[];
+  oparlMeetings: OparlMeeting[];
+  oparlAgendaItems: OparlAgendaItem[];
+  oparlConsultations: OparlConsultation[];
 };
 
 const {
   parliamentPeriodId,
   faction,
   sessionInputs,
-  scrapedMeetings,
-  scrapedAgendaItems,
-  scrapedPapers,
-  scrapedFiles
+  oparlMeetings,
+  oparlAgendaItems,
+  oparlConsultations,
 } = Astro.props as Props;
 
 const factionMotionVotings = sessionInputs
@@ -74,7 +71,10 @@ const motions = Array.from(motionsMap)
     const sessionDate = motionVoting.sessionDate;
     const paperId = getPaperId(
       motionVoting.sessionDate,
-      motionVoting.voting
+      motionVoting.voting,
+      oparlMeetings,
+      oparlAgendaItems,
+      oparlConsultations
     );
     const votings = motionVotings.map((motionVoting) => ({
       votingId: +motionVoting.voting.votingFilename.substring(11, 14),
@@ -102,62 +102,6 @@ const motions = Array.from(motionsMap)
     title: motion.title,
     result: getMotionResult(motion.votings)
   } satisfies MotionListItem));
-
-function getPaperId(
-  sessionDate: string,
-  voting: SessionScanItem
-): number | null {
-  const scrapedMeeting = scrapedMeetings.find(
-    (meeting) => meeting.start && meeting.start.slice(0, 10) === sessionDate
-  );
-  if (!scrapedMeeting) {
-    console.warn('No scraped meeting found for session', sessionDate);
-  }
-
-  const agendaItem = scrapedAgendaItems.find(
-    (agendaItem) =>
-      scrapedMeeting?.original_id &&
-      agendaItem.key === `Ö ${voting.votingSubject.agendaItem}` &&
-      agendaItem.meeting_id === scrapedMeeting.original_id
-  );
-  if (!agendaItem) {
-    console.warn(
-      'No scraped agenda item found for voting',
-      sessionDate,
-      voting.votingSubject.agendaItem
-    );
-  }
-
-  const scrapedPaperOriginalId = agendaItem?.paper_original_id;
-  if (!scrapedPaperOriginalId) {
-    console.warn(
-      'No scraped paper original id found for voting',
-      sessionDate,
-      voting.votingSubject.agendaItem
-    );
-  }
-
-  const paper = scrapedPaperOriginalId
-    ? scrapedPapers.find(
-    (paper) => paper.original_id === scrapedPaperOriginalId
-  ) || null
-    : null;
-
-  const files = scrapedPaperOriginalId
-    ? scrapedFiles.filter(
-      (file) => file.paper_original_id === scrapedPaperOriginalId
-    )
-    : [];
-  if (files.length === 0) {
-    console.warn(
-      'No scraped file found for voting',
-      sessionDate,
-      voting.votingSubject.agendaItem
-    );
-  }
-
-  return paper?.original_id || null;
-}
 ---
 
 <div
