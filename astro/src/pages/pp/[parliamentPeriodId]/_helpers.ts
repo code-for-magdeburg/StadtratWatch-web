@@ -123,10 +123,6 @@ export const getParliamentPeriodWithSessionPaths = async () => {
     const {
       parliamentPeriod,
       sessionInputs,
-      scrapedMeetings,
-      scrapedAgendaItems,
-      scrapedPapers,
-      scrapedFiles,
       oparlMeetings,
       oparlAgendaItems,
       oparlConsultations,
@@ -139,10 +135,6 @@ export const getParliamentPeriodWithSessionPaths = async () => {
       props: {
         parliamentPeriod,
         sessionInput,
-        scrapedMeetings,
-        scrapedAgendaItems,
-        scrapedPapers,
-        scrapedFiles,
         oparlMeetings,
         oparlAgendaItems,
         oparlConsultations,
