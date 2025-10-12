@@ -1,6 +1,6 @@
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
-import type { SessionInput } from '@models/SessionInput.ts';
+import type { SessionInput } from '@models/SessionInput';
 
 const getParliamentPeriodStaticPaths = (async () => {
   const parliamentPeriods = await getCollection('parliamentPeriods');
@@ -128,6 +128,8 @@ export const getParliamentPeriodWithSessionPaths = async () => {
       scrapedPapers,
       scrapedFiles,
       oparlMeetings,
+      oparlAgendaItems,
+      oparlConsultations,
     } = path.props;
     return sessionInputs.map((sessionInput) => ({
       params: {
@@ -142,6 +144,8 @@ export const getParliamentPeriodWithSessionPaths = async () => {
         scrapedPapers,
         scrapedFiles,
         oparlMeetings,
+        oparlAgendaItems,
+        oparlConsultations,
       },
     }));
   });
@@ -212,10 +216,9 @@ export const getParliamentPeriodWithSessionAndVotingPaths = async () => {
     const {
       parliamentPeriod,
       sessionInput,
-      scrapedMeetings,
-      scrapedAgendaItems,
-      scrapedPapers,
       oparlMeetings,
+      oparlAgendaItems,
+      oparlConsultations,
     } = path.props;
 
     return sessionInput.votings.map((voting) => {
@@ -228,10 +231,9 @@ export const getParliamentPeriodWithSessionAndVotingPaths = async () => {
         props: {
           parliamentPeriod,
           sessionInput,
-          scrapedMeetings,
-          scrapedAgendaItems,
-          scrapedPapers,
           oparlMeetings,
+          oparlAgendaItems,
+          oparlConsultations,
           voting,
         },
       };
