@@ -253,11 +253,7 @@ export const getParliamentPeriodWithPersonPaths = async () => {
         parliamentPeriodId: parliamentPeriod.id,
         personId: person.id,
       },
-      props: {
-        parliamentPeriod,
-        sessionInputs,
-        person,
-      },
+      props: { parliamentPeriod, sessionInputs, person },
     }));
   });
 };
