@@ -189,26 +189,14 @@ export const getParliamentPeriodWithPartyPaths = async () => {
   return parliamentPeriodWithSessionsStaticPaths.flatMap((path) => {
     const {
       parliamentPeriod,
-      sessionInputs,
-      scrapedMeetings,
-      scrapedAgendaItems,
-      scrapedPapers,
-      scrapedFiles,
+      sessionInputs
     } = path.props;
     return parliamentPeriod.parties.map((party) => ({
       params: {
         parliamentPeriodId: parliamentPeriod.id,
         partyId: party.id,
       },
-      props: {
-        parliamentPeriod,
-        party,
-        sessionInputs,
-        scrapedMeetings,
-        scrapedAgendaItems,
-        scrapedPapers,
-        scrapedFiles,
-      },
+      props: { parliamentPeriod, party, sessionInputs },
     }));
   });
 };
