@@ -161,6 +161,7 @@ docker run \
   -e OPARL_COUNCIL_ORGANIZATION_ID=https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1 \
 	-v $(pwd)/output/papers/all-extracted:/app/papers-content:ro \
 	-v $(pwd)/data:/app/parliament-periods:ro \
+	-v $(pwd)/output/ratsinfosystem:/app/oparl:ro \
 	srw-index-search
 ```
 
