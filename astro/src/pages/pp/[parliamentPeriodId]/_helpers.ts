@@ -4,10 +4,6 @@ import type { SessionInput } from '@models/SessionInput';
 
 const getParliamentPeriodStaticPaths = (async () => {
   const parliamentPeriods = await getCollection('parliamentPeriods');
-  const scrapedMeetings = await getCollection('scrapedMeetings');
-  const scrapedAgendaItems = await getCollection('scrapedAgendaItems');
-  const scrapedPapers = await getCollection('scrapedPapers');
-  const scrapedFiles = await getCollection('scrapedFiles');
   const oparlMeetings = (await getCollection('oparlMeetings'))
     .filter(meeting => meeting.data.organization && meeting.data.organization.includes('https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1'));
   const oparlAgendaItems = (await getCollection('oparlAgendaItems'))
@@ -26,12 +22,6 @@ const getParliamentPeriodStaticPaths = (async () => {
       params: { parliamentPeriodId: parliamentPeriod.id },
       props: {
         parliamentPeriod: parliamentPeriod.data,
-        scrapedMeetings: scrapedMeetings.map(meeting => meeting.data),
-        scrapedAgendaItems: scrapedAgendaItems.map(
-          (agendaItem) => agendaItem.data,
-        ),
-        scrapedPapers: scrapedPapers.map((paper) => paper.data),
-        scrapedFiles: scrapedFiles.map((file) => file.data),
         oparlMeetings: oparlMeetings.map(meeting => meeting.data),
         oparlAgendaItems: oparlAgendaItems.map(agendaItem => agendaItem.data),
         oparlConsultations: oparlConsultations.map(consultation => consultation.data),
@@ -87,10 +77,6 @@ export const getParliamentPeriodWithSessionsPaths = (async () => {
       } as SessionInput;
     });
     const {
-      scrapedMeetings,
-      scrapedAgendaItems,
-      scrapedPapers,
-      scrapedFiles,
       oparlMeetings,
       oparlAgendaItems,
       oparlConsultations,
@@ -100,10 +86,6 @@ export const getParliamentPeriodWithSessionsPaths = (async () => {
       props: {
         parliamentPeriod,
         sessionInputs,
-        scrapedMeetings,
-        scrapedAgendaItems,
-        scrapedPapers,
-        scrapedFiles,
         oparlMeetings,
         oparlAgendaItems,
         oparlConsultations,
