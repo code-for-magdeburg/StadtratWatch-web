@@ -1,4 +1,3 @@
-import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-importer.ts';
 import { IPapersContentSource } from './papers-content-source.ts';
 import { ISpeechesSource } from './speeches-source.ts';
@@ -42,7 +41,7 @@ export class SearchIndexer {
   }
 
 
-  public async indexPapers(contentSource: IPapersContentSource, scrapedSession: ScrapedSession) {
+  public async indexPapers(contentSource: IPapersContentSource) {
 
     console.log('Importing papers...');
 

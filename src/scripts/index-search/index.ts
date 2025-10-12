@@ -1,4 +1,3 @@
-import { ScrapedSession } from '@srw-astro/models/scraped-session';
 import { IndexSearchEnv, tryGetIndexSearchEnv } from './env.ts';
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { SearchIndexer } from './search-indexer.ts';
@@ -28,11 +27,10 @@ const oparlObjectsStore = new OparlObjectsFileStore(
 const indexer = new SearchIndexer(importer, oparlObjectsStore);
 
 const papersContentSource = new PapersContentSource(args.papersContentDir);
-const scrapedSession = JSON.parse(Deno.readTextFileSync(args.scrapedSessionFilename)) as ScrapedSession;
-await indexer.indexPapers(papersContentSource, scrapedSession);
+await indexer.indexPapers(papersContentSource);
 
 const speechesSource = new SpeechesSource(args.parliamentPeriodsBaseDir);
-// await indexer.indexSpeeches(speechesSource);
+await indexer.indexSpeeches(speechesSource);
 
 console.log('Done.');
 
