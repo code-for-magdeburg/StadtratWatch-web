@@ -5,7 +5,7 @@ allowed-tools:
     "Bash(git status:*)",
     "Bash(git commit:*)",
     "Bash(git diff:*)",
-    "Bash(git log:*)",
+    "Bash(git log:*)"
   ]
 ---
 
