@@ -2,12 +2,25 @@
 ### Parse Speakers
 This tool parses multiple rttm files (from one session) and generates a single json file containing all speakers data.
 
-#### Build the docker image
+#### Using the deno script
+```bash
+DATE=2025-09-25
+deno run \
+  -A \
+  src/scripts/parse-speakers/index.ts \
+  -i sessions-media-files/$DATE \
+  -o output/sessions-scan-results/$DATE \
+  -s $DATE
+```
+
+#### Using a docker container
+
+Build the docker image:
 ```bash
 docker build -t srw-parse-speakers -f docker/parse-speakers.Dockerfile .
 ```
 
-#### Run the docker container
+Run the docker container:
 ```bash
 docker run \
   --rm \
@@ -21,12 +34,28 @@ docker run \
 ### Scan voting images
 This tool scans the voting images and generates a json file containing the voting data.
 
-#### Build the docker image
+#### Using the deno script
+```bash
+PARLIAMENT_PERIOD=magdeburg-8
+DATE=2025-09-25
+deno run \
+  -A \
+  src/scripts/scan-voting-images/index.ts \
+  -c data/$PARLIAMENT_PERIOD/$DATE/config-$DATE.json \
+  -i sessions-media-files/$DATE \
+  -o output/sessions-scan-results/$DATE \
+  -s $DATE
+```
+
+#### Using a docker container
+
+Build the docker image:
+
 ```bash
 docker build -t srw-scan-voting-images -f docker/scan-voting-images.Dockerfile .
 ```
 
-#### Run the docker container
+Run the docker container:
 ```bash
 docker run \
 	--rm \
