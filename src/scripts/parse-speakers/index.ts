@@ -3,7 +3,6 @@ import { ParsedFilesStore } from './parsed-files-store.ts';
 import { RttmFilesStore } from './rttm-files-store.ts';
 import { RttmFilesParser } from './rttm-files-parser.ts';
 
-
 const args = parseArgs(Deno.args);
 
 if (args.help) {
@@ -12,7 +11,6 @@ if (args.help) {
 }
 
 checkArgs(args);
-
 
 const rttmFilesStore = new RttmFilesStore(args.inputDir);
 const parsedFileStore = new ParsedFilesStore(args.outputDir);

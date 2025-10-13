@@ -5,7 +5,6 @@ export type PaperAssetFileDto = {
   size: number | null;
 };
 
-
 export type PaperAssetDto = {
   id: number;
   reference: string | null;

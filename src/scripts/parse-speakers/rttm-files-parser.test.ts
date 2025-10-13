@@ -4,9 +4,7 @@ import { IParsedFilesStore } from './parsed-files-store.ts';
 import { SpeakerWithSegments } from './types.ts';
 import { assertSpyCall, assertSpyCalls, spy } from '@std/testing/mock';
 
-
 const mockRttmFilesStore: IRttmFilesStore = {
-
   getRttmFiles(): string[] {
     return ['file-00.rttm', 'file-01.rttm', 'file-02.rttm'];
   },
@@ -23,19 +21,15 @@ SPEAKER 2024-01-01-audio-02 1 468.345 3.917 <NA> <NA> SPEAKER_02 <NA> <NA>`;
 SPEAKER 2024-01-01-audio-03 1 481.345 0.345 <NA> <NA> SPEAKER_03 <NA> <NA>`;
     }
     return '';
-  }
-
+  },
 };
-
 
 const mockParsedFilesStore: IParsedFilesStore = {
   writeSpeakerFile(_session: string, _speakers: SpeakerWithSegments[]) {
-  }
+  },
 };
 
-
 Deno.test('Parser filters and aggregates rttm files and writes to json file', () => {
-
   using writeSpeakerFileSpy = spy(mockParsedFilesStore, 'writeSpeakerFile');
 
   const parser = new RttmFilesParser(mockRttmFilesStore, mockParsedFilesStore);
@@ -50,39 +44,38 @@ Deno.test('Parser filters and aggregates rttm files and writes to json file', ()
         '2024-01-01',
         [
           {
-            "speaker": "00_SPEAKER_01",
-            "segments": [
+            'speaker': '00_SPEAKER_01',
+            'segments': [
               {
-                "start": 456.528,
-                "duration": 10.119
-              }
-            ]
+                'start': 456.528,
+                'duration': 10.119,
+              },
+            ],
           },
           {
-            "speaker": "01_SPEAKER_02",
-            "segments": [
+            'speaker': '01_SPEAKER_02',
+            'segments': [
               {
-                "start": 14867.462,
-                "duration": 2.424
+                'start': 14867.462,
+                'duration': 2.424,
               },
               {
-                "start": 14868.345,
-                "duration": 3.917
-              }
-            ]
+                'start': 14868.345,
+                'duration': 3.917,
+              },
+            ],
           },
           {
-            "speaker": "02_SPEAKER_01",
-            "segments": [
+            'speaker': '02_SPEAKER_01',
+            'segments': [
               {
-                "start": 29280.462,
-                "duration": 1.234
-              }
-            ]
-          }
-        ]
-      ]
-    }
+                'start': 29280.462,
+                'duration': 1.234,
+              },
+            ],
+          },
+        ],
+      ],
+    },
   );
-
 });

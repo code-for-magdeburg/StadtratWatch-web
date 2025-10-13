@@ -1,7 +1,6 @@
 import * as fs from '@std/fs';
 import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
-
 export type ScanVotingImagesArgs = {
   help: boolean;
   scanConfigFile: string;
@@ -9,7 +8,6 @@ export type ScanVotingImagesArgs = {
   outputDir: string;
   session: string;
 };
-
 
 export function parseArgs(args: string[]): ScanVotingImagesArgs {
   return stdCliParseArgs(args, {
@@ -24,7 +22,6 @@ export function parseArgs(args: string[]): ScanVotingImagesArgs {
     },
   }) as ScanVotingImagesArgs;
 }
-
 
 export function checkArgs(args: ScanVotingImagesArgs) {
   const { scanConfigFile, votingImagesDir, outputDir, session } = args;
@@ -59,7 +56,6 @@ export function checkArgs(args: ScanVotingImagesArgs) {
     Deno.exit(1);
   }
 }
-
 
 export function printHelpText() {
   console.log(`

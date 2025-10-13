@@ -1,21 +1,15 @@
 import * as path from '@std/path';
 import { PaperAssetDto } from './model.ts';
 
-
 export interface IPaperAssetsStore {
   writePaperAssets(papers: PaperAssetDto[]): unknown;
 }
 
-
 export class PaperAssetsStore implements IPaperAssetsStore {
-
-
   constructor(private readonly paperAssetsDir: string) {
   }
 
-
   writePaperAssets(papers: PaperAssetDto[]): void {
-
     // Group papers in batches of 1000.
     const grouped = papers
       .sort((a, b) => a.id - b.id)
@@ -32,8 +26,5 @@ export class PaperAssetsStore implements IPaperAssetsStore {
       const filename = path.join(this.paperAssetsDir, `papers-${batchNo}.json`);
       Deno.writeTextFileSync(filename, JSON.stringify(grouped[batchNo], null, 2));
     }
-
   }
-
-
 }

@@ -1,10 +1,9 @@
 import { PaperFilesCollector } from './paper-files-collector.ts';
 import type { IOparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
 import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
-import type { OparlMeeting, OparlFile } from '../shared/model/oparl.ts';
+import type { OparlFile, OparlMeeting } from '../shared/model/oparl.ts';
 import { assertSpyCall, assertSpyCalls, spy } from '@std/testing/mock';
 import { describe, it } from '@std/testing/bdd';
-
 
 const mockMeetings: OparlMeeting[] = [
   {
@@ -13,7 +12,7 @@ const mockMeetings: OparlMeeting[] = [
     start: '2024-01-15T10:00:00',
     name: 'Meeting 2024-01',
     organization: ['org-1'],
-    cancelled: false
+    cancelled: false,
   },
   {
     id: 'https://example.com/meeting/2',
@@ -21,7 +20,7 @@ const mockMeetings: OparlMeeting[] = [
     start: '2024-03-20T14:00:00',
     name: 'Meeting 2024-03',
     organization: ['org-1'],
-    cancelled: false
+    cancelled: false,
   },
   {
     id: 'https://example.com/meeting/3',
@@ -29,7 +28,7 @@ const mockMeetings: OparlMeeting[] = [
     start: '2023-12-10T09:00:00',
     name: 'Meeting 2023-12',
     organization: ['org-1'],
-    cancelled: false
+    cancelled: false,
   },
   {
     id: 'https://example.com/meeting/4',
@@ -37,10 +36,9 @@ const mockMeetings: OparlMeeting[] = [
     start: '2024-06-05T11:00:00',
     name: 'Meeting 2024-06 (no files)',
     organization: ['org-1'],
-    cancelled: false
-  }
+    cancelled: false,
+  },
 ];
-
 
 const mockFiles: Record<string, OparlFile[]> = {
   'https://example.com/meeting/1': [
@@ -48,34 +46,33 @@ const mockFiles: Record<string, OparlFile[]> = {
       id: 'https://example.com/file/101',
       type: 'https://schema.oparl.org/1.1/File',
       name: 'Document 101.pdf',
-      accessUrl: 'https://example.com/files/101.pdf'
+      accessUrl: 'https://example.com/files/101.pdf',
     },
     {
       id: 'https://example.com/file/102',
       type: 'https://schema.oparl.org/1.1/File',
       name: 'Document 102.pdf',
-      accessUrl: 'https://example.com/files/102.pdf'
-    }
+      accessUrl: 'https://example.com/files/102.pdf',
+    },
   ],
   'https://example.com/meeting/2': [
     {
       id: 'https://example.com/file/201',
       type: 'https://schema.oparl.org/1.1/File',
       name: 'Document 201.pdf',
-      accessUrl: 'https://example.com/files/201.pdf'
-    }
+      accessUrl: 'https://example.com/files/201.pdf',
+    },
   ],
   'https://example.com/meeting/3': [
     {
       id: 'https://example.com/file/301',
       type: 'https://schema.oparl.org/1.1/File',
       name: 'Document 301.pdf',
-      accessUrl: 'https://example.com/files/301.pdf'
-    }
+      accessUrl: 'https://example.com/files/301.pdf',
+    },
   ],
-  'https://example.com/meeting/4': []
+  'https://example.com/meeting/4': [],
 };
-
 
 const mockOparlObjectsStore: IOparlObjectsStore = {
   getMeetings(): OparlMeeting[] {
@@ -96,21 +93,17 @@ const mockOparlObjectsStore: IOparlObjectsStore = {
 
   getFiles(meetingId: string): OparlFile[] {
     return mockFiles[meetingId] || [];
-  }
+  },
 };
-
 
 const mockDownloader: IPaperFilesDownloader = {
   async downloadFile(_fileId: string): Promise<void> {
     // Mock implementation
-  }
+  },
 };
 
-
 describe('PaperFilesCollector', () => {
-
   describe('collectFiles', () => {
-
     it('should not download any files when no meetings exist for the year', async () => {
       using downloadFileSpy = spy(mockDownloader, 'downloadFile');
 
@@ -128,7 +121,7 @@ describe('PaperFilesCollector', () => {
 
       assertSpyCalls(downloadFileSpy, 1);
       assertSpyCall(downloadFileSpy, 0, {
-        args: ['https://example.com/file/301']
+        args: ['https://example.com/file/301'],
       });
     });
 
@@ -140,13 +133,13 @@ describe('PaperFilesCollector', () => {
 
       assertSpyCalls(downloadFileSpy, 3);
       assertSpyCall(downloadFileSpy, 0, {
-        args: ['https://example.com/file/101']
+        args: ['https://example.com/file/101'],
       });
       assertSpyCall(downloadFileSpy, 1, {
-        args: ['https://example.com/file/102']
+        args: ['https://example.com/file/102'],
       });
       assertSpyCall(downloadFileSpy, 2, {
-        args: ['https://example.com/file/201']
+        args: ['https://example.com/file/201'],
       });
     });
 
@@ -158,7 +151,7 @@ describe('PaperFilesCollector', () => {
         ...mockOparlObjectsStore,
         getMeetings(): OparlMeeting[] {
           return [mockMeetings[3]]; // Meeting 4 has no files
-        }
+        },
       };
 
       const collector = new PaperFilesCollector(customStore, mockDownloader);
@@ -187,7 +180,7 @@ describe('PaperFilesCollector', () => {
       const trackingDownloader: IPaperFilesDownloader = {
         downloadFile(fileId: string): Promise<void> {
           downloadOrder.push(fileId);
-        }
+        },
       };
 
       const collector = new PaperFilesCollector(mockOparlObjectsStore, trackingDownloader);
@@ -210,7 +203,5 @@ describe('PaperFilesCollector', () => {
         throw new Error(`Expected third download to be file 201, got ${downloadOrder[2]}`);
       }
     });
-
   });
-
 });

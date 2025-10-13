@@ -7,7 +7,6 @@ import { PapersContentSource } from './papers-content-source.ts';
 import { SpeechesSource } from './speeches-source.ts';
 import { OparlObjectsFileStore } from '../shared/oparl/oparl-objects-store.ts';
 
-
 const args = parseArgs(Deno.args);
 
 if (args.help) {
@@ -16,7 +15,6 @@ if (args.help) {
 }
 
 checkArgs(args);
-
 
 const env = tryGetIndexSearchEnv();
 const importer = createImporter(env);
@@ -31,12 +29,11 @@ await indexer.indexSpeeches(speechesSource);
 
 console.log('Done.');
 
-
 function createImporter(env: IndexSearchEnv): IDocumentsImporter {
   const typesenseImporter = new TypesenseImporter(
     env.typesenseServerUrl,
     env.typesenseCollectionName,
-    env.typesenseApiKey
+    env.typesenseApiKey,
   );
   return new BatchedDocumentsImporter(typesenseImporter, 100);
 }

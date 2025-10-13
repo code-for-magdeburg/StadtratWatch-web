@@ -1,7 +1,6 @@
-import { type OparlObject, type OparlBody } from '../shared/model/oparl.ts';
+import { type OparlBody, type OparlObject } from '../shared/model/oparl.ts';
 import { type OparlClient } from './oparl-client.ts';
 import { type IOparlObjectFileStore } from './oparl-file-store.ts';
-
 
 enum OparlObjectType {
   Organization,
@@ -15,15 +14,10 @@ enum OparlObjectType {
   File,
 }
 
-
 export class OparlScraper {
-
-
   constructor(private readonly client: OparlClient, private readonly oparlObjectsStore: IOparlObjectFileStore) {}
 
-
   public async fetchFull(oparlBodyUrl: string, createdSince: string): Promise<void> {
-
     console.log(`Fetching all data created since ${createdSince}...`);
 
     const oparlBody = await this.fetchOparlBody(oparlBodyUrl);
@@ -37,12 +31,9 @@ export class OparlScraper {
     await this.fetchAndStoreObjects(oparlBody.agendaItem, createdSince, OparlObjectType.AgendaItem);
     await this.fetchAndStoreObjects(oparlBody.consultations, createdSince, OparlObjectType.Consultation);
     await this.fetchAndStoreObjects(oparlBody.files, createdSince, OparlObjectType.File);
-
   }
 
-
   public async fetchIncremental(oparlBodyUrl: string, modifiedSince: string): Promise<void> {
-
     console.log(`Fetching changes since ${modifiedSince}...`);
 
     const oparlBody = await this.fetchOparlBody(oparlBodyUrl);
@@ -56,9 +47,7 @@ export class OparlScraper {
     await this.fetchAndStoreIncrementalObjects(oparlBody.agendaItem, modifiedSince, OparlObjectType.AgendaItem);
     await this.fetchAndStoreIncrementalObjects(oparlBody.consultations, modifiedSince, OparlObjectType.Consultation);
     await this.fetchAndStoreIncrementalObjects(oparlBody.files, modifiedSince, OparlObjectType.File);
-
   }
-
 
   private async fetchOparlBody(oparlBodyUrl: string): Promise<OparlBody> {
     const response = await fetch(oparlBodyUrl);
@@ -68,17 +57,21 @@ export class OparlScraper {
     return await response.json();
   }
 
-
-  private async fetchAndStoreObjects(objectsUrl: string, createdSince: string | null, objectType: OparlObjectType): Promise<void> {
+  private async fetchAndStoreObjects(
+    objectsUrl: string,
+    createdSince: string | null,
+    objectType: OparlObjectType,
+  ): Promise<void> {
     const objects = await this.client.fetchObjects(objectsUrl, createdSince);
     const filename = this.getObjectTypeFilename(objectType);
     this.oparlObjectsStore.saveObjects(objects, filename);
   }
 
-
-  private async fetchAndStoreIncrementalObjects(objectsUrl: string, modifiedSince: string,
-                                                objectType: OparlObjectType): Promise<void> {
-
+  private async fetchAndStoreIncrementalObjects(
+    objectsUrl: string,
+    modifiedSince: string,
+    objectType: OparlObjectType,
+  ): Promise<void> {
     const modifiedObjects = await this.client.fetchModifiedObjects(objectsUrl, modifiedSince);
     if (modifiedObjects.length === 0) {
       console.log('No modified objects found.');
@@ -89,16 +82,13 @@ export class OparlScraper {
     const existingObjects = this.oparlObjectsStore.loadObjects(filename);
     const updatedObjects = this.updateObjects(existingObjects, modifiedObjects);
     this.oparlObjectsStore.saveObjects(updatedObjects, filename);
-
   }
 
-
   private updateObjects(existingObjects: OparlObject[], modifiedObjects: OparlObject[]): OparlObject[] {
-
     const updatedObjects = [...existingObjects];
 
     for (const modifiedObject of modifiedObjects) {
-      const index = updatedObjects.findIndex(obj => obj.id === modifiedObject.id);
+      const index = updatedObjects.findIndex((obj) => obj.id === modifiedObject.id);
       if (index !== -1) {
         updatedObjects[index] = modifiedObject;
       } else {
@@ -107,9 +97,7 @@ export class OparlScraper {
     }
 
     return updatedObjects;
-
   }
-
 
   private getObjectTypeFilename(objectType: OparlObjectType): string {
     switch (objectType) {
@@ -135,6 +123,4 @@ export class OparlScraper {
         throw new Error('Unknown OParl object type');
     }
   }
-
-
 }

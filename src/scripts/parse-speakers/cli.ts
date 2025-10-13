@@ -1,13 +1,11 @@
 import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
-
 export type ParseSpeakersArgs = {
   help: boolean;
   inputDir: string;
   outputDir: string;
   session: string;
 };
-
 
 export function parseArgs(args: string[]): ParseSpeakersArgs {
   return stdCliParseArgs(args, {
@@ -21,7 +19,6 @@ export function parseArgs(args: string[]): ParseSpeakersArgs {
     },
   }) as ParseSpeakersArgs;
 }
-
 
 export function checkArgs(args: ParseSpeakersArgs) {
   const { inputDir, outputDir, session } = args;
@@ -41,7 +38,6 @@ export function checkArgs(args: ParseSpeakersArgs) {
     Deno.exit(1);
   }
 }
-
 
 export function printHelpText() {
   console.log(`

@@ -2,24 +2,21 @@ import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
 import type { IOparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
 import type { OparlMeeting } from '../shared/model/oparl.ts';
 
-
 export class PaperFilesCollector {
-
-
-  constructor(private readonly oparlObjectsStore:  IOparlObjectsStore,
-              private readonly downloader: IPaperFilesDownloader) {
+  constructor(
+    private readonly oparlObjectsStore: IOparlObjectsStore,
+    private readonly downloader: IPaperFilesDownloader,
+  ) {
   }
-
 
   public async collectFiles(year: string): Promise<void> {
     const meetings = this.oparlObjectsStore
       .getMeetings()
-      .filter(meeting => meeting.start && meeting.start.startsWith(year));
+      .filter((meeting) => meeting.start && meeting.start.startsWith(year));
     for (const meeting of meetings) {
       await this.processMeeting(meeting);
     }
   }
-
 
   private async processMeeting(meeting: OparlMeeting): Promise<void> {
     const files = this.oparlObjectsStore.getFiles(meeting.id);
@@ -27,6 +24,4 @@ export class PaperFilesCollector {
       await this.downloader.downloadFile(file.id);
     }
   }
-
-
 }

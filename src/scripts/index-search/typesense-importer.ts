@@ -1,4 +1,3 @@
-
 export type IndexedPaper = {
   id: string;
   content: string[];
@@ -7,7 +6,6 @@ export type IndexedPaper = {
   paper_type: string;
   paper_reference: string;
 };
-
 
 export type IndexedSpeech = {
   id: string;
@@ -18,11 +16,10 @@ export type IndexedSpeech = {
   speech_start: number;
   speech_session_date: number;
   speech_speaker: string;
-  speech_faction: string | null,
-  speech_party: string | null,
-  speech_on_behalf_of: string | null
+  speech_faction: string | null;
+  speech_party: string | null;
+  speech_on_behalf_of: string | null;
 };
-
 
 type TypesenseDocument = {
   id: string;
@@ -38,29 +35,26 @@ type TypesenseDocument = {
   speech_start: number;
   speech_session_date: number;
   speech_speaker: string;
-  speech_faction: string | null,
-  speech_party: string | null,
-  speech_on_behalf_of: string | null
+  speech_faction: string | null;
+  speech_party: string | null;
+  speech_on_behalf_of: string | null;
 };
-
 
 export interface IDocumentsImporter {
   importPapers(papers: IndexedPaper[]): Promise<boolean>;
   importSpeeches(speeches: IndexedSpeech[]): Promise<boolean>;
 }
 
-
 export class TypesenseImporter implements IDocumentsImporter {
-
-
-  constructor(private readonly typesenseServerUrl: string, private readonly typesenseCollectionName: string,
-              private readonly typesenseApiKey: string) {
+  constructor(
+    private readonly typesenseServerUrl: string,
+    private readonly typesenseCollectionName: string,
+    private readonly typesenseApiKey: string,
+  ) {
   }
 
-
   async importPapers(papers: IndexedPaper[]): Promise<boolean> {
-
-    const data = papers.map<TypesenseDocument>(paper => ({
+    const data = papers.map<TypesenseDocument>((paper) => ({
       id: paper.id,
       type: 'paper',
       content: paper.content,
@@ -76,17 +70,14 @@ export class TypesenseImporter implements IDocumentsImporter {
       speech_speaker: '',
       speech_faction: null,
       speech_party: null,
-      speech_on_behalf_of: null
+      speech_on_behalf_of: null,
     }));
 
     return await this.importDocuments(data);
-
   }
 
-
   async importSpeeches(speeches: IndexedSpeech[]): Promise<boolean> {
-
-    const data = speeches.map<TypesenseDocument>(speech => ({
+    const data = speeches.map<TypesenseDocument>((speech) => ({
       id: speech.id,
       type: 'speech',
       content: speech.content,
@@ -102,32 +93,27 @@ export class TypesenseImporter implements IDocumentsImporter {
       speech_speaker: speech.speech_speaker,
       speech_faction: speech.speech_faction,
       speech_party: speech.speech_party,
-      speech_on_behalf_of: speech.speech_on_behalf_of
+      speech_on_behalf_of: speech.speech_on_behalf_of,
     }));
 
     return await this.importDocuments(data);
-
   }
 
-
   private async importDocuments(documents: TypesenseDocument[]): Promise<boolean> {
-
-    const data = documents.map(document => JSON.stringify(document)).join('\n');
+    const data = documents.map((document) => JSON.stringify(document)).join('\n');
     const queryParams = new URLSearchParams({ action: 'upsert' });
-    const url = `${this.typesenseServerUrl}/collections/${this.typesenseCollectionName}/documents/import?${queryParams}`;
+    const url =
+      `${this.typesenseServerUrl}/collections/${this.typesenseCollectionName}/documents/import?${queryParams}`;
     const init: RequestInit = {
       method: 'POST',
       headers: {
         'X-TYPESENSE-API-KEY': this.typesenseApiKey,
-        'Content-Type': 'text/plain'
+        'Content-Type': 'text/plain',
       },
-      body: data
+      body: data,
     };
     const response = await fetch(url, init);
 
     return response.status === 200;
-
   }
-
-
 }

@@ -1,4 +1,3 @@
-
 export type IndexSearchEnv = {
   typesenseServerUrl: string;
   typesenseCollectionName: string;
@@ -6,9 +5,7 @@ export type IndexSearchEnv = {
   councilOrganizationId: string;
 };
 
-
 export function tryGetIndexSearchEnv(): IndexSearchEnv {
-
   const typesenseServerUrl = Deno.env.get('TYPESENSE_SERVER_URL');
   if (!typesenseServerUrl) {
     console.error('Environment variable TYPESENSE_SERVER_URL must be set.');
@@ -34,5 +31,4 @@ export function tryGetIndexSearchEnv(): IndexSearchEnv {
   }
 
   return { typesenseServerUrl, typesenseCollectionName, typesenseApiKey, councilOrganizationId };
-
 }

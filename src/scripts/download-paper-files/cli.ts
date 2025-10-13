@@ -1,13 +1,11 @@
 import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
-
 export type DownloadPaperFilesArgs = {
   help: boolean;
   ratsinfoDir: string;
   papersDir: string;
   year: string;
 };
-
 
 export function parseArgs(args: string[]): DownloadPaperFilesArgs {
   return stdCliParseArgs(args, {
@@ -21,7 +19,6 @@ export function parseArgs(args: string[]): DownloadPaperFilesArgs {
     },
   }) as DownloadPaperFilesArgs;
 }
-
 
 export function checkArgs(args: DownloadPaperFilesArgs) {
   const { ratsinfoDir, papersDir, year } = args;
@@ -46,7 +43,6 @@ export function checkArgs(args: DownloadPaperFilesArgs) {
     Deno.exit(1);
   }
 }
-
 
 export function printHelpText() {
   console.log(`

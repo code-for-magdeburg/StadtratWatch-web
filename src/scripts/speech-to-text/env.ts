@@ -1,13 +1,10 @@
-
 export type SpeechToTextEnv = {
   openaiOrganizationId: string;
   openaiProjectId: string;
   openaiApiKey: string;
 };
 
-
 export function tryGetSpeechToTextEnv(): SpeechToTextEnv {
-
   const openaiOrganizationId = Deno.env.get('OPENAI_ORGANIZATION_ID');
   if (!openaiOrganizationId) {
     console.error('Environment variable OPENAI_ORGANIZATION_ID must be set.');
@@ -27,5 +24,4 @@ export function tryGetSpeechToTextEnv(): SpeechToTextEnv {
   }
 
   return { openaiOrganizationId, openaiProjectId, openaiApiKey };
-
 }

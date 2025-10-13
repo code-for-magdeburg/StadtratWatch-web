@@ -5,7 +5,6 @@ import { OparlScraper } from './oparl-scraper.ts';
 import { OparlClient } from './oparl-client.ts';
 import { OparlObjectsFileStore } from './oparl-file-store.ts';
 
-
 const args = parseArgs(Deno.args);
 
 if (args.help) {
@@ -14,7 +13,6 @@ if (args.help) {
 }
 
 checkArgs(args);
-
 
 const env = tryGetScrapeOparlEnv();
 const oparlClient = new OparlClient(+env.fetchDelayMs);
@@ -38,7 +36,6 @@ switch (args.mode) {
     break;
 }
 
-
 function tryGetLastSuccessfulRunDate(): string {
   const scraperMetadataStore = new ScraperMetadataFileStore(args.ratsinfosystemDir);
   const modifiedSince = scraperMetadataStore.getLastSuccessfulRunDate();
@@ -51,11 +48,9 @@ function tryGetLastSuccessfulRunDate(): string {
   return modifiedSince;
 }
 
-
 function setLastSuccessfulRunDate(date: string): void {
   const scraperMetadataStore = new ScraperMetadataFileStore(args.ratsinfosystemDir);
   scraperMetadataStore.setLastSuccessfulRunDate(date);
 }
-
 
 console.log('Done.');

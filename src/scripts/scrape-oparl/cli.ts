@@ -1,13 +1,11 @@
 import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
-
 export type ScrapeOparlArgs = {
   help: boolean;
   mode: 'full' | 'incremental';
   date?: string;
   ratsinfosystemDir: string;
 };
-
 
 export function parseArgs(args: string[]): ScrapeOparlArgs {
   return stdCliParseArgs(args, {
@@ -22,7 +20,6 @@ export function parseArgs(args: string[]): ScrapeOparlArgs {
     },
   }) as ScrapeOparlArgs;
 }
-
 
 export function checkArgs(args: ScrapeOparlArgs) {
   const { ratsinfosystemDir } = args;
@@ -42,7 +39,6 @@ export function checkArgs(args: ScrapeOparlArgs) {
     Deno.exit(1);
   }
 }
-
 
 export function printHelpText() {
   console.log(`

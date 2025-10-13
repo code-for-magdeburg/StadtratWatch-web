@@ -4,7 +4,6 @@ import { VotingsImageDataGenerator } from './votings-image-data-generator.ts';
 import { ImagesGenerator } from './images-generator.ts';
 import { InputDataLoaders } from './input-data-loaders.ts';
 
-
 const args = parseArgs(Deno.args);
 
 if (args.help) {
@@ -14,7 +13,6 @@ if (args.help) {
 
 checkArgs(args);
 
-
 const loader = new InputDataLoaders(args.inputDir);
 const { registry, sessionsInput } = loader.loadInputData();
 
@@ -23,7 +21,6 @@ const votingsImageData = votingsImageDataGenerator.generateVotingsImageData(regi
 
 const imagesGenerator = new ImagesGenerator();
 const votingImages = imagesGenerator.generateVotingImages(votingsImageData);
-
 
 const assetsWriter = new ImageAssetsWriter(args.outputDir);
 assetsWriter.writeImageAssets(votingImages);

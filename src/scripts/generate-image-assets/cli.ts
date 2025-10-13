@@ -2,13 +2,11 @@ import * as fs from '@std/fs';
 import * as path from '@std/path';
 import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
-
 export type GenerateDataAssetsArgs = {
   help: boolean;
   inputDir: string;
   outputDir: string;
 };
-
 
 export function parseArgs(args: string[]): GenerateDataAssetsArgs {
   return stdCliParseArgs(args, {
@@ -21,7 +19,6 @@ export function parseArgs(args: string[]): GenerateDataAssetsArgs {
     },
   }) as GenerateDataAssetsArgs;
 }
-
 
 export function checkArgs(args: GenerateDataAssetsArgs) {
   const { inputDir, outputDir } = args;
@@ -42,7 +39,6 @@ export function checkArgs(args: GenerateDataAssetsArgs) {
     Deno.exit(1);
   }
 }
-
 
 export function printHelpText() {
   console.log(`

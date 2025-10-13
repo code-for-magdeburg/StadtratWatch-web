@@ -3,13 +3,9 @@ import { IParsedFilesStore } from './parsed-files-store.ts';
 import { IRttmFilesStore } from './rttm-files-store.ts';
 import { Segment, SpeakerSegment, SpeakerWithSegments } from './types.ts';
 
-
 export class RttmFilesParser {
-
-
   constructor(private readonly rttmFilesStore: IRttmFilesStore, private readonly parsedFilesStore: IParsedFilesStore) {
   }
-
 
   public process(session: string) {
     const rttmFiles = this.rttmFilesStore.getRttmFiles();
@@ -17,9 +13,7 @@ export class RttmFilesParser {
     this.parsedFilesStore.writeSpeakerFile(session, speakers);
   }
 
-
   private processRttmFile(rttmFile: string): SpeakerWithSegments[] {
-
     const rttmFileContent = this.rttmFilesStore.getRttmFileContent(rttmFile);
     const parseOptions: ParseOptions = { separator: ' ' };
     const parsed = parse(rttmFileContent, parseOptions) as string[][];
@@ -49,8 +43,5 @@ export class RttmFilesParser {
     return Object
       .keys(bySpeaker)
       .map((speaker) => ({ speaker, segments: bySpeaker[speaker] }));
-
   }
-
-
 }

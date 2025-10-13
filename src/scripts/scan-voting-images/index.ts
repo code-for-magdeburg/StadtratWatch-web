@@ -7,7 +7,6 @@ import { SessionScanStore } from './session-scan-store.ts';
 import { TextRecognizer } from './text-recognizer.ts';
 import { VotesRecognizer } from './votes-recognizer.ts';
 
-
 const args = parseArgs(Deno.args);
 
 if (args.help) {
@@ -16,7 +15,6 @@ if (args.help) {
 }
 
 checkArgs(args);
-
 
 const worker = await createWorker('deu');
 
@@ -28,7 +26,7 @@ const scanner = new VotingImagesScanner(
   imagesSource,
   sessionScanStore,
   textRecognizer,
-  votesRecognizer
+  votesRecognizer,
 );
 const scanConfig = JSON.parse(Deno.readTextFileSync(args.scanConfigFile)) as ScanConfig;
 await scanner.processSession(args.session, scanConfig);

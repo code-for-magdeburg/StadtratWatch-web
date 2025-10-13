@@ -1,18 +1,13 @@
 import * as path from '@std/path';
 import { SessionScan } from '@srw-astro/models/session-scan';
 
-
 export interface ISessionScanStore {
   writeSessionScan(session: string, summary: SessionScan): void;
 }
 
-
 export class SessionScanStore implements ISessionScanStore {
-
-
   constructor(private readonly directory: string) {
   }
-
 
   writeSessionScan(session: string, summary: SessionScan): void {
     Deno.writeTextFileSync(
@@ -20,6 +15,4 @@ export class SessionScanStore implements ISessionScanStore {
       JSON.stringify(summary, null, 4),
     );
   }
-
-
 }

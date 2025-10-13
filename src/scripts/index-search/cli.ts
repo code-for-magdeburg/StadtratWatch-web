@@ -1,13 +1,11 @@
 import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
-
 export type IndexSearchArgs = {
   help: boolean;
   ratsinfoDir: string;
   papersContentDir: string;
   parliamentPeriodsBaseDir: string;
 };
-
 
 export function parseArgs(args: string[]): IndexSearchArgs {
   return stdCliParseArgs(args, {
@@ -21,7 +19,6 @@ export function parseArgs(args: string[]): IndexSearchArgs {
     },
   }) as IndexSearchArgs;
 }
-
 
 export function checkArgs(args: IndexSearchArgs) {
   const { ratsinfoDir, papersContentDir, parliamentPeriodsBaseDir } = args;
@@ -41,7 +38,6 @@ export function checkArgs(args: IndexSearchArgs) {
     Deno.exit(1);
   }
 }
-
 
 export function printHelpText() {
   console.log(`

@@ -1,4 +1,3 @@
-
 export type Voting = {
   sessionId: string;
   votingId: number;
@@ -6,9 +5,8 @@ export type Voting = {
   motionType: string;
   motionId: string;
   subjectTitle: string;
-  votes: VotingPerFaction[]
+  votes: VotingPerFaction[];
 };
-
 
 export type VotingPerFaction = {
   faction: string;

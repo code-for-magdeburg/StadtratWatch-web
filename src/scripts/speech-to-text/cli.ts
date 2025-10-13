@@ -1,6 +1,5 @@
 import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
-
 export type SpeechToTextArgs = {
   help: boolean;
   speechesDir: string;
@@ -8,7 +7,6 @@ export type SpeechToTextArgs = {
   session: string;
   skipExisting: boolean;
 };
-
 
 export function parseArgs(args: string[]): SpeechToTextArgs {
   return stdCliParseArgs(args, {
@@ -24,7 +22,6 @@ export function parseArgs(args: string[]): SpeechToTextArgs {
     },
   }) as SpeechToTextArgs;
 }
-
 
 export function checkArgs(args: SpeechToTextArgs) {
   const { speechesDir, outputDir, session } = args;
@@ -44,7 +41,6 @@ export function checkArgs(args: SpeechToTextArgs) {
     Deno.exit(1);
   }
 }
-
 
 export function printHelpText() {
   console.log(`

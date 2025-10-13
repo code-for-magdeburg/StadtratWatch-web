@@ -5,7 +5,6 @@ import { PaperAssetsStore } from './paper-assets-store.ts';
 import { OparlObjectsFileStore } from '../shared/oparl/oparl-objects-store.ts';
 import { tryGetGeneratePaperAssetsEnv } from './env.ts';
 
-
 const args = parseArgs(Deno.args);
 
 if (args.help) {
@@ -14,7 +13,6 @@ if (args.help) {
 }
 
 checkArgs(args);
-
 
 const env = tryGetGeneratePaperAssetsEnv();
 const paperFilesStore = new PaperFilesStore(args.papersDir);

@@ -4,40 +4,34 @@ import { SessionScanVote } from '@srw-astro/models/session-scan';
 import { CanvasRenderingContext2D } from '@gfx/canvas';
 import { VoteResult } from '../shared/model/session.ts';
 
-
 type CategorizedColor = 'red' | 'green' | 'yellow' | 'white' | 'unknown';
 type VoteCode = VoteResult.VOTE_FOR | VoteResult.VOTE_AGAINST | VoteResult.VOTE_ABSTENTION | VoteResult.DID_NOT_VOTE;
-
 
 export interface IVotesRecognizer {
   getVotesForNames(votingFilepath: string, config: ScanConfig): SessionScanVote[];
 }
 
-
 export class VotesRecognizer implements IVotesRecognizer {
-
-
   constructor(private readonly imagesSource: IVotingImagesSource) {
   }
 
-
   public getVotesForNames(votingFilepath: string, config: ScanConfig): SessionScanVote[] {
     const ctx = this.imagesSource.loadVotingImage(votingFilepath);
-    return config.names.map(name => this.getVoteForName(ctx, name, config.layout));
+    return config.names.map((name) => this.getVoteForName(ctx, name, config.layout));
   }
 
-
-  private getVoteForName(ctx: CanvasRenderingContext2D, name: ScanConfigPerson, layout: ScanConfigLayout): SessionScanVote {
-
+  private getVoteForName(
+    ctx: CanvasRenderingContext2D,
+    name: ScanConfigPerson,
+    layout: ScanConfigLayout,
+  ): SessionScanVote {
     const position = this.getTestPositionForName(name, layout);
     const color = this.getColorAtPosition(ctx, position.x, position.y);
     const categorizedColor = this.categorizeColor(color);
     const vote = this.categoryToVote(categorizedColor);
 
     return { name: name.name, vote };
-
   }
-
 
   private getTestPositionForName(name: ScanConfigPerson, layout: ScanConfigLayout) {
     const nameColumn = layout.namesColumns[name.columnIndex];
@@ -47,16 +41,23 @@ export class VotesRecognizer implements IVotesRecognizer {
     };
   }
 
-
   private getColorAtPosition(ctx: CanvasRenderingContext2D, sx: number, sy: number): number[] {
     const pixelMatrix = ctx.getImageData(sx - 1, sy - 1, 3, 3).data;
-    const r = Math.round((pixelMatrix[0] + pixelMatrix[4] + pixelMatrix[8] + pixelMatrix[12] + pixelMatrix[16] + pixelMatrix[20] + pixelMatrix[24] + pixelMatrix[28] + pixelMatrix[32]) / 9);
-    const g = Math.round((pixelMatrix[1] + pixelMatrix[5] + pixelMatrix[9] + pixelMatrix[13] + pixelMatrix[17] + pixelMatrix[21] + pixelMatrix[25] + pixelMatrix[29] + pixelMatrix[33]) / 9);
-    const b = Math.round((pixelMatrix[2] + pixelMatrix[6] + pixelMatrix[10] + pixelMatrix[14] + pixelMatrix[18] + pixelMatrix[22] + pixelMatrix[26] + pixelMatrix[30] + pixelMatrix[34]) / 9);
+    const r = Math.round(
+      (pixelMatrix[0] + pixelMatrix[4] + pixelMatrix[8] + pixelMatrix[12] + pixelMatrix[16] + pixelMatrix[20] +
+        pixelMatrix[24] + pixelMatrix[28] + pixelMatrix[32]) / 9,
+    );
+    const g = Math.round(
+      (pixelMatrix[1] + pixelMatrix[5] + pixelMatrix[9] + pixelMatrix[13] + pixelMatrix[17] + pixelMatrix[21] +
+        pixelMatrix[25] + pixelMatrix[29] + pixelMatrix[33]) / 9,
+    );
+    const b = Math.round(
+      (pixelMatrix[2] + pixelMatrix[6] + pixelMatrix[10] + pixelMatrix[14] + pixelMatrix[18] + pixelMatrix[22] +
+        pixelMatrix[26] + pixelMatrix[30] + pixelMatrix[34]) / 9,
+    );
 
     return [r, g, b];
   }
-
 
   private categorizeColor(color: number[]): CategorizedColor {
     const [r, g, b] = color;
@@ -80,7 +81,6 @@ export class VotesRecognizer implements IVotesRecognizer {
     return 'unknown';
   }
 
-
   private categoryToVote(category: CategorizedColor): VoteCode {
     switch (category) {
       case 'red':
@@ -95,6 +95,4 @@ export class VotesRecognizer implements IVotesRecognizer {
         return VoteResult.DID_NOT_VOTE;
     }
   }
-
-
 }

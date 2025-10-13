@@ -1,13 +1,11 @@
 import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
 
-
 export type GeneratePaperAssetsArgs = {
   help: boolean;
   ratsinfoDir: string;
   papersDir: string;
   outputDir: string;
 };
-
 
 export function parseArgs(args: string[]): GeneratePaperAssetsArgs {
   return stdCliParseArgs(args, {
@@ -17,11 +15,10 @@ export function parseArgs(args: string[]): GeneratePaperAssetsArgs {
       help: 'h',
       'ratsinfo-dir': ['r', 'ratsinfoDir'],
       'papers-dir': ['p', 'papersDir'],
-      'output-dir': ['o', 'outputDir']
+      'output-dir': ['o', 'outputDir'],
     },
   }) as GeneratePaperAssetsArgs;
 }
-
 
 export function checkArgs(args: GeneratePaperAssetsArgs) {
   const { ratsinfoDir, papersDir, outputDir } = args;
@@ -41,7 +38,6 @@ export function checkArgs(args: GeneratePaperAssetsArgs) {
     Deno.exit(1);
   }
 }
-
 
 export function printHelpText() {
   console.log(`

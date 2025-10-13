@@ -5,19 +5,14 @@ import { SessionScan } from '@srw-astro/models/session-scan';
 import { SessionSpeech } from '@srw-astro/models/session-speech';
 import { existsSync } from '@std/fs';
 
-
 export type InputData = {
   registry: Registry;
   sessionsInput: SessionInput[];
 };
 
-
 export class InputDataLoaders {
-
-
   constructor(private readonly inputDir: string) {
   }
-
 
   public loadInputData(): InputData {
     const registry = this.loadRegistry();
@@ -25,17 +20,13 @@ export class InputDataLoaders {
     return { registry, sessionsInput };
   }
 
-
   private loadRegistry(): Registry {
     const registryFilename = path.join(this.inputDir, 'registry.json');
     return JSON.parse(Deno.readTextFileSync(registryFilename)) as Registry;
   }
 
-
   private loadSessionsInputData(registry: Registry): SessionInput[] {
-
-    return registry.sessions.map<SessionInput>(session => {
-
+    return registry.sessions.map<SessionInput>((session) => {
       const sessionDir = path.join(this.inputDir, session.date);
 
       const sessionScanFilename = path.join(sessionDir, `session-scan-${session.date}.json`);
@@ -49,10 +40,6 @@ export class InputDataLoaders {
         : [];
 
       return { session, votings, speeches } satisfies SessionInput;
-
     });
-
   }
-
-
 }
