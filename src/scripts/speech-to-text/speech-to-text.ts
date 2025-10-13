@@ -1,6 +1,6 @@
 import * as fs from '@std/fs';
 import * as path from '@std/path';
-import { OpenAI } from 'npm:openai';
+import { OpenAI } from 'npm:openai@^5.6.0';
 
 
 export type SpeechTranscriberConfig = {

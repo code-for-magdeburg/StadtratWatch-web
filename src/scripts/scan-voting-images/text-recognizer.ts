@@ -1,6 +1,6 @@
 import { ScanConfigLayout } from './scan-config.ts';
 import { SessionScanVotingSubject } from '@srw-astro/models/session-scan';
-import { Worker } from 'npm:tesseract.js';
+import { Worker } from 'npm:tesseract.js@^6.0.1';
 
 
 export interface ITextRecognizer {

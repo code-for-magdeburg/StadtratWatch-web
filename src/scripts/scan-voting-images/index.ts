@@ -1,5 +1,5 @@
 import { ScanConfig } from './scan-config.ts';
-import { createWorker } from 'npm:tesseract.js';
+import { createWorker } from 'npm:tesseract.js@^6.0.1';
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { VotingImagesScanner } from './voting-images-scanner.ts';
 import { VotingImagesSource } from './voting-images-source.ts';
