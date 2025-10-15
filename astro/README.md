@@ -1,48 +1,79 @@
-# Astro Starter Kit: Basics
+# StadtratWatch Web Application
+
+Web frontend for StadtratWatch, a civic participation platform for tracking Magdeburg city council sessions. Built with Astro 5, Alpine.js, Tailwind CSS, and Chart.js.
+
+## Prerequisites
+
+- Node.js 18+ and npm
+- Processed data in `../data/` directory (see root HOWTO.md)
+- Typesense server running (for search functionality)
+
+## Getting Started
 
 ```sh
-npm create astro@latest -- --template basics
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+The dev server runs at `http://localhost:4321`
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project Structure
 
 ```text
-/
-├── public/
-│   └── favicon.svg
+astro/
+├── public/              # Static assets (images, fonts)
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/      # Reusable Astro/Alpine.js components
+│   ├── data-analysis/   # Voting analysis algorithms
+│   ├── layouts/         # Page layouts
+│   ├── models/          # TypeScript models (shared with Deno)
+│   ├── pages/           # Routes (file-based routing)
+│   │   └── api/v1/      # REST API endpoints
+│   └── styles/          # Global CSS
+└── astro.config.mjs     # Astro configuration + env vars
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 🧞 Commands
+| Command              | Action                                      |
+| :------------------- | :------------------------------------------ |
+| `npm install`        | Install dependencies                        |
+| `npm run dev`        | Start dev server at `localhost:4321`        |
+| `npm run build`      | Build production site to `./dist/`          |
+| `npm run preview`    | Preview production build locally            |
+| `npm test`           | Run Vitest tests                            |
+| `npm run format`     | Format code with Prettier                   |
+| `npm run format:check` | Check code formatting                     |
 
-All commands are run from the root of the project, from a terminal:
+## Configuration
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Environment variables are configured in `astro.config.mjs` using Astro's env schema:
 
-## 👀 Want to learn more?
+- `DEFAULT_PARLIAMENT_PERIOD` - Default period ID (e.g., "magdeburg-8")
+- `AWS_CLOUDFRONT_BASE_URL` - CDN base URL for assets
+- Typesense connection details (host, port, API key, protocol)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Data Sources
+
+The application reads from the `../data/` directory:
+
+- `data/{period-id}/registry.json` - Parliament period metadata
+- `data/{period-id}/{session-date}/` - Session votings, speeches, speakers
+- `data/papers/` - Council papers and PDFs
+
+Run data processing scripts (see root HOWTO.md) before starting the web app.
+
+## Tech Stack
+
+- **Astro 5** - Static site generator with SSR
+- **Alpine.js** - Lightweight JavaScript framework
+- **Tailwind CSS 4 + DaisyUI** - Styling
+- **Chart.js + D3.js** - Data visualization
+- **Typesense** - Full-text search engine
+
+## API
+
+Public REST API available at `/api/v1/`. See `src/pages/api/v1/README.md` for documentation.

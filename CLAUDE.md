@@ -23,7 +23,7 @@ The two parts share TypeScript models through Deno workspaces (defined in deno.j
 cd astro
 
 # Development
-npm run dev              # Start dev server
+npm run dev             # Start dev server
 npm run build           # Build for production
 npm run preview         # Preview production build
 
