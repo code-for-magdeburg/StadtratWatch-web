@@ -39,6 +39,12 @@ export default defineConfig({
         access: 'public',
         optional: false,
       }),
+      FEATURE_FLAGS: envField.string({
+        context: 'server',
+        access: 'public',
+        optional: true,
+        default: ''
+      }),
     },
   },
 
