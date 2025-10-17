@@ -178,7 +178,7 @@ describe('PaperFilesCollector', () => {
       const downloadOrder: string[] = [];
 
       const trackingDownloader: IPaperFilesDownloader = {
-        downloadFile(fileId: string): Promise<void> {
+        downloadFile(fileId: string) {
           downloadOrder.push(fileId);
         },
       };

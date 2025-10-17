@@ -2,7 +2,7 @@ import * as fs from '@std/fs';
 import * as path from '@std/path';
 
 export interface IPaperFilesDownloader {
-  downloadFile(fileId: string): Promise<void>;
+  downloadFile(fileId: string): void;
 }
 
 export class PaperFilesDownloader implements IPaperFilesDownloader {
