@@ -54,12 +54,13 @@ export class OparlObjectsFileStore implements IOparlObjectsStore {
   }
 
   public getFiles(meetingId: string): OparlFile[] {
-    const paperIds = this.consultations
-      .filter((consultation) => consultation.meeting === meetingId)
-      .map((consultation) => consultation.paper)
-      .filter((paperId) => !!paperId)
-      .map((paperId) => this.papers.find((paper) => paper.id === paperId))
-      .filter((paper) => !!paper)
+    const paperIds = this.papers
+      .filter(
+        (paper) =>
+          (paper.consultation || []).some(
+            (consultation) => consultation.meeting === meetingId,
+          ),
+      )
       .map((paper) => paper.id);
 
     return this.files.filter(
