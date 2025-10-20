@@ -31,6 +31,10 @@
       "**/*.md"
     ]
   },
+  "test": {
+    "include": ["src/"],
+    "exclude": ["src/deps/astro/"]
+  },
   "compileOptions": {
     "checkJs": true,
     "strict": true
