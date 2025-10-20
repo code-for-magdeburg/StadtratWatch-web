@@ -2,6 +2,7 @@ import type { OparlAgendaItem, OparlConsultation, OparlFile, OparlMeeting, Oparl
 import * as path from '@std/path';
 import { OparlPapersInMemoryRepository } from './oparl-papers-repository.ts';
 import { OparlFilesInMemoryRepository } from './oparl-files-repository.ts';
+import { OparlMeetingsInMemoryRepository } from './oparl-meetings-repository.ts';
 
 export interface IOparlObjectsStore {
   loadMeetings(): OparlMeeting[];
@@ -47,9 +48,8 @@ export class OparlObjectsFileStore implements IOparlObjectsStore {
   }
 
   public getMeetings(): OparlMeeting[] {
-    return this.meetings
-      .filter((meeting) => (meeting.organization || []).includes(this.organizationId))
-      .filter((meeting) => !meeting.cancelled);
+    const meetingsRepository = new OparlMeetingsInMemoryRepository(this.meetings);
+    return meetingsRepository.getMeetingsByOrganization(this.organizationId);
   }
 
   public getPapers(meetingId: string): OparlPaper[] {
