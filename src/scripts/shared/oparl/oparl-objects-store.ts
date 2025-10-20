@@ -9,20 +9,17 @@ export interface IOparlObjectsStore {
   loadFiles(): OparlFile[];
 
   getMeetings(): OparlMeeting[];
-  getConsultations(meetingId: string): OparlConsultation[];
   getPapers(meetingId: string): OparlPaper[];
   getFiles(meetingId: string): OparlFile[];
 }
 
 export class OparlObjectsFileStore implements IOparlObjectsStore {
   private meetings: OparlMeeting[];
-  private consultations: OparlConsultation[];
   private papers: OparlPaper[];
   private files: OparlFile[];
 
   constructor(private readonly organizationId: string, private readonly directory: string) {
     this.meetings = this.loadMeetings();
-    this.consultations = this.loadConsultations();
     this.papers = this.loadPapers();
     this.files = this.loadFiles();
   }
@@ -51,10 +48,6 @@ export class OparlObjectsFileStore implements IOparlObjectsStore {
     return this.meetings
       .filter((meeting) => (meeting.organization || []).includes(this.organizationId))
       .filter((meeting) => !meeting.cancelled);
-  }
-
-  public getConsultations(meetingId: string): OparlConsultation[] {
-    return this.consultations.filter((consultation) => consultation.meeting === meetingId);
   }
 
   public getPapers(meetingId: string): OparlPaper[] {
