@@ -9,7 +9,6 @@ export interface IOparlObjectsStore {
   loadFiles(): OparlFile[];
 
   getMeetings(): OparlMeeting[];
-  getAgendaItems(meetingId: string): OparlAgendaItem[];
   getConsultations(meetingId: string): OparlConsultation[];
   getPapers(meetingId: string): OparlPaper[];
   getFiles(meetingId: string): OparlFile[];
@@ -18,14 +17,12 @@ export interface IOparlObjectsStore {
 export class OparlObjectsFileStore implements IOparlObjectsStore {
   private meetings: OparlMeeting[];
   private consultations: OparlConsultation[];
-  private agendaItems: OparlAgendaItem[];
   private papers: OparlPaper[];
   private files: OparlFile[];
 
   constructor(private readonly organizationId: string, private readonly directory: string) {
     this.meetings = this.loadMeetings();
     this.consultations = this.loadConsultations();
-    this.agendaItems = this.loadAgendaItems();
     this.papers = this.loadPapers();
     this.files = this.loadFiles();
   }
@@ -54,10 +51,6 @@ export class OparlObjectsFileStore implements IOparlObjectsStore {
     return this.meetings
       .filter((meeting) => (meeting.organization || []).includes(this.organizationId))
       .filter((meeting) => !meeting.cancelled);
-  }
-
-  public getAgendaItems(meetingId: string): OparlAgendaItem[] {
-    return this.agendaItems.filter((agendaItem) => agendaItem.meeting === meetingId);
   }
 
   public getConsultations(meetingId: string): OparlConsultation[] {
