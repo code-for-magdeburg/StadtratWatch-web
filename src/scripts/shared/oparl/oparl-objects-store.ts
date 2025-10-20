@@ -2,6 +2,12 @@ import type { OparlAgendaItem, OparlConsultation, OparlFile, OparlMeeting, Oparl
 import * as path from '@std/path';
 
 export interface IOparlObjectsStore {
+  loadMeetings(): OparlMeeting[];
+  loadAgendaItems(): OparlAgendaItem[];
+  loadConsultations(): OparlConsultation[];
+  loadPapers(): OparlPaper[];
+  loadFiles(): OparlFile[];
+
   getMeetings(): OparlMeeting[];
   getAgendaItems(meetingId: string): OparlAgendaItem[];
   getConsultations(meetingId: string): OparlConsultation[];
@@ -16,16 +22,32 @@ export class OparlObjectsFileStore implements IOparlObjectsStore {
   private papers: OparlPaper[];
   private files: OparlFile[];
 
-  constructor(private readonly organizationId: string, directory: string) {
-    this.meetings = JSON.parse(Deno.readTextFileSync(path.join(directory, 'meetings.json'))) as OparlMeeting[];
-    this.consultations = JSON.parse(
-      Deno.readTextFileSync(path.join(directory, 'consultations.json')),
-    ) as OparlConsultation[];
-    this.agendaItems = JSON.parse(
-      Deno.readTextFileSync(path.join(directory, 'agenda-items.json')),
-    ) as OparlAgendaItem[];
-    this.papers = JSON.parse(Deno.readTextFileSync(path.join(directory, 'papers.json'))) as OparlPaper[];
-    this.files = JSON.parse(Deno.readTextFileSync(path.join(directory, 'files.json'))) as OparlFile[];
+  constructor(private readonly organizationId: string, private readonly directory: string) {
+    this.meetings = this.loadMeetings();
+    this.consultations = this.loadConsultations();
+    this.agendaItems = this.loadAgendaItems();
+    this.papers = this.loadPapers();
+    this.files = this.loadFiles();
+  }
+
+  public loadMeetings(): OparlMeeting[] {
+    return JSON.parse(Deno.readTextFileSync(path.join(this.directory, 'meetings.json'))) as OparlMeeting[];
+  }
+
+  public loadAgendaItems(): OparlAgendaItem[] {
+    return JSON.parse(Deno.readTextFileSync(path.join(this.directory, 'agenda-items.json'))) as OparlAgendaItem[];
+  }
+
+  public loadConsultations(): OparlConsultation[] {
+    return JSON.parse(Deno.readTextFileSync(path.join(this.directory, 'consultations.json'))) as OparlConsultation[];
+  }
+
+  public loadPapers(): OparlPaper[] {
+    return JSON.parse(Deno.readTextFileSync(path.join(this.directory, 'papers.json'))) as OparlPaper[];
+  }
+
+  public loadFiles(): OparlFile[] {
+    return JSON.parse(Deno.readTextFileSync(path.join(this.directory, 'files.json'))) as OparlFile[];
   }
 
   public getMeetings(): OparlMeeting[] {

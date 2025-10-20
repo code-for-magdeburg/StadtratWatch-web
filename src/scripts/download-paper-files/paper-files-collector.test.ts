@@ -1,7 +1,7 @@
 import { PaperFilesCollector } from './paper-files-collector.ts';
 import type { IOparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
 import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
-import type { OparlFile, OparlMeeting } from '../shared/model/oparl.ts';
+import type { OparlAgendaItem, OparlConsultation, OparlFile, OparlMeeting, OparlPaper } from '../shared/model/oparl.ts';
 import { assertSpyCall, assertSpyCalls, spy } from '@std/testing/mock';
 import { describe, it } from '@std/testing/bdd';
 
@@ -75,6 +75,26 @@ const mockFiles: Record<string, OparlFile[]> = {
 };
 
 const mockOparlObjectsStore: IOparlObjectsStore = {
+  loadMeetings(): OparlMeeting[] {
+    return mockMeetings;
+  },
+
+  loadAgendaItems(): OparlAgendaItem[] {
+    return [];
+  },
+
+  loadConsultations(): OparlConsultation[] {
+    return [];
+  },
+
+  loadPapers(): OparlPaper[] {
+    return [];
+  },
+
+  loadFiles(): OparlFile[] {
+    return [];
+  },
+
   getMeetings(): OparlMeeting[] {
     return mockMeetings;
   },
