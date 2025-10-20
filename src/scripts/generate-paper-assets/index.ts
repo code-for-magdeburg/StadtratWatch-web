@@ -20,7 +20,7 @@ checkArgs(args);
 const env = tryGetGeneratePaperAssetsEnv();
 const paperFilesStore = new PaperFilesStore(args.papersDir);
 const paperAssetsStore = new PaperAssetsStore(args.outputDir);
-const oparlObjectsStore = new OparlObjectsFileStore(env.councilOrganizationId, args.ratsinfoDir);
+const oparlObjectsStore = new OparlObjectsFileStore(args.ratsinfoDir);
 const meetingsRepository = new OparlMeetingsInMemoryRepository(oparlObjectsStore.loadMeetings());
 const papersRepository = new OparlPapersInMemoryRepository(oparlObjectsStore.loadPapers());
 const filesRepository = new OparlFilesInMemoryRepository(oparlObjectsStore.loadFiles(), papersRepository);
