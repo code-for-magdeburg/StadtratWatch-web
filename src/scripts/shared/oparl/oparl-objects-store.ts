@@ -1,7 +1,7 @@
 import type { OparlAgendaItem, OparlConsultation, OparlFile, OparlMeeting, OparlPaper } from '../model/oparl.ts';
 import * as path from '@std/path';
 
-export interface IOparlObjectsStore {
+export interface OparlObjectsStore {
   loadMeetings(): OparlMeeting[];
   loadAgendaItems(): OparlAgendaItem[];
   loadConsultations(): OparlConsultation[];
@@ -9,7 +9,7 @@ export interface IOparlObjectsStore {
   loadFiles(): OparlFile[];
 }
 
-export class OparlObjectsFileStore implements IOparlObjectsStore {
+export class OparlObjectsFileStore implements OparlObjectsStore {
   constructor(private readonly directory: string) {
   }
 
