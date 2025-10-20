@@ -57,7 +57,7 @@ const breadcrumbItems = [
       class="tab"
       aria-label="Ratsmitglieder"
       type="radio"
-      name="demo-tabs-radio"
+      name="faction-tabs-radio"
       :checked="currentTab === 'councilors'"
       @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/faction/${factionId}?tab=councilors`); currentTab = 'councilors'"
     />
@@ -70,7 +70,7 @@ const breadcrumbItems = [
       class="tab"
       aria-label="Anträge"
       type="radio"
-      name="demo-tabs-radio"
+      name="faction-tabs-radio"
       :checked="currentTab === 'motions'"
       @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/faction/${factionId}?tab=motions`); currentTab = 'motions'"
     />
@@ -90,7 +90,7 @@ const breadcrumbItems = [
       class="tab"
       aria-label="Statistiken"
       type="radio"
-      name="demo-tabs-radio"
+      name="faction-tabs-radio"
       :checked="currentTab === 'statistics'"
       @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/faction/${factionId}?tab=statistics`); currentTab = 'statistics'"
     />
