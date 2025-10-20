@@ -2,7 +2,9 @@ import { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-imp
 import { IPapersContentSource } from './papers-content-source.ts';
 import { ISpeechesSource } from './speeches-source.ts';
 import { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
-import { IOparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
+import { OparlPapersInMemoryRepository } from '../shared/oparl/oparl-papers-repository.ts';
+import { OparlFilesInMemoryRepository } from '../shared/oparl/oparl-files-repository.ts';
+import { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
 
 function isPersonInSession(person: RegistryPerson, session: RegistrySession): boolean {
   const sessionDate = session.date;
@@ -42,7 +44,13 @@ function getPartyOfPerson(
 }
 
 export class SearchIndexer {
-  constructor(private readonly importer: IDocumentsImporter, private readonly oparlObjectsStore: IOparlObjectsStore) {
+  constructor(
+    private readonly importer: IDocumentsImporter,
+    private readonly meetingsRepository: OparlMeetingsRepository,
+    private readonly papersRepository: OparlPapersInMemoryRepository,
+    private readonly filesRepository: OparlFilesInMemoryRepository,
+    private readonly organizationId: string,
+  ) {
   }
 
   public async indexPapers(contentSource: IPapersContentSource) {
@@ -50,7 +58,7 @@ export class SearchIndexer {
 
     const processedPaperIds: string[] = [];
     const papers: IndexedPaper[] = [];
-    const meetings = this.oparlObjectsStore.getMeetings();
+    const meetings = this.meetingsRepository.getMeetingsByOrganization(this.organizationId);
     meetings.forEach((meeting) => {
       if (!meeting.start) {
         return;
@@ -58,10 +66,10 @@ export class SearchIndexer {
 
       console.log(`Indexing papers for meeting ${meeting.id} (${meeting.start})`);
 
-      const meetingPapers = this.oparlObjectsStore
-        .getPapers(meeting.id)
+      const meetingPapers = this.papersRepository
+        .getPapersByMeeting(meeting.id)
         .filter((paper) => processedPaperIds.every((id) => id !== paper.id));
-      const meetingFiles = this.oparlObjectsStore.getFiles(meeting.id);
+      const meetingFiles = this.filesRepository.getFilesByMeeting(meeting.id);
 
       papers.push(...meetingPapers.map<IndexedPaper>((paper) => {
         const content = meetingFiles
