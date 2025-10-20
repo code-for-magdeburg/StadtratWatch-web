@@ -1,19 +1,24 @@
 import { PaperAssetDto, PaperAssetFileDto } from './model.ts';
-import { IOparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
 import { IPaperFilesStore } from './paper-files-store.ts';
+import { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
+import { OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
+import { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
 
 export class PaperAssetsGenerator {
   constructor(
-    private readonly oparlObjectsStore: IOparlObjectsStore,
+    private readonly meetingsRepository: OparlMeetingsRepository,
+    private readonly papersRepository: OparlPapersRepository,
+    private readonly filesRepository: OparlFilesRepository,
     private readonly paperFilesStore: IPaperFilesStore,
+    private readonly organizationId: string,
   ) {
   }
 
   public generatePaperAssets(): PaperAssetDto[] {
     const papers: PaperAssetDto[] = [];
 
-    this.oparlObjectsStore
-      .getMeetings()
+    this.meetingsRepository
+      .getMeetingsByOrganization(this.organizationId)
       .forEach((meeting) => {
         if (!meeting.start) {
           return;
@@ -22,10 +27,10 @@ export class PaperAssetsGenerator {
         console.log(`Collecting papers for meeting ${meeting.id} (${meeting.start})`);
 
         const year = meeting.start.split('-')[0];
-        const meetingPapers = this.oparlObjectsStore
-          .getPapers(meeting.id)
+        const meetingPapers = this.papersRepository
+          .getPapersByMeeting(meeting.id)
           .filter((paper) => papers.every((p) => p.id !== +paper.id.split('/').pop()!));
-        const meetingFiles = this.oparlObjectsStore.getFiles(meeting.id);
+        const meetingFiles = this.filesRepository.getFilesByMeeting(meeting.id);
 
         papers.push(...meetingPapers.map<PaperAssetDto>((paper) => {
           const files = meetingFiles
