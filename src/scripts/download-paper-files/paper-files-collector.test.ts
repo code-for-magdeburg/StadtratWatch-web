@@ -1,7 +1,8 @@
 import { PaperFilesCollector } from './paper-files-collector.ts';
-import type { IOparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
+import type { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
+import type { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
 import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
-import type { OparlAgendaItem, OparlConsultation, OparlFile, OparlMeeting, OparlPaper } from '../shared/model/oparl.ts';
+import type { OparlFile, OparlMeeting } from '../shared/model/oparl.ts';
 import { assertSpyCall, assertSpyCalls, spy } from '@std/testing/mock';
 import { describe, it } from '@std/testing/bdd';
 
@@ -74,32 +75,16 @@ const mockFiles: Record<string, OparlFile[]> = {
   'https://example.com/meeting/4': [],
 };
 
-const mockOparlObjectsStore: IOparlObjectsStore = {
-  loadMeetings(): OparlMeeting[] {
-    return mockMeetings;
-  },
+const MOCK_ORGANIZATION_ID = 'org-1';
 
-  loadAgendaItems(): OparlAgendaItem[] {
-    return [];
+const mockMeetingsRepository: OparlMeetingsRepository = {
+  getMeetingsByOrganization(organizationId: string): OparlMeeting[] {
+    return mockMeetings.filter((meeting) => meeting.organization?.includes(organizationId));
   },
+};
 
-  loadConsultations(): OparlConsultation[] {
-    return [];
-  },
-
-  loadPapers(): OparlPaper[] {
-    return [];
-  },
-
-  loadFiles(): OparlFile[] {
-    return [];
-  },
-
-  getMeetings(): OparlMeeting[] {
-    return mockMeetings;
-  },
-
-  getFiles(meetingId: string): OparlFile[] {
+const mockFilesRepository: OparlFilesRepository = {
+  getFilesByMeeting(meetingId: string): OparlFile[] {
     return mockFiles[meetingId] || [];
   },
 };
@@ -115,7 +100,12 @@ describe('PaperFilesCollector', () => {
     it('should not download any files when no meetings exist for the year', async () => {
       using downloadFileSpy = spy(mockDownloader, 'downloadFile');
 
-      const collector = new PaperFilesCollector(mockOparlObjectsStore, mockDownloader);
+      const collector = new PaperFilesCollector(
+        mockMeetingsRepository,
+        mockFilesRepository,
+        mockDownloader,
+        MOCK_ORGANIZATION_ID,
+      );
       await collector.collectFiles('2025');
 
       assertSpyCalls(downloadFileSpy, 0);
@@ -124,7 +114,12 @@ describe('PaperFilesCollector', () => {
     it('should download files for a single meeting in the specified year', async () => {
       using downloadFileSpy = spy(mockDownloader, 'downloadFile');
 
-      const collector = new PaperFilesCollector(mockOparlObjectsStore, mockDownloader);
+      const collector = new PaperFilesCollector(
+        mockMeetingsRepository,
+        mockFilesRepository,
+        mockDownloader,
+        MOCK_ORGANIZATION_ID,
+      );
       await collector.collectFiles('2023');
 
       assertSpyCalls(downloadFileSpy, 1);
@@ -136,7 +131,12 @@ describe('PaperFilesCollector', () => {
     it('should download files for all meetings in the specified year', async () => {
       using downloadFileSpy = spy(mockDownloader, 'downloadFile');
 
-      const collector = new PaperFilesCollector(mockOparlObjectsStore, mockDownloader);
+      const collector = new PaperFilesCollector(
+        mockMeetingsRepository,
+        mockFilesRepository,
+        mockDownloader,
+        MOCK_ORGANIZATION_ID,
+      );
       await collector.collectFiles('2024');
 
       assertSpyCalls(downloadFileSpy, 3);
@@ -154,25 +154,34 @@ describe('PaperFilesCollector', () => {
     it('should handle meetings without files gracefully', async () => {
       using downloadFileSpy = spy(mockDownloader, 'downloadFile');
 
-      // Create a custom store that returns only the meeting without files
-      const customStore: IOparlObjectsStore = {
-        ...mockOparlObjectsStore,
-        getMeetings(): OparlMeeting[] {
+      // Create a custom repository that returns only the meeting without files
+      const customMeetingsRepository: OparlMeetingsRepository = {
+        getMeetingsByOrganization(_organizationId: string): OparlMeeting[] {
           return [mockMeetings[3]]; // Meeting 4 has no files
         },
       };
 
-      const collector = new PaperFilesCollector(customStore, mockDownloader);
+      const collector = new PaperFilesCollector(
+        customMeetingsRepository,
+        mockFilesRepository,
+        mockDownloader,
+        MOCK_ORGANIZATION_ID,
+      );
       await collector.collectFiles('2024');
 
       assertSpyCalls(downloadFileSpy, 0);
     });
 
     it('should only process meetings that start with the specified year', async () => {
-      using getMeetingsSpy = spy(mockOparlObjectsStore, 'getMeetings');
+      using getMeetingsSpy = spy(mockMeetingsRepository, 'getMeetingsByOrganization');
       using downloadFileSpy = spy(mockDownloader, 'downloadFile');
 
-      const collector = new PaperFilesCollector(mockOparlObjectsStore, mockDownloader);
+      const collector = new PaperFilesCollector(
+        mockMeetingsRepository,
+        mockFilesRepository,
+        mockDownloader,
+        MOCK_ORGANIZATION_ID,
+      );
       await collector.collectFiles('2024');
 
       assertSpyCalls(getMeetingsSpy, 1);
@@ -191,7 +200,12 @@ describe('PaperFilesCollector', () => {
         },
       };
 
-      const collector = new PaperFilesCollector(mockOparlObjectsStore, trackingDownloader);
+      const collector = new PaperFilesCollector(
+        mockMeetingsRepository,
+        mockFilesRepository,
+        trackingDownloader,
+        MOCK_ORGANIZATION_ID,
+      );
       await collector.collectFiles('2024');
 
       // Verify files are downloaded in order: meeting 1, then meeting 2, then meeting 4 (no files)
