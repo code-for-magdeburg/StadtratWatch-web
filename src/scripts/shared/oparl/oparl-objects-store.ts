@@ -12,7 +12,6 @@ export interface IOparlObjectsStore {
   loadFiles(): OparlFile[];
 
   getMeetings(): OparlMeeting[];
-  getPapers(meetingId: string): OparlPaper[];
   getFiles(meetingId: string): OparlFile[];
 }
 
@@ -50,11 +49,6 @@ export class OparlObjectsFileStore implements IOparlObjectsStore {
   public getMeetings(): OparlMeeting[] {
     const meetingsRepository = new OparlMeetingsInMemoryRepository(this.meetings);
     return meetingsRepository.getMeetingsByOrganization(this.organizationId);
-  }
-
-  public getPapers(meetingId: string): OparlPaper[] {
-    const papersRepository = new OparlPapersInMemoryRepository(this.papers);
-    return papersRepository.getPapersByMeeting(meetingId);
   }
 
   public getFiles(meetingId: string): OparlFile[] {

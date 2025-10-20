@@ -99,10 +99,6 @@ const mockOparlObjectsStore: IOparlObjectsStore = {
     return mockMeetings;
   },
 
-  getPapers(_meetingId: string) {
-    return [];
-  },
-
   getFiles(meetingId: string): OparlFile[] {
     return mockFiles[meetingId] || [];
   },
