@@ -1,6 +1,7 @@
 import type { OparlAgendaItem, OparlConsultation, OparlFile, OparlMeeting, OparlPaper } from '../model/oparl.ts';
 import * as path from '@std/path';
 import { OparlPapersInMemoryRepository } from './oparl-papers-repository.ts';
+import { OparlFilesInMemoryRepository } from './oparl-files-repository.ts';
 
 export interface IOparlObjectsStore {
   loadMeetings(): OparlMeeting[];
@@ -52,18 +53,13 @@ export class OparlObjectsFileStore implements IOparlObjectsStore {
   }
 
   public getPapers(meetingId: string): OparlPaper[] {
-    const repo = new OparlPapersInMemoryRepository(this.papers);
-    return repo.getPapersByMeeting(meetingId);
+    const papersRepository = new OparlPapersInMemoryRepository(this.papers);
+    return papersRepository.getPapersByMeeting(meetingId);
   }
 
   public getFiles(meetingId: string): OparlFile[] {
-    const repo = new OparlPapersInMemoryRepository(this.papers);
-    const paperIds = repo
-      .getPapersByMeeting(meetingId)
-      .map((paper) => paper.id);
-
-    return this.files.filter(
-      (file) => (file.paper || []).some((paperId) => paperIds.includes(paperId)),
-    );
+    const papersRepository = new OparlPapersInMemoryRepository(this.papers);
+    const filesRepository = new OparlFilesInMemoryRepository(this.files, papersRepository);
+    return filesRepository.getFilesByMeeting(meetingId);
   }
 }
