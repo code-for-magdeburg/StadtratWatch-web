@@ -42,12 +42,12 @@ export class TextRecognizer implements ITextRecognizer {
     );
 
     const title = votingSubjectTitle.data.text
-      .replace(/(\r\n|\n|\r)/gm, ' ')
+      .replace(/(\r\n|\n|\r|\|)/gm, ' ')
       .trim();
 
     const parts = votingSubjectId.data.text.split('-');
-    const agendaItem = parts[0].replace(/,/g, '.').replace(/[^0-9.]/g, '');
-    const motionId = parts.length > 1 ? parts[1].replace(/[^0-9\/]+$/g, '') : '';
+    const agendaItem = parts[0].replace(/,/g, '.').replace(/[^0-9.]/g, '').trim();
+    const motionId = parts.length > 1 ? parts[1].replace(/[^0-9\/]+$/g, '').trim() : '';
 
     return {
       agendaItem,
