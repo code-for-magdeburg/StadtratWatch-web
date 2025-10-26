@@ -17,7 +17,6 @@ export class PaperFilesDownloader implements IPaperFilesDownloader {
 
     const filePath = this.getFilePath(fileId);
     if (fs.existsSync(filePath)) {
-      console.log('File already exists. Skipping: ', oparlFileId);
       return;
     }
 
