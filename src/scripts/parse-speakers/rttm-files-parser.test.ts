@@ -1,8 +1,9 @@
 import { RttmFilesParser } from './rttm-files-parser.ts';
-import { IRttmFilesStore } from './rttm-files-store.ts';
-import { IParsedFilesStore } from './parsed-files-store.ts';
-import { SpeakerWithSegments } from './types.ts';
+import type { IRttmFilesStore } from './rttm-files-store.ts';
+import type { IParsedFilesStore } from './parsed-files-store.ts';
+import type { SpeakerWithSegments } from './types.ts';
 import { assertSpyCall, assertSpyCalls, spy } from '@std/testing/mock';
+import { describe, it } from '@std/testing/bdd';
 
 const mockRttmFilesStore: IRttmFilesStore = {
   getRttmFiles(): string[] {
@@ -29,53 +30,57 @@ const mockParsedFilesStore: IParsedFilesStore = {
   },
 };
 
-Deno.test('Parser filters and aggregates rttm files and writes to json file', () => {
-  using writeSpeakerFileSpy = spy(mockParsedFilesStore, 'writeSpeakerFile');
+describe('RttmFilesParser', () => {
+  describe('process', () => {
+    it('should filter and aggregate rttm files and write to json file', () => {
+      using writeSpeakerFileSpy = spy(mockParsedFilesStore, 'writeSpeakerFile');
 
-  const parser = new RttmFilesParser(mockRttmFilesStore, mockParsedFilesStore);
-  parser.process('2024-01-01');
+      const parser = new RttmFilesParser(mockRttmFilesStore, mockParsedFilesStore);
+      parser.process('2024-01-01');
 
-  assertSpyCalls(writeSpeakerFileSpy, 1);
-  assertSpyCall(
-    writeSpeakerFileSpy,
-    0,
-    {
-      args: [
-        '2024-01-01',
-        [
-          {
-            'speaker': '00_SPEAKER_01',
-            'segments': [
+      assertSpyCalls(writeSpeakerFileSpy, 1);
+      assertSpyCall(
+        writeSpeakerFileSpy,
+        0,
+        {
+          args: [
+            '2024-01-01',
+            [
               {
-                'start': 456.528,
-                'duration': 10.119,
+                'speaker': '00_SPEAKER_01',
+                'segments': [
+                  {
+                    'start': 456.528,
+                    'duration': 10.119,
+                  },
+                ],
+              },
+              {
+                'speaker': '01_SPEAKER_02',
+                'segments': [
+                  {
+                    'start': 14867.462,
+                    'duration': 2.424,
+                  },
+                  {
+                    'start': 14868.345,
+                    'duration': 3.917,
+                  },
+                ],
+              },
+              {
+                'speaker': '02_SPEAKER_01',
+                'segments': [
+                  {
+                    'start': 29280.462,
+                    'duration': 1.234,
+                  },
+                ],
               },
             ],
-          },
-          {
-            'speaker': '01_SPEAKER_02',
-            'segments': [
-              {
-                'start': 14867.462,
-                'duration': 2.424,
-              },
-              {
-                'start': 14868.345,
-                'duration': 3.917,
-              },
-            ],
-          },
-          {
-            'speaker': '02_SPEAKER_01',
-            'segments': [
-              {
-                'start': 29280.462,
-                'duration': 1.234,
-              },
-            ],
-          },
-        ],
-      ],
-    },
-  );
+          ],
+        },
+      );
+    });
+  });
 });
