@@ -35,6 +35,7 @@ export class PaperAssetsGenerator {
         papers.push(...meetingPapers.map<PaperAssetDto>((paper) => {
           const files = meetingFiles
             .filter((file) => file.paper && file.paper.includes(paper.id))
+            .toSorted((a, b) => a.id.localeCompare(b.id))
             .map<PaperAssetFileDto>((file) => {
               const fileId = +file.id.split('/').pop()!;
               return {
