@@ -4,6 +4,127 @@ import { OparlPapersInMemoryRepository } from './oparl-papers-repository.ts';
 import type { OparlPaper } from '../model/oparl.ts';
 
 describe('OparlPapersInMemoryRepository', () => {
+  describe('getAllPapers', () => {
+    it('should return all papers', () => {
+      const papers: OparlPaper[] = [
+        {
+          id: 'paper-1',
+          type: 'paper',
+          name: 'Paper 1',
+        },
+        {
+          id: 'paper-2',
+          type: 'paper',
+          name: 'Paper 2',
+        },
+        {
+          id: 'paper-3',
+          type: 'paper',
+          name: 'Paper 3',
+        },
+      ];
+
+      const repository = new OparlPapersInMemoryRepository(papers);
+      const result = repository.getAllPapers();
+
+      assertEquals(result.length, 3);
+      assertEquals(result[0].id, 'paper-1');
+      assertEquals(result[1].id, 'paper-2');
+      assertEquals(result[2].id, 'paper-3');
+    });
+
+    it('should return empty array when no papers exist', () => {
+      const repository = new OparlPapersInMemoryRepository([]);
+      const result = repository.getAllPapers();
+
+      assertEquals(result.length, 0);
+    });
+
+    it('should preserve all paper properties', () => {
+      const papers: OparlPaper[] = [
+        {
+          id: 'paper-1',
+          type: 'paper',
+          name: 'Important Paper',
+          reference: 'REF-2024-001',
+          paperType: 'Antrag',
+          consultation: [
+            {
+              id: 'consultation-1',
+              type: 'consultation',
+              name: 'Consultation 1',
+              meeting: 'meeting-1',
+            },
+          ],
+        },
+      ];
+
+      const repository = new OparlPapersInMemoryRepository(papers);
+      const result = repository.getAllPapers();
+
+      assertEquals(result.length, 1);
+      assertEquals(result[0].id, 'paper-1');
+      assertEquals(result[0].name, 'Important Paper');
+      assertEquals(result[0].reference, 'REF-2024-001');
+      assertEquals(result[0].paperType, 'Antrag');
+      assertEquals(result[0].consultation?.length, 1);
+      assertEquals(result[0].consultation?.[0].id, 'consultation-1');
+    });
+
+    it('should return same reference as constructor array', () => {
+      const papers: OparlPaper[] = [
+        {
+          id: 'paper-1',
+          type: 'paper',
+          name: 'Paper 1',
+        },
+      ];
+
+      const repository = new OparlPapersInMemoryRepository(papers);
+      const result = repository.getAllPapers();
+
+      // Check that it returns the same reference
+      assertEquals(result, papers);
+    });
+
+    it('should handle papers with various optional properties', () => {
+      const papers: OparlPaper[] = [
+        {
+          id: 'paper-1',
+          type: 'paper',
+          name: 'Paper 1',
+        },
+        {
+          id: 'paper-2',
+          type: 'paper',
+          name: 'Paper 2',
+          reference: 'REF-002',
+        },
+        {
+          id: 'paper-3',
+          type: 'paper',
+          name: 'Paper 3',
+          paperType: 'Beschlussvorlage',
+        },
+        {
+          id: 'paper-4',
+          type: 'paper',
+          name: 'Paper 4',
+          consultation: [],
+        },
+      ];
+
+      const repository = new OparlPapersInMemoryRepository(papers);
+      const result = repository.getAllPapers();
+
+      assertEquals(result.length, 4);
+      assertEquals(result[0].reference, undefined);
+      assertEquals(result[1].reference, 'REF-002');
+      assertEquals(result[2].paperType, 'Beschlussvorlage');
+      assertEquals(result[3].consultation, []);
+    });
+  });
+
   describe('getPapersByMeeting', () => {
     it('should return papers matching the meeting ID', () => {
       const papers: OparlPaper[] = [
