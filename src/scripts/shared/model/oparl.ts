@@ -26,7 +26,10 @@ export type OparlMeeting = OparlObject & {
 export type OparlAgendaItem = OparlObject & {
   order: number;
   meeting?: string;
+  number?: string;
+  isPublic?: boolean;
   consultation?: string;
+  result?: string;
 };
 
 export type OparlConsultation = OparlObject & {
