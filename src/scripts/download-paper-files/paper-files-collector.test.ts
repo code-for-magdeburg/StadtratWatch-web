@@ -87,6 +87,9 @@ const mockMeetingsRepository: OparlMeetingsRepository = {
 };
 
 const mockFilesRepository: OparlFilesRepository = {
+  getFilesByPaper(_paperId: string): OparlFile[] {
+    return [];
+  },
   getFilesByMeeting(meetingId: string): OparlFile[] {
     return mockFiles[meetingId] || [];
   },
