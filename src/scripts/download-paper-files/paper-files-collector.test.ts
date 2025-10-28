@@ -78,6 +78,9 @@ const mockFiles: Record<string, OparlFile[]> = {
 const MOCK_ORGANIZATION_ID = 'org-1';
 
 const mockMeetingsRepository: OparlMeetingsRepository = {
+  getMeetingById(meetingId: string): OparlMeeting | null {
+    return mockMeetings.find((meeting) => meeting.id === meetingId) || null;
+  },
   getMeetingsByOrganization(organizationId: string): OparlMeeting[] {
     return mockMeetings.filter((meeting) => meeting.organization?.includes(organizationId));
   },
@@ -156,6 +159,9 @@ describe('PaperFilesCollector', () => {
 
       // Create a custom repository that returns only the meeting without files
       const customMeetingsRepository: OparlMeetingsRepository = {
+        getMeetingById(_meetingId: string): OparlMeeting | null {
+          throw new Error('Not used in tests');
+        },
         getMeetingsByOrganization(_organizationId: string): OparlMeeting[] {
           return [mockMeetings[3]]; // Meeting 4 has no files
         },

@@ -4,6 +4,150 @@ import { OparlMeetingsInMemoryRepository } from './oparl-meetings-repository.ts'
 import type { OparlMeeting } from '../model/oparl.ts';
 
 describe('OparlMeetingsInMemoryRepository', () => {
+  describe('getMeetingById', () => {
+    it('should return the meeting when ID matches', () => {
+      const meetings: OparlMeeting[] = [
+        {
+          id: 'meeting-1',
+          type: 'meeting',
+          name: 'Meeting 1',
+          organization: ['org-1'],
+        },
+        {
+          id: 'meeting-2',
+          type: 'meeting',
+          name: 'Meeting 2',
+          organization: ['org-2'],
+        },
+      ];
+
+      const repository = new OparlMeetingsInMemoryRepository(meetings);
+      const result = repository.getMeetingById('meeting-1');
+
+      assertEquals(result?.id, 'meeting-1');
+      assertEquals(result?.name, 'Meeting 1');
+    });
+
+    it('should return null when ID does not match', () => {
+      const meetings: OparlMeeting[] = [
+        {
+          id: 'meeting-1',
+          type: 'meeting',
+          name: 'Meeting 1',
+          organization: ['org-1'],
+        },
+      ];
+
+      const repository = new OparlMeetingsInMemoryRepository(meetings);
+      const result = repository.getMeetingById('non-existent-id');
+
+      assertEquals(result, null);
+    });
+
+    it('should return null when meetings array is empty', () => {
+      const repository = new OparlMeetingsInMemoryRepository([]);
+      const result = repository.getMeetingById('meeting-1');
+
+      assertEquals(result, null);
+    });
+
+    it('should return the first matching meeting when duplicates exist', () => {
+      const meetings: OparlMeeting[] = [
+        {
+          id: 'meeting-1',
+          type: 'meeting',
+          name: 'First Meeting',
+          organization: ['org-1'],
+        },
+        {
+          id: 'meeting-1',
+          type: 'meeting',
+          name: 'Duplicate Meeting',
+          organization: ['org-2'],
+        },
+      ];
+
+      const repository = new OparlMeetingsInMemoryRepository(meetings);
+      const result = repository.getMeetingById('meeting-1');
+
+      assertEquals(result?.name, 'First Meeting');
+    });
+
+    it('should preserve all meeting properties', () => {
+      const meetings: OparlMeeting[] = [
+        {
+          id: 'meeting-1',
+          type: 'meeting',
+          name: 'City Council Meeting',
+          organization: ['org-1'],
+          start: '2024-01-15T10:00:00Z',
+          end: '2024-01-15T12:00:00Z',
+          cancelled: false,
+        },
+      ];
+
+      const repository = new OparlMeetingsInMemoryRepository(meetings);
+      const result = repository.getMeetingById('meeting-1');
+
+      assertEquals(result?.id, 'meeting-1');
+      assertEquals(result?.name, 'City Council Meeting');
+      assertEquals(result?.start, '2024-01-15T10:00:00Z');
+      assertEquals(result?.end, '2024-01-15T12:00:00Z');
+      assertEquals(result?.cancelled, false);
+    });
+
+    it('should handle cancelled meetings', () => {
+      const meetings: OparlMeeting[] = [
+        {
+          id: 'meeting-1',
+          type: 'meeting',
+          name: 'Cancelled Meeting',
+          organization: ['org-1'],
+          cancelled: true,
+        },
+      ];
+
+      const repository = new OparlMeetingsInMemoryRepository(meetings);
+      const result = repository.getMeetingById('meeting-1');
+
+      assertEquals(result?.id, 'meeting-1');
+      assertEquals(result?.cancelled, true);
+    });
+
+    it('should be case-sensitive when matching IDs', () => {
+      const meetings: OparlMeeting[] = [
+        {
+          id: 'meeting-1',
+          type: 'meeting',
+          name: 'Meeting 1',
+          organization: ['org-1'],
+        },
+      ];
+
+      const repository = new OparlMeetingsInMemoryRepository(meetings);
+      const result = repository.getMeetingById('MEETING-1');
+
+      assertEquals(result, null);
+    });
+
+    it('should handle special characters in IDs', () => {
+      const meetings: OparlMeeting[] = [
+        {
+          id: 'https://oparl.example.org/meeting/12345',
+          type: 'meeting',
+          name: 'Meeting with URL ID',
+          organization: ['org-1'],
+        },
+      ];
+
+      const repository = new OparlMeetingsInMemoryRepository(meetings);
+      const result = repository.getMeetingById('https://oparl.example.org/meeting/12345');
+
+      assertEquals(result?.id, 'https://oparl.example.org/meeting/12345');
+      assertEquals(result?.name, 'Meeting with URL ID');
+    });
+  });
+
   describe('getMeetingsByOrganization', () => {
     it('should return meetings matching the organization ID', () => {
       const meetings: OparlMeeting[] = [
