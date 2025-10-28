@@ -10,11 +10,11 @@ export class PaperAssetsStore implements IPaperAssetsStore {
   }
 
   writePaperAssets(papers: PaperAssetDto[]): void {
-    // Group papers in batches of 1000.
+    // Group papers in batches of 100.
     const grouped = papers
       .sort((a, b) => a.id - b.id)
       .reduce((acc, paper) => {
-        const batchNo = `${Math.floor(paper.id / 1000)}`.padStart(4, '0');
+        const batchNo = `${Math.floor(paper.id / 100)}`.padStart(4, '0');
         if (!acc[batchNo]) {
           acc[batchNo] = [];
         }

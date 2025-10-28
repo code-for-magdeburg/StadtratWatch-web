@@ -120,7 +120,7 @@ import Layout from '@layouts/Layout.astro';
         const queryParams = new URLSearchParams(location.search);
         const paperId = +(queryParams.get('paperId') || '0');
 
-        const batchNo = `${Math.floor(paperId / 1000)}`.padStart(4, '0');
+        const batchNo = `${Math.floor(paperId / 100)}`.padStart(4, '0');
 
         const batchResponse = await fetch(`${AWS_CLOUDFRONT_BASE_URL}/web-assets/papers/papers-${batchNo}.json`);
         const batch = await batchResponse.json() as Paper[];
