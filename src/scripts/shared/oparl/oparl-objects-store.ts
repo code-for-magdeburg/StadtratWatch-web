@@ -1,4 +1,11 @@
-import type { OparlAgendaItem, OparlConsultation, OparlFile, OparlMeeting, OparlPaper } from '../model/oparl.ts';
+import type {
+  OparlAgendaItem,
+  OparlConsultation,
+  OparlFile,
+  OparlMeeting,
+  OparlOrganization,
+  OparlPaper,
+} from '../model/oparl.ts';
 import * as path from '@std/path';
 
 export interface OparlObjectsStore {
@@ -7,6 +14,7 @@ export interface OparlObjectsStore {
   loadConsultations(): OparlConsultation[];
   loadPapers(): OparlPaper[];
   loadFiles(): OparlFile[];
+  loadOrganizations(): OparlOrganization[];
 }
 
 export class OparlObjectsFileStore implements OparlObjectsStore {
@@ -31,5 +39,9 @@ export class OparlObjectsFileStore implements OparlObjectsStore {
 
   public loadFiles(): OparlFile[] {
     return JSON.parse(Deno.readTextFileSync(path.join(this.directory, 'files.json'))) as OparlFile[];
+  }
+
+  public loadOrganizations(): OparlOrganization[] {
+    return JSON.parse(Deno.readTextFileSync(path.join(this.directory, 'organizations.json'))) as OparlOrganization[];
   }
 }
