@@ -131,6 +131,7 @@ docker run \
 
 
 ### Generate paper assets
+This tool converts OParl data into the internal paper asset format and generates metadata files for all council papers. It processes the scraped OParl data and creates JSON files in the specified output directory that are used by the web application.
 
 #### Build the docker image
 ```bash
