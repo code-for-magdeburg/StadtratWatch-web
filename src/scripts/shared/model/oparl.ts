@@ -46,3 +46,5 @@ export type OparlFile = OparlObject & {
   paper?: string[];
   accessUrl: string;
 };
+
+export type OparlOrganization = OparlObject;
