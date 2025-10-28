@@ -141,7 +141,6 @@ docker build -t srw-generate-paper-assets -f docker/generate-paper-assets.Docker
 ```shell
 docker run \
   --rm \
-  -e OPARL_COUNCIL_ORGANIZATION_ID=https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1 \
   -v $(pwd)/output/papers:/app/papers:ro \
   -v $(pwd)/data/papers:/app/generated \
   -v $(pwd)/output/ratsinfosystem:/app/oparl:ro \

@@ -3,7 +3,6 @@ import { PaperFilesStore } from './paper-files-store.ts';
 import { PaperAssetsGenerator } from './paper-assets-generator.ts';
 import { PaperAssetsStore } from './paper-assets-store.ts';
 import { OparlObjectsFileStore } from '../shared/oparl/oparl-objects-store.ts';
-import { tryGetGeneratePaperAssetsEnv } from './env.ts';
 import { OparlMeetingsInMemoryRepository } from '../shared/oparl/oparl-meetings-repository.ts';
 import { OparlPapersInMemoryRepository } from '../shared/oparl/oparl-papers-repository.ts';
 import { OparlFilesInMemoryRepository } from '../shared/oparl/oparl-files-repository.ts';
@@ -17,7 +16,6 @@ if (args.help) {
 
 checkArgs(args);
 
-const env = tryGetGeneratePaperAssetsEnv();
 const paperFilesStore = new PaperFilesStore(args.papersDir);
 const paperAssetsStore = new PaperAssetsStore(args.outputDir);
 const oparlObjectsStore = new OparlObjectsFileStore(args.ratsinfoDir);
@@ -29,7 +27,6 @@ const generator = new PaperAssetsGenerator(
   papersRepository,
   filesRepository,
   paperFilesStore,
-  env.councilOrganizationId,
 );
 const paperAssets = generator.generatePaperAssets();
 

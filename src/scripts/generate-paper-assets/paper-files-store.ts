@@ -1,16 +1,21 @@
 import * as fs from '@std/fs';
-import * as path from '@std/path';
 
 export interface IPaperFilesStore {
-  getFileSize(year: string, fileId: number): number | null;
+  getFileSize(fileId: number): number | null;
 }
 
 export class PaperFilesStore implements IPaperFilesStore {
-  constructor(private readonly papersDir: string) {}
+  private filesDict: Map<string, number> = new Map<string, number>();
 
-  getFileSize(year: string, fileId: number): number | null {
-    const paperFilename = path.join(this.papersDir, `${year}`, `${fileId}.pdf`);
+  constructor(private readonly papersDir: string) {
+    for (const entry of fs.walkSync(papersDir)) {
+      if (entry.isFile && entry.name.endsWith('.pdf')) {
+        this.filesDict.set(entry.name, Deno.statSync(entry.path).size);
+      }
+    }
+  }
 
-    return fs.existsSync(paperFilename) ? Deno.statSync(paperFilename).size : null;
+  getFileSize(fileId: number): number | null {
+    return this.filesDict.get(`${fileId}.pdf`) || null;
   }
 }
