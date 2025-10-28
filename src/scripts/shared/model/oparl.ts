@@ -33,10 +33,11 @@ export type OparlAgendaItem = OparlObject & {
 };
 
 export type OparlConsultation = OparlObject & {
-  meeting?: string;
-  paper?: string;
-  organization?: string[];
   agendaItem?: string;
+  meeting?: string;
+  organization?: string[];
+  paper?: string;
+  role?: string;
 };
 
 export type OparlPaper = OparlObject & {
