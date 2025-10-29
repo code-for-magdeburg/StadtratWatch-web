@@ -14,68 +14,122 @@ import Layout from '@layouts/Layout.astro';
         <span x-text="paper.type"></span>
       </div>
 
-      <div class="hidden md:block">
-        <div class="flex flex-row md:space-x-2 lg:space-x-4">
-          <div class="w-1/4">
+      <div
+        id="tabs"
+        role="tablist"
+        class="tabs tabs-lift"
+      >
+        <input
+          role="tab"
+          class="tab"
+          aria-label="Dokumente"
+          type="radio"
+          name="paper-tabs-radio"
+          checked
+        />
+        <div class="tab-content border-base-200 bg-base-100 p-6">
+          <div class="hidden md:block">
+            <div class="flex flex-row md:space-x-2 lg:space-x-4">
+              <div class="w-1/4">
+                <ul class="menu bg-base-200 w-full -mx-2 space-y-1 rounded-box">
+                  <template x-for="file in paper.files">
+                    <li @click="selectedFile !== file.id && selectFile(file.id)">
+                      <div
+                        class="flex flex-col items-start"
+                        :class="{ 'menu-active': selectedFile === file.id }"
+                      >
+                        <span x-text="file.name"></span>
+                        <span class="opacity-60" x-text="file.fileSizeDisplay"></span>
+                      </div>
+                    </li>
+                  </template>
+                </ul>
+              </div>
+              <div class="w-3/4">
+                <iframe
+                  x-show="fileSizeOk"
+                  :src="documentUrl"
+                  style="width: 100%; height: 90vh; border: 0"
+                  loading="lazy"
+                ></iframe>
+
+                <div
+                  x-show="!fileSizeOk"
+                  class="alert alert-soft alert-info"
+                >
+                  <span class="iconify lucide--info size-5"></span>
+                  <div class="flex flex-row items-center gap-2">
+                    <p>Die Datei ist zu groß, um hier angezeigt zu werden.</p>
+                    <a
+                      class="btn btn-primary"
+                      :href="documentUrl"
+                      target="_blank"
+                    >
+                      PDF herunterladen <span x-text="fileSizeDisplay"></span>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="md:hidden">
             <ul class="menu bg-base-200 w-full -mx-2 space-y-1 rounded-box">
               <template x-for="file in paper.files">
                 <li @click="selectedFile !== file.id && selectFile(file.id)">
-                  <div
+                  <a
                     class="flex flex-col items-start"
-                    :class="{ 'menu-active': selectedFile === file.id }"
+                    :href="file.url"
+                    target="_blank"
                   >
                     <span x-text="file.name"></span>
                     <span class="opacity-60" x-text="file.fileSizeDisplay"></span>
-                  </div>
+                  </a>
                 </li>
               </template>
             </ul>
           </div>
-          <div class="w-3/4">
-            <iframe
-              x-show="fileSizeOk"
-              :src="documentUrl"
-              style="width: 100%; height: 90vh; border: 0"
-              loading="lazy"
-            ></iframe>
+        </div>
 
-            <div
-              x-show="!fileSizeOk"
-              class="alert alert-soft alert-info"
-            >
-              <span class="iconify lucide--info size-5"></span>
-              <div class="flex flex-row items-center gap-2">
-                <p>Die Datei ist zu groß, um hier angezeigt zu werden.</p>
-                <a
-                  class="btn btn-primary"
-                  :href="documentUrl"
-                  target="_blank"
-                >
-                  PDF herunterladen <span x-text="fileSizeDisplay"></span>
-                </a>
-              </div>
-            </div>
-
-          </div>
+        <input
+          role="tab"
+          class="tab"
+          aria-label="Beratungen"
+          type="radio"
+          name="paper-tabs-radio"
+        />
+        <div class="tab-content border-base-200 bg-base-100 p-6">
+          <ul class="timeline timeline-vertical">
+            <template x-for="(consultation, index) in paper.consultations">
+              <li>
+                <hr x-show="index > 0" />
+                <div class="timeline-start me-3 w-full text-right">
+                  <span x-text="consultation.dateDisplay"></span>
+                </div>
+                <div class="timeline-middle">
+                  <div class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1" />
+                </div>
+                <div class="timeline-end timeline-box mt-5 ms-3 w-full space-y-2">
+                  <div class="text-base-content/70 space-x-1">
+                    <span>TOP</span>
+                    <span x-text="consultation.agendaItem"></span>
+                  </div>
+                  <div class="text-base" x-text="consultation.organization"></div>
+                  <div>
+                    <span
+                      class="badge badge-neutral badge-sm"
+                      x-text="consultation.result"
+                    ></span>
+                  </div>
+                </div>
+                <hr x-show="index < paper.consultations.length - 1" />
+              </li>
+            </template>
+          </ul>
         </div>
       </div>
 
-      <div class="md:hidden">
-        <ul class="menu bg-base-200 w-full -mx-2 space-y-1 rounded-box">
-          <template x-for="file in paper.files">
-            <li @click="selectedFile !== file.id && selectFile(file.id)">
-              <a
-                class="flex flex-col items-start"
-                :href="file.url"
-                target="_blank"
-              >
-                <span x-text="file.name"></span>
-                <span class="opacity-60" x-text="file.fileSizeDisplay"></span>
-              </a>
-            </li>
-          </template>
-        </ul>
-      </div>
     </div>
 
   </div>
@@ -93,12 +147,22 @@ import Layout from '@layouts/Layout.astro';
     size: number | null;
   };
 
+  type PaperConsultation = {
+    meeting: string;
+    date: string | null;
+    role: string | null;
+    organization: string;
+    agendaItem: string | null;
+    result: string | null;
+  };
+
   type Paper = {
     id: number;
     reference: string | null;
     type: string | null;
     title: string;
     files: PaperFile[];
+    consultations: PaperConsultation[];
   };
 
   document.addEventListener('alpine:init', () => {
@@ -109,7 +173,8 @@ import Layout from '@layouts/Layout.astro';
         reference: null,
         type: null,
         title: '',
-        files: []
+        files: [],
+        consultations: []
       } as Paper,
       selectedFile: null as number | null,
       documentUrl: null as string | null,
@@ -129,19 +194,21 @@ import Layout from '@layouts/Layout.astro';
         if (!paper) {
           console.error(`Paper with id ${paperId} not found.`);
         } else {
-
           this.paper = {
             ...paper,
             files: paper.files.map(file => ({
               ...file,
               fileSizeDisplay: `(${formatFileSize(file.size || 0)})`
+            })),
+            consultations: paper.consultations.reverse().map(consultation => ({
+              ...consultation,
+              dateDisplay: formatDate(consultation.date),
             }))
           };
           this.selectedFile = paper.files.length > 0 ? paper.files[0].id : null;
           this.documentUrl = paper.files.length > 0 ? paper.files[0].url : null;
           this.fileSizeOk = paper.files.length > 0 && (paper.files[0].size || 0) <= 1024 * 1024;
           this.fileSizeDisplay = formatFileSize(paper.files[0].size || 0);
-
         }
 
       },
@@ -178,6 +245,16 @@ import Layout from '@layouts/Layout.astro';
     }
 
     return `${fileSize.toFixed(2)} ${units[unitIndex]}`;
+  }
+
+  function formatDate(dateString: string | null) {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('de-DE', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    });
   }
 
 </script>
