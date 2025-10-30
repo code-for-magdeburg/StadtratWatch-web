@@ -5,10 +5,20 @@ export type PaperAssetFileDto = {
   size: number | null;
 };
 
+export type PaperAssetConsultationDto = {
+  meeting: string;
+  date: string | null;
+  role: string | null;
+  organization: string;
+  agendaItem: string | null;
+  result: string | null;
+};
+
 export type PaperAssetDto = {
   id: number;
   reference: string | null;
   type: string | null;
   title: string;
   files: PaperAssetFileDto[];
+  consultations: PaperAssetConsultationDto[];
 };
