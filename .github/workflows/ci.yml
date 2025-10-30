@@ -10,6 +10,7 @@ jobs:
   deno-checks:
     name: Deno Checks
     runs-on: ubuntu-latest
+    environment: CI
 
     steps:
       - name: Checkout code
@@ -36,6 +37,7 @@ jobs:
   astro-checks:
     name: Astro Checks
     runs-on: ubuntu-latest
+    environment: CI
 
     steps:
       - name: Checkout code
