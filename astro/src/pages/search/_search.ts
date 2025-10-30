@@ -62,7 +62,7 @@ export type SearchResult = {
 };
 
 export async function search(q: string, page: number): Promise<SearchResult> {
-  const searchParameters: SearchParams = {
+  const searchParameters: SearchParams<PaperAndSpeechDocumentSchema> = {
     q,
     query_by: 'paper_reference,paper_name,content',
     page,
