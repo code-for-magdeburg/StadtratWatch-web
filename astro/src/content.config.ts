@@ -66,9 +66,10 @@ const oparlAgendaItems = defineCollection({
 const oparlConsultations = defineCollection({
   loader: () => {
     console.log('C');
-    return JSON.parse(
+    return [] as OparlConsultation[];
+    /*return JSON.parse(
       fs.readFileSync('../data/oparl-magdeburg/consultations.json', 'utf8'),
-    ) as OparlConsultation[];
+    ) as OparlConsultation[];*/
   },
   schema: z.custom<OparlConsultation>(),
 });
