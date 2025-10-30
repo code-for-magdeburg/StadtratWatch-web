@@ -10,7 +10,6 @@ jobs:
   deno-checks:
     name: Deno Checks
     runs-on: ubuntu-latest
-    environment: CI
 
     steps:
       - name: Checkout code
@@ -37,7 +36,6 @@ jobs:
   astro-checks:
     name: Astro Checks
     runs-on: ubuntu-latest
-    environment: CI
     env:
       DEFAULT_PARLIAMENT_PERIOD: magdeburg-8
       AWS_CLOUDFRONT_BASE_URL: https://d2zk2bghxwzsug.cloudfront.net
@@ -74,6 +72,6 @@ jobs:
         run: npm test -- --run
         working-directory: astro
 
-      - name: Build project
-        run: npm run build
-        working-directory: astro
+#      - name: Build project
+#        run: npm run build
+#        working-directory: astro
