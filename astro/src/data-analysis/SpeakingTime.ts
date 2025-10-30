@@ -5,7 +5,11 @@ import type {
   RegistryPerson,
 } from '@models/registry.ts';
 import type { SessionInput } from '@models/SessionInput.ts';
-import { getPersonsOfSessionAndFaction, getPersonsOfSessionAndParty, isPersonInSession } from '@utils/session-utils.ts';
+import {
+  getPersonsOfSessionAndFaction,
+  getPersonsOfSessionAndParty,
+  isPersonInSession,
+} from '@utils/session-utils.ts';
 
 export function calcSpeakingTimeOfFaction(
   parliamentPeriod: Registry,
@@ -14,8 +18,11 @@ export function calcSpeakingTimeOfFaction(
 ): number {
   return sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndFaction(parliamentPeriod, session.session, faction)
-        .map((person) => person.name);
+      const persons = getPersonsOfSessionAndFaction(
+        parliamentPeriod,
+        session.session,
+        faction,
+      ).map((person) => person.name);
       return calcSpeakingTime(persons, session);
     })
     .reduce((acc, duration) => acc + duration, 0);
@@ -28,8 +35,11 @@ export function calcSpeakingTimeOfParty(
 ): number {
   return sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndParty(parliamentPeriod, session.session, party)
-        .map((person) => person.name);
+      const persons = getPersonsOfSessionAndParty(
+        parliamentPeriod,
+        session.session,
+        party,
+      ).map((person) => person.name);
       return calcSpeakingTime(persons, session);
     })
     .reduce((acc, duration) => acc + duration, 0);

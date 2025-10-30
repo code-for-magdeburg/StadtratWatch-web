@@ -46,10 +46,7 @@ const sessionSpeeches = defineCollection({
 const oparlMeetings = defineCollection({
   loader: () =>
     JSON.parse(
-      fs.readFileSync(
-        '../data/oparl-magdeburg/meetings.json',
-        'utf8'
-      ),
+      fs.readFileSync('../data/oparl-magdeburg/meetings.json', 'utf8'),
     ) as OparlMeeting[],
   schema: z.custom<OparlMeeting>(),
 });
@@ -57,10 +54,7 @@ const oparlMeetings = defineCollection({
 const oparlAgendaItems = defineCollection({
   loader: () =>
     JSON.parse(
-      fs.readFileSync(
-        '../data/oparl-magdeburg/agenda-items.json',
-        'utf8'
-      ),
+      fs.readFileSync('../data/oparl-magdeburg/agenda-items.json', 'utf8'),
     ) as OparlAgendaItem[],
   schema: z.custom<OparlAgendaItem>(),
 });
@@ -68,10 +62,7 @@ const oparlAgendaItems = defineCollection({
 const oparlConsultations = defineCollection({
   loader: () =>
     JSON.parse(
-      fs.readFileSync(
-        '../data/oparl-magdeburg/consultations.json',
-        'utf8'
-      ),
+      fs.readFileSync('../data/oparl-magdeburg/consultations.json', 'utf8'),
     ) as OparlConsultation[],
   schema: z.custom<OparlConsultation>(),
 });

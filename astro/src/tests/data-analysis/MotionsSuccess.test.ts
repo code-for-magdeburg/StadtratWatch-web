@@ -32,10 +32,7 @@ describe('MotionsSuccess', () => {
   });
 
   test('is null when no sessions are provided', () => {
-    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
-      faction1,
-      [],
-    );
+    const motionsSuccessRate = calcMotionsSuccessRateOfFaction(faction1, []);
 
     assert.isNull(motionsSuccessRate);
   });
@@ -46,7 +43,7 @@ describe('MotionsSuccess', () => {
         session: session1,
         votings: [],
         speeches: [],
-      }
+      },
     ];
 
     const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
@@ -72,11 +69,11 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction2.name],
             },
-            votes: []
-          }
+            votes: [],
+          },
         ],
         speeches: [],
-      }
+      },
     ];
 
     const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
@@ -102,11 +99,11 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction1.name],
             },
-            votes: []
-          }
+            votes: [],
+          },
         ],
         speeches: [],
-      }
+      },
     ];
 
     const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
@@ -132,13 +129,11 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction1.name],
             },
-            votes: [
-              { name: 'Member 1', vote: 'J' },
-            ]
-          }
+            votes: [{ name: 'Member 1', vote: 'J' }],
+          },
         ],
         speeches: [],
-      }
+      },
     ];
 
     const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
@@ -164,13 +159,11 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction1.name],
             },
-            votes: [
-              { name: 'Member 1', vote: 'N' },
-            ]
-          }
+            votes: [{ name: 'Member 1', vote: 'N' }],
+          },
         ],
         speeches: [],
-      }
+      },
     ];
 
     const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
@@ -196,9 +189,7 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction1.name],
             },
-            votes: [
-              { name: 'Member 1', vote: 'J' },
-            ]
+            votes: [{ name: 'Member 1', vote: 'J' }],
           },
           {
             votingFilename: 'voting-2',
@@ -210,9 +201,7 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction1.name],
             },
-            votes: [
-              { name: 'Member 1', vote: 'J' },
-            ]
+            votes: [{ name: 'Member 1', vote: 'J' }],
           },
           {
             votingFilename: 'voting-3',
@@ -224,9 +213,7 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction1.name],
             },
-            votes: [
-              { name: 'Member 1', vote: 'N' },
-            ]
+            votes: [{ name: 'Member 1', vote: 'N' }],
           },
           {
             votingFilename: 'voting-4',
@@ -238,9 +225,7 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction1.name],
             },
-            votes: [
-              { name: 'Member 1', vote: 'N' },
-            ]
+            votes: [{ name: 'Member 1', vote: 'N' }],
           },
           {
             votingFilename: 'voting-5',
@@ -252,13 +237,11 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction1.name],
             },
-            votes: [
-              { name: 'Member 1', vote: 'N' },
-            ]
-          }
+            votes: [{ name: 'Member 1', vote: 'N' }],
+          },
         ],
         speeches: [],
-      }
+      },
     ];
 
     const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
@@ -266,7 +249,7 @@ describe('MotionsSuccess', () => {
       sessions,
     );
 
-    assert.equal(motionsSuccessRate, .4);
+    assert.equal(motionsSuccessRate, 0.4);
   });
 
   test('counts partial votings proportionately', () => {
@@ -284,9 +267,7 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction1.name],
             },
-            votes: [
-              { name: 'Member 1', vote: 'J' },
-            ]
+            votes: [{ name: 'Member 1', vote: 'J' }],
           },
           {
             votingFilename: 'voting-2',
@@ -298,9 +279,7 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction1.name],
             },
-            votes: [
-              { name: 'Member 1', vote: 'J' },
-            ]
+            votes: [{ name: 'Member 1', vote: 'J' }],
           },
           {
             votingFilename: 'voting-3',
@@ -312,13 +291,11 @@ describe('MotionsSuccess', () => {
               type: 'Antrag',
               authors: [faction1.name],
             },
-            votes: [
-              { name: 'Member 1', vote: 'N' },
-            ]
-          }
+            votes: [{ name: 'Member 1', vote: 'N' }],
+          },
         ],
         speeches: [],
-      }
+      },
     ];
 
     const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
@@ -326,7 +303,6 @@ describe('MotionsSuccess', () => {
       sessions,
     );
 
-    assert.equal(motionsSuccessRate, .75);
+    assert.equal(motionsSuccessRate, 0.75);
   });
-
 });

@@ -2,7 +2,7 @@
 import PageLayout from '@layouts/PageLayout.astro';
 import {
   type ParliamentPeriodWithSessionsProps,
-  getParliamentPeriodWithSessionsPaths
+  getParliamentPeriodWithSessionsPaths,
 } from '../_helpers';
 import { type BreadcrumbItem } from '@components/BreadcrumbMenu.astro';
 import PersonsList from './_persons-list.astro';
@@ -17,12 +17,12 @@ const { parliamentPeriod, sessionInputs } =
 const breadcrumbItems: BreadcrumbItem[] = [
   {
     name: parliamentPeriod.name,
-    href: `/pp/${parliamentPeriodId}`
+    href: `/pp/${parliamentPeriodId}`,
   },
   {
     name: 'Personen',
-    href: null
-  }
+    href: null,
+  },
 ];
 ---
 
@@ -79,9 +79,7 @@ const breadcrumbItems: BreadcrumbItem[] = [
     Alpine.data('tabs', () => {
       const currentUrl = new URL(window.location.href);
       const currentTab = currentUrl.searchParams.get('tab') || 'list';
-      const tabsDivElement = document.getElementById(
-        'tabs'
-      ) as HTMLDivElement;
+      const tabsDivElement = document.getElementById('tabs') as HTMLDivElement;
       const parliamentPeriodId = tabsDivElement.dataset.parliamentPeriodId;
       return { currentTab, parliamentPeriodId };
     });

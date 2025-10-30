@@ -9,7 +9,7 @@ import { calcSpeakingTimeOfPerson } from '@data-analysis/SpeakingTime';
 import {
   formatAbstentionRate,
   formatParticipationRate,
-  formatVotingSuccessRate
+  formatVotingSuccessRate,
 } from '@utils/format-number';
 import { formatSpeakingTime } from '@utils/format-time';
 import { isPersonInSession } from '@utils/session-utils';
@@ -24,21 +24,23 @@ const { parliamentPeriod, sessionInputs } = Astro.props as Props;
 const persons = parliamentPeriod.persons
   .map((person) => {
     const faction = parliamentPeriod.factions.find(
-      (faction) => faction.id === person.factionId
+      (faction) => faction.id === person.factionId,
     )!.name;
     const party =
       parliamentPeriod.parties.find((party) => party.id === person.partyId)
         ?.name || 'parteilos';
 
-    const relevantSessions = sessionInputs.filter((session) => isPersonInSession(person, session.session));
+    const relevantSessions = sessionInputs.filter((session) =>
+      isPersonInSession(person, session.session),
+    );
 
     const participationRate = calcParticipationRateOfPerson(
       person,
-      relevantSessions
+      relevantSessions,
     );
     const votingSuccessRate = calcVotingSuccessRateOfPerson(
       person,
-      relevantSessions
+      relevantSessions,
     );
     const abstentionRate = calcAbstentionRateOfPerson(person, relevantSessions);
     const speakingTime = calcSpeakingTimeOfPerson(person, relevantSessions);
@@ -57,11 +59,12 @@ const persons = parliamentPeriod.persons
       abstentionRate,
       abstentionRateDisplay: formatAbstentionRate(abstentionRate),
       speakingTime,
-      speakingTimeDisplay: formatSpeakingTime(speakingTime)
+      speakingTimeDisplay: formatSpeakingTime(speakingTime),
     } satisfies PersonListItem;
   })
   .toSorted((a, b) => a.name.localeCompare(b.name));
 ---
+
 <div
   id="persons-list"
   class="overflow-x-auto"
@@ -71,101 +74,99 @@ const persons = parliamentPeriod.persons
 >
   <table class="table">
     <thead>
-    <tr>
-      <th class="px-0">
-        <button
-          class="btn btn-ghost btn-block flex justify-between"
-          @click="sortTextColumn('name', (person) => person.name)"
-        >
-          <span class="text-left">Name</span>
-          <span class="iconify lucide--chevrons-up-down"></span>
-        </button>
-      </th>
-      <th class="px-0">
-        <button
-          class="btn btn-ghost btn-block flex justify-between"
-          @click="sortTextColumn('faction', (person) => person.faction)"
-        >
-          <span class="text-left">Fraktion</span>
-          <span class="iconify lucide--chevrons-up-down"></span>
-        </button>
-      </th>
-      <th class="px-0">
-        <button
-          class="btn btn-ghost btn-block flex justify-between"
-          @click="sortTextColumn('party', (person) => person.party)"
-        >
-          <span class="text-left">Partei</span>
-          <span class="iconify lucide--chevrons-up-down"></span>
-        </button>
-      </th>
-      <th class="px-0">
-        <button
-          class="btn btn-ghost btn-block flex justify-between"
-          @click="sortNumberColumn('participationRate', (person) => person.participationRate)"
-        >
-          <span class="text-left">abgestimmt</span>
-          <span class="iconify lucide--chevrons-up-down"></span>
-        </button>
-      </th>
-      <th class="px-0">
-        <button
-          class="btn btn-ghost btn-block flex justify-between"
-          @click="sortNumberColumn('votingSuccessRate', (person) => person.votingSuccessRate)"
-        >
-          <span class="text-left">Abstimmungserfolg</span>
-          <span class="iconify lucide--chevrons-up-down"></span>
-        </button>
-      </th>
-      <th class="px-0">
-        <button
-          class="btn btn-ghost btn-block flex justify-between"
-          @click="sortNumberColumn('abstentionRate', (person) => person.abstentionRate)"
-        >
-          <span class="text-left">Stimmenthaltungen</span>
-          <span class="iconify lucide--chevrons-up-down"></span>
-        </button>
-      </th>
-      <th class="px-0">
-        <button
-          class="btn btn-ghost btn-block flex justify-between"
-          @click="sortNumberColumn('speakingTime', (person) => person.speakingTime)"
-        >
-          <span class="text-left">Redezeit</span>
-          <span class="iconify lucide--chevrons-up-down"></span>
-        </button>
-      </th>
-    </tr>
+      <tr>
+        <th class="px-0">
+          <button
+            class="btn btn-ghost btn-block flex justify-between"
+            @click="sortTextColumn('name', (person) => person.name)"
+          >
+            <span class="text-left">Name</span>
+            <span class="iconify lucide--chevrons-up-down"></span>
+          </button>
+        </th>
+        <th class="px-0">
+          <button
+            class="btn btn-ghost btn-block flex justify-between"
+            @click="sortTextColumn('faction', (person) => person.faction)"
+          >
+            <span class="text-left">Fraktion</span>
+            <span class="iconify lucide--chevrons-up-down"></span>
+          </button>
+        </th>
+        <th class="px-0">
+          <button
+            class="btn btn-ghost btn-block flex justify-between"
+            @click="sortTextColumn('party', (person) => person.party)"
+          >
+            <span class="text-left">Partei</span>
+            <span class="iconify lucide--chevrons-up-down"></span>
+          </button>
+        </th>
+        <th class="px-0">
+          <button
+            class="btn btn-ghost btn-block flex justify-between"
+            @click="sortNumberColumn('participationRate', (person) => person.participationRate)"
+          >
+            <span class="text-left">abgestimmt</span>
+            <span class="iconify lucide--chevrons-up-down"></span>
+          </button>
+        </th>
+        <th class="px-0">
+          <button
+            class="btn btn-ghost btn-block flex justify-between"
+            @click="sortNumberColumn('votingSuccessRate', (person) => person.votingSuccessRate)"
+          >
+            <span class="text-left">Abstimmungserfolg</span>
+            <span class="iconify lucide--chevrons-up-down"></span>
+          </button>
+        </th>
+        <th class="px-0">
+          <button
+            class="btn btn-ghost btn-block flex justify-between"
+            @click="sortNumberColumn('abstentionRate', (person) => person.abstentionRate)"
+          >
+            <span class="text-left">Stimmenthaltungen</span>
+            <span class="iconify lucide--chevrons-up-down"></span>
+          </button>
+        </th>
+        <th class="px-0">
+          <button
+            class="btn btn-ghost btn-block flex justify-between"
+            @click="sortNumberColumn('speakingTime', (person) => person.speakingTime)"
+          >
+            <span class="text-left">Redezeit</span>
+            <span class="iconify lucide--chevrons-up-down"></span>
+          </button>
+        </th>
+      </tr>
     </thead>
     <tbody>
-    <template x-for="person in persons">
-      <tr>
-        <td>
-          <a
-            :href="`/pp/${parliamentPeriodId}/person/${person.id}`"
-            class="link link-primary"
-            x-text="person.name"></a>
-        </td>
-        <td>
-          <a
-            :href="`/pp/${parliamentPeriodId}/faction/${person.factionId}`"
-            class="link link-primary"
-            x-text="person.faction"></a>
-        </td>
-        <td>
-          <a
-            :href="`/pp/${parliamentPeriodId}/party/${person.partyId}`"
-            class="link link-primary"
-            x-text="person.party"></a>
-        </td>
-        <td class="text-right" x-text="person.participationRateDisplay"
-        ></td>
-        <td class="text-right" x-text="person.votingSuccessRateDisplay"
-        ></td>
-        <td class="text-right" x-text="person.abstentionRateDisplay"></td>
-        <td class="text-right" x-text="person.speakingTimeDisplay"></td>
-      </tr>
-    </template>
+      <template x-for="person in persons">
+        <tr>
+          <td>
+            <a
+              :href="`/pp/${parliamentPeriodId}/person/${person.id}`"
+              class="link link-primary"
+              x-text="person.name"></a>
+          </td>
+          <td>
+            <a
+              :href="`/pp/${parliamentPeriodId}/faction/${person.factionId}`"
+              class="link link-primary"
+              x-text="person.faction"></a>
+          </td>
+          <td>
+            <a
+              :href="`/pp/${parliamentPeriodId}/party/${person.partyId}`"
+              class="link link-primary"
+              x-text="person.party"></a>
+          </td>
+          <td class="text-right" x-text="person.participationRateDisplay"></td>
+          <td class="text-right" x-text="person.votingSuccessRateDisplay"></td>
+          <td class="text-right" x-text="person.abstentionRateDisplay"></td>
+          <td class="text-right" x-text="person.speakingTimeDisplay"></td>
+        </tr>
+      </template>
     </tbody>
   </table>
 </div>
@@ -177,48 +178,49 @@ const persons = parliamentPeriod.persons
   document.addEventListener('alpine:init', () => {
     Alpine.data('persons', () => {
       const personsListDivElement = document.getElementById(
-        'persons-list'
+        'persons-list',
       ) as HTMLTableElement;
       const persons = JSON.parse(
-        personsListDivElement.dataset.persons || '[]'
+        personsListDivElement.dataset.persons || '[]',
       ) as PersonListItem[];
-      const parliamentPeriodId = personsListDivElement.dataset.parliamentPeriodId;
+      const parliamentPeriodId =
+        personsListDivElement.dataset.parliamentPeriodId;
 
       return {
         parliamentPeriodId,
         persons,
-        sortTextColumn: function(
+        sortTextColumn: function (
           column: string,
-          getText: (person: PersonListItem) => string
+          getText: (person: PersonListItem) => string,
         ) {
           this._updateSortColumn(column);
           this.persons.sort((a, b) =>
             this._sortedDesc
               ? getText(b).localeCompare(getText(a))
-              : getText(a).localeCompare(getText(b))
+              : getText(a).localeCompare(getText(b)),
           );
         },
-        sortNumberColumn: function(
+        sortNumberColumn: function (
           column: string,
-          getNumber: (person: PersonListItem) => number | null
+          getNumber: (person: PersonListItem) => number | null,
         ) {
           this._updateSortColumn(column);
           this.persons.sort((a, b) =>
             this._sortedDesc
               ? (getNumber(a) || 0) - (getNumber(b) || 0)
-              : (getNumber(b) || 0) - (getNumber(a) || 0)
+              : (getNumber(b) || 0) - (getNumber(a) || 0),
           );
         },
         _sortedColumn: 'name',
         _sortedDesc: false,
-        _updateSortColumn: function(column: string) {
+        _updateSortColumn: function (column: string) {
           if (this._sortedColumn === column) {
             this._sortedDesc = !this._sortedDesc;
           } else {
             this._sortedColumn = column;
             this._sortedDesc = false;
           }
-        }
+        },
       };
     });
   });

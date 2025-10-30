@@ -13,7 +13,7 @@ const persons = parliamentPeriod.persons
   .filter((person) => person.partyId === party.id)
   .map((person) => ({
     ...person,
-    party: getPartyName(person.partyId)
+    party: getPartyName(person.partyId),
   }))
   .toSorted((a, b) => {
     if (a.end && !b.end) {
@@ -46,13 +46,11 @@ function getPartyName(partyId: string) {
           <div class="text-base-content/70 mt-2 flex items-center text-xs">
             {person.party}
           </div>
-          {
-            person.end && (
-              <div class="text-base-content/70 mt-2 flex items-center text-xs">
-                Ratsmitglied bis {formatDate(person.end)}
-              </div>
-            )
-          }
+          {person.end && (
+            <div class="text-base-content/70 mt-2 flex items-center text-xs">
+              Ratsmitglied bis {formatDate(person.end)}
+            </div>
+          )}
         </div>
       </a>
     ))

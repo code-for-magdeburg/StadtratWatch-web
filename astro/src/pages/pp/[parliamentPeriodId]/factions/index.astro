@@ -2,7 +2,7 @@
 import PageLayout from '@layouts/PageLayout.astro';
 import {
   type ParliamentPeriodWithSessionsProps,
-  getParliamentPeriodWithSessionsPaths
+  getParliamentPeriodWithSessionsPaths,
 } from '../_helpers';
 import { calcMotionsSuccessRateOfFaction } from '@data-analysis/MotionsSuccess';
 import { calcVotingSuccessRateOfFaction } from '@data-analysis/VotingSuccess';
@@ -15,7 +15,7 @@ import {
   formatMotionsSuccessRate,
   formatParticipationRate,
   formatUniformityScore,
-  formatVotingSuccessRate
+  formatVotingSuccessRate,
 } from '@utils/format-number';
 import { formatSpeakingTime } from '@utils/format-time';
 import { type ChartDataPoint, type FactionListItem } from './_models';
@@ -30,37 +30,45 @@ const { parliamentPeriod, sessionInputs } =
 const breadcrumbItems: BreadcrumbItem[] = [
   {
     name: parliamentPeriod.name,
-    href: `/pp/${parliamentPeriodId}`
+    href: `/pp/${parliamentPeriodId}`,
   },
   {
     name: 'Fraktionen',
-    href: null
-  }
+    href: null,
+  },
 ];
 
 const factions = parliamentPeriod.factions
   .map<FactionListItem>((faction) => {
     const motionsSuccessRate = calcMotionsSuccessRateOfFaction(
       faction,
-      sessionInputs
+      sessionInputs,
     );
     const votingSuccessRate = calcVotingSuccessRateOfFaction(
       parliamentPeriod,
       faction,
-      sessionInputs
+      sessionInputs,
     );
     const uniformityScore = calcUniformityScoreOfFaction(
       parliamentPeriod,
       faction,
-      sessionInputs
+      sessionInputs,
     );
     const participationRate = calcParticipationRateOfFaction(
       parliamentPeriod,
       faction,
-      sessionInputs
+      sessionInputs,
     );
-    const abstentionRate = calcAbstentionRateOfFaction(parliamentPeriod, faction, sessionInputs);
-    const speakingTime = calcSpeakingTimeOfFaction(parliamentPeriod, faction, sessionInputs);
+    const abstentionRate = calcAbstentionRateOfFaction(
+      parliamentPeriod,
+      faction,
+      sessionInputs,
+    );
+    const speakingTime = calcSpeakingTimeOfFaction(
+      parliamentPeriod,
+      faction,
+      sessionInputs,
+    );
     return {
       id: faction.id,
       name: faction.name,
@@ -76,56 +84,56 @@ const factions = parliamentPeriod.factions
       abstentionRate,
       abstentionRateDisplay: formatAbstentionRate(abstentionRate),
       speakingTime,
-      speakingTimeDisplay: formatSpeakingTime(speakingTime)
+      speakingTimeDisplay: formatSpeakingTime(speakingTime),
     } satisfies FactionListItem;
   })
   .toSorted((a, b) => b.seats - a.seats);
 
 const votingSuccessRateChartData: ChartDataPoint[] = factions
-  .map(faction => ({
+  .map((faction) => ({
     value: faction.votingSuccessRate || 0,
     factionId: faction.id,
-    label: `${faction.name} ${faction.votingSuccessRateDisplay}`
+    label: `${faction.name} ${faction.votingSuccessRateDisplay}`,
   }))
   .toSorted((a, b) => b.value - a.value);
 
 const uniformityScoreChartData: ChartDataPoint[] = factions
-  .map(faction => ({
+  .map((faction) => ({
     value: faction.uniformityScore || 0,
     factionId: faction.id,
-    label: `${faction.name} ${faction.uniformityScoreDisplay}`
+    label: `${faction.name} ${faction.uniformityScoreDisplay}`,
   }))
   .toSorted((a, b) => b.value - a.value);
 
 const participationRateChartData: ChartDataPoint[] = factions
-  .map(faction => ({
+  .map((faction) => ({
     value: faction.participationRate || 0,
     factionId: faction.id,
-    label: `${faction.name} ${faction.participationRateDisplay}`
+    label: `${faction.name} ${faction.participationRateDisplay}`,
   }))
   .toSorted((a, b) => b.value - a.value);
 
 const abstentionRateChartData: ChartDataPoint[] = factions
-  .map(faction => ({
+  .map((faction) => ({
     value: faction.abstentionRate || 0,
     factionId: faction.id,
-    label: `${faction.name} ${faction.abstentionRateDisplay}`
+    label: `${faction.name} ${faction.abstentionRateDisplay}`,
   }))
   .toSorted((a, b) => b.value - a.value);
 
 const motionsSuccessRateChartData: ChartDataPoint[] = factions
-  .map(faction => ({
+  .map((faction) => ({
     value: faction.motionsSuccessRate || 0,
     factionId: faction.id,
-    label: `${faction.name} ${faction.motionsSuccessRateDisplay}`
+    label: `${faction.name} ${faction.motionsSuccessRateDisplay}`,
   }))
   .toSorted((a, b) => b.value - a.value);
 
 const speakingTimesChartData: ChartDataPoint[] = factions
-  .map(faction => ({
+  .map((faction) => ({
     value: faction.speakingTime,
     factionId: faction.id,
-    label: `${faction.name} ${faction.speakingTimeDisplay}`
+    label: `${faction.name} ${faction.speakingTimeDisplay}`,
   }))
   .toSorted((a, b) => b.value - a.value);
 
@@ -137,7 +145,6 @@ const barHeight = factions.length * 40;
   parliamentPeriod={parliamentPeriod}
   breadcrumbItems={breadcrumbItems}
 >
-
   <div class="space-y-3">
     <div class="bg-base-100 border border-base-200 rounded-box">
       <div class="overflow-x-auto">
@@ -148,99 +155,106 @@ const barHeight = factions.length * 40;
           data-factions={JSON.stringify(factions)}
         >
           <thead>
-          <tr>
-            <th class="px-0">
-              <button
-                class="btn btn-ghost btn-block flex justify-between"
-                @click="sortTextColumn('name', (faction) => faction.name)"
-              >
-                <span class="text-left">Name</span>
-                <span class="iconify lucide--chevrons-up-down"></span>
-              </button>
-            </th>
-            <th class="px-0">
-              <button
-                class="btn btn-ghost btn-block flex justify-between"
-                @click="sortNumberColumn('seats', (faction) => faction.seats)"
-              >
-                <span class="grow">Sitze</span>
-                <span class="iconify lucide--chevrons-up-down"></span>
-              </button>
-            </th>
-            <th class="px-0">
-              <button
-                class="btn btn-ghost btn-block flex justify-between"
-                @click="sortNumberColumn('votingSuccessRate', (faction) => faction.votingSuccessRate)"
-              >
-                <span class="grow">Abstimmungserfolg</span>
-                <span class="iconify lucide--chevrons-up-down"></span>
-              </button>
-            </th>
-            <th class="px-0">
-              <button
-                class="btn btn-ghost btn-block flex justify-between"
-                @click="sortNumberColumn('uniformityScore', (faction) => faction.uniformityScore)"
-              >
-                <span class="grow">Geschlossenheit</span>
-                <span class="iconify lucide--chevrons-up-down"></span>
-              </button>
-            </th>
-            <th class="px-0">
-              <button
-                class="btn btn-ghost btn-block flex justify-between"
-                @click="sortNumberColumn('participationRate', (faction) => faction.participationRate)"
-              >
-                <span class="grow">Abstimmungsteilnahme</span>
-                <span class="iconify lucide--chevrons-up-down"></span>
-              </button>
-            </th>
-            <th class="px-0">
-              <button
-                class="btn btn-ghost btn-block flex justify-between"
-                @click="sortNumberColumn('abstentionRate', faction => faction.abstentionRate)"
-              >
-                <span class="grow">Stimmenthaltungen</span>
-                <span class="iconify lucide--chevrons-up-down"></span>
-              </button>
-            </th>
-            <th class="px-0">
-              <button
-                class="btn btn-ghost btn-block flex justify-between"
-                @click="sortNumberColumn('motionsSuccessRate', faction => faction.motionsSuccessRate)"
-              >
-                <span class="grow">Erfolgreiche Anträge</span>
-                <span class="iconify lucide--chevrons-up-down"></span>
-              </button>
-            </th>
-            <th class="px-0">
-              <button
-                class="btn btn-ghost btn-block flex justify-between"
-                @click="sortNumberColumn('speakingTime', faction => faction.speakingTime)"
-              >
-                <span class="grow">Redezeit</span>
-                <span class="iconify lucide--chevrons-up-down"></span>
-              </button>
-            </th>
-          </tr>
+            <tr>
+              <th class="px-0">
+                <button
+                  class="btn btn-ghost btn-block flex justify-between"
+                  @click="sortTextColumn('name', (faction) => faction.name)"
+                >
+                  <span class="text-left">Name</span>
+                  <span class="iconify lucide--chevrons-up-down"></span>
+                </button>
+              </th>
+              <th class="px-0">
+                <button
+                  class="btn btn-ghost btn-block flex justify-between"
+                  @click="sortNumberColumn('seats', (faction) => faction.seats)"
+                >
+                  <span class="grow">Sitze</span>
+                  <span class="iconify lucide--chevrons-up-down"></span>
+                </button>
+              </th>
+              <th class="px-0">
+                <button
+                  class="btn btn-ghost btn-block flex justify-between"
+                  @click="sortNumberColumn('votingSuccessRate', (faction) => faction.votingSuccessRate)"
+                >
+                  <span class="grow">Abstimmungserfolg</span>
+                  <span class="iconify lucide--chevrons-up-down"></span>
+                </button>
+              </th>
+              <th class="px-0">
+                <button
+                  class="btn btn-ghost btn-block flex justify-between"
+                  @click="sortNumberColumn('uniformityScore', (faction) => faction.uniformityScore)"
+                >
+                  <span class="grow">Geschlossenheit</span>
+                  <span class="iconify lucide--chevrons-up-down"></span>
+                </button>
+              </th>
+              <th class="px-0">
+                <button
+                  class="btn btn-ghost btn-block flex justify-between"
+                  @click="sortNumberColumn('participationRate', (faction) => faction.participationRate)"
+                >
+                  <span class="grow">Abstimmungsteilnahme</span>
+                  <span class="iconify lucide--chevrons-up-down"></span>
+                </button>
+              </th>
+              <th class="px-0">
+                <button
+                  class="btn btn-ghost btn-block flex justify-between"
+                  @click="sortNumberColumn('abstentionRate', faction => faction.abstentionRate)"
+                >
+                  <span class="grow">Stimmenthaltungen</span>
+                  <span class="iconify lucide--chevrons-up-down"></span>
+                </button>
+              </th>
+              <th class="px-0">
+                <button
+                  class="btn btn-ghost btn-block flex justify-between"
+                  @click="sortNumberColumn('motionsSuccessRate', faction => faction.motionsSuccessRate)"
+                >
+                  <span class="grow">Erfolgreiche Anträge</span>
+                  <span class="iconify lucide--chevrons-up-down"></span>
+                </button>
+              </th>
+              <th class="px-0">
+                <button
+                  class="btn btn-ghost btn-block flex justify-between"
+                  @click="sortNumberColumn('speakingTime', faction => faction.speakingTime)"
+                >
+                  <span class="grow">Redezeit</span>
+                  <span class="iconify lucide--chevrons-up-down"></span>
+                </button>
+              </th>
+            </tr>
           </thead>
           <tbody>
-          <template x-for="faction in factions">
-            <tr>
-              <td>
-                <a
-                  :href="`/pp/${parliamentPeriodId}/faction/${faction.id}`"
-                  class="link link-primary"
-                  x-text="faction.name"></a>
-              </td>
-              <td class="text-right" x-text="faction.seats"></td>
-              <td class="text-right" x-text="faction.votingSuccessRateDisplay"></td>
-              <td class="text-right" x-text="faction.uniformityScoreDisplay"></td>
-              <td class="text-right" x-text="faction.participationRateDisplay"></td>
-              <td class="text-right" x-text="faction.abstentionRateDisplay"></td>
-              <td class="text-right" x-text="faction.motionsSuccessRateDisplay"></td>
-              <td class="text-right" x-text="faction.speakingTimeDisplay"></td>
-            </tr>
-          </template>
+            <template x-for="faction in factions">
+              <tr>
+                <td>
+                  <a
+                    :href="`/pp/${parliamentPeriodId}/faction/${faction.id}`"
+                    class="link link-primary"
+                    x-text="faction.name"></a>
+                </td>
+                <td class="text-right" x-text="faction.seats"></td>
+                <td class="text-right" x-text="faction.votingSuccessRateDisplay"
+                ></td>
+                <td class="text-right" x-text="faction.uniformityScoreDisplay"
+                ></td>
+                <td class="text-right" x-text="faction.participationRateDisplay"
+                ></td>
+                <td class="text-right" x-text="faction.abstentionRateDisplay"
+                ></td>
+                <td
+                  class="text-right"
+                  x-text="faction.motionsSuccessRateDisplay"></td>
+                <td class="text-right" x-text="faction.speakingTimeDisplay"
+                ></td>
+              </tr>
+            </template>
           </tbody>
         </table>
       </div>
@@ -386,7 +400,6 @@ const barHeight = factions.length * 40;
       </div>
     </div>
   </div>
-
 </PageLayout>
 
 <script>
@@ -397,95 +410,97 @@ const barHeight = factions.length * 40;
 
   document.addEventListener('alpine:init', () => {
     const factionsTableElement = document.querySelector(
-      '[data-factions]'
+      '[data-factions]',
     ) as HTMLTableElement;
     const factions = JSON.parse(
-      factionsTableElement.dataset.factions || '[]'
+      factionsTableElement.dataset.factions || '[]',
     ) as FactionListItem[];
     const parliamentPeriodId = factionsTableElement.dataset.parliamentPeriodId;
 
     Alpine.data('factions', () => ({
       parliamentPeriodId,
       factions,
-      sortTextColumn: function(
+      sortTextColumn: function (
         column: string,
-        getText: (faction: FactionListItem) => string
+        getText: (faction: FactionListItem) => string,
       ) {
         this._updateSortColumn(column);
         this.factions.sort((a, b) =>
           this._sortedDesc
             ? getText(b).localeCompare(getText(a))
-            : getText(a).localeCompare(getText(b))
+            : getText(a).localeCompare(getText(b)),
         );
       },
-      sortNumberColumn: function(
+      sortNumberColumn: function (
         column: string,
-        getNumber: (faction: FactionListItem) => number | null
+        getNumber: (faction: FactionListItem) => number | null,
       ) {
         this._updateSortColumn(column);
         this.factions.sort((a, b) =>
           this._sortedDesc
             ? (getNumber(a) || 0) - (getNumber(b) || 0)
-            : (getNumber(b) || 0) - (getNumber(a) || 0)
+            : (getNumber(b) || 0) - (getNumber(a) || 0),
         );
       },
       _sortedColumn: 'seats',
       _sortedDesc: false,
-      _updateSortColumn: function(column: string) {
+      _updateSortColumn: function (column: string) {
         if (this._sortedColumn === column) {
           this._sortedDesc = !this._sortedDesc;
         } else {
           this._sortedColumn = column;
           this._sortedDesc = false;
         }
-      }
+      },
     }));
   });
 
   createChart(
     'voting-success-rate-chart-container',
     'voting-success-rate-chart',
-    'Abstimmungserfolg'
+    'Abstimmungserfolg',
   );
 
   createChart(
     'uniformity-score-chart-container',
     'uniformity-score-chart',
-    'Geschlossenheit'
+    'Geschlossenheit',
   );
 
   createChart(
     'participation-rate-chart-container',
     'participation-rate-chart',
-    'Abstimmungsteilnahme'
+    'Abstimmungsteilnahme',
   );
 
   createChart(
     'abstention-rate-chart-container',
     'abstention-rate-chart',
-    'Stimmenthaltungen'
+    'Stimmenthaltungen',
   );
 
   createChart(
     'motions-success-rate-chart-container',
     'motions-success-rate-chart',
-    'Erfolgreiche Anträge'
+    'Erfolgreiche Anträge',
   );
 
   createChart(
     'speaking-time-chart-container',
     'speaking-times-chart',
-    'Redezeiten'
+    'Redezeiten',
   );
 
-  function createChart(chartContainerElementId: string, chartElementId: string,
-                       label: string) {
-
+  function createChart(
+    chartContainerElementId: string,
+    chartElementId: string,
+    label: string,
+  ) {
     const chartContainerDiv = document.getElementById(
-      chartContainerElementId
+      chartContainerElementId,
     ) as HTMLDivElement;
     const data = JSON.parse(
-      chartContainerDiv.dataset.chartData || '[]'
+      chartContainerDiv.dataset.chartData || '[]',
     ) as ChartDataPoint[];
     const parliamentPeriodId = chartContainerDiv.dataset.parliamentPeriodId;
 
@@ -500,15 +515,15 @@ const barHeight = factions.length * 40;
               data,
               parsing: {
                 xAxisKey: 'value',
-                yAxisKey: 'label'
+                yAxisKey: 'label',
               },
               borderWidth: 1,
               backgroundColor: ['#167bff30'],
               borderColor: ['#167bff'],
               borderRadius: 5,
-              animation: false
-            }
-          ]
+              animation: false,
+            },
+          ],
         },
         options: {
           responsive: true,
@@ -518,32 +533,33 @@ const barHeight = factions.length * 40;
             x: {
               display: false,
               ticks: {
-                display: false
-              }
+                display: false,
+              },
             },
             y: {
               beginAtZero: true,
               grid: {
                 display: false,
-                drawTicks: false
+                drawTicks: false,
               },
               ticks: {
                 mirror: true,
                 z: 1,
-                color: '#167bff'
-              }
-            }
+                color: '#167bff',
+              },
+            },
           },
-          plugins: { legend: { display: false } }
-        }
-      });
+          plugins: { legend: { display: false } },
+        },
+      },
+    );
 
     chart.ctx.canvas.onmousemove = (evt) => {
       const points = chart.getElementsAtEventForMode(
         evt,
         'y',
         { intersect: false },
-        true
+        true,
       );
       if (points.length) {
         const firstPoint = points[0];
@@ -561,7 +577,7 @@ const barHeight = factions.length * 40;
         evt,
         'y',
         { intersect: false },
-        true
+        true,
       );
       if (points.length) {
         const firstPoint = points[0];
@@ -574,5 +590,4 @@ const barHeight = factions.length * 40;
       }
     };
   }
-
 </script>

@@ -7,7 +7,11 @@ import type {
 } from '@models/registry.ts';
 import type { SessionScanItem } from '@models/session-scan.ts';
 import { VoteResult } from '@models/Session.ts';
-import { getPersonsOfSessionAndFaction, getPersonsOfSessionAndParty, isPersonInSession } from '@utils/session-utils.ts';
+import {
+  getPersonsOfSessionAndFaction,
+  getPersonsOfSessionAndParty,
+  isPersonInSession,
+} from '@utils/session-utils.ts';
 
 export type HistoryDataPoint = {
   date: string;
@@ -21,9 +25,14 @@ export function calcParticipationRateOfFaction(
 ): number | null {
   const participationRates = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndFaction(parliamentPeriod, session.session, faction)
-        .map((person) => person.name);
-      return session.votings.map((voting) => calcParticipationRate(persons, voting));
+      const persons = getPersonsOfSessionAndFaction(
+        parliamentPeriod,
+        session.session,
+        faction,
+      ).map((person) => person.name);
+      return session.votings.map((voting) =>
+        calcParticipationRate(persons, voting),
+      );
     })
     .filter((rate) => rate !== null)
     .map((rate) => rate!);
@@ -43,7 +52,11 @@ export function calcParticipationRateHistoryOfFaction(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcParticipationRateOfFaction(parliamentPeriod, faction, pastSessions);
+      const value = calcParticipationRateOfFaction(
+        parliamentPeriod,
+        faction,
+        pastSessions,
+      );
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
@@ -58,8 +71,11 @@ export function calcParticipationRateOfParty(
 ): number | null {
   const participationRates = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndParty(parliamentPeriod, session.session, party)
-        .map((person) => person.name);
+      const persons = getPersonsOfSessionAndParty(
+        parliamentPeriod,
+        session.session,
+        party,
+      ).map((person) => person.name);
       return session.votings.map((voting) =>
         calcParticipationRate(persons, voting),
       );
@@ -82,7 +98,11 @@ export function calcParticipationRateHistoryOfParty(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcParticipationRateOfParty(parliamentPeriod, party, pastSessions);
+      const value = calcParticipationRateOfParty(
+        parliamentPeriod,
+        party,
+        pastSessions,
+      );
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
@@ -95,7 +115,7 @@ export function calcParticipationRateOfPerson(
   sessions: SessionInput[],
 ): number | null {
   const participationRates = sessions
-    .filter(session => isPersonInSession(person, session.session))
+    .filter((session) => isPersonInSession(person, session.session))
     .flatMap((session) => session.votings)
     .map((voting) => calcParticipationRate([person.name], voting))
     .filter((rate) => rate !== null)

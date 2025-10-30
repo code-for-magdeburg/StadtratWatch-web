@@ -2,7 +2,7 @@
 import PageLayout from '@layouts/PageLayout.astro';
 import {
   type ParliamentPeriodWithSessionsProps,
-  getParliamentPeriodWithSessionsPaths
+  getParliamentPeriodWithSessionsPaths,
 } from './_helpers';
 import { formatDate } from '@utils/format-date';
 import { formatNumber } from '@utils/format-number';
@@ -11,35 +11,44 @@ import { calcSpeakingTimeOfSessions } from '@data-analysis/SpeakingTime';
 
 export const getStaticPaths = getParliamentPeriodWithSessionsPaths;
 
-const { parliamentPeriod, sessionInputs } = Astro.props as ParliamentPeriodWithSessionsProps;
+const { parliamentPeriod, sessionInputs } =
+  Astro.props as ParliamentPeriodWithSessionsProps;
 const firstSession = parliamentPeriod.sessions[0];
-const lastSession = parliamentPeriod.sessions[parliamentPeriod.sessions.length - 1];
-const totalVotingCount = sessionInputs.flatMap((sessionInput) => sessionInput.votings).length;
+const lastSession =
+  parliamentPeriod.sessions[parliamentPeriod.sessions.length - 1];
+const totalVotingCount = sessionInputs.flatMap(
+  (sessionInput) => sessionInput.votings,
+).length;
 const totalVoteCount = sessionInputs.reduce((acc, sessionInput) => {
   const votesInSession = sessionInput.votings.reduce((sum, voting) => {
-    return sum + voting.votes.filter(vote => vote.vote !== 'O').length;
+    return sum + voting.votes.filter((vote) => vote.vote !== 'O').length;
   }, 0);
   return acc + votesInSession;
 }, 0);
 
 const totalSpeakingTime = calcSpeakingTimeOfSessions(sessionInputs);
 
-const formattedTotalSpeakingTime = formatSpeakingTime(
-  totalSpeakingTime,
-  { showSeconds: false }
-);
+const formattedTotalSpeakingTime = formatSpeakingTime(totalSpeakingTime, {
+  showSeconds: false,
+});
 ---
 
-<PageLayout pageTitle={parliamentPeriod.name} parliamentPeriod={parliamentPeriod}>
-
+<PageLayout
+  pageTitle={parliamentPeriod.name}
+  parliamentPeriod={parliamentPeriod}
+>
   <div class="space-y-8">
     <div class="hero">
       <div class="hero-content text-center">
         <div class="max-w-md">
-          <h1 class="text-5xl font-bold text-primary mb-6">Stadtrat Magdeburg</h1>
+          <h1 class="text-5xl font-bold text-primary mb-6">
+            Stadtrat Magdeburg
+          </h1>
           <p>
-            Daten und Analysen von Abstimmungen und Redebeiträgen in den Stadtratssitzungen der Landeshauptstadt
-            Magdeburg im Zeitraum {formatDate(firstSession.date)} - {formatDate(lastSession.date)}.
+            Daten und Analysen von Abstimmungen und Redebeiträgen in den
+            Stadtratssitzungen der Landeshauptstadt Magdeburg im Zeitraum {
+              formatDate(firstSession.date)
+            } - {formatDate(lastSession.date)}.
           </p>
         </div>
       </div>
@@ -70,15 +79,19 @@ const formattedTotalSpeakingTime = formatSpeakingTime(
 
   <div class="alert alert-soft alert-info mt-20">
     <p>
-      Diese Seite bietet einen Überblick über viele (nicht alle) Abstimmungen und Redebeiträge in den Magdeburger
-      Stadtratssitzungen. Für die Darstellung wurden die Abstimmungen der einzelnen Sitzungen seit 08.07.2024
-      ausgewertet. Bei den analysierten Abstimmungen handelt es sich um "namentliche" Abstimmungen, bei denen die
-      Abstimmungsergebnisse der einzelnen Stadtratsmitglieder veröffentlicht wurden. Die Daten wurden aus dem öffentlich
-      zugänglichen <a href="https://ratsinfo.magdeburg.de/" class="link link-primary">Ratsinformationssystem</a> und der
-      Videoübertragung (verfügbar im <a href="https://youtube.com/@OttostadtMagdeburg" class="link link-primary">YouTube-Kanal
-      der Stadt</a>) der
-      Stadtratssitzungen gewonnen.
+      Diese Seite bietet einen Überblick über viele (nicht alle) Abstimmungen
+      und Redebeiträge in den Magdeburger Stadtratssitzungen. Für die
+      Darstellung wurden die Abstimmungen der einzelnen Sitzungen seit
+      08.07.2024 ausgewertet. Bei den analysierten Abstimmungen handelt es sich
+      um "namentliche" Abstimmungen, bei denen die Abstimmungsergebnisse der
+      einzelnen Stadtratsmitglieder veröffentlicht wurden. Die Daten wurden aus
+      dem öffentlich zugänglichen <a
+        href="https://ratsinfo.magdeburg.de/"
+        class="link link-primary">Ratsinformationssystem</a
+      > und der Videoübertragung (verfügbar im <a
+        href="https://youtube.com/@OttostadtMagdeburg"
+        class="link link-primary">YouTube-Kanal der Stadt</a
+      >) der Stadtratssitzungen gewonnen.
     </p>
   </div>
-
 </PageLayout>

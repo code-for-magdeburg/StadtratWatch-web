@@ -3,19 +3,19 @@ import { type RegistryParty } from '@models/registry';
 import { type SessionInput } from '@models/SessionInput';
 import {
   calcVotingSuccessRateOfParty,
-  calcVotingSuccessRateHistoryOfParty
+  calcVotingSuccessRateHistoryOfParty,
 } from '@data-analysis/VotingSuccess';
 import {
   calcUniformityScoreHistoryOfParty,
-  calcUniformityScoreOfParty
+  calcUniformityScoreOfParty,
 } from '@data-analysis/UniformityScore';
 import {
   calcParticipationRateHistoryOfParty,
-  calcParticipationRateOfParty
+  calcParticipationRateOfParty,
 } from '@data-analysis/ParticipationRate';
 import {
   calcAbstentionRateHistoryOfParty,
-  calcAbstentionRateOfParty
+  calcAbstentionRateOfParty,
 } from '@data-analysis/AbstentionRate';
 import { formatPercentage, formatScore } from '@utils/format-number';
 import { type Registry } from '@models/registry';
@@ -31,34 +31,42 @@ const { parliamentPeriod, party, sessionInputs } = Astro.props as Props;
 const votingsSuccessRate = calcVotingSuccessRateOfParty(
   parliamentPeriod,
   party,
-  sessionInputs
+  sessionInputs,
 );
 const votingsSuccessRateHistory = calcVotingSuccessRateHistoryOfParty(
   parliamentPeriod,
   party,
-  sessionInputs
+  sessionInputs,
 );
-const uniformityScore = calcUniformityScoreOfParty(parliamentPeriod, party, sessionInputs);
+const uniformityScore = calcUniformityScoreOfParty(
+  parliamentPeriod,
+  party,
+  sessionInputs,
+);
 const uniformityScoreHistory = calcUniformityScoreHistoryOfParty(
   parliamentPeriod,
   party,
-  sessionInputs
+  sessionInputs,
 );
 const participationRate = calcParticipationRateOfParty(
   parliamentPeriod,
   party,
-  sessionInputs
+  sessionInputs,
 );
 const participationRateHistory = calcParticipationRateHistoryOfParty(
   parliamentPeriod,
   party,
-  sessionInputs
+  sessionInputs,
 );
-const abstentionRate = calcAbstentionRateOfParty(parliamentPeriod, party, sessionInputs);
+const abstentionRate = calcAbstentionRateOfParty(
+  parliamentPeriod,
+  party,
+  sessionInputs,
+);
 const abstentionRateHistory = calcAbstentionRateHistoryOfParty(
   parliamentPeriod,
   party,
-  sessionInputs
+  sessionInputs,
 );
 ---
 
@@ -74,7 +82,8 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfParty(
         <span class="text-3xl">{formatPercentage(votingsSuccessRate)}</span>
       </div>
       <p class="text-base-content/60 text-sm">
-        Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Partei übereinstimmte.
+        Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum der Partei
+        übereinstimmte.
       </p>
       <canvas id="voting-success-chart"></canvas>
     </div>
@@ -91,8 +100,9 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfParty(
         <span class="text-3xl">{formatScore(uniformityScore)}</span>
       </div>
       <p class="text-base-content/60 text-sm">
-        Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Parteimitglieder abgestimmt haben. Je größer der Wert
-        ist, desto geschlossener ist das Abstimmungsverhalten der Partei.
+        Ein Wert zwischen 0 und 1 gibt an, wie einheitlich die Parteimitglieder
+        abgestimmt haben. Je größer der Wert ist, desto geschlossener ist das
+        Abstimmungsverhalten der Partei.
       </p>
       <canvas id="uniformity-chart"></canvas>
     </div>
@@ -109,7 +119,8 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfParty(
         <span class="text-3xl">{formatPercentage(participationRate)}</span>
       </div>
       <p class="text-base-content/60 text-sm">
-        Gibt an, wie häufig die Parteimitglieder an Abstimmungen teilgenommen haben.
+        Gibt an, wie häufig die Parteimitglieder an Abstimmungen teilgenommen
+        haben.
       </p>
       <canvas id="participation-chart"></canvas>
     </div>
@@ -126,7 +137,8 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfParty(
         <span class="text-3xl">{formatPercentage(abstentionRate)}</span>
       </div>
       <p class="text-base-content/60 text-sm">
-        Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren.
+        Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder
+        dafür noch dagegen waren.
       </p>
       <canvas id="abstention-chart"></canvas>
     </div>
@@ -139,30 +151,24 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfParty(
   import {
     type ChartConfiguration,
     type ChartData,
-    type ChartOptions
+    type ChartOptions,
   } from 'chart.js';
-  import {
-    type HistoryDataPoint as VotingSuccessRateHistoryDataPoint
-  } from '@data-analysis/VotingSuccess';
-  import {
-    type HistoryDataPoint as UniformityScoreHistoryDataPoint
-  } from '@data-analysis/UniformityScore';
-  import {
-    type HistoryDataPoint as ParticipationRateHistoryDataPoint
-  } from '@data-analysis/ParticipationRate';
-  import {
-    type HistoryDataPoint as AbstentionRateHistoryDataPoint
-  } from '@data-analysis/AbstentionRate';
+  import { type HistoryDataPoint as VotingSuccessRateHistoryDataPoint } from '@data-analysis/VotingSuccess';
+  import { type HistoryDataPoint as UniformityScoreHistoryDataPoint } from '@data-analysis/UniformityScore';
+  import { type HistoryDataPoint as ParticipationRateHistoryDataPoint } from '@data-analysis/ParticipationRate';
+  import { type HistoryDataPoint as AbstentionRateHistoryDataPoint } from '@data-analysis/AbstentionRate';
   import { formatPercentage, formatScore } from '@utils/format-number';
 
-  function makeChart<TData>(chartContainerId: string, chartCanvasId: string,
-                            numberFormatter: (value: number | null) => string) {
+  function makeChart<TData>(
+    chartContainerId: string,
+    chartCanvasId: string,
+    numberFormatter: (value: number | null) => string,
+  ) {
     const containerDiv = document.getElementById(
-      chartContainerId
+      chartContainerId,
     ) as HTMLDivElement;
     const parsedHistoryData = JSON.parse(
-      containerDiv.dataset.history ||
-      '[]'
+      containerDiv.dataset.history || '[]',
     ) as TData[];
 
     const data: ChartData<'line', TData[]> = {
@@ -171,9 +177,9 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfParty(
           data: parsedHistoryData,
           fill: 'origin',
           backgroundColor: '#167bff30',
-          borderColor: '#167bff'
-        }
-      ]
+          borderColor: '#167bff',
+        },
+      ],
     };
     const options: ChartOptions<'line'> = {
       elements: { line: { tension: 0.5 } },
@@ -182,49 +188,48 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfParty(
         y: {
           ticks: {
             callback: (value: string | number) =>
-              typeof value === 'number' ? numberFormatter(value) : value
-          }
-        }
+              typeof value === 'number' ? numberFormatter(value) : value,
+          },
+        },
       },
       parsing: {
         xAxisKey: 'date',
-        yAxisKey: 'value'
+        yAxisKey: 'value',
       },
-      plugins: { legend: { display: false } }
+      plugins: { legend: { display: false } },
     };
     const config: ChartConfiguration<'line', TData[]> = {
       type: 'line',
       data,
-      options
+      options,
     };
     new Chart<'line', TData[]>(
       document.getElementById(chartCanvasId) as HTMLCanvasElement,
-      config
+      config,
     );
   }
 
   makeChart<VotingSuccessRateHistoryDataPoint>(
     'voting-success-rate',
     'voting-success-chart',
-    formatPercentage
+    formatPercentage,
   );
 
   makeChart<UniformityScoreHistoryDataPoint>(
     'uniformity-score',
     'uniformity-chart',
-    formatScore
+    formatScore,
   );
 
   makeChart<ParticipationRateHistoryDataPoint>(
     'participation-rate',
     'participation-chart',
-    formatPercentage
+    formatPercentage,
   );
 
   makeChart<AbstentionRateHistoryDataPoint>(
     'abstention-rate',
     'abstention-chart',
-    formatPercentage
+    formatPercentage,
   );
-
 </script>

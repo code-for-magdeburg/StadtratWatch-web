@@ -6,11 +6,11 @@ import { calcVotingSuccessRateOfPerson } from '@data-analysis/VotingSuccess';
 import { calcVotingSuccessRateHistoryOfPerson } from '@data-analysis/VotingSuccess';
 import {
   calcParticipationRateHistoryOfPerson,
-  calcParticipationRateOfPerson
+  calcParticipationRateOfPerson,
 } from '@data-analysis/ParticipationRate';
 import {
   calcAbstentionRateHistoryOfPerson,
-  calcAbstentionRateOfPerson
+  calcAbstentionRateOfPerson,
 } from '@data-analysis/AbstentionRate';
 
 type Props = {
@@ -20,29 +20,20 @@ type Props = {
 
 const { person, sessionInputs } = Astro.props as Props;
 
-const votingsSuccessRate = calcVotingSuccessRateOfPerson(
-  person,
-  sessionInputs
-);
+const votingsSuccessRate = calcVotingSuccessRateOfPerson(person, sessionInputs);
 const votingsSuccessRateHistory = calcVotingSuccessRateHistoryOfPerson(
   person,
-  sessionInputs
+  sessionInputs,
 );
-const participationRate = calcParticipationRateOfPerson(
-  person,
-  sessionInputs
-);
+const participationRate = calcParticipationRateOfPerson(person, sessionInputs);
 const participationRateHistory = calcParticipationRateHistoryOfPerson(
   person,
-  sessionInputs
+  sessionInputs,
 );
-const abstentionRate = calcAbstentionRateOfPerson(
-  person,
-  sessionInputs
-);
+const abstentionRate = calcAbstentionRateOfPerson(person, sessionInputs);
 const abstentionRateHistory = calcAbstentionRateHistoryOfPerson(
   person,
-  sessionInputs
+  sessionInputs,
 );
 ---
 
@@ -75,7 +66,8 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfPerson(
         <span class="text-3xl">{formatPercentage(votingsSuccessRate)}</span>
       </div>
       <p class="text-base-content/60 text-sm">
-        Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum des Ratsmitglieds übereinstimmte.
+        Gibt an, wie häufig das Abstimmungsergebnis mit dem Votum des
+        Ratsmitglieds übereinstimmte.
       </p>
       <canvas id="voting-success-chart"></canvas>
     </div>
@@ -92,7 +84,8 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfPerson(
         <span class="text-3xl">{formatPercentage(abstentionRate)}</span>
       </div>
       <p class="text-base-content/60 text-sm">
-        Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder dafür noch dagegen waren.
+        Gibt an, wie hoch der Anteil der abgegebenen Stimmen ist, die weder
+        dafür noch dagegen waren.
       </p>
       <canvas id="abstention-chart"></canvas>
     </div>
@@ -105,27 +98,23 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfPerson(
   import {
     type ChartConfiguration,
     type ChartData,
-    type ChartOptions
+    type ChartOptions,
   } from 'chart.js';
-  import {
-    type HistoryDataPoint as VotingSuccessRateHistoryDataPoint
-  } from '@data-analysis/VotingSuccess';
-  import {
-    type HistoryDataPoint as ParticipationRateHistoryDataPoint
-  } from '@data-analysis/ParticipationRate';
-  import {
-    type HistoryDataPoint as AbstentionRateHistoryDataPoint
-  } from '@data-analysis/AbstentionRate';
+  import { type HistoryDataPoint as VotingSuccessRateHistoryDataPoint } from '@data-analysis/VotingSuccess';
+  import { type HistoryDataPoint as ParticipationRateHistoryDataPoint } from '@data-analysis/ParticipationRate';
+  import { type HistoryDataPoint as AbstentionRateHistoryDataPoint } from '@data-analysis/AbstentionRate';
   import { formatPercentage } from '@utils/format-number';
 
-  function makeChart<TData>(chartContainerId: string, chartCanvasId: string,
-                            numberFormatter: (value: number | null) => string) {
+  function makeChart<TData>(
+    chartContainerId: string,
+    chartCanvasId: string,
+    numberFormatter: (value: number | null) => string,
+  ) {
     const containerDiv = document.getElementById(
-      chartContainerId
+      chartContainerId,
     ) as HTMLDivElement;
     const parsedHistoryData = JSON.parse(
-      containerDiv.dataset.history ||
-      '[]'
+      containerDiv.dataset.history || '[]',
     ) as TData[];
 
     const data: ChartData<'line', TData[]> = {
@@ -134,9 +123,9 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfPerson(
           data: parsedHistoryData,
           fill: 'origin',
           backgroundColor: '#167bff30',
-          borderColor: '#167bff'
-        }
-      ]
+          borderColor: '#167bff',
+        },
+      ],
     };
     const options: ChartOptions<'line'> = {
       elements: { line: { tension: 0.5 } },
@@ -145,43 +134,42 @@ const abstentionRateHistory = calcAbstentionRateHistoryOfPerson(
         y: {
           ticks: {
             callback: (value: string | number) =>
-              typeof value === 'number' ? numberFormatter(value) : value
-          }
-        }
+              typeof value === 'number' ? numberFormatter(value) : value,
+          },
+        },
       },
       parsing: {
         xAxisKey: 'date',
-        yAxisKey: 'value'
+        yAxisKey: 'value',
       },
-      plugins: { legend: { display: false } }
+      plugins: { legend: { display: false } },
     };
     const config: ChartConfiguration<'line', TData[]> = {
       type: 'line',
       data,
-      options
+      options,
     };
     new Chart<'line', TData[]>(
       document.getElementById(chartCanvasId) as HTMLCanvasElement,
-      config
+      config,
     );
   }
 
   makeChart<ParticipationRateHistoryDataPoint>(
     'participation-rate',
     'participation-chart',
-    formatPercentage
+    formatPercentage,
   );
 
   makeChart<VotingSuccessRateHistoryDataPoint>(
     'voting-success-rate',
     'voting-success-chart',
-    formatPercentage
+    formatPercentage,
   );
 
   makeChart<AbstentionRateHistoryDataPoint>(
     'abstention-rate',
     'abstention-chart',
-    formatPercentage
+    formatPercentage,
   );
-
 </script>

@@ -2,7 +2,7 @@
 import PageLayout from '@layouts/PageLayout.astro';
 import {
   type ParliamentPeriodWithPartyProps,
-  getParliamentPeriodWithPartyPaths
+  getParliamentPeriodWithPartyPaths,
 } from '../../_helpers';
 import Councilors from './_councilors.astro';
 import Statistics from './_statistics.astro';
@@ -13,34 +13,30 @@ import { extractExtremistClassificationInformation } from '@utils/party-utils';
 export const getStaticPaths = getParliamentPeriodWithPartyPaths;
 
 const { parliamentPeriodId, partyId } = Astro.params;
-const {
-  parliamentPeriod,
-  party,
-  sessionInputs
-} = Astro.props as ParliamentPeriodWithPartyProps;
+const { parliamentPeriod, party, sessionInputs } =
+  Astro.props as ParliamentPeriodWithPartyProps;
 
 const breadcrumbItems = [
   {
     name: parliamentPeriod.name,
-    href: `/pp/${parliamentPeriodId}`
+    href: `/pp/${parliamentPeriodId}`,
   },
   {
     name: 'Parteien',
-    href: `/pp/${parliamentPeriodId}/parties`
+    href: `/pp/${parliamentPeriodId}/parties`,
   },
   {
     name: party.name,
-    href: null
-  }
+    href: null,
+  },
 ];
 
 const {
   extremistClassification,
   extremistClassificationReason,
   extremistClassificationSource,
-  extremistClassificationSourceUrl
+  extremistClassificationSourceUrl,
 } = extractExtremistClassificationInformation(party);
-
 ---
 
 <PageLayout
@@ -110,14 +106,14 @@ const {
     const currentTab = currentUrl.searchParams.get('tab') || 'councilors';
 
     const sessionsDivElement = document.getElementById(
-      'tabs'
+      'tabs',
     ) as HTMLDivElement;
     const parliamentPeriodId = sessionsDivElement.dataset.parliamentPeriodId;
     const partyId = sessionsDivElement.dataset.partyId;
     Alpine.data('party', () => ({
       parliamentPeriodId,
       partyId,
-      currentTab
+      currentTab,
     }));
   });
 </script>

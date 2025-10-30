@@ -1,8 +1,15 @@
-import type { Registry, RegistryFaction, RegistryParty } from '@models/registry.ts';
+import type {
+  Registry,
+  RegistryFaction,
+  RegistryParty,
+} from '@models/registry.ts';
 import type { SessionInput } from '@models/SessionInput.ts';
 import type { SessionScanItem } from '@models/session-scan.ts';
 import { VoteResult } from '@models/Session.ts';
-import { getPersonsOfSessionAndFaction, getPersonsOfSessionAndParty } from '@utils/session-utils.ts';
+import {
+  getPersonsOfSessionAndFaction,
+  getPersonsOfSessionAndParty,
+} from '@utils/session-utils.ts';
 
 export type HistoryDataPoint = {
   date: string;
@@ -16,9 +23,14 @@ export function calcUniformityScoreOfFaction(
 ): number | null {
   const uniformityScores = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndFaction(parliamentPeriod, session.session, faction)
-        .map((person) => person.name);
-      return session.votings.map((voting) => calcUniformityScore(persons, voting));
+      const persons = getPersonsOfSessionAndFaction(
+        parliamentPeriod,
+        session.session,
+        faction,
+      ).map((person) => person.name);
+      return session.votings.map((voting) =>
+        calcUniformityScore(persons, voting),
+      );
     })
     .filter((score) => score !== null)
     .map((score) => score!);
@@ -38,7 +50,11 @@ export function calcUniformityScoreHistoryOfFaction(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcUniformityScoreOfFaction(parliamentPeriod, faction, pastSessions);
+      const value = calcUniformityScoreOfFaction(
+        parliamentPeriod,
+        faction,
+        pastSessions,
+      );
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)
@@ -53,9 +69,14 @@ export function calcUniformityScoreOfParty(
 ): number | null {
   const uniformityScores = sessions
     .flatMap((session) => {
-      const persons = getPersonsOfSessionAndParty(parliamentPeriod, session.session, party)
-        .map((person) => person.name);
-      return session.votings.map((voting) => calcUniformityScore(persons, voting));
+      const persons = getPersonsOfSessionAndParty(
+        parliamentPeriod,
+        session.session,
+        party,
+      ).map((person) => person.name);
+      return session.votings.map((voting) =>
+        calcUniformityScore(persons, voting),
+      );
     })
     .filter((score) => score !== null)
     .map((score) => score!);
@@ -75,7 +96,11 @@ export function calcUniformityScoreHistoryOfParty(
       const pastSessions = sessions.filter(
         (s) => s.session.date <= session.session.date,
       );
-      const value = calcUniformityScoreOfParty(parliamentPeriod, party, pastSessions);
+      const value = calcUniformityScoreOfParty(
+        parliamentPeriod,
+        party,
+        pastSessions,
+      );
       return { date: session.session.date, value };
     })
     .filter(({ value }) => value !== null)

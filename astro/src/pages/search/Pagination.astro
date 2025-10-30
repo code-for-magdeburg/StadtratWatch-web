@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <div class="join" x-data="pagination">
@@ -27,8 +28,7 @@
       class="btn btn-square btn-soft join-item"
       :disabled="page === currentPage"
       :class="{ 'pointer-events-none': page === currentPage, 'bg-indigo-600': page === currentPage, 'text-white': page === currentPage }"
-      x-text="page"
-    ></a>
+      x-text="page"></a>
   </template>
 
   <a

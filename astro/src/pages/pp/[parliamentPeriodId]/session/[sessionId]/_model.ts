@@ -2,7 +2,7 @@ export type VotesByFaction = {
   factionId: string;
   factionName: string;
   orderIndex: number;
-  votes: { personName: string, vote: string }[];
+  votes: { personName: string; vote: string }[];
 };
 
 export type VotingListItem = {

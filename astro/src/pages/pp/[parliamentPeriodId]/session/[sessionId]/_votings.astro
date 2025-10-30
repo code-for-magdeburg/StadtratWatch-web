@@ -30,9 +30,8 @@ const votings = sessionScan
   .toSorted((a, b) => a.id - b.id);
 
 function getVotesByFactions(votes: SessionScanVote[]): VotesByFaction[] {
-
-  const votesWithFactionId = votes.map(vote => {
-    const person = parliamentPeriod.persons.find(p => p.name === vote.name);
+  const votesWithFactionId = votes.map((vote) => {
+    const person = parliamentPeriod.persons.find((p) => p.name === vote.name);
     if (!person) {
       throw new Error(`Person ${vote.name} not found`);
     }
@@ -47,19 +46,20 @@ function getVotesByFactions(votes: SessionScanVote[]): VotesByFaction[] {
     .toSorted((a, b) => b.seats - a.seats)
     .map((faction, orderIndex) => {
       const votes = votesWithFactionId
-        .filter(v => v.factionId === faction.id)
-        .map(vote => ({
+        .filter((v) => v.factionId === faction.id)
+        .map((vote) => ({
           ...vote,
-          orderIndex: vote.vote === 'J'
-            ? 1
-            : vote.vote === 'N'
-              ? 2
-              : vote.vote === 'E'
-                ? 3
-                : 4
+          orderIndex:
+            vote.vote === 'J'
+              ? 1
+              : vote.vote === 'N'
+                ? 2
+                : vote.vote === 'E'
+                  ? 3
+                  : 4,
         }))
         .toSorted((a, b) => a.orderIndex - b.orderIndex)
-        .map(vote => ({
+        .map((vote) => ({
           personName: vote.personName,
           vote: vote.vote,
         }));
@@ -67,10 +67,9 @@ function getVotesByFactions(votes: SessionScanVote[]): VotesByFaction[] {
         factionId: faction.id,
         factionName: faction.name,
         orderIndex,
-        votes
+        votes,
       };
     });
-
 }
 
 function votingAccepted(voting: SessionScanItem) {
@@ -102,14 +101,20 @@ function votingAccepted(voting: SessionScanItem) {
         </label>
         <div class="tooltip">
           <div class="tooltip-content space-y-2">
-            <p>Bei aktiviertem Filter werden nur Beschlussvorlagen, Anträge und Änderungsanträge aufgelistet.</p>
-            <p>Verfahrensabstimmungen, wie z.B. Geschäftsordnungsanträge oder Abstimmungen zur Tagesordnung, werden ausgeblendet.</p>
+            <p>
+              Bei aktiviertem Filter werden nur Beschlussvorlagen, Anträge und
+              Änderungsanträge aufgelistet.
+            </p>
+            <p>
+              Verfahrensabstimmungen, wie z.B. Geschäftsordnungsanträge oder
+              Abstimmungen zur Tagesordnung, werden ausgeblendet.
+            </p>
           </div>
           <span class="iconify lucide--info text-base-content/80 align-middle" />
         </div>
       </div>
       <ul class="timeline timeline-vertical timeline-compact">
-        {votings.map(voting => (
+        {votings.map((voting) => (
           <li class="voting-item" data-voting-type={voting.type}>
             <hr class="voting-item-leading-line" />
             <div class="timeline-middle">
@@ -146,31 +151,27 @@ function votingAccepted(voting: SessionScanItem) {
               )}
 
               <div class="grid sm:grid-cols-[auto_1fr] sm:gap-x-2">
-                {
-                  voting.votesByFactions.map((votesByFaction) => (
-                    <>
-                      <div class="text-base-content/70">
-                        {votesByFaction.factionName}:
-                      </div>
-                      <div class="space-x-1 mb-1">
-                        {
-                          votesByFaction.votes.map((vote) => (
-                            <div class="tooltip" data-tip={vote.personName}>
-                              <div
-                                class="status status-lg"
-                                class:list={[
-                                  { 'status-success': vote.vote === 'J' },
-                                  { 'status-error': vote.vote === 'N' },
-                                  { 'status-warning': vote.vote === 'E' },
-                                ]}
-                              ></div>
-                            </div>
-                          ))
-                        }
-                      </div>
-                    </>
-                  ))
-                }
+                {voting.votesByFactions.map((votesByFaction) => (
+                  <>
+                    <div class="text-base-content/70">
+                      {votesByFaction.factionName}:
+                    </div>
+                    <div class="space-x-1 mb-1">
+                      {votesByFaction.votes.map((vote) => (
+                        <div class="tooltip" data-tip={vote.personName}>
+                          <div
+                            class="status status-lg"
+                            class:list={[
+                              { 'status-success': vote.vote === 'J' },
+                              { 'status-error': vote.vote === 'N' },
+                              { 'status-warning': vote.vote === 'E' },
+                            ]}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ))}
               </div>
             </a>
             <hr class="voting-item-trailing-line" />
@@ -185,55 +186,67 @@ function votingAccepted(voting: SessionScanItem) {
   import Alpine from 'alpinejs';
 
   document.addEventListener('alpine:init', () => {
-
-    const votingItemsElements = document.querySelectorAll('.voting-item') as NodeListOf<HTMLElement>;
+    const votingItemsElements = document.querySelectorAll(
+      '.voting-item',
+    ) as NodeListOf<HTMLElement>;
 
     Alpine.data('votings', () => ({
-      init: function() {
+      init: function () {
         setTimeout(
-          () => this.filterList((this.$refs.onlyPrimaryVotingsFilterCheckbox as HTMLInputElement).checked),
-          100
+          () =>
+            this.filterList(
+              (this.$refs.onlyPrimaryVotingsFilterCheckbox as HTMLInputElement)
+                .checked,
+            ),
+          100,
         );
       },
-      filterList: function(onlyPrimaryVotings: boolean) {
+      filterList: function (onlyPrimaryVotings: boolean) {
         votingItemsElements.forEach((item) => {
           const votingType = item.getAttribute('data-voting-type') || '';
-          const isPrimaryVoting = ['Beschlussvorlage', 'Antrag', 'Änderungsantrag'].includes(votingType);
-          item.style.display = onlyPrimaryVotings && !isPrimaryVoting
-            ? 'none'
-            : 'grid';
+          const isPrimaryVoting = [
+            'Beschlussvorlage',
+            'Antrag',
+            'Änderungsantrag',
+          ].includes(votingType);
+          item.style.display =
+            onlyPrimaryVotings && !isPrimaryVoting ? 'none' : 'grid';
         });
 
         // Unhide all vertical lines
-        const hrElements = document.querySelectorAll('.voting-item-leading-line, .voting-item-trailing-line') as NodeListOf<HTMLElement>;
+        const hrElements = document.querySelectorAll(
+          '.voting-item-leading-line, .voting-item-trailing-line',
+        ) as NodeListOf<HTMLElement>;
         hrElements.forEach((hr) => {
           hr.style.display = 'block';
         });
 
         // Hide the first vertical line of the first visible item
-        const firstVisibleItem = Array
-          .from(votingItemsElements)
-          .find(item => item.style.display !== 'none');
+        const firstVisibleItem = Array.from(votingItemsElements).find(
+          (item) => item.style.display !== 'none',
+        );
         if (firstVisibleItem) {
-          const leadingHr = firstVisibleItem.querySelector('.voting-item-leading-line') as HTMLElement;
+          const leadingHr = firstVisibleItem.querySelector(
+            '.voting-item-leading-line',
+          ) as HTMLElement;
           if (leadingHr) {
             leadingHr.style.display = 'none';
           }
         }
 
         // Hide the last vertical line of the last visible item
-        const lastVisibleItem = Array
-          .from(votingItemsElements)
+        const lastVisibleItem = Array.from(votingItemsElements)
           .reverse()
-          .find(item => item.style.display !== 'none');
+          .find((item) => item.style.display !== 'none');
         if (lastVisibleItem) {
-          const trailingHr = lastVisibleItem.querySelector('.voting-item-trailing-line') as HTMLElement;
+          const trailingHr = lastVisibleItem.querySelector(
+            '.voting-item-trailing-line',
+          ) as HTMLElement;
           if (trailingHr) {
             trailingHr.style.display = 'none';
           }
         }
-
-      }
+      },
     }));
   });
 </script>

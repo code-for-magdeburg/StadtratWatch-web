@@ -12,12 +12,11 @@ type Props = {
 const { parliamentPeriod, sessionInputs } = Astro.props as Props;
 
 const personsForces = calcPersonsForces(parliamentPeriod, sessionInputs);
-const fillColors = Array
-  .from(
-    fillColorsMap.get(parliamentPeriod.id) || new Map<string, string>().entries()
-  )
-  .map(([faction, color]) => ({ faction, color }));
+const fillColors = Array.from(
+  fillColorsMap.get(parliamentPeriod.id) || new Map<string, string>().entries(),
+).map(([faction, color]) => ({ faction, color }));
 ---
+
 <style is:inline>
   .person-tooltip {
     position: absolute;
@@ -37,17 +36,20 @@ const fillColors = Array
       x-data="{ isMobile: /Mobi|Android/i.test(navigator.userAgent) }"
     >
       <p>
-        Jedes Kreissymbol repräsentiert ein Ratsmitglied. Je ähnlicher das Abstimmungsverhalten zweier Ratsmitglieder
-        ist, desto näher liegen ihre Kreise beieinander.
+        Jedes Kreissymbol repräsentiert ein Ratsmitglied. Je ähnlicher das
+        Abstimmungsverhalten zweier Ratsmitglieder ist, desto näher liegen ihre
+        Kreise beieinander.
       </p>
       <template x-if="isMobile">
         <p>
-          Tippen Sie auf ein Kreissymbol, um den Namen des Ratsmitglieds und die Fraktion anzuzeigen.
+          Tippen Sie auf ein Kreissymbol, um den Namen des Ratsmitglieds und die
+          Fraktion anzuzeigen.
         </p>
       </template>
       <template x-if="!isMobile">
         <p>
-          Bewegen Sie die Maus über ein Kreissymbol, um den Namen des Ratsmitglieds und die Fraktion anzuzeigen.
+          Bewegen Sie die Maus über ein Kreissymbol, um den Namen des
+          Ratsmitglieds und die Fraktion anzuzeigen.
         </p>
       </template>
     </div>
@@ -62,16 +64,24 @@ const fillColors = Array
       data-persons-forces={JSON.stringify(personsForces)}
       x-init="showGraph(); $watch('currentTab', value => value === 'graph' && showGraph());"
       @resize.window="showGraph()"
-    ></div>
+    >
+    </div>
     <div class="absolute top-4 right-4 tooltip tooltip-left">
-      <div class="tooltip-content bg-base-200 border border-base-300 shadow p-3">
+      <div
+        class="tooltip-content bg-base-200 border border-base-300 shadow p-3"
+      >
         <ul class="list-none p-0 m-0 text-sm text-base-content/60 space-y-1">
-          {fillColors.map(fillColor => (
-            <li class="flex items-center gap-2">
-              <span class="inline-block w-3 h-3 rounded-full" style={`background-color: ${fillColor.color};`}></span>
-              <span>{fillColor.faction}</span>
-            </li>
-          ))}
+          {
+            fillColors.map((fillColor) => (
+              <li class="flex items-center gap-2">
+                <span
+                  class="inline-block w-3 h-3 rounded-full"
+                  style={`background-color: ${fillColor.color};`}
+                />
+                <span>{fillColor.faction}</span>
+              </li>
+            ))
+          }
         </ul>
       </div>
       <span class="iconify lucide--info size-5 text-base-content/80"></span>
@@ -92,29 +102,30 @@ const fillColors = Array
     faction: string;
   }
 
-  interface PersonForcesLinkDatum extends SimulationLinkDatum<PersonForcesNodeDatum> {
+  interface PersonForcesLinkDatum
+    extends SimulationLinkDatum<PersonForcesNodeDatum> {
     value: number;
   }
 
-  const FORCE_THRESHOLD = .65;
+  const FORCE_THRESHOLD = 0.65;
   const FORCE_DISTANCE = 200;
 
   const graphContainer = document.getElementById('graph-container');
   if (graphContainer) {
-
     const parliamentPeriodId = graphContainer.dataset.parliamentPeriodId;
     const personsForces = JSON.parse(
-      graphContainer.dataset.personsForces || '{nodes: [], links: []}'
+      graphContainer.dataset.personsForces || '{nodes: [], links: []}',
     ) as PersonsForces;
 
     const nodes = personsForces.nodes.map(
-      d => ({ ...d }) as PersonForcesNodeDatum
+      (d) => ({ ...d }) as PersonForcesNodeDatum,
     );
     const links = personsForces.links
-      .filter(d => d.value > FORCE_THRESHOLD)
-      .map(d => ({ ...d }) as PersonForcesLinkDatum);
+      .filter((d) => d.value > FORCE_THRESHOLD)
+      .map((d) => ({ ...d }) as PersonForcesLinkDatum);
 
-    const fillColors = fillColorsMap.get(parliamentPeriodId || '') || new Map<string, string>();
+    const fillColors =
+      fillColorsMap.get(parliamentPeriodId || '') || new Map<string, string>();
 
     const svg = d3.select(graphContainer).append('svg');
 
@@ -126,10 +137,16 @@ const fillColors = Array
 
     Alpine.data('graph', () => ({
       showGraph() {
-        setTimeout(() => this.drawGraph(graphContainer.clientWidth, graphContainer.clientHeight), 100);
+        setTimeout(
+          () =>
+            this.drawGraph(
+              graphContainer.clientWidth,
+              graphContainer.clientHeight,
+            ),
+          100,
+        );
       },
       drawGraph(width: number, height: number) {
-
         svg
           .attr('width', width)
           .attr('height', height)
@@ -139,12 +156,9 @@ const fillColors = Array
             // @ts-ignore
             d3
               .zoom()
-              .on(
-                'zoom',
-                (event: any) => d3
-                  .select('svg g')
-                  .attr('transform', event.transform)
-              )
+              .on('zoom', (event: any) =>
+                d3.select('svg g').attr('transform', event.transform),
+              ),
           );
 
         svg.selectAll('g').remove();
@@ -165,12 +179,11 @@ const fillColors = Array
               .drag()
               .on('start', dragstarted)
               .on('drag', dragged)
-              .on('end', dragended));
+              .on('end', dragended),
+          );
 
         function ticked() {
-          node
-            .attr('cx', d => d.x || null)
-            .attr('cy', d => d.y || null);
+          node.attr('cx', (d) => d.x || null).attr('cy', (d) => d.y || null);
         }
 
         const simulation = d3
@@ -178,9 +191,10 @@ const fillColors = Array
           .force('charge', d3.forceManyBody())
           .force(
             'link',
-            d3.forceLink<PersonForcesNodeDatum, PersonForcesLinkDatum>(links)
+            d3
+              .forceLink<PersonForcesNodeDatum, PersonForcesLinkDatum>(links)
               .id((d) => d.id)
-              .distance(l => FORCE_DISTANCE * (1 - l.value))
+              .distance((l) => FORCE_DISTANCE * (1 - l.value)),
           )
           .force('center', d3.forceCenter(width / 3, height / 3))
           .force('collision', d3.forceCollide(5))
@@ -208,10 +222,12 @@ const fillColors = Array
             .transition()
             .duration(300)
             .style('opacity', 1)
-            .style('left', `${event.layerX - tooltip.node()!.offsetWidth - 5}px`)
+            .style(
+              'left',
+              `${event.layerX - tooltip.node()!.offsetWidth - 5}px`,
+            )
             .style('top', `${event.layerY - tooltip.node()!.offsetHeight}px`);
-          tooltip
-            .html(`
+          tooltip.html(`
 <span class="font-bold text-gray-900">
     ${node.name}
 </span>
@@ -222,15 +238,9 @@ const fillColors = Array
         }
 
         function mouseLeave() {
-          tooltip
-            .transition()
-            .duration(200)
-            .style('opacity', 0);
+          tooltip.transition().duration(200).style('opacity', 0);
         }
-
-      }
+      },
     }));
-
   }
-
 </script>
