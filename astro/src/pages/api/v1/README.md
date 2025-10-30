@@ -40,6 +40,7 @@ GET /api/v1/parliament-periods.json
 Gibt eine Liste aller verfügbaren Legislaturperioden zurück.
 
 **Antwort:**
+
 ```json
 {
   "meta": { ... },
@@ -54,6 +55,7 @@ Gibt eine Liste aller verfügbaren Legislaturperioden zurück.
 ```
 
 **Felder:**
+
 - `id`: Eindeutige ID der Legislaturperiode
 - `name`: Anzeigename der Legislaturperiode
 - `lastUpdate`: Zeitstempel der letzten Aktualisierung
@@ -67,9 +69,11 @@ GET /api/v1/parliament-periods/{parliamentPeriodId}.json
 Gibt detaillierte Informationen zu einer spezifischen Legislaturperiode zurück.
 
 **Parameter:**
+
 - `parliamentPeriodId`: ID der Legislaturperiode (z.B. "magdeburg-7")
 
 **Antwort:**
+
 ```json
 {
   "meta": { ... },
@@ -93,10 +97,12 @@ GET /api/v1/parliament-periods/{parliamentPeriodId}/speeches/{sessionId}.json
 Gibt alle Redebeiträge einer spezifischen Stadtratssitzung zurück.
 
 **Parameter:**
+
 - `parliamentPeriodId`: ID der Legislaturperiode
 - `sessionId`: ID der Sitzung
 
 **Antwort:**
+
 ```json
 {
   "meta": { ... },
@@ -114,6 +120,7 @@ Gibt alle Redebeiträge einer spezifischen Stadtratssitzung zurück.
 ```
 
 **Felder:**
+
 - `personId`: ID der sprechenden Person (kann `null` sein)
 - `speaker`: Name der sprechenden Person
 - `start`: Startzeit des Redebeitrags im Video in Sekunden
@@ -122,6 +129,7 @@ Gibt alle Redebeiträge einer spezifischen Stadtratssitzung zurück.
 - `transcription`: Transkription des Redebeitrags
 
 **Hinweise:**
+
 - Nur Redebeiträge mit verfügbaren Transkriptionen werden zurückgegeben
 - Redebeiträge der Sitzungsleitung werden herausgefiltert
 - personId kann `null` sein. Das kann der Fall sein, wenn der Redebeitrag von einer Person stammt, die kein Stadtratsmitglied ist. Bspw. eine Beigeordnete oder wenn Person auf Einladung des Stadtrats spricht.
@@ -135,10 +143,12 @@ GET /api/v1/parliament-periods/{parliamentPeriodId}/votings/{sessionId}.json
 Gibt alle Abstimmungen einer spezifischen Stadtratssitzung zurück.
 
 **Parameter:**
+
 - `parliamentPeriodId`: ID der Legislaturperiode
 - `sessionId`: ID der Sitzung
 
 **Antwort:**
+
 ```json
 {
   "meta": { ... },
@@ -163,12 +173,14 @@ Gibt alle Abstimmungen einer spezifischen Stadtratssitzung zurück.
 ```
 
 **Felder:**
+
 - `id`: Eindeutige ID der Abstimmung. (Eindeutigkeit innerhalb der Sitzung)
 - `videoTimestamp`: Zeitstempel im Video in Sekunden
 - `votingSubject`: Beschreibung des Abstimmungsthemas
 - `votes`: Array mit den einzelnen Stimmen
 
 **Abstimmungsoptionen:**
+
 - `yes`: Ja-Stimme
 - `no`: Nein-Stimme
 - `abstain`: Enthaltung

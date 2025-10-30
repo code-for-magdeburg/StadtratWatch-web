@@ -2,23 +2,15 @@
 import Layout from '@layouts/Layout.astro';
 import PaginationComponent from './Pagination.astro';
 ---
-<Layout>
 
-  <div
-    class="space-y-3 grow"
-    x-data="search"
-  >
+<Layout>
+  <div class="space-y-3 grow" x-data="search">
     <h3 class="text-lg font-medium">Suche</h3>
 
     <form action="/search" method="get" @submit.prevent="search()">
       <label class="input">
         <span class="iconify lucide--search text-base-content/60 size-5"></span>
-        <input
-          placeholder="Suche"
-          id="search"
-          type="search"
-          name="search"
-        />
+        <input placeholder="Suche" id="search" type="search" name="search" />
       </label>
       <button type="submit" class="btn btn-primary">Suchen</button>
     </form>
@@ -42,7 +34,8 @@ import PaginationComponent from './Pagination.astro';
                 <div
                   class="opacity-60"
                   x-text="searchResultItem.paper.reference"
-                ></div>
+                >
+                </div>
                 <div x-text="searchResultItem.paper.title"></div>
               </div>
             </template>
@@ -51,11 +44,12 @@ import PaginationComponent from './Pagination.astro';
                 <p
                   class="text-base-content/80"
                   x-html="searchResultItem.paper.content"
-                ></p>
+                >
+                </p>
                 <a
                   :href="`/paper?paperId=${searchResultItem.paper.id}`"
-                  class="btn btn-soft btn-primary btn-sm"
-                >Dokument öffnen</a>
+                  class="btn btn-soft btn-primary btn-sm">Dokument öffnen</a
+                >
               </div>
             </template>
             <template x-if="searchResultItem.type === 'speech'">
@@ -63,27 +57,28 @@ import PaginationComponent from './Pagination.astro';
                 <div
                   class="opacity-60"
                   x-text="formatDate(searchResultItem.speech.sessionDate)"
-                ></div>
+                >
+                </div>
                 <div class="flex flex-row items-center gap-2">
                   <div x-text="searchResultItem.speech.speaker"></div>
                   <span
                     class="badge badge-neutral badge-sm"
                     x-text="searchResultItem.speech.faction"
-                    x-show="searchResultItem.speech.faction"
-                  ></span>
+                    x-show="searchResultItem.speech.faction"></span>
                 </div>
               </div>
             </template>
             <template x-if="searchResultItem.type === 'speech'">
               <div class="list-col-wrap col-start-1 col-span-2 space-y-2">
                 <p
-                  class=" text-base-content/80"
+                  class="text-base-content/80"
                   x-html="searchResultItem.speech.content"
-                ></p>
+                >
+                </p>
                 <a
                   :href="`/pp/${searchResultItem.speech.parliamentPeriod}/session/${searchResultItem.speech.session}?tab=speeches#speech-${searchResultItem.speech.start}`"
-                  class="btn btn-soft btn-primary btn-sm"
-                >Zum Redebeitrag</a>
+                  class="btn btn-soft btn-primary btn-sm">Zum Redebeitrag</a
+                >
               </div>
             </template>
           </li>
@@ -93,14 +88,11 @@ import PaginationComponent from './Pagination.astro';
       <!--<PaginationComponent></PaginationComponent>-->
     </div>
 
-    <PaginationComponent></PaginationComponent>
-
+    <PaginationComponent />
   </div>
-
 </Layout>
 
 <script>
-
   import { search } from './_search';
   import type { SearchResult } from './_search';
   import Alpine from 'alpinejs';
@@ -123,10 +115,19 @@ import PaginationComponent from './Pagination.astro';
     pages: number[];
   };
 
-  function getPaginationStatus(totalItems: number, currentPage: number): PaginationStatus {
+  function getPaginationStatus(
+    totalItems: number,
+    currentPage: number,
+  ): PaginationStatus {
     const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
-    const firstBlockPage = Math.ceil(currentPage / MAX_SELECTABLE_PAGES) * MAX_SELECTABLE_PAGES - MAX_SELECTABLE_PAGES + 1;
-    const lastBlockPage = Math.min(firstBlockPage + MAX_SELECTABLE_PAGES - 1, totalPages);
+    const firstBlockPage =
+      Math.ceil(currentPage / MAX_SELECTABLE_PAGES) * MAX_SELECTABLE_PAGES -
+      MAX_SELECTABLE_PAGES +
+      1;
+    const lastBlockPage = Math.min(
+      firstBlockPage + MAX_SELECTABLE_PAGES - 1,
+      totalPages,
+    );
     return {
       prevPageButtonDisabled: currentPage <= 1,
       nextPageButtonDisabled: currentPage >= totalPages,
@@ -135,12 +136,14 @@ import PaginationComponent from './Pagination.astro';
       nextPagesBlockButtonHidden: lastBlockPage >= totalPages,
       nextPagesPage: lastBlockPage + 1,
       currentPage,
-      pages: Array.from({ length: lastBlockPage - firstBlockPage + 1 }, (_, i) => firstBlockPage + i)
+      pages: Array.from(
+        { length: lastBlockPage - firstBlockPage + 1 },
+        (_, i) => firstBlockPage + i,
+      ),
     };
   }
 
   document.addEventListener('alpine:init', () => {
-
     Alpine.data('search', () => ({
       isReady: false,
       searchTerm: q,
@@ -152,23 +155,31 @@ import PaginationComponent from './Pagination.astro';
         nextPagesBlockButtonHidden: true,
         nextPagesPage: 1,
         currentPage: 1,
-        pages: []
+        pages: [],
       } as PaginationStatus,
       searchResult: {
         totalResultItems: 0,
-        searchResultItems: []
+        searchResultItems: [],
       } as SearchResult,
       async init() {
         if (q) {
-          (document.getElementById('search') as HTMLInputElement).value = q || '';
+          (document.getElementById('search') as HTMLInputElement).value =
+            q || '';
           const searchResult = await search(q, page);
           this.searchResult = searchResult;
-          const pagination = getPaginationStatus(searchResult.totalResultItems, page);
-          this.pagination.prevPageButtonDisabled = pagination.prevPageButtonDisabled;
-          this.pagination.nextPageButtonDisabled = pagination.nextPageButtonDisabled;
-          this.pagination.prevPagesBlockButtonHidden = pagination.prevPagesBlockButtonHidden;
+          const pagination = getPaginationStatus(
+            searchResult.totalResultItems,
+            page,
+          );
+          this.pagination.prevPageButtonDisabled =
+            pagination.prevPageButtonDisabled;
+          this.pagination.nextPageButtonDisabled =
+            pagination.nextPageButtonDisabled;
+          this.pagination.prevPagesBlockButtonHidden =
+            pagination.prevPagesBlockButtonHidden;
           this.pagination.prevPagesPage = pagination.prevPagesPage;
-          this.pagination.nextPagesBlockButtonHidden = pagination.nextPagesBlockButtonHidden;
+          this.pagination.nextPagesBlockButtonHidden =
+            pagination.nextPagesBlockButtonHidden;
           this.pagination.nextPagesPage = pagination.nextPagesPage;
           this.pagination.currentPage = page;
           this.pagination.pages = pagination.pages;
@@ -176,7 +187,9 @@ import PaginationComponent from './Pagination.astro';
         }
       },
       search() {
-        const newSearchQuery = (document.getElementById('search') as HTMLInputElement).value;
+        const newSearchQuery = (
+          document.getElementById('search') as HTMLInputElement
+        ).value;
         if (newSearchQuery !== q && newSearchQuery !== '') {
           window.location.href = `/search?q=${newSearchQuery}`;
         }
@@ -185,11 +198,9 @@ import PaginationComponent from './Pagination.astro';
         return new Date(date).toLocaleDateString('de-DE', {
           year: 'numeric',
           month: 'long',
-          day: '2-digit'
+          day: '2-digit',
         });
-      }
+      },
     }));
-
   });
-
 </script>

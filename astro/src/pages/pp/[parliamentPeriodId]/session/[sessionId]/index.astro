@@ -14,7 +14,8 @@ import MetaTags from '@components/MetaTags.astro';
 export const getStaticPaths = getParliamentPeriodWithSessionPaths;
 
 const { parliamentPeriodId, sessionId } = Astro.params;
-const { parliamentPeriod, sessionInput } = Astro.props as ParliamentPeriodWithSessionProps;
+const { parliamentPeriod, sessionInput } =
+  Astro.props as ParliamentPeriodWithSessionProps;
 
 const breadcrumbItems: BreadcrumbItem[] = [
   {
@@ -75,7 +76,8 @@ const youtubeUrl = sessionInput.session.youtubeUrl;
     !sessionInput.session.approved && (
       <div class="alert alert-warning alert-soft mb-4">
         <span class="iconify lucide--alert-triangle" />
-        Die Prüfung dieser Sitzung ist noch nicht abgeschlossen. Die Daten sind unter Umständen noch unvollständig oder werden sich noch ändern.
+        Die Prüfung dieser Sitzung ist noch nicht abgeschlossen. Die Daten sind
+        unter Umständen noch unvollständig oder werden sich noch ändern.
       </div>
     )
   }
@@ -115,7 +117,10 @@ const youtubeUrl = sessionInput.session.youtubeUrl;
       @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/session/${sessionId}?tab=speeches`); currentTab = 'speeches'"
     />
     <div class="tab-content border-base-200 bg-base-100 p-6">
-      <Speeches parliamentPeriod={parliamentPeriod} sessionInput={sessionInput} />
+      <Speeches
+        parliamentPeriod={parliamentPeriod}
+        sessionInput={sessionInput}
+      />
     </div>
 
     <input
@@ -128,7 +133,10 @@ const youtubeUrl = sessionInput.session.youtubeUrl;
       @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/session/${sessionId}?tab=speaking-times`); currentTab = 'speaking-times'"
     />
     <div class="tab-content border-base-200 bg-base-100 p-6">
-      <SpeakingTimes parliamentPeriod={parliamentPeriod} sessionInput={sessionInput} />
+      <SpeakingTimes
+        parliamentPeriod={parliamentPeriod}
+        sessionInput={sessionInput}
+      />
     </div>
   </div>
 </PageLayout>

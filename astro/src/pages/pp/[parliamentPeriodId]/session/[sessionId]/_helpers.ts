@@ -19,7 +19,9 @@ export function getSpeakingTimesChartData(
       (speech) =>
         !speech.isChairPerson && speech.duration && speech.transcription,
     )
-    .filter((speech) => !!getPersonByName(parliamentPeriod, session, speech.speaker))
+    .filter(
+      (speech) => !!getPersonByName(parliamentPeriod, session, speech.speaker),
+    )
     .reduce(
       (obj, speech) => {
         obj[speech.speaker] = (obj[speech.speaker] || 0) + speech.duration;
@@ -36,11 +38,15 @@ export function getSpeakingTimesChartData(
     .filter((speech) => !!speech.person)
     .map((speech) => ({
       ...speech,
-      person: speech.person!
+      person: speech.person!,
     }))
     .toSorted((a, b) => b.totalDurationSeconds - a.totalDurationSeconds)
     .map((speech) => {
-      const faction = getFactionOfPerson(parliamentPeriod, session, speech.person)
+      const faction = getFactionOfPerson(
+        parliamentPeriod,
+        session,
+        speech.person,
+      );
       return {
         value: speech.totalDurationSeconds,
         speakerId: speech.person.id,

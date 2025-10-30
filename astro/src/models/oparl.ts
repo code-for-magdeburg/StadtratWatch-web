@@ -4,7 +4,6 @@ export type OparlObject = {
   name: string;
 };
 
-
 export type OparlBody = OparlObject & {
   organization: string;
   person: string;
@@ -17,14 +16,12 @@ export type OparlBody = OparlObject & {
   files: string;
 };
 
-
 export type OparlMeeting = OparlObject & {
   cancelled?: boolean;
   start?: string;
   end?: string;
   organization?: string[];
 };
-
 
 export type OparlAgendaItem = OparlObject & {
   order: number;
@@ -33,7 +30,6 @@ export type OparlAgendaItem = OparlObject & {
   consultation?: string;
 };
 
-
 export type OparlConsultation = OparlObject & {
   meeting?: string;
   paper?: string;
@@ -41,13 +37,11 @@ export type OparlConsultation = OparlObject & {
   agendaItem?: string;
 };
 
-
 export type OparlPaper = OparlObject & {
   consultation?: OparlConsultation[];
   reference?: string;
   paperType?: string;
 };
-
 
 export type OparlFile = OparlObject & {
   paper?: string[];

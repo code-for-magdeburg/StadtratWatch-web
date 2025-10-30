@@ -1,10 +1,9 @@
 ---
 import Layout from '@layouts/Layout.astro';
 ---
+
 <Layout>
-
   <div x-data="paper">
-
     <h3 class="text-lg" x-text="paper.title"></h3>
 
     <div class="space-y-10">
@@ -14,11 +13,7 @@ import Layout from '@layouts/Layout.astro';
         <span x-text="paper.type"></span>
       </div>
 
-      <div
-        id="tabs"
-        role="tablist"
-        class="tabs tabs-lift"
-      >
+      <div id="tabs" role="tablist" class="tabs tabs-lift">
         <input
           role="tab"
           class="tab"
@@ -33,13 +28,16 @@ import Layout from '@layouts/Layout.astro';
               <div class="w-1/4">
                 <ul class="menu bg-base-200 w-full -mx-2 space-y-1 rounded-box">
                   <template x-for="file in paper.files">
-                    <li @click="selectedFile !== file.id && selectFile(file.id)">
+                    <li
+                      @click="selectedFile !== file.id && selectFile(file.id)"
+                    >
                       <div
                         class="flex flex-col items-start"
                         :class="{ 'menu-active': selectedFile === file.id }"
                       >
                         <span x-text="file.name"></span>
-                        <span class="opacity-60" x-text="file.fileSizeDisplay"></span>
+                        <span class="opacity-60" x-text="file.fileSizeDisplay"
+                        ></span>
                       </div>
                     </li>
                   </template>
@@ -50,13 +48,9 @@ import Layout from '@layouts/Layout.astro';
                   x-show="fileSizeOk"
                   :src="documentUrl"
                   style="width: 100%; height: 90vh; border: 0"
-                  loading="lazy"
-                ></iframe>
+                  loading="lazy"></iframe>
 
-                <div
-                  x-show="!fileSizeOk"
-                  class="alert alert-soft alert-info"
-                >
+                <div x-show="!fileSizeOk" class="alert alert-soft alert-info">
                   <span class="iconify lucide--info size-5"></span>
                   <div class="flex flex-row items-center gap-2">
                     <p>Die Datei ist zu groß, um hier angezeigt zu werden.</p>
@@ -69,7 +63,6 @@ import Layout from '@layouts/Layout.astro';
                     </a>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -84,7 +77,8 @@ import Layout from '@layouts/Layout.astro';
                     target="_blank"
                   >
                     <span x-text="file.name"></span>
-                    <span class="opacity-60" x-text="file.fileSizeDisplay"></span>
+                    <span class="opacity-60" x-text="file.fileSizeDisplay"
+                    ></span>
                   </a>
                 </li>
               </template>
@@ -108,19 +102,24 @@ import Layout from '@layouts/Layout.astro';
                   <span x-text="consultation.dateDisplay"></span>
                 </div>
                 <div class="timeline-middle">
-                  <div class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1" />
+                  <div
+                    class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1"
+                  >
+                  </div>
                 </div>
-                <div class="timeline-end timeline-box mt-5 ms-3 w-full space-y-2">
+                <div
+                  class="timeline-end timeline-box mt-5 ms-3 w-full space-y-2"
+                >
                   <div class="text-base-content/70 space-x-1">
                     <span>TOP</span>
                     <span x-text="consultation.agendaItem"></span>
                   </div>
-                  <div class="text-base" x-text="consultation.organization"></div>
+                  <div class="text-base" x-text="consultation.organization">
+                  </div>
                   <div>
                     <span
                       class="badge badge-neutral badge-sm"
-                      x-text="consultation.result"
-                    ></span>
+                      x-text="consultation.result"></span>
                   </div>
                 </div>
                 <hr x-show="index < paper.consultations.length - 1" />
@@ -129,11 +128,8 @@ import Layout from '@layouts/Layout.astro';
           </ul>
         </div>
       </div>
-
     </div>
-
   </div>
-
 </Layout>
 
 <script>
@@ -166,7 +162,6 @@ import Layout from '@layouts/Layout.astro';
   };
 
   document.addEventListener('alpine:init', () => {
-
     Alpine.data('paper', () => ({
       paper: {
         id: 0,
@@ -174,48 +169,50 @@ import Layout from '@layouts/Layout.astro';
         type: null,
         title: '',
         files: [],
-        consultations: []
+        consultations: [],
       } as Paper,
       selectedFile: null as number | null,
       documentUrl: null as string | null,
       fileSizeOk: true,
       fileSizeDisplay: 'fileSizeDisplay',
       async init() {
-
         const queryParams = new URLSearchParams(location.search);
         const paperId = +(queryParams.get('paperId') || '0');
 
         const batchNo = `${Math.floor(paperId / 100)}`.padStart(4, '0');
 
-        const batchResponse = await fetch(`${AWS_CLOUDFRONT_BASE_URL}/web-assets/papers/papers-${batchNo}.json`);
-        const batch = await batchResponse.json() as Paper[];
-        const paper = batch.find(p => p.id === paperId);
+        const batchResponse = await fetch(
+          `${AWS_CLOUDFRONT_BASE_URL}/web-assets/papers/papers-${batchNo}.json`,
+        );
+        const batch = (await batchResponse.json()) as Paper[];
+        const paper = batch.find((p) => p.id === paperId);
 
         if (!paper) {
           console.error(`Paper with id ${paperId} not found.`);
         } else {
           this.paper = {
             ...paper,
-            files: paper.files.map(file => ({
+            files: paper.files.map((file) => ({
               ...file,
-              fileSizeDisplay: `(${formatFileSize(file.size || 0)})`
+              fileSizeDisplay: `(${formatFileSize(file.size || 0)})`,
             })),
-            consultations: paper.consultations.reverse().map(consultation => ({
-              ...consultation,
-              dateDisplay: formatDate(consultation.date),
-            }))
+            consultations: paper.consultations
+              .reverse()
+              .map((consultation) => ({
+                ...consultation,
+                dateDisplay: formatDate(consultation.date),
+              })),
           };
           this.selectedFile = paper.files.length > 0 ? paper.files[0].id : null;
           this.documentUrl = paper.files.length > 0 ? paper.files[0].url : null;
-          this.fileSizeOk = paper.files.length > 0 && (paper.files[0].size || 0) <= 1024 * 1024;
+          this.fileSizeOk =
+            paper.files.length > 0 && (paper.files[0].size || 0) <= 1024 * 1024;
           this.fileSizeDisplay = formatFileSize(paper.files[0].size || 0);
         }
-
       },
-      selectFile: function(fileId: number) {
-
+      selectFile: function (fileId: number) {
         if (fileId) {
-          const file = this.paper.files.find(f => f.id === fileId);
+          const file = this.paper.files.find((f) => f.id === fileId);
           if (file) {
             this.selectedFile = fileId;
             this.documentUrl = file.url;
@@ -228,11 +225,8 @@ import Layout from '@layouts/Layout.astro';
           this.fileSizeOk = true;
           this.fileSizeDisplay = '';
         }
-
-      }
-
+      },
     }));
-
   });
 
   function formatFileSize(size: number) {
@@ -256,5 +250,4 @@ import Layout from '@layouts/Layout.astro';
       year: 'numeric',
     });
   }
-
 </script>

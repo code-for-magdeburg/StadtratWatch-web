@@ -15,19 +15,17 @@ const { breadcrumbItems } = Astro.props as Props;
   <ul>
     {
       breadcrumbItems &&
-      breadcrumbItems.map((breadcrumbItem) => (
-        <li>
-          {
-            breadcrumbItem.href
-              ? <a href={breadcrumbItem.href}>{breadcrumbItem.name}</a>
-              : (
-                <span class="text-base-content/75 pointer-events-none">
-                  {breadcrumbItem.name}
-                </span>
-              )
-          }
-        </li>
-      ))
+        breadcrumbItems.map((breadcrumbItem) => (
+          <li>
+            {breadcrumbItem.href ? (
+              <a href={breadcrumbItem.href}>{breadcrumbItem.name}</a>
+            ) : (
+              <span class="text-base-content/75 pointer-events-none">
+                {breadcrumbItem.name}
+              </span>
+            )}
+          </li>
+        ))
     }
   </ul>
 </div>

@@ -11,27 +11,21 @@ type Props = {
   sessions: SessionInput[];
 };
 
-const {
-  parliamentPeriod,
-  person,
-  sessions
-} = Astro.props as Props;
+const { parliamentPeriod, person, sessions } = Astro.props as Props;
 
 const speechesBySessionDate = sessions
-  .flatMap(session => ({
+  .flatMap((session) => ({
     session: session.session,
     speeches: session.speeches
-      .filter(speech => speech.speaker === person.name)
-      .filter(speech => !speech.isChairPerson)
-      .filter(speech => !!speech.transcription)
-      .toSorted((a, b) => a.start - b.start)
+      .filter((speech) => speech.speaker === person.name)
+      .filter((speech) => !speech.isChairPerson)
+      .filter((speech) => !!speech.transcription)
+      .toSorted((a, b) => a.start - b.start),
   }))
-  .filter(session => session.speeches.length > 0)
-  .toSorted(
-    (a, b) =>
-      b.session.id.localeCompare(a.session.id)
-  );
+  .filter((session) => session.speeches.length > 0)
+  .toSorted((a, b) => b.session.id.localeCompare(a.session.id));
 ---
+
 <div class="alert alert-soft alert-info" role="alert">
   <span class="iconify lucide--info size-5"></span>
   <div class="flex flex-col gap-2">
@@ -59,32 +53,31 @@ const speechesBySessionDate = sessions
             aria-label="Collapse trigger"
             type="checkbox"
             checked
-            name="accordion-multiple" />
+            name="accordion-multiple"
+          />
           <div class="collapse-title">
             {formatDate(speechesBySessionDate.session.date)}
             {speechesBySessionDate.session.title}
           </div>
           <div class="collapse-content">
             <ul class="timeline timeline-vertical timeline-compact">
-              {
-                speechesBySessionDate.speeches.map((speech, index) => {
-                  return (
-                    <li>
-                      {index > 0 &&
-                        <hr />}
-                      <Speech
-                        parliamentPeriod={parliamentPeriod}
-                        session={speechesBySessionDate.session}
-                        speech={speech}
-                        speechElementId={`speech-${speechesBySessionDate.session.id}-${speech.start}`}
-                        link={`/pp/${parliamentPeriod.id}/person/${person.id}?tab=speeches`}
-                      />
-                      {index < speechesBySessionDate.speeches.length - 1 &&
-                        <hr />}
-                    </li>
-                  );
-                })
-              }
+              {speechesBySessionDate.speeches.map((speech, index) => {
+                return (
+                  <li>
+                    {index > 0 && <hr />}
+                    <Speech
+                      parliamentPeriod={parliamentPeriod}
+                      session={speechesBySessionDate.session}
+                      speech={speech}
+                      speechElementId={`speech-${speechesBySessionDate.session.id}-${speech.start}`}
+                      link={`/pp/${parliamentPeriod.id}/person/${person.id}?tab=speeches`}
+                    />
+                    {index < speechesBySessionDate.speeches.length - 1 && (
+                      <hr />
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -133,7 +126,7 @@ const speechesBySessionDate = sessions
         return;
       }
       await navigator.clipboard.writeText(
-        new URL(href, window.location.origin).toString()
+        new URL(href, window.location.origin).toString(),
       );
 
       const alert = document.getElementById('speech-link-copied');

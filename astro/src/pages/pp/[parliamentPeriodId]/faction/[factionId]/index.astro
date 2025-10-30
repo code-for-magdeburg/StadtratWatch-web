@@ -2,7 +2,7 @@
 import PageLayout from '@layouts/PageLayout.astro';
 import {
   type ParliamentPeriodWithFactionProps,
-  getParliamentPeriodWithFactionPaths
+  getParliamentPeriodWithFactionPaths,
 } from '../../_helpers';
 import Councilors from './_councilors.astro';
 import Motions from './_motions.astro';
@@ -24,16 +24,16 @@ const {
 const breadcrumbItems = [
   {
     name: parliamentPeriod.name,
-    href: `/pp/${parliamentPeriodId}`
+    href: `/pp/${parliamentPeriodId}`,
   },
   {
     name: 'Fraktionen',
-    href: `/pp/${parliamentPeriodId}/factions`
+    href: `/pp/${parliamentPeriodId}/factions`,
   },
   {
     name: faction.name,
-    href: null
-  }
+    href: null,
+  },
 ];
 ---
 
@@ -112,14 +112,14 @@ const breadcrumbItems = [
     const currentTab = currentUrl.searchParams.get('tab') || 'councilors';
 
     const sessionsDivElement = document.getElementById(
-      'tabs'
+      'tabs',
     ) as HTMLDivElement;
     const parliamentPeriodId = sessionsDivElement.dataset.parliamentPeriodId;
     const factionId = sessionsDivElement.dataset.factionId;
     Alpine.data('faction', () => ({
       parliamentPeriodId,
       factionId,
-      currentTab
+      currentTab,
     }));
   });
 </script>

@@ -4,27 +4,34 @@ import type { SessionInput } from '@models/SessionInput';
 
 const getParliamentPeriodStaticPaths = (async () => {
   const parliamentPeriods = await getCollection('parliamentPeriods');
-  const oparlMeetings = (await getCollection('oparlMeetings'))
-    .filter(meeting => meeting.data.organization && meeting.data.organization.includes('https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1'));
-  const oparlAgendaItems = (await getCollection('oparlAgendaItems'))
-    .filter(agendaItem =>
+  const oparlMeetings = (await getCollection('oparlMeetings')).filter(
+    (meeting) =>
+      meeting.data.organization &&
+      meeting.data.organization.includes(
+        'https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1',
+      ),
+  );
+  const oparlAgendaItems = (await getCollection('oparlAgendaItems')).filter(
+    (agendaItem) =>
       agendaItem.data.meeting &&
-      oparlMeetings.some(meeting => meeting.id === agendaItem.data.meeting)
-    );
-  const oparlConsultations = (await getCollection('oparlConsultations'))
-    .filter(consultation =>
+      oparlMeetings.some((meeting) => meeting.id === agendaItem.data.meeting),
+  );
+  const oparlConsultations = (await getCollection('oparlConsultations')).filter(
+    (consultation) =>
       consultation.data.meeting &&
-      oparlMeetings.some(meeting => meeting.id === consultation.data.meeting)
-    );
+      oparlMeetings.some((meeting) => meeting.id === consultation.data.meeting),
+  );
 
   return parliamentPeriods.map((parliamentPeriod) => {
     return {
       params: { parliamentPeriodId: parliamentPeriod.id },
       props: {
         parliamentPeriod: parliamentPeriod.data,
-        oparlMeetings: oparlMeetings.map(meeting => meeting.data),
-        oparlAgendaItems: oparlAgendaItems.map(agendaItem => agendaItem.data),
-        oparlConsultations: oparlConsultations.map(consultation => consultation.data),
+        oparlMeetings: oparlMeetings.map((meeting) => meeting.data),
+        oparlAgendaItems: oparlAgendaItems.map((agendaItem) => agendaItem.data),
+        oparlConsultations: oparlConsultations.map(
+          (consultation) => consultation.data,
+        ),
       },
     };
   });
@@ -62,12 +69,12 @@ export const getParliamentPeriodWithSessionsPaths = (async () => {
     const sessionInputs = parliamentPeriod.sessions.map((session) => {
       const sessionScan = sessionScans.find(
         (sessionScan) =>
-          sessionScan.sessionId === `${parliamentPeriod.id}/${session.id}`
+          sessionScan.sessionId === `${parliamentPeriod.id}/${session.id}`,
       );
       const speeches = sessionSpeeches
         .filter(
           (sessionSpeech) =>
-            sessionSpeech.sessionId === `${parliamentPeriod.id}/${session.id}`
+            sessionSpeech.sessionId === `${parliamentPeriod.id}/${session.id}`,
         )
         .flatMap((sessionSpeech) => sessionSpeech.speeches);
       return {
@@ -76,11 +83,7 @@ export const getParliamentPeriodWithSessionsPaths = (async () => {
         speeches,
       } as SessionInput;
     });
-    const {
-      oparlMeetings,
-      oparlAgendaItems,
-      oparlConsultations,
-    } = path.props;
+    const { oparlMeetings, oparlAgendaItems, oparlConsultations } = path.props;
     return {
       params: { parliamentPeriodId: parliamentPeriod.id },
       props: {
@@ -165,10 +168,7 @@ export const getParliamentPeriodWithPartyPaths = async () => {
   const parliamentPeriodWithSessionsStaticPaths =
     await getParliamentPeriodWithSessionsPaths();
   return parliamentPeriodWithSessionsStaticPaths.flatMap((path) => {
-    const {
-      parliamentPeriod,
-      sessionInputs
-    } = path.props;
+    const { parliamentPeriod, sessionInputs } = path.props;
     return parliamentPeriod.parties.map((party) => ({
       params: {
         parliamentPeriodId: parliamentPeriod.id,

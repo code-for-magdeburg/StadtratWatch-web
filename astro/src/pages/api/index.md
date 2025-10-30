@@ -9,14 +9,16 @@ StadtratWatch hat eine öffentliche Schnittstelle, die es Entwickler:innen und B
 ## Verfügbare Endpunkte
 
 **Legislaturperioden**
+
 - `GET /api/v1/parliament-periods.json` - Liste aller Legislaturperioden
 - `GET /api/v1/parliament-periods/[id].json` - Details zu einer spezifischen Legislaturperiode
 
 **Redebeiträge**
+
 - `GET /api/v1/parliament-periods/[id]/speeches/[sessionId].json` - Redebeiträge einer Sitzung
 
-
 **Abstimmungen**
+
 - `GET /api/v1/parliament-periods/[id]/votings/[sessionId].json` - Abstimmungsergebnisse einer Sitzung
 
 ## Lizenz und Nutzung

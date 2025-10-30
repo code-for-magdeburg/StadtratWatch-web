@@ -21,10 +21,12 @@ export function getVotingId(votings: { votingId: number }[]): number {
   return votings.toSorted((a, b) => a.votingId - b.votingId)[0].votingId;
 }
 
-export function getMotionResult(votings: { votingResult: VotingResult }[]): MotionResult {
-  const passedVotings = votings
-    .filter(voting => voting.votingResult === VotingResult.PASSED)
-    .length;
+export function getMotionResult(
+  votings: { votingResult: VotingResult }[],
+): MotionResult {
+  const passedVotings = votings.filter(
+    (voting) => voting.votingResult === VotingResult.PASSED,
+  ).length;
   return passedVotings === 0
     ? MotionResult.REJECTED
     : passedVotings === votings.length

@@ -5,7 +5,10 @@ export type FormatSpeakingTimeOptions = {
 
 export function formatSpeakingTime(
   speakingTime: number,
-  options: FormatSpeakingTimeOptions = { showZeroHours: true, showSeconds: true },
+  options: FormatSpeakingTimeOptions = {
+    showZeroHours: true,
+    showSeconds: true,
+  },
 ): string {
   const hours = Math.floor(speakingTime / 3600);
   const minutes = Math.floor((speakingTime % 3600) / 60);

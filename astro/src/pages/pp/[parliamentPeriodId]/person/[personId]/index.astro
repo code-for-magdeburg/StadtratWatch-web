@@ -1,7 +1,7 @@
 ---
 import {
   type ParliamentPeriodWithPersonProps,
-  getParliamentPeriodWithPersonPaths
+  getParliamentPeriodWithPersonPaths,
 } from '../../_helpers';
 import PageLayout from '@layouts/PageLayout.astro';
 import Statistics from './_statistics.astro';
@@ -14,45 +14,50 @@ import { extractExtremistClassificationInformation } from '@utils/party-utils';
 export const getStaticPaths = getParliamentPeriodWithPersonPaths;
 
 const { parliamentPeriodId, personId } = Astro.params;
-const {
-  parliamentPeriod,
-  sessionInputs,
-  person
-} = Astro.props as ParliamentPeriodWithPersonProps;
+const { parliamentPeriod, sessionInputs, person } =
+  Astro.props as ParliamentPeriodWithPersonProps;
 
-const faction = parliamentPeriod.factions.find((faction) => faction.id === person.factionId);
+const faction = parliamentPeriod.factions.find(
+  (faction) => faction.id === person.factionId,
+);
 if (!faction) {
-  throw new Error(`Faction with ID ${person.factionId} not found in parliament period ${parliamentPeriodId}`);
+  throw new Error(
+    `Faction with ID ${person.factionId} not found in parliament period ${parliamentPeriodId}`,
+  );
 }
-const party = parliamentPeriod.parties.find((party) => party.id === person.partyId);
+const party = parliamentPeriod.parties.find(
+  (party) => party.id === person.partyId,
+);
 if (!party) {
-  throw new Error(`Party with ID ${person.partyId} not found in parliament period ${parliamentPeriodId}`);
+  throw new Error(
+    `Party with ID ${person.partyId} not found in parliament period ${parliamentPeriodId}`,
+  );
 }
 
 const {
   extremistClassification,
   extremistClassificationReason,
   extremistClassificationSource,
-  extremistClassificationSourceUrl
+  extremistClassificationSourceUrl,
 } = extractExtremistClassificationInformation(party);
-
 ---
+
 <PageLayout
   parliamentPeriod={parliamentPeriod}
   pageTitle={person.name}
   breadcrumbItems={[
     {
       name: parliamentPeriod.name,
-      href: `/pp/${parliamentPeriodId}`
+      href: `/pp/${parliamentPeriodId}`,
     },
     {
       name: 'Personen',
-      href: `/pp/${parliamentPeriodId}/persons`
+      href: `/pp/${parliamentPeriodId}/persons`,
     },
     {
       name: person.name,
-      href: null
-    }
+      href: null,
+    },
   ]}
 >
   <MetaTags slot="srw-meta-tags" personName={person.name} />
@@ -75,15 +80,15 @@ const {
         Fraktion
         <a
           href={`/pp/${parliamentPeriodId}/faction/${person.factionId}`}
-          class="link link-primary"
-        >{faction.name}</a>
+          class="link link-primary">{faction.name}</a
+        >
       </div>
       <div>
         Partei
         <a
           href={`/pp/${parliamentPeriodId}/party/${person.partyId}`}
-          class="link link-primary"
-        >{party.name}</a>
+          class="link link-primary">{party.name}</a
+        >
       </div>
     </div>
   </div>
@@ -106,10 +111,7 @@ const {
       @change="history.pushState(null, '', `/pp/${parliamentPeriodId}/person/${personId}?tab=statistics`); currentTab = 'statistics'"
     />
     <div class="tab-content border-base-200 bg-base-100 p-6">
-      <Statistics
-        person={person}
-        sessionInputs={sessionInputs}
-      />
+      <Statistics person={person} sessionInputs={sessionInputs} />
     </div>
 
     <input
@@ -146,7 +148,6 @@ const {
       />
     </div>
   </div>
-
 </PageLayout>
 
 <script>
@@ -157,14 +158,14 @@ const {
     const currentTab = currentUrl.searchParams.get('tab') || 'statistics';
 
     const sessionsDivElement = document.getElementById(
-      'tabs'
+      'tabs',
     ) as HTMLDivElement;
     const parliamentPeriodId = sessionsDivElement.dataset.parliamentPeriodId;
     const personId = sessionsDivElement.dataset.personId;
     Alpine.data('person', () => ({
       parliamentPeriodId,
       personId,
-      currentTab
+      currentTab,
     }));
   });
 
