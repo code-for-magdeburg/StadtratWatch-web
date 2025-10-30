@@ -70,3 +70,10 @@ jobs:
       - name: Build project
         run: npm run build
         working-directory: astro
+        env:
+          DEFAULT_PARLIAMENT_PERIOD: magdeburg-8
+          AWS_CLOUDFRONT_BASE_URL: https://d2zk2bghxwzsug.cloudfront.net
+          TYPESENSE_HOST: localhost
+          TYPESENSE_PORT: 8108
+          TYPESENSE_PROTOCOL: http
+          TYPESENSE_SEARCH_ONLY_API_KEY: xxx
