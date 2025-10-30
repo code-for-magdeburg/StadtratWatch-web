@@ -44,26 +44,32 @@ const sessionSpeeches = defineCollection({
 });
 
 const oparlMeetings = defineCollection({
-  loader: () =>
-    JSON.parse(
+  loader: () => {
+    console.log('A');
+    return JSON.parse(
       fs.readFileSync('../data/oparl-magdeburg/meetings.json', 'utf8'),
-    ) as OparlMeeting[],
+    ) as OparlMeeting[];
+  },
   schema: z.custom<OparlMeeting>(),
 });
 
 const oparlAgendaItems = defineCollection({
-  loader: () =>
-    JSON.parse(
+  loader: () => {
+    console.log('B');
+    return JSON.parse(
       fs.readFileSync('../data/oparl-magdeburg/agenda-items.json', 'utf8'),
-    ) as OparlAgendaItem[],
+    ) as OparlAgendaItem[];
+  },
   schema: z.custom<OparlAgendaItem>(),
 });
 
 const oparlConsultations = defineCollection({
-  loader: () =>
-    JSON.parse(
+  loader: () => {
+    console.log('C');
+    return JSON.parse(
       fs.readFileSync('../data/oparl-magdeburg/consultations.json', 'utf8'),
-    ) as OparlConsultation[],
+    ) as OparlConsultation[];
+  },
   schema: z.custom<OparlConsultation>(),
 });
 
