@@ -48,7 +48,7 @@ deno lint               # Lint code
 ### Data Flow
 
 1. **OParl Ingestion** → scrape-oparl fetches parliamentary data from the city council's OParl API
-2. **Paper Assets** → generate-paper-assets converts OParl data to internal format, download-paper-files fetches PDFs
+2. **Paper Assets** → generate-paper-assets converts OParl data to batched JSON format, download-paper-files fetches PDFs
 3. **Video Processing** → scan-voting-images extracts voting results via OCR, parse-speakers identifies speakers, speech-to-text transcribes using OpenAI
 4. **Asset Generation** → generate-image-assets creates voting visualization PNGs
 5. **Search Indexing** → index-search imports into Typesense for full-text search
@@ -69,7 +69,7 @@ data/
 │       └── session-speeches-*.json  # Transcriptions
 ├── magdeburg-8/              # Parliament period 8 (2024-)
 ├── oparl-magdeburg/          # Raw OParl API data
-└── papers/                   # Paper metadata and PDFs
+└── papers/                   # Paper metadata in batched JSON files
 ```
 
 ### Key Models
@@ -98,6 +98,23 @@ Analysis algorithms in `astro/src/data-analysis/`:
 - **MotionsSuccess.ts** - Tracks success rate of party motions
 
 These functions take data from session files and registry.json, compute metrics, and return results for visualization.
+
+### User-Facing Pages
+
+Key pages in `astro/src/pages/`:
+
+- `/` - Home page
+- `/paper/` - Paper detail view with PDF viewer and consultations timeline
+- `/pp/{parliamentPeriodId}/` - Parliament period overview
+- `/pp/{parliamentPeriodId}/sessions/` - Sessions list
+- `/pp/{parliamentPeriodId}/session/{sessionId}/` - Session details with votings, speeches, and speaking times
+- `/pp/{parliamentPeriodId}/persons/` - Council members list and graph
+- `/pp/{parliamentPeriodId}/person/{personId}/` - Person profile with statistics and voting matrix
+- `/pp/{parliamentPeriodId}/factions/` - Factions overview
+- `/pp/{parliamentPeriodId}/faction/{factionId}/` - Faction details with councilors, motions, and statistics
+- `/pp/{parliamentPeriodId}/parties/` - Parties overview
+- `/pp/{parliamentPeriodId}/party/{partyId}/` - Party details
+- `/search/` - Full-text search across papers and speeches
 
 ### API Routes
 
@@ -139,6 +156,14 @@ Each data processing script has a corresponding Dockerfile in `docker/` for cont
 - Deno scripts: Use `@std/testing` and run with `deno test`
 - Manual testing: Run `npm run dev` in astro/ to see changes live
 
+### Continuous Integration
+
+The project uses GitHub Actions for automated quality checks (`.github/workflows/ci.yml`) on push/PR to main branch:
+- Deno Checks
+- Astro Checks
+
+All checks must pass before merging PRs.
+
 ### OParl Integration
 
 OParl is a standard API for German parliamentary information systems. The scraper (`src/scripts/scrape-oparl/`) fetches:
@@ -146,11 +171,23 @@ OParl is a standard API for German parliamentary information systems. The scrape
 - Meetings (sessions)
 - Papers (proposals, applications)
 - Files (PDF documents)
-- AgendaItems, Consultations
+- AgendaItems
+- Consultations
+- Organizations
 
 OParl objects are stored in `data/oparl-magdeburg/` and referenced by URL (object IDs). The scraper supports two modes:
 - **full** - Fetches all data from a specified date
 - **incremental** - Fetches only new/updated data
+
+**OParl Repository Pattern**: The project uses a repository pattern for accessing OParl data located in `src/scripts/shared/oparl/`:
+- `oparl-meetings-repository.ts` - Query meetings by ID or date range
+- `oparl-papers-repository.ts` - Query papers with methods like `getAllPapers()`, `getFilesByPaper()`
+- `oparl-files-repository.ts` - Access file metadata
+- `oparl-agenda-items-repository.ts` - Extended agenda item model with consultation info
+- `oparl-organizations-repository.ts` - Access organization data
+- `oparl-objects-store.ts` - In-memory storage layer
+
+All repositories have comprehensive test coverage using BDD-style tests (`.test.ts` files).
 
 ### Video Processing Pipeline
 
