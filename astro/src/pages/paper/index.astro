@@ -116,7 +116,7 @@ import Layout from '@layouts/Layout.astro';
                   </div>
                   <div class="text-base" x-text="consultation.organization">
                   </div>
-                  <div>
+                  <div x-show="consultation.result">
                     <span
                       class="badge badge-neutral badge-sm"
                       x-text="consultation.result"></span>
