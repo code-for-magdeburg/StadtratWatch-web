@@ -8,6 +8,7 @@ import type {
   OparlAgendaItem,
   OparlConsultation,
   OparlMeeting,
+  OparlPaper,
 } from '@models/oparl.ts';
 
 const parliamentPeriods = defineCollection({
@@ -67,6 +68,14 @@ const oparlConsultations = defineCollection({
   schema: z.custom<OparlConsultation>(),
 });
 
+const oparlPapers = defineCollection({
+  loader: () =>
+    JSON.parse(
+      fs.readFileSync('../data/oparl-magdeburg/papers.json', 'utf8'),
+    ) as OparlPaper[],
+  schema: z.custom<OparlPaper>(),
+});
+
 export const collections = {
   parliamentPeriods,
   sessionScans,
@@ -74,4 +83,5 @@ export const collections = {
   oparlMeetings,
   oparlAgendaItems,
   oparlConsultations,
+  oparlPapers,
 };
