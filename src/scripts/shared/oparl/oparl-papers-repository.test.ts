@@ -48,6 +48,7 @@ describe('OparlPapersInMemoryRepository', () => {
           name: 'Important Paper',
           reference: 'REF-2024-001',
           paperType: 'Antrag',
+          deleted: true,
           consultation: [
             {
               id: 'consultation-1',
@@ -67,6 +68,7 @@ describe('OparlPapersInMemoryRepository', () => {
       assertEquals(result[0].name, 'Important Paper');
       assertEquals(result[0].reference, 'REF-2024-001');
       assertEquals(result[0].paperType, 'Antrag');
+      assertEquals(result[0].deleted, true);
       assertEquals(result[0].consultation?.length, 1);
       assertEquals(result[0].consultation?.[0].id, 'consultation-1');
     });
@@ -383,6 +385,7 @@ describe('OparlPapersInMemoryRepository', () => {
           name: 'Important Paper',
           reference: 'REF-2024-001',
           paperType: 'Antrag',
+          deleted: true,
           consultation: [
             {
               id: 'consultation-1',
@@ -402,6 +405,7 @@ describe('OparlPapersInMemoryRepository', () => {
       assertEquals(result[0].name, 'Important Paper');
       assertEquals(result[0].reference, 'REF-2024-001');
       assertEquals(result[0].paperType, 'Antrag');
+      assertEquals(result[0].deleted, true);
     });
   });
 });

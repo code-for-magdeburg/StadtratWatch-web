@@ -20,6 +20,7 @@ export class PaperAssetsGenerator {
   public generatePaperAssets(): PaperAssetDto[] {
     return this.papersRepository
       .getAllPapers()
+      .filter((paper) => !paper.deleted)
       .map<PaperAssetDto>((paper) => {
         const consultations = (paper.consultation || [])
           .map<PaperAssetConsultationDto | null>((consultation) => {

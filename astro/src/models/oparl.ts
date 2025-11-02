@@ -44,6 +44,7 @@ export type OparlPaper = OparlObject & {
   date?: string;
   superordinatedPaper?: string[];
   subordinatedPaper?: string[];
+  deleted?: boolean;
 };
 
 export type OparlFile = OparlObject & {
