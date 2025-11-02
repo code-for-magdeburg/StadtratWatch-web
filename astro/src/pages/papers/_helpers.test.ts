@@ -25,16 +25,20 @@ describe('getRecentMainPapers', () => {
   test('filters out papers with subordinated papers', () => {
     const papers: OparlPaper[] = [
       {
-        id: 'paper-1',
+        id: 'https://example.com/oparl/paper-1',
         type: 'paper',
         name: 'Main Paper',
+        reference: 'M-001',
+        paperType: 'Antrag',
         date: '2024-03-01',
         subordinatedPaper: [],
       },
       {
-        id: 'paper-2',
+        id: 'https://example.com/oparl/paper-2',
         type: 'paper',
         name: 'Paper with subordinates',
+        reference: 'M-002',
+        paperType: 'Antrag',
         date: '2024-03-01',
         subordinatedPaper: ['sub-paper-1'],
       },
@@ -44,6 +48,62 @@ describe('getRecentMainPapers', () => {
 
     assert.lengthOf(result, 1);
     assert.equal(result[0].id, 'paper-1');
+    assert.equal(result[0].oparlId, 'https://example.com/oparl/paper-1');
+    assert.equal(result[0].title, 'Main Paper');
+    assert.equal(result[0].reference, 'M-001');
+    assert.equal(result[0].type, 'Antrag');
+    assert.equal(result[0].date, '2024-03-01');
+    assert.equal(result[0].dateDisplay, '01.03.2024');
+  });
+
+  test('returns RecentPaper objects with all required fields', () => {
+    const papers: OparlPaper[] = [
+      {
+        id: 'https://example.com/oparl/papers/12345',
+        type: 'paper',
+        name: 'Test Paper Title',
+        reference: 'A-123/2024',
+        paperType: 'Antrag',
+        date: '2024-03-10',
+        subordinatedPaper: [],
+      },
+    ];
+
+    const result = getRecentMainPapers(papers);
+
+    assert.lengthOf(result, 1);
+    const paper = result[0];
+
+    // Check all fields of RecentPaper
+    assert.equal(paper.oparlId, 'https://example.com/oparl/papers/12345');
+    assert.equal(paper.id, '12345');
+    assert.equal(paper.date, '2024-03-10');
+    assert.equal(paper.dateDisplay, '10.03.2024');
+    assert.equal(paper.type, 'Antrag');
+    assert.equal(paper.reference, 'A-123/2024');
+    assert.equal(paper.title, 'Test Paper Title');
+  });
+
+  test('handles papers with optional fields as undefined', () => {
+    const papers: OparlPaper[] = [
+      {
+        id: 'https://example.com/oparl/papers/67890',
+        type: 'paper',
+        name: 'Paper without optional fields',
+        date: '2024-03-05',
+        subordinatedPaper: [],
+        // paperType and reference are undefined
+      },
+    ];
+
+    const result = getRecentMainPapers(papers);
+
+    assert.lengthOf(result, 1);
+    const paper = result[0];
+
+    assert.equal(paper.type, undefined);
+    assert.equal(paper.reference, undefined);
+    assert.equal(paper.title, 'Paper without optional fields');
   });
 
   test('filters out papers without a date', () => {
