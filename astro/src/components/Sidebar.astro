@@ -95,6 +95,13 @@ switch (true) {
         </a>
         <a
           class="sidebar-menu-item"
+          class:list={[{ active: activePage === 'papers' }]}
+          href={`/papers`}
+        >
+          Drucksachen
+        </a>
+        <a
+          class="sidebar-menu-item"
           class:list={[{ active: activePage === 'factions' }]}
           href={`/pp/${parliamentPeriod.id}/factions`}
         >
