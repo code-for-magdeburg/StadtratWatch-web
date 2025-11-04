@@ -5,6 +5,7 @@ import { OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.t
 import { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
 import { OparlOrganizationsRepository } from '../shared/oparl/oparl-organizations-repository.ts';
 import { OparlAgendaItemsRepository } from '../shared/oparl/oparl-agenda-items-repository.ts';
+import { OparlPaper } from '../shared/model/oparl.ts';
 
 export class PaperAssetsGenerator {
   constructor(
@@ -22,58 +23,8 @@ export class PaperAssetsGenerator {
       .getAllPapers()
       .filter((paper) => !paper.deleted)
       .map<PaperAssetDto>((paper) => {
-        const consultations = (paper.consultation || [])
-          .map<PaperAssetConsultationDto | null>((consultation) => {
-            if (
-              !consultation.meeting || !consultation.organization || consultation.organization.length === 0 ||
-              !consultation.agendaItem
-            ) {
-              return null;
-            }
-
-            const meeting = this.meetingsRepository.getMeetingById(consultation.meeting);
-            if (!meeting) {
-              return null;
-            }
-
-            const organization = this.organizationsRepository.getOrganizationById(consultation.organization[0]);
-            if (!organization) {
-              return null;
-            }
-
-            const agendaItem = this.agendaItemsRepository.getAgendaItemById(consultation.agendaItem);
-            if (!agendaItem) {
-              return null;
-            }
-
-            return {
-              meeting: meeting.name,
-              date: meeting.start || null,
-              role: consultation.role || null,
-              organization: organization.name,
-              agendaItem: agendaItem.number || null,
-              result: agendaItem.result || null,
-            };
-          })
-          .filter((consultation): consultation is PaperAssetConsultationDto => consultation !== null)
-          .toSorted((a, b) => {
-            if (!a.date && !b.date) return 0;
-            if (!a.date) return 1;
-            if (!b.date) return -1;
-            return a.date.localeCompare(b.date);
-          });
-        const files = this.filesRepository
-          .getFilesByPaper(paper.id)
-          .toSorted((a, b) => a.id.localeCompare(b.id))
-          .map<PaperAssetFileDto>((file) => {
-            const fileId = +file.id.split('/').pop()!;
-            return {
-              id: fileId,
-              name: file.name,
-              url: `https://ratsinfo.magdeburg.de/getfile.asp?id=${fileId}&type=do`,
-              size: this.paperFilesStore.getFileSize(fileId),
-            };
-          });
+        const consultations = this.getConsultations(paper);
+        const files = this.getFiles(paper);
         return {
           id: +paper.id.split('/').pop()!,
           reference: paper.reference || null,
@@ -81,6 +32,64 @@ export class PaperAssetsGenerator {
           title: paper.name,
           files,
           consultations,
+        };
+      });
+  }
+
+  private getConsultations(paper: OparlPaper) {
+    return (paper.consultation || [])
+      .map<PaperAssetConsultationDto | null>((consultation) => {
+        if (
+          !consultation.meeting || !consultation.organization || consultation.organization.length === 0 ||
+          !consultation.agendaItem
+        ) {
+          return null;
+        }
+
+        const meeting = this.meetingsRepository.getMeetingById(consultation.meeting);
+        if (!meeting) {
+          return null;
+        }
+
+        const organization = this.organizationsRepository.getOrganizationById(consultation.organization[0]);
+        if (!organization) {
+          return null;
+        }
+
+        const agendaItem = this.agendaItemsRepository.getAgendaItemById(consultation.agendaItem);
+        if (!agendaItem) {
+          return null;
+        }
+
+        return {
+          meeting: meeting.name,
+          date: meeting.start || null,
+          role: consultation.role || null,
+          organization: organization.name,
+          agendaItem: agendaItem.number || null,
+          result: agendaItem.result || null,
+        };
+      })
+      .filter((consultation): consultation is PaperAssetConsultationDto => consultation !== null)
+      .toSorted((a, b) => {
+        if (!a.date && !b.date) return 0;
+        if (!a.date) return 1;
+        if (!b.date) return -1;
+        return a.date.localeCompare(b.date);
+      });
+  }
+
+  private getFiles(paper: OparlPaper) {
+    return this.filesRepository
+      .getFilesByPaper(paper.id)
+      .toSorted((a, b) => a.id.localeCompare(b.id))
+      .map<PaperAssetFileDto>((file) => {
+        const fileId = +file.id.split('/').pop()!;
+        return {
+          id: fileId,
+          name: file.name,
+          url: `https://ratsinfo.magdeburg.de/getfile.asp?id=${fileId}&type=do`,
+          size: this.paperFilesStore.getFileSize(fileId),
         };
       });
   }
