@@ -2,8 +2,8 @@ import { FEATURE_FLAGS } from 'astro:env/server';
 
 export type FeatureFlag =
   // No flags defined yet - remove this line when adding real flags
-  string;
-// | 'feature-name-1'
+  //string;
+  'paper-details-with-related-papers';
 // | 'feature-name-2'
 
 function parseEnabledFeatures(featuresString: string | undefined): Set<string> {

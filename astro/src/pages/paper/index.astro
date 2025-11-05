@@ -1,5 +1,10 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import { isFeatureEnabled } from '@utils/feature-flags.ts';
+
+const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
+  'paper-details-with-related-papers',
+);
 ---
 
 <Layout>
@@ -127,6 +132,21 @@ import Layout from '@layouts/Layout.astro';
             </template>
           </ul>
         </div>
+
+        {
+          featurePaperDetailsWithRelatedPaperEnabled && (
+            <>
+              <input
+                role="tab"
+                class="tab"
+                aria-label="Verknüpfte Drucksachen"
+                type="radio"
+                name="paper-tabs-radio"
+              />
+              <div class="tab-content border-base-200 bg-base-100 p-6" />
+            </>
+          )
+        }
       </div>
     </div>
   </div>
