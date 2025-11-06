@@ -40,7 +40,7 @@ export default defineConfig({
         optional: false,
       }),
       FEATURE_FLAGS: envField.string({
-        context: 'server',
+        context: 'client',
         access: 'public',
         optional: true,
         default: ''
