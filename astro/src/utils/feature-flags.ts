@@ -1,4 +1,4 @@
-import { FEATURE_FLAGS } from 'astro:env/server';
+import { FEATURE_FLAGS } from 'astro:env/client';
 
 export type FeatureFlag =
   // No flags defined yet - remove this line when adding real flags

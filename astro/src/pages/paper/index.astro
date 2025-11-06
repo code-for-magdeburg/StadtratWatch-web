@@ -143,7 +143,9 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
                 type="radio"
                 name="paper-tabs-radio"
               />
-              <div class="tab-content border-base-200 bg-base-100 p-6" />
+              <div class="tab-content border-base-200 bg-base-100 p-6">
+                <pre x-text="JSON.stringify(paperGroup, null, 2)" />
+              </div>
             </>
           )
         }
@@ -155,6 +157,7 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
 <script>
   import Alpine from 'alpinejs';
   import { AWS_CLOUDFRONT_BASE_URL } from 'astro:env/client';
+  import { isFeatureEnabled } from '@utils/feature-flags.ts';
 
   type PaperFile = {
     id: number;
@@ -181,6 +184,14 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
     consultations: PaperConsultation[];
   };
 
+  type PaperGroupItem = {
+    paperId: number;
+    superordinatePaperIds: number[];
+    subordinatePaperIds: number[];
+  };
+
+  type PaperGroup = PaperGroupItem[];
+
   document.addEventListener('alpine:init', () => {
     Alpine.data('paper', () => ({
       paper: {
@@ -191,6 +202,7 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
         files: [],
         consultations: [],
       } as Paper,
+      paperGroup: [] as PaperGroup,
       selectedFile: null as number | null,
       documentUrl: null as string | null,
       fileSizeOk: true,
@@ -209,26 +221,58 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
 
         if (!paper) {
           console.error(`Paper with id ${paperId} not found.`);
-        } else {
-          this.paper = {
-            ...paper,
-            files: paper.files.map((file) => ({
-              ...file,
-              fileSizeDisplay: `(${formatFileSize(file.size || 0)})`,
-            })),
-            consultations: paper.consultations
-              .reverse()
-              .map((consultation) => ({
-                ...consultation,
-                dateDisplay: formatDate(consultation.date),
-              })),
-          };
-          this.selectedFile = paper.files.length > 0 ? paper.files[0].id : null;
-          this.documentUrl = paper.files.length > 0 ? paper.files[0].url : null;
-          this.fileSizeOk =
-            paper.files.length > 0 && (paper.files[0].size || 0) <= 1024 * 1024;
-          this.fileSizeDisplay = formatFileSize(paper.files[0].size || 0);
+          return;
         }
+
+        const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
+          'paper-details-with-related-papers',
+        );
+        if (featurePaperDetailsWithRelatedPaperEnabled) {
+          this.paperGroup = [
+            {
+              paperId: 1,
+              superordinatePaperIds: [],
+              subordinatePaperIds: [2, 3],
+            },
+            {
+              paperId: 2,
+              superordinatePaperIds: [1],
+              subordinatePaperIds: [4, 5],
+            },
+            {
+              paperId: 3,
+              superordinatePaperIds: [1],
+              subordinatePaperIds: [],
+            },
+            {
+              paperId: 4,
+              superordinatePaperIds: [2],
+              subordinatePaperIds: [],
+            },
+            {
+              paperId: 5,
+              superordinatePaperIds: [2],
+              subordinatePaperIds: [],
+            },
+          ];
+        }
+
+        this.paper = {
+          ...paper,
+          files: paper.files.map((file) => ({
+            ...file,
+            fileSizeDisplay: `(${formatFileSize(file.size || 0)})`,
+          })),
+          consultations: paper.consultations.reverse().map((consultation) => ({
+            ...consultation,
+            dateDisplay: formatDate(consultation.date),
+          })),
+        };
+        this.selectedFile = paper.files.length > 0 ? paper.files[0].id : null;
+        this.documentUrl = paper.files.length > 0 ? paper.files[0].url : null;
+        this.fileSizeOk =
+          paper.files.length > 0 && (paper.files[0].size || 0) <= 1024 * 1024;
+        this.fileSizeDisplay = formatFileSize(paper.files[0].size || 0);
       },
       selectFile: function (fileId: number) {
         if (fileId) {
