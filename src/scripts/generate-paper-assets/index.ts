@@ -21,6 +21,7 @@ const generator = new PaperAssetsGenerator(
   paperFilesStore,
   oparlObjectsStore,
   paperAssetsStore,
+  paperAssetsStore,
 );
 generator.generatePaperAssets();
 

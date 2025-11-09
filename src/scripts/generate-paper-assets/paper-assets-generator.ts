@@ -1,4 +1,4 @@
-import { PaperAssetConsultationDto, PaperAssetDto, PaperAssetFileDto } from './model.ts';
+import { PaperAssetConsultationDto, PaperAssetDto, PaperAssetFileDto, PaperGraphAssetDto } from './model.ts';
 import { PaperFilesStore } from './paper-files-store.ts';
 import { OparlMeetingsInMemoryRepository, OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
 import { OparlPapersInMemoryRepository, OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
@@ -12,9 +12,9 @@ import {
   OparlAgendaItemsRepository,
 } from '../shared/oparl/oparl-agenda-items-repository.ts';
 import { OparlPaper } from '../shared/model/oparl.ts';
-import { createInMemoryGraph, PaperGraph } from './paper-graph.ts';
+import { createInMemoryGraph } from './paper-graph.ts';
 import { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
-import { PaperAssetsStore } from './paper-assets-store.ts';
+import { PaperAssetsStore, PaperGraphAssetsStore } from './paper-assets-store.ts';
 
 export class PaperAssetsGenerator {
   private readonly meetingsRepository: OparlMeetingsRepository;
@@ -22,28 +22,29 @@ export class PaperAssetsGenerator {
   private readonly organizationsRepository: OparlOrganizationsRepository;
   private readonly agendaItemsRepository: OparlAgendaItemsRepository;
   private readonly filesRepository: OparlFilesRepository;
-  private readonly paperGraph: PaperGraph;
 
   constructor(
     private readonly paperFilesStore: PaperFilesStore,
     private readonly oparlObjectsStore: OparlObjectsStore,
     private readonly paperAssetsStore: PaperAssetsStore,
+    private readonly paperGraphAssetsStore: PaperGraphAssetsStore,
   ) {
     this.meetingsRepository = new OparlMeetingsInMemoryRepository(this.oparlObjectsStore.loadMeetings());
     this.papersRepository = new OparlPapersInMemoryRepository(this.oparlObjectsStore.loadPapers());
     this.organizationsRepository = new OparlOrganizationsInMemoryRepository(this.oparlObjectsStore.loadOrganizations());
     this.agendaItemsRepository = new OparlAgendaItemsInMemoryRepository(this.oparlObjectsStore.loadAgendaItems());
     this.filesRepository = new OparlFilesInMemoryRepository(this.oparlObjectsStore.loadFiles(), this.papersRepository);
-    this.paperGraph = createInMemoryGraph(this.papersRepository);
   }
 
   public generatePaperAssets() {
+    const paperGraph = createInMemoryGraph(this.papersRepository);
+
     const paperAssets = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperAssetDto>(
       (paper) => {
         const consultations = this.getConsultations(paper);
         const files = this.getFiles(paper);
         const paperId = +paper.id.split('/').pop()!;
-        const paperGroupId = this.paperGraph.getRootPapersOfPaper(paperId)[0];
+        const paperGroupId = paperGraph.getRootPapersOfPaper(paperId)[0];
         return {
           id: paperId,
           reference: paper.reference || null,
@@ -56,7 +57,12 @@ export class PaperAssetsGenerator {
       },
     );
 
+    const paperGraphAssets = paperGraph
+      .getAllRootPapers()
+      .map<PaperGraphAssetDto>((rootPaperId) => ({ rootPaperId: rootPaperId }));
+
     this.paperAssetsStore.writePaperAssets(paperAssets);
+    this.paperGraphAssetsStore.writePaperGraphAssets(paperGraphAssets);
   }
 
   private getConsultations(paper: OparlPaper) {
