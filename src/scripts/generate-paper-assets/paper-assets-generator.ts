@@ -14,7 +14,8 @@ import {
 import { OparlPaper } from '../shared/model/oparl.ts';
 import { createInMemoryGraph } from './paper-graph.ts';
 import { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
-import { PaperAssetsWriter, PaperGraphAssetsWriter } from './paper-assets-writer.ts';
+import { PaperAssetsWriter } from './paper-assets-writer.ts';
+import { PaperGraphAssetsWriter } from './paper-graph-assets-writer.ts';
 
 export class PaperAssetsGenerator {
   private readonly meetingsRepository: OparlMeetingsRepository;
