@@ -1,39 +1,62 @@
 import { PaperAssetConsultationDto, PaperAssetDto, PaperAssetFileDto } from './model.ts';
 import { IPaperFilesStore } from './paper-files-store.ts';
-import { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
-import { OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
-import { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
-import { OparlOrganizationsRepository } from '../shared/oparl/oparl-organizations-repository.ts';
-import { OparlAgendaItemsRepository } from '../shared/oparl/oparl-agenda-items-repository.ts';
+import { OparlMeetingsInMemoryRepository, OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
+import { OparlPapersInMemoryRepository, OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
+import { OparlFilesInMemoryRepository, OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
+import {
+  OparlOrganizationsInMemoryRepository,
+  OparlOrganizationsRepository,
+} from '../shared/oparl/oparl-organizations-repository.ts';
+import {
+  OparlAgendaItemsInMemoryRepository,
+  OparlAgendaItemsRepository,
+} from '../shared/oparl/oparl-agenda-items-repository.ts';
 import { OparlPaper } from '../shared/model/oparl.ts';
+import { createInMemoryGraph, PaperGraph } from './paper-graph.ts';
+import { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
+import { IPaperAssetsStore } from './paper-assets-store.ts';
 
 export class PaperAssetsGenerator {
+  private readonly meetingsRepository: OparlMeetingsRepository;
+  private readonly papersRepository: OparlPapersRepository;
+  private readonly organizationsRepository: OparlOrganizationsRepository;
+  private readonly agendaItemsRepository: OparlAgendaItemsRepository;
+  private readonly filesRepository: OparlFilesRepository;
+  private readonly paperGraph: PaperGraph;
+
   constructor(
-    private readonly meetingsRepository: OparlMeetingsRepository,
-    private readonly papersRepository: OparlPapersRepository,
-    private readonly organizationsRepository: OparlOrganizationsRepository,
-    private readonly agendaItemsRepository: OparlAgendaItemsRepository,
-    private readonly filesRepository: OparlFilesRepository,
     private readonly paperFilesStore: IPaperFilesStore,
+    private readonly oparlObjectsStore: OparlObjectsStore,
+    private readonly paperAssetsStore: IPaperAssetsStore,
   ) {
+    this.meetingsRepository = new OparlMeetingsInMemoryRepository(this.oparlObjectsStore.loadMeetings());
+    this.papersRepository = new OparlPapersInMemoryRepository(this.oparlObjectsStore.loadPapers());
+    this.organizationsRepository = new OparlOrganizationsInMemoryRepository(this.oparlObjectsStore.loadOrganizations());
+    this.agendaItemsRepository = new OparlAgendaItemsInMemoryRepository(this.oparlObjectsStore.loadAgendaItems());
+    this.filesRepository = new OparlFilesInMemoryRepository(this.oparlObjectsStore.loadFiles(), this.papersRepository);
+    this.paperGraph = createInMemoryGraph(this.papersRepository);
   }
 
-  public generatePaperAssets(): PaperAssetDto[] {
-    return this.papersRepository
-      .getAllPapers()
-      .filter((paper) => !paper.deleted)
-      .map<PaperAssetDto>((paper) => {
+  public generatePaperAssets() {
+    const paperAssets = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperAssetDto>(
+      (paper) => {
         const consultations = this.getConsultations(paper);
         const files = this.getFiles(paper);
+        const paperId = +paper.id.split('/').pop()!;
+        const paperGroupId = this.paperGraph.getRootPapersOfPaper(paperId)[0];
         return {
-          id: +paper.id.split('/').pop()!,
+          id: paperId,
           reference: paper.reference || null,
           type: paper.paperType || null,
           title: paper.name,
           files,
           consultations,
+          paperGroupId,
         };
-      });
+      },
+    );
+
+    this.paperAssetsStore.writePaperAssets(paperAssets);
   }
 
   private getConsultations(paper: OparlPaper) {

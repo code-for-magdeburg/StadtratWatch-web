@@ -21,4 +21,5 @@ export type PaperAssetDto = {
   title: string;
   files: PaperAssetFileDto[];
   consultations: PaperAssetConsultationDto[];
+  paperGroupId: number;
 };
