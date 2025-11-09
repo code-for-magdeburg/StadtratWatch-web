@@ -2,7 +2,7 @@ import { describe, it } from '@std/testing/bdd';
 import { assert } from '@std/assert';
 import { PaperAssetsGenerator } from '../paper-assets-generator.ts';
 import { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
-import { IPaperAssetsStore } from '../paper-assets-store.ts';
+import { PaperAssetsStore } from '../paper-assets-store.ts';
 import {
   OparlAgendaItem,
   OparlConsultation,
@@ -12,9 +12,9 @@ import {
   OparlPaper,
 } from '../../shared/model/oparl.ts';
 import { PaperAssetDto } from '../model.ts';
-import { IPaperFilesStore } from '../paper-files-store.ts';
+import { PaperFilesStore } from '../paper-files-store.ts';
 
-class MockPaperFilesStore implements IPaperFilesStore {
+class MockPaperFilesStore implements PaperFilesStore {
   getFileSize(_fileId: number): number | null {
     return null;
   }
@@ -46,7 +46,7 @@ class MockOparlObjectsStore implements OparlObjectsStore {
   }
 }
 
-class MockPaperAssetsStore implements IPaperAssetsStore {
+class MockPaperAssetsStore implements PaperAssetsStore {
   paperAssetsWritten = false;
 
   writePaperAssets(_papers: PaperAssetDto[]): unknown {

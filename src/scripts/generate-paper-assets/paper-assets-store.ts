@@ -1,11 +1,11 @@
 import * as path from '@std/path';
 import { PaperAssetDto } from './model.ts';
 
-export interface IPaperAssetsStore {
+export interface PaperAssetsStore {
   writePaperAssets(papers: PaperAssetDto[]): unknown;
 }
 
-export class PaperAssetsFileStore implements IPaperAssetsStore {
+export class PaperAssetsFileStore implements PaperAssetsStore {
   constructor(private readonly paperAssetsDir: string) {
   }
 
