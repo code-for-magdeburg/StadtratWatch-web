@@ -23,3 +23,7 @@ export type PaperAssetDto = {
   consultations: PaperAssetConsultationDto[];
   paperGroupId: number;
 };
+
+export type PaperGraphAssetDto = {
+  rootPaperId: number;
+};
