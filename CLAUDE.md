@@ -41,6 +41,8 @@ For code quality:
 ```bash
 deno fmt                # Format code
 deno lint               # Lint code
+deno test               # Run tests
+deno check src/         # Type-check code
 ```
 
 ## Architecture
@@ -222,3 +224,4 @@ Index is rebuilt with index-search script (see HOWTO.md). Frontend uses Typesens
 - Some parties may have an "EXTREMIST_CLASSIFICATION" field in registry due to constitutional protection office classifications
 - Session data is **immutable** once approved - don't modify historical data without good reason
 - When working with shared models between Astro and Deno, make changes in both locations to maintain consistency
+- Be sure to typecheck when you’re done making a series of code changes
