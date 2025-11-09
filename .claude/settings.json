@@ -1,5 +1,11 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(deno fmt --check)",
+      "Bash(deno lint)",
+      "Bash(deno test)",
+      "Bash(deno check src/)"
+    ],
     "deny": [
       "Read(./.env)",
       "Read(./.env.*)",
