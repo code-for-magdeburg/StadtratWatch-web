@@ -1,5 +1,5 @@
 import { PaperAssetConsultationDto, PaperAssetDto, PaperAssetFileDto } from './model.ts';
-import { IPaperFilesStore } from './paper-files-store.ts';
+import { PaperFilesStore } from './paper-files-store.ts';
 import { OparlMeetingsInMemoryRepository, OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
 import { OparlPapersInMemoryRepository, OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
 import { OparlFilesInMemoryRepository, OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
@@ -25,7 +25,7 @@ export class PaperAssetsGenerator {
   private readonly paperGraph: PaperGraph;
 
   constructor(
-    private readonly paperFilesStore: IPaperFilesStore,
+    private readonly paperFilesStore: PaperFilesStore,
     private readonly oparlObjectsStore: OparlObjectsStore,
     private readonly paperAssetsStore: IPaperAssetsStore,
   ) {

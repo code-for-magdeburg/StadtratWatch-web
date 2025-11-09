@@ -1,10 +1,10 @@
 import * as fs from '@std/fs';
 
-export interface IPaperFilesStore {
+export interface PaperFilesStore {
   getFileSize(fileId: number): number | null;
 }
 
-export class PaperFilesStore implements IPaperFilesStore {
+export class PaperFilesFileStore implements PaperFilesStore {
   private filesDict: Map<string, number> = new Map<string, number>();
 
   constructor(private readonly papersDir: string) {
