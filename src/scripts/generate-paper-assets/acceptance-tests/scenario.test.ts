@@ -2,7 +2,7 @@ import { describe, it } from '@std/testing/bdd';
 import { assert } from '@std/assert';
 import { PaperAssetsGenerator } from '../paper-assets-generator.ts';
 import { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
-import { PaperAssetsStore, PaperGraphAssetsStore } from '../paper-assets-store.ts';
+import { PaperAssetsWriter, PaperGraphAssetsWriter } from '../paper-assets-writer.ts';
 import {
   OparlAgendaItem,
   OparlConsultation,
@@ -88,7 +88,7 @@ class MockOparlObjectsStore implements OparlObjectsStore {
   }
 }
 
-class MockPaperAssetsStore implements PaperAssetsStore {
+class MockPaperAssetsWriter implements PaperAssetsWriter {
   papersWritten = 0;
   paperAssetsWritten = 0;
 
@@ -98,7 +98,7 @@ class MockPaperAssetsStore implements PaperAssetsStore {
   }
 }
 
-class MockPaperGraphAssetsStore implements PaperGraphAssetsStore {
+class MockPaperGraphAssetsWriter implements PaperGraphAssetsWriter {
   paperGraphsWritten = 0;
   paperGraphAssetsWritten = 0;
 
@@ -111,15 +111,15 @@ class MockPaperGraphAssetsStore implements PaperGraphAssetsStore {
 describe('Generating paper assets', () => {
   let paperFilesStore: MockPaperFilesStore;
   let oparlObjectsStore: MockOparlObjectsStore;
-  let paperAssetsStore: MockPaperAssetsStore;
-  let paperGraphAssetsStore: MockPaperGraphAssetsStore;
+  let paperAssetsWriter: MockPaperAssetsWriter;
+  let paperGraphAssetsWriter: MockPaperGraphAssetsWriter;
 
   it('updates paper graph assets', () => {
     // GIVEN
     paperFilesStoreIsAvailable();
-    oparlObjectFilesAreAvailable();
-    paperAssetFilesStoreIsAvailable();
-    paperGraphAssetFilesStoreIsAvailable();
+    oparlObjectStoreIsAvailable();
+    paperAssetsWriterIsAvailable();
+    paperGraphAssetWriterStoreIsAvailable();
 
     // WHEN
     runPaperAssetsGeneration();
@@ -135,41 +135,41 @@ describe('Generating paper assets', () => {
     paperFilesStore = new MockPaperFilesStore();
   }
 
-  function oparlObjectFilesAreAvailable() {
+  function oparlObjectStoreIsAvailable() {
     oparlObjectsStore = new MockOparlObjectsStore();
   }
 
-  function paperAssetFilesStoreIsAvailable() {
-    paperAssetsStore = new MockPaperAssetsStore();
+  function paperAssetsWriterIsAvailable() {
+    paperAssetsWriter = new MockPaperAssetsWriter();
   }
 
-  function paperGraphAssetFilesStoreIsAvailable() {
-    paperGraphAssetsStore = new MockPaperGraphAssetsStore();
+  function paperGraphAssetWriterStoreIsAvailable() {
+    paperGraphAssetsWriter = new MockPaperGraphAssetsWriter();
   }
 
   function runPaperAssetsGeneration() {
     const generator = new PaperAssetsGenerator(
       paperFilesStore,
       oparlObjectsStore,
-      paperAssetsStore,
-      paperGraphAssetsStore,
+      paperAssetsWriter,
+      paperGraphAssetsWriter,
     );
     generator.generatePaperAssets();
   }
 
   function papersAreWritten() {
-    return paperAssetsStore.papersWritten === 18;
+    return paperAssetsWriter.papersWritten === 18;
   }
 
   function paperAssetsAreWritten() {
-    return paperAssetsStore.paperAssetsWritten === 1;
+    return paperAssetsWriter.paperAssetsWritten === 1;
   }
 
   function paperGraphsAreWritten() {
-    return paperGraphAssetsStore.paperGraphsWritten === 6;
+    return paperGraphAssetsWriter.paperGraphsWritten === 6;
   }
 
   function paperGraphAssetsAreWritten() {
-    return paperGraphAssetsStore.paperGraphAssetsWritten === 1;
+    return paperGraphAssetsWriter.paperGraphAssetsWritten === 1;
   }
 });
