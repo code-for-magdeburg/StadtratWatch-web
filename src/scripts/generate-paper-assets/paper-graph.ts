@@ -137,7 +137,7 @@ export class PaperInMemoryGraph implements PaperGraph {
   }
 }
 
-export function createInMemoryGraph(papersRepository: OparlPapersRepository): PaperGraph {
+export function createInMemoryPaperGraph(papersRepository: OparlPapersRepository): PaperGraph {
   const graph = new PaperInMemoryGraph();
 
   const allPapers = papersRepository.getAllPapers().filter((paper) => !paper.deleted).map((paper) => ({

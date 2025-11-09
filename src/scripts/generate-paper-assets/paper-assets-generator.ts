@@ -12,7 +12,7 @@ import {
   OparlAgendaItemsRepository,
 } from '../shared/oparl/oparl-agenda-items-repository.ts';
 import { OparlPaper } from '../shared/model/oparl.ts';
-import { createInMemoryGraph } from './paper-graph.ts';
+import { createInMemoryPaperGraph } from './paper-graph.ts';
 import { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
 import { PaperAssetsWriter } from './paper-assets-writer.ts';
 import { PaperGraphAssetsWriter } from './paper-graph-assets-writer.ts';
@@ -38,7 +38,7 @@ export class PaperAssetsGenerator {
   }
 
   public generatePaperAssets() {
-    const paperGraph = createInMemoryGraph(this.papersRepository);
+    const paperGraph = createInMemoryPaperGraph(this.papersRepository);
 
     const paperAssets = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperAssetDto>(
       (paper) => {
