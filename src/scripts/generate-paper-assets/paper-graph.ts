@@ -8,7 +8,7 @@ export interface PaperGraphNode {
 
 export interface PaperGraph {
   addPaper(paperId: number): void;
-  addSubordinateRelationship(superordinatePaperId: number, subordinatePaperId: number): void;
+  addSubordinateRelationship(superordinatedPaperId: number, subordinatedPaperId: number): void;
   getConnectedPapers(paperId: number): number[];
   getRootPapersOfPaper(paperId: number): number[];
   getAllRootPapers(): number[];
@@ -28,33 +28,33 @@ export class PaperInMemoryGraph implements PaperGraph {
     );
   }
 
-  public addSubordinateRelationship(superordinatePaperId: number, subordinatePaperId: number): void {
-    if (superordinatePaperId === subordinatePaperId) {
-      throw new Error('A paper cannot be subordinate to itself.');
+  public addSubordinateRelationship(superordinatedPaperId: number, subordinatedPaperId: number): void {
+    if (superordinatedPaperId === subordinatedPaperId) {
+      throw new Error('A paper cannot be subordinated to itself.');
     }
 
-    if (!this.nodes.has(superordinatePaperId)) {
-      this.addPaper(superordinatePaperId);
+    if (!this.nodes.has(superordinatedPaperId)) {
+      this.addPaper(superordinatedPaperId);
     }
-    if (!this.nodes.has(subordinatePaperId)) {
-      this.addPaper(subordinatePaperId);
+    if (!this.nodes.has(subordinatedPaperId)) {
+      this.addPaper(subordinatedPaperId);
     }
 
-    const superordinateNode = this.nodes.get(superordinatePaperId)!;
-    if (superordinateNode.subordinateIds.includes(subordinatePaperId)) {
+    const superordinateNode = this.nodes.get(superordinatedPaperId)!;
+    if (superordinateNode.subordinateIds.includes(subordinatedPaperId)) {
       return;
     }
 
-    if (this.hasPath(subordinatePaperId, superordinatePaperId)) {
+    if (this.hasPath(subordinatedPaperId, superordinatedPaperId)) {
       throw new Error(
-        `Cannot add relationship: would create a cycle (${superordinatePaperId} is already reachable from ${subordinatePaperId})`,
+        `Cannot add relationship: would create a cycle (${superordinatedPaperId} is already reachable from ${subordinatedPaperId})`,
       );
     }
 
-    superordinateNode.subordinateIds.push(subordinatePaperId);
+    superordinateNode.subordinateIds.push(subordinatedPaperId);
 
-    const subordinateNode = this.nodes.get(subordinatePaperId)!;
-    subordinateNode.superordinateIds.push(superordinatePaperId);
+    const subordinateNode = this.nodes.get(subordinatedPaperId)!;
+    subordinateNode.superordinateIds.push(superordinatedPaperId);
   }
 
   public getConnectedPapers(paperId: number): number[] {
@@ -142,14 +142,14 @@ export function createInMemoryGraph(papersRepository: OparlPapersRepository): Pa
 
   const allPapers = papersRepository.getAllPapers().filter((paper) => !paper.deleted).map((paper) => ({
     paperId: +paper.id.split('/').pop()!,
-    subordinatePaperIds: (paper.superordinatedPaper || []).map((relatedPaperId) => +relatedPaperId.split('/').pop()!),
+    subordinatedPaperIds: (paper.superordinatedPaper || []).map((relatedPaperId) => +relatedPaperId.split('/').pop()!),
   }));
 
   allPapers.forEach((paper) => graph.addPaper(paper.paperId));
 
   for (const paper of allPapers) {
-    paper.subordinatePaperIds.forEach((subordinatePaperId) =>
-      graph.addSubordinateRelationship(paper.paperId, subordinatePaperId)
+    paper.subordinatedPaperIds.forEach((subordinatedPaperId) =>
+      graph.addSubordinateRelationship(paper.paperId, subordinatedPaperId)
     );
   }
 
