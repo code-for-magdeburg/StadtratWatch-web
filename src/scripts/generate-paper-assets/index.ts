@@ -1,8 +1,9 @@
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { PaperFilesFileStore } from './paper-files-store.ts';
 import { PaperAssetsGenerator } from './paper-assets-generator.ts';
-import { PaperAssetsFileWriter, PaperGraphAssetsFileWriter } from './paper-assets-writer.ts';
+import { PaperAssetsFileWriter } from './paper-assets-writer.ts';
 import { OparlObjectsFileStore } from '../shared/oparl/oparl-objects-store.ts';
+import { PaperGraphAssetsFileWriter } from './paper-graph-assets-writer.ts';
 
 const args = parseArgs(Deno.args);
 
