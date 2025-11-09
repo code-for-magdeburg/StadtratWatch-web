@@ -1,15 +1,11 @@
 import * as path from '@std/path';
 import { PaperAssetDto, PaperGraphAssetDto } from './model.ts';
 
-export interface PaperAssetsStore {
+export interface PaperAssetsWriter {
   writePaperAssets(papers: PaperAssetDto[]): void;
 }
 
-export interface PaperGraphAssetsStore {
-  writePaperGraphAssets(paperGraphs: PaperGraphAssetDto[]): void;
-}
-
-export class PaperAssetsFileStore implements PaperAssetsStore, PaperGraphAssetsStore {
+export class PaperAssetsFileWriter implements PaperAssetsWriter {
   constructor(private readonly paperAssetsDir: string) {
   }
 
@@ -30,6 +26,15 @@ export class PaperAssetsFileStore implements PaperAssetsStore, PaperGraphAssetsS
       const filename = path.join(this.paperAssetsDir, `papers-${batchNo}.json`);
       Deno.writeTextFileSync(filename, JSON.stringify(grouped[batchNo], null, 2));
     }
+  }
+}
+
+export interface PaperGraphAssetsWriter {
+  writePaperGraphAssets(paperGraphs: PaperGraphAssetDto[]): void;
+}
+
+export class PaperGraphAssetsFileWriter implements PaperGraphAssetsWriter {
+  constructor(private readonly paperAssetsDir: string) {
   }
 
   writePaperGraphAssets(paperGraphs: PaperGraphAssetDto[]): void {

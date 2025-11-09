@@ -14,7 +14,7 @@ import {
 import { OparlPaper } from '../shared/model/oparl.ts';
 import { createInMemoryGraph } from './paper-graph.ts';
 import { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
-import { PaperAssetsStore, PaperGraphAssetsStore } from './paper-assets-store.ts';
+import { PaperAssetsWriter, PaperGraphAssetsWriter } from './paper-assets-writer.ts';
 
 export class PaperAssetsGenerator {
   private readonly meetingsRepository: OparlMeetingsRepository;
@@ -26,8 +26,8 @@ export class PaperAssetsGenerator {
   constructor(
     private readonly paperFilesStore: PaperFilesStore,
     private readonly oparlObjectsStore: OparlObjectsStore,
-    private readonly paperAssetsStore: PaperAssetsStore,
-    private readonly paperGraphAssetsStore: PaperGraphAssetsStore,
+    private readonly paperAssetsStore: PaperAssetsWriter,
+    private readonly paperGraphAssetsStore: PaperGraphAssetsWriter,
   ) {
     this.meetingsRepository = new OparlMeetingsInMemoryRepository(this.oparlObjectsStore.loadMeetings());
     this.papersRepository = new OparlPapersInMemoryRepository(this.oparlObjectsStore.loadPapers());
