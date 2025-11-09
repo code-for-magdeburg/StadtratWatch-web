@@ -5,7 +5,7 @@ export interface IPaperAssetsStore {
   writePaperAssets(papers: PaperAssetDto[]): unknown;
 }
 
-export class PaperAssetsStore implements IPaperAssetsStore {
+export class PaperAssetsFileStore implements IPaperAssetsStore {
   constructor(private readonly paperAssetsDir: string) {
   }
 
