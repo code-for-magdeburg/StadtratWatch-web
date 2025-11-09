@@ -120,7 +120,7 @@ describe('Generating paper assets', () => {
     paperFilesStoreIsAvailable();
     oparlObjectStoreIsAvailable();
     paperAssetsWriterIsAvailable();
-    paperGraphAssetWriterStoreIsAvailable();
+    paperGraphAssetWriterIsAvailable();
 
     // WHEN
     runPaperAssetsGeneration();
@@ -144,7 +144,7 @@ describe('Generating paper assets', () => {
     paperAssetsWriter = new MockPaperAssetsWriter();
   }
 
-  function paperGraphAssetWriterStoreIsAvailable() {
+  function paperGraphAssetWriterIsAvailable() {
     paperGraphAssetsWriter = new MockPaperGraphAssetsWriter();
   }
 
