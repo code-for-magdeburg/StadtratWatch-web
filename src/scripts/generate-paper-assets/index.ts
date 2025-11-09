@@ -1,7 +1,7 @@
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { PaperFilesStore } from './paper-files-store.ts';
 import { PaperAssetsGenerator } from './paper-assets-generator.ts';
-import { PaperAssetsStore } from './paper-assets-store.ts';
+import { PaperAssetsFileStore } from './paper-assets-store.ts';
 import { OparlObjectsFileStore } from '../shared/oparl/oparl-objects-store.ts';
 
 const args = parseArgs(Deno.args);
@@ -14,7 +14,7 @@ if (args.help) {
 checkArgs(args);
 
 const paperFilesStore = new PaperFilesStore(args.papersDir);
-const paperAssetsStore = new PaperAssetsStore(args.outputDir);
+const paperAssetsStore = new PaperAssetsFileStore(args.outputDir);
 const oparlObjectsStore = new OparlObjectsFileStore(args.ratsinfoDir);
 
 const generator = new PaperAssetsGenerator(
