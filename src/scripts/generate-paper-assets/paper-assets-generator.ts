@@ -27,8 +27,8 @@ export class PaperAssetsGenerator {
   constructor(
     private readonly paperFilesStore: PaperFilesStore,
     private readonly oparlObjectsStore: OparlObjectsStore,
-    private readonly paperAssetsStore: PaperAssetsWriter,
-    private readonly paperGraphAssetsStore: PaperGraphAssetsWriter,
+    private readonly paperAssetsWriter: PaperAssetsWriter,
+    private readonly paperGraphAssetsWriter: PaperGraphAssetsWriter,
   ) {
     this.meetingsRepository = new OparlMeetingsInMemoryRepository(this.oparlObjectsStore.loadMeetings());
     this.papersRepository = new OparlPapersInMemoryRepository(this.oparlObjectsStore.loadPapers());
@@ -38,14 +38,14 @@ export class PaperAssetsGenerator {
   }
 
   public generatePaperAssets() {
-    const paperGraph = createInMemoryPaperGraph(this.papersRepository);
+    const onePaperGraph = createInMemoryPaperGraph(this.papersRepository);
 
-    const paperAssets = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperAssetDto>(
+    const papers = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperAssetDto>(
       (paper) => {
         const consultations = this.getConsultations(paper);
         const files = this.getFiles(paper);
         const paperId = +paper.id.split('/').pop()!;
-        const paperGroupId = paperGraph.getRootPapersOfPaper(paperId)[0];
+        const paperGroupId = onePaperGraph.getRootPapersOfPaper(paperId)[0];
         return {
           id: paperId,
           reference: paper.reference || null,
@@ -57,13 +57,12 @@ export class PaperAssetsGenerator {
         };
       },
     );
+    this.paperAssetsWriter.writePaperAssets(papers);
 
-    const paperGraphAssets = paperGraph
+    const paperGraphs = onePaperGraph
       .getAllRootPapers()
       .map<PaperGraphAssetDto>((rootPaperId) => ({ rootPaperId: rootPaperId }));
-
-    this.paperAssetsStore.writePaperAssets(paperAssets);
-    this.paperGraphAssetsStore.writePaperGraphAssets(paperGraphAssets);
+    this.paperGraphAssetsWriter.writePaperGraphAssets(paperGraphs);
   }
 
   private getConsultations(paper: OparlPaper) {
