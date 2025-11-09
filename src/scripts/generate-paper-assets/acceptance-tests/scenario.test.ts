@@ -1,8 +1,8 @@
 import { describe, it } from '@std/testing/bdd';
 import { assert } from '@std/assert';
-import { PaperAssetsGenerator } from '../../scripts/generate-paper-assets/paper-assets-generator.ts';
-import { OparlObjectsStore } from '../../scripts/shared/oparl/oparl-objects-store.ts';
-import { IPaperAssetsStore } from '../../scripts/generate-paper-assets/paper-assets-store.ts';
+import { PaperAssetsGenerator } from '../paper-assets-generator.ts';
+import { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
+import { IPaperAssetsStore } from '../paper-assets-store.ts';
 import {
   OparlAgendaItem,
   OparlConsultation,
@@ -10,9 +10,9 @@ import {
   OparlMeeting,
   OparlOrganization,
   OparlPaper,
-} from '../../scripts/shared/model/oparl.ts';
-import { PaperAssetDto } from '../../scripts/generate-paper-assets/model.ts';
-import { IPaperFilesStore } from '../../scripts/generate-paper-assets/paper-files-store.ts';
+} from '../../shared/model/oparl.ts';
+import { PaperAssetDto } from '../model.ts';
+import { IPaperFilesStore } from '../paper-files-store.ts';
 
 class MockPaperFilesStore implements IPaperFilesStore {
   getFileSize(_fileId: number): number | null {
