@@ -186,8 +186,8 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
 
   type PaperGroupItem = {
     paperId: number;
-    superordinatePaperIds: number[];
-    subordinatePaperIds: number[];
+    superordinatedPaperIds: number[];
+    subordinatedPaperIds: number[];
   };
 
   type PaperGroup = PaperGroupItem[];
@@ -231,28 +231,28 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
           this.paperGroup = [
             {
               paperId: 1,
-              superordinatePaperIds: [],
-              subordinatePaperIds: [2, 3],
+              superordinatedPaperIds: [],
+              subordinatedPaperIds: [2, 3],
             },
             {
               paperId: 2,
-              superordinatePaperIds: [1],
-              subordinatePaperIds: [4, 5],
+              superordinatedPaperIds: [1],
+              subordinatedPaperIds: [4, 5],
             },
             {
               paperId: 3,
-              superordinatePaperIds: [1],
-              subordinatePaperIds: [],
+              superordinatedPaperIds: [1],
+              subordinatedPaperIds: [],
             },
             {
               paperId: 4,
-              superordinatePaperIds: [2],
-              subordinatePaperIds: [],
+              superordinatedPaperIds: [2],
+              subordinatedPaperIds: [],
             },
             {
               paperId: 5,
-              superordinatePaperIds: [2],
-              subordinatePaperIds: [],
+              superordinatedPaperIds: [2],
+              subordinatedPaperIds: [],
             },
           ];
         }
