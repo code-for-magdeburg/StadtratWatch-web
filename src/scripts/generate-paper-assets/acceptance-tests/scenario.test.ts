@@ -55,24 +55,24 @@ class MockOparlObjectsStore implements OparlObjectsStore {
   //     18 (isolated)
   //
   loadPapers = (): OparlPaper[] => [
-    this.createOparlPaper(1, [], [3, 4]),
-    this.createOparlPaper(2, [], [4, 5]),
-    this.createOparlPaper(3, [1], [6, 7]),
-    this.createOparlPaper(4, [1, 2], []),
-    this.createOparlPaper(5, [2], []),
-    this.createOparlPaper(6, [3], []),
-    this.createOparlPaper(7, [3], []),
-    this.createOparlPaper(8, [], [9, 10]),
-    this.createOparlPaper(9, [8], [11, 12]),
-    this.createOparlPaper(10, [8], []),
-    this.createOparlPaper(11, [9], []),
-    this.createOparlPaper(12, [9], []),
-    this.createOparlPaper(13, [], [14, 15]),
-    this.createOparlPaper(14, [13], []),
-    this.createOparlPaper(15, [13], []),
-    this.createOparlPaper(16, [], [17]),
-    this.createOparlPaper(17, [16], []),
-    this.createOparlPaper(18, [], []),
+    this.createOparlPaper(10, [], [30, 40]),
+    this.createOparlPaper(20, [], [40, 50]),
+    this.createOparlPaper(30, [10], [60, 70]),
+    this.createOparlPaper(40, [10, 20], []),
+    this.createOparlPaper(50, [20], []),
+    this.createOparlPaper(60, [30], []),
+    this.createOparlPaper(70, [30], []),
+    this.createOparlPaper(80, [], [90, 100]),
+    this.createOparlPaper(90, [80], [110, 120]),
+    this.createOparlPaper(100, [80], []),
+    this.createOparlPaper(110, [90], []),
+    this.createOparlPaper(120, [90], []),
+    this.createOparlPaper(130, [], [140, 150]),
+    this.createOparlPaper(140, [130], []),
+    this.createOparlPaper(150, [130], []),
+    this.createOparlPaper(160, [], [170]),
+    this.createOparlPaper(170, [160], []),
+    this.createOparlPaper(180, [], []),
   ];
 
   private createOparlPaper(id: number, superordinatedIds: number[], subordinatedIds: number[]): OparlPaper {
@@ -93,9 +93,9 @@ class MockPaperAssetsWriter implements PaperAssetsWriter {
   papersWritten = 0;
   paperAssetsWritten = 0;
 
-  writePaperAssets(papers: PaperAssetDto[]): void {
-    this.papersWritten = papers.length;
-    this.paperAssetsWritten = 1;
+  writePaperAssets(assets: PaperAssetDto[]): void {
+    this.papersWritten = assets.map((a) => a.papers.length).reduce((a, b) => a + b, 0);
+    this.paperAssetsWritten = assets.length;
   }
 }
 
@@ -103,9 +103,9 @@ class MockPaperGraphAssetsWriter implements PaperGraphAssetsWriter {
   paperGraphsWritten = 0;
   paperGraphAssetsWritten = 0;
 
-  writePaperGraphAssets(paperGraphAssets: PaperGraphAssetDto[]): void {
-    this.paperGraphsWritten = paperGraphAssets.length;
-    this.paperGraphAssetsWritten = 1;
+  writePaperGraphAssets(assets: PaperGraphAssetDto[]): void {
+    this.paperGraphsWritten = assets.map((a) => a.paperGraphs.length).reduce((a, b) => a + b, 0);
+    this.paperGraphAssetsWritten = assets.length;
   }
 }
 
@@ -115,7 +115,7 @@ describe('Generating paper assets', () => {
   let paperAssetsWriter: MockPaperAssetsWriter;
   let paperGraphAssetsWriter: MockPaperGraphAssetsWriter;
 
-  it('updates paper graph assets', () => {
+  it('writes papers into assets', () => {
     // GIVEN
     paperFilesStoreIsAvailable();
     oparlObjectStoreIsAvailable();
@@ -128,8 +128,21 @@ describe('Generating paper assets', () => {
     // THEN
     assert(papersAreWritten());
     assert(paperAssetsAreWritten());
-    assert(paperGraphsAreWritten());
-    assert(paperGraphAssetsAreWritten());
+  });
+
+  it('writes paper graphs into assets', () => {
+    // GIVEN
+    paperFilesStoreIsAvailable();
+    oparlObjectStoreIsAvailable();
+    paperAssetsWriterIsAvailable();
+    paperGraphAssetWriterIsAvailable();
+
+    // WHEN
+    runPaperAssetsGeneration();
+
+    // THEN
+    assert(paperGraphsAreWritten(), 'Expected paper graphs to be written');
+    assert(paperGraphAssetsAreWritten(), 'Expected paper graph assets to be written');
   });
 
   function paperFilesStoreIsAvailable() {
@@ -163,7 +176,7 @@ describe('Generating paper assets', () => {
   }
 
   function paperAssetsAreWritten() {
-    return paperAssetsWriter.paperAssetsWritten === 1;
+    return paperAssetsWriter.paperAssetsWritten === 2;
   }
 
   function paperGraphsAreWritten() {
@@ -171,6 +184,6 @@ describe('Generating paper assets', () => {
   }
 
   function paperGraphAssetsAreWritten() {
-    return paperGraphAssetsWriter.paperGraphAssetsWritten === 1;
+    return paperGraphAssetsWriter.paperGraphAssetsWritten === 2;
   }
 });
