@@ -52,7 +52,7 @@ export class PaperAssetsGenerator {
         const consultations = this.getConsultations(paper);
         const files = this.getFiles(paper);
         const paperId = +paper.id.split('/').pop()!;
-        const paperGroupId = onePaperGraph.getRootPapersOfPaper(paperId)[0];
+        const rootPaperId = onePaperGraph.getRootPapersOfPaper(paperId)[0];
         return {
           id: paperId,
           reference: paper.reference || null,
@@ -60,7 +60,7 @@ export class PaperAssetsGenerator {
           title: paper.name,
           files,
           consultations,
-          paperGroupId,
+          rootPaperId,
         };
       },
     );
