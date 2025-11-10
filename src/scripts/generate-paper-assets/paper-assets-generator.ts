@@ -1,4 +1,11 @@
-import { PaperAssetConsultationDto, PaperAssetDto, PaperAssetFileDto, PaperGraphAssetDto } from './model.ts';
+import {
+  PaperAssetDto,
+  PaperConsultationDto,
+  PaperDto,
+  PaperFileDto,
+  PaperGraphAssetDto,
+  PaperGraphDto,
+} from './model.ts';
 import { PaperFilesStore } from './paper-files-store.ts';
 import { OparlMeetingsInMemoryRepository, OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
 import { OparlPapersInMemoryRepository, OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
@@ -40,7 +47,7 @@ export class PaperAssetsGenerator {
   public generatePaperAssets() {
     const onePaperGraph = createInMemoryPaperGraph(this.papersRepository);
 
-    const papers = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperAssetDto>(
+    const papers = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperDto>(
       (paper) => {
         const consultations = this.getConsultations(paper);
         const files = this.getFiles(paper);
@@ -57,17 +64,52 @@ export class PaperAssetsGenerator {
         };
       },
     );
-    this.paperAssetsWriter.writePaperAssets(papers);
+    // Group papers in batches of 100.
+    const paperAssetsGroups = papers
+      .sort((a, b) => a.id - b.id)
+      .reduce((acc, paper) => {
+        const batchNo = `${Math.floor(paper.id / 100)}`.padStart(4, '0');
+        if (!acc[batchNo]) {
+          acc[batchNo] = [];
+        }
+        acc[batchNo].push(paper);
+        return acc;
+      }, {} as { [batchNo: string]: PaperDto[] });
+    const paperAssets = Object.entries(paperAssetsGroups).map<PaperAssetDto>(
+      ([batchNo, papers]) => ({
+        batchNo,
+        papers,
+      }),
+    );
+    this.paperAssetsWriter.writePaperAssets(paperAssets);
 
     const paperGraphs = onePaperGraph
       .getAllRootPapers()
-      .map<PaperGraphAssetDto>((rootPaperId) => ({ rootPaperId: rootPaperId }));
-    this.paperGraphAssetsWriter.writePaperGraphAssets(paperGraphs);
+      .map<PaperGraphDto>((rootPaperId) => ({ rootPaperId: rootPaperId }));
+    // Group paper graphs in batches of 100.
+    const paperGraphGroups = paperGraphs
+      .sort((a, b) => a.rootPaperId - b.rootPaperId)
+      .reduce((acc, paperGraph) => {
+        const batchNo = `${Math.floor(paperGraph.rootPaperId / 100)}`.padStart(4, '0');
+        if (!acc[batchNo]) {
+          acc[batchNo] = [];
+        }
+        acc[batchNo].push(paperGraph);
+        return acc;
+      }, {} as { [batchNo: string]: PaperGraphDto[] });
+    const paperGraphAssets = Object.entries(paperGraphGroups).map<PaperGraphAssetDto>(
+      ([batchNo, paperGraphs]) => ({
+        batchNo,
+        paperGraphs,
+      }),
+    );
+
+    this.paperGraphAssetsWriter.writePaperGraphAssets(paperGraphAssets);
   }
 
   private getConsultations(paper: OparlPaper) {
     return (paper.consultation || [])
-      .map<PaperAssetConsultationDto | null>((consultation) => {
+      .map<PaperConsultationDto | null>((consultation) => {
         if (
           !consultation.meeting || !consultation.organization || consultation.organization.length === 0 ||
           !consultation.agendaItem
@@ -99,7 +141,7 @@ export class PaperAssetsGenerator {
           result: agendaItem.result || null,
         };
       })
-      .filter((consultation): consultation is PaperAssetConsultationDto => consultation !== null)
+      .filter((consultation): consultation is PaperConsultationDto => consultation !== null)
       .toSorted((a, b) => {
         if (!a.date && !b.date) return 0;
         if (!a.date) return 1;
@@ -112,7 +154,7 @@ export class PaperAssetsGenerator {
     return this.filesRepository
       .getFilesByPaper(paper.id)
       .toSorted((a, b) => a.id.localeCompare(b.id))
-      .map<PaperAssetFileDto>((file) => {
+      .map<PaperFileDto>((file) => {
         const fileId = +file.id.split('/').pop()!;
         return {
           id: fileId,
