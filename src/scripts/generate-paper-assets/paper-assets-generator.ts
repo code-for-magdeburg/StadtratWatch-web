@@ -47,12 +47,18 @@ export class PaperAssetsGenerator {
   public generatePaperAssets() {
     const onePaperGraph = createInMemoryPaperGraph(this.papersRepository);
 
+    const extractPaperId = (oparlPaperId: string) => +oparlPaperId.split('/').pop()!;
+
     const papers = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperDto>(
       (paper) => {
         const consultations = this.getConsultations(paper);
         const files = this.getFiles(paper);
-        const paperId = +paper.id.split('/').pop()!;
+        const paperId = extractPaperId(paper.id);
         const rootPaperId = onePaperGraph.getRootPapersOfPaper(paperId)[0];
+        // Attention! subordinated papers and superordinated papers are swapped here
+        // because of a wrong implementation of the OParl standard in the SOMACOS system
+        const subordinatedPaperIds = (paper.superordinatedPaper || []).map(extractPaperId);
+        const superOrdinatedPaperIds = (paper.subordinatedPaper || []).map(extractPaperId);
         return {
           id: paperId,
           reference: paper.reference || null,
@@ -61,6 +67,8 @@ export class PaperAssetsGenerator {
           files,
           consultations,
           rootPaperId,
+          subordinatedPaperIds,
+          superOrdinatedPaperIds,
         };
       },
     );
@@ -85,7 +93,13 @@ export class PaperAssetsGenerator {
 
     const paperGraphs = onePaperGraph
       .getAllRootPapers()
-      .map<PaperGraphDto>((rootPaperId) => ({ rootPaperId: rootPaperId }));
+      .map<PaperGraphDto>((rootPaperId) => {
+        const graphPapers = onePaperGraph
+          .getConnectedPapers(rootPaperId)
+          .map<PaperDto | undefined>((paperId) => papers.find((p) => p.id === paperId))
+          .filter((paper) => paper !== undefined);
+        return { rootPaperId, papers: graphPapers };
+      });
     // Group paper graphs in batches of 100.
     const paperGraphGroups = paperGraphs
       .sort((a, b) => a.rootPaperId - b.rootPaperId)

@@ -31,6 +31,7 @@ export type PaperAssetDto = {
 
 export type PaperGraphDto = {
   rootPaperId: number;
+  papers: PaperDto[];
 };
 
 export type PaperGraphAssetDto = {
