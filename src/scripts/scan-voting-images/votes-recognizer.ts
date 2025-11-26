@@ -66,7 +66,7 @@ export class VotesRecognizer implements IVotesRecognizer {
       return 'white';
     }
 
-    if (r > 80 && g > 80 && b < 50 && Math.abs(r - g) < 30) {
+    if (r > 80 && g > 80 && b < 80 && Math.abs(r - g) < 35) {
       return 'yellow';
     }
 
