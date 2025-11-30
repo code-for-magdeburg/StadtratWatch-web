@@ -2,8 +2,7 @@ import { SRW_FEATURE_FLAGS } from 'astro:env/client';
 
 export type FeatureFlag =
   // No flags defined yet - remove this line when adding real flags
-  //string;
-  'paper-details-with-related-papers';
+  string;
 // | 'feature-name-2'
 
 function parseEnabledFeatures(featuresString: string | undefined): Set<string> {
