@@ -44,6 +44,8 @@ export type OparlPaper = OparlObject & {
   consultation?: OparlConsultation[];
   reference?: string;
   paperType?: string;
+  superordinatedPaper?: string[];
+  subordinatedPaper?: string[];
   deleted?: boolean;
 };
 

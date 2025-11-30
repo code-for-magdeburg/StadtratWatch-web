@@ -1,9 +1,9 @@
-import { FEATURE_FLAGS } from 'astro:env/server';
+import { SRW_FEATURE_FLAGS } from 'astro:env/client';
 
 export type FeatureFlag =
   // No flags defined yet - remove this line when adding real flags
-  string;
-// | 'feature-name-1'
+  //string;
+  'paper-details-with-related-papers';
 // | 'feature-name-2'
 
 function parseEnabledFeatures(featuresString: string | undefined): Set<string> {
@@ -20,6 +20,6 @@ function parseEnabledFeatures(featuresString: string | undefined): Set<string> {
 }
 
 export function isFeatureEnabled(feature: FeatureFlag): boolean {
-  const features = parseEnabledFeatures(FEATURE_FLAGS);
+  const features = parseEnabledFeatures(SRW_FEATURE_FLAGS);
   return features.has(feature);
 }

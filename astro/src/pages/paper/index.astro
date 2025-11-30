@@ -1,5 +1,10 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import { isFeatureEnabled } from '@utils/feature-flags.ts';
+
+const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
+  'paper-details-with-related-papers',
+);
 ---
 
 <Layout>
@@ -127,6 +132,26 @@ import Layout from '@layouts/Layout.astro';
             </template>
           </ul>
         </div>
+
+        {
+          featurePaperDetailsWithRelatedPaperEnabled && (
+            <>
+              <input
+                role="tab"
+                class="tab"
+                aria-label="Zugehörige Drucksachen"
+                type="radio"
+                name="paper-tabs-radio"
+                x-bind:disabled="!paperTree || paperTree.children.length === 0"
+              />
+              <div class="tab-content border-base-200 bg-base-100 p-6">
+                <template x-for="level in [paperTree]">
+                  <div class="space-y-4" x-html="renderLevel(level, 0)" />
+                </template>
+              </div>
+            </>
+          )
+        }
       </div>
     </div>
   </div>
@@ -135,6 +160,7 @@ import Layout from '@layouts/Layout.astro';
 <script>
   import Alpine from 'alpinejs';
   import { AWS_CLOUDFRONT_BASE_URL } from 'astro:env/client';
+  import { isFeatureEnabled } from '@utils/feature-flags.ts';
 
   type PaperFile = {
     id: number;
@@ -159,10 +185,61 @@ import Layout from '@layouts/Layout.astro';
     title: string;
     files: PaperFile[];
     consultations: PaperConsultation[];
+    rootPaperId: number;
+    subordinatedPaperIds: number[];
+    superordinatedPaperIds: number[];
+  };
+
+  type PaperGraph = {
+    rootPaperId: number;
+    papers: Paper[];
+  };
+
+  type PaperTree = {
+    paper: Paper;
+    children: PaperTree[];
   };
 
   document.addEventListener('alpine:init', () => {
     Alpine.data('paper', () => ({
+      renderLevel: function (paperNode: PaperTree | null, depth: number) {
+        if (!paperNode) return '';
+
+        let html = `
+            <a
+              href="/paper?paperId=${paperNode.paper.id}"
+              class="card card-border bg-base-200 hover:bg-base-300"
+              :class="{
+                'border-base-300': paper.id !== ${paperNode.paper.id},
+                'border-primary': paper.id === ${paperNode.paper.id},
+              }"
+              style="margin-left: ${depth * 2}rem;"
+            >
+              <div class="card-body">
+                <div class="text-sm font-medium">
+                  ${paperNode.paper.reference}
+                  ${paperNode.paper.title}
+                </div>
+                <div class="text-base-content/70 mt-2 flex items-center text-xs">
+                  ${paperNode.paper.type}
+                </div>
+              </div>
+            </a>
+        `;
+
+        if (paperNode.children) {
+          html += `
+            <template x-for="level in level.children">
+              <div
+                class="space-y-4"
+                x-html="renderLevel(level, ${depth + 1})"
+              ></div>
+            </template>
+          `;
+        }
+
+        return html;
+      },
       paper: {
         id: 0,
         reference: null,
@@ -170,7 +247,11 @@ import Layout from '@layouts/Layout.astro';
         title: '',
         files: [],
         consultations: [],
+        rootPaperId: 0,
+        subordinatedPaperIds: [],
+        superordinatedPaperIds: [],
       } as Paper,
+      paperTree: null as PaperTree | null,
       selectedFile: null as number | null,
       documentUrl: null as string | null,
       fileSizeOk: true,
@@ -189,25 +270,50 @@ import Layout from '@layouts/Layout.astro';
 
         if (!paper) {
           console.error(`Paper with id ${paperId} not found.`);
-        } else {
-          this.paper = {
-            ...paper,
-            files: paper.files.map((file) => ({
-              ...file,
-              fileSizeDisplay: `(${formatFileSize(file.size || 0)})`,
-            })),
-            consultations: paper.consultations
-              .reverse()
-              .map((consultation) => ({
-                ...consultation,
-                dateDisplay: formatDate(consultation.date),
-              })),
-          };
-          this.selectedFile = paper.files.length > 0 ? paper.files[0].id : null;
-          this.documentUrl = paper.files.length > 0 ? paper.files[0].url : null;
-          this.fileSizeOk =
-            paper.files.length > 0 && (paper.files[0].size || 0) <= 1024 * 1024;
-          this.fileSizeDisplay = formatFileSize(paper.files[0].size || 0);
+          return;
+        }
+
+        this.paper = {
+          ...paper,
+          files: paper.files.map((file) => ({
+            ...file,
+            fileSizeDisplay: `(${formatFileSize(file.size || 0)})`,
+          })),
+          consultations: paper.consultations.reverse().map((consultation) => ({
+            ...consultation,
+            dateDisplay: formatDate(consultation.date),
+          })),
+        };
+        this.selectedFile = paper.files.length > 0 ? paper.files[0].id : null;
+        this.documentUrl = paper.files.length > 0 ? paper.files[0].url : null;
+        this.fileSizeOk =
+          paper.files.length > 0 && (paper.files[0].size || 0) <= 1024 * 1024;
+        this.fileSizeDisplay = formatFileSize(paper.files[0].size || 0);
+
+        const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
+          'paper-details-with-related-papers',
+        );
+        if (featurePaperDetailsWithRelatedPaperEnabled) {
+          const paperGraphBatchNo =
+            `${Math.floor(paper.rootPaperId / 100)}`.padStart(4, '0');
+
+          const paperGraphBatchResponse = await fetch(
+            `${AWS_CLOUDFRONT_BASE_URL}/web-assets/papers/paper-graphs-${paperGraphBatchNo}.json`,
+          );
+          const paperGraphBatch =
+            (await paperGraphBatchResponse.json()) as PaperGraph[];
+          const paperGraph = paperGraphBatch.find(
+            (p) => p.rootPaperId === paper.rootPaperId,
+          );
+
+          if (!paperGraph) {
+            console.error(
+              `Paper graph with rootPaperId ${paper.rootPaperId} not found.`,
+            );
+            return;
+          }
+
+          this.paperTree = createPaperTree(paperGraph, paperGraph.rootPaperId);
         }
       },
       selectFile: function (fileId: number) {
@@ -249,5 +355,13 @@ import Layout from '@layouts/Layout.astro';
       month: '2-digit',
       year: 'numeric',
     });
+  }
+
+  function createPaperTree(paperGraph: PaperGraph, paperId: number): PaperTree {
+    const paper = paperGraph.papers.find((p) => p.id === paperId)!;
+    const children = paper.subordinatedPaperIds.map((subordinatedPaperId) =>
+      createPaperTree(paperGraph, subordinatedPaperId),
+    );
+    return { paper, children };
   }
 </script>

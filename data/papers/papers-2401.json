@@ -37,7 +37,10 @@
         "agendaItem": "6.1",
         "result": "ungeändert beschlossen"
       }
-    ]
+    ],
+    "rootPaperId": 240101,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240102,
@@ -83,7 +86,12 @@
         "agendaItem": "5.6",
         "result": "ungeändert beschlossen"
       }
-    ]
+    ],
+    "rootPaperId": 240102,
+    "subordinatedPaperIds": [
+      240172
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240103,
@@ -123,6 +131,11 @@
         "agendaItem": "6.1.2",
         "result": "abgelehnt"
       }
+    ],
+    "rootPaperId": 239571,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239571
     ]
   },
   {
@@ -147,7 +160,10 @@
         "agendaItem": "7.18",
         "result": "zurückgezogen"
       }
-    ]
+    ],
+    "rootPaperId": 240105,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240106,
@@ -171,7 +187,10 @@
         "agendaItem": "7.19",
         "result": "abgelehnt"
       }
-    ]
+    ],
+    "rootPaperId": 240106,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240108,
@@ -229,7 +248,13 @@
         "agendaItem": "5.21",
         "result": "ungeändert beschlossen"
       }
-    ]
+    ],
+    "rootPaperId": 240108,
+    "subordinatedPaperIds": [
+      240660,
+      240662
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240109,
@@ -303,7 +328,10 @@
         "agendaItem": "9.1",
         "result": "zur Kenntnis genommen"
       }
-    ]
+    ],
+    "rootPaperId": 240109,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240110,
@@ -437,6 +465,11 @@
         "agendaItem": "9.2",
         "result": "zur Kenntnis genommen"
       }
+    ],
+    "rootPaperId": 229420,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      229420
     ]
   },
   {
@@ -461,6 +494,11 @@
         "agendaItem": "9.3",
         "result": "genehmigt OB"
       }
+    ],
+    "rootPaperId": 239949,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239949
     ]
   },
   {
@@ -493,6 +531,11 @@
         "agendaItem": "6.4.1",
         "result": "zur Kenntnis genommen"
       }
+    ],
+    "rootPaperId": 239712,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239712
     ]
   },
   {
@@ -525,7 +568,10 @@
         "agendaItem": "6.3",
         "result": "zur Kenntnis genommen"
       }
-    ]
+    ],
+    "rootPaperId": 240115,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240122,
@@ -557,6 +603,11 @@
         "agendaItem": "10.1",
         "result": "zur Kenntnis genommen"
       }
+    ],
+    "rootPaperId": 239881,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239881
     ]
   },
   {
@@ -581,6 +632,11 @@
         "agendaItem": "9.2",
         "result": "genehmigt OB"
       }
+    ],
+    "rootPaperId": 239961,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239961
     ]
   },
   {
@@ -629,6 +685,11 @@
         "agendaItem": "6.5.1",
         "result": "zur Kenntnis genommen"
       }
+    ],
+    "rootPaperId": 239898,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239898
     ]
   },
   {
@@ -665,7 +726,12 @@
         "agendaItem": "8.3",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240127,
+    "subordinatedPaperIds": [
+      240237
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240128,
@@ -689,7 +755,12 @@
         "agendaItem": "8.4",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240128,
+    "subordinatedPaperIds": [
+      240255
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240131,
@@ -761,6 +832,11 @@
         "agendaItem": "5.8.1.1",
         "result": "mit Beschlussfassung zum Änderungsantrag erledigt"
       }
+    ],
+    "rootPaperId": 239337,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      240037
     ]
   },
   {
@@ -785,6 +861,11 @@
         "agendaItem": "9.5",
         "result": "genehmigt OB"
       }
+    ],
+    "rootPaperId": 239742,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239742
     ]
   },
   {
@@ -875,7 +956,16 @@
         "agendaItem": "5.15",
         "result": "geändert beschlossen"
       }
-    ]
+    ],
+    "rootPaperId": 240134,
+    "subordinatedPaperIds": [
+      241174,
+      241221,
+      241223,
+      241333,
+      241780
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240136,
@@ -899,6 +989,11 @@
         "agendaItem": "9.3",
         "result": "genehmigt OB"
       }
+    ],
+    "rootPaperId": 239965,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239965
     ]
   },
   {
@@ -923,7 +1018,12 @@
         "agendaItem": "8.5",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240139,
+    "subordinatedPaperIds": [
+      240349
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240140,
@@ -947,7 +1047,12 @@
         "agendaItem": "8.6",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240140,
+    "subordinatedPaperIds": [
+      240833
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240141,
@@ -971,7 +1076,10 @@
         "agendaItem": "7.20",
         "result": "zurückgezogen"
       }
-    ]
+    ],
+    "rootPaperId": 240141,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240142,
@@ -995,7 +1103,12 @@
         "agendaItem": "8.8",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240142,
+    "subordinatedPaperIds": [
+      240336
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240143,
@@ -1019,7 +1132,12 @@
         "agendaItem": "8.1",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240143,
+    "subordinatedPaperIds": [
+      240234
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240144,
@@ -1043,6 +1161,11 @@
         "agendaItem": "8.1",
         "result": "zur Kenntnis genommen"
       }
+    ],
+    "rootPaperId": 239947,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239947
     ]
   },
   {
@@ -1139,6 +1262,11 @@
         "agendaItem": "6.2.1",
         "result": "ungeändert beschlossen"
       }
+    ],
+    "rootPaperId": 240080,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      240080
     ]
   },
   {
@@ -1201,7 +1329,10 @@
         "agendaItem": "6.1",
         "result": "ungeändert beschlossen"
       }
-    ]
+    ],
+    "rootPaperId": 240147,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240148,
@@ -1249,6 +1380,11 @@
         "agendaItem": "6.7.1",
         "result": "zur Kenntnis genommen"
       }
+    ],
+    "rootPaperId": 239897,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239897
     ]
   },
   {
@@ -1281,7 +1417,10 @@
         "agendaItem": "6.1.1",
         "result": "zur Kenntnis genommen"
       }
-    ]
+    ],
+    "rootPaperId": 240149,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240150,
@@ -1311,7 +1450,12 @@
         "agendaItem": "8.9",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240150,
+    "subordinatedPaperIds": [
+      240381
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240151,
@@ -1335,7 +1479,12 @@
         "agendaItem": "8.10",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240151,
+    "subordinatedPaperIds": [
+      240371
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240152,
@@ -1359,6 +1508,11 @@
         "agendaItem": "10.9",
         "result": "genehmigt OB"
       }
+    ],
+    "rootPaperId": 239991,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239991
     ]
   },
   {
@@ -1383,7 +1537,12 @@
         "agendaItem": "8.11",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240153,
+    "subordinatedPaperIds": [
+      240412
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240154,
@@ -1407,7 +1566,12 @@
         "agendaItem": "8.12",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240154,
+    "subordinatedPaperIds": [
+      240253
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240155,
@@ -1431,7 +1595,12 @@
         "agendaItem": "8.13",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240155,
+    "subordinatedPaperIds": [
+      240243
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240156,
@@ -1455,7 +1624,12 @@
         "agendaItem": "8.14",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240156,
+    "subordinatedPaperIds": [
+      240487
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240157,
@@ -1521,7 +1695,10 @@
         "agendaItem": "5.22",
         "result": "ungeändert beschlossen"
       }
-    ]
+    ],
+    "rootPaperId": 240157,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240159,
@@ -1587,7 +1764,10 @@
         "agendaItem": "5.23",
         "result": "ungeändert beschlossen"
       }
-    ]
+    ],
+    "rootPaperId": 240159,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240160,
@@ -1627,6 +1807,11 @@
         "agendaItem": "6.3.3",
         "result": "zur Kenntnis genommen"
       }
+    ],
+    "rootPaperId": 239624,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239624
     ]
   },
   {
@@ -1675,6 +1860,11 @@
         "agendaItem": "9.10",
         "result": "zur Kenntnis genommen"
       }
+    ],
+    "rootPaperId": 233316,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      233316
     ]
   },
   {
@@ -1707,6 +1897,11 @@
         "agendaItem": "6.12.1",
         "result": "abgelehnt"
       }
+    ],
+    "rootPaperId": 239366,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239366
     ]
   },
   {
@@ -1731,7 +1926,12 @@
         "agendaItem": "8.15",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240167,
+    "subordinatedPaperIds": [
+      240285
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240168,
@@ -1755,7 +1955,12 @@
         "agendaItem": "8.16",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240168,
+    "subordinatedPaperIds": [
+      240358
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240171,
@@ -1779,6 +1984,11 @@
         "agendaItem": "5.2.1",
         "result": "abgelehnt"
       }
+    ],
+    "rootPaperId": 239570,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239570
     ]
   },
   {
@@ -1803,6 +2013,11 @@
         "agendaItem": "5.6.1",
         "result": "abgelehnt"
       }
+    ],
+    "rootPaperId": 240102,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      240102
     ]
   },
   {
@@ -1827,6 +2042,11 @@
         "agendaItem": "5.16.1",
         "result": "abgelehnt"
       }
+    ],
+    "rootPaperId": 237813,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      237813
     ]
   },
   {
@@ -1851,6 +2071,11 @@
         "agendaItem": "5.18.1",
         "result": "abgelehnt"
       }
+    ],
+    "rootPaperId": 238577,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      238577
     ]
   },
   {
@@ -1907,6 +2132,11 @@
         "agendaItem": "6.10.1",
         "result": "abgelehnt"
       }
+    ],
+    "rootPaperId": 240094,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      240094
     ]
   },
   {
@@ -1931,6 +2161,11 @@
         "agendaItem": "5.5.2.1",
         "result": "ungeändert beschlossen"
       }
+    ],
+    "rootPaperId": 238942,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239689
     ]
   },
   {
@@ -1955,6 +2190,11 @@
         "agendaItem": "9.4",
         "result": "genehmigt OB"
       }
+    ],
+    "rootPaperId": 239971,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239971
     ]
   },
   {
@@ -1979,7 +2219,12 @@
         "agendaItem": "8.17",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240181,
+    "subordinatedPaperIds": [
+      240218
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240182,
@@ -2035,6 +2280,11 @@
         "agendaItem": "6.6.1",
         "result": "abgelehnt"
       }
+    ],
+    "rootPaperId": 239009,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239009
     ]
   },
   {
@@ -2091,6 +2341,11 @@
         "agendaItem": "6.4.1",
         "result": "ungeändert beschlossen"
       }
+    ],
+    "rootPaperId": 240073,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      240073
     ]
   },
   {
@@ -2115,7 +2370,12 @@
         "agendaItem": "8.18",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240184,
+    "subordinatedPaperIds": [
+      240251
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240185,
@@ -2139,6 +2399,11 @@
         "agendaItem": "5.18.2",
         "result": "ungeändert beschlossen"
       }
+    ],
+    "rootPaperId": 238577,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      238577
     ]
   },
   {
@@ -2163,7 +2428,12 @@
         "agendaItem": "8.19",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240187,
+    "subordinatedPaperIds": [
+      240386
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240188,
@@ -2187,6 +2457,11 @@
         "agendaItem": "5.12.1",
         "result": "ungeändert beschlossen"
       }
+    ],
+    "rootPaperId": 239213,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      239213
     ]
   },
   {
@@ -2211,7 +2486,12 @@
         "agendaItem": "8.20",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240190,
+    "subordinatedPaperIds": [
+      240364
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240191,
@@ -2235,7 +2515,12 @@
         "agendaItem": "8.21",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240191,
+    "subordinatedPaperIds": [
+      240402
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240192,
@@ -2259,7 +2544,12 @@
         "agendaItem": "8.22",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240192,
+    "subordinatedPaperIds": [
+      240369
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240195,
@@ -2283,7 +2573,12 @@
         "agendaItem": "8.23",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240195,
+    "subordinatedPaperIds": [
+      240268
+    ],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 240199,
@@ -2307,6 +2602,11 @@
         "agendaItem": "8.24",
         "result": "schriftliche Stellungnahme"
       }
-    ]
+    ],
+    "rootPaperId": 240199,
+    "subordinatedPaperIds": [
+      240309
+    ],
+    "superOrdinatedPaperIds": []
   }
 ]
