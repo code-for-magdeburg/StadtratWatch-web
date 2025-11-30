@@ -3,7 +3,7 @@ import { glob } from 'astro/loaders';
 import type { Registry } from '@models/registry.ts';
 import type { SessionScan } from '@models/session-scan.ts';
 import type { SessionSpeech } from '@models/session-speech.ts';
-import * as fs from 'fs';
+import * as fs from 'node:fs';
 import type {
   OparlAgendaItem,
   OparlConsultation,
