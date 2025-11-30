@@ -39,7 +39,7 @@ export default defineConfig({
         access: 'public',
         optional: false,
       }),
-      FEATURE_FLAGS: envField.string({
+      SRW_FEATURE_FLAGS: envField.string({
         context: 'client',
         access: 'public',
         optional: true,
