@@ -38,7 +38,7 @@ export function checkArgs(args: DownloadPaperFilesArgs) {
     Deno.exit(1);
   }
 
-  if (isNaN(Number.parseInt(year))) {
+  if (Number.isNaN(Number.parseInt(year))) {
     console.error('Year must be a number.');
     Deno.exit(1);
   }
