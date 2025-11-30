@@ -20,6 +20,7 @@ function parseEnabledFeatures(featuresString: string | undefined): Set<string> {
 }
 
 export function isFeatureEnabled(feature: FeatureFlag): boolean {
+  console.log('FEATURE_FLAGS', FEATURE_FLAGS);
   const features = parseEnabledFeatures(FEATURE_FLAGS);
   return features.has(feature);
 }
