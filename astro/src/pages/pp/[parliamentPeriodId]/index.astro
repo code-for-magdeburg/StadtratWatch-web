@@ -28,9 +28,11 @@ const totalVoteCount = sessionInputs.reduce((acc, sessionInput) => {
 
 const totalSpeakingTime = calcSpeakingTimeOfSessions(sessionInputs);
 
-const formattedTotalSpeakingTime = formatSpeakingTime(totalSpeakingTime, {
-  showSeconds: false,
-});
+const formattedTotalSpeakingTime = formatSpeakingTime(
+  totalSpeakingTime,
+  true,
+  false,
+);
 ---
 
 <PageLayout

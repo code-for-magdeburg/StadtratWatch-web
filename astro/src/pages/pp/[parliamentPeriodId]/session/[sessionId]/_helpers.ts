@@ -65,6 +65,6 @@ function generateSpeakingTimesBarLabel(
   totalDurationSeconds: number,
 ): string {
   return faction
-    ? `${speaker} (${faction}) ${formatSpeakingTime(totalDurationSeconds, { showZeroHours: false })}`
-    : `${speaker} ${formatSpeakingTime(totalDurationSeconds, { showZeroHours: false })}`;
+    ? `${speaker} (${faction}) ${formatSpeakingTime(totalDurationSeconds, false)}`
+    : `${speaker} ${formatSpeakingTime(totalDurationSeconds, false)}`;
 }
