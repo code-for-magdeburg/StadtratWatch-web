@@ -21,13 +21,13 @@ export class RttmFilesParser {
     const part = rttmFile.replace('.rttm', '').split('-').pop()!;
     const speakerSegments = parsed
       .filter((line) => !!line[7])
-      .filter((line) => parseFloat(line[4]) > 1)
+      .filter((line) => Number.parseFloat(line[4]) > 1)
       .map<SpeakerSegment>((line) => {
         const startOffset = +part * 4 * 60 * 60;
         return {
           speaker: `${part}_${line[7]}`,
-          start: startOffset + parseFloat(line[3]),
-          duration: parseFloat(line[4]),
+          start: startOffset + Number.parseFloat(line[3]),
+          duration: Number.parseFloat(line[4]),
         };
       })
       .sort((a, b) => a.speaker.localeCompare(b.speaker));
