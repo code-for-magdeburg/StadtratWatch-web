@@ -142,10 +142,12 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
                 aria-label="Zugehörige Drucksachen"
                 type="radio"
                 name="paper-tabs-radio"
-                x-bind:disabled="!paperGraph || paperGraph.papers.length < 2"
+                x-bind:disabled="!paperTree || paperTree.children.length === 0"
               />
               <div class="tab-content border-base-200 bg-base-100 p-6">
-                <pre x-text="JSON.stringify(paperGraph, null, 2)" />
+                <template x-for="level in [paperTree]">
+                  <div class="space-y-4" x-html="renderLevel(level, 0)" />
+                </template>
               </div>
             </>
           )
@@ -193,8 +195,51 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
     papers: Paper[];
   };
 
+  type PaperTree = {
+    paper: Paper;
+    children: PaperTree[];
+  };
+
   document.addEventListener('alpine:init', () => {
     Alpine.data('paper', () => ({
+      renderLevel: function (paperNode: PaperTree | null, depth: number) {
+        if (!paperNode) return '';
+
+        let html = `
+            <a
+              href="/paper?paperId=${paperNode.paper.id}"
+              class="card card-border bg-base-200 hover:bg-base-300"
+              :class="{
+                'border-base-300': paper.id !== ${paperNode.paper.id},
+                'border-primary': paper.id === ${paperNode.paper.id},
+              }"
+              style="margin-left: ${depth * 2}rem;"
+            >
+              <div class="card-body">
+                <div class="text-sm font-medium">
+                  ${paperNode.paper.reference}
+                  ${paperNode.paper.title}
+                </div>
+                <div class="text-base-content/70 mt-2 flex items-center text-xs">
+                  ${paperNode.paper.type}
+                </div>
+              </div>
+            </a>
+        `;
+
+        if (paperNode.children) {
+          html += `
+            <template x-for="level in level.children">
+              <div
+                class="space-y-4"
+                x-html="renderLevel(level, ${depth + 1})"
+              ></div>
+            </template>
+          `;
+        }
+
+        return html;
+      },
       paper: {
         id: 0,
         reference: null,
@@ -206,7 +251,7 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
         subordinatedPaperIds: [],
         superordinatedPaperIds: [],
       } as Paper,
-      paperGraph: null as PaperGraph | null,
+      paperTree: null as PaperTree | null,
       selectedFile: null as number | null,
       documentUrl: null as string | null,
       fileSizeOk: true,
@@ -267,8 +312,8 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
             );
             return;
           }
-
-          this.paperGraph = paperGraph;
+          
+          this.paperTree = createPaperTree(paperGraph, paperGraph.rootPaperId);
         }
       },
       selectFile: function (fileId: number) {
@@ -310,5 +355,13 @@ const featurePaperDetailsWithRelatedPaperEnabled = isFeatureEnabled(
       month: '2-digit',
       year: 'numeric',
     });
+  }
+
+  function createPaperTree(paperGraph: PaperGraph, paperId: number): PaperTree {
+    const paper = paperGraph.papers.find((p) => p.id === paperId)!;
+    const children = paper.subordinatedPaperIds.map((subordinatedPaperId) =>
+      createPaperTree(paperGraph, subordinatedPaperId),
+    );
+    return { paper, children };
   }
 </script>
