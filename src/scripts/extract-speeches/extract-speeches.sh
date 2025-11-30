@@ -7,7 +7,7 @@ readarray -t speeches < <(jq -c '.[]' $speechesConfigFile)
 for speech in "${speeches[@]}"
 do
     isChairPerson=$(echo $speech | jq -r '.isChairPerson')
-    if [ "$isChairPerson" = "true" ]; then
+    if [[ "$isChairPerson" = "true" ]]; then
         continue
     fi
 
