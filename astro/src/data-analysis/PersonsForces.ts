@@ -34,7 +34,6 @@ export function calcPersonsForces(
     })
     .toSorted((a, b) => a.name.localeCompare(b.name));
 
-  const personPairs = [];
   const personsForces: PersonsForces = {
     nodes: [],
     links: [],
@@ -52,7 +51,6 @@ export function calcPersonsForces(
       const score = person1.votingMatrix.find(
         (v: any) => v.personId === person2.id,
       )?.comparisonScore!;
-      personPairs.push({ person1, person2, score });
       personsForces.links.push({
         source: person1.id,
         target: person2.id,
