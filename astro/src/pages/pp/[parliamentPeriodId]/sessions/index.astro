@@ -22,8 +22,8 @@ const groupedByMonthMap = Map.groupBy(sessionInputs, (sessionInput) => {
 });
 const groupedByMonth = Array.from(groupedByMonthMap)
   .map(([key, value]) => {
-    const year = parseInt(key.split('-')[0], 10);
-    const month = parseInt(key.split('-')[1], 10);
+    const year = Number.parseInt(key.split('-')[0], 10);
+    const month = Number.parseInt(key.split('-')[1], 10);
     const label = new Date(key + '-01').toLocaleString('de-DE', {
       month: 'long',
       year: 'numeric',
