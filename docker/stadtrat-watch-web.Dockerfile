@@ -10,7 +10,7 @@ COPY . /app
 
 RUN npm run build -c production
 
-FROM nginx:latest
+FROM nginx:1.29
 
 COPY --from=build /app/dist/StadtratWatch-web /usr/share/nginx/html
 
