@@ -15,12 +15,14 @@ export class OparlFilesInMemoryRepository implements OparlFilesRepository {
   }
 
   public getFilesByMeeting(meetingId: string): OparlFile[] {
-    const paperIds = this.papersRepository
-      .getPapersByMeeting(meetingId)
-      .map((paper) => paper.id);
+    const paperIds = new Set(
+      this.papersRepository
+        .getPapersByMeeting(meetingId)
+        .map((paper) => paper.id),
+    );
 
     return this.files.filter(
-      (file) => (file.paper || []).some((paperId) => paperIds.includes(paperId)),
+      (file) => (file.paper || []).some((paperId) => paperIds.has(paperId)),
     );
   }
 }
