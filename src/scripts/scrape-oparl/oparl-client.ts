@@ -28,7 +28,7 @@ export class OparlClient {
 
     console.log('Fetched', objects.length, 'objects.');
 
-    return Promise.resolve(objects);
+    return objects;
   }
 
   public async fetchModifiedObjects(objectsUrl: string, modifiedSince: string): Promise<OparlObject[]> {
@@ -58,7 +58,7 @@ export class OparlClient {
 
     console.log('Fetched', objects.length, 'objects.');
 
-    return Promise.resolve(objects);
+    return objects;
   }
 
   private static buildUrlWithParams(baseUrl: string, createdSince: string | null): URL | null {
