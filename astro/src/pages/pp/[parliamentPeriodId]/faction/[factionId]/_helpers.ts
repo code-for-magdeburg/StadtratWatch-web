@@ -27,9 +27,12 @@ export function getMotionResult(
   const passedVotings = votings.filter(
     (voting) => voting.votingResult === VotingResult.PASSED,
   ).length;
-  return passedVotings === 0
-    ? MotionResult.REJECTED
-    : passedVotings === votings.length
-      ? MotionResult.ACCEPTED
-      : MotionResult.PARTIALLY_ACCEPTED;
+
+  if (passedVotings === 0) {
+    return MotionResult.REJECTED;
+  }
+
+  return passedVotings === votings.length
+    ? MotionResult.ACCEPTED
+    : MotionResult.PARTIALLY_ACCEPTED;
 }
