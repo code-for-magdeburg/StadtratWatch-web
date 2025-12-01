@@ -199,11 +199,11 @@ function calcPersonsVotingResult(
     (vote) => vote.vote === VoteResult.VOTE_AGAINST,
   ).length;
 
-  return personsVotes.length === 0
-    ? null
-    : votedFor > votedAgainst
-      ? VotingResult.PASSED
-      : VotingResult.REJECTED;
+  if (personsVotes.length === 0) {
+    return null;
+  }
+
+  return votedFor > votedAgainst ? VotingResult.PASSED : VotingResult.REJECTED;
 }
 
 function getVotingResult(voting: SessionScanItem): VotingResult {
