@@ -127,13 +127,18 @@ function calcUniformityScore(
     return null;
   }
 
-  const max1 = Math.max(votesFor, votesAgainst, votesAbstained);
-  const max2 =
-    votesFor === max1
-      ? Math.max(votesAgainst, votesAbstained)
-      : votesAgainst === max1
-        ? Math.max(votesFor, votesAbstained)
-        : Math.max(votesFor, votesAgainst);
+  const mostVotes = Math.max(votesFor, votesAgainst, votesAbstained);
+  let secondMostVotes;
+  if (votesFor === mostVotes) {
+    secondMostVotes = Math.max(votesAgainst, votesAbstained);
+  } else if (votesAgainst === mostVotes) {
+    secondMostVotes = Math.max(votesFor, votesAbstained);
+  } else {
+    secondMostVotes = Math.max(votesFor, votesAgainst);
+  }
 
-  return (max1 - max2 + Math.min(votesAbstained, max2)) / totalVotes;
+  return (
+    (mostVotes - secondMostVotes + Math.min(votesAbstained, secondMostVotes)) /
+    totalVotes
+  );
 }
