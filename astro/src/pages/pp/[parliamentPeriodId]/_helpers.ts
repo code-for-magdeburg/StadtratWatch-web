@@ -6,8 +6,7 @@ const getParliamentPeriodStaticPaths = (async () => {
   const parliamentPeriods = await getCollection('parliamentPeriods');
   const oparlMeetings = (await getCollection('oparlMeetings')).filter(
     (meeting) =>
-      meeting.data.organization &&
-      meeting.data.organization.includes(
+      meeting.data.organization?.includes(
         'https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1',
       ),
   );
