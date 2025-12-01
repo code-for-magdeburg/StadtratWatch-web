@@ -2,6 +2,7 @@ import type { SessionInput } from '@srw-astro/models/session-input';
 import type { Registry, RegistryFaction, RegistryPerson } from '@srw-astro/models/registry';
 import type { Voting, VotingPerFaction } from './model.ts';
 import { type Vote, VoteResult } from '../shared/model/session.ts';
+import { type SessionScanVote } from '@srw-astro/models/session-scan';
 
 function getPersonsOfSession(persons: RegistryPerson[], sessionDate: string): RegistryPerson[] {
   return persons.filter((person) =>
@@ -54,11 +55,12 @@ export class VotingsImageDataGenerator {
       const date = sessionInput.session.date;
       const personsOfSession = getPersonsOfSession(persons, date);
 
+      const mapSessionScanVoteToVote = (vote: SessionScanVote): Vote => ({
+        personId: personsOfSession.find((p) => p.name === vote.name)?.id || '',
+        vote: getVoteResult(vote.vote),
+      });
       return sessionInput.votings.map<Voting>((sessionVoting) => {
-        const allVotes = sessionVoting.votes.map<Vote>((vote) => ({
-          personId: personsOfSession.find((p) => p.name === vote.name)?.id || '',
-          vote: getVoteResult(vote.vote),
-        }));
+        const allVotes = sessionVoting.votes.map(mapSessionScanVoteToVote);
         const votes = getVotingForFactions(allVotes, factions, personsOfSession);
         return {
           sessionId,
