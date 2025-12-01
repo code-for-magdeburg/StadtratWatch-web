@@ -37,13 +37,19 @@ function getVotingForFactions(
 }
 
 function getVoteResult(vote: string): VoteResult {
-  return vote === 'J'
-    ? VoteResult.VOTE_FOR
-    : vote === 'N'
-    ? VoteResult.VOTE_AGAINST
-    : vote === 'E'
-    ? VoteResult.VOTE_ABSTENTION
-    : VoteResult.DID_NOT_VOTE;
+  if (vote === 'J') {
+    return VoteResult.VOTE_FOR;
+  }
+
+  if (vote === 'N') {
+    return VoteResult.VOTE_AGAINST;
+  }
+
+  if (vote === 'E') {
+    return VoteResult.VOTE_ABSTENTION;
+  }
+
+  return VoteResult.DID_NOT_VOTE;
 }
 
 export class VotingsImageDataGenerator {
