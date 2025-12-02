@@ -59,8 +59,7 @@ export function calcParticipationRateHistoryOfFaction(
       );
       return { date: session.session.date, value };
     })
-    .filter(({ value }) => value !== null)
-    .map(({ date, value }) => ({ date, value: value! }))
+    .filter((obj): obj is HistoryDataPoint => obj.value !== null)
     .toSorted((a, b) => a.date.localeCompare(b.date));
 }
 
@@ -105,8 +104,7 @@ export function calcParticipationRateHistoryOfParty(
       );
       return { date: session.session.date, value };
     })
-    .filter(({ value }) => value !== null)
-    .map(({ date, value }) => ({ date, value: value! }))
+    .filter((obj): obj is HistoryDataPoint => obj.value !== null)
     .toSorted((a, b) => a.date.localeCompare(b.date));
 }
 
@@ -138,8 +136,7 @@ export function calcParticipationRateHistoryOfPerson(
       const value = calcParticipationRateOfPerson(person, pastSessions);
       return { date: session.session.date, value };
     })
-    .filter(({ value }) => value !== null)
-    .map(({ date, value }) => ({ date, value: value! }))
+    .filter((obj): obj is HistoryDataPoint => obj.value !== null)
     .toSorted((a, b) => a.date.localeCompare(b.date));
 }
 

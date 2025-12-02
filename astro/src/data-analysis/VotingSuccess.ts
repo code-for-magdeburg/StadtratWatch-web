@@ -65,8 +65,7 @@ export function calcVotingSuccessRateHistoryOfFaction(
       );
       return { date: session.session.date, value };
     })
-    .filter(({ value }) => value !== null)
-    .map(({ date, value }) => ({ date, value: value! }))
+    .filter((obj): obj is HistoryDataPoint => obj.value !== null)
     .toSorted((a, b) => a.date.localeCompare(b.date));
 }
 
@@ -117,8 +116,7 @@ export function calcVotingSuccessRateHistoryOfParty(
       );
       return { date: session.session.date, value };
     })
-    .filter(({ value }) => value !== null)
-    .map(({ date, value }) => ({ date, value: value! }))
+    .filter((obj): obj is HistoryDataPoint => obj.value !== null)
     .toSorted((a, b) => a.date.localeCompare(b.date));
 }
 
