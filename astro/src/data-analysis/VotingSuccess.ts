@@ -167,8 +167,7 @@ export function calcVotingSuccessRateHistoryOfPerson(
       const value = calcVotingSuccessRateOfPerson(person, pastSessions);
       return { date: session.session.date, value };
     })
-    .filter(({ value }) => value !== null)
-    .map(({ date, value }) => ({ date, value: value! }))
+    .filter((obj): obj is HistoryDataPoint => obj.value !== null)
     .toSorted((a, b) => a.date.localeCompare(b.date));
 }
 
