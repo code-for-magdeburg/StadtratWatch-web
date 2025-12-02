@@ -89,10 +89,10 @@ export class OparlScraper {
 
     for (const modifiedObject of modifiedObjects) {
       const index = updatedObjects.findIndex((obj) => obj.id === modifiedObject.id);
-      if (index !== -1) {
-        updatedObjects[index] = modifiedObject;
-      } else {
+      if (index === -1) {
         updatedObjects.push(modifiedObject);
+      } else {
+        updatedObjects[index] = modifiedObject;
       }
     }
 
