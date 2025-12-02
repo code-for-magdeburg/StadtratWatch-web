@@ -148,7 +148,7 @@ export function calcVotingSuccessRateOfPerson(
       );
     });
 
-  const successCount = votingSuccess.filter((success) => success).length;
+  const successCount = votingSuccess.filter(Boolean).length;
 
   return votingSuccess.length === 0
     ? null
