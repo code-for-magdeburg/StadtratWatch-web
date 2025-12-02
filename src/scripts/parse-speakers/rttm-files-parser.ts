@@ -9,7 +9,7 @@ export class RttmFilesParser {
 
   public process(session: string) {
     const rttmFiles = this.rttmFilesStore.getRttmFiles();
-    const speakers = rttmFiles.map((rttmFile) => this.processRttmFile(rttmFile)).flat();
+    const speakers = rttmFiles.flatMap((rttmFile) => this.processRttmFile(rttmFile));
     this.parsedFilesStore.writeSpeakerFile(session, speakers);
   }
 
