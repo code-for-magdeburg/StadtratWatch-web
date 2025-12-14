@@ -267,8 +267,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "5.12",
-            "result": null
+            "agendaItem": "6.12",
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 246904,
@@ -532,7 +532,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
             "agendaItem": "4.2",
-            "result": "geändert empfohlen"
+            "result": "empfohlen mit Änderungsantrag"
           }
         ],
         "rootPaperId": 246924,
@@ -569,7 +569,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
             "agendaItem": "4.2.1",
-            "result": null
+            "result": "empfohlen"
           }
         ],
         "rootPaperId": 246924,
@@ -608,7 +608,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
             "agendaItem": "4.2.2",
-            "result": "empfohlen"
+            "result": "Einzelabstimmung"
           }
         ],
         "rootPaperId": 246924,
@@ -871,8 +871,39 @@
           }
         ],
         "rootPaperId": 246946,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          247700
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247700,
+        "reference": "S0511/25",
+        "type": "Stellungnahme",
+        "title": "Online-Buchungssystem für Veranstaltungseinrichtungen",
+        "files": [
+          {
+            "id": 732338,
+            "name": "Stellungnahme",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732338&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-02T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.7",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 246946,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          246946
+        ]
       }
     ]
   },
@@ -994,7 +1025,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Familie und Gleichstellung",
             "agendaItem": "5.1",
-            "result": null
+            "result": "nicht empfohlen"
           }
         ],
         "rootPaperId": 246948,
@@ -1048,7 +1079,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Familie und Gleichstellung",
             "agendaItem": "5.1.1",
-            "result": null
+            "result": "nicht empfohlen"
           }
         ],
         "rootPaperId": 246948,
@@ -1093,7 +1124,7 @@
             "role": "Kenntnisnahme",
             "organization": "Ausschuss für Familie und Gleichstellung",
             "agendaItem": "5.1.2",
-            "result": null
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 246948,
@@ -2333,8 +2364,39 @@
           }
         ],
         "rootPaperId": 246974,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          247750
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247750,
+        "reference": "I0316/25",
+        "type": "Informationsvorlage",
+        "title": "Schulwegsicherheit in der Gernröder Straße erhöhen",
+        "files": [
+          {
+            "id": 732782,
+            "name": "I0316/25 Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732782&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-09T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "6.6",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 246974,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          246974
+        ]
       }
     ]
   },
@@ -2546,8 +2608,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
-            "agendaItem": "9.25",
-            "result": null
+            "agendaItem": "10.25",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 246976,
@@ -2818,8 +2880,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "6.3",
-            "result": null
+            "agendaItem": "7.3",
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246981,
@@ -2863,8 +2925,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
-            "agendaItem": "6.3.1",
-            "result": null
+            "agendaItem": "7.3.1",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 246981,
@@ -3383,8 +3445,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "5.34",
-            "result": null
+            "agendaItem": "6.34",
+            "result": "in die Ausschüsse verwiesen"
           }
         ],
         "rootPaperId": 246988,
@@ -3653,8 +3715,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "5.10",
-            "result": null
+            "agendaItem": "6.10",
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 246992,

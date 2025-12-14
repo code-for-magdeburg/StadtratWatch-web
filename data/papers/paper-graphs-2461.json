@@ -2632,8 +2632,39 @@
           }
         ],
         "rootPaperId": 246161,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          247768
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247768,
+        "reference": "S0524/25",
+        "type": "Stellungnahme",
+        "title": "Fahrradstraße",
+        "files": [
+          {
+            "id": 733003,
+            "name": "Stellungnahme",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733003&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-09T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.15",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 246161,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          246161
+        ]
       }
     ]
   },
@@ -3400,8 +3431,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "6.1",
-            "result": null
+            "agendaItem": "7.1",
+            "result": "mit Beschlussfassung zum Änderungsantrag erledigt"
           }
         ],
         "rootPaperId": 246183,
@@ -3477,8 +3508,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
-            "agendaItem": "6.1.1",
-            "result": null
+            "agendaItem": "7.1.2",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 246183,

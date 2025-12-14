@@ -688,7 +688,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
             "agendaItem": "4.4",
-            "result": "geändert empfohlen"
+            "result": "empfohlen mit Änderungsantrag"
           }
         ],
         "rootPaperId": 247525,
@@ -735,8 +735,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
-            "agendaItem": "9.17",
-            "result": null
+            "agendaItem": "10.17",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 247528,
@@ -929,6 +929,50 @@
     ]
   },
   {
+    "rootPaperId": 247559,
+    "papers": [
+      {
+        "id": 247559,
+        "reference": "DS0557/25",
+        "type": "Beschlussvorlage",
+        "title": "Keine Mitgliedschaft der Landeshauptstadt im Förderverein \"Welterbe im Salzlandkreis e.V.\"",
+        "files": [
+          {
+            "id": 731095,
+            "name": "Beschlussvorlage Stadt",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=731095&type=do",
+            "size": null
+          },
+          {
+            "id": 731105,
+            "name": "DS0557/25_Anlage1 Entwurf Satzung",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=731105&type=do",
+            "size": null
+          },
+          {
+            "id": 731106,
+            "name": "DS0557/25_Anlage2 Entwurf Beitragsordnung",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=731106&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-02T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "4.3",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 247559,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": []
+      }
+    ]
+  },
+  {
     "rootPaperId": 247561,
     "papers": [
       {
@@ -1025,6 +1069,50 @@
     ]
   },
   {
+    "rootPaperId": 247566,
+    "papers": [
+      {
+        "id": 247566,
+        "reference": "DS0558/25",
+        "type": "Beschlussvorlage",
+        "title": "Konzept Urban Art Galerie Magdeburg",
+        "files": [
+          {
+            "id": 731125,
+            "name": "Beschlussvorlage Stadt",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=731125&type=do",
+            "size": null
+          },
+          {
+            "id": 731137,
+            "name": "DS0558/25 Anlage 2 Fotocollage Urban Art Galerie Magdeburg",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=731137&type=do",
+            "size": null
+          },
+          {
+            "id": 731142,
+            "name": "DS0558/25 Anlage 1 Konzept Urban Art Galerie Magdeburg",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=731142&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-02T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "4.4",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 247566,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": []
+      }
+    ]
+  },
+  {
     "rootPaperId": 247567,
     "papers": [
       {
@@ -1046,8 +1134,16 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "6.8",
-            "result": null
+            "agendaItem": "7.8",
+            "result": "vertagt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates (ggf. Fortsetzung und Haushaltsberatung 2026)",
+            "date": "2025-12-08T16:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.8",
+            "result": "in die Ausschüsse verwiesen"
           }
         ],
         "rootPaperId": 247567,
@@ -1210,8 +1306,39 @@
           }
         ],
         "rootPaperId": 247573,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          247807
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247807,
+        "reference": "S0540/25",
+        "type": "Stellungnahme (Anfrage)",
+        "title": "Unterstützungsbedarfe von Projekten gegen Gewalt an Frauen und Mädchen mit und ohne Behinderung in Magdeburg",
+        "files": [
+          {
+            "id": 733301,
+            "name": "Stellungnahme",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733301&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-09T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.5",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 247573,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247573
+        ]
       }
     ]
   },
@@ -1401,8 +1528,39 @@
           }
         ],
         "rootPaperId": 247590,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          247688
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247688,
+        "reference": "S0507/25",
+        "type": "Stellungnahme",
+        "title": "Kreuzung Keplerstraße",
+        "files": [
+          {
+            "id": 732244,
+            "name": "S0507/25 Stellungnahme",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732244&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-02T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.10",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 247590,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247590
+        ]
       }
     ]
   },

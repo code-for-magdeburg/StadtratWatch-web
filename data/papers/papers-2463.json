@@ -1878,8 +1878,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "6.6",
-        "result": null
+        "agendaItem": "7.6",
+        "result": "vertagt"
       }
     ],
     "rootPaperId": 246347,
@@ -2035,8 +2035,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "6.2",
-        "result": null
+        "agendaItem": "7.2",
+        "result": "in die Ausschüsse verwiesen"
       }
     ],
     "rootPaperId": 246350,
@@ -2119,8 +2119,16 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "6.7",
-        "result": null
+        "agendaItem": "7.7",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates (ggf. Fortsetzung und Haushaltsberatung 2026)",
+        "date": "2025-12-08T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.7",
+        "result": "in die Ausschüsse verwiesen"
       }
     ],
     "rootPaperId": 246353,
@@ -2398,12 +2406,14 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.28",
-        "result": null
+        "agendaItem": "6.28",
+        "result": "Einzelabstimmung"
       }
     ],
     "rootPaperId": 246360,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247759
+    ],
     "superOrdinatedPaperIds": []
   },
   {

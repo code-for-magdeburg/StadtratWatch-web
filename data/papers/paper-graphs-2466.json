@@ -239,8 +239,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
-            "agendaItem": "9.5",
-            "result": null
+            "agendaItem": "10.5",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 246603,
@@ -1250,7 +1250,7 @@
             "date": "2025-10-07T17:00:00+02:00",
             "role": "Beratung",
             "organization": "Ausschuss für Umwelt und Energie",
-            "agendaItem": "4.3",
+            "agendaItem": "4.4",
             "result": "empfohlen"
           },
           {
@@ -1324,7 +1324,7 @@
             "date": "2025-10-07T17:00:00+02:00",
             "role": "Beratung",
             "organization": "Ausschuss für Umwelt und Energie",
-            "agendaItem": "4.4",
+            "agendaItem": "4.5",
             "result": "empfohlen"
           },
           {
@@ -1627,8 +1627,39 @@
           }
         ],
         "rootPaperId": 246650,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          247148
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247148,
+        "reference": "S0386/25",
+        "type": "Stellungnahme",
+        "title": "Umsetzung des Beschlusses zum Verbot von Breitbandherbiziden in Magdeburg",
+        "files": [
+          {
+            "id": 727061,
+            "name": "Stellungnahme",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727061&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-09T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.13",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 246650,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          246650
+        ]
       }
     ]
   },
@@ -3258,8 +3289,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "5.23",
-            "result": null
+            "agendaItem": "6.23",
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 246698,

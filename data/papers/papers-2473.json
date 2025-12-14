@@ -462,6 +462,39 @@
     ]
   },
   {
+    "id": 247314,
+    "reference": "DS0491/25",
+    "type": "Beschlussvorlage EB",
+    "title": "Wirtschaftsplan 2026 EB Puppentheater der Stadt Magdeburg",
+    "files": [
+      {
+        "id": 732820,
+        "name": "251125_WPL_2026",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732820&type=do",
+        "size": null
+      },
+      {
+        "id": 732822,
+        "name": "Beschlussvorlage EB",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732822&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2025-12-09T09:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "8.1",
+        "result": "zur Kenntnis genommen"
+      }
+    ],
+    "rootPaperId": 247314,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
     "id": 247315,
     "reference": "F0317/25",
     "type": "Anfrage",
@@ -756,8 +789,8 @@
         "date": "2025-11-27T19:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Ortschaftsrat Pechau",
-        "agendaItem": "5.1",
-        "result": null
+        "agendaItem": "5.2",
+        "result": "zur Kenntnis genommen"
       },
       {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Ortschaftsrates Beyendorf-Sohlen",
@@ -765,15 +798,15 @@
         "role": "Kenntnisnahme",
         "organization": "Ortschaftsrat Beyendorf-Sohlen",
         "agendaItem": "6.1",
-        "result": null
+        "result": "zur Kenntnis genommen"
       },
       {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.17",
-        "result": null
+        "agendaItem": "6.17",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247321,
@@ -876,8 +909,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.38",
-        "result": null
+        "agendaItem": "6.38",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247325,
@@ -957,8 +990,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.39",
-        "result": null
+        "agendaItem": "6.39",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247327,
@@ -1045,8 +1078,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
-        "agendaItem": "9.19",
-        "result": null
+        "agendaItem": "10.19",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 244588,
@@ -1278,13 +1311,22 @@
         "role": "Beratung",
         "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
         "agendaItem": "4.8",
-        "result": "geändert empfohlen"
+        "result": "empfohlen mit Änderungsantrag"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+        "date": "2025-12-09T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Umwelt und Energie",
+        "agendaItem": "5.3",
+        "result": "empfohlen"
       }
     ],
     "rootPaperId": 247336,
     "subordinatedPaperIds": [
       247757,
-      247771
+      247771,
+      247775
     ],
     "superOrdinatedPaperIds": []
   },
@@ -1504,8 +1546,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.4",
-        "result": null
+        "agendaItem": "6.4",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247350,
@@ -1762,8 +1804,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
-        "agendaItem": "9.5",
-        "result": null
+        "agendaItem": "10.5",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 246603,
@@ -1865,8 +1907,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.35",
-        "result": null
+        "agendaItem": "6.35",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247360,
@@ -2069,8 +2111,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.5",
-        "result": null
+        "agendaItem": "6.5",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247370,
@@ -2128,8 +2170,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
-        "agendaItem": "6.4.1",
-        "result": null
+        "agendaItem": "7.4.1",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 247177,
@@ -2209,8 +2251,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.6",
-        "result": null
+        "agendaItem": "6.6",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247372,
@@ -2316,8 +2358,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.7",
-        "result": null
+        "agendaItem": "6.7",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247377,
@@ -2367,8 +2409,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
-        "agendaItem": "9.10",
-        "result": null
+        "agendaItem": "10.10",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 247379,
@@ -2497,8 +2539,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
-        "agendaItem": "6.5.1",
-        "result": null
+        "agendaItem": "7.5.1",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 247181,
@@ -2771,8 +2813,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
-        "agendaItem": "9.11",
-        "result": null
+        "agendaItem": "10.11",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 247396,
@@ -2814,8 +2856,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
-        "agendaItem": "9.8",
-        "result": null
+        "agendaItem": "10.8",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 247397,

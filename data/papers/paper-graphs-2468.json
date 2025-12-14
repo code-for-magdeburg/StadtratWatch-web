@@ -511,7 +511,7 @@
             "date": "2025-10-07T17:00:00+02:00",
             "role": "Beratung",
             "organization": "Ausschuss für Umwelt und Energie",
-            "agendaItem": "4.19",
+            "agendaItem": "4.20",
             "result": "empfohlen"
           },
           {
@@ -825,6 +825,14 @@
             "organization": "Die Oberbürgermeisterin",
             "agendaItem": "4.5",
             "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2025-12-09T17:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "5.1",
+            "result": "empfohlen"
           }
         ],
         "rootPaperId": 246836,
@@ -863,6 +871,14 @@
             "organization": "Die Oberbürgermeisterin",
             "agendaItem": "4.6",
             "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2025-12-09T17:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "5.2",
+            "result": "empfohlen"
           }
         ],
         "rootPaperId": 246837,
@@ -1391,7 +1407,7 @@
             "date": "2025-10-07T17:00:00+02:00",
             "role": "Beratung",
             "organization": "Ausschuss für Umwelt und Energie",
-            "agendaItem": "4.20",
+            "agendaItem": "4.21",
             "result": "empfohlen"
           },
           {
@@ -1471,7 +1487,7 @@
             "date": "2025-10-07T17:00:00+02:00",
             "role": "Beratung",
             "organization": "Ausschuss für Umwelt und Energie",
-            "agendaItem": "4.21",
+            "agendaItem": "4.22",
             "result": "empfohlen"
           },
           {
@@ -1976,7 +1992,7 @@
             "date": "2025-10-07T17:00:00+02:00",
             "role": "Beratung",
             "organization": "Ausschuss für Umwelt und Energie",
-            "agendaItem": "4.22",
+            "agendaItem": "4.1",
             "result": "empfohlen"
           },
           {
@@ -2057,7 +2073,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "2.1",
-            "result": null
+            "result": "geändert beschlossen"
           }
         ],
         "rootPaperId": 246880,
@@ -2085,7 +2101,11 @@
           247745,
           247746,
           247748,
-          247772
+          247772,
+          247784,
+          247785,
+          247837,
+          247884
         ],
         "superOrdinatedPaperIds": []
       },
@@ -2125,7 +2145,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.1",
-            "result": null
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 246880,
@@ -2168,11 +2188,13 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.2",
-            "result": null
+            "result": "geändert beschlossen"
           }
         ],
         "rootPaperId": 246880,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          247810
+        ],
         "superOrdinatedPaperIds": [
           246880
         ]
@@ -2205,7 +2227,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.3",
-            "result": null
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 246880,
@@ -2242,7 +2264,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.4",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2279,7 +2301,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.5",
-            "result": null
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 246880,
@@ -2316,7 +2338,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.6",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2353,7 +2375,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.7",
-            "result": null
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 246880,
@@ -2390,7 +2412,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.8",
-            "result": null
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 246880,
@@ -2419,7 +2441,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.9",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2448,7 +2470,7 @@
             "role": "Beratung",
             "organization": "Ortschaftsrat Beyendorf-Sohlen",
             "agendaItem": "6.2",
-            "result": null
+            "result": "empfohlen mit Änderungsantrag"
           },
           {
             "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates (ggf. Fortsetzung und Haushaltsberatung 2026)",
@@ -2456,7 +2478,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.10",
-            "result": null
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 246880,
@@ -2485,7 +2507,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.11",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2514,7 +2536,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.12",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2543,7 +2565,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.14",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2572,7 +2594,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.15",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2601,7 +2623,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.16",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2630,7 +2652,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.17",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2659,7 +2681,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.18",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2688,7 +2710,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.19",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2717,7 +2739,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.20",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2746,7 +2768,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.21",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2775,7 +2797,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.22",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2804,7 +2826,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.23",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2833,7 +2855,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.24",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246880,
@@ -2862,13 +2884,158 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "3.25",
-            "result": null
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 246880,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
           246880
+        ]
+      },
+      {
+        "id": 247784,
+        "reference": "DS0380/25/26",
+        "type": "Änderungsantrag",
+        "title": "Haushaltsplan 2026 - Festwoche zu 130 Jahre Gruson-Gewächshäuser",
+        "files": [
+          {
+            "id": 733222,
+            "name": "DS0380/25/26 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733222&type=do",
+            "size": 15304
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates (ggf. Fortsetzung und Haushaltsberatung 2026)",
+            "date": "2025-12-08T16:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "3.26",
+            "result": "ungeändert beschlossen"
+          }
+        ],
+        "rootPaperId": 246880,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          246880
+        ]
+      },
+      {
+        "id": 247785,
+        "reference": "DS0380/25/27",
+        "type": "Änderungsantrag",
+        "title": "Haushaltsplan 2026 – Flugplatzträume auf dem Boden der Tatsachen lassen",
+        "files": [
+          {
+            "id": 733228,
+            "name": "DS0380/25/27 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733228&type=do",
+            "size": 64714
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates (ggf. Fortsetzung und Haushaltsberatung 2026)",
+            "date": "2025-12-08T16:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "3.27",
+            "result": "abgelehnt"
+          }
+        ],
+        "rootPaperId": 246880,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          246880
+        ]
+      },
+      {
+        "id": 247837,
+        "reference": "DS0380/25/28",
+        "type": "Änderungsantrag",
+        "title": "Haushaltsplan 2026 - Beschaffung Feuerwehr Magdeburg",
+        "files": [
+          {
+            "id": 733461,
+            "name": "DS0380/25/28 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733461&type=do",
+            "size": 62479
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates (ggf. Fortsetzung und Haushaltsberatung 2026)",
+            "date": "2025-12-08T16:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "3.28",
+            "result": "ungeändert beschlossen"
+          }
+        ],
+        "rootPaperId": 246880,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          246880
+        ]
+      },
+      {
+        "id": 247884,
+        "reference": "DS0380/25/31",
+        "type": "Änderungsantrag",
+        "title": "Haushaltsplan 2026 - Fehlförderung von in:takt und schauwerk einsparen!",
+        "files": [
+          {
+            "id": 733794,
+            "name": "Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733794&type=do",
+            "size": 66814
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates (ggf. Fortsetzung und Haushaltsberatung 2026)",
+            "date": "2025-12-08T16:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "3.31",
+            "result": "abgelehnt"
+          }
+        ],
+        "rootPaperId": 246880,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          246880
+        ]
+      },
+      {
+        "id": 247810,
+        "reference": "DS0380/25/2/1",
+        "type": "Änderungsantrag",
+        "title": "Haushaltsplan 2026 - Stellenplan",
+        "files": [
+          {
+            "id": 733369,
+            "name": "DS0380/25/2/1 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733369&type=do",
+            "size": 23994
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates (ggf. Fortsetzung und Haushaltsberatung 2026)",
+            "date": "2025-12-08T16:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "3.2.1",
+            "result": "ungeändert beschlossen"
+          }
+        ],
+        "rootPaperId": 246880,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247627
         ]
       }
     ]
@@ -2943,8 +3110,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "5.18",
-            "result": null
+            "agendaItem": "6.18",
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 246891,

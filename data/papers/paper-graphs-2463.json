@@ -1212,8 +1212,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
-            "agendaItem": "9.7",
-            "result": null
+            "agendaItem": "10.7",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 246318,
@@ -2899,8 +2899,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "6.6",
-            "result": null
+            "agendaItem": "7.6",
+            "result": "vertagt"
           }
         ],
         "rootPaperId": 246347,
@@ -3082,8 +3082,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "6.2",
-            "result": null
+            "agendaItem": "7.2",
+            "result": "in die Ausschüsse verwiesen"
           }
         ],
         "rootPaperId": 246350,
@@ -3137,8 +3137,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "6.2.1",
-            "result": null
+            "agendaItem": "7.2.1",
+            "result": "in die Ausschüsse verwiesen"
           }
         ],
         "rootPaperId": 246350,
@@ -3190,8 +3190,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "6.2.2",
-            "result": null
+            "agendaItem": "7.2.2",
+            "result": "in die Ausschüsse verwiesen"
           }
         ],
         "rootPaperId": 246350,
@@ -3235,8 +3235,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
-            "agendaItem": "9.27",
-            "result": null
+            "agendaItem": "10.27",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 246350,
@@ -3380,8 +3380,16 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "6.7",
-            "result": null
+            "agendaItem": "7.7",
+            "result": "vertagt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates (ggf. Fortsetzung und Haushaltsberatung 2026)",
+            "date": "2025-12-08T16:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.7",
+            "result": "in die Ausschüsse verwiesen"
           }
         ],
         "rootPaperId": 246353,
@@ -3468,13 +3476,44 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "5.28",
-            "result": null
+            "agendaItem": "6.28",
+            "result": "Einzelabstimmung"
+          }
+        ],
+        "rootPaperId": 246360,
+        "subordinatedPaperIds": [
+          247759
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247759,
+        "reference": "DS0229/25/2",
+        "type": "Änderungsantrag",
+        "title": "Grundsatzbeschlüsse zur Sanierung der Getec-Arena und zur Vorbereitung von Entscheidungen für einen Neubau einer Mehrzweckveranstaltungshalle für Sport und Kultur",
+        "files": [
+          {
+            "id": 732843,
+            "name": "Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732843&type=do",
+            "size": 20440
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2025-12-04T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.28.1",
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 246360,
         "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": []
+        "superOrdinatedPaperIds": [
+          246360
+        ]
       }
     ]
   },

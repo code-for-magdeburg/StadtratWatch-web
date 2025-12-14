@@ -41,7 +41,7 @@
             "date": "2025-10-07T17:00:00+02:00",
             "role": "Beratung",
             "organization": "Ausschuss für Umwelt und Energie",
-            "agendaItem": "4.5",
+            "agendaItem": "4.6",
             "result": "empfohlen"
           },
           {
@@ -1005,8 +1005,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "5.32",
-            "result": null
+            "agendaItem": "6.32",
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 247023,
@@ -1071,8 +1071,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "5.33",
-            "result": null
+            "agendaItem": "6.33",
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 247024,
@@ -1628,8 +1628,39 @@
           }
         ],
         "rootPaperId": 247048,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          247770
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247770,
+        "reference": "S0526/25",
+        "type": "Stellungnahme",
+        "title": "Fahrradstraße",
+        "files": [
+          {
+            "id": 733013,
+            "name": "Stellungnahme",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733013&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-09T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.16",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 247048,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247048
+        ]
       }
     ]
   },
@@ -3256,8 +3287,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "5.9",
-            "result": null
+            "agendaItem": "6.9",
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 247081,
@@ -3436,8 +3467,8 @@
             "date": "2025-12-04T14:00:00+01:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "5.8",
-            "result": null
+            "agendaItem": "6.8",
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 247096,

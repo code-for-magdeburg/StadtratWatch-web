@@ -242,7 +242,8 @@
     ],
     "rootPaperId": 247117,
     "subordinatedPaperIds": [
-      247306
+      247306,
+      247587
     ],
     "superOrdinatedPaperIds": []
   },
@@ -342,8 +343,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
-        "agendaItem": "9.16",
-        "result": null
+        "agendaItem": "10.16",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 247121,
@@ -623,8 +624,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.25",
-        "result": null
+        "agendaItem": "6.25",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247129,
@@ -743,8 +744,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.26",
-        "result": null
+        "agendaItem": "6.26",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247132,
@@ -941,8 +942,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
-        "agendaItem": "9.1",
-        "result": null
+        "agendaItem": "10.1",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 245000,
@@ -1018,8 +1019,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.37",
-        "result": null
+        "agendaItem": "6.37",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247138,
@@ -1099,8 +1100,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
-        "agendaItem": "9.28",
-        "result": null
+        "agendaItem": "10.28",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 247139,
@@ -1343,6 +1344,35 @@
     "superOrdinatedPaperIds": []
   },
   {
+    "id": 247148,
+    "reference": "S0386/25",
+    "type": "Stellungnahme",
+    "title": "Umsetzung des Beschlusses zum Verbot von Breitbandherbiziden in Magdeburg",
+    "files": [
+      {
+        "id": 727061,
+        "name": "Stellungnahme",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727061&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2025-12-09T09:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.13",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 246650,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      246650
+    ]
+  },
+  {
     "id": 247150,
     "reference": "S0387/25",
     "type": "Stellungnahme",
@@ -1434,8 +1464,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.27",
-        "result": null
+        "agendaItem": "6.27",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247151,
@@ -1762,8 +1792,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "5.31",
-        "result": null
+        "agendaItem": "6.31",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247164,
@@ -1797,6 +1827,35 @@
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247014
+    ]
+  },
+  {
+    "id": 247168,
+    "reference": "S0392/25",
+    "type": "Stellungnahme",
+    "title": "Kosten sparen: Fahrradparkhaus nicht umsetzen",
+    "files": [
+      {
+        "id": 732784,
+        "name": "Stellungnahme",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732784&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2025-12-02T09:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.8",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 247168,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      246959
     ]
   },
   {
@@ -2168,8 +2227,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "6.4",
-        "result": null
+        "agendaItem": "7.4",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247177,
@@ -2338,8 +2397,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
-        "agendaItem": "6.5",
-        "result": null
+        "agendaItem": "7.5",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247181,
@@ -2778,7 +2837,7 @@
         "role": "Beratung",
         "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
         "agendaItem": "5.5",
-        "result": "geändert empfohlen"
+        "result": "empfohlen mit Änderungsantrag"
       }
     ],
     "rootPaperId": 247194,
@@ -2881,8 +2940,8 @@
         "date": "2025-12-04T14:00:00+01:00",
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
-        "agendaItem": "9.3",
-        "result": null
+        "agendaItem": "10.3",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 247196,
