@@ -368,7 +368,8 @@
         "rootPaperId": 245002,
         "subordinatedPaperIds": [
           246058,
-          246627
+          246627,
+          247649
         ],
         "superOrdinatedPaperIds": []
       },
@@ -454,6 +455,41 @@
             "organization": "Die Oberbürgermeisterin",
             "agendaItem": "7.3",
             "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 245002,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          245002
+        ]
+      },
+      {
+        "id": 247649,
+        "reference": "DS0577/25",
+        "type": "Beschlussvorlage",
+        "title": "Satzung des Beirates für die Teilhabe von Menschen mit Behinderungen (Inklusionsbeirat)",
+        "files": [
+          {
+            "id": 731937,
+            "name": "Beschlussvorlage Stadt",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=731937&type=do",
+            "size": null
+          },
+          {
+            "id": 732298,
+            "name": "Satzung des Beirates für die Teilhabe von Menschen mit Behinderungender Landeshauptstadt Magdeburg",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732298&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-02T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "4.5",
+            "result": "genehmigt OB"
           }
         ],
         "rootPaperId": 245002,
