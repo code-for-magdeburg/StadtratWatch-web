@@ -67,9 +67,9 @@ export class OparlClient {
     }
 
     const url = new URL(baseUrl);
+    url.searchParams.set('omit_internal', 'true');
     if (createdSince) {
       url.searchParams.set('created_since', createdSince);
-      url.searchParams.set('omit_internal', 'true');
     }
 
     return url;
