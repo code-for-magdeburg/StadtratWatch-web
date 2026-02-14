@@ -581,7 +581,8 @@
         "rootPaperId": 245607,
         "subordinatedPaperIds": [
           246018,
-          247208
+          247208,
+          247765
         ],
         "superOrdinatedPaperIds": []
       },
@@ -675,6 +676,35 @@
             "organization": "Stadtrat",
             "agendaItem": "8.4.1",
             "result": "ungeändert beschlossen"
+          }
+        ],
+        "rootPaperId": 245607,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          245607
+        ]
+      },
+      {
+        "id": 247765,
+        "reference": "I0320/25",
+        "type": "Informationsvorlage",
+        "title": "Zentrales Fundbüro in Magdeburg",
+        "files": [
+          {
+            "id": 733339,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733339&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-09T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "6.3",
+            "result": "genehmigt OB"
           }
         ],
         "rootPaperId": 245607,

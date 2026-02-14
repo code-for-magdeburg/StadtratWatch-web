@@ -575,6 +575,52 @@
     "superOrdinatedPaperIds": []
   },
   {
+    "id": 247421,
+    "reference": "S0453/25",
+    "type": "Stellungnahme",
+    "title": "Umgang mit Beschlussempfehlungen von Beiräten",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2025-10-21T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.6",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2025-12-12T15:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "5.1.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "8.2.2",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-26T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "8.2.2",
+        "result": "zur Kenntnis genommen"
+      }
+    ],
+    "rootPaperId": 247421,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      246151
+    ]
+  },
+  {
     "id": 247424,
     "reference": "S0454/25",
     "type": "Stellungnahme",
@@ -627,7 +673,9 @@
       }
     ],
     "rootPaperId": 247425,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247756
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1781,7 +1829,9 @@
       }
     ],
     "rootPaperId": 247475,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247758
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1917,10 +1967,28 @@
         "organization": "Stadtrat",
         "agendaItem": "7.31",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-02-17T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "8.1.1",
+        "result": null
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-02-19T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.3",
+        "result": null
       }
     ],
     "rootPaperId": 247481,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247858
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1950,10 +2018,20 @@
         "organization": "Stadtrat",
         "agendaItem": "7.35",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-02-19T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.6",
+        "result": null
       }
     ],
     "rootPaperId": 247482,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247883
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1977,10 +2055,28 @@
         "organization": "Stadtrat",
         "agendaItem": "7.34",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-01-13T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "7.2",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Gesundheits- und Sozialausschusses",
+        "date": "2026-01-21T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Gesundheits- und Sozialausschuss",
+        "agendaItem": "5.1",
+        "result": "empfohlen mit Änderungsantrag"
       }
     ],
     "rootPaperId": 247483,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247894
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2055,10 +2151,36 @@
         "organization": "Stadtrat",
         "agendaItem": "7.28",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+        "date": "2026-01-13T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Umwelt und Energie",
+        "agendaItem": "6.2",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-01-15T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.2",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-01-28T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.9",
+        "result": "zurückgezogen"
       }
     ],
     "rootPaperId": 247485,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247823
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2179,11 +2301,20 @@
         "organization": "Stadtrat",
         "agendaItem": "7.39",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-01-28T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.3",
+        "result": "nicht empfohlen"
       }
     ],
     "rootPaperId": 247491,
     "subordinatedPaperIds": [
-      247560
+      247560,
+      247643
     ],
     "superOrdinatedPaperIds": []
   },

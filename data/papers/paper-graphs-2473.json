@@ -1111,31 +1111,31 @@
             "id": 729393,
             "name": "DS0500_25 Anlage 1 Lageplan",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=729393&type=do",
-            "size": null
+            "size": 1121775
           },
           {
             "id": 729394,
             "name": "DS0500_25 Anlage 2 Rahmenplan",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=729394&type=do",
-            "size": null
+            "size": 2258854
           },
           {
             "id": 729395,
             "name": "DS0500_25 Anlage 3 Text Rahmenplan",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=729395&type=do",
-            "size": null
+            "size": 13498696
           },
           {
             "id": 729396,
             "name": "DS0500_25 Anlage 4 Bestandsplan",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=729396&type=do",
-            "size": null
+            "size": 3492121
           },
           {
             "id": 729397,
             "name": "Beschlussvorlage Stadt",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=729397&type=do",
-            "size": null
+            "size": 174552
           }
         ],
         "consultations": [
@@ -1162,13 +1162,23 @@
             "organization": "Ausschuss für Umwelt und Energie",
             "agendaItem": "5.3",
             "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.21",
+            "result": "geändert beschlossen"
           }
         ],
         "rootPaperId": 247336,
         "subordinatedPaperIds": [
           247757,
           247771,
-          247775
+          247775,
+          248070,
+          248077
         ],
         "superOrdinatedPaperIds": []
       },
@@ -1259,6 +1269,64 @@
             "organization": "Ausschuss für Umwelt und Energie",
             "agendaItem": "5.3.3",
             "result": "empfohlen"
+          }
+        ],
+        "rootPaperId": 247336,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247336
+        ]
+      },
+      {
+        "id": 248070,
+        "reference": "DS0500/25/4",
+        "type": "Änderungsantrag",
+        "title": "Aufstellung der 1. Änderung des Bebauungsplans Nr. 251-2 „Kleiner Cracauer Anger“",
+        "files": [
+          {
+            "id": 735759,
+            "name": "DS0500/25/4 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735759&type=do",
+            "size": 57460
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.21.3",
+            "result": "abgelehnt"
+          }
+        ],
+        "rootPaperId": 247336,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247336
+        ]
+      },
+      {
+        "id": 248077,
+        "reference": "DS0500/25/5",
+        "type": "Änderungsantrag",
+        "title": "Aufstellung der 1. Änderung des Bebauungsplans Nr. 251-2 „Kleiner Cracauer Anger“",
+        "files": [
+          {
+            "id": 735796,
+            "name": "Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735796&type=do",
+            "size": 48382
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.21.4",
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 247336,
@@ -1816,6 +1884,360 @@
     ]
   },
   {
+    "rootPaperId": 247374,
+    "papers": [
+      {
+        "id": 247374,
+        "reference": "DS0513/25",
+        "type": "Beschlussvorlage EB",
+        "title": "EW-Bau für die FÖSG \"Hand in Hand\", Gneisenauring 34 und 34b, 39130 Magdeburg - Bestätigung und Entwurfsplanung",
+        "files": [
+          {
+            "id": 730314,
+            "name": "DS0513/25 - Anlage 01.2 Erläuterungsbericht Sporthalle",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730314&type=do",
+            "size": 474813
+          },
+          {
+            "id": 730315,
+            "name": "DS0513/25 - Anlage 02 Flächen- und Rauminhalt",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730315&type=do",
+            "size": 148623
+          },
+          {
+            "id": 730316,
+            "name": "DS0513/25 - Anlage 04.1 Kostenberechnung Schulgebäude",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730316&type=do",
+            "size": 88716
+          },
+          {
+            "id": 730317,
+            "name": "DS0513/25 - Anlage 04.2 Kostenberechnung Sporthalle",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730317&type=do",
+            "size": 88658
+          },
+          {
+            "id": 730318,
+            "name": "DS0513/25 - Anlage 05 Kostenschätzung Alternative Neubau Schulgebäude",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730318&type=do",
+            "size": 653619
+          },
+          {
+            "id": 730319,
+            "name": "DS0513/25 - Anlage 06 Terminplan",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730319&type=do",
+            "size": 400547
+          },
+          {
+            "id": 730320,
+            "name": "DS0513/25 - Anlage 08 Behindertenfreundlichkeitsprüfung",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730320&type=do",
+            "size": 1141858
+          },
+          {
+            "id": 730321,
+            "name": "DS0513/25 - Anlage 01.1 Erläuterungsbericht Schulgebäude",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730321&type=do",
+            "size": 508389
+          },
+          {
+            "id": 730330,
+            "name": "DS0513/25 - Anlage 03_6 Dachaufsicht 29.08.2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730330&type=do",
+            "size": 121429
+          },
+          {
+            "id": 730331,
+            "name": "DS0513/25 - Anlage 03_7 Ansichten West, Süd 29.08.2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730331&type=do",
+            "size": 494625
+          },
+          {
+            "id": 730332,
+            "name": "DS0513/25 - Anlage 03_8 Ansichten Ost, Nord 29.08.2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730332&type=do",
+            "size": 514113
+          },
+          {
+            "id": 730333,
+            "name": "DS0513/25 - Anlage 03_9 Schnitte 1-1, 2-2 29.08.2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730333&type=do",
+            "size": 638364
+          },
+          {
+            "id": 730334,
+            "name": "DS0513/25 - Anlage 03_10 Schnitte 3-3, 4-4 29.08.2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730334&type=do",
+            "size": 557488
+          },
+          {
+            "id": 730335,
+            "name": "DS0513/25 - Anlage 03_11 Entwurf Schule",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730335&type=do",
+            "size": 5941731
+          },
+          {
+            "id": 730336,
+            "name": "DS0513/25 - Anlage 03_12 Entwurf Sporthalle",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730336&type=do",
+            "size": 2250896
+          },
+          {
+            "id": 730337,
+            "name": "DS0513/25 - Anlage 03_13_423-02-az-a3-250829",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730337&type=do",
+            "size": 179573
+          },
+          {
+            "id": 730338,
+            "name": "DS0513/25 - Anlage 03_14_423-02-g00-a3-250829",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730338&type=do",
+            "size": 276483
+          },
+          {
+            "id": 730339,
+            "name": "DS0513/25 - Anlage 03_15_423-02-g01-a3-250829",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730339&type=do",
+            "size": 164584
+          },
+          {
+            "id": 730340,
+            "name": "DS0513/25 - Anlage 03_16_423-02-g02-a3-250829",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730340&type=do",
+            "size": 112317
+          },
+          {
+            "id": 730341,
+            "name": "DS0513/25 - Anlage 03_17_423-02-sz-a3-250829",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730341&type=do",
+            "size": 225461
+          },
+          {
+            "id": 730342,
+            "name": "DS0513/25 - Anlage 03_18_MDFS-B-01-E",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730342&type=do",
+            "size": 1801017
+          },
+          {
+            "id": 730343,
+            "name": "DS0513/25 - Anlage 03_19_MDFS-B-10-E",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730343&type=do",
+            "size": 1215982
+          },
+          {
+            "id": 730344,
+            "name": "DS0513/25 - Anlage 03_20_MDFS-B-11-E",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730344&type=do",
+            "size": 1187336
+          },
+          {
+            "id": 730345,
+            "name": "DS0513/25 - Anlage 03_1 Erdgeschoss 29.08.2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730345&type=do",
+            "size": 460957
+          },
+          {
+            "id": 730346,
+            "name": "DS0513/25 - Anlage 03_2 1. Obergeschoss 29.08.2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730346&type=do",
+            "size": 347376
+          },
+          {
+            "id": 730347,
+            "name": "DS0513/25 - Anlage 03_3 Untergeschoss 29.08.2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730347&type=do",
+            "size": 477101
+          },
+          {
+            "id": 730348,
+            "name": "DS0513/25 - Anlage 03_4  2. Obergeschoss 29.08.2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730348&type=do",
+            "size": 353845
+          },
+          {
+            "id": 730349,
+            "name": "DS0513/25 - Anlage 03_5 3. Obergeschoss 29.08.2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730349&type=do",
+            "size": 232910
+          },
+          {
+            "id": 730591,
+            "name": "DS0513/25 - Anlage 07_01 Baunutzungskosten Schulgebäude",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730591&type=do",
+            "size": 201444
+          },
+          {
+            "id": 730592,
+            "name": "DS0513/25 - Anlage 07_02 Baunutzungskosten Sporthalle",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730592&type=do",
+            "size": 200816
+          },
+          {
+            "id": 732851,
+            "name": "Beschlussvorlage EB",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732851&type=do",
+            "size": 237409
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Kommunales Gebäudemanagement",
+            "date": "2025-11-04T16:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Betriebsausschuss Kommunales Gebäudemanagement",
+            "agendaItem": "5.3",
+            "result": "zurückgestellt"
+          },
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-17T09:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "8.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Kommunales Gebäudemanagement",
+            "date": "2026-01-13T16:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Betriebsausschuss Kommunales Gebäudemanagement",
+            "agendaItem": "6.2",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+            "date": "2026-01-13T16:30:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Bildung, Schule und Sport",
+            "agendaItem": "6.1",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-01-14T16:30:00+01:00",
+            "role": "Beratung",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "5.4",
+            "result": "geändert empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-01-15T16:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "5.1",
+            "result": "empfohlen mit Änderungsantrag"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+            "date": "2026-01-15T16:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Jugendhilfeausschuss",
+            "agendaItem": "4.5",
+            "result": "geändert empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.14",
+            "result": "geändert beschlossen"
+          }
+        ],
+        "rootPaperId": 247374,
+        "subordinatedPaperIds": [
+          248002
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 248002,
+        "reference": "DS0513/25/1",
+        "type": "Änderungsantrag",
+        "title": "EW-Bau für die FÖSG \"Hand in Hand\", Gneisenauring 34 und 34b, 39130 Magdeburg - Bestätigung und Entwurfsplanung",
+        "files": [
+          {
+            "id": 735187,
+            "name": "DS0513/25/1 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735187&type=do",
+            "size": 65004
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-01-14T16:30:00+01:00",
+            "role": "Beratung",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "5.4.1",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-01-15T16:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "5.1.1",
+            "result": "empfohlen mit Änderungsantrag"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+            "date": "2026-01-15T16:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Jugendhilfeausschuss",
+            "agendaItem": "4.5.1",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.14.1",
+            "result": "geändert beschlossen"
+          }
+        ],
+        "rootPaperId": 247374,
+        "subordinatedPaperIds": [
+          248016
+        ],
+        "superOrdinatedPaperIds": [
+          247374
+        ]
+      },
+      {
+        "id": 248016,
+        "reference": "DS0513/25/1/1",
+        "type": "Änderungsantrag",
+        "title": "EW-Bau für die FÖSG \"Hand in Hand\", Gneisenauring 34 und 34b, 39130 Magdeburg - Bestätigung und Entwurfsplanung",
+        "files": [
+          {
+            "id": 735388,
+            "name": "Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735388&type=do",
+            "size": 14520
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.14.1.1",
+            "result": "ungeändert beschlossen"
+          }
+        ],
+        "rootPaperId": 247374,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          248002
+        ]
+      }
+    ]
+  },
+  {
     "rootPaperId": 247377,
     "papers": [
       {
@@ -2063,11 +2485,74 @@
             "organization": "Stadtrat",
             "agendaItem": "7.51",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2026-02-10T17:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "5.1",
+            "result": "nicht empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-02-19T16:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.10",
+            "result": null
+          }
+        ],
+        "rootPaperId": 247391,
+        "subordinatedPaperIds": [
+          247961
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247961,
+        "reference": "S0002/26",
+        "type": "Stellungnahme (Antrag)",
+        "title": "Umweltzonen überprüfen",
+        "files": [
+          {
+            "id": 734865,
+            "name": "Stellungnahme (Antrag)",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=734865&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-01-13T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.6",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2026-02-10T17:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "5.1.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-02-19T16:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.10.1",
+            "result": null
           }
         ],
         "rootPaperId": 247391,
         "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": []
+        "superOrdinatedPaperIds": [
+          247391
+        ]
       }
     ]
   },
@@ -2098,8 +2583,39 @@
           }
         ],
         "rootPaperId": 247392,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          248101
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 248101,
+        "reference": "I0018/26",
+        "type": "Informationsvorlage Prüfantrag",
+        "title": "Verbesserung der Verkehrssituation in der Kroatenwuhne prüfen",
+        "files": [
+          {
+            "id": 736099,
+            "name": "I0018/26 Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736099&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-02-10T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "5.4",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 247392,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247392
+        ]
       }
     ]
   },

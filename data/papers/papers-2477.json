@@ -67,31 +67,31 @@
         "id": 733211,
         "name": "DS0591/25 Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733211&type=do",
-        "size": null
+        "size": 180158
       },
       {
         "id": 733215,
         "name": "DS0591/25 - Anlage 2 Darstellungen der Kapazitäten der Grundschulen für das Einschulungsjahr 2027/28",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733215&type=do",
-        "size": null
+        "size": 96764
       },
       {
         "id": 733217,
         "name": "DS0591/25 - Anlage 3 Darstellung der aktuellen Schülerzahlen für das Einschulungsjahr 2027/28",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733217&type=do",
-        "size": null
+        "size": 103285
       },
       {
         "id": 733218,
         "name": "DS0591/25 - Anlage 4 Optische Darstellung der Schuleinzugsbereiche für das Einschulungsjahr 2027/28",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733218&type=do",
-        "size": null
+        "size": 11188594
       },
       {
         "id": 733391,
         "name": "DS0591/25 - Anlage 1 Satzung über die Schuleinzugsbereiche für das Einschulungsjahr 2027/28",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733391&type=do",
-        "size": null
+        "size": 625512
       }
     ],
     "consultations": [
@@ -102,6 +102,38 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "4.6",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-01-13T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "6.2",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+        "date": "2026-01-15T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Jugendhilfeausschuss",
+        "agendaItem": "4.2",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-01-15T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "7",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.8",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247703,
@@ -207,10 +239,20 @@
         "organization": "Stadtrat",
         "agendaItem": "7.23",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-02-19T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "12",
+        "result": null
       }
     ],
     "rootPaperId": 247706,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247992
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -319,6 +361,14 @@
         "organization": "Stadtrat",
         "agendaItem": "7.34",
         "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates (ggf. Fortsetzung und Haushaltsberatung 2026)",
+        "date": "2025-12-08T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.34",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247711,
@@ -392,7 +442,9 @@
       }
     ],
     "rootPaperId": 247715,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247951
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -500,10 +552,20 @@
         "organization": "Stadtrat",
         "agendaItem": "7.30",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-02-19T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.8",
+        "result": null
       }
     ],
     "rootPaperId": 247720,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247970
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -680,6 +742,67 @@
       }
     ],
     "rootPaperId": 247727,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 247731,
+    "reference": "DS0597/25",
+    "type": "Beschlussvorlage",
+    "title": "Leitlinien zur Förderung der Gesundheit",
+    "files": [
+      {
+        "id": 732687,
+        "name": "Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732687&type=do",
+        "size": null
+      },
+      {
+        "id": 734052,
+        "name": "Anlage zur DS0597/25 Leitlinien zur Förderung der Gesundheit",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=734052&type=do",
+        "size": null
+      },
+      {
+        "id": 734106,
+        "name": "Mitzeichnung DS0597/25; Integrationsbeauftragter + Seniorenbeauftragte",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=734106&type=do",
+        "size": null
+      },
+      {
+        "id": 734147,
+        "name": "Mitzeichnung DS0597/25; Behinderrtenbeauftragte",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=734147&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-01-13T09:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "4.4",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Gesundheits- und Sozialausschusses",
+        "date": "2026-01-21T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Gesundheits- und Sozialausschuss",
+        "agendaItem": "4.2",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Familie und Gleichstellung",
+        "date": "2026-01-27T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Familie und Gleichstellung",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      }
+    ],
+    "rootPaperId": 247731,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
   },
@@ -1121,7 +1244,9 @@
       }
     ],
     "rootPaperId": 247747,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248029
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1275,10 +1400,67 @@
         "role": "Beratung",
         "organization": "Ausschuss für Rechnungsprüfung",
         "agendaItem": "4.1",
-        "result": null
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-01-14T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "5.9",
+        "result": "empfohlen"
       }
     ],
     "rootPaperId": 247751,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 247752,
+    "reference": "I0317/25",
+    "type": "Informationsvorlage",
+    "title": "Veröffentlichung der Ergebnisse des Bundesweiten Warntages 2025",
+    "files": [
+      {
+        "id": 732794,
+        "name": "I0317/25 - Anlage 1 - Stadtplan_Auswertung_Sirenen",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732794&type=do",
+        "size": 19336742
+      },
+      {
+        "id": 732837,
+        "name": "Information",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732837&type=do",
+        "size": 16865
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2025-12-17T09:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "6.4",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-01-15T17:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "13",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "11.9",
+        "result": "zur Kenntnis genommen"
+      }
+    ],
+    "rootPaperId": 247752,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
   },
@@ -1373,7 +1555,7 @@
         "result": "genehmigt OB"
       }
     ],
-    "rootPaperId": 247756,
+    "rootPaperId": 247425,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247425
@@ -1439,7 +1621,7 @@
         "result": "genehmigt OB"
       }
     ],
-    "rootPaperId": 247758,
+    "rootPaperId": 247475,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247475
@@ -1533,6 +1715,59 @@
     ]
   },
   {
+    "id": 247764,
+    "reference": "DS0601/25",
+    "type": "Beschlussvorlage",
+    "title": "Aufhebung des Beschlusses \"Benennung der Brücke entlang der Oebisfelder Straße\"",
+    "files": [
+      {
+        "id": 732865,
+        "name": "DS0601/25 Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732865&type=do",
+        "size": null
+      },
+      {
+        "id": 732867,
+        "name": "DS0601/25 Anlage 1 Auszug Stadtkarte",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732867&type=do",
+        "size": null
+      },
+      {
+        "id": 732868,
+        "name": "DS0601/25 Anlage 2 Übersichtsplan",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732868&type=do",
+        "size": null
+      },
+      {
+        "id": 732870,
+        "name": "DS0601/25 Anlage 3 Artikel Vst v. 18.07.2024",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732870&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-01-13T09:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "4.12",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-02-19T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "4",
+        "result": null
+      }
+    ],
+    "rootPaperId": 247764,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
     "id": 247765,
     "reference": "I0320/25",
     "type": "Informationsvorlage",
@@ -1555,7 +1790,7 @@
         "result": "genehmigt OB"
       }
     ],
-    "rootPaperId": 247765,
+    "rootPaperId": 245607,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       245607
@@ -1571,13 +1806,13 @@
         "id": 732890,
         "name": "DS0602/25 Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732890&type=do",
-        "size": null
+        "size": 238944
       },
       {
         "id": 733145,
         "name": "DS0602/25 - Anlage 1  Satzung Kapazitätsgrenzen Klasse 5",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733145&type=do",
-        "size": null
+        "size": 100633
       }
     ],
     "consultations": [
@@ -1588,11 +1823,74 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "4.7",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-01-13T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "6.3",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+        "date": "2026-01-15T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Jugendhilfeausschuss",
+        "agendaItem": "4.3",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-01-15T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "8",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.5",
+        "result": "geändert beschlossen"
       }
     ],
     "rootPaperId": 247766,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248054
+    ],
     "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 247767,
+    "reference": "S0523/25",
+    "type": "Stellungnahme",
+    "title": "Theaterstück zum Anschlag auf dem Magdeburger Weihnachtsmarkt",
+    "files": [
+      {
+        "id": 733949,
+        "name": "Stellungnahme",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733949&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2025-12-17T09:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.4",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 247604,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      247604
+    ]
   },
   {
     "id": 247768,
@@ -1621,6 +1919,35 @@
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       246161
+    ]
+  },
+  {
+    "id": 247769,
+    "reference": "S0525/25",
+    "type": "Stellungnahme",
+    "title": "Zukunft und Nutzung des Messeplatzes „Max Wille“",
+    "files": [
+      {
+        "id": 733039,
+        "name": "Stellungnahme",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733039&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2025-12-17T09:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.1",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 247591,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      247591
     ]
   },
   {
@@ -1720,25 +2047,25 @@
         "id": 733111,
         "name": "DS0603/25 Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733111&type=do",
-        "size": null
+        "size": 170552
       },
       {
         "id": 733372,
         "name": "DS0603/25 - Anlage 1 - Zweite Änderung der Satzung über die Schülerbeförderung der LHMD",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733372&type=do",
-        "size": null
+        "size": 70669
       },
       {
         "id": 733373,
         "name": "DS0603/25 - Anlage 2 - Zweite Änderung der Satzung über die Schülerbeförderung der LHMD (Lesefassung)",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733373&type=do",
-        "size": null
+        "size": 60091
       },
       {
         "id": 733374,
         "name": "DS0603/25 - Anlage 3 - Gegenüberstellung alte/neue Fassung (Synopse)",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733374&type=do",
-        "size": null
+        "size": 161380
       }
     ],
     "consultations": [
@@ -1749,10 +2076,61 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "4.8",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-01-13T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "6.4",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+        "date": "2026-01-15T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Jugendhilfeausschuss",
+        "agendaItem": "4.4",
+        "result": "empfohlen mit Änderungsantrag"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-01-15T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "9",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.6",
+        "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-02-17T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "7.1",
+        "result": null
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+        "date": "2026-02-19T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Jugendhilfeausschuss",
+        "agendaItem": "4.1",
+        "result": null
       }
     ],
     "rootPaperId": 247773,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248015,
+      248065
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1998,6 +2376,119 @@
     "superOrdinatedPaperIds": [
       246880
     ]
+  },
+  {
+    "id": 247793,
+    "reference": "DS0609/25",
+    "type": "Beschlussvorlage",
+    "title": "Behandlung der Stellungnahmen (Abwägung) zum Bebauungsplan Nr. 481-1 \"Iltisweg\"",
+    "files": [
+      {
+        "id": 735469,
+        "name": "DS0609_25_Anlage 1_Abwägungskatalog Teil I",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735469&type=do",
+        "size": null
+      },
+      {
+        "id": 735471,
+        "name": "Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735471&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-02-10T09:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "3.5",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 247793,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 247794,
+    "reference": "S0530/25",
+    "type": "Stellungnahme",
+    "title": "Sondernutzungserlaubnisse im öffentlichen Straßenraum – Halberstädter Straße",
+    "files": [
+      {
+        "id": 733240,
+        "name": "Stellungnahme",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733240&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2025-12-17T09:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.13",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 247794,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      247572
+    ]
+  },
+  {
+    "id": 247795,
+    "reference": "DS0610/25",
+    "type": "Beschlussvorlage",
+    "title": "Satzung des Bebauungsplans Nr. 481-1 \"Iltisweg\"",
+    "files": [
+      {
+        "id": 735502,
+        "name": "DS0610/25 - Anlage 1_Lageplan",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735502&type=do",
+        "size": null
+      },
+      {
+        "id": 735503,
+        "name": "DS0610/25 - Anlage 2_B-Plan",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735503&type=do",
+        "size": null
+      },
+      {
+        "id": 735504,
+        "name": "DS0610/25 - Anlage 3_Begründung mit Umweltbericht",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735504&type=do",
+        "size": null
+      },
+      {
+        "id": 735505,
+        "name": "DS0610/25 - Anlage 4_Zusammenfassende Erklärung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735505&type=do",
+        "size": null
+      },
+      {
+        "id": 735507,
+        "name": "Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735507&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-02-10T09:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "3.6",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 247795,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 247799,

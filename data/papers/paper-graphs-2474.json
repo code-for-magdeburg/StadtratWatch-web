@@ -367,6 +367,57 @@
     ]
   },
   {
+    "rootPaperId": 247421,
+    "papers": [
+      {
+        "id": 247421,
+        "reference": "S0453/25",
+        "type": "Stellungnahme",
+        "title": "Umgang mit Beschlussempfehlungen von Beiräten",
+        "files": [],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-10-21T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.6",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+            "date": "2025-12-12T15:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Verwaltungsausschuss",
+            "agendaItem": "5.1.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "8.2.2",
+            "result": "vertagt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-26T16:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "8.2.2",
+            "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 247421,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          246151
+        ]
+      }
+    ]
+  },
+  {
     "rootPaperId": 247425,
     "papers": [
       {
@@ -393,8 +444,39 @@
           }
         ],
         "rootPaperId": 247425,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          247756
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247756,
+        "reference": "S0519/25",
+        "type": "Stellungnahme",
+        "title": "Poller und Kabelbrücken im Bereich des Domplatzes, Kaiser-Otto-Fest",
+        "files": [
+          {
+            "id": 732831,
+            "name": "Stellungnahme",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732831&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-09T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.3",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 247425,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247425
+        ]
       }
     ]
   },
@@ -1284,8 +1366,39 @@
           }
         ],
         "rootPaperId": 247475,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          247758
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247758,
+        "reference": "I0318/25",
+        "type": "Informationsvorlage",
+        "title": "Zwischeninformation zur Einführung einer „Taskforce für Sicherheit und Ordnung“",
+        "files": [
+          {
+            "id": 732850,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732850&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-09T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "6.2",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 247475,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247475
+        ]
       }
     ]
   },
@@ -1440,11 +1553,74 @@
             "organization": "Stadtrat",
             "agendaItem": "7.31",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+            "date": "2026-02-17T16:30:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Bildung, Schule und Sport",
+            "agendaItem": "8.1.1",
+            "result": null
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-02-19T16:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.3",
+            "result": null
+          }
+        ],
+        "rootPaperId": 247481,
+        "subordinatedPaperIds": [
+          247858
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247858,
+        "reference": "S0555/25",
+        "type": "Stellungnahme (Antrag)",
+        "title": "Schulwegsicherheit in der Agnetenstraße",
+        "files": [
+          {
+            "id": 733564,
+            "name": "Stellungnahme (Antrag)",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733564&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-01-13T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.7",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+            "date": "2026-02-17T16:30:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Bildung, Schule und Sport",
+            "agendaItem": "8.2",
+            "result": null
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-02-19T16:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.3.1",
+            "result": null
           }
         ],
         "rootPaperId": 247481,
         "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": []
+        "superOrdinatedPaperIds": [
+          247481
+        ]
       }
     ]
   },
@@ -1478,11 +1654,58 @@
             "organization": "Stadtrat",
             "agendaItem": "7.35",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-02-19T16:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.6",
+            "result": null
+          }
+        ],
+        "rootPaperId": 247482,
+        "subordinatedPaperIds": [
+          247883
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247883,
+        "reference": "S0562/25",
+        "type": "Stellungnahme (Antrag)",
+        "title": "Erhöhung der Sicherheit für Fußgängerinnen und Fußgänger durch Warnfiguren",
+        "files": [
+          {
+            "id": 733788,
+            "name": "S0562/25 Stellungnahme (Antrag)",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733788&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-01-13T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.8",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-02-19T16:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.6.1",
+            "result": null
           }
         ],
         "rootPaperId": 247482,
         "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": []
+        "superOrdinatedPaperIds": [
+          247482
+        ]
       }
     ]
   },
@@ -1510,11 +1733,74 @@
             "organization": "Stadtrat",
             "agendaItem": "7.34",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+            "date": "2026-01-13T16:30:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Bildung, Schule und Sport",
+            "agendaItem": "7.2",
+            "result": "nicht empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Gesundheits- und Sozialausschusses",
+            "date": "2026-01-21T17:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Gesundheits- und Sozialausschuss",
+            "agendaItem": "5.1",
+            "result": "empfohlen mit Änderungsantrag"
+          }
+        ],
+        "rootPaperId": 247483,
+        "subordinatedPaperIds": [
+          247894
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247894,
+        "reference": "S0568/25",
+        "type": "Stellungnahme",
+        "title": "Erste-Hilfe-Kurs an Schulen",
+        "files": [
+          {
+            "id": 733958,
+            "name": "S0568/25 Stellungnahme",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733958&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-17T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.5",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+            "date": "2026-01-13T16:30:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Bildung, Schule und Sport",
+            "agendaItem": "7.2.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Gesundheits- und Sozialausschusses",
+            "date": "2026-01-21T17:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Gesundheits- und Sozialausschuss",
+            "agendaItem": "5.1.1",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 247483,
         "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": []
+        "superOrdinatedPaperIds": [
+          247483
+        ]
       }
     ]
   },
@@ -1598,11 +1884,96 @@
             "organization": "Stadtrat",
             "agendaItem": "7.28",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2026-01-13T17:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "6.2",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-01-15T16:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.2",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-01-28T16:30:00+01:00",
+            "role": "Beratung",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "6.9",
+            "result": "zurückgezogen"
+          }
+        ],
+        "rootPaperId": 247485,
+        "subordinatedPaperIds": [
+          247823
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 247823,
+        "reference": "S0545/25",
+        "type": "Stellungnahme (Antrag)",
+        "title": "Sperrung der Zufahrt zum Biederitzer Busch",
+        "files": [
+          {
+            "id": 733398,
+            "name": "S0545/25 Stellungnahme (Antrag)",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733398&type=do",
+            "size": null
+          },
+          {
+            "id": 733517,
+            "name": "S0545/25 Anlage-Luftbild",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733517&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-17T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.2",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2026-01-13T17:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "6.2.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-01-15T16:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.2.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-01-28T16:30:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "6.9.1",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 247485,
         "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": []
+        "superOrdinatedPaperIds": [
+          247485
+        ]
       }
     ]
   },
@@ -1800,11 +2171,20 @@
             "organization": "Stadtrat",
             "agendaItem": "7.39",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-01-28T16:30:00+01:00",
+            "role": "Beratung",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "6.3",
+            "result": "nicht empfohlen"
           }
         ],
         "rootPaperId": 247491,
         "subordinatedPaperIds": [
-          247560
+          247560,
+          247643
         ],
         "superOrdinatedPaperIds": []
       },
@@ -1829,6 +2209,51 @@
             "organization": "Stadtrat",
             "agendaItem": "7.39.1",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-01-28T16:30:00+01:00",
+            "role": "Beratung",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "6.3.1",
+            "result": "zurückgezogen"
+          }
+        ],
+        "rootPaperId": 247491,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247491
+        ]
+      },
+      {
+        "id": 247643,
+        "reference": "S0501/25",
+        "type": "Stellungnahme",
+        "title": "Berücksichtigung der Ortschaftsräte in der Beratung von Haushaltsplanentwürfen",
+        "files": [
+          {
+            "id": 731751,
+            "name": "Stellungnahme",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=731751&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-01-13T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.2",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-01-28T16:30:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "6.3.2",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 247491,
@@ -1892,6 +2317,22 @@
             "organization": "Stadtrat",
             "agendaItem": "7.40.1",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-01-14T16:30:00+01:00",
+            "role": "Beratung",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "6.1.1",
+            "result": "nicht empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+            "date": "2026-01-30T15:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Verwaltungsausschuss",
+            "agendaItem": "6.1.1",
+            "result": "zurückgezogen"
           }
         ],
         "rootPaperId": 247492,
