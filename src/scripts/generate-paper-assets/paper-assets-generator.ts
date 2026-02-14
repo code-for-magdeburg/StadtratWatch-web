@@ -51,6 +51,7 @@ export class PaperAssetsGenerator {
 
     const papers = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperDto>(
       (paper) => {
+        console.log(`Processing paper ${paper.id} with reference ${paper.reference}`);
         const consultations = this.getConsultations(paper);
         const files = this.getFiles(paper);
         const paperId = extractPaperId(paper.id);
