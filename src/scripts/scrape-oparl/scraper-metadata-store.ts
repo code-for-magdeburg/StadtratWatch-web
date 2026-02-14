@@ -16,7 +16,7 @@ export class ScraperMetadataFileStore implements IScraperMetadataStore {
       return null;
     }
 
-    return Deno.readTextFileSync(metadataFilePath);
+    return Deno.readTextFileSync(metadataFilePath).trim();
   }
 
   public setLastSuccessfulRunDate(date: string): void {
