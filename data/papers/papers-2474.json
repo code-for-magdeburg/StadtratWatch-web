@@ -114,7 +114,7 @@
         "id": 729380,
         "name": "Information",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=729380&type=do",
-        "size": null
+        "size": 17630
       }
     ],
     "consultations": [
@@ -140,6 +140,22 @@
         "role": "Kenntnisnahme",
         "organization": "Finanz- und Grundstücksausschuss",
         "agendaItem": "7.2",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2025-12-12T15:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "6.4",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "11.6",
         "result": "zur Kenntnis genommen"
       }
     ],
@@ -188,7 +204,7 @@
         "id": 729504,
         "name": "Stellungnahme",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=729504&type=do",
-        "size": null
+        "size": 112247
       }
     ],
     "consultations": [
@@ -214,6 +230,22 @@
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
         "agendaItem": "5.6.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "8.11.2",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-26T16:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "8.11.2",
         "result": "zur Kenntnis genommen"
       }
     ],
@@ -278,13 +310,13 @@
         "id": 729673,
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=729673&type=do",
-        "size": null
+        "size": 218842
       },
       {
         "id": 730454,
         "name": "DS0521/25 - Anlage 1 Protokoll Gartenpartei zum Vor-Ort-Termin 08.08.2025",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730454&type=do",
-        "size": null
+        "size": 27215
       }
     ],
     "consultations": [
@@ -303,10 +335,28 @@
         "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
         "agendaItem": "4.3",
         "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2025-12-10T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "5.1",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.24",
+        "result": "geändert beschlossen"
       }
     ],
     "rootPaperId": 247410,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247658
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -478,6 +528,30 @@
         "organization": "Stadtrat",
         "agendaItem": "7.55",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-01-15T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.13",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.12",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-02T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.12",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247416,
@@ -579,7 +653,14 @@
     "reference": "S0453/25",
     "type": "Stellungnahme",
     "title": "Umgang mit Beschlussempfehlungen von Beiräten",
-    "files": [],
+    "files": [
+      {
+        "id": 729617,
+        "name": "Stellungnahme",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=729617&type=do",
+        "size": 101206
+      }
+    ],
     "consultations": [
       {
         "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
@@ -614,7 +695,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
-    "rootPaperId": 247421,
+    "rootPaperId": 246151,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       246151
@@ -702,7 +783,9 @@
       }
     ],
     "rootPaperId": 247427,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248116
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -726,11 +809,36 @@
         "organization": "Stadtrat",
         "agendaItem": "7.23",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-01-15T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.10",
+        "result": "geändert empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2026-01-30T15:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "6.2",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.7",
+        "result": "abgelehnt"
       }
     ],
     "rootPaperId": 247428,
     "subordinatedPaperIds": [
-      247564
+      247564,
+      247888
     ],
     "superOrdinatedPaperIds": []
   },
@@ -783,6 +891,14 @@
       }
     ],
     "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2025-10-21T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "4.9",
+        "result": "genehmigt OB"
+      },
       {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
         "date": "2025-12-04T14:00:00+01:00",
@@ -1150,10 +1266,28 @@
         "organization": "Stadtrat",
         "agendaItem": "7.41",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+        "date": "2026-01-13T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Umwelt und Energie",
+        "agendaItem": "6.3",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.11",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247451,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247850
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1183,10 +1317,28 @@
         "organization": "Stadtrat",
         "agendaItem": "7.46",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+        "date": "2026-01-13T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Umwelt und Energie",
+        "agendaItem": "6.4",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.10",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247452,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247859
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1210,10 +1362,28 @@
         "organization": "Stadtrat",
         "agendaItem": "7.50",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+        "date": "2026-01-15T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+        "agendaItem": "5.5",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "13.1",
+        "result": "zurückgestellt"
       }
     ],
     "rootPaperId": 247453,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247851
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1661,10 +1831,60 @@
         "organization": "Stadtrat",
         "agendaItem": "7.26",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+        "date": "2026-01-15T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+        "agendaItem": "5.4",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-01-15T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "11",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-01-28T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.2",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.8",
+        "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.17",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-30T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.17",
+        "result": "abgelehnt"
       }
     ],
     "rootPaperId": 247470,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247645
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1773,7 +1993,9 @@
       }
     ],
     "rootPaperId": 247473,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248192
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1797,11 +2019,60 @@
         "organization": "Stadtrat",
         "agendaItem": "7.32",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-01-13T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "7.1",
+        "result": "empfohlen mit Änderungsantrag"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-01-15T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.11",
+        "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-01-15T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "12",
+        "result": "geändert empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-02-19T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.13",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.5",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-30T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.5",
+        "result": "abgelehnt"
       }
     ],
     "rootPaperId": 247474,
     "subordinatedPaperIds": [
-      247594
+      247594,
+      247877
     ],
     "superOrdinatedPaperIds": []
   },
@@ -1826,11 +2097,20 @@
         "organization": "Stadtrat",
         "agendaItem": "7.36",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-03-19T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "10",
+        "result": "nicht empfohlen"
       }
     ],
     "rootPaperId": 247475,
     "subordinatedPaperIds": [
-      247758
+      247758,
+      248161
     ],
     "superOrdinatedPaperIds": []
   },
@@ -1882,11 +2162,28 @@
         "organization": "Stadtrat",
         "agendaItem": "7.37",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-03-19T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "11",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Kulturausschusses",
+        "date": "2026-03-25T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Kulturausschuss",
+        "agendaItem": "4.1",
+        "result": "geändert empfohlen"
       }
     ],
     "rootPaperId": 247478,
     "subordinatedPaperIds": [
-      247568
+      247568,
+      248254
     ],
     "superOrdinatedPaperIds": []
   },
@@ -1982,12 +2279,29 @@
         "role": "Beratung",
         "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
         "agendaItem": "6.3",
-        "result": null
+        "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-03-17T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "7.1",
+        "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-03-19T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.4",
+        "result": "Einzelabstimmung"
       }
     ],
     "rootPaperId": 247481,
     "subordinatedPaperIds": [
-      247858
+      247858,
+      248447
     ],
     "superOrdinatedPaperIds": []
   },
@@ -2025,7 +2339,23 @@
         "role": "Beratung",
         "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
         "agendaItem": "6.6",
-        "result": null
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.6",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-30T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.6",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247482,
@@ -2071,11 +2401,28 @@
         "organization": "Gesundheits- und Sozialausschuss",
         "agendaItem": "5.1",
         "result": "empfohlen mit Änderungsantrag"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.14",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-02T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.14",
+        "result": "geändert beschlossen"
       }
     ],
     "rootPaperId": 247483,
     "subordinatedPaperIds": [
-      247894
+      247894,
+      248080
     ],
     "superOrdinatedPaperIds": []
   },
@@ -2089,19 +2436,19 @@
         "id": 730232,
         "name": "Information",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730232&type=do",
-        "size": null
+        "size": 15764
       },
       {
         "id": 732344,
         "name": "I0281/25; Anlage 1 - Zuarbeit Bereich 12.3 und 12.4",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732344&type=do",
-        "size": null
+        "size": 84560
       },
       {
         "id": 732345,
         "name": "I0281/25; Anlage 2 - Zuarbeiten der Eigenbetriebe und des Jugendamtes",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732345&type=do",
-        "size": null
+        "size": 124392
       }
     ],
     "consultations": [
@@ -2112,6 +2459,22 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "6.1",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2025-12-12T15:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "6.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "11.1",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 247484,
@@ -2204,6 +2567,14 @@
         "organization": "Stadtrat",
         "agendaItem": "7.29",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-01-15T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.3",
+        "result": "zurückgestellt"
       }
     ],
     "rootPaperId": 247486,
@@ -2274,10 +2645,44 @@
         "organization": "Stadtrat",
         "agendaItem": "7.27",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-02-18T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.2",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2026-03-06T14:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "7.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.7",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-30T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.7",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247490,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247923
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2309,12 +2714,29 @@
         "organization": "Finanz- und Grundstücksausschuss",
         "agendaItem": "6.3",
         "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.15",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-02T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.15",
+        "result": "mit Beschlussfassung zum Änderungsantrag erledigt"
       }
     ],
     "rootPaperId": 247491,
     "subordinatedPaperIds": [
       247560,
-      247643
+      247643,
+      248312
     ],
     "superOrdinatedPaperIds": []
   },
@@ -2339,11 +2761,45 @@
         "organization": "Stadtrat",
         "agendaItem": "7.40",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-01-14T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.1",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2026-01-30T15:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "6.1",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.16",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-02T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.16",
+        "result": "abgelehnt"
       }
     ],
     "rootPaperId": 247492,
     "subordinatedPaperIds": [
-      247581
+      247581,
+      247782,
+      248313
     ],
     "superOrdinatedPaperIds": []
   },
@@ -2386,7 +2842,7 @@
         "id": 730259,
         "name": "Information",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730259&type=do",
-        "size": null
+        "size": 101928
       }
     ],
     "consultations": [
@@ -2404,6 +2860,14 @@
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
         "agendaItem": "21",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "11.10",
         "result": "zur Kenntnis genommen"
       }
     ],
@@ -2495,7 +2959,9 @@
       }
     ],
     "rootPaperId": 247499,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247660
+    ],
     "superOrdinatedPaperIds": []
   }
 ]

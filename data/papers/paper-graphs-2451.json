@@ -1697,7 +1697,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Umwelt und Energie",
             "agendaItem": "5.1",
-            "result": "zurückgezogen"
+            "result": "ohne Ergebnis"
           },
           {
             "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
@@ -1775,7 +1775,7 @@
             "role": "Kenntnisnahme",
             "organization": "Ausschuss für Umwelt und Energie",
             "agendaItem": "5.1.1",
-            "result": "zurückgezogen"
+            "result": "zur Kenntnis genommen"
           },
           {
             "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
@@ -2934,7 +2934,8 @@
         "subordinatedPaperIds": [
           245255,
           245469,
-          245847
+          245847,
+          248252
         ],
         "superOrdinatedPaperIds": []
       },
@@ -3159,6 +3160,51 @@
             "organization": "Stadtrat",
             "agendaItem": "7.11.2",
             "result": "abgelehnt"
+          }
+        ],
+        "rootPaperId": 245189,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          245189
+        ]
+      },
+      {
+        "id": 248252,
+        "reference": "I0053/26",
+        "type": "Informationsvorlage",
+        "title": "Veteranentag ermöglichen",
+        "files": [
+          {
+            "id": 737283,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737283&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-03-03T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "7.3",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+            "date": "2026-03-19T17:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+            "agendaItem": "16",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Kulturausschusses",
+            "date": "2026-03-25T17:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Kulturausschuss",
+            "agendaItem": "5.2",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 245189,
@@ -3611,7 +3657,7 @@
             "id": 729380,
             "name": "Information",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=729380&type=do",
-            "size": null
+            "size": 17630
           }
         ],
         "consultations": [
@@ -3637,6 +3683,22 @@
             "role": "Kenntnisnahme",
             "organization": "Finanz- und Grundstücksausschuss",
             "agendaItem": "7.2",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+            "date": "2025-12-12T15:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Verwaltungsausschuss",
+            "agendaItem": "6.4",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Stadtrat",
+            "agendaItem": "11.6",
             "result": "zur Kenntnis genommen"
           }
         ],

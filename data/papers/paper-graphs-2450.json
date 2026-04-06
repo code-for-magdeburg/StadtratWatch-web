@@ -368,7 +368,8 @@
         "rootPaperId": 245002,
         "subordinatedPaperIds": [
           246058,
-          246627
+          246627,
+          247649
         ],
         "superOrdinatedPaperIds": []
       },
@@ -460,6 +461,188 @@
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
           245002
+        ]
+      },
+      {
+        "id": 247649,
+        "reference": "DS0577/25",
+        "type": "Beschlussvorlage",
+        "title": "Satzung des Beirates für die Teilhabe von Menschen mit Behinderungen (Inklusionsbeirat)",
+        "files": [
+          {
+            "id": 731937,
+            "name": "Beschlussvorlage Stadt",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=731937&type=do",
+            "size": 164823
+          },
+          {
+            "id": 735537,
+            "name": "Satzung des Beirates für die Teilhabe von Menschen mit Behinderungender Landeshauptstadt Magdeburg",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735537&type=do",
+            "size": 124180
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-02T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "4.5",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+            "date": "2026-01-15T17:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+            "agendaItem": "6",
+            "result": "vertagt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Gesundheits- und Sozialausschusses",
+            "date": "2026-01-21T17:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Gesundheits- und Sozialausschuss",
+            "agendaItem": "4.1",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.12",
+            "result": "zurückgestellt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+            "date": "2026-03-19T17:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+            "agendaItem": "6",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-03-26T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.6",
+            "result": "geändert beschlossen"
+          }
+        ],
+        "rootPaperId": 245002,
+        "subordinatedPaperIds": [
+          248090,
+          248541,
+          248542
+        ],
+        "superOrdinatedPaperIds": [
+          245002
+        ]
+      },
+      {
+        "id": 248090,
+        "reference": "DS0577/25/1",
+        "type": "Änderungsantrag",
+        "title": "Satzung des Beirates für die Teilhabe von Menschen mit Behinderungen (Inklusionsbeirat)",
+        "files": [
+          {
+            "id": 735908,
+            "name": "DS0577/25/1 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735908&type=do",
+            "size": 15129
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.12.1",
+            "result": "zurückgestellt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+            "date": "2026-03-19T17:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+            "agendaItem": "6.1",
+            "result": "nicht empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-03-26T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.6.1",
+            "result": "abgelehnt"
+          }
+        ],
+        "rootPaperId": 245002,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247649
+        ]
+      },
+      {
+        "id": 248541,
+        "reference": "DS0577/25/2",
+        "type": "Änderungsantrag",
+        "title": "Satzung des Beirates für die Teilhabe von Menschen mit Behinderungen (Inklusionsbeirat)",
+        "files": [
+          {
+            "id": 740111,
+            "name": "DS0577/25/2 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=740111&type=do",
+            "size": 14432
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-03-26T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.6.2",
+            "result": "ungeändert beschlossen"
+          }
+        ],
+        "rootPaperId": 245002,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247649
+        ]
+      },
+      {
+        "id": 248542,
+        "reference": "DS0577/25/3",
+        "type": "Änderungsantrag",
+        "title": "Satzung des Beirates für die Teilhabe von Menschen mit Behinderungen (Inklusionsbeirat)",
+        "files": [
+          {
+            "id": 740115,
+            "name": "DS0577/25/3 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=740115&type=do",
+            "size": 15745
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-03-26T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.6.3",
+            "result": "Einzelabstimmung"
+          }
+        ],
+        "rootPaperId": 245002,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247649
         ]
       }
     ]
@@ -633,7 +816,8 @@
         ],
         "rootPaperId": 245006,
         "subordinatedPaperIds": [
-          245178
+          245178,
+          248154
         ],
         "superOrdinatedPaperIds": []
       },
@@ -682,6 +866,49 @@
             "organization": "Stadtrat",
             "agendaItem": "7.14.1",
             "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 245006,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          245006
+        ]
+      },
+      {
+        "id": 248154,
+        "reference": "I0034/26",
+        "type": "Informationsvorlage",
+        "title": "Umgang mit der landeseigenen Marina im Bereich des B-Plans Fahlberg-List",
+        "files": [
+          {
+            "id": 737927,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737927&type=do",
+            "size": null
+          },
+          {
+            "id": 738526,
+            "name": "I0034/26 - Anlage 1 Lageplan",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=738526&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-03-10T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "5.5",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2026-04-14T17:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "6.2",
+            "result": null
           }
         ],
         "rootPaperId": 245006,
@@ -3343,7 +3570,7 @@
             "id": 732071,
             "name": "Information",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732071&type=do",
-            "size": null
+            "size": 85836
           }
         ],
         "consultations": [
@@ -3354,6 +3581,22 @@
             "organization": "Die Oberbürgermeisterin",
             "agendaItem": "6.7",
             "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-01-15T16:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "7.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Stadtrat",
+            "agendaItem": "11.19",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 245096,

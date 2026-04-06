@@ -1394,7 +1394,8 @@
         ],
         "rootPaperId": 245435,
         "subordinatedPaperIds": [
-          245770
+          245770,
+          248129
         ],
         "superOrdinatedPaperIds": []
       },
@@ -1471,6 +1472,49 @@
             "organization": "Stadtrat",
             "agendaItem": "6.6.1",
             "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 245435,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          245435
+        ]
+      },
+      {
+        "id": 248129,
+        "reference": "I0025/26",
+        "type": "Informationsvorlage",
+        "title": "Information zum Antrag A0005/25 Schaffung von Mikro-Wäldern vom 23.01.2025",
+        "files": [
+          {
+            "id": 737966,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737966&type=do",
+            "size": null
+          },
+          {
+            "id": 738560,
+            "name": "I0025/26 - Anlage 1 Schaffung von Mikrowäldern",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=738560&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-03-10T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "5.4",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2026-04-14T17:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "6.1",
+            "result": null
           }
         ],
         "rootPaperId": 245435,
@@ -1612,7 +1656,8 @@
         ],
         "rootPaperId": 245437,
         "subordinatedPaperIds": [
-          245660
+          245660,
+          247824
         ],
         "superOrdinatedPaperIds": []
       },
@@ -1676,6 +1721,43 @@
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
             "agendaItem": "7.14.1",
+            "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 245437,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          245437
+        ]
+      },
+      {
+        "id": 247824,
+        "reference": "I0324/25",
+        "type": "Informationsvorlage",
+        "title": "Demokratie stärken: Schülerinnen und Schüler als Wahlhelfer gewinnen",
+        "files": [
+          {
+            "id": 733394,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733394&type=do",
+            "size": 69549
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-09T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "6.1",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Stadtrat",
+            "agendaItem": "11.4",
             "result": "zur Kenntnis genommen"
           }
         ],

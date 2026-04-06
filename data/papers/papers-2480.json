@@ -37,7 +37,9 @@
       }
     ],
     "rootPaperId": 248001,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248177
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -140,7 +142,7 @@
         "id": 735309,
         "name": "Information",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735309&type=do",
-        "size": null
+        "size": 92991
       }
     ],
     "consultations": [
@@ -158,7 +160,15 @@
         "role": "Kenntnisnahme",
         "organization": "Jugendhilfeausschuss",
         "agendaItem": "5.1",
-        "result": null
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "9.6",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 248006,
@@ -188,7 +198,7 @@
         "result": "ungeändert beschlossen"
       }
     ],
-    "rootPaperId": 248008,
+    "rootPaperId": 247525,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247525
@@ -224,6 +234,35 @@
     ]
   },
   {
+    "id": 248012,
+    "reference": "S0020/26",
+    "type": "Stellungnahme",
+    "title": "Konzept Entwicklung des Kleingartenwesens in der Landeshauptstadt Magdeburg",
+    "files": [
+      {
+        "id": 736986,
+        "name": "Stellungnahme",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736986&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin (Umlaufverfahren)",
+        "date": "2026-02-24T00:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "6.8",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 247829,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      247829
+    ]
+  },
+  {
     "id": 248013,
     "reference": "I0009/26",
     "type": "Informationsvorlage",
@@ -251,7 +290,7 @@
         "role": "Kenntnisnahme",
         "organization": "Jugendhilfeausschuss",
         "agendaItem": "5.2",
-        "result": null
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 248013,
@@ -281,7 +320,7 @@
         "result": "ungeändert beschlossen"
       }
     ],
-    "rootPaperId": 248014,
+    "rootPaperId": 247609,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247609
@@ -323,7 +362,31 @@
         "role": "Beratung",
         "organization": "Jugendhilfeausschuss",
         "agendaItem": "4.2",
-        "result": null
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.10.1",
+        "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-03-17T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "6.2",
+        "result": "ohne Ergebnis"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+        "date": "2026-03-19T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Jugendhilfeausschuss",
+        "agendaItem": "4.2.1",
+        "result": "empfohlen mit Änderungsantrag"
       }
     ],
     "rootPaperId": 247773,
@@ -395,7 +458,9 @@
       }
     ],
     "rootPaperId": 248017,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248382
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -421,10 +486,45 @@
         "result": "abgelehnt"
       }
     ],
-    "rootPaperId": 248018,
+    "rootPaperId": 246322,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       246322
+    ]
+  },
+  {
+    "id": 248019,
+    "reference": "DS0011/26",
+    "type": "Beschlussvorlage",
+    "title": "Hitzeaktionsplan Magdeburg",
+    "files": [
+      {
+        "id": 739564,
+        "name": "Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739564&type=do",
+        "size": null
+      },
+      {
+        "id": 739904,
+        "name": "DS0011/26 - Anlage 1 Hitzeaktionsplan_LHMD",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739904&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-03-31T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "4.5",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 241684,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      241684
     ]
   },
   {
@@ -459,7 +559,9 @@
       }
     ],
     "rootPaperId": 248020,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248111
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -494,7 +596,9 @@
       }
     ],
     "rootPaperId": 248021,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248289
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -529,7 +633,9 @@
       }
     ],
     "rootPaperId": 248022,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248288
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -564,7 +670,9 @@
       }
     ],
     "rootPaperId": 248023,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248233
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -599,7 +707,9 @@
       }
     ],
     "rootPaperId": 248024,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248290
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -612,7 +722,7 @@
         "id": 735545,
         "name": "Information",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735545&type=do",
-        "size": null
+        "size": 155528
       }
     ],
     "consultations": [
@@ -623,6 +733,22 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "6.3",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+        "date": "2026-03-10T17:02:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Ausschuss für Umwelt und Energie",
+        "agendaItem": "6.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "10.11",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 248025,
@@ -654,7 +780,7 @@
         "result": "genehmigt OB"
       }
     ],
-    "rootPaperId": 248026,
+    "rootPaperId": 247831,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247831
@@ -670,7 +796,7 @@
         "id": 735549,
         "name": "Information",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735549&type=do",
-        "size": null
+        "size": 48619
       }
     ],
     "consultations": [
@@ -681,6 +807,14 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "6.1",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "9.1",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 248027,
@@ -810,6 +944,43 @@
     ]
   },
   {
+    "id": 248035,
+    "reference": "A0216/25/1",
+    "type": "Änderungsantrag",
+    "title": "Verhandlungen mit dem Land Sachsen-Anhalt zur landesrechtlichen Ermöglichung kommunaler Öffnungszeit-Regelungen für Spätverkaufsstellen („Spätshops“)",
+    "files": [
+      {
+        "id": 735600,
+        "name": "Änderungsantrag",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735600&type=do",
+        "size": 68948
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.13.1",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-02T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.13.1",
+        "result": "ungeändert beschlossen"
+      }
+    ],
+    "rootPaperId": 247390,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      247390
+    ]
+  },
+  {
     "id": 248036,
     "reference": "F0009/26",
     "type": "Anfrage",
@@ -841,6 +1012,65 @@
       }
     ],
     "rootPaperId": 248036,
+    "subordinatedPaperIds": [
+      248243
+    ],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 248037,
+    "reference": "DS0014/26",
+    "type": "Beschlussvorlage",
+    "title": "Neufassung der Hauptsatzung der Landeshauptstadt Magdeburg",
+    "files": [
+      {
+        "id": 735624,
+        "name": "Anlage 1 zur Hauptsatzung – Stadtwappen § 2 Abs. 1 der Hauptsatzung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735624&type=do",
+        "size": null
+      },
+      {
+        "id": 735626,
+        "name": "Anlage 3 Tabelle zur Übersicht der Wertgrenzen",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735626&type=do",
+        "size": null
+      },
+      {
+        "id": 735886,
+        "name": "Anlage 2 zur Hauptsatzung - Karte zum Stadtgebiet § 3 Abs. 2 der Hauptsatzung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735886&type=do",
+        "size": null
+      },
+      {
+        "id": 738215,
+        "name": "Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=738215&type=do",
+        "size": null
+      },
+      {
+        "id": 740409,
+        "name": "Anlage 1 zur Drucksache - Hauptsatzung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=740409&type=do",
+        "size": null
+      },
+      {
+        "id": 740410,
+        "name": "Anlage 2 zur Drucksache - Synopse",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=740410&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-03-31T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "4.2",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248037,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
   },
@@ -854,13 +1084,13 @@
         "id": 735611,
         "name": "Information",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735611&type=do",
-        "size": null
+        "size": 71723
       },
       {
         "id": 736851,
         "name": "I0013_26_Anlage 1 Prioritätenliste B-Plan Verfahren",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736851&type=do",
-        "size": null
+        "size": 158943
       }
     ],
     "consultations": [
@@ -871,6 +1101,22 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "6.2",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-03-19T16:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "7.2",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "10.13",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 248039,
@@ -887,7 +1133,7 @@
         "id": 735629,
         "name": "Information",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735629&type=do",
-        "size": null
+        "size": 72776
       }
     ],
     "consultations": [
@@ -905,10 +1151,18 @@
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
         "agendaItem": "7.3",
-        "result": null
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "10.14",
+        "result": "zur Kenntnis genommen"
       }
     ],
-    "rootPaperId": 248042,
+    "rootPaperId": 244566,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       244566
@@ -935,9 +1189,17 @@
         "organization": "Stadtrat",
         "agendaItem": "7.18.1",
         "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.9.1",
+        "result": "abgelehnt"
       }
     ],
-    "rootPaperId": 248043,
+    "rootPaperId": 246837,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       246837
@@ -975,7 +1237,9 @@
       }
     ],
     "rootPaperId": 248044,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248241
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1010,7 +1274,9 @@
       }
     ],
     "rootPaperId": 248045,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248170
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1045,7 +1311,9 @@
       }
     ],
     "rootPaperId": 248046,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248278
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1130,7 +1398,7 @@
         "id": 735658,
         "name": "I0016_26_Berichterstattung Masterplan Klimaschutz",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735658&type=do",
-        "size": null
+        "size": 64528
       }
     ],
     "consultations": [
@@ -1141,9 +1409,25 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "6.4",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+        "date": "2026-03-10T17:02:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Ausschuss für Umwelt und Energie",
+        "agendaItem": "6.2",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "10.8",
+        "result": "zur Kenntnis genommen"
       }
     ],
-    "rootPaperId": 248049,
+    "rootPaperId": 247655,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247655
@@ -1180,7 +1464,7 @@
         "result": "abgelehnt"
       }
     ],
-    "rootPaperId": 248050,
+    "rootPaperId": 246306,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       246306
@@ -1218,7 +1502,9 @@
       }
     ],
     "rootPaperId": 248052,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248308
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1253,7 +1539,9 @@
       }
     ],
     "rootPaperId": 248053,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248530
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1317,7 +1605,9 @@
       }
     ],
     "rootPaperId": 248055,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248224
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1343,7 +1633,7 @@
         "result": "genehmigt OB"
       }
     ],
-    "rootPaperId": 248056,
+    "rootPaperId": 247864,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247864
@@ -1381,7 +1671,9 @@
       }
     ],
     "rootPaperId": 248057,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248398
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1415,7 +1707,7 @@
         "result": "abgelehnt"
       }
     ],
-    "rootPaperId": 248058,
+    "rootPaperId": 247179,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247179
@@ -1453,7 +1745,9 @@
       }
     ],
     "rootPaperId": 248059,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248181
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1488,7 +1782,9 @@
       }
     ],
     "rootPaperId": 248060,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248327
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1523,7 +1819,9 @@
       }
     ],
     "rootPaperId": 248061,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248221
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1549,7 +1847,7 @@
         "result": "abgelehnt"
       }
     ],
-    "rootPaperId": 248063,
+    "rootPaperId": 246322,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       246322
@@ -1578,7 +1876,7 @@
         "result": "Einzelabstimmung"
       }
     ],
-    "rootPaperId": 248064,
+    "rootPaperId": 247522,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247522
@@ -1620,7 +1918,31 @@
         "role": "Beratung",
         "organization": "Jugendhilfeausschuss",
         "agendaItem": "4.4",
-        "result": null
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.10.2",
+        "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-03-17T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "6.4",
+        "result": "ohne Ergebnis"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+        "date": "2026-03-19T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Jugendhilfeausschuss",
+        "agendaItem": "4.2.3",
+        "result": "ohne Ergebnis"
       }
     ],
     "rootPaperId": 247773,
@@ -1660,7 +1982,7 @@
         "result": "abgelehnt"
       }
     ],
-    "rootPaperId": 248067,
+    "rootPaperId": 246151,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       246151
@@ -1698,7 +2020,9 @@
       }
     ],
     "rootPaperId": 248068,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248246
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1733,7 +2057,9 @@
       }
     ],
     "rootPaperId": 248069,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248163
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1834,7 +2160,9 @@
       }
     ],
     "rootPaperId": 248073,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248185
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1869,7 +2197,9 @@
       }
     ],
     "rootPaperId": 248074,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248209
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1946,13 +2276,13 @@
         "id": 735821,
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735821&type=do",
-        "size": null
+        "size": 157211
       },
       {
         "id": 735829,
         "name": "DS0019/26 - Anlage zur Spendenannahme SR",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735829&type=do",
-        "size": null
+        "size": 417140
       }
     ],
     "consultations": [
@@ -1963,11 +2293,56 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "5.1",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.3",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 248079,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 248080,
+    "reference": "A0234/25/1",
+    "type": "Änderungsantrag",
+    "title": "Erste-Hilfe-Kurs an Schulen",
+    "files": [
+      {
+        "id": 735825,
+        "name": "Änderungsantrag",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735825&type=do",
+        "size": 14011
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.14.1",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-02T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.14.1",
+        "result": "ungeändert beschlossen"
+      }
+    ],
+    "rootPaperId": 247483,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      247483
+    ]
   },
   {
     "id": 248082,
@@ -2037,9 +2412,17 @@
         "organization": "Stadtrat",
         "agendaItem": "7.17.1",
         "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.8.1",
+        "result": "ungeändert beschlossen"
       }
     ],
-    "rootPaperId": 248083,
+    "rootPaperId": 246836,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       246836
@@ -2066,9 +2449,17 @@
         "organization": "Stadtrat",
         "agendaItem": "7.18.2",
         "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.9.2",
+        "result": "ungeändert beschlossen"
       }
     ],
-    "rootPaperId": 248084,
+    "rootPaperId": 246837,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       246837
@@ -2107,7 +2498,8 @@
     ],
     "rootPaperId": 248085,
     "subordinatedPaperIds": [
-      248137
+      248137,
+      248338
     ],
     "superOrdinatedPaperIds": []
   },
@@ -2147,7 +2539,31 @@
         "role": "Beratung",
         "organization": "Jugendhilfeausschuss",
         "agendaItem": "4.3",
-        "result": null
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.10.1.1",
+        "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-03-17T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "6.3",
+        "result": "ohne Ergebnis"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+        "date": "2026-03-19T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Jugendhilfeausschuss",
+        "agendaItem": "4.2.2",
+        "result": "ohne Ergebnis"
       }
     ],
     "rootPaperId": 247773,
@@ -2188,7 +2604,9 @@
       }
     ],
     "rootPaperId": 248087,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248365
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2223,7 +2641,9 @@
       }
     ],
     "rootPaperId": 248088,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248234
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2258,7 +2678,9 @@
       }
     ],
     "rootPaperId": 248089,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248214
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2282,9 +2704,25 @@
         "organization": "Stadtrat",
         "agendaItem": "7.12.1",
         "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-03-19T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "6.1",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.6.1",
+        "result": "abgelehnt"
       }
     ],
-    "rootPaperId": 247649,
+    "rootPaperId": 245002,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247649
@@ -2347,6 +2785,157 @@
     "superOrdinatedPaperIds": []
   },
   {
+    "id": 248093,
+    "reference": "DS0020/26",
+    "type": "Beschlussvorlage",
+    "title": "Widmung von Verkehrsflächen zur Gemeindestraße – Herrenkrugstraße (Teilstück)",
+    "files": [
+      {
+        "id": 735943,
+        "name": "DS0020_26 Beschlussvorlage",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735943&type=do",
+        "size": null
+      },
+      {
+        "id": 735949,
+        "name": "DS0020/26 - Anlage 1 Übersichtsplan",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735949&type=do",
+        "size": null
+      },
+      {
+        "id": 735950,
+        "name": "DS0020/20 - Anlage 2 Lageplan",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735950&type=do",
+        "size": null
+      },
+      {
+        "id": 735951,
+        "name": "DS0020/26 Anlage 3 - Datenblatt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735951&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin (Umlaufverfahren)",
+        "date": "2026-02-24T00:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "1.6",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-03-19T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      }
+    ],
+    "rootPaperId": 248093,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 248094,
+    "reference": "DS0021/26",
+    "type": "Beschlussvorlage",
+    "title": "Bestätigung des Rahmenplans für das Gelände des Universitätsklinikums",
+    "files": [
+      {
+        "id": 735992,
+        "name": "Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735992&type=do",
+        "size": null
+      },
+      {
+        "id": 736525,
+        "name": "DS0021_26_Anlage 1_Rahmenplanung Textteil",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736525&type=do",
+        "size": null
+      },
+      {
+        "id": 736526,
+        "name": "DS0021_26_Anlage 2_Rahmenplanung Karten",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736526&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-03-17T09:00:00+01:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "4.4",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+        "date": "2026-04-14T17:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Umwelt und Energie",
+        "agendaItem": "4.1",
+        "result": null
+      }
+    ],
+    "rootPaperId": 248094,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 248095,
+    "reference": "DS0022/26",
+    "type": "Beschlussvorlage EB",
+    "title": "Erweiterung Stadtarchiv 2. BA, Mittagstraße 16 in 39124 Magdeburg - Erhöhung der Kosten für ein Interims-Mietobjekt",
+    "files": [
+      {
+        "id": 736081,
+        "name": "Beschlussvorlage EB",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736081&type=do",
+        "size": 213422
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-03-03T09:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.2",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Kommunales Gebäudemanagement",
+        "date": "2026-03-10T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Betriebsausschuss Kommunales Gebäudemanagement",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-03-18T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.22",
+        "result": "ungeändert beschlossen"
+      }
+    ],
+    "rootPaperId": 248095,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
     "id": 248098,
     "reference": "F0034/26",
     "type": "Anfrage",
@@ -2370,7 +2959,9 @@
       }
     ],
     "rootPaperId": 248098,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248239
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2397,7 +2988,9 @@
       }
     ],
     "rootPaperId": 248099,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248300
+    ],
     "superOrdinatedPaperIds": []
   }
 ]

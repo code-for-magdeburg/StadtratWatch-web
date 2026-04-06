@@ -2224,7 +2224,8 @@
         "subordinatedPaperIds": [
           240146,
           240338,
-          241162
+          241162,
+          248169
         ],
         "superOrdinatedPaperIds": []
       },
@@ -2483,6 +2484,51 @@
             "organization": "Stadtrat",
             "agendaItem": "6.2.2",
             "result": "abgelehnt"
+          }
+        ],
+        "rootPaperId": 240080,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          240080
+        ]
+      },
+      {
+        "id": 248169,
+        "reference": "I0036/26",
+        "type": "Informationsvorlage",
+        "title": "Ausweitung des Carsharing-Angebots in der Landeshauptstadt",
+        "files": [
+          {
+            "id": 736892,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736892&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-02-17T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "6.3",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-03-18T16:30:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "7.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+            "date": "2026-03-19T17:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+            "agendaItem": "6.1",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 240080,

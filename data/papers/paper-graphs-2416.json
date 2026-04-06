@@ -4214,7 +4214,8 @@
         ],
         "rootPaperId": 241684,
         "subordinatedPaperIds": [
-          242000
+          242000,
+          248019
         ],
         "superOrdinatedPaperIds": []
       },
@@ -4327,6 +4328,41 @@
             "organization": "Stadtrat",
             "agendaItem": "6.6.1",
             "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 241684,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          241684
+        ]
+      },
+      {
+        "id": 248019,
+        "reference": "DS0011/26",
+        "type": "Beschlussvorlage",
+        "title": "Hitzeaktionsplan Magdeburg",
+        "files": [
+          {
+            "id": 739564,
+            "name": "Beschlussvorlage Stadt",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739564&type=do",
+            "size": null
+          },
+          {
+            "id": 739904,
+            "name": "DS0011/26 - Anlage 1 Hitzeaktionsplan_LHMD",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739904&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-03-31T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "4.5",
+            "result": "genehmigt OB"
           }
         ],
         "rootPaperId": 241684,

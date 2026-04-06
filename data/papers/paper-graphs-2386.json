@@ -2102,7 +2102,8 @@
         "subordinatedPaperIds": [
           239845,
           242669,
-          245152
+          245152,
+          248279
         ],
         "superOrdinatedPaperIds": []
       },
@@ -2334,6 +2335,67 @@
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
             "agendaItem": "9.9",
+            "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 238648,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          238648
+        ]
+      },
+      {
+        "id": 248279,
+        "reference": "I0061/26",
+        "type": "Informationsvorlage",
+        "title": "Strukturelle Radverkehrsförderung bis 2030",
+        "files": [
+          {
+            "id": 737582,
+            "name": "I0061/26 Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737582&type=do",
+            "size": null
+          },
+          {
+            "id": 737773,
+            "name": "I0061/26_Anlage 1 Fahrradabstellanlagen 2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737773&type=do",
+            "size": null
+          },
+          {
+            "id": 737774,
+            "name": "I0061/26_Anlage 2 Bordabsenkungen 2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737774&type=do",
+            "size": null
+          },
+          {
+            "id": 737775,
+            "name": "I0061/26_Anlage 3 Radwegebau 2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737775&type=do",
+            "size": null
+          },
+          {
+            "id": 737776,
+            "name": "I0061/26_Anlage 4 Investionen Radverkehr 2025",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737776&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-03-03T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "7.13",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-03-19T16:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "7.1",
             "result": "zur Kenntnis genommen"
           }
         ],
