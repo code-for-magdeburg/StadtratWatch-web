@@ -55,7 +55,7 @@ const timelineEntries = groupedByMonth
     } as TimelineEntry;
     const sessionEntries = group.sessions
       .toSorted(
-        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
       )
       .map<TimelineEntry>((session) => {
         return {
