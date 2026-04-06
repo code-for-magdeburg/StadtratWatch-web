@@ -1681,7 +1681,8 @@
         ],
         "rootPaperId": 244740,
         "subordinatedPaperIds": [
-          245954
+          245954,
+          248492
         ],
         "superOrdinatedPaperIds": []
       },
@@ -1722,6 +1723,47 @@
             "organization": "Stadtrat",
             "agendaItem": "4.1",
             "result": "ungeändert beschlossen"
+          }
+        ],
+        "rootPaperId": 244740,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          244740
+        ]
+      },
+      {
+        "id": 248492,
+        "reference": "I0108/26",
+        "type": "Informationsvorlage",
+        "title": "Machbarkeitsstudie Multipolare Orgel, Konzerthalle Magdeburg",
+        "files": [
+          {
+            "id": 739895,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739895&type=do",
+            "size": null
+          },
+          {
+            "id": 739898,
+            "name": "Anlage 1_Akustikgutachten_Orgel",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739898&type=do",
+            "size": null
+          },
+          {
+            "id": 739899,
+            "name": "Anlage 2_Gutachten Multipolare Orgel Orgelbau Kutter",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739899&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-03-31T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "6.8",
+            "result": "genehmigt OB"
           }
         ],
         "rootPaperId": 244740,

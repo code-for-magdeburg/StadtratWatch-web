@@ -3663,7 +3663,8 @@
         ],
         "rootPaperId": 242992,
         "subordinatedPaperIds": [
-          244146
+          244146,
+          247699
         ],
         "superOrdinatedPaperIds": []
       },
@@ -3703,6 +3704,67 @@
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
             "agendaItem": "10.10",
+            "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 242992,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          242992
+        ]
+      },
+      {
+        "id": 247699,
+        "reference": "I0311/25",
+        "type": "Informationsvorlage",
+        "title": "Online-Buchungssystem für Veranstaltungseinrichtungen",
+        "files": [
+          {
+            "id": 732336,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732336&type=do",
+            "size": 59425
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-02T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "6.5",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Puppentheater Magdeburg",
+            "date": "2026-01-23T14:30:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Betriebsausschuss Puppentheater Magdeburg",
+            "agendaItem": "9.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Kulturausschusses",
+            "date": "2026-02-25T17:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Kulturausschuss",
+            "agendaItem": "7.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Theaterausschusses",
+            "date": "2026-03-20T14:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Theaterausschuss",
+            "agendaItem": "5.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-03-26T14:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Stadtrat",
+            "agendaItem": "10.6",
             "result": "zur Kenntnis genommen"
           }
         ],

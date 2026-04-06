@@ -346,12 +346,29 @@
         "organization": "Finanz- und Grundstücksausschuss",
         "agendaItem": "6.1",
         "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "8.4",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-26T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "8.4",
+        "result": "abgelehnt"
       }
     ],
     "rootPaperId": 246306,
     "subordinatedPaperIds": [
       246374,
-      247174
+      247174,
+      248050
     ],
     "superOrdinatedPaperIds": []
   },
@@ -949,61 +966,61 @@
         "id": 722457,
         "name": "DS0223_25 Anlage 2_FFRL_Amt 50",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=722457&type=do",
-        "size": null
+        "size": 100521
       },
       {
         "id": 722458,
         "name": "DS0223_25 Anlage 3_FFRL_Amt 51",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=722458&type=do",
-        "size": null
+        "size": 83444
       },
       {
         "id": 722459,
         "name": "DS0223_25 Anlage 4_FFRL_Amt 53",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=722459&type=do",
-        "size": null
+        "size": 84346
       },
       {
         "id": 722461,
         "name": "DS0223_25 Anlage 5_FFRL_V_01",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=722461&type=do",
-        "size": null
+        "size": 122551
       },
       {
         "id": 723002,
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=723002&type=do",
-        "size": null
+        "size": 181689
       },
       {
         "id": 723023,
         "name": "DS0223_25 Anlage 6 Synopse - FFRL - V-01",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=723023&type=do",
-        "size": null
+        "size": 173909
       },
       {
         "id": 723024,
         "name": "DS0223_25 Anlage 7 Synopse - FFRL - Amt 50",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=723024&type=do",
-        "size": null
+        "size": 224737
       },
       {
         "id": 723025,
         "name": "DS0223_25 Anlage 8 Synopse - FFRL - Amt 51",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=723025&type=do",
-        "size": null
+        "size": 104193
       },
       {
         "id": 723026,
         "name": "DS023_25 Anlage 9 Synopse - FFRL - Amt 53",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=723026&type=do",
-        "size": null
+        "size": 211431
       },
       {
         "id": 723395,
         "name": "DS0223_25 Anlage 1_FFRL_Dez.V - neu",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=723395&type=do",
-        "size": null
+        "size": 733425
       }
     ],
     "consultations": [
@@ -1038,10 +1055,46 @@
         "organization": "Gesundheits- und Sozialausschuss",
         "agendaItem": "4.1",
         "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Gesundheits- und Sozialausschusses",
+        "date": "2025-12-10T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Gesundheits- und Sozialausschuss",
+        "agendaItem": "4.1",
+        "result": "ohne Ergebnis"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+        "date": "2025-12-11T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Jugendhilfeausschuss",
+        "agendaItem": "4.1",
+        "result": "empfohlen mit Änderungsantrag"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-01-14T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "5.6",
+        "result": "geändert empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.13",
+        "result": "geändert beschlossen"
       }
     ],
     "rootPaperId": 246322,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      247654,
+      248018,
+      248063
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1455,7 +1508,8 @@
     ],
     "rootPaperId": 246334,
     "subordinatedPaperIds": [
-      246563
+      246563,
+      248350
     ],
     "superOrdinatedPaperIds": []
   },
@@ -1880,6 +1934,14 @@
         "organization": "Stadtrat",
         "agendaItem": "7.6",
         "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates (ggf. Fortsetzung und Haushaltsberatung 2026)",
+        "date": "2025-12-08T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.6",
+        "result": "abgelehnt"
       }
     ],
     "rootPaperId": 246347,
@@ -2100,11 +2162,52 @@
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "6.2",
         "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2025-12-11T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "5",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-02-19T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "6",
+        "result": "Einzelabstimmung"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-03-04T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.5",
+        "result": "Einzelabstimmung"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.3",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-30T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.3",
+        "result": "geändert beschlossen"
       }
     ],
     "rootPaperId": 246352,
     "subordinatedPaperIds": [
-      247086
+      247086,
+      248548
     ],
     "superOrdinatedPaperIds": []
   },
@@ -2160,12 +2263,29 @@
         "role": "Beratung",
         "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
         "agendaItem": "7",
-        "result": null
+        "result": "geändert empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-03-04T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.1",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-03-18T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.1",
+        "result": "geändert empfohlen"
       }
     ],
     "rootPaperId": 246353,
     "subordinatedPaperIds": [
-      247930
+      247930,
+      248178
     ],
     "superOrdinatedPaperIds": []
   },
@@ -2237,7 +2357,7 @@
         "id": 718035,
         "name": "Stellungnahme",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=718035&type=do",
-        "size": null
+        "size": 120291
       }
     ],
     "consultations": [
@@ -2328,6 +2448,38 @@
         "organization": "Verwaltungsausschuss",
         "agendaItem": "6.1.2",
         "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2026-01-30T15:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "6.4.2",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "6.1.2",
+        "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-26T14:00:00+01:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "7.2.2",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-03-30T16:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "7.2.2",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 246017,

@@ -1327,7 +1327,8 @@
         "rootPaperId": 243718,
         "subordinatedPaperIds": [
           243942,
-          244717
+          244717,
+          248273
         ],
         "superOrdinatedPaperIds": []
       },
@@ -1421,6 +1422,43 @@
             "organization": "Stadtrat",
             "agendaItem": "7.9.1",
             "result": "ungeändert beschlossen"
+          }
+        ],
+        "rootPaperId": 243718,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          243718
+        ]
+      },
+      {
+        "id": 248273,
+        "reference": "I0059/26",
+        "type": "Informationsvorlage Prüfantrag",
+        "title": "Wirrwarr um Parkplatz-Ordnung in der Brunnersiedlung in Sudenburg",
+        "files": [
+          {
+            "id": 737530,
+            "name": "I0059/26 Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737530&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-03-03T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "7.12",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+            "date": "2026-03-19T17:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+            "agendaItem": "17",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 243718,
@@ -2666,7 +2704,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Bildung, Schule und Sport",
             "agendaItem": "9.3",
-            "result": "zurückgestellt"
+            "result": "vom Einbringer zurückgezogen"
           },
           {
             "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
@@ -2682,7 +2720,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Bildung, Schule und Sport",
             "agendaItem": "8.1",
-            "result": "zurückgestellt"
+            "result": "vom Einbringer zurückgezogen"
           },
           {
             "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Kommunale Kindertageseinrichtungen Magdeburg",
@@ -2714,7 +2752,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Bildung, Schule und Sport",
             "agendaItem": "8.1",
-            "result": "zurückgestellt"
+            "result": "vom Einbringer zurückgezogen"
           }
         ],
         "rootPaperId": 243728,
@@ -2773,7 +2811,7 @@
             "role": "Kenntnisnahme",
             "organization": "Ausschuss für Bildung, Schule und Sport",
             "agendaItem": "9.3.1",
-            "result": "zurückgestellt"
+            "result": "zur Kenntnis genommen"
           },
           {
             "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
@@ -2789,7 +2827,7 @@
             "role": "Kenntnisnahme",
             "organization": "Ausschuss für Bildung, Schule und Sport",
             "agendaItem": "8.2",
-            "result": "zurückgestellt"
+            "result": "zur Kenntnis genommen"
           },
           {
             "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Kommunale Kindertageseinrichtungen Magdeburg",
@@ -2821,7 +2859,7 @@
             "role": "Kenntnisnahme",
             "organization": "Ausschuss für Bildung, Schule und Sport",
             "agendaItem": "8.1.1",
-            "result": "zurückgestellt"
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 243728,

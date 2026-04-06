@@ -468,7 +468,8 @@
         "rootPaperId": 246608,
         "subordinatedPaperIds": [
           246855,
-          247227
+          247227,
+          248455
         ],
         "superOrdinatedPaperIds": []
       },
@@ -546,6 +547,35 @@
             "organization": "Stadtrat",
             "agendaItem": "7.22.1",
             "result": "ungeändert beschlossen"
+          }
+        ],
+        "rootPaperId": 246608,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          246608
+        ]
+      },
+      {
+        "id": 248455,
+        "reference": "I0102/26",
+        "type": "Informationsvorlage",
+        "title": "Zebrastreifen auf der Erich-Weinert-Straße",
+        "files": [
+          {
+            "id": 739499,
+            "name": "I0102/26 Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739499&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-03-31T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "6.16",
+            "result": "genehmigt OB"
           }
         ],
         "rootPaperId": 246608,
@@ -1156,13 +1186,13 @@
             "id": 727693,
             "name": "Beschlussvorlage Stadt",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727693&type=do",
-            "size": null
+            "size": 183293
           },
           {
             "id": 727695,
             "name": "DS0287/25 Anlage 1 - Ausschnitt Beschluss SR/011(VIII)25",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727695&type=do",
-            "size": null
+            "size": 782338
           }
         ],
         "consultations": [
@@ -1180,7 +1210,23 @@
             "role": "Beratung",
             "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
             "agendaItem": "5.6",
-            "result": null
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-03-04T16:30:00+01:00",
+            "role": "Beratung",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "5.2",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-03-26T14:00:00+01:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.20",
+            "result": "zurückgestellt"
           }
         ],
         "rootPaperId": 246630,
@@ -1239,7 +1285,7 @@
             "id": 731787,
             "name": "I0304/25 Information",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=731787&type=do",
-            "size": null
+            "size": 109852
           }
         ],
         "consultations": [
@@ -1250,6 +1296,14 @@
             "organization": "Die Oberbürgermeisterin",
             "agendaItem": "6.9",
             "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Stadtrat",
+            "agendaItem": "11.23",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 246631,
@@ -1919,6 +1973,100 @@
         "superOrdinatedPaperIds": [
           246659
         ]
+      }
+    ]
+  },
+  {
+    "rootPaperId": 246661,
+    "papers": [
+      {
+        "id": 246661,
+        "reference": "DS0297/25",
+        "type": "Beschlussvorlage EB",
+        "title": "EW-Bau für das Kinder- und Jugendhaus \"Mühle\", Düppler Mühlenstraße 25 in 39130 Magdeburg",
+        "files": [
+          {
+            "id": 736834,
+            "name": "DS0297/25 Anlage 04_Dachaufsicht",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736834&type=do",
+            "size": null
+          },
+          {
+            "id": 736835,
+            "name": "DS0297/25 Anlage 05_Schnitte",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736835&type=do",
+            "size": null
+          },
+          {
+            "id": 736838,
+            "name": "DS0297/25 Anlage 08_Erläuterungsbericht",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736838&type=do",
+            "size": null
+          },
+          {
+            "id": 736840,
+            "name": "DS0297/25 Anlage 00_AmtlicherLageplan",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736840&type=do",
+            "size": null
+          },
+          {
+            "id": 736841,
+            "name": "DS0297/25 Anlage 01_Lageplan mit Abstandsflächen",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736841&type=do",
+            "size": null
+          },
+          {
+            "id": 736842,
+            "name": "DS0297/25 Anlage 02_Freianlagenplan",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736842&type=do",
+            "size": null
+          },
+          {
+            "id": 736846,
+            "name": "DS0297/25 Anlage 06_Ansichten",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736846&type=do",
+            "size": null
+          },
+          {
+            "id": 739014,
+            "name": "DS0297/25 Anlage 03_Grundriss Erdgeschoss",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739014&type=do",
+            "size": null
+          },
+          {
+            "id": 739015,
+            "name": "DS0297/25 Anlage 07_Terminplan",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739015&type=do",
+            "size": null
+          },
+          {
+            "id": 740401,
+            "name": "Beschlussvorlage EB",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=740401&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Kommunales Gebäudemanagement",
+            "date": "2026-03-10T16:00:00+01:00",
+            "role": "Beratung",
+            "organization": "Betriebsausschuss Kommunales Gebäudemanagement",
+            "agendaItem": "5.2",
+            "result": "zurückgestellt"
+          },
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-03-31T09:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "8.1",
+            "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 246661,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": []
       }
     ]
   },

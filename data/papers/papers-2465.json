@@ -883,19 +883,19 @@
         "id": 727102,
         "name": "DS0273/25 - Anlage 1 Neufassung Entgeltordnung Zweispartenhaus KHM-MfN incl. Entgelttarife zur Entgeltordnung",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727102&type=do",
-        "size": null
+        "size": 237927
       },
       {
         "id": 727103,
         "name": "DS0273/25 - Anlage 2 Synopse Entgelttarife Zweispartenhaus KHM-MfN",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727103&type=do",
-        "size": null
+        "size": 192349
       },
       {
         "id": 730523,
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730523&type=do",
-        "size": null
+        "size": 198424
       }
     ],
     "consultations": [
@@ -922,6 +922,22 @@
         "organization": "Kulturausschuss",
         "agendaItem": "4.1",
         "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-01-14T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "5.5",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.7",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 246534,
@@ -1653,7 +1669,9 @@
       }
     ],
     "rootPaperId": 246555,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248328
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1834,11 +1852,52 @@
         "organization": "Stadtrat",
         "agendaItem": "6.19",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Kulturausschusses",
+        "date": "2025-12-10T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Kulturausschuss",
+        "agendaItem": "5.2",
+        "result": "empfohlen mit Änderungsantrag"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+        "date": "2026-01-15T17:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+        "agendaItem": "5.2",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-01-28T16:30:00+01:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.5",
+        "result": "Einzelabstimmung"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2026-01-30T15:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "6.3",
+        "result": "Einzelabstimmung"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-02-26T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.2",
+        "result": "geändert beschlossen"
       }
     ],
     "rootPaperId": 246559,
     "subordinatedPaperIds": [
-      247637
+      247637,
+      247926
     ],
     "superOrdinatedPaperIds": []
   },
@@ -2473,7 +2532,8 @@
     ],
     "rootPaperId": 246568,
     "subordinatedPaperIds": [
-      246834
+      246834,
+      248426
     ],
     "superOrdinatedPaperIds": []
   },
@@ -3101,6 +3161,30 @@
         "organization": "Stadtrat",
         "agendaItem": "6.21",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2025-12-12T15:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "5.2",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-22T14:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "8.5",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-01-26T16:00:00+01:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "8.5",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 246581,
@@ -3273,6 +3357,14 @@
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "5.3",
         "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-01-15T16:00:00+01:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.1",
+        "result": "zurückgestellt"
       }
     ],
     "rootPaperId": 246586,
@@ -3387,7 +3479,9 @@
       }
     ],
     "rootPaperId": 246590,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248236
+    ],
     "superOrdinatedPaperIds": []
   },
   {

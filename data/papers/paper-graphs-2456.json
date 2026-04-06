@@ -485,7 +485,8 @@
         ],
         "rootPaperId": 245606,
         "subordinatedPaperIds": [
-          245736
+          245736,
+          247719
         ],
         "superOrdinatedPaperIds": []
       },
@@ -510,6 +511,35 @@
             "organization": "Stadtrat",
             "agendaItem": "7.26.1",
             "result": "zurückgestellt"
+          }
+        ],
+        "rootPaperId": 245606,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          245606
+        ]
+      },
+      {
+        "id": 247719,
+        "reference": "I0314/25",
+        "type": "Informationsvorlage",
+        "title": "Grundsatzbeschluss: Einführung einer Einwegverpackungsabgabe",
+        "files": [
+          {
+            "id": 732451,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732451&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2025-12-02T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "6.6",
+            "result": "genehmigt OB"
           }
         ],
         "rootPaperId": 245606,
@@ -694,7 +724,7 @@
             "id": 733339,
             "name": "Information",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733339&type=do",
-            "size": null
+            "size": 34822
           }
         ],
         "consultations": [
@@ -705,6 +735,14 @@
             "organization": "Die Oberbürgermeisterin",
             "agendaItem": "6.3",
             "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Stadtrat",
+            "agendaItem": "11.8",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 245607,
@@ -783,7 +821,8 @@
         ],
         "rootPaperId": 245608,
         "subordinatedPaperIds": [
-          246434
+          246434,
+          248136
         ],
         "superOrdinatedPaperIds": []
       },
@@ -847,6 +886,51 @@
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
             "agendaItem": "7.4.1",
+            "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 245608,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          245608
+        ]
+      },
+      {
+        "id": 248136,
+        "reference": "I0026/26",
+        "type": "Informationsvorlage Prüfantrag",
+        "title": "Verbesserung der Zuverlässigkeit von Anzeigetafeln und Fahrgastinformationen der MVB",
+        "files": [
+          {
+            "id": 736405,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736405&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-02-10T09:00:00+01:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "5.6",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-03-19T16:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "7.4",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+            "date": "2026-03-19T17:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+            "agendaItem": "15",
             "result": "zur Kenntnis genommen"
           }
         ],
@@ -1026,7 +1110,7 @@
             "id": 729379,
             "name": "Information",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=729379&type=do",
-            "size": null
+            "size": 132097
           }
         ],
         "consultations": [
@@ -1052,6 +1136,22 @@
             "role": "Kenntnisnahme",
             "organization": "Finanz- und Grundstücksausschuss",
             "agendaItem": "7.7",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+            "date": "2025-12-12T15:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Verwaltungsausschuss",
+            "agendaItem": "6.6",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-01-22T14:00:00+01:00",
+            "role": "Kenntnisnahme",
+            "organization": "Stadtrat",
+            "agendaItem": "11.13",
             "result": "zur Kenntnis genommen"
           }
         ],
