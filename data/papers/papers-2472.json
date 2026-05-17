@@ -2264,13 +2264,19 @@
         "id": 735997,
         "name": "DS0485_25 Anlage 1 Abwägungskatalog",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735997&type=do",
-        "size": null
+        "size": 482327
       },
       {
         "id": 736000,
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736000&type=do",
-        "size": null
+        "size": 167128
+      },
+      {
+        "id": 743265,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743265&type=do",
+        "size": 13898
       }
     ],
     "consultations": [
@@ -2288,7 +2294,23 @@
         "role": "Beratung",
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "4.3",
-        "result": null
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-04-16T16:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "5.4",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-04-23T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.11",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247268,
@@ -2305,31 +2327,37 @@
         "id": 736006,
         "name": "DS0486_25 Anlage 1 Lageplan",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736006&type=do",
-        "size": null
+        "size": 623484
       },
       {
         "id": 736009,
         "name": "DS0486_25 Anlage 4 V+E-Plan und Objektplanung",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736009&type=do",
-        "size": null
+        "size": 2631940
       },
       {
         "id": 736010,
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736010&type=do",
-        "size": null
+        "size": 175404
       },
       {
         "id": 737322,
         "name": "DS0486_25 Anlage 3 Begründung mit Baumkartierung",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737322&type=do",
-        "size": null
+        "size": 3069198
       },
       {
         "id": 738113,
         "name": "DS0486_25 Anlage 2 Satzungsplan",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=738113&type=do",
-        "size": null
+        "size": 2071668
+      },
+      {
+        "id": 743266,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743266&type=do",
+        "size": 62366
       }
     ],
     "consultations": [
@@ -2347,11 +2375,29 @@
         "role": "Beratung",
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "4.4",
-        "result": null
+        "result": "empfohlen mit Änderungsantrag"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-04-16T16:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "5.5",
+        "result": "geändert empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-04-23T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.12",
+        "result": "geändert beschlossen"
       }
     ],
     "rootPaperId": 247269,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248688
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2461,7 +2507,8 @@
     ],
     "rootPaperId": 246169,
     "subordinatedPaperIds": [
-      247646
+      247646,
+      248538
     ],
     "superOrdinatedPaperIds": [
       246169

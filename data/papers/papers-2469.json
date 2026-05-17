@@ -796,6 +796,12 @@
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=726731&type=do",
         "size": 238192
+      },
+      {
+        "id": 743246,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743246&type=do",
+        "size": 66400
       }
     ],
     "consultations": [
@@ -838,6 +844,14 @@
         "organization": "Finanz- und Grundstücksausschuss",
         "agendaItem": "5.2",
         "result": "geändert empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-04-23T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.3",
+        "result": "geändert beschlossen"
       }
     ],
     "rootPaperId": 246924,
@@ -2860,7 +2874,7 @@
         "role": "Beratung",
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "5.2",
-        "result": null
+        "result": "geändert empfohlen"
       }
     ],
     "rootPaperId": 246986,

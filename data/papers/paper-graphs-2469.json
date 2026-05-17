@@ -573,6 +573,12 @@
             "name": "Beschlussvorlage Stadt",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=726731&type=do",
             "size": 238192
+          },
+          {
+            "id": 743246,
+            "name": "Beschlussausfertigung",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743246&type=do",
+            "size": 66400
           }
         ],
         "consultations": [
@@ -615,6 +621,14 @@
             "organization": "Finanz- und Grundstücksausschuss",
             "agendaItem": "5.2",
             "result": "geändert empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-04-23T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "5.3",
+            "result": "geändert beschlossen"
           }
         ],
         "rootPaperId": 246924,
@@ -2199,6 +2213,30 @@
             "organization": "Die Oberbürgermeisterin",
             "agendaItem": "6.4",
             "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+            "date": "2026-04-16T17:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+            "agendaItem": "12",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Gesundheits- und Sozialausschusses",
+            "date": "2026-04-22T17:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Gesundheits- und Sozialausschuss",
+            "agendaItem": "6.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2026-05-12T17:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "7.1",
+            "result": null
           }
         ],
         "rootPaperId": 246960,
@@ -4005,7 +4043,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Umwelt und Energie",
             "agendaItem": "5.2",
-            "result": null
+            "result": "geändert empfohlen"
           }
         ],
         "rootPaperId": 246986,
@@ -4043,7 +4081,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Umwelt und Energie",
             "agendaItem": "5.2.1",
-            "result": null
+            "result": "empfohlen"
           }
         ],
         "rootPaperId": 246986,
@@ -4062,7 +4100,7 @@
             "id": 736411,
             "name": "Stellungnahme (Antrag)",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736411&type=do",
-            "size": null
+            "size": 74900
           }
         ],
         "consultations": [
@@ -4080,6 +4118,30 @@
             "role": "Kenntnisnahme",
             "organization": "Ausschuss für Umwelt und Energie",
             "agendaItem": "5.2.2",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-04-16T16:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.9.2",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Stadtgarten und Friedhöfe Magdeburg",
+            "date": "2026-04-28T16:30:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Betriebsausschuss Stadtgarten und Friedhöfe Magdeburg",
+            "agendaItem": "7.3.2",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Stadtrat",
+            "agendaItem": "7.3.2",
             "result": null
           }
         ],

@@ -241,6 +241,12 @@
         "name": "Antrag",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732377&type=do",
         "size": 61316
+      },
+      {
+        "id": 743321,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743321&type=do",
+        "size": 59055
       }
     ],
     "consultations": [
@@ -275,6 +281,14 @@
         "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
         "agendaItem": "13",
         "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-04-23T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.8",
+        "result": "abgelehnt"
       }
     ],
     "rootPaperId": 247706,
@@ -1664,7 +1678,31 @@
         "role": "Beratung",
         "organization": "Betriebsausschuss Kommunales Gebäudemanagement",
         "agendaItem": "5.1",
-        "result": null
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-04-16T16:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-04-16T17:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "4",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-04-29T16:30:00+02:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "5.3",
+        "result": "empfohlen"
       }
     ],
     "rootPaperId": 247754,
@@ -2308,6 +2346,12 @@
         "name": "DS0603/25 - Anlage 3 - Gegenüberstellung alte/neue Fassung (Synopse)",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=733374&type=do",
         "size": 161380
+      },
+      {
+        "id": 743255,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743255&type=do",
+        "size": 12331
       }
     ],
     "consultations": [
@@ -2390,6 +2434,22 @@
         "organization": "Jugendhilfeausschuss",
         "agendaItem": "4.2",
         "result": "ohne Ergebnis"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-04-21T17:30:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "6.2",
+        "result": "geändert empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-04-23T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.8",
+        "result": "geändert beschlossen"
       }
     ],
     "rootPaperId": 247773,

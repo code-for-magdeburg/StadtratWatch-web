@@ -1022,6 +1022,12 @@
             "name": "A0192/25 Antrag",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727167&type=do",
             "size": 66426
+          },
+          {
+            "id": 743328,
+            "name": "Beschlussausfertigung",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743328&type=do",
+            "size": 68272
           }
         ],
         "consultations": [
@@ -1096,6 +1102,22 @@
             "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
             "agendaItem": "8",
             "result": "geändert empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-04-23T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.14",
+            "result": "vertagt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-04-27T16:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.14",
+            "result": "mit Beschlussfassung zum Änderungsantrag erledigt"
           }
         ],
         "rootPaperId": 247159,
@@ -1538,25 +1560,25 @@
             "id": 727314,
             "name": "Beschlussvorlage Stadt",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727314&type=do",
-            "size": null
+            "size": 164086
           },
           {
             "id": 735738,
             "name": "DS0466/25 - Anlage 1 Neufassung Benutzungs- und Entgeltordnung nebst Anlage",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735738&type=do",
-            "size": null
+            "size": 117534
           },
           {
             "id": 736967,
             "name": "DS0466/25 - Anlage 1 Anlage zur § 3 der Benutzungs- und Entgeltordnung",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736967&type=do",
-            "size": null
+            "size": 454521
           },
           {
             "id": 737374,
             "name": "DS0466/25 - Anlage 2 Synopse Entgeltordnung",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737374&type=do",
-            "size": null
+            "size": 151395
           }
         ],
         "consultations": [
@@ -1575,11 +1597,58 @@
             "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
             "agendaItem": "4",
             "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+            "date": "2026-04-17T15:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Verwaltungsausschuss",
+            "agendaItem": "5.1",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-04-23T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "5.1",
+            "result": "in die Ausschüsse verwiesen"
+          }
+        ],
+        "rootPaperId": 247165,
+        "subordinatedPaperIds": [
+          248738
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 248738,
+        "reference": "DS0466/25/1",
+        "type": "Änderungsantrag",
+        "title": "Benutzungs- und Entgeltordnung für die Räume des Alten Rathauses",
+        "files": [
+          {
+            "id": 741846,
+            "name": "Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=741846&type=do",
+            "size": 16938
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-04-23T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "5.1.1",
+            "result": "in die Ausschüsse verwiesen"
           }
         ],
         "rootPaperId": 247165,
         "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": []
+        "superOrdinatedPaperIds": [
+          247165
+        ]
       }
     ]
   },
@@ -2327,7 +2396,7 @@
             "id": 737808,
             "name": "Information",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737808&type=do",
-            "size": null
+            "size": 115821
           }
         ],
         "consultations": [
@@ -2338,6 +2407,22 @@
             "organization": "Die Oberbürgermeisterin",
             "agendaItem": "5.3",
             "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+            "date": "2026-04-21T17:30:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Bildung, Schule und Sport",
+            "agendaItem": "8.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-04-23T14:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Stadtrat",
+            "agendaItem": "9.14",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 247180,
@@ -2835,7 +2920,8 @@
         ],
         "rootPaperId": 247187,
         "subordinatedPaperIds": [
-          247507
+          247507,
+          248405
         ],
         "superOrdinatedPaperIds": []
       },
@@ -2899,6 +2985,59 @@
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
             "agendaItem": "8.12.1",
+            "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 247187,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247187
+        ]
+      },
+      {
+        "id": 248405,
+        "reference": "I0092/26",
+        "type": "Informationsvorlage Prüfantrag",
+        "title": "Gübser Weg - Sicherheit und Aufenthaltsqualität verbessern",
+        "files": [
+          {
+            "id": 739070,
+            "name": "I0092/26 Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739070&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-04-14T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "5.9",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Stadtgarten und Friedhöfe Magdeburg",
+            "date": "2026-04-28T16:30:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Betriebsausschuss Stadtgarten und Friedhöfe Magdeburg",
+            "agendaItem": "8.2",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-05-07T15:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "7.2",
+            "result": "vertagt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-05-13T16:30:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "7.1",
             "result": "zur Kenntnis genommen"
           }
         ],
