@@ -1227,11 +1227,58 @@
             "organization": "Stadtrat",
             "agendaItem": "6.20",
             "result": "zurückgestellt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-04-23T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "5.16",
+            "result": "zurückgestellt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.19",
+            "result": null
+          }
+        ],
+        "rootPaperId": 246630,
+        "subordinatedPaperIds": [
+          248785
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 248785,
+        "reference": "DS0287/25/1",
+        "type": "Änderungsantrag",
+        "title": "Veranschlagung der Planungskosten zur Vorplanung einer Neugestaltung des Knotenpunktes Friedrich-Ebert-Straße / Gübser Weg",
+        "files": [
+          {
+            "id": 742110,
+            "name": "DS0287/25/1 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742110&type=do",
+            "size": 22930
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.19.1",
+            "result": null
           }
         ],
         "rootPaperId": 246630,
         "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": []
+        "superOrdinatedPaperIds": [
+          246630
+        ]
       }
     ]
   },
@@ -1989,61 +2036,67 @@
             "id": 736834,
             "name": "DS0297/25 Anlage 04_Dachaufsicht",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736834&type=do",
-            "size": null
+            "size": 404476
           },
           {
             "id": 736835,
             "name": "DS0297/25 Anlage 05_Schnitte",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736835&type=do",
-            "size": null
+            "size": 685642
           },
           {
             "id": 736838,
             "name": "DS0297/25 Anlage 08_Erläuterungsbericht",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736838&type=do",
-            "size": null
+            "size": 249
           },
           {
             "id": 736840,
             "name": "DS0297/25 Anlage 00_AmtlicherLageplan",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736840&type=do",
-            "size": null
+            "size": 1188544
           },
           {
             "id": 736841,
             "name": "DS0297/25 Anlage 01_Lageplan mit Abstandsflächen",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736841&type=do",
-            "size": null
+            "size": 293835
           },
           {
             "id": 736842,
             "name": "DS0297/25 Anlage 02_Freianlagenplan",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736842&type=do",
-            "size": null
+            "size": 672736
           },
           {
             "id": 736846,
             "name": "DS0297/25 Anlage 06_Ansichten",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736846&type=do",
-            "size": null
+            "size": 10237813
           },
           {
             "id": 739014,
             "name": "DS0297/25 Anlage 03_Grundriss Erdgeschoss",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739014&type=do",
-            "size": null
+            "size": 371267
           },
           {
             "id": 739015,
             "name": "DS0297/25 Anlage 07_Terminplan",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739015&type=do",
-            "size": null
+            "size": 346336
           },
           {
             "id": 740401,
             "name": "Beschlussvorlage EB",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=740401&type=do",
-            "size": null
+            "size": 219750
+          },
+          {
+            "id": 740891,
+            "name": "DS0297/25 Anlage 08_Erläuterungsbericht",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=740891&type=do",
+            "size": 1043565
           }
         ],
         "consultations": [
@@ -2062,11 +2115,90 @@
             "organization": "Die Oberbürgermeisterin",
             "agendaItem": "8.1",
             "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Kommunales Gebäudemanagement",
+            "date": "2026-05-05T16:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Betriebsausschuss Kommunales Gebäudemanagement",
+            "agendaItem": "5.3",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-05-07T15:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "5.2",
+            "result": "empfohlen mit Änderungsantrag"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+            "date": "2026-05-07T16:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Jugendhilfeausschuss",
+            "agendaItem": "4.2",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-05-13T16:30:00+02:00",
+            "role": "Beratung",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "5.5",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.18",
+            "result": null
+          }
+        ],
+        "rootPaperId": 246661,
+        "subordinatedPaperIds": [
+          248884
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 248884,
+        "reference": "DS0297/25/1",
+        "type": "Änderungsantrag",
+        "title": "EW-Bau für das Kinder- und Jugendhaus \"Mühle\", Düppler Mühlenstraße 25 in 39130 Magdeburg",
+        "files": [
+          {
+            "id": 743385,
+            "name": "Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743385&type=do",
+            "size": 15481
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-05-13T16:30:00+02:00",
+            "role": "Beratung",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "5.5.1",
+            "result": "nicht empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.18.1",
+            "result": null
           }
         ],
         "rootPaperId": 246661,
         "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": []
+        "superOrdinatedPaperIds": [
+          246661
+        ]
       }
     ]
   },

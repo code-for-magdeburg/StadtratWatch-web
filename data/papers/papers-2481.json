@@ -543,13 +543,13 @@
         "id": 737966,
         "name": "Information",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737966&type=do",
-        "size": null
+        "size": 115128
       },
       {
         "id": 738560,
         "name": "I0025/26 - Anlage 1 Schaffung von Mikrowäldern",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=738560&type=do",
-        "size": null
+        "size": 90285
       }
     ],
     "consultations": [
@@ -567,6 +567,38 @@
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "6.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-04-16T16:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "7.11",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Stadtgarten und Friedhöfe Magdeburg",
+        "date": "2026-04-28T16:30:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Betriebsausschuss Stadtgarten und Friedhöfe Magdeburg",
+        "agendaItem": "8.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-04-29T16:30:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "7.2",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "10.8",
         "result": null
       }
     ],
@@ -575,6 +607,132 @@
     "superOrdinatedPaperIds": [
       245435
     ]
+  },
+  {
+    "id": 248130,
+    "reference": "DS0033/26",
+    "type": "Beschlussvorlage",
+    "title": "Behandlung der Stellungnahmen (Abwägung) zum Bebauungsplan Nr. 135-1 \"Nördliche Umfassungsstraße\"",
+    "files": [
+      {
+        "id": 739129,
+        "name": "DS0033/26 Anlage 1 Abwägungskatalog",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739129&type=do",
+        "size": 646240
+      },
+      {
+        "id": 739130,
+        "name": "Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739130&type=do",
+        "size": 172285
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-04-14T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "3.5",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-05-07T15:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "5.10",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+        "date": "2026-05-12T17:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Umwelt und Energie",
+        "agendaItem": "5.3",
+        "result": null
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.22",
+        "result": null
+      }
+    ],
+    "rootPaperId": 248130,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 248131,
+    "reference": "DS0034/26",
+    "type": "Beschlussvorlage",
+    "title": "Satzung des Bebauungsplans Nr. 135-1 \"Nördliche Umfassungsstraße\"",
+    "files": [
+      {
+        "id": 739152,
+        "name": "DS0034_26 Anlage 1 Lageplan",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739152&type=do",
+        "size": 838677
+      },
+      {
+        "id": 739153,
+        "name": "DS0034_26 Anlage 2 B-Plan",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739153&type=do",
+        "size": 5340469
+      },
+      {
+        "id": 739154,
+        "name": "DS0034_26 Anlage 3 Begründung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739154&type=do",
+        "size": 1930143
+      },
+      {
+        "id": 739155,
+        "name": "Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739155&type=do",
+        "size": 180844
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-04-14T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "3.8",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-05-07T15:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "5.11",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+        "date": "2026-05-12T17:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Umwelt und Energie",
+        "agendaItem": "5.4",
+        "result": null
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.23",
+        "result": null
+      }
+    ],
+    "rootPaperId": 248131,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 248132,
@@ -639,7 +797,7 @@
         "id": 736411,
         "name": "Stellungnahme (Antrag)",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736411&type=do",
-        "size": null
+        "size": 74900
       }
     ],
     "consultations": [
@@ -657,6 +815,30 @@
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "5.2.2",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-04-16T16:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.9.2",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Stadtgarten und Friedhöfe Magdeburg",
+        "date": "2026-04-28T16:30:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Betriebsausschuss Stadtgarten und Friedhöfe Magdeburg",
+        "agendaItem": "7.3.2",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "7.3.2",
         "result": null
       }
     ],
@@ -799,7 +981,7 @@
         "id": 739195,
         "name": "Stellungnahme (Antrag)",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739195&type=do",
-        "size": null
+        "size": 101479
       }
     ],
     "consultations": [
@@ -810,6 +992,22 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "9.8",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+        "date": "2026-04-16T17:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Ausschuss für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+        "agendaItem": "5.1.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "7.14.1",
+        "result": null
       }
     ],
     "rootPaperId": 247953,
@@ -1025,10 +1223,20 @@
         "organization": "Stadtrat",
         "agendaItem": "6.22",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-05-07T15:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.6",
+        "result": "vertagt"
       }
     ],
     "rootPaperId": 248149,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248488
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1186,7 +1394,7 @@
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "6.2",
-        "result": null
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 245006,
@@ -1227,6 +1435,61 @@
       }
     ],
     "rootPaperId": 248155,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 248156,
+    "reference": "DS0041/26",
+    "type": "Beschlussvorlage",
+    "title": "Qualitätsverbesserungen in Kindertageseinrichtungen durch die Umsetzung des Magdeburger Konzeptes „Kita-StrukturPlus“",
+    "files": [
+      {
+        "id": 739984,
+        "name": "DS0041/26 Anlage 2 Kriterien zur Weiterleitung der Demographiepauschale",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739984&type=do",
+        "size": null
+      },
+      {
+        "id": 742899,
+        "name": "Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742899&type=do",
+        "size": null
+      },
+      {
+        "id": 742970,
+        "name": "DS0041/26 Anlage 1 - Konzept Kita-StrukturPlus",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742970&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-04-21T08:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "4.1",
+        "result": "in 1. Lesung z.K. genommen (OB)"
+      },
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-05-05T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "5.6",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Jugendhilfeausschusses",
+        "date": "2026-05-07T16:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Jugendhilfeausschuss",
+        "agendaItem": "4.5",
+        "result": "empfohlen"
+      }
+    ],
+    "rootPaperId": 248156,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
   },
@@ -1670,10 +1933,28 @@
         "organization": "Stadtrat",
         "agendaItem": "6.25",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-05-07T15:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.2",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-05-13T16:30:00+02:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.3",
+        "result": "vertagt"
       }
     ],
     "rootPaperId": 248173,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248592
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1745,7 +2026,9 @@
       }
     ],
     "rootPaperId": 248175,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248625
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1936,7 +2219,9 @@
       }
     ],
     "rootPaperId": 248180,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248741
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1997,11 +2282,20 @@
         "organization": "Stadtrat",
         "agendaItem": "6.28",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-05-07T15:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.5",
+        "result": "vertagt"
       }
     ],
     "rootPaperId": 248182,
     "subordinatedPaperIds": [
-      248310
+      248310,
+      248498
     ],
     "superOrdinatedPaperIds": []
   },
@@ -2037,7 +2331,9 @@
       }
     ],
     "rootPaperId": 248183,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248590
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2103,6 +2399,53 @@
     "superOrdinatedPaperIds": [
       248073
     ]
+  },
+  {
+    "id": 248186,
+    "reference": "DS0048/26",
+    "type": "Beschlussvorlage EB",
+    "title": "Neufassung der Eigenbetriebssatzung des EB Puppentheater Magdeburg",
+    "files": [
+      {
+        "id": 736991,
+        "name": "Beschlussvorlage EB",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736991&type=do",
+        "size": null
+      },
+      {
+        "id": 740828,
+        "name": "DS0048/26 - Anlage 1 Satzung EB PTM Neufassung 2026",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=740828&type=do",
+        "size": null
+      },
+      {
+        "id": 740829,
+        "name": "DS0048/26 - Anlage 2 Synoptische Darstellung zur Neufassung Satzung EB PTM",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=740829&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-04-21T08:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "8.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Puppentheater Magdeburg",
+        "date": "2026-05-22T14:30:00+02:00",
+        "role": "Beratung",
+        "organization": "Betriebsausschuss Puppentheater Magdeburg",
+        "agendaItem": "6.3",
+        "result": null
+      }
+    ],
+    "rootPaperId": 248186,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   },
   {
     "id": 248187,
@@ -2232,6 +2575,83 @@
     ]
   },
   {
+    "id": 248190,
+    "reference": "I0039/26",
+    "type": "Informationsvorlage",
+    "title": "Elektromobilitätskonzept haushaltsangepasst umsetzen",
+    "files": [
+      {
+        "id": 742460,
+        "name": "Information",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742460&type=do",
+        "size": null
+      },
+      {
+        "id": 742694,
+        "name": "Anlage 1 - Entwicklung der Fahrzeuge mit Verbrennungsmotoren in der Landeshauptstadt Magdeburg von 2020 - 2025",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742694&type=do",
+        "size": null
+      },
+      {
+        "id": 742695,
+        "name": "Anlage 2 - Entwicklung der Elektrofahrzeuge (BEV) in der Landeshauptstadt Magdeburg von 2020 - 2025",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742695&type=do",
+        "size": null
+      },
+      {
+        "id": 742696,
+        "name": "Anlage 3 - Entwicklung von Plug-in Hybrid (PHEV) in der LHMD von 2021 bis 2025",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742696&type=do",
+        "size": null
+      },
+      {
+        "id": 742697,
+        "name": "Anlage 4 - Entwicklung der E-Fahrzeuge (BEV) im Jahr 2025 in der Landeshauptstadt Magdeburg",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742697&type=do",
+        "size": null
+      },
+      {
+        "id": 742698,
+        "name": "Anlage 5 - Entwicklung der E-Fahrzeug (BEV) innerhalb der Stadtteile von 2020 - 2025 in der Landeshauptstadt Magdeburg",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742698&type=do",
+        "size": null
+      },
+      {
+        "id": 742699,
+        "name": "Anlage 6 - Verteilung der Ladeinfrastruktur in der LH Magdeburg",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742699&type=do",
+        "size": null
+      },
+      {
+        "id": 742700,
+        "name": "Anlage 7 - Verteilung der Ladeinfrastruktur in der LH Magdeburg",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742700&type=do",
+        "size": null
+      },
+      {
+        "id": 742701,
+        "name": "Anlage 8 - Ladesäulentabelle_LHMD_modifiziert",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742701&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-05-12T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "5.3",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248190,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      245760
+    ]
+  },
+  {
     "id": 248191,
     "reference": "I0040/26",
     "type": "Informationsvorlage",
@@ -2307,43 +2727,49 @@
         "id": 737002,
         "name": "Beschlussvorlage EB",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737002&type=do",
-        "size": null
+        "size": 222270
       },
       {
         "id": 737006,
         "name": "DS0049/26 - Anlage 1 - Bilanz",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737006&type=do",
-        "size": null
+        "size": 558867
       },
       {
         "id": 737010,
         "name": "DS0049/26 - Anlage 4 - Lagebericht 2024",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737010&type=do",
-        "size": null
+        "size": 616041
       },
       {
         "id": 737011,
         "name": "DS0049/26 - Anlage 5 - Prüfvermerk des Abschlussprüfers 2024",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737011&type=do",
-        "size": null
+        "size": 584740
       },
       {
         "id": 737063,
         "name": "DS0049/26 - Anlage 6 - Feststellungsvermerk RPA",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737063&type=do",
-        "size": null
+        "size": 230425
       },
       {
         "id": 737065,
         "name": "DS0049/26 - Anlage 3 - Anhang für das Geschäftsjahr 2024 inkl. Anlagespiegel",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737065&type=do",
-        "size": null
+        "size": 726164
       },
       {
         "id": 737399,
         "name": "DS0049/26 - Anlage 2 - Gewinn- und Verlustrechnung",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737399&type=do",
-        "size": null
+        "size": 346101
+      },
+      {
+        "id": 743256,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743256&type=do",
+        "size": 86317
       }
     ],
     "consultations": [
@@ -2370,6 +2796,14 @@
         "organization": "Ausschuss für Rechnungsprüfung",
         "agendaItem": "4.1",
         "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-04-23T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.9",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 248193,
@@ -2463,10 +2897,28 @@
         "organization": "Stadtrat",
         "agendaItem": "6.30",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-05-07T15:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.3",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Gesundheits- und Sozialausschusses",
+        "date": "2026-05-13T17:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Gesundheits- und Sozialausschuss",
+        "agendaItem": "4.1.1",
+        "result": "empfohlen mit Änderungsantrag"
       }
     ],
     "rootPaperId": 248198,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248489
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2490,10 +2942,28 @@
         "organization": "Stadtrat",
         "agendaItem": "6.31",
         "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-04-23T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.17",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-04-27T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.17",
+        "result": "in die Ausschüsse verwiesen"
       }
     ],
     "rootPaperId": 248199,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248774
+    ],
     "superOrdinatedPaperIds": []
   }
 ]

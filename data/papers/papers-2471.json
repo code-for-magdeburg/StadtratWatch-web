@@ -1703,6 +1703,12 @@
         "name": "A0192/25 Antrag",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727167&type=do",
         "size": 66426
+      },
+      {
+        "id": 743328,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743328&type=do",
+        "size": 68272
       }
     ],
     "consultations": [
@@ -1777,6 +1783,22 @@
         "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
         "agendaItem": "8",
         "result": "geändert empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-04-23T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.14",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-04-27T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.14",
+        "result": "mit Beschlussfassung zum Änderungsantrag erledigt"
       }
     ],
     "rootPaperId": 247159,
@@ -1963,25 +1985,25 @@
         "id": 727314,
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727314&type=do",
-        "size": null
+        "size": 164086
       },
       {
         "id": 735738,
         "name": "DS0466/25 - Anlage 1 Neufassung Benutzungs- und Entgeltordnung nebst Anlage",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735738&type=do",
-        "size": null
+        "size": 117534
       },
       {
         "id": 736967,
         "name": "DS0466/25 - Anlage 1 Anlage zur § 3 der Benutzungs- und Entgeltordnung",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=736967&type=do",
-        "size": null
+        "size": 454521
       },
       {
         "id": 737374,
         "name": "DS0466/25 - Anlage 2 Synopse Entgeltordnung",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737374&type=do",
-        "size": null
+        "size": 151395
       }
     ],
     "consultations": [
@@ -2000,10 +2022,28 @@
         "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
         "agendaItem": "4",
         "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2026-04-17T15:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-04-23T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.1",
+        "result": "in die Ausschüsse verwiesen"
       }
     ],
     "rootPaperId": 247165,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248738
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2930,7 +2970,8 @@
     ],
     "rootPaperId": 247187,
     "subordinatedPaperIds": [
-      247507
+      247507,
+      248405
     ],
     "superOrdinatedPaperIds": []
   },
