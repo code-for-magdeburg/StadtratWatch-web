@@ -1973,12 +1973,12 @@
             "result": "genehmigt OB"
           },
           {
-            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie\r\n\r\nSitzung konnte aufgrund von Beschlussunfähigkeit nicht stattfinden",
             "date": "2026-05-12T17:00:00+02:00",
             "role": "Kenntnisnahme",
             "organization": "Ausschuss für Umwelt und Energie",
             "agendaItem": "7.2",
-            "result": null
+            "result": "vertagt"
           },
           {
             "meeting": "öffentliche/nicht öffentliche Sitzung des Gesundheits- und Sozialausschusses",
@@ -2199,8 +2199,39 @@
           }
         ],
         "rootPaperId": 248589,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          248614
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 248614,
+        "reference": "S0167/26",
+        "type": "Stellungnahme (Anfrage)",
+        "title": "Nordflügel Neues Rathaus",
+        "files": [
+          {
+            "id": 740810,
+            "name": "Stellungnahme (Anfrage)",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=740810&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-04-28T09:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "8.4",
+            "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 248589,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          248589
+        ]
       }
     ]
   },
