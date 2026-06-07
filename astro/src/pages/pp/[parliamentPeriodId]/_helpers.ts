@@ -199,7 +199,7 @@ export const getParliamentPeriodWithSessionAndVotingPaths = async () => {
         params: {
           parliamentPeriodId: parliamentPeriod.id,
           sessionId: sessionInput.session.id,
-          votingId: +voting.votingFilename.substring(11, 14),
+          votingId: voting.votingFilename.substring(11, 14),
         },
         props: {
           parliamentPeriod,

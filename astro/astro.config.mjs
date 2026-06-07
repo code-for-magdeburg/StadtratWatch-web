@@ -51,9 +51,6 @@ export default defineConfig({
   integrations: [alpinejs(), sitemap()],
 
   vite: {
-    // TODO: The following @ts-expect-error directive should be safely removed after upgrading to Astro 7
-    // See https://github.com/withastro/astro/issues/14030#issuecomment-3027129338
-    // @ts-expect-error
     plugins: [tailwindcss()],
   },
 

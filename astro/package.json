@@ -12,9 +12,9 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.4.9",
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/alpinejs": "^0.5.0",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/sitemap": "^3.7.3",
     "@fontsource/dm-sans": "^5.2.5",
     "@iconify-json/lucide": "^1.2.37",
     "@iconify/tailwind4": "^1.0.6",
@@ -22,8 +22,8 @@
     "@types/alpinejs": "^3.13.11",
     "@types/d3": "^7.4.3",
     "alpinejs": "^3.14.9",
-    "astro": "^5.14.5",
-    "astro-seo-meta": "^5.1.0",
+    "astro": "^6.4.4",
+    "astro-seo-meta": "^6.0.0",
     "chart.js": "^4.4.9",
     "chartjs-adapter-date-fns": "^3.0.0",
     "d3": "^7.9.0",
@@ -38,5 +38,8 @@
     "@tailwindcss/typography": "^0.5.16",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "0.14.1"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
