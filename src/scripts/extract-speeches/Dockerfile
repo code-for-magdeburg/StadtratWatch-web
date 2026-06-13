@@ -1,4 +1,4 @@
-FROM jrottenberg/ffmpeg:4.4-alpine
+FROM jrottenberg/ffmpeg:8.1-alpine
 
 RUN apk add --no-cache bash jq
 
