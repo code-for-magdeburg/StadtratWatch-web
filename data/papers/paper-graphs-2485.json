@@ -1444,12 +1444,21 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "6.21",
-            "result": null
+            "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-06-11T16:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "5.2",
+            "result": "geändert empfohlen"
           }
         ],
         "rootPaperId": 248561,
         "subordinatedPaperIds": [
-          248881
+          248881,
+          248978
         ],
         "superOrdinatedPaperIds": []
       },
@@ -1489,7 +1498,52 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "6.21.1",
-            "result": null
+            "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-06-11T16:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "5.2.1",
+            "result": "empfohlen"
+          }
+        ],
+        "rootPaperId": 248561,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          248561
+        ]
+      },
+      {
+        "id": 248978,
+        "reference": "DS0105/26/2",
+        "type": "Änderungsantrag",
+        "title": "Neubau Kinderschutzzentrum, Wilhelm-Kobelt-Straße 31, 39108 Magdeburg Erweiterung der Aufgabenstellung",
+        "files": [
+          {
+            "id": 744068,
+            "name": "DS0105/26/2 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744068&type=do",
+            "size": 109029
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "6.21.2",
+            "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-06-11T16:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "5.2.2",
+            "result": "nicht empfohlen"
           }
         ],
         "rootPaperId": 248561,
@@ -1559,8 +1613,39 @@
           }
         ],
         "rootPaperId": 248563,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          248857
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 248857,
+        "reference": "S0219/26",
+        "type": "Stellungnahme (Anfrage)",
+        "title": "Zukunft des Restaurants Petriförder",
+        "files": [
+          {
+            "id": 743064,
+            "name": "Stellungnahme (Anfrage)",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743064&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-05-19T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.1",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 248563,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          248563
+        ]
       }
     ]
   },
@@ -1660,8 +1745,39 @@
           }
         ],
         "rootPaperId": 248565,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          249006
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 249006,
+        "reference": "S0251/26",
+        "type": "Stellungnahme (Anfrage)",
+        "title": "Ursache des Nährstoffeintrags in den Neustädter See",
+        "files": [
+          {
+            "id": 744205,
+            "name": "Stellungnahme (Anfrage)",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744205&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-06-02T00:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "8.3",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 248565,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          248565
+        ]
       }
     ]
   },
@@ -1974,7 +2090,7 @@
           },
           {
             "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie\r\n\r\nSitzung konnte aufgrund von Beschlussunfähigkeit nicht stattfinden",
-            "date": "2026-05-12T17:00:00+02:00",
+            "date": "2026-05-12T17:05:00+02:00",
             "role": "Kenntnisnahme",
             "organization": "Ausschuss für Umwelt und Energie",
             "agendaItem": "7.2",
@@ -2164,11 +2280,90 @@
             "organization": "Stadtrat",
             "agendaItem": "6.23",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2026-06-09T17:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "6.3",
+            "result": "nicht empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-06-11T16:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.10",
+            "result": "zurückgestellt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+            "date": "2026-06-23T16:30:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Bildung, Schule und Sport",
+            "agendaItem": "8.1",
+            "result": null
+          }
+        ],
+        "rootPaperId": 248588,
+        "subordinatedPaperIds": [
+          248882
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 248882,
+        "reference": "S0223/26",
+        "type": "Stellungnahme (Antrag)",
+        "title": "Verkehrsberuhigung in der Zerrennerstraße",
+        "files": [
+          {
+            "id": 743365,
+            "name": "S0223/26 Stellungnahme (Antrag)",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743365&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-05-26T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "8.7",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2026-06-09T17:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "6.3.1",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-06-11T16:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.10.1",
+            "result": "zurückgestellt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+            "date": "2026-06-23T16:30:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Bildung, Schule und Sport",
+            "agendaItem": "8.2",
+            "result": null
           }
         ],
         "rootPaperId": 248588,
         "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": []
+        "superOrdinatedPaperIds": [
+          248588
+        ]
       }
     ]
   },

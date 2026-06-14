@@ -299,6 +299,12 @@
             "name": "A0246/25 Antrag",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=730402&type=do",
             "size": 121119
+          },
+          {
+            "id": 745117,
+            "name": "Beschlussausfertigung",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745117&type=do",
+            "size": 61883
           }
         ],
         "consultations": [
@@ -309,11 +315,36 @@
             "organization": "Stadtrat",
             "agendaItem": "7.42",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-04-16T16:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.6",
+            "result": "nicht empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.10",
+            "result": "vertagt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-26T16:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.10",
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 247506,
         "subordinatedPaperIds": [
-          248519
+          248519,
+          248981
         ],
         "superOrdinatedPaperIds": []
       },
@@ -338,6 +369,43 @@
             "organization": "Die Oberbürgermeisterin",
             "agendaItem": "9.25",
             "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 247506,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247506
+        ]
+      },
+      {
+        "id": 248981,
+        "reference": "A0246/25/1",
+        "type": "Änderungsantrag",
+        "title": "Baustellen Checkliste für Fuß- und Radverkehr",
+        "files": [
+          {
+            "id": 744150,
+            "name": "Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744150&type=do",
+            "size": 109084
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.10.1",
+            "result": "vertagt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-26T16:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.10.1",
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 247506,
@@ -1025,9 +1093,48 @@
           }
         ],
         "rootPaperId": 247514,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          248858
+        ],
         "superOrdinatedPaperIds": [
           247514
+        ]
+      },
+      {
+        "id": 248858,
+        "reference": "I0153/26",
+        "type": "Informationsvorlage",
+        "title": "Sichere Querung der Maybachstraße an der Glacis-Anlage",
+        "files": [
+          {
+            "id": 743051,
+            "name": "I0153/26 Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743051&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-05-26T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "5.5",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-06-11T16:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "7.5",
+            "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 247514,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          248272
         ]
       }
     ]

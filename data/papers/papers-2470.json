@@ -532,6 +532,12 @@
         "name": "A0187/25 Antrag",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727161&type=do",
         "size": 63886
+      },
+      {
+        "id": 745102,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745102&type=do",
+        "size": 58193
       }
     ],
     "consultations": [
@@ -558,11 +564,30 @@
         "organization": "Verwaltungsausschuss",
         "agendaItem": "5.5",
         "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2026-04-17T15:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "6.3",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.4",
+        "result": "geändert beschlossen"
       }
     ],
     "rootPaperId": 247020,
     "subordinatedPaperIds": [
-      247652
+      247652,
+      248773,
+      248813,
+      248964
     ],
     "superOrdinatedPaperIds": []
   },
