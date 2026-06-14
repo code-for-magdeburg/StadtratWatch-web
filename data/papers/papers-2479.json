@@ -1310,6 +1310,12 @@
         "name": "A0290/25 Antrag",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=734986&type=do",
         "size": 18303
+      },
+      {
+        "id": 745126,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745126&type=do",
+        "size": 14199
       }
     ],
     "consultations": [
@@ -1328,11 +1334,36 @@
         "organization": "Stadtrat",
         "agendaItem": "8.26",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+        "date": "2026-04-16T17:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.14",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-26T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.14",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247953,
     "subordinatedPaperIds": [
-      248143
+      248143,
+      248992
     ],
     "superOrdinatedPaperIds": []
   },
@@ -1381,49 +1412,55 @@
         "id": 735199,
         "name": "Beschlussvorlage EB",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735199&type=do",
-        "size": null
+        "size": 214813
       },
       {
         "id": 735510,
         "name": "DS0001_26 Anlage 1 Konstruktive Lösung",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735510&type=do",
-        "size": null
+        "size": 1281979
       },
       {
         "id": 735511,
         "name": "DS0001_26 Anlage 2 Darstellung Problemfelder",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735511&type=do",
-        "size": null
+        "size": 4516472
       },
       {
         "id": 735512,
         "name": "DS0001_26 Anlage 3 Abbildung Varianten",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735512&type=do",
-        "size": null
+        "size": 601688
       },
       {
         "id": 735513,
         "name": "DS0001_26 Anlage 4 Variantenvergleich",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735513&type=do",
-        "size": null
+        "size": 49491
       },
       {
         "id": 735514,
         "name": "DS0001_26 Anlage 5 Kostenübersicht",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735514&type=do",
-        "size": null
+        "size": 436133
       },
       {
         "id": 735515,
         "name": "DS0001_26 Anlage 6 Vorschlag Projektabwicklung",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735515&type=do",
-        "size": null
+        "size": 132361
       },
       {
         "id": 738403,
         "name": "DS0001_26 Mitzeichnung Behindertenbeauftragte",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=738403&type=do",
-        "size": null
+        "size": 489107
+      },
+      {
+        "id": 745072,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745072&type=do",
+        "size": 34197
       }
     ],
     "consultations": [
@@ -1434,10 +1471,52 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "7.3",
         "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Stadtgarten und Friedhöfe Magdeburg",
+        "date": "2026-04-28T16:30:00+02:00",
+        "role": "Beratung",
+        "organization": "Betriebsausschuss Stadtgarten und Friedhöfe Magdeburg",
+        "agendaItem": "6.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Kommunales Gebäudemanagement",
+        "date": "2026-05-05T16:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Betriebsausschuss Kommunales Gebäudemanagement",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-05-07T15:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-05-13T16:30:00+02:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.6",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247955,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249011
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2151,6 +2230,12 @@
         "name": "A0006/26 Antrag",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=734995&type=do",
         "size": 85101
+      },
+      {
+        "id": 745127,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745127&type=do",
+        "size": 68130
       }
     ],
     "consultations": [
@@ -2192,7 +2277,15 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "7.15",
-        "result": null
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-26T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.15",
+        "result": "abgelehnt"
       }
     ],
     "rootPaperId": 247976,
@@ -2212,6 +2305,12 @@
         "name": "Antrag",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=734997&type=do",
         "size": 114492
+      },
+      {
+        "id": 745128,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745128&type=do",
+        "size": 12894
       }
     ],
     "consultations": [
@@ -2238,6 +2337,30 @@
         "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
         "agendaItem": "6.2",
         "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-04-15T16:30:00+02:00",
+        "role": "Beratung",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.3",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.16",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-26T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.16",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247977,
@@ -2374,6 +2497,12 @@
         "name": "A0011/26 Antrag",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735012&type=do",
         "size": 135266
+      },
+      {
+        "id": 745129,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745129&type=do",
+        "size": 13642
       }
     ],
     "consultations": [
@@ -2392,6 +2521,30 @@
         "organization": "Stadtrat",
         "agendaItem": "8.23",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-04-16T16:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.10",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.17",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-26T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.17",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247983,
@@ -2446,6 +2599,12 @@
         "name": "A0013/26 Antrag",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735018&type=do",
         "size": 14588
+      },
+      {
+        "id": 745130,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745130&type=do",
+        "size": 61811
       }
     ],
     "consultations": [
@@ -2487,7 +2646,15 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "7.18",
-        "result": null
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-26T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.18",
+        "result": "abgelehnt"
       }
     ],
     "rootPaperId": 247985,
@@ -2507,6 +2674,12 @@
         "name": "A0014/26 Antrag",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=735020&type=do",
         "size": 60724
+      },
+      {
+        "id": 745131,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745131&type=do",
+        "size": 12789
       }
     ],
     "consultations": [
@@ -2533,6 +2706,30 @@
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "5.1",
         "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Stadtgarten und Friedhöfe Magdeburg",
+        "date": "2026-04-28T16:30:00+02:00",
+        "role": "Beratung",
+        "organization": "Betriebsausschuss Stadtgarten und Friedhöfe Magdeburg",
+        "agendaItem": "7.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.19",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-26T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.19",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 247986,

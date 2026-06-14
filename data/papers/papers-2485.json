@@ -1412,12 +1412,21 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "6.21",
-        "result": null
+        "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-06-11T16:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "5.2",
+        "result": "geändert empfohlen"
       }
     ],
     "rootPaperId": 248561,
     "subordinatedPaperIds": [
-      248881
+      248881,
+      248978
     ],
     "superOrdinatedPaperIds": []
   },
@@ -1472,7 +1481,9 @@
       }
     ],
     "rootPaperId": 248563,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248857
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1528,7 +1539,9 @@
       }
     ],
     "rootPaperId": 248565,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249006
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1749,7 +1762,7 @@
       },
       {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie\r\n\r\nSitzung konnte aufgrund von Beschlussunfähigkeit nicht stattfinden",
-        "date": "2026-05-12T17:00:00+02:00",
+        "date": "2026-05-12T17:05:00+02:00",
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "7.2",
@@ -1977,10 +1990,36 @@
         "organization": "Stadtrat",
         "agendaItem": "6.23",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+        "date": "2026-06-09T17:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Umwelt und Energie",
+        "agendaItem": "6.3",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-06-11T16:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.10",
+        "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Bildung, Schule und Sport",
+        "date": "2026-06-23T16:30:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Bildung, Schule und Sport",
+        "agendaItem": "8.1",
+        "result": null
       }
     ],
     "rootPaperId": 248588,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248882
+    ],
     "superOrdinatedPaperIds": []
   },
   {

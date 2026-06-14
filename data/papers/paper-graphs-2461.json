@@ -1868,7 +1868,8 @@
         ],
         "rootPaperId": 246143,
         "subordinatedPaperIds": [
-          246433
+          246433,
+          248998
         ],
         "superOrdinatedPaperIds": []
       },
@@ -1932,6 +1933,51 @@
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
             "agendaItem": "7.7.1",
+            "result": "zur Kenntnis genommen"
+          }
+        ],
+        "rootPaperId": 246143,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          246143
+        ]
+      },
+      {
+        "id": 248998,
+        "reference": "I0172/26",
+        "type": "Informationsvorlage",
+        "title": "Digitalisierung Baugenehmigungsverfahren",
+        "files": [
+          {
+            "id": 744160,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744160&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-06-02T00:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "5.2",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-06-11T16:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "7.7",
+            "result": "zur Kenntnis genommen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+            "date": "2026-06-11T17:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+            "agendaItem": "15",
             "result": "zur Kenntnis genommen"
           }
         ],

@@ -45,6 +45,12 @@
         "name": "A0029/26 Antrag",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737099&type=do",
         "size": 110235
+      },
+      {
+        "id": 745133,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745133&type=do",
+        "size": 64511
       }
     ],
     "consultations": [
@@ -78,7 +84,15 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "7.21",
-        "result": null
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-26T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.21",
+        "result": "Einzelabstimmung"
       }
     ],
     "rootPaperId": 248201,
@@ -186,6 +200,12 @@
         "name": "A0033/26 Antrag",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737092&type=do",
         "size": 15040
+      },
+      {
+        "id": 745134,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745134&type=do",
+        "size": 13160
       }
     ],
     "consultations": [
@@ -204,6 +224,30 @@
         "organization": "Stadtrat",
         "agendaItem": "6.46",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-04-16T16:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.2",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.22",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-26T16:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "7.22",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 248205,
@@ -987,7 +1031,7 @@
         "role": "Beratung",
         "organization": "Ausschuss für Familie und Gleichstellung",
         "agendaItem": "5.2",
-        "result": null
+        "result": "empfohlen"
       }
     ],
     "rootPaperId": 248225,
@@ -1805,7 +1849,7 @@
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
         "agendaItem": "7.7.2",
-        "result": null
+        "result": "vertagt"
       }
     ],
     "rootPaperId": 247478,
@@ -1900,6 +1944,12 @@
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=737570&type=do",
         "size": 167908
+      },
+      {
+        "id": 745092,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745092&type=do",
+        "size": 13079
       }
     ],
     "consultations": [
@@ -1933,11 +1983,13 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "6.10",
-        "result": null
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 248260,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249010
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2023,7 +2075,7 @@
       },
       {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie\r\n\r\nSitzung konnte aufgrund von Beschlussunfähigkeit nicht stattfinden",
-        "date": "2026-05-12T17:00:00+02:00",
+        "date": "2026-05-12T17:05:00+02:00",
         "role": "Beratung",
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "5.10",
@@ -2076,7 +2128,7 @@
       },
       {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie\r\n\r\nSitzung konnte aufgrund von Beschlussunfähigkeit nicht stattfinden",
-        "date": "2026-05-12T17:00:00+02:00",
+        "date": "2026-05-12T17:05:00+02:00",
         "role": "Beratung",
         "organization": "Ausschuss für Umwelt und Energie",
         "agendaItem": "5.11",
@@ -2160,7 +2212,9 @@
       }
     ],
     "rootPaperId": 247514,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248858
+    ],
     "superOrdinatedPaperIds": [
       247514
     ]
@@ -2889,7 +2943,15 @@
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
         "agendaItem": "10.13",
-        "result": null
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-26T16:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "10.13",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 248291,

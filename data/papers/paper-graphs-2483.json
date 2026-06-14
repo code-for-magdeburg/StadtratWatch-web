@@ -551,8 +551,39 @@
           }
         ],
         "rootPaperId": 248322,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          248838
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 248838,
+        "reference": "S0215/26",
+        "type": "Stellungnahme (Anfrage)",
+        "title": "Kastanienstraße",
+        "files": [
+          {
+            "id": 742912,
+            "name": "S0215/26 Stellungnahme (Anfrage)",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742912&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-05-26T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "8.6",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 248322,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          248322
+        ]
       }
     ]
   },
@@ -1631,6 +1662,22 @@
             "organization": "Die Oberbürgermeisterin",
             "agendaItem": "4.9",
             "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2026-06-09T17:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "5.11",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-06-11T16:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "5.5",
+            "result": "empfohlen"
           }
         ],
         "rootPaperId": 248354,
@@ -1890,6 +1937,22 @@
             "organization": "Ausschuss für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
             "agendaItem": "4.1",
             "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+            "date": "2026-06-09T17:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Umwelt und Energie",
+            "agendaItem": "5.3",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+            "date": "2026-06-10T16:30:00+02:00",
+            "role": "Beratung",
+            "organization": "Finanz- und Grundstücksausschuss",
+            "agendaItem": "5.7",
+            "result": "empfohlen"
           }
         ],
         "rootPaperId": 248377,
@@ -1932,6 +1995,12 @@
             "name": "DS0079/26 - Anlage 1 Übersichtsblatt",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739303&type=do",
             "size": 906889
+          },
+          {
+            "id": 745098,
+            "name": "Beschlussausfertigung",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745098&type=do",
+            "size": 58801
           }
         ],
         "consultations": [
@@ -1957,7 +2026,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "6.24",
-            "result": null
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 248386,
@@ -2061,11 +2130,58 @@
             "organization": "Stadtrat",
             "agendaItem": "7.22",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+            "date": "2026-06-11T17:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+            "agendaItem": "8",
+            "result": "nicht empfohlen"
+          }
+        ],
+        "rootPaperId": 248390,
+        "subordinatedPaperIds": [
+          248910
+        ],
+        "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 248910,
+        "reference": "S0229/26",
+        "type": "Stellungnahme (Antrag)",
+        "title": "Einziehung öffentlich-rechtlicher Mittel von Bund und Land",
+        "files": [
+          {
+            "id": 743499,
+            "name": "Stellungnahme (Antrag)",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743499&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-05-19T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "9.6",
+            "result": "genehmigt OB"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+            "date": "2026-06-11T17:00:00+02:00",
+            "role": "Kenntnisnahme",
+            "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+            "agendaItem": "8.1",
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 248390,
         "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": []
+        "superOrdinatedPaperIds": [
+          248390
+        ]
       }
     ]
   },
@@ -2228,7 +2344,7 @@
             "role": "Beratung",
             "organization": "Kulturausschuss",
             "agendaItem": "5.2",
-            "result": null
+            "result": "empfohlen"
           }
         ],
         "rootPaperId": 248396,
@@ -2508,10 +2624,10 @@
             "size": 604253
           },
           {
-            "id": 743253,
+            "id": 745111,
             "name": "Beschlussausfertigung",
-            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743253&type=do",
-            "size": 12690
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745111&type=do",
+            "size": 12388
           }
         ],
         "consultations": [
@@ -2545,7 +2661,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "5.1",
-            "result": null
+            "result": "geändert beschlossen"
           }
         ],
         "rootPaperId": 248399,
@@ -2583,7 +2699,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "5.1.1",
-            "result": null
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 248399,
@@ -2620,7 +2736,7 @@
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
             "agendaItem": "5.1.2",
-            "result": null
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 248399,

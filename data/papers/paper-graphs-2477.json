@@ -502,6 +502,12 @@
             "name": "Antrag",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=732416&type=do",
             "size": 15557
+          },
+          {
+            "id": 745123,
+            "name": "Beschlussausfertigung",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745123&type=do",
+            "size": 61506
           }
         ],
         "consultations": [
@@ -520,6 +526,30 @@
             "organization": "Stadtrat",
             "agendaItem": "7.25",
             "result": "in die Ausschüsse verwiesen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+            "date": "2026-04-16T16:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+            "agendaItem": "6.7",
+            "result": "nicht empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.13",
+            "result": "vertagt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-26T16:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.13",
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 247714,
@@ -697,8 +727,39 @@
           }
         ],
         "rootPaperId": 247717,
-        "subordinatedPaperIds": [],
+        "subordinatedPaperIds": [
+          248937
+        ],
         "superOrdinatedPaperIds": []
+      },
+      {
+        "id": 248937,
+        "reference": "I0164/26",
+        "type": "Informationsvorlage Prüfantrag",
+        "title": "Entspannung der Personalsituation im städtischen Badebetrieb",
+        "files": [
+          {
+            "id": 743654,
+            "name": "Information",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743654&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-05-26T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "5.2",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 247717,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247717
+        ]
       }
     ]
   },

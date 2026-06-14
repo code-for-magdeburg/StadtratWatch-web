@@ -856,6 +856,12 @@
             "name": "A0187/25 Antrag",
             "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=727161&type=do",
             "size": 63886
+          },
+          {
+            "id": 745102,
+            "name": "Beschlussausfertigung",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745102&type=do",
+            "size": 58193
           }
         ],
         "consultations": [
@@ -882,11 +888,30 @@
             "organization": "Verwaltungsausschuss",
             "agendaItem": "5.5",
             "result": "zurückgestellt"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+            "date": "2026-04-17T15:00:00+02:00",
+            "role": "Beratung",
+            "organization": "Verwaltungsausschuss",
+            "agendaItem": "6.3",
+            "result": "empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.4",
+            "result": "geändert beschlossen"
           }
         ],
         "rootPaperId": 247020,
         "subordinatedPaperIds": [
-          247652
+          247652,
+          248773,
+          248813,
+          248964
         ],
         "superOrdinatedPaperIds": []
       },
@@ -919,6 +944,101 @@
             "organization": "Verwaltungsausschuss",
             "agendaItem": "5.5.1",
             "result": "zurückgestellt"
+          }
+        ],
+        "rootPaperId": 247020,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247020
+        ]
+      },
+      {
+        "id": 248773,
+        "reference": "A0187/25/2",
+        "type": "Änderungsantrag",
+        "title": "Benennung des Fluplatzes Magdeburg in \"Flugplatz Magdeburg - Hans Grade\"",
+        "files": [
+          {
+            "id": 742054,
+            "name": "A0187/25/2 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742054&type=do",
+            "size": 13594
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+            "date": "2026-04-17T15:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Verwaltungsausschuss",
+            "agendaItem": "6.3.2",
+            "result": "nicht empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.4.2",
+            "result": "abgelehnt"
+          }
+        ],
+        "rootPaperId": 247020,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247020
+        ]
+      },
+      {
+        "id": 248813,
+        "reference": "A0187/25/1",
+        "type": "Änderungsantrag",
+        "title": "Benennung des Fluplatzes Magdeburg in \"Flugplatz Magdeburg – Hans Grade\"",
+        "files": [
+          {
+            "id": 742317,
+            "name": "A0187/25/1  Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742317&type=do",
+            "size": 62194
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.4.1",
+            "result": "ungeändert beschlossen"
+          }
+        ],
+        "rootPaperId": 247020,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          247020
+        ]
+      },
+      {
+        "id": 248964,
+        "reference": "A0187/25/3",
+        "type": "Änderungsantrag",
+        "title": "Benennung des Fluplatzes Magdeburg in \"Flugplatz Magdeburg – Hans Grade\"",
+        "files": [
+          {
+            "id": 743976,
+            "name": "A0187/25/3  Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743976&type=do",
+            "size": 60686
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-05-21T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "7.4.3",
+            "result": "abgelehnt"
           }
         ],
         "rootPaperId": 247020,

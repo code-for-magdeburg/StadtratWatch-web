@@ -70,7 +70,15 @@
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
         "agendaItem": "7.18.1",
-        "result": null
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-26T16:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "7.18.1",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 247985,
@@ -334,10 +342,28 @@
         "organization": "Stadtrat",
         "agendaItem": "7.25",
         "result": "in die Ausschüsse verwiesen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Stadtentwicklung, Bauen und Verkehr",
+        "date": "2026-06-11T16:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
+        "agendaItem": "6.2",
+        "result": "nicht empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für kommunale Rechts- und Bürgerangelegenheiten",
+        "date": "2026-06-11T17:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für kommunale Rechts- und Bürgerangelegenheiten",
+        "agendaItem": "9",
+        "result": "nicht empfohlen"
       }
     ],
     "rootPaperId": 248410,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248859
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -429,7 +455,7 @@
         "role": "Beratung",
         "organization": "Kulturausschuss",
         "agendaItem": "5.1",
-        "result": null
+        "result": "empfohlen"
       }
     ],
     "rootPaperId": 248414,
@@ -1236,7 +1262,7 @@
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
         "agendaItem": "10.1",
-        "result": null
+        "result": "vertagt"
       }
     ],
     "rootPaperId": 248222,
@@ -1295,6 +1321,12 @@
         "name": "DS0088/26 - Anlage 1 EW Bau ink. Kostenberechnung nach DIN 276 und Bauplänen",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739479&type=do",
         "size": 14093388
+      },
+      {
+        "id": 745074,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745074&type=do",
+        "size": 65062
       }
     ],
     "consultations": [
@@ -1336,7 +1368,7 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "6.8",
-        "result": null
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 248446,
@@ -1583,6 +1615,12 @@
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739504&type=do",
         "size": 160438
+      },
+      {
+        "id": 745069,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745069&type=do",
+        "size": 11972
       }
     ],
     "consultations": [
@@ -1608,7 +1646,7 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "6.4",
-        "result": null
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 248456,
@@ -1625,13 +1663,19 @@
         "id": 739512,
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739512&type=do",
-        "size": null
+        "size": 177214
       },
       {
         "id": 739513,
         "name": "DS0091/26 Anlage Spendenannahme SR",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739513&type=do",
-        "size": null
+        "size": 414387
+      },
+      {
+        "id": 745073,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745073&type=do",
+        "size": 31996
       }
     ],
     "consultations": [
@@ -1642,6 +1686,14 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "4.4",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.7",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 248457,
@@ -1705,7 +1757,7 @@
         "role": "Kenntnisnahme",
         "organization": "Kulturausschuss",
         "agendaItem": "6.2",
-        "result": null
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 248460,
@@ -1835,7 +1887,7 @@
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
         "agendaItem": "7.23.1",
-        "result": null
+        "result": "vertagt"
       }
     ],
     "rootPaperId": 248213,
@@ -1944,7 +1996,7 @@
         "role": "Kenntnisnahme",
         "organization": "Stadtrat",
         "agendaItem": "10.5",
-        "result": null
+        "result": "vertagt"
       }
     ],
     "rootPaperId": 248469,
@@ -2026,6 +2078,12 @@
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739700&type=do",
         "size": 163882
+      },
+      {
+        "id": 745071,
+        "name": "Beschlussausfertigung",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745071&type=do",
+        "size": 12062
       }
     ],
     "consultations": [
@@ -2075,7 +2133,7 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "6.5",
-        "result": null
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 248473,
@@ -2430,19 +2488,19 @@
         "id": 739895,
         "name": "Information",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739895&type=do",
-        "size": null
+        "size": 16342
       },
       {
         "id": 739898,
         "name": "Anlage 1_Akustikgutachten_Orgel",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739898&type=do",
-        "size": null
+        "size": 1830669
       },
       {
         "id": 739899,
         "name": "Anlage 2_Gutachten Multipolare Orgel Orgelbau Kutter",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739899&type=do",
-        "size": null
+        "size": 291735
       }
     ],
     "consultations": [
@@ -2453,6 +2511,30 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "6.8",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Kulturausschusses",
+        "date": "2026-04-22T17:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Kulturausschuss",
+        "agendaItem": "6.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "10.6",
+        "result": "vertagt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-26T16:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "10.6",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 244740,
@@ -2471,7 +2553,7 @@
         "id": 739912,
         "name": "Stellungnahme (Antrag)",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=739912&type=do",
-        "size": null
+        "size": 103625
       }
     ],
     "consultations": [
@@ -2482,6 +2564,22 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "9.1",
         "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-04-15T16:30:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.4.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-05-21T14:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "7.2.1",
+        "result": "zur Kenntnis genommen"
       }
     ],
     "rootPaperId": 246956,
