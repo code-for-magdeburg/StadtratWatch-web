@@ -131,6 +131,18 @@ import Layout from '@layouts/Layout.astro';
         <input
           role="tab"
           class="tab"
+          aria-label="Abstimmungen"
+          type="radio"
+          name="paper-tabs-radio"
+        />
+        <div class="tab-content border-base-200 bg-base-100 p-6">
+          <!-- TODO: Replace placeholder for paper details -->
+          <pre x-html="JSON.stringify(paper, null, 2)"></pre>
+        </div>
+
+        <input
+          role="tab"
+          class="tab"
           aria-label="Zugehörige Drucksachen"
           type="radio"
           name="paper-tabs-radio"
