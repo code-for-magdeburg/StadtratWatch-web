@@ -1,0 +1,36 @@
+= Qualitätsziele
+
+Die folgenden Qualitätsziele sind für StadtratWatch maßgeblich und nach Priorität
+geordnet (1 = höchste Priorität). Die Reihenfolge gibt vor, welches Ziel im
+Konfliktfall Vorrang hat. Diese Ziele bilden die Grundlage für die
+Architekturentscheidungen in den folgenden Kapiteln.
+
+[cols="1,2,4",options="header"]
+|===
+| Prio | Qualitätsziel | Motivation und Erläuterung
+
+| 1
+| *Transparenz & Nachvollziehbarkeit*
+| Die Plattform existiert, um Transparenz herzustellen. Jede angezeigte Aussage
+  muss bis zur amtlichen Quelle (Video, OParl-Dokument) zurückverfolgbar sein.
+  Die Datenbasis ist offen (CC0) und über eine öffentliche API zugänglich, die
+  Verarbeitung soll reproduzierbar sein.
+
+| 2
+| *Datenkorrektheit & Glaubwürdigkeit*
+| Abstimmungsdaten entstehen u. a. durch OCR und automatische Erkennung und sind
+  damit fehleranfällig. Da die Glaubwürdigkeit der Plattform vollständig von der
+  Richtigkeit der Daten abhängt, müssen Erfassung und Auswertung auf Korrektheit
+  ausgelegt sein; freigegebene Sitzungsdaten sind unveränderlich.
+
+| 3
+| *Wartbarkeit & geringe Betriebskosten*
+| Das Projekt wird ehrenamtlich und mit knappen Mitteln betrieben. Die Architektur
+  setzt daher auf eine statisch ausgelieferte Website und bedarfsweise ausgeführte
+  Verarbeitungs-Pipelines, um Betrieb und Weiterentwicklung dauerhaft tragbar zu halten.
+
+| 4
+| *Barrierefreiheit & Zugänglichkeit*
+| Als öffentliches Gut soll die Plattform für alle Bürger:innen nutzbar sein —
+  schnell ladend, mobil bedienbar und barrierearm.
+|===

@@ -1,0 +1,49 @@
+= Aufgabenstellung
+
+== Was ist StadtratWatch?
+
+Kommunalpolitische Entscheidungen sind formal öffentlich, in der Praxis aber für
+Bürger:innen nur schwer nachvollziehbar: Sitzungen dauern Stunden, Abstimmungen
+sind über Videos verstreut, und Dokumente liegen in einem Ratsinformationssystem,
+das nicht auf Analyse ausgelegt ist. StadtratWatch schließt diese Lücke, indem es
+diese Quellen erschließt, dauerhaft verfügbar hält und in
+nachvollziehbare Auswertungen überführt.
+
+Die Plattform deckt mehrere Wahlperioden ab (aktuell `magdeburg-7`, 2019–2024,
+und `magdeburg-8`, ab 2024). Die Daten der abgeschlossenen Wahlperiode bleiben
+als historisches Archiv unverändert erhalten.
+
+== Wesentliche Funktionen
+
+[cols="1,4",options="header"]
+|===
+| Funktion | Beschreibung
+
+| Sitzungsverfolgung
+| Verarbeitung von Sitzungsvideos: Erkennung von Abstimmungsergebnissen
+  (OCR der eingeblendeten Abstimmungstafeln), Identifikation der Redner:innen
+  (Diarisierung) und Transkription der Redebeiträge (Speech-to-Text).
+
+| Abstimmungsanalyse
+| Statistische Auswertung des Abstimmungsverhaltens — u. a. Abstimmungs­matrix
+  (Ähnlichkeit zwischen Mitgliedern), Beteiligungs- und Enthaltungsraten,
+  Abstimmungserfolg sowie Fraktionsgeschlossenheit.
+
+| Personen-, Fraktions- und Parteiprofile
+| Aufbereitete Profile mit Kennzahlen, Abstimmungsverhalten, Redezeiten und
+  vergleichenden Auswertungen politischer Gruppierungen.
+
+| Redebeitragsanalyse
+| Transkribierte Redebeiträge mit Redezeit-Auswertung pro Person.
+
+| Parlamentarische Dokumente (Papers)
+| Übernahme von Vorlagen, Anträgen und Beratungsverläufen aus der OParl-Schnittstelle
+  der Stadt, inkl. PDF-Ansicht und Beratungs-Zeitleiste.
+
+| Volltextsuche
+| Durchsuchung aller Dokumente und transkribierten Redebeiträge (Typesense).
+
+| Öffentliche API & Open Data
+| REST-API (v1) für den programmatischen Zugriff auf Parlamentsdaten; die
+  bereitgestellten Daten stehen unter CC0 1.0 zur freien Verfügung.
+|===
