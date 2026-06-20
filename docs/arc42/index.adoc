@@ -24,9 +24,11 @@ include::02-randbedingungen/index.adoc[leveloffset=+1]
 // Kapitel 3 — geschrieben
 include::03-kontextabgrenzung/index.adoc[leveloffset=+1]
 
+// Kapitel 4 — geschrieben
+include::04-loesungsstrategie/index.adoc[leveloffset=+1]
+
 // Die folgenden Kapitel sind noch zu erstellen:
 //
-// include::04-loesungsstrategie/index.adoc[leveloffset=+1]
 // include::05-bausteinsicht/index.adoc[leveloffset=+1]
 // include::06-laufzeitsicht/index.adoc[leveloffset=+1]
 // include::07-verteilungssicht/index.adoc[leveloffset=+1]
@@ -46,7 +48,7 @@ include::03-kontextabgrenzung/index.adoc[leveloffset=+1]
 | 1  | <<einfuehrung-und-ziele,Einführung und Ziele>>      | ✅ erstellt
 | 2  | <<randbedingungen,Randbedingungen>>                 | ✅ erstellt
 | 3  | <<kontextabgrenzung,Kontextabgrenzung>>             | ✅ erstellt
-| 4  | Lösungsstrategie                                    | 🚧 geplant
+| 4  | <<loesungsstrategie,Lösungsstrategie>>              | ✅ erstellt
 | 5  | Bausteinsicht                                       | 🚧 geplant
 | 6  | Laufzeitsicht                                       | 🚧 geplant
 | 7  | Verteilungssicht                                    | 🚧 geplant

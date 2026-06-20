@@ -1,0 +1,37 @@
+= Ansätze je Qualitätsziel
+
+Die folgende Tabelle ordnet jedem Qualitätsziel aus Kapitel 1
+die architektonischen Ansätze zu, mit denen es erreicht wird. Die Reihenfolge
+folgt der dortigen Priorisierung.
+
+[cols="1,2,4",options="header"]
+|===
+| Prio | Qualitätsziel | Architektonische Ansätze
+
+| 1
+| *Transparenz & Nachvollziehbarkeit*
+| Offener, versionierter Datenbestand unter CC0; öffentliche REST-API; jede
+  angezeigte Aussage ist mit ihrer amtlichen Quelle verknüpft (Zeitstempel im
+  Sitzungsvideo, OParl-Dokument); die Verarbeitung ist als reproduzierbare
+  Pipeline ausgelegt, deren Schritte über die Git-Historie nachvollziehbar sind.
+
+| 2
+| *Datenkorrektheit & Glaubwürdigkeit*
+| Menschliche Prüfung und Freigabe der automatisch gewonnenen Daten vor der
+  Veröffentlichung; Unveränderlichkeit freigegebener Sitzungsdaten; durchgängig
+  getypte, geteilte Modelle; Testabdeckung der Datenzugriffe (u. a. der
+  OParl-Repositories).
+
+| 3
+| *Wartbarkeit & geringe Betriebskosten*
+| Statische Auslieferung ohne Anwendungsserver; nur bedarfsweise ausgeführte
+  Verarbeitungs-Pipelines; kein Betrieb einer eigenen Datenbank; Auslieferung über
+  Standard-Hosting/CDN; ein gemeinsamer Technologie-Stack (TypeScript) über beide
+  Teilsysteme.
+
+| 4
+| *Barrierefreiheit & Zugänglichkeit*
+| Schnell ladendes statisches HTML; responsives, mobil bedienbares Layout
+  (Tailwind/DaisyUI); clientseitige Interaktivität als progressive Erweiterung
+  (Alpine.js), sodass Kerninhalte auch ohne sie zugänglich bleiben.
+|===
