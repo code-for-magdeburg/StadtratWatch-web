@@ -47,6 +47,7 @@ export function buildPaperVotingsIndex(
           motionId: voting.votingSubject.motionId,
           title: voting.votingSubject.title,
           type: voting.votingSubject.type,
+          authors: voting.votingSubject.authors,
           accepted: votingAccepted(voting),
           votesByFactions: getVotesByFactions(voting.votes, period.registry),
         };

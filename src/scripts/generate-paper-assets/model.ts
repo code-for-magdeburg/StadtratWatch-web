@@ -34,6 +34,7 @@ export type PaperVotingDto = {
   motionId: string;
   title: string;
   type: string | null;
+  authors: string[];
   accepted: boolean;
   votesByFactions: PaperVotesByFactionDto[];
 };

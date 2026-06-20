@@ -177,6 +177,15 @@ import Layout from '@layouts/Layout.astro';
                     <span x-text="voting.motionId"></span>
                   </div>
                   <div class="text-base" x-text="voting.title"></div>
+                  <template x-if="voting.authors.length > 0">
+                    <div class="flex flex-wrap gap-1">
+                      <template x-for="author in voting.authors">
+                        <span
+                          class="badge badge-neutral badge-sm"
+                          x-text="author"></span>
+                      </template>
+                    </div>
+                  </template>
                   <div class="grid sm:grid-cols-[auto_1fr] sm:gap-x-2">
                     <template
                       x-for="votesByFaction in voting.votesByFactions"
@@ -269,6 +278,7 @@ import Layout from '@layouts/Layout.astro';
     motionId: string;
     title: string;
     type: string | null;
+    authors: string[];
     accepted: boolean;
     votesByFactions: VotesByFaction[];
   };
