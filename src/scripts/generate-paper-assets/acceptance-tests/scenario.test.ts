@@ -14,10 +14,19 @@ import {
 import { PaperAssetDto, PaperGraphAssetDto } from '../model.ts';
 import { PaperFilesStore } from '../paper-files-store.ts';
 import { PaperGraphAssetsWriter } from '../paper-graph-assets-writer.ts';
+import { ParliamentPeriodData, SessionDataStore } from '../session-data-store.ts';
 
 class MockPaperFilesStore implements PaperFilesStore {
   getFileSize(_fileId: number): number | null {
     return null;
+  }
+}
+
+class MockSessionDataStore implements SessionDataStore {
+  constructor(private readonly parliamentPeriods: ParliamentPeriodData[] = []) {}
+
+  loadParliamentPeriods(): ParliamentPeriodData[] {
+    return this.parliamentPeriods;
   }
 }
 
@@ -112,6 +121,7 @@ class MockPaperGraphAssetsWriter implements PaperGraphAssetsWriter {
 describe('Generating paper assets', () => {
   let paperFilesStore: MockPaperFilesStore;
   let oparlObjectsStore: MockOparlObjectsStore;
+  let sessionDataStore: MockSessionDataStore;
   let paperAssetsWriter: MockPaperAssetsWriter;
   let paperGraphAssetsWriter: MockPaperGraphAssetsWriter;
 
@@ -119,6 +129,7 @@ describe('Generating paper assets', () => {
     // GIVEN
     paperFilesStoreIsAvailable();
     oparlObjectStoreIsAvailable();
+    sessionDataStoreIsAvailable();
     paperAssetsWriterIsAvailable();
     paperGraphAssetWriterIsAvailable();
 
@@ -134,6 +145,7 @@ describe('Generating paper assets', () => {
     // GIVEN
     paperFilesStoreIsAvailable();
     oparlObjectStoreIsAvailable();
+    sessionDataStoreIsAvailable();
     paperAssetsWriterIsAvailable();
     paperGraphAssetWriterIsAvailable();
 
@@ -153,6 +165,10 @@ describe('Generating paper assets', () => {
     oparlObjectsStore = new MockOparlObjectsStore();
   }
 
+  function sessionDataStoreIsAvailable() {
+    sessionDataStore = new MockSessionDataStore();
+  }
+
   function paperAssetsWriterIsAvailable() {
     paperAssetsWriter = new MockPaperAssetsWriter();
   }
@@ -163,8 +179,10 @@ describe('Generating paper assets', () => {
 
   function runPaperAssetsGeneration() {
     const generator = new PaperAssetsGenerator(
+      'https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1',
       paperFilesStore,
       oparlObjectsStore,
+      sessionDataStore,
       paperAssetsWriter,
       paperGraphAssetsWriter,
     );

@@ -23,6 +23,9 @@ import { createInMemoryPaperGraph } from './paper-graph.ts';
 import { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
 import { PaperAssetsWriter } from './paper-assets-writer.ts';
 import { PaperGraphAssetsWriter } from './paper-graph-assets-writer.ts';
+import { SessionDataStore } from './session-data-store.ts';
+import { buildPaperVotingsIndex } from './paper-votings-index.ts';
+import { PaperVotingDto } from './model.ts';
 
 export class PaperAssetsGenerator {
   private readonly meetingsRepository: OparlMeetingsRepository;
@@ -32,8 +35,10 @@ export class PaperAssetsGenerator {
   private readonly filesRepository: OparlFilesRepository;
 
   constructor(
+    private readonly councilOrganizationId: string,
     private readonly paperFilesStore: PaperFilesStore,
     private readonly oparlObjectsStore: OparlObjectsStore,
+    private readonly sessionDataStore: SessionDataStore,
     private readonly paperAssetsWriter: PaperAssetsWriter,
     private readonly paperGraphAssetsWriter: PaperGraphAssetsWriter,
   ) {
@@ -49,12 +54,21 @@ export class PaperAssetsGenerator {
 
     const extractPaperId = (oparlPaperId: string) => +oparlPaperId.split('/').pop()!;
 
+    const votingsByPaperId = buildPaperVotingsIndex(
+      this.councilOrganizationId,
+      this.sessionDataStore.loadParliamentPeriods(),
+      this.oparlObjectsStore.loadMeetings(),
+      this.oparlObjectsStore.loadAgendaItems(),
+      this.oparlObjectsStore.loadConsultations(),
+    );
+
     const papers = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperDto>(
       (paper) => {
         console.log(`Processing paper ${paper.id} with reference ${paper.reference}`);
         const consultations = this.getConsultations(paper);
         const files = this.getFiles(paper);
         const paperId = extractPaperId(paper.id);
+        const votings: PaperVotingDto[] = votingsByPaperId.get(paperId) || [];
         const rootPaperId = onePaperGraph.getRootPapersOfPaper(paperId)[0];
         // Attention! subordinated papers and superordinated papers are swapped here
         // because of a wrong implementation of the OParl standard in the SOMACOS system
@@ -67,6 +81,7 @@ export class PaperAssetsGenerator {
           title: paper.name,
           files,
           consultations,
+          votings,
           rootPaperId,
           subordinatedPaperIds,
           superOrdinatedPaperIds,

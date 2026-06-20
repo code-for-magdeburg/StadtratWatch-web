@@ -14,6 +14,30 @@ export type PaperConsultationDto = {
   result: string | null;
 };
 
+export type PaperVoteDto = {
+  personName: string;
+  vote: string;
+};
+
+export type PaperVotesByFactionDto = {
+  factionId: string;
+  factionName: string;
+  votes: PaperVoteDto[];
+};
+
+export type PaperVotingDto = {
+  parliamentPeriodId: string;
+  sessionId: string;
+  votingId: number;
+  date: string;
+  agendaItem: string;
+  motionId: string;
+  title: string;
+  type: string | null;
+  accepted: boolean;
+  votesByFactions: PaperVotesByFactionDto[];
+};
+
 export type PaperDto = {
   id: number;
   reference: string | null;
@@ -21,6 +45,7 @@ export type PaperDto = {
   title: string;
   files: PaperFileDto[];
   consultations: PaperConsultationDto[];
+  votings: PaperVotingDto[];
   rootPaperId: number;
 };
 

@@ -136,8 +136,79 @@ import Layout from '@layouts/Layout.astro';
           name="paper-tabs-radio"
         />
         <div class="tab-content border-base-200 bg-base-100 p-6">
-          <!-- TODO: Replace placeholder for paper details -->
-          <pre x-html="JSON.stringify(paper, null, 2)"></pre>
+          <div
+            x-show="paper.votings.length === 0"
+            class="alert alert-info alert-soft"
+          >
+            <span class="iconify lucide--info size-5"></span>
+            Es liegen keine Abstimmungsdaten zu dieser Drucksache vor.
+          </div>
+
+          <ul
+            x-show="paper.votings.length > 0"
+            class="timeline timeline-vertical timeline-compact"
+          >
+            <template x-for="(voting, index) in paper.votings">
+              <li>
+                <hr x-show="index > 0" />
+                <div class="timeline-middle">
+                  <div
+                    class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1"
+                  >
+                    <span
+                      x-show="voting.accepted"
+                      aria-label="angenommen"
+                      class="iconify lucide--check text-success"></span>
+                    <span
+                      x-show="!voting.accepted"
+                      aria-label="abgelehnt"
+                      class="iconify lucide--x text-error"></span>
+                  </div>
+                </div>
+                <a
+                  :href="`/pp/${voting.parliamentPeriodId}/session/${voting.sessionId}/voting/${voting.votingId}`"
+                  class="timeline-end timeline-box mt-5 ms-3 w-full space-y-2 hover:bg-base-200 hover:cursor-pointer"
+                >
+                  <div class="text-base-content/70 space-x-1">
+                    <span x-text="voting.dateDisplay"></span>
+                    <span>·</span>
+                    <span x-text="voting.agendaItem"></span>
+                    <span x-text="voting.type"></span>
+                    <span x-text="voting.motionId"></span>
+                  </div>
+                  <div class="text-base" x-text="voting.title"></div>
+                  <div class="grid sm:grid-cols-[auto_1fr] sm:gap-x-2">
+                    <template
+                      x-for="votesByFaction in voting.votesByFactions"
+                      :key="votesByFaction.factionId"
+                    >
+                      <template x-if="votesByFaction.votes.length > 0">
+                        <div class="contents">
+                          <div
+                            class="text-base-content/70"
+                            x-text="`${votesByFaction.factionName}:`"
+                          >
+                          </div>
+                          <div class="mb-1 space-x-1">
+                            <template x-for="vote in votesByFaction.votes">
+                              <div class="tooltip" :data-tip="vote.personName">
+                                <div
+                                  class="status status-lg"
+                                  :class="{ 'status-success': vote.vote === 'J', 'status-error': vote.vote === 'N', 'status-warning': vote.vote === 'E' }"
+                                >
+                                </div>
+                              </div>
+                            </template>
+                          </div>
+                        </div>
+                      </template>
+                    </template>
+                  </div>
+                </a>
+                <hr x-show="index < paper.votings.length - 1" />
+              </li>
+            </template>
+          </ul>
         </div>
 
         <input
@@ -178,6 +249,30 @@ import Layout from '@layouts/Layout.astro';
     result: string | null;
   };
 
+  type Vote = {
+    personName: string;
+    vote: string;
+  };
+
+  type VotesByFaction = {
+    factionId: string;
+    factionName: string;
+    votes: Vote[];
+  };
+
+  type PaperVoting = {
+    parliamentPeriodId: string;
+    sessionId: string;
+    votingId: number;
+    date: string;
+    agendaItem: string;
+    motionId: string;
+    title: string;
+    type: string | null;
+    accepted: boolean;
+    votesByFactions: VotesByFaction[];
+  };
+
   type Paper = {
     id: number;
     reference: string | null;
@@ -185,6 +280,7 @@ import Layout from '@layouts/Layout.astro';
     title: string;
     files: PaperFile[];
     consultations: PaperConsultation[];
+    votings: PaperVoting[];
     rootPaperId: number;
     subordinatedPaperIds: number[];
     superordinatedPaperIds: number[];
@@ -247,6 +343,7 @@ import Layout from '@layouts/Layout.astro';
         title: '',
         files: [],
         consultations: [],
+        votings: [],
         rootPaperId: 0,
         subordinatedPaperIds: [],
         superordinatedPaperIds: [],
@@ -282,6 +379,10 @@ import Layout from '@layouts/Layout.astro';
           consultations: paper.consultations.reverse().map((consultation) => ({
             ...consultation,
             dateDisplay: formatDate(consultation.date),
+          })),
+          votings: (paper.votings ?? []).map((voting) => ({
+            ...voting,
+            dateDisplay: formatDate(voting.date),
           })),
         };
         this.selectedFile = paper.files.length > 0 ? paper.files[0].id : null;

@@ -158,8 +158,13 @@ docker run \
   -v $(pwd)/output/papers:/app/papers:ro \
   -v $(pwd)/data/papers:/app/generated \
   -v $(pwd)/output/ratsinfosystem:/app/oparl:ro \
+  -v $(pwd)/data:/app/session-data:ro \
   srw-generate-paper-assets
 ```
+
+The `session-data` mount provides the parliament period directories (each with a `registry.json`
+and `session-scan-*.json` files). It is used to attach the related votings (with their full
+faction-by-faction breakdown) to each paper.
 
 
 ### Extract text from paper files
