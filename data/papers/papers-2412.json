@@ -30,6 +30,300 @@
         "result": "ungeändert beschlossen"
       }
     ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-06-26",
+        "votingId": 41,
+        "date": "2023-06-26",
+        "agendaItem": "7.18",
+        "motionId": "A0120/23",
+        "title": "Begrüßung der Neugeborenen in Magdeburg",
+        "type": "Antrag",
+        "authors": [
+          "FDP/Tierschutzpartei"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "N"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "N"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "N"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "N"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "N"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "E"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "E"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "E"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "O"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "E"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "O"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "O"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "O"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "N"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "N"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "N"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "N"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "O"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "O"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "O"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "J"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "J"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "J"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "J"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "N"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "N"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "N"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "N"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "N"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "N"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "O"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "J"
+              },
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "O"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "O"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Roland Zander",
+                "vote": "N"
+              },
+              {
+                "personName": "Aila Fassl",
+                "vote": "O"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "rootPaperId": 241200,
     "subordinatedPaperIds": [
       241532
@@ -89,6 +383,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241201,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -142,6 +437,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 240826,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -171,6 +467,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 240894,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -216,6 +513,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 240813,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -277,6 +575,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 235032,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -306,6 +605,7 @@
         "result": "schriftliche Stellungnahme"
       }
     ],
+    "votings": [],
     "rootPaperId": 241208,
     "subordinatedPaperIds": [
       241262
@@ -335,6 +635,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 240898,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -412,6 +713,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 240769,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -441,6 +743,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 240950,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -470,6 +773,7 @@
         "result": "schriftliche Stellungnahme"
       }
     ],
+    "votings": [],
     "rootPaperId": 241215,
     "subordinatedPaperIds": [
       241420
@@ -499,6 +803,7 @@
         "result": "schriftliche Stellungnahme"
       }
     ],
+    "votings": [],
     "rootPaperId": 241216,
     "subordinatedPaperIds": [
       241378
@@ -528,6 +833,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 240797,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -557,6 +863,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 240968,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -608,6 +915,300 @@
         "organization": "Stadtrat",
         "agendaItem": "5.15.2",
         "result": "abgelehnt"
+      }
+    ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-08-17",
+        "votingId": 17,
+        "date": "2023-08-17",
+        "agendaItem": "5.15.2",
+        "motionId": "DS0018/23/2",
+        "title": "Änderungsantrag zur DS0018/23 zur Satzung des Klimabeirats der Landeshauptstadt Magdeburg",
+        "type": "Änderungsantrag",
+        "authors": [
+          "CDU"
+        ],
+        "accepted": false,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "N"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "N"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "N"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "N"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "N"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "N"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "N"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "N"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "N"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "O"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "N"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "N"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "N"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "N"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "N"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "O"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "J"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "J"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "J"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "J"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "J"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "J"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "J"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "J"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "J"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "N"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "N"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "N"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "N"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "N"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "N"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "N"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "J"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Burkhard Moll",
+                "vote": "E"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "E"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "E"
+              },
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "J"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "J"
+              },
+              {
+                "personName": "Aila Fassl",
+                "vote": "N"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
       }
     ],
     "rootPaperId": 240134,
@@ -665,6 +1266,7 @@
         "result": "zurückgezogen"
       }
     ],
+    "votings": [],
     "rootPaperId": 240134,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -694,6 +1296,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 241021,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -723,6 +1326,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241179,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -800,6 +1404,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241080,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -853,6 +1458,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 238061,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -912,6 +1518,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 240544,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -941,6 +1548,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 240932,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1024,6 +1632,300 @@
         "result": "ungeändert beschlossen"
       }
     ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-09-14",
+        "votingId": 17,
+        "date": "2023-09-14",
+        "agendaItem": "5.14",
+        "motionId": "DS0309/23",
+        "title": "Jahresabschluss 2022 des Eigenbetriebes Puppentheater der Stadt Magdeburg (EB PTH MD)",
+        "type": "Beschlussvorlage",
+        "authors": [
+          "Dezernat für Kultur, Schule und Sport"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "J"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "J"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "J"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "J"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "J"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "J"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Christoph Abel",
+                "vote": "J"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "J"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "J"
+              },
+              {
+                "personName": "Norman Belas",
+                "vote": "O"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "J"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "J"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "J"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "J"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "J"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "O"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Hagen Kohl",
+                "vote": "J"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "J"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "O"
+              },
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "J"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "J"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "J"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "O"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "J"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "O"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Roland Zander",
+                "vote": "J"
+              },
+              {
+                "personName": "Aila Fassl",
+                "vote": "O"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "rootPaperId": 241234,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
@@ -1065,6 +1967,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241237,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
@@ -1106,6 +2009,300 @@
         "organization": "Stadtrat",
         "agendaItem": "6.22.2",
         "result": "abgelehnt"
+      }
+    ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-06-26",
+        "votingId": 7,
+        "date": "2023-06-26",
+        "agendaItem": "6.22.2",
+        "motionId": "DS0130/23/2",
+        "title": "Konzept der Landeshauptstadt Magdeburg für elektrische Tretroller (E-Scooter)",
+        "type": "Änderungsantrag",
+        "authors": [
+          "Ausschuss WTR"
+        ],
+        "accepted": false,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "N"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "N"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "N"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "N"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "N"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "N"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "N"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "E"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "O"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "O"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "E"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "E"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "E"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "E"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "E"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "E"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "E"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "O"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "J"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "N"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "N"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "E"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "E"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "E"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "E"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "N"
+              },
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "N"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "N"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "N"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "N"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "N"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "E"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "J"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "J"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "O"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Burkhard Moll",
+                "vote": "N"
+              },
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "E"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "E"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "E"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "O"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "N"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "N"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "N"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "E"
+              }
+            ]
+          }
+        ]
       }
     ],
     "rootPaperId": 240595,
@@ -1189,6 +2386,300 @@
         "result": "ungeändert beschlossen"
       }
     ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-08-17",
+        "votingId": 4,
+        "date": "2023-08-17",
+        "agendaItem": "5.4",
+        "motionId": "DS0313/23",
+        "title": "Jahresabschluss 2022 der GISE - Gesellschaft für Innovation, Sanierung und Entsorgung mbH",
+        "type": "Beschlussvorlage",
+        "authors": [
+          "Oberbürgermeisterin"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "J"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "J"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "J"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "J"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "O"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "J"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "J"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "O"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "J"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "J"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "J"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "J"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "J"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "J"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "J"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "J"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "J"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "J"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "O"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "O"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "O"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "J"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "E"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "E"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "rootPaperId": 241240,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
@@ -1216,6 +2707,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 240867,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1301,6 +2793,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 240799,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1384,6 +2877,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241092,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1413,6 +2907,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 241042,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1448,6 +2943,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 240927,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1507,6 +3003,300 @@
         "result": "ungeändert beschlossen"
       }
     ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-09-14",
+        "votingId": 26,
+        "date": "2023-09-14",
+        "agendaItem": "5.19",
+        "motionId": "DS0316/23",
+        "title": "Aufstellung der 1. Änderung des Bebauungsplans Nr. 174-2 \"Südlich Sieverstorstraße\"",
+        "type": "Beschlussvorlage",
+        "authors": [
+          "Dezernat für Umwelt und Stadtentwicklung"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "J"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "J"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "J"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "J"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "J"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "J"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "J"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "J"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "J"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "J"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "J"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "J"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "J"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "J"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "O"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Hagen Kohl",
+                "vote": "J"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "J"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "O"
+              },
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "J"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "J"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "J"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "J"
+              },
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "J"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "J"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "J"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "J"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "rootPaperId": 241249,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
@@ -1534,6 +3324,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 241087,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1563,6 +3354,7 @@
         "result": "schriftliche Stellungnahme"
       }
     ],
+    "votings": [],
     "rootPaperId": 241252,
     "subordinatedPaperIds": [
       241511
@@ -1624,6 +3416,595 @@
         "result": "ungeändert beschlossen"
       }
     ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-06-26",
+        "votingId": 42,
+        "date": "2023-06-26",
+        "agendaItem": "7.19",
+        "motionId": "A0121/23",
+        "title": "Benennung 1. Fahrradstraße Magdeburgs nach Elisabeth Eichholz",
+        "type": "Geschäftsordnung",
+        "authors": [
+          "CDU",
+          "DIE LINKE",
+          "FDP/Tierschutzpartei"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "J"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "J"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "J"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "J"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "J"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "N"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "O"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "O"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "O"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "O"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "J"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "J"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "O"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "O"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "O"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "E"
+              },
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "E"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "E"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "E"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "E"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "E"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "E"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "E"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "J"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "J"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "O"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "J"
+              },
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "O"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "O"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "J"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "J"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-09-18",
+        "votingId": 9,
+        "date": "2023-09-18",
+        "agendaItem": "6.9",
+        "motionId": "A0121/23",
+        "title": "Benennung 1. Fahrradstraße Magdeburgs nach Elisabeth Eichholz",
+        "type": "Antrag",
+        "authors": [
+          "GRÜNE/future!",
+          "SPD"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "J"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "J"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "J"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "J"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "J"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "J"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "O"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "O"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "J"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "J"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "J"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "J"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "O"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "O"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "J"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "J"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "O"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "J"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "J"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "J"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "O"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "J"
+              },
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "E"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "J"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "J"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "E"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "rootPaperId": 241253,
     "subordinatedPaperIds": [
       241591,
@@ -1668,6 +4049,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241254,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
@@ -1727,6 +4109,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241083,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1756,6 +4139,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 239989,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1785,6 +4169,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 241195,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1814,6 +4199,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 241208,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1843,6 +4229,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 241152,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1904,6 +4291,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 239898,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -1933,6 +4321,7 @@
         "result": "genehmigt OB"
       }
     ],
+    "votings": [],
     "rootPaperId": 240938,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -2010,6 +4399,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 240542,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -2067,6 +4457,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241270,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
@@ -2094,6 +4485,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241061,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -2153,6 +4545,300 @@
         "result": "geändert beschlossen"
       }
     ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-09-14",
+        "votingId": 33,
+        "date": "2023-09-14",
+        "agendaItem": "5.22",
+        "motionId": "DS0322/23",
+        "title": "Aufhebung des Aufstellungsbeschlusses zum Bebauungsplan Nr. 213-1 \"Östlich Bruno-Wille-Straße\"",
+        "type": "Beschlussvorlage",
+        "authors": [
+          "Dezernat für Umwelt und Stadtentwicklung"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "J"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "J"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "J"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "J"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "J"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "J"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "J"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "J"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "J"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "J"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "J"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "J"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "J"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "J"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "O"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Hagen Kohl",
+                "vote": "J"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "J"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "O"
+              },
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "J"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "J"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "J"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "J"
+              },
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "J"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "J"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "J"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "J"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "rootPaperId": 241276,
     "subordinatedPaperIds": [
       241994
@@ -2190,6 +4876,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241277,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
@@ -2255,6 +4942,300 @@
         "organization": "Stadtrat",
         "agendaItem": "6.10",
         "result": "ungeändert beschlossen"
+      }
+    ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-09-18",
+        "votingId": 10,
+        "date": "2023-09-18",
+        "agendaItem": "6.10",
+        "motionId": "A0123/23",
+        "title": "ÖPNV-Konzept für die neue Sporthalle am Lorenzweg",
+        "type": "Antrag",
+        "authors": [
+          "DIE LINKE"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "J"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "J"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "J"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "J"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "J"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "J"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "O"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "O"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "N"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "N"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "N"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "N"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "N"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "O"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "O"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "N"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "N"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "N"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "N"
+              },
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "O"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "O"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "J"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "J"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "J"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "O"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "N"
+              },
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "E"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "E"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "E"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Roland Zander",
+                "vote": "N"
+              },
+              {
+                "personName": "Aila Fassl",
+                "vote": "E"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
       }
     ],
     "rootPaperId": 241278,
@@ -2334,6 +5315,7 @@
         "result": "zurückgezogen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241279,
     "subordinatedPaperIds": [
       241765,
@@ -2420,6 +5402,300 @@
         "result": "ungeändert beschlossen"
       }
     ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-11-20",
+        "votingId": 6,
+        "date": "2023-11-20",
+        "agendaItem": "6.23",
+        "motionId": "A0125/23",
+        "title": "Eine öffentliche Toilette für Reform",
+        "type": "Antrag",
+        "authors": [
+          "DIE LINKE"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "J"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "J"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "J"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "O"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "O"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "J"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "J"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "J"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "J"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "J"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "J"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "J"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "J"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "J"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "J"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "J"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "J"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "J"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "J"
+              },
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "J"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "J"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "J"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "J"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "rootPaperId": 241280,
     "subordinatedPaperIds": [
       241515
@@ -2457,6 +5733,7 @@
         "result": "abgelehnt"
       }
     ],
+    "votings": [],
     "rootPaperId": 241281,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
@@ -2484,6 +5761,7 @@
         "result": "schriftliche Stellungnahme"
       }
     ],
+    "votings": [],
     "rootPaperId": 241285,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
@@ -2587,6 +5865,301 @@
         "organization": "Stadtrat",
         "agendaItem": "5.18",
         "result": "von der Verwaltung zurückgezogen"
+      }
+    ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-10-12",
+        "votingId": 43,
+        "date": "2023-10-12",
+        "agendaItem": "6.23",
+        "motionId": "DS0324/23",
+        "title": "Behandlung der Stellungnahmen (Zwischenabwägung) zum vorhabenbezogenen Bebauungsplan Nr. 255-3.1 \"Berliner Chaussee/Friedrich-Ebert-Straße\"",
+        "type": "Geschäftsordnung",
+        "authors": [
+          "GRÜNE/future!",
+          "Manuel Rupsch"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "J"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "J"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "J"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "J"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "O"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Julia Brandt",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "J"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "J"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "J"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "J"
+              },
+              {
+                "personName": "Norman Belas",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "J"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "J"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "J"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "E"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "N"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "N"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "N"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "N"
+              },
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "O"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "O"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "J"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "J"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "J"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "J"
+              },
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "J"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "J"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "J"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "J"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "N"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "N"
+              }
+            ]
+          }
+        ]
       }
     ],
     "rootPaperId": 241286,
@@ -2772,6 +6345,7 @@
         "result": "von der Verwaltung zurückgezogen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241287,
     "subordinatedPaperIds": [
       242076,
@@ -2858,6 +6432,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241084,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
@@ -2927,6 +6502,300 @@
         "result": "abgelehnt"
       }
     ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-09-18",
+        "votingId": 11,
+        "date": "2023-09-18",
+        "agendaItem": "6.11",
+        "motionId": "A0127/23",
+        "title": "Jährlicher Überblick über die Kosten der kommunalen Versicherungen",
+        "type": "Antrag",
+        "authors": [
+          "FDP/Tierschutzpartei"
+        ],
+        "accepted": false,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "N"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "N"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "N"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "N"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "N"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "E"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "E"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "E"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "O"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "O"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "N"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "N"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "N"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "N"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "O"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "O"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "N"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "N"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "N"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "N"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "N"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "O"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "O"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "N"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "N"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "N"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "N"
+              },
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "O"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "O"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "N"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "N"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "N"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "N"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "N"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "N"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "N"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "J"
+              },
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "J"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "N"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "N"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "N"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "N"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "rootPaperId": 241289,
     "subordinatedPaperIds": [
       241518
@@ -2962,6 +6831,7 @@
         "result": "schriftliche Stellungnahme"
       }
     ],
+    "votings": [],
     "rootPaperId": 241291,
     "subordinatedPaperIds": [
       241580
@@ -3007,6 +6877,7 @@
         "result": "mit Stellungnahme erledigt"
       }
     ],
+    "votings": [],
     "rootPaperId": 241292,
     "subordinatedPaperIds": [
       241521
@@ -3076,6 +6947,300 @@
         "result": "abgelehnt"
       }
     ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2024-04-04",
+        "votingId": 29,
+        "date": "2024-04-04",
+        "agendaItem": "6.5",
+        "motionId": "A0129/23",
+        "title": "Lösung finden für Radverkehr und Marktgeschehen auf dem Nordabschnitt Breiter Weg während der Marktzeiten",
+        "type": "Antrag",
+        "authors": [
+          "FDP/Tierschutzpartei"
+        ],
+        "accepted": false,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Julia Bohlander",
+                "vote": "N"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "N"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "N"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "N"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "N"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "N"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "N"
+              },
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "O"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "O"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "O"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "N"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "N"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "N"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "N"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "N"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "O"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "N"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "N"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "N"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "N"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "N"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "N"
+              },
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "O"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "N"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "N"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "N"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "N"
+              },
+              {
+                "personName": "Bernd Kuhnert",
+                "vote": "N"
+              },
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "O"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "N"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "N"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "N"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "N"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "N"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "N"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "N"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "N"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "O"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "O"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "J"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "J"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "N"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "N"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "rootPaperId": 241294,
     "subordinatedPaperIds": [
       242529
@@ -3125,6 +7290,300 @@
         "organization": "Stadtrat",
         "agendaItem": "5.12",
         "result": "ungeändert beschlossen"
+      }
+    ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-08-17",
+        "votingId": 12,
+        "date": "2023-08-17",
+        "agendaItem": "5.12",
+        "motionId": "DS0327/23",
+        "title": "Genehmigung der Annahme von Spenden gem. §§ 99 Abs. 6 KVG LSA",
+        "type": "Beschlussvorlage",
+        "authors": [
+          "Dezernat für Finanzen und Vermögen"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "J"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "J"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "J"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "J"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "O"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Norman Belas",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Brandt",
+                "vote": "J"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "O"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "O"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "J"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "J"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "J"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "J"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "J"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "J"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "J"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "J"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "J"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "O"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Anke Jäger",
+                "vote": "J"
+              },
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "J"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "J"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "J"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "J"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "J"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "J"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
       }
     ],
     "rootPaperId": 241295,
@@ -3192,6 +7651,300 @@
         "organization": "Stadtrat",
         "agendaItem": "7.17",
         "result": "geändert beschlossen"
+      }
+    ],
+    "votings": [
+      {
+        "parliamentPeriodId": "magdeburg-7",
+        "sessionId": "2023-10-16",
+        "votingId": 17,
+        "date": "2023-10-16",
+        "agendaItem": "7.17",
+        "motionId": "A0130/23",
+        "title": "Mehr Sicherheit für zu Fuß Gehende im Emanuel-Larisch-Weg",
+        "type": "Antrag",
+        "authors": [
+          "FDP/Tierschutzpartei"
+        ],
+        "accepted": true,
+        "votesByFactions": [
+          {
+            "factionId": "gruene-future",
+            "factionName": "GRÜNE/future!",
+            "votes": [
+              {
+                "personName": "Prof.Dr. Alexander Pott",
+                "vote": "J"
+              },
+              {
+                "personName": "Julia Bohlander",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Bublitz",
+                "vote": "J"
+              },
+              {
+                "personName": "Mathilde Lemesle",
+                "vote": "J"
+              },
+              {
+                "personName": "Olaf Meister",
+                "vote": "J"
+              },
+              {
+                "personName": "Matthias Borowiak",
+                "vote": "O"
+              },
+              {
+                "personName": "Jürgen Canehl",
+                "vote": "O"
+              },
+              {
+                "personName": "Madeleine Linke",
+                "vote": "O"
+              },
+              {
+                "personName": "Julia Mayer-Buch",
+                "vote": "O"
+              },
+              {
+                "personName": "Kathrin Natho",
+                "vote": "O"
+              },
+              {
+                "personName": "Mirko Stage",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "spd",
+            "factionName": "SPD",
+            "votes": [
+              {
+                "personName": "Julia Brandt",
+                "vote": "J"
+              },
+              {
+                "personName": "Dr. Falko Grube",
+                "vote": "J"
+              },
+              {
+                "personName": "Christoph Abel",
+                "vote": "J"
+              },
+              {
+                "personName": "Karsten Köpp",
+                "vote": "J"
+              },
+              {
+                "personName": "Kornelia Keune",
+                "vote": "J"
+              },
+              {
+                "personName": "Jens Rösler",
+                "vote": "J"
+              },
+              {
+                "personName": "Norman Belas",
+                "vote": "O"
+              },
+              {
+                "personName": "Steffi Meyer",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Thomas Wiebe",
+                "vote": "O"
+              },
+              {
+                "personName": "Dr. Niko Zenker",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "cdu",
+            "factionName": "CDU",
+            "votes": [
+              {
+                "personName": "Bernd Heynemann",
+                "vote": "E"
+              },
+              {
+                "personName": "Stefanie Middendorf",
+                "vote": "E"
+              },
+              {
+                "personName": "Tim Rohne",
+                "vote": "E"
+              },
+              {
+                "personName": "Andreas Schumann",
+                "vote": "E"
+              },
+              {
+                "personName": "Frank Schuster",
+                "vote": "E"
+              },
+              {
+                "personName": "Wigbert Schwenke",
+                "vote": "E"
+              },
+              {
+                "personName": "Matthias Boxhorn",
+                "vote": "O"
+              },
+              {
+                "personName": "Michael Hoffmann",
+                "vote": "O"
+              },
+              {
+                "personName": "Manuel Rupsch",
+                "vote": "O"
+              },
+              {
+                "personName": "Reinhard Stern",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "afd",
+            "factionName": "AfD",
+            "votes": [
+              {
+                "personName": "Oliver Kirchner",
+                "vote": "N"
+              },
+              {
+                "personName": "Christian Mertens",
+                "vote": "N"
+              },
+              {
+                "personName": "Dr. Jan Moldenhauer",
+                "vote": "N"
+              },
+              {
+                "personName": "Frank Pasemann",
+                "vote": "N"
+              },
+              {
+                "personName": "Matthias Kleiser",
+                "vote": "O"
+              },
+              {
+                "personName": "Hagen Kohl",
+                "vote": "O"
+              },
+              {
+                "personName": "Ronny Kumpf",
+                "vote": "O"
+              },
+              {
+                "personName": "Bernd Neubauer",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "die-linke",
+            "factionName": "DIE LINKE",
+            "votes": [
+              {
+                "personName": "Tobias Baum",
+                "vote": "J"
+              },
+              {
+                "personName": "René Hempel",
+                "vote": "J"
+              },
+              {
+                "personName": "Dennis Jannack",
+                "vote": "J"
+              },
+              {
+                "personName": "Nadja Lösch",
+                "vote": "J"
+              },
+              {
+                "personName": "Chris Scheunchen",
+                "vote": "J"
+              },
+              {
+                "personName": "Oliver Müller",
+                "vote": "E"
+              },
+              {
+                "personName": "Anke Jäger",
+                "vote": "O"
+              },
+              {
+                "personName": "Hans-Joachim Mewes",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "fdp-tierschutzpartei",
+            "factionName": "FDP/Tierschutzpartei",
+            "votes": [
+              {
+                "personName": "Kathrin Meyer-Pinger",
+                "vote": "J"
+              },
+              {
+                "personName": "Burkhard Moll",
+                "vote": "J"
+              },
+              {
+                "personName": "Stephan Papenbreer",
+                "vote": "J"
+              },
+              {
+                "personName": "Evelin Schulz",
+                "vote": "J"
+              },
+              {
+                "personName": "Mirjam Karl-Sy",
+                "vote": "J"
+              },
+              {
+                "personName": "Carola Schumann",
+                "vote": "O"
+              }
+            ]
+          },
+          {
+            "factionId": "gartenpartei-tierschutzallianz",
+            "factionName": "Gartenpartei/Tierschutzallianz",
+            "votes": [
+              {
+                "personName": "Aila Fassl",
+                "vote": "J"
+              },
+              {
+                "personName": "Marcel Guderjahn",
+                "vote": "J"
+              },
+              {
+                "personName": "Roland Zander",
+                "vote": "J"
+              }
+            ]
+          },
+          {
+            "factionId": "oberbuergermeisterin",
+            "factionName": "Oberbürgermeisterin",
+            "votes": [
+              {
+                "personName": "Simone Borris",
+                "vote": "J"
+              }
+            ]
+          }
+        ]
       }
     ],
     "rootPaperId": 241296,
@@ -3264,6 +8017,7 @@
         "result": "zur Kenntnis genommen"
       }
     ],
+    "votings": [],
     "rootPaperId": 241096,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [

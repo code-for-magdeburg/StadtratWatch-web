@@ -22,6 +22,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237710,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
@@ -54,6 +55,7 @@
             "result": "zur Kenntnis genommen"
           }
         ],
+        "votings": [],
         "rootPaperId": 237712,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
@@ -146,6 +148,300 @@
             "result": "ungeändert beschlossen"
           }
         ],
+        "votings": [
+          {
+            "parliamentPeriodId": "magdeburg-7",
+            "sessionId": "2022-12-08",
+            "votingId": 30,
+            "date": "2022-12-08",
+            "agendaItem": "6.24",
+            "motionId": "DS0023/22",
+            "title": "Jubiläumsprojekt \"Des Kaisers letzte Reise\" in Magdeburg",
+            "type": "Beschlussvorlage",
+            "authors": [
+              "Dezernat für Kultur, Schule und Sport"
+            ],
+            "accepted": true,
+            "votesByFactions": [
+              {
+                "factionId": "gruene-future",
+                "factionName": "GRÜNE/future!",
+                "votes": [
+                  {
+                    "personName": "Prof.Dr. Alexander Pott",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Stephan Bublitz",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Jürgen Canehl",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Julia Mayer-Buch",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Olaf Meister",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Mirko Stage",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Julia Bohlander",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Madeleine Linke",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Kathrin Natho",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Mathilde Lemesle",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "Matthias Borowiak",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "spd",
+                "factionName": "SPD",
+                "votes": [
+                  {
+                    "personName": "Norman Belas",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Julia Brandt",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Dr. Falko Grube",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Karsten Köpp",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Steffi Meyer",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Jens Rösler",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Dr. Thomas Wiebe",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Dr. Niko Zenker",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Christoph Abel",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Kornelia Keune",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "cdu",
+                "factionName": "CDU",
+                "votes": [
+                  {
+                    "personName": "Matthias Boxhorn",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Bernd Heynemann",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Stefanie Middendorf",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Tim Rohne",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Manuel Rupsch",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Andreas Schumann",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Frank Schuster",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Michael Hoffmann",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Wigbert Schwenke",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Reinhard Stern",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "afd",
+                "factionName": "AfD",
+                "votes": [
+                  {
+                    "personName": "Ronny Kumpf",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Bernd Neubauer",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Oliver Kirchner",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Matthias Kleiser",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Hagen Kohl",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Christian Mertens",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Dr. Jan Moldenhauer",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Frank Pasemann",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "die-linke",
+                "factionName": "DIE LINKE",
+                "votes": [
+                  {
+                    "personName": "Anke Jäger",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "Tobias Baum",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "René Hempel",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "Dennis Jannack",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "Nadja Lösch",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "Hans-Joachim Mewes",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "Chris Scheunchen",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "Oliver Müller",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "fdp-tierschutzpartei",
+                "factionName": "FDP/Tierschutzpartei",
+                "votes": [
+                  {
+                    "personName": "Kathrin Meyer-Pinger",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Burkhard Moll",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Evelin Schulz",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Mirjam Karl-Sy",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Stephan Papenbreer",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Carola Schumann",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "gartenpartei-tierschutzallianz",
+                "factionName": "Gartenpartei/Tierschutzallianz",
+                "votes": [
+                  {
+                    "personName": "Marcel Guderjahn",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Roland Zander",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Aila Fassl",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "oberbuergermeisterin",
+                "factionName": "Oberbürgermeisterin",
+                "votes": [
+                  {
+                    "personName": "Simone Borris",
+                    "vote": "J"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
         "rootPaperId": 237713,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
@@ -178,6 +474,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237714,
         "subordinatedPaperIds": [
           237930
@@ -198,6 +495,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237714,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -232,6 +530,7 @@
             "result": "abgelehnt"
           }
         ],
+        "votings": [],
         "rootPaperId": 237717,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
@@ -264,6 +563,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237721,
         "subordinatedPaperIds": [
           237824
@@ -290,6 +590,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237721,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -370,6 +671,7 @@
             "result": "ungeändert beschlossen"
           }
         ],
+        "votings": [],
         "rootPaperId": 237723,
         "subordinatedPaperIds": [
           238891
@@ -399,6 +701,7 @@
             "result": "abgelehnt"
           }
         ],
+        "votings": [],
         "rootPaperId": 237723,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -439,6 +742,7 @@
             "result": "zur Kenntnis genommen"
           }
         ],
+        "votings": [],
         "rootPaperId": 237727,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
@@ -487,6 +791,300 @@
             "result": "abgelehnt"
           }
         ],
+        "votings": [
+          {
+            "parliamentPeriodId": "magdeburg-7",
+            "sessionId": "2022-12-12",
+            "votingId": 45,
+            "date": "2022-12-12",
+            "agendaItem": "4.1",
+            "motionId": "A0017/22",
+            "title": "Bundesgartenschau erneut in Magdeburg (A0019/20)",
+            "type": "Antrag",
+            "authors": [
+              "Ausschuss KRB"
+            ],
+            "accepted": false,
+            "votesByFactions": [
+              {
+                "factionId": "gruene-future",
+                "factionName": "GRÜNE/future!",
+                "votes": [
+                  {
+                    "personName": "Matthias Borowiak",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Stephan Bublitz",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Olaf Meister",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Kathrin Natho",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Mirko Stage",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Mathilde Lemesle",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Julia Mayer-Buch",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Prof.Dr. Alexander Pott",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "Julia Bohlander",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Jürgen Canehl",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Madeleine Linke",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "spd",
+                "factionName": "SPD",
+                "votes": [
+                  {
+                    "personName": "Norman Belas",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Julia Brandt",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Dr. Falko Grube",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Karsten Köpp",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Jens Rösler",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Dr. Thomas Wiebe",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Dr. Niko Zenker",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Kornelia Keune",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "Christoph Abel",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Steffi Meyer",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "cdu",
+                "factionName": "CDU",
+                "votes": [
+                  {
+                    "personName": "Matthias Boxhorn",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Bernd Heynemann",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Stefanie Middendorf",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Tim Rohne",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Manuel Rupsch",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Andreas Schumann",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Frank Schuster",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Reinhard Stern",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Michael Hoffmann",
+                    "vote": "O"
+                  },
+                  {
+                    "personName": "Wigbert Schwenke",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "afd",
+                "factionName": "AfD",
+                "votes": [
+                  {
+                    "personName": "Oliver Kirchner",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Hagen Kohl",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Ronny Kumpf",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Christian Mertens",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Dr. Jan Moldenhauer",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Frank Pasemann",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Bernd Neubauer",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Matthias Kleiser",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "die-linke",
+                "factionName": "DIE LINKE",
+                "votes": [
+                  {
+                    "personName": "Tobias Baum",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "René Hempel",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Dennis Jannack",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Nadja Lösch",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Hans-Joachim Mewes",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Chris Scheunchen",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Anke Jäger",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "Oliver Müller",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "fdp-tierschutzpartei",
+                "factionName": "FDP/Tierschutzpartei",
+                "votes": [
+                  {
+                    "personName": "Stephan Papenbreer",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Carola Schumann",
+                    "vote": "J"
+                  },
+                  {
+                    "personName": "Kathrin Meyer-Pinger",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Burkhard Moll",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Evelin Schulz",
+                    "vote": "E"
+                  },
+                  {
+                    "personName": "Mirjam Karl-Sy",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "gartenpartei-tierschutzallianz",
+                "factionName": "Gartenpartei/Tierschutzallianz",
+                "votes": [
+                  {
+                    "personName": "Marcel Guderjahn",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Roland Zander",
+                    "vote": "N"
+                  },
+                  {
+                    "personName": "Aila Fassl",
+                    "vote": "O"
+                  }
+                ]
+              },
+              {
+                "factionId": "oberbuergermeisterin",
+                "factionName": "Oberbürgermeisterin",
+                "votes": [
+                  {
+                    "personName": "Simone Borris",
+                    "vote": "N"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
         "rootPaperId": 237729,
         "subordinatedPaperIds": [
           238135
@@ -524,6 +1122,7 @@
             "result": "zur Kenntnis genommen"
           }
         ],
+        "votings": [],
         "rootPaperId": 237729,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -558,6 +1157,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237731,
         "subordinatedPaperIds": [
           238115
@@ -584,6 +1184,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237731,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -618,6 +1219,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237732,
         "subordinatedPaperIds": [
           237998
@@ -638,6 +1240,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237732,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -672,6 +1275,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237741,
         "subordinatedPaperIds": [
           237839
@@ -692,6 +1296,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237741,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -726,6 +1331,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237742,
         "subordinatedPaperIds": [
           237977
@@ -746,6 +1352,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237742,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -780,6 +1387,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237743,
         "subordinatedPaperIds": [
           237889
@@ -800,6 +1408,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237743,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -834,6 +1443,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237744,
         "subordinatedPaperIds": [
           237828
@@ -854,6 +1464,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237744,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -888,6 +1499,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237745,
         "subordinatedPaperIds": [
           237982
@@ -908,6 +1520,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237745,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -942,6 +1555,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237746,
         "subordinatedPaperIds": [
           237959
@@ -962,6 +1576,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237746,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -996,6 +1611,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237747,
         "subordinatedPaperIds": [
           238096
@@ -1028,6 +1644,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237747,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1068,6 +1685,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237749,
         "subordinatedPaperIds": [
           237787
@@ -1088,6 +1706,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237749,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1122,6 +1741,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237750,
         "subordinatedPaperIds": [
           237870
@@ -1142,6 +1762,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237750,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1176,6 +1797,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237751,
         "subordinatedPaperIds": [
           237814
@@ -1202,6 +1824,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237751,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1236,6 +1859,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237752,
         "subordinatedPaperIds": [
           237819
@@ -1256,6 +1880,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237752,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1290,6 +1915,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237754,
         "subordinatedPaperIds": [
           237788
@@ -1316,6 +1942,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237754,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1350,6 +1977,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237762,
         "subordinatedPaperIds": [
           237803
@@ -1370,6 +1998,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237762,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1404,6 +2033,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237766,
         "subordinatedPaperIds": [
           237996
@@ -1424,6 +2054,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237766,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1458,6 +2089,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237767,
         "subordinatedPaperIds": [
           237869
@@ -1478,6 +2110,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237767,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1512,6 +2145,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237768,
         "subordinatedPaperIds": [
           238015
@@ -1532,6 +2166,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237768,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1572,6 +2207,7 @@
             "result": "ungeändert beschlossen"
           }
         ],
+        "votings": [],
         "rootPaperId": 237769,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
@@ -1604,6 +2240,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237770,
         "subordinatedPaperIds": [
           237823
@@ -1630,6 +2267,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237770,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1688,6 +2326,7 @@
             "result": "ungeändert beschlossen"
           }
         ],
+        "votings": [],
         "rootPaperId": 237772,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
@@ -1720,6 +2359,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237773,
         "subordinatedPaperIds": [
           237850
@@ -1740,6 +2380,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237773,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1780,6 +2421,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237774,
         "subordinatedPaperIds": [
           237927
@@ -1800,6 +2442,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237774,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1858,6 +2501,7 @@
             "result": "zur Kenntnis genommen"
           }
         ],
+        "votings": [],
         "rootPaperId": 237776,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
@@ -1890,6 +2534,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237778,
         "subordinatedPaperIds": [
           237901
@@ -1910,6 +2555,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237778,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -1944,6 +2590,7 @@
             "result": "schriftliche Stellungnahme"
           }
         ],
+        "votings": [],
         "rootPaperId": 237779,
         "subordinatedPaperIds": [
           237826
@@ -1964,6 +2611,7 @@
           }
         ],
         "consultations": [],
+        "votings": [],
         "rootPaperId": 237779,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
@@ -2026,6 +2674,7 @@
             "result": "zur Kenntnis genommen"
           }
         ],
+        "votings": [],
         "rootPaperId": 237785,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
@@ -2084,6 +2733,7 @@
             "result": "ungeändert beschlossen"
           }
         ],
+        "votings": [],
         "rootPaperId": 237786,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
@@ -2130,6 +2780,7 @@
             "result": "ungeändert beschlossen"
           }
         ],
+        "votings": [],
         "rootPaperId": 237789,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
@@ -2176,6 +2827,7 @@
             "result": "zur Kenntnis genommen"
           }
         ],
+        "votings": [],
         "rootPaperId": 237795,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
