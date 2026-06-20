@@ -1,0 +1,108 @@
+= Technischer Kontext
+
+Technisch zerfällt StadtratWatch in zwei Teilsysteme, die über einen gemeinsamen
+Datenbestand entkoppelt sind:
+
+* die *Datenverarbeitungs-Pipeline*, die Quellen abruft, verarbeitet und in den Datenbestand schreibt, und
+* die *Web-Auslieferung*, die aus dem Datenbestand eine statische Website erzeugt und an die Browser der Nutzer:innen ausliefert.
+
+Das Bindeglied ist der versionierte *Datenbestand*: Die Pipeline schreibt ihn, der Web-Build liest ihn. Beide Teilsysteme kommunizieren nicht direkt miteinander.
+
+[NOTE]
+====
+Die Aufteilung in zwei Teilsysteme greift der Bausteinsicht (Kapitel 5) leicht
+vor. Sie wird hier gezeigt, weil sich die externen Kanäle je Teilsystem deutlich
+unterscheiden und die Abgrenzung sonst unverständlich bliebe.
+====
+
+[plantuml,technischer-kontext,svg]
+....
+@startuml
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+cloud "OParl-API" as OParl
+cloud "Ratsinformationssystem\n(PDF-Dokumente)" as Ratsinfo
+cloud "YouTube" as YT
+cloud "OpenAI API" as OpenAI
+cloud "HuggingFace" as HF
+cloud "Typesense" as TS
+cloud "AWS S3 + CloudFront" as AWS
+cloud "Static Hosting / CDN" as Host
+actor "Browser\n(Endnutzer:in)" as Browser
+
+rectangle "StadtratWatch" #lightyellow {
+  component "Datenverarbeitungs-\nPipeline (Deno)" as Pipe
+  database "Datenbestand (JSON)" as Data
+  component "Web-Anwendung (Astro)" as Web
+}
+
+OParl --> Pipe : HTTPS/JSON
+YT --> Pipe : Video-/Audio-Download
+Pipe --> OpenAI : HTTPS, Whisper
+Pipe --> HF : HTTPS, Modell-Download
+Pipe --> TS : HTTPS, Index schreiben
+Pipe --> AWS : Assets ablegen
+
+Pipe --> Data : Schreibt
+Data <-- Web : Liest (Build)
+
+Web --> Host : Statische Artefakte
+Host --> Browser : HTTPS, HTML/JS/CSS
+Browser --> TS : HTTPS, Suche
+Browser --> AWS : HTTPS, Assets
+Browser --> Ratsinfo : HTTPS, PDF-Abruf
+@enduml
+....
+
+== Externe Schnittstellen
+
+[cols="2,1,2,3",options="header"]
+|===
+| Nachbar | Richtung | Kanal / Protokoll | Inhalt
+
+| *OParl-API*
+| ein
+| HTTPS, REST/JSON (OParl-Standard)
+| Die Pipeline ruft strukturierte Parlamentsdaten ab — Body, Sitzungen, Vorlagen/Anträge, Dateien, Tagesordnungen, Beratungen und Organisationen.
+
+| *Ratsinformationssystem* (PDF-Dokumente)
+| aus
+| HTTPS, PDF-Dateien
+| Die in den Papers verlinkten PDF-Dokumente werden nicht zwischengespeichert, sondern vom Browser zur Laufzeit direkt aus dem Ratsinformationssystem geladen.
+
+| *YouTube*
+| ein
+| Manueller Video-/Audio-Download
+| Bezug der Sitzungsaufzeichnungen als Mediendateien, die der Pipeline als Eingabe für OCR, Diarisierung und Transkription dienen.
+
+| *OpenAI API*
+| aus
+| HTTPS, API-Key
+| Transkription der Redebeiträge (Whisper).
+
+| *HuggingFace*
+| aus
+| HTTPS, Zugriffstoken
+| Bezug des `pyannote`-Modells für die Sprecher-Diarisierung.
+
+| *Typesense*
+| aus / ein
+| HTTPS
+| Die Pipeline schreibt den Suchindex (Papers, Redebeiträge); der Browser stellt Suchanfragen.
+
+| *AWS S3 + CloudFront*
+| aus / ein
+| HTTPS
+| Die Pipeline legt generierte Assets ab — Abstimmungs-PNGs sowie die Papers-Metadaten als JSON-Batches; der Browser lädt sie zur Laufzeit über die CloudFront-URL.
+
+| *Static Hosting / CDN*
+| aus
+| HTTPS
+| Auslieferung der statisch gebauten Astro-Website (HTML/JS/CSS) an die Browser.
+
+| *Browser (Endnutzer:in)*
+| ein / aus
+| HTTPS
+| Lädt die Website, ruft Assets ab und führt clientseitige Suchanfragen aus.
+|===

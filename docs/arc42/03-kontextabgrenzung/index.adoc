@@ -1,0 +1,15 @@
+[#kontextabgrenzung]
+= Kontextabgrenzung
+:icons: font
+
+Dieses Kapitel grenzt StadtratWatch von seiner Umgebung ab: Es benennt die
+externen Partner — Menschen, Organisationen und Nachbarsysteme —, mit denen die
+Plattform Daten austauscht, und legt damit die Systemgrenze fest.
+
+Der *fachliche Kontext* beschreibt diese Partner aus Sicht der Domäne, also
+unabhängig von der eingesetzten Technik. Der *technische Kontext* konkretisiert
+dieselbe Abgrenzung anschließend über Kanäle, Protokolle und Datenformate.
+
+include::01-fachlicher-kontext.adoc[leveloffset=+1]
+
+include::02-technischer-kontext.adoc[leveloffset=+1]
