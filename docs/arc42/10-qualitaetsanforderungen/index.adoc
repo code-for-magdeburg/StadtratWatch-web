@@ -91,8 +91,8 @@ Die Szenarien sind nach der Priorität des zugehörigen Qualitätsziels geordnet
 
 | [[szenario-fs-2]]FS-2
 | Functional Suitability
-| Stimmen werden per OCR aus Videostandbildern erkannt → kein Abstimmungsergebnis wird veröffentlicht, bevor es von einem Menschen geprüft und freigegeben wurde.
-| 100 % der veröffentlichten Sitzungen mit Freigabe (`approved`)
+| Stimmen werden per OCR aus Videostandbildern erkannt → Abstimmungsergebnisse werden bis zur menschlichen Prüfung als vorläufig gekennzeichnet und erst nach Freigabe als bestätigt dargestellt.
+| 100 % der nicht freigegebenen Sitzungen mit Vorläufig-Kennzeichnung; 100 % der bestätigten Sitzungen mit Freigabe (`approved`)
 | erfüllt
 
 | [[szenario-rel-1]]REL-1

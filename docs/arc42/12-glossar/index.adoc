@@ -31,6 +31,9 @@ Dieses Glossar führt die wichtigsten Fach- und Technikbegriffe von StadtratWatc
 | *Sitzung*
 | Einzelne Stadtratssitzung an einem Datum; Träger von Abstimmungen, Redebeiträgen und Tagesordnung.
 
+| *Freigabe* (`approved`)
+| Markierung einer Sitzung als geprüft und bestätigt. Das Kennzeichen steuert den Prüfstatus in der Darstellung; es ist kein Veröffentlichungs- oder Auswertungs-Gate. Freigegebene Daten gelten als unveränderlich (siehe Kapitel 6, _Prüfung und Freigabe_).
+
 | *Tagesordnung(spunkt)*
 | Gliederung einer Sitzung; ein Tagesordnungspunkt verknüpft Beratungen und Drucksachen mit der Sitzung.
 
@@ -45,6 +48,9 @@ Dieses Glossar führt die wichtigsten Fach- und Technikbegriffe von StadtratWatc
 
 | *Abstimmung / Votum*
 | Ergebnis einer namentlichen Abstimmung; je Person ein Votum (Ja, Nein, Enthaltung, nicht abgestimmt).
+
+| *Abstimmungstafel*
+| Die im Sitzungsvideo eingeblendete Anzeige des namentlichen Abstimmungsergebnisses. Sie ist die Quelle, aus der die Pipeline die Vota per OCR ausliest.
 
 | *Redebeitrag*
 | Transkribierter Wortbeitrag einer Person in einer Sitzung.
@@ -83,6 +89,35 @@ Dieses Glossar führt die wichtigsten Fach- und Technikbegriffe von StadtratWatc
   erkannten Abstimmungsdaten sowie für die Zuordnung der erkannten
   Sprecher:innen-Segmente zu Personen.
 
+| *Verarbeitungs-Pipeline*
+| Sammelbegriff für die bedarfsweise ausgeführten Deno-Schritte, die externe
+  Quellen abrufen, verarbeiten (OParl-Abruf, OCR, Diarisierung, Transkription,
+  Asset- und Index-Erzeugung) und das Ergebnis in die Datenablage schreiben
+  (Baustein, siehe Kapitel 5).
+
+| *Datenablage*
+| Der versionierte Bestand aus JSON-Dateien im Repository; einziges Bindeglied
+  zwischen Pipelines und Web-Anwendung und zugleich die offene Datenbasis. Große
+  Binär-Assets liegen ausgelagert (S3/CloudFront), nicht im Repository.
+
+| *Geteilte Modelle*
+| Die getypten TypeScript-Datenmodelle (Registry, Sitzungs-Scans, Reden,
+  OParl-Objekte), die Pipelines und Web-Anwendung über den Deno-Workspace
+  gemeinsam nutzen — die _Quelle der Wahrheit_ für die Datenstruktur (siehe ADR-0004).
+
+| *Deno*
+| Laufzeitumgebung der Verarbeitungs-Pipelines. Stellt über Workspaces zugleich die
+  geteilten Modelle für beide Teilsysteme bereit.
+
+| *Astro*
+| Statischer Site-Generator (mit serverseitigem Rendering zur Bauzeit) der
+  Web-Anwendung; liest die Datenablage ein und erzeugt daraus die statische Website
+  samt öffentlicher REST-API.
+
+| *Static Site Generation (SSG)*
+| Erzeugung fertiger HTML-/JSON-Dateien zur Bauzeit statt zur Laufzeit; die
+  ausgelieferte Website kommt ohne Anwendungsserver aus (siehe ADR-0002).
+
 | *Typesense*
 | Suchmaschine für die clientseitige Volltextsuche über Drucksachen und
   Redebeiträge.
@@ -90,6 +125,11 @@ Dieses Glossar führt die wichtigsten Fach- und Technikbegriffe von StadtratWatc
 | *Content Collections*
 | Astro-Mechanismus, mit dem die Web-Anwendung die Dateien der Datenablage zur
   Bauzeit typisiert einliest (`glob`-Loader).
+
+| *S3 / CloudFront*
+| Ausgelagerte Speicherung (Amazon S3) und Auslieferung (CloudFront-CDN) der großen
+  Binär-Assets — etwa Abstimmungs-Visualisierungen —, die bewusst außerhalb des
+  Repositorys gehalten werden.
 
 | *CC0*
 | Creative-Commons-Freigabe „Zero"; rechtliche Freigabe der offenen Datenbasis zur
