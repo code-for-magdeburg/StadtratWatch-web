@@ -1,0 +1,92 @@
+[#glossar]
+= Glossar
+:icons: font
+
+Dieses Glossar führt die wichtigsten Fach- und Technikbegriffe von StadtratWatch auf. Ziel ist eine einheitliche Sprache über die Architekturdokumentation, den Code und die Domäne hinweg.
+
+== Fachbegriffe
+
+[cols="2,4",options="header"]
+|===
+| Begriff | Bedeutung
+
+| *Drucksache*
+| Oberbegriff für jedes formal registrierte Dokument im Ratsinformationssystem (mit Drucksachennummer). Umfasst alle Untertypen (siehe unten).
+
+| *Vorlage* (Beschluss-, Informationsvorlage)
+| Untertyp der Drucksache, den i.d.R. die _Verwaltung_ dem Rat zur Beschlussfassung oder Information vorlegt.
+
+| *Antrag / Änderungsantrag*
+| Untertyp der Drucksache, eingebracht von Fraktionen oder Mitgliedern.
+
+| *Anfrage / Stellungnahme*
+| Weitere Drucksachen-Untertypen: Anfragen von Fraktionen/Mitgliedern bzw. deren Beantwortung durch die Verwaltung.
+
+| *Wahlperiode*
+| Amtszeit des Stadtrats; oberste Gliederungsebene der Daten.
+
+| *Registry*
+| Quelle der Wahrheit je Wahlperiode für Personen, Fraktionen, Parteien und die Sitzungsliste.
+
+| *Sitzung*
+| Einzelne Stadtratssitzung an einem Datum; Träger von Abstimmungen, Redebeiträgen und Tagesordnung.
+
+| *Tagesordnung(spunkt)*
+| Gliederung einer Sitzung; ein Tagesordnungspunkt verknüpft Beratungen und Drucksachen mit der Sitzung.
+
+| *Beratung*
+| Behandlung einer Drucksache in einer Sitzung (genauer: unter einem Tagesordnungspunkt). Eine Drucksache kann über mehrere Sitzungen hinweg mehrfach beraten werden; die Abfolge dieser Beratungen ergibt den _Beratungsverlauf_.
+
+| *Fraktion*
+| Zusammenschluss von Ratsmitgliedern im Stadtrat (organisatorisch), meist parteibezogen.
+
+| *Partei*
+| Politische Partei, der Personen zugeordnet sind. Einzelne Parteien können eine verfassungsschutzrechtliche Einstufung tragen.
+
+| *Abstimmung / Votum*
+| Ergebnis einer namentlichen Abstimmung; je Person ein Votum (Ja, Nein, Enthaltung, nicht abgestimmt).
+
+| *Redebeitrag*
+| Transkribierter Wortbeitrag einer Person in einer Sitzung.
+|===
+
+== Technische Begriffe
+
+[cols="2,4",options="header"]
+|===
+| Begriff | Bedeutung
+
+| *OParl*
+| Standardisierte REST/JSON-Schnittstelle für deutsche parlamentarische
+  Informationssysteme. Liefert StadtratWatch die strukturierten Quelldaten.
+
+| *Ratsinformationssystem*
+| Das amtliche System der Stadt, das die Drucksachen und Sitzungsdaten
+  veröffentlicht und über OParl zugänglich macht.
+
+| *OCR* (Optical Character Recognition)
+| Texterkennung; hier zur Auslesung der Abstimmungstafeln aus den Sitzungsvideos
+  (Tesseract).
+
+| *Diarisierung*
+| Erkennung, _wer wann_ spricht (Sprechersegmentierung) in einer Audioaufnahme;
+  Ergebnis im RTTM-Format.
+
+| *RTTM* (Rich Transcription Time Marked)
+| Dateiformat für zeitlich markierte Sprechersegmente, Ausgabe der Diarisierung.
+
+| *Whisper*
+| Spracherkennungsmodell von OpenAI; transkribiert die Redebeiträge.
+
+| *Typesense*
+| Suchmaschine für die clientseitige Volltextsuche über Drucksachen und
+  Redebeiträge.
+
+| *Content Collections*
+| Astro-Mechanismus, mit dem die Web-Anwendung die Dateien der Datenablage zur
+  Bauzeit typisiert einliest (`glob`-Loader).
+
+| *CC0*
+| Creative-Commons-Freigabe „Zero"; rechtliche Freigabe der offenen Datenbasis zur
+  uneingeschränkten Nachnutzung.
+|===

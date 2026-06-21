@@ -1,0 +1,84 @@
+= Ebene 2 — Whitebox Verarbeitungs-Pipelines
+
+Die Verarbeitung ist kein einzelnes Programm, sondern eine Reihe eigenständiger
+Skripte, die in einer festen Reihenfolge ausgeführt werden und über die Datenablage
+entkoppelt sind: Jede Stufe liest den bisherigen Bestand und/oder externe Quellen
+und schreibt ihr Ergebnis zurück. Die meisten Stufen sind in Deno/TypeScript
+geschrieben; die Sprecher-Diarisierung läuft als Python-Skript, die Audio-Extraktion
+als Shell-Skript.
+
+[plantuml,bausteinsicht-ebene-2-pipelines,svg]
+....
+@startuml
+skinparam componentStyle rectangle
+skinparam shadowing false
+left to right direction
+
+cloud "OParl-API" as OParl
+cloud "YouTube" as YT
+cloud "OpenAI /\nHuggingFace" as KI
+
+rectangle "Verarbeitungs-Pipelines" #lightyellow {
+  component "OParl-Ingestion" as S1
+  component "Drucksachen-\nAufbereitung" as S2
+  component "Video-\nVerarbeitung" as S3
+  component "Asset-\nGenerierung" as S4
+  component "Suchindizierung" as S5
+}
+
+database "Datenablage" as Data
+cloud "Typesense" as TS
+
+OParl --> S1
+S1 --> Data
+Data --> S2
+YT --> S3
+KI --> S3
+S3 --> Data
+Data --> S4
+Data --> S5
+S5 --> TS
+@enduml
+....
+
+== Enthaltene Stufen
+
+[cols="2,2,3",options="header"]
+|===
+| Stufe | Skripte | Verantwortung
+
+| *OParl-Ingestion*
+| `scrape-oparl`
+| Ruft die strukturierten Parlamentsdaten über die OParl-Schnittstelle ab (Body,
+  Sitzungen, Drucksachen, Dateien, Tagesordnungen, Beratungen, Organisationen) und
+  legt sie als Rohdaten ab. Voll- oder inkrementeller Lauf.
+
+| *Drucksachen-Aufbereitung*
+| `generate-paper-assets`, `download-paper-files`
+| Überführt die Drucksachen (OParl-`Paper`) aus den OParl-Rohdaten
+  in das ausgelieferte JSON-Batch-Format und lädt die verlinkten PDF-Dokumente.
+
+| *Video-Verarbeitung*
+| `scan-voting-images`, `speaker-diarization`, `parse-speakers`,
+  `speech-to-text`, `extract-speeches`
+| Gewinnt die Inhalte aus den Sitzungsvideos: OCR der Abstimmungstafeln
+  (Abstimmungsergebnisse), Diarisierung (wer spricht wann, als RTTM),
+  Aufbereitung der Sprecher-Segmente und Transkription der Redebeiträge.
+
+| *Asset-Generierung*
+| `generate-image-assets`
+| Erzeugt aus den Abstimmungsdaten die Visualisierungs-PNGs für die Auslieferung.
+
+| *Suchindizierung*
+| `index-search`
+| Importiert Drucksachen und Redebeiträge in die Typesense-Collections, gegen die der
+  Browser die Volltextsuche ausführt.
+|===
+
+[NOTE]
+====
+Die hier gezeigte Reihenfolge ist die fachliche Abhängigkeit, nicht ein
+durchlaufender Automatismus: Die Stufen werden bedarfsweise und teils manuell
+gestartet (siehe `HOWTO.md`). Der genaue zeitliche Ablauf je Sitzung gehört in die
+Laufzeitsicht (Kapitel 6).
+====

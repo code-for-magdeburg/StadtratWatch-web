@@ -27,16 +27,20 @@ include::03-kontextabgrenzung/index.adoc[leveloffset=+1]
 // Kapitel 4 — geschrieben
 include::04-loesungsstrategie/index.adoc[leveloffset=+1]
 
+// Kapitel 5 — geschrieben
+include::05-bausteinsicht/index.adoc[leveloffset=+1]
+
 // Die folgenden Kapitel sind noch zu erstellen:
 //
-// include::05-bausteinsicht/index.adoc[leveloffset=+1]
 // include::06-laufzeitsicht/index.adoc[leveloffset=+1]
 // include::07-verteilungssicht/index.adoc[leveloffset=+1]
 // include::08-querschnittliche-konzepte/index.adoc[leveloffset=+1]
 // include::09-architekturentscheidungen/index.adoc[leveloffset=+1]
 // include::10-qualitaetsanforderungen/index.adoc[leveloffset=+1]
 // include::11-risiken-und-technische-schulden/index.adoc[leveloffset=+1]
-// include::12-glossar/index.adoc[leveloffset=+1]
+
+// Kapitel 12 — geschrieben (vorgezogen)
+include::12-glossar/index.adoc[leveloffset=+1]
 
 [discrete]
 == Kapitelübersicht (arc42)
@@ -49,14 +53,14 @@ include::04-loesungsstrategie/index.adoc[leveloffset=+1]
 | 2  | <<randbedingungen,Randbedingungen>>                 | ✅ erstellt
 | 3  | <<kontextabgrenzung,Kontextabgrenzung>>             | ✅ erstellt
 | 4  | <<loesungsstrategie,Lösungsstrategie>>              | ✅ erstellt
-| 5  | Bausteinsicht                                       | 🚧 geplant
+| 5  | <<bausteinsicht,Bausteinsicht>>                     | ✅ erstellt
 | 6  | Laufzeitsicht                                       | 🚧 geplant
 | 7  | Verteilungssicht                                    | 🚧 geplant
 | 8  | Querschnittliche Konzepte                           | 🚧 geplant
 | 9  | Architekturentscheidungen                           | 🚧 geplant
 | 10 | Qualitätsanforderungen                              | 🚧 geplant
 | 11 | Risiken und technische Schulden                     | 🚧 geplant
-| 12 | Glossar                                             | 🚧 geplant
+| 12 | <<glossar,Glossar>>                                 | ✅ erstellt
 |===
 
 '''

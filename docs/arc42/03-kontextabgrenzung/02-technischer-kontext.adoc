@@ -64,12 +64,12 @@ Browser --> Ratsinfo : HTTPS, PDF-Abruf
 | *OParl-API*
 | ein
 | HTTPS, REST/JSON (OParl-Standard)
-| Die Pipeline ruft strukturierte Parlamentsdaten ab — Body, Sitzungen, Vorlagen/Anträge, Dateien, Tagesordnungen, Beratungen und Organisationen.
+| Die Pipeline ruft strukturierte Parlamentsdaten ab — Body, Sitzungen, Drucksachen, Dateien, Tagesordnungen, Beratungen und Organisationen.
 
 | *Ratsinformationssystem* (PDF-Dokumente)
 | aus
 | HTTPS, PDF-Dateien
-| Die in den Papers verlinkten PDF-Dokumente werden nicht zwischengespeichert, sondern vom Browser zur Laufzeit direkt aus dem Ratsinformationssystem geladen.
+| Die in den Drucksachen verlinkten PDF-Dokumente werden nicht zwischengespeichert, sondern vom Browser zur Laufzeit direkt aus dem Ratsinformationssystem geladen.
 
 | *YouTube*
 | ein
@@ -89,12 +89,12 @@ Browser --> Ratsinfo : HTTPS, PDF-Abruf
 | *Typesense*
 | aus / ein
 | HTTPS
-| Die Pipeline schreibt den Suchindex (Papers, Redebeiträge); der Browser stellt Suchanfragen.
+| Die Pipeline schreibt den Suchindex (Drucksachen, Redebeiträge); der Browser stellt Suchanfragen.
 
 | *AWS S3 + CloudFront*
 | aus / ein
 | HTTPS
-| Die Pipeline legt generierte Assets ab — Abstimmungs-PNGs sowie die Papers-Metadaten als JSON-Batches; der Browser lädt sie zur Laufzeit über die CloudFront-URL.
+| Die Pipeline legt generierte Assets ab — Abstimmungs-PNGs sowie die Drucksachen-Metadaten als JSON-Batches; der Browser lädt sie zur Laufzeit über die CloudFront-URL.
 
 | *Static Hosting / CDN*
 | aus

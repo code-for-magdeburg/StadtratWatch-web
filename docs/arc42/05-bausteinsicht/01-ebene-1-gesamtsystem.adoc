@@ -1,0 +1,88 @@
+= Ebene 1 — Whitebox Gesamtsystem
+
+Auf der obersten Ebene besteht StadtratWatch aus vier Bausteinen. Ihre Anordnung
+folgt der Trennung, die bereits der technische Kontext (Kapitel 3) eingeführt hat:
+Die Pipelines schreiben einen versionierten Datenbestand, aus dem die Web-Anwendung
+eine statische Website erzeugt. Beide Seiten stützen sich auf gemeinsame, getypte
+Datenmodelle.
+
+[plantuml,bausteinsicht-ebene-1,svg]
+....
+@startuml
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+cloud "Externe Quellen &\nDienste" as Extern
+
+rectangle "StadtratWatch" #lightyellow {
+  component "Verarbeitungs-\nPipelines (Deno)" as Pipe
+  database "Datenablage\n(JSON-Dateien)" as Data
+  component "Web-Anwendung\n(Astro)" as Web
+  component "Geteilte Modelle\n(TypeScript)" as Models
+}
+
+Extern --> Pipe : Quelldaten
+Pipe --> Data : schreibt
+Data --> Web : liest (Build)
+Models .. Pipe
+Models .. Web
+@enduml
+....
+
+== Enthaltene Bausteine
+
+[cols="2,4",options="header"]
+|===
+| Baustein | Verantwortung
+
+| *Verarbeitungs-Pipelines*
+| Rufen die externen Quellen ab, verarbeiten sie (OParl-Abruf, OCR der
+  Abstimmungstafeln, Diarisierung, Transkription, Asset- und Index-Erzeugung) und
+  schreiben das Ergebnis in die Datenablage. Werden bedarfsweise ausgeführt, nicht
+  dauerhaft betrieben. Verfeinerung auf Ebene 2.
+
+| *Datenablage*
+| Versionierter Bestand aus JSON-Dateien im Repository. Sie ist das einzige
+  Bindeglied zwischen Pipelines und Web-Anwendung und zugleich die nachvollziehbare,
+  unter CC0 offene Datenbasis. Große Binär-Assets liegen ausgelagert (S3/CloudFront),
+  nicht im Repository.
+
+| *Web-Anwendung*
+| Erzeugt zur Bauzeit aus der Datenablage eine statische Website samt öffentlicher
+  REST-API und liefert sie an die Browser der Nutzer:innen aus. Enthält die
+  Datenauswertung (Abstimmungs- und Redestatistiken). Verfeinerung auf Ebene 2.
+
+| *Geteilte Modelle*
+| Getypte Datenmodelle (Registry, Sitzungs-Scans, Reden, OParl-Objekte) als
+  gemeinsame Quelle der Wahrheit für beide Teilsysteme. So entsteht und liest
+  jede Seite dieselbe Datenstruktur.
+|===
+
+[NOTE]
+====
+Die geteilten Modelle liegen primär in der Web-Anwendung (`astro/src/models/`) und
+werden der Deno-Seite über den Workspace (`src/deps/astro/`) als Re-Export
+bereitgestellt. Einzelne Modelle sind derzeit noch dupliziert statt geteilt; diese
+technische Schuld ist in Kapitel 11 vermerkt.
+====
+
+== Aufbau der Datenablage
+
+Die Datenablage ist nach Wahlperiode und Sitzung gegliedert. Diese Struktur prägt
+sowohl die Schreibpfade der Pipelines als auch die Lade-Muster der Web-Anwendung.
+
+[source]
+----
+data/
+├── magdeburg-7/                  # Wahlperiode (eigene registry.json je Periode)
+│   ├── registry.json             # Quelle der Wahrheit: Personen, Fraktionen,
+│   │                             #   Parteien, Sitzungsliste
+│   └── YYYY-MM-DD/               # eine Sitzung
+│       ├── config-*.json
+│       ├── session-scan-*.json       # Abstimmungsergebnisse
+│       ├── session-speakers-*.json   # Sprecher:innen-Segmente
+│       └── session-speeches-*.json   # Transkripte
+├── magdeburg-8/
+├── oparl-magdeburg/              # rohe OParl-Daten
+└── papers/                       # Drucksachen-Metadaten (JSON-Batches)
+----

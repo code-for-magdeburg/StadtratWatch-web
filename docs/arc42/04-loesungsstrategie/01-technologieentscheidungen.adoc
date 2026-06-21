@@ -1,31 +1,19 @@
 = Technologieentscheidungen
 
-Die folgenden Entscheidungen prägen die Architektur am stärksten. Anders als die
-Randbedingungen aus Kapitel 2 sind sie frei gewählt; angegeben ist jeweils das
-*Warum*, nicht das *Wie* — Letzteres folgt in den späteren Kapiteln.
+Die folgenden Entscheidungen prägen die Architektur am stärksten. Anders als die Randbedingungen aus Kapitel 2 sind sie frei gewählt; angegeben ist jeweils das *Warum*, nicht das *Wie* — Letzteres folgt in den späteren Kapiteln.
 
 [cols="2,4",options="header"]
 |===
 | Entscheidung | Begründung
 
 | *Versionierter JSON-Datenbestand statt Datenbank*
-| Der gesamte verarbeitete Bestand liegt als versionierte JSON-Dateien im
-  Repository. Das macht jede Änderung über die Git-Historie nachvollziehbar
-  (Transparenz), erlaubt reproduzierbare Builds und kommt ohne den Betrieb einer
-  Datenbank aus (geringe Betriebskosten). Freigegebene Sitzungsdaten werden nicht
-  mehr verändert.
+| Der gesamte verarbeitete Bestand liegt als versionierte JSON-Dateien im Repository. Das macht jede Änderung über die Git-Historie nachvollziehbar (Transparenz), erlaubt reproduzierbare Builds und kommt ohne den Betrieb einer Datenbank aus (geringe Betriebskosten). Freigegebene Sitzungsdaten werden nicht mehr verändert.
 
 | *Statisch ausgelieferte Web-Anwendung (Astro)*
-| Die überwiegend lesende, sich selten ändernde Datenbasis wird zur Bauzeit in
-  statische Seiten überführt. Es ist kein Anwendungsserver zu betreiben, die
-  Auslieferung erfolgt über günstiges Standard-Hosting/CDN, und die Seiten laden
-  schnell — was Betriebskosten, Wartbarkeit und Zugänglichkeit zugleich dient.
+| Die überwiegend lesende, sich selten ändernde Datenbasis wird zur Bauzeit in statische Seiten überführt. Es ist kein Anwendungsserver zu betreiben, die Auslieferung erfolgt über günstiges Standard-Hosting/CDN, und die Seiten laden schnell — was Betriebskosten, Wartbarkeit und Zugänglichkeit zugleich dient.
 
 | *Datenverarbeitung mit Deno*
-| Die Pipeline ist durchgängig in TypeScript geschrieben und teilt sich über einen
-  Monorepo-Workspace die Datenmodelle mit der Web-Anwendung. Deno benötigt keinen
-  separaten Build-Schritt und ist standardmäßig restriktiv bei Datei- und
-  Netzzugriffen.
+| Die Pipeline ist durchgängig in TypeScript geschrieben und teilt sich über einen Monorepo-Workspace die Datenmodelle mit der Web-Anwendung. Deno benötigt keinen separaten Build-Schritt und ist standardmäßig restriktiv bei Datei- und Netzzugriffen.
 
 | *Geteilte Modelle im Monorepo*
 | Pipeline und Web-Anwendung verwenden dieselben getypten Modelle als einzige
@@ -33,18 +21,11 @@ Randbedingungen aus Kapitel 2 sind sie frei gewählt; angegeben ist jeweils das
   dargestellten Daten und stützt damit die Datenkorrektheit.
 
 | *Automatische Datengewinnung aus Video (OCR + Transkription)*
-| Abstimmungsergebnisse und Redebeiträge liegen nur als Videoaufzeichnung vor.
-  Tesseract-OCR erkennt die Abstimmungstafeln, OpenAI Whisper transkribiert die
-  Redebeiträge. Die Ergebnisse werden vor der Freigabe geprüft, da die
-  automatische Erkennung fehleranfällig ist.
+| Abstimmungsergebnisse und Redebeiträge liegen nur als Videoaufzeichnung vor. Tesseract-OCR erkennt die Abstimmungstafeln, OpenAI Whisper transkribiert die Redebeiträge. Die Ergebnisse werden vor der Freigabe geprüft, da die automatische Erkennung fehleranfällig ist.
 
 | *Clientseitige Volltextsuche mit Typesense*
-| Die Suche über Papers und Redebeiträge läuft als sofortige Suche direkt im
-  Browser gegen einen vorab erzeugten Index. Damit bleibt die Auslieferung
-  statisch und es ist keine serverseitige Suchlogik zu betreiben.
+| Die Suche über Drucksachen und Redebeiträge läuft als sofortige Suche direkt im Browser gegen einen vorab erzeugten Index. Damit bleibt die Auslieferung statisch und es ist keine serverseitige Suchlogik zu betreiben.
 
 | *Große Assets über AWS S3 + CloudFront*
-| Generierte Binärdaten (Abstimmungs-PNGs, Papers-JSON-Batches) werden außerhalb
-  des Repositories abgelegt und zur Laufzeit über ein CDN geladen. Das hält das
-  Repository schlank und die Auslieferung schnell.
+| Generierte Binärdaten (Abstimmungs-PNGs, Drucksachen-JSON-Batches) werden außerhalb des Repositories abgelegt und zur Laufzeit über ein CDN geladen. Das hält das Repository schlank und die Auslieferung schnell.
 |===
