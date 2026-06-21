@@ -1,0 +1,21 @@
+[#konzept-offene-daten]
+= Offene Daten & Lizenzierung
+
+Offenheit ist kein nachträgliches Feature, sondern Teil des Zwecks: StadtratWatch existiert, um Transparenz herzustellen. Die Architektur ist deshalb so angelegt, dass die Datenbasis offen, nachnutzbar und auf ihre Quelle zurückführbar ist.
+
+[cols="2,4",options="header"]
+|===
+| Prinzip | Umsetzung
+
+| *Offene Lizenz (CC0)*
+| Die Datenbasis steht unter Creative Commons Zero und ist damit zur uneingeschränkten Nachnutzung freigegeben.
+
+| *Öffentliche REST-API*
+| Eine versionierte, öffentliche REST-API (v1) gibt Wahlperioden, Sitzungs-Abstimmungen und -Reden als JSON aus. Die Antworten enthalten Metadaten und sind unter CC0 ausgewiesen. Sie wird — wie die Website — statisch zur Bauzeit erzeugt und benötigt keinen Anwendungsserver.
+
+| *Versionierter, einsehbarer Bestand*
+| Der gesamte Datenbestand liegt als JSON im Repository und ist über die Git-Historie einsehbar (siehe <<konzept-datenhaltung,Datenhaltung & Versionierung>>). Offenheit bedeutet hier auch Nachvollziehbarkeit jeder Änderung.
+
+| *Quellenverknüpfung*
+| Jede veröffentlichte Aussage bleibt mit ihrer amtlichen Quelle verknüpft (Video-Zeitstempel, OParl-Dokument; siehe <<konzept-datengewinnung,Datengewinnung & -qualität>>). Nachnutzende können die Daten damit unabhängig verifizieren.
+|===

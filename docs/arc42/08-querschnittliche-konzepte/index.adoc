@@ -1,2 +1,42 @@
 [#querschnittliche-konzepte]
 = Querschnittliche Konzepte
+:icons: font
+
+Dieses Kapitel beschreibt die durchgängigen Konzepte, die sich nicht einem einzelnen Baustein zuordnen lassen, sondern quer durch Pipelines, Datenablage und Web-Anwendung wirken. Sie konkretisieren die Lösungsstrategie aus Kapitel 4 und stützen die Qualitätsziele aus Kapitel 1. Wo ein Konzept einen Ablauf betrifft, verweist der Text auf die Laufzeitsicht (Kapitel 6), ohne sie zu wiederholen.
+
+Die folgende Übersicht ordnet jedes Konzept dem Qualitätsziel zu, das es vorrangig stützt (Priorität wie in Kapitel 1).
+
+[cols="3,3",options="header"]
+|===
+| Konzept | Vorrangig gestütztes Qualitätsziel
+
+| <<konzept-datenmodell,Fachliches Datenmodell>>
+| Datenkorrektheit & Glaubwürdigkeit (2), Wartbarkeit (3)
+
+| <<konzept-datenhaltung,Datenhaltung & Versionierung>>
+| Transparenz & Nachvollziehbarkeit (1), Wartbarkeit (3)
+
+| <<konzept-datengewinnung,Datengewinnung & -qualität>>
+| Datenkorrektheit & Glaubwürdigkeit (2), Transparenz (1)
+
+| <<konzept-sicherheit,Sicherheit & Datenschutz>>
+| Datenkorrektheit & Glaubwürdigkeit (2), Wartbarkeit (3)
+
+| <<konzept-offene-daten,Offene Daten & Lizenzierung>>
+| Transparenz & Nachvollziehbarkeit (1)
+
+| <<konzept-barrierefreiheit,Barrierefreiheit & UI/UX>>
+| Barrierefreiheit & Zugänglichkeit (4)
+|===
+
+include::01-fachliches-datenmodell.adoc[leveloffset=+1]
+
+include::02-datenhaltung-und-versionierung.adoc[leveloffset=+1]
+
+include::03-datengewinnung-und-qualitaet.adoc[leveloffset=+1]
+
+include::04-sicherheit-und-datenschutz.adoc[leveloffset=+1]
+
+include::05-offene-daten-und-lizenzierung.adoc[leveloffset=+1]
+
+include::06-barrierefreiheit-und-ui.adoc[leveloffset=+1]

@@ -1,0 +1,35 @@
+[#konzept-datenhaltung]
+= Datenhaltung & Versionierung
+
+StadtratWatch kommt ohne Datenbank aus. Der gesamte verarbeitete Bestand liegt als versionierte JSON-Dateien im Repository und bildet das einzige Bindeglied zwischen Pipelines und Web-Anwendung (siehe Bausteinsicht, Kapitel 5).
+
+== Versionierter JSON-Bestand
+
+[cols="2,4",options="header"]
+|===
+| Prinzip | Bedeutung
+
+| *Dateien statt Datenbank*
+| Der Bestand liegt als JSON im Verzeichnis `data/`, gegliedert nach Wahlperiode und Sitzungsdatum. Jede Änderung ist über die Git-Historie nachvollziehbar (Transparenz) und Builds sind reproduzierbar. Es ist keine Datenbank zu betreiben (geringe Betriebskosten).
+
+| *Unveränderlichkeit freigegebener Sitzungsdaten*
+| Eine Sitzung gilt mit gesetztem `approved`-Kennzeichen als freigegeben. Freigegebene Sitzungsdaten werden danach nicht mehr verändert; Korrekturen sind die begründete Ausnahme. Das schützt die einmal geprüften Daten und stützt ihre Glaubwürdigkeit.
+
+| *Registry als Quelle der Wahrheit*
+| Je Wahlperiode hält die `registry.json` Personen, Fraktionen, Parteien und die Sitzungsliste. Sie ist der referenzierte Stammdatensatz für alle abgeleiteten Auswertungen.
+|===
+
+== Ausgelagerte Binär-Assets
+
+Große, generierte Binärdaten gehören nicht in das Repository. Abstimmungs-PNGs und die als JSON-Batches abgelegten Drucksachen-Daten liegen außerhalb in AWS S3 und werden zur Laufzeit über das CDN CloudFront geladen. Das hält das Repository schlank und die Auslieferung schnell. Die Basis-URL ist über die Umgebung konfiguriert (siehe unten).
+
+== Einlesen zur Bauzeit
+
+Die Web-Anwendung liest die Dateien der Datenablage zur Bauzeit über Astro _Content Collections_ (`glob`-Loader) typisiert ein. Damit wird der Dateibestand gegen die geteilten Modelle (siehe <<konzept-datenmodell,Fachliches Datenmodell>>) geprüft und steht den statischen Seiten strukturiert zur Verfügung.
+
+== Konfiguration & Umgebungen
+
+Die Konfiguration ist bewusst klein und folgt der Trennung von Pipeline und Web-Anwendung:
+
+* Die *Web-Anwendung* deklariert ihre Umgebungsvariablen über das typisierte env-Schema von Astro (`astro.config.mjs`). Dazu zählen die Standard-Wahlperiode (`DEFAULT_PARLIAMENT_PERIOD`), die CloudFront-Basis-URL und die Typesense-Verbindung. Alle diese Werte sind öffentlich; der Typesense-Schlüssel ist ein reiner Such-Schlüssel (`search-only`). Es gibt keine serverseitigen Geheimnisse in der Auslieferung.
+* Die *Pipelines* erhalten ihre Konfiguration (u. a. den OpenAI-API-Schlüssel für die Transkription) über Umgebungsvariablen zur Ausführungszeit. Diese Geheimnisse verbleiben in der Verarbeitungsumgebung und gelangen nie in die ausgelieferte Website oder den Datenbestand.
