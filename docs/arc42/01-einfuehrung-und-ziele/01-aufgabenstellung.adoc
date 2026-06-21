@@ -13,7 +13,7 @@ Die Plattform deckt mehrere Wahlperioden ab (aktuell `magdeburg-7`, 2019–2024,
 | Funktion | Beschreibung
 
 | Sitzungsverfolgung
-| Verarbeitung von Sitzungsvideos: Erkennung von Abstimmungsergebnissen (OCR der eingeblendeten Abstimmungstafeln), Identifikation der Redner:innen (Diarisierung) und Transkription der Redebeiträge (Speech-to-Text).
+| Verarbeitung von Sitzungsvideos: Erkennung von Abstimmungsergebnissen (OCR der eingeblendeten Abstimmungstafeln), Sprecher:innen-Segmentierung (Diarisierung; die Zuordnung der Segmente zu konkreten Personen erfolgt manuell) und Transkription der Redebeiträge (Speech-to-Text).
 
 | Abstimmungsanalyse
 | Statistische Auswertung des Abstimmungsverhaltens — u. a. Abstimmungsmatrix (Ähnlichkeit zwischen Mitgliedern), Beteiligungs- und Enthaltungsraten, Abstimmungserfolg sowie Fraktionsgeschlossenheit.

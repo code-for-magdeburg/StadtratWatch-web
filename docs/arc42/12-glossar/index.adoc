@@ -69,14 +69,19 @@ Dieses Glossar führt die wichtigsten Fach- und Technikbegriffe von StadtratWatc
   (Tesseract).
 
 | *Diarisierung*
-| Erkennung, _wer wann_ spricht (Sprechersegmentierung) in einer Audioaufnahme;
+| Erkennung, _wer wann_ spricht (Sprecher:innen-Segmentierung) in einer Audioaufnahme;
   Ergebnis im RTTM-Format.
 
 | *RTTM* (Rich Transcription Time Marked)
-| Dateiformat für zeitlich markierte Sprechersegmente, Ausgabe der Diarisierung.
+| Dateiformat für zeitlich markierte Sprecher:innen-Segmente, Ausgabe der Diarisierung.
 
 | *Whisper*
 | Spracherkennungsmodell von OpenAI; transkribiert die Redebeiträge.
+
+| *scan-check-ui*
+| Separates Prüfwerkzeug für manuelle Sichtung und Korrektur der automatisch
+  erkannten Abstimmungsdaten sowie für die Zuordnung der erkannten
+  Sprecher:innen-Segmente zu Personen.
 
 | *Typesense*
 | Suchmaschine für die clientseitige Volltextsuche über Drucksachen und

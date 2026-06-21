@@ -4,7 +4,7 @@ Die Verarbeitung ist kein einzelnes Programm, sondern eine Reihe eigenständiger
 Skripte, die in einer festen Reihenfolge ausgeführt werden und über die Datenablage
 entkoppelt sind: Jede Stufe liest den bisherigen Bestand und/oder externe Quellen
 und schreibt ihr Ergebnis zurück. Die meisten Stufen sind in Deno/TypeScript
-geschrieben; die Sprecher-Diarisierung läuft als Python-Skript, die Audio-Extraktion
+geschrieben; die Sprecher:innen-Diarisierung läuft als Python-Skript, die Audio-Extraktion
 als Shell-Skript.
 
 [plantuml,bausteinsicht-ebene-2-pipelines,svg]
@@ -60,10 +60,11 @@ S5 --> TS
 
 | *Video-Verarbeitung*
 | `scan-voting-images`, `speaker-diarization`, `parse-speakers`,
-  `speech-to-text`, `extract-speeches`
+  `scan-check-ui`, `speech-to-text`, `extract-speeches`
 | Gewinnt die Inhalte aus den Sitzungsvideos: OCR der Abstimmungstafeln
   (Abstimmungsergebnisse), Diarisierung (wer spricht wann, als RTTM),
-  Aufbereitung der Sprecher-Segmente und Transkription der Redebeiträge.
+  Aufbereitung der Sprecher:innen-Segmente, manuelle Prüfung/Korrektur mit dem
+  separaten Prüfwerkzeug `scan-check-ui` und Transkription der Redebeiträge.
 
 | *Asset-Generierung*
 | `generate-image-assets`

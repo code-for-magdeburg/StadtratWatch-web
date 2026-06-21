@@ -1,0 +1,53 @@
+[#laufzeitsicht]
+= Laufzeitsicht
+:icons: font
+
+Dieses Kapitel zeigt, wie die in Kapitel 5 (<<bausteinsicht,Bausteinsicht>>)
+beschriebenen Bausteine zur Laufzeit zusammenspielen. Anders als die statische
+Zerlegung dort ist diese Sicht *ablauforientiert*: Sie folgt den Daten auf ihrem
+Weg von den amtlichen Quellen bis zur ausgelieferten Website.
+
+Bei StadtratWatch verteilt sich „Laufzeit" auf drei deutlich verschiedene
+Kontexte, weil das System bewusst keinen dauerhaft laufenden Anwendungsserver
+betreibt (siehe Qualitätsziel #3, _Wartbarkeit & geringe Betriebskosten_):
+
+[cols="1,3",options="header"]
+|===
+| Kontext | Charakter
+
+| *Datenverarbeitung (bedarfsweise)*
+| Eigenständige Skripte (Deno, Python, Shell), die manuell oder containerisiert
+  gestartet werden und über die Datenablage entkoppelt sind. Hierher gehören die
+  beiden Verarbeitungs-Pipelines.
+
+| *Build-Zeit*
+| Der Astro-Build liest die Datenablage, berechnet die Auswertungen und erzeugt
+  die statische Website samt API. Findet einmalig je Veröffentlichung statt.
+
+| *Client-Laufzeit*
+| Der Browser der Nutzer:innen — statische Seiten mit progressiver
+  Interaktivität (Alpine.js) und clientseitiger Suche (Typesense).
+|===
+
+Die folgenden vier Szenarien decken diese Kontexte ab. Sie sind nach dem
+Datenfluss geordnet: zwei Verarbeitungs-Pipelines (Szenario 1 und 2), der Build
+(Szenario 3) und die qualitätssichernde menschliche Prüfung, die die
+Datenverarbeitung mit der Veröffentlichung verbindet (Szenario 4).
+
+[cols="1,3,2",options="header"]
+|===
+| Nr. | Szenario | Kontext
+
+| 6.1 | <<lz-sitzungsverarbeitung,Sitzungsverarbeitung (Video-Pipeline)>>   | Datenverarbeitung
+| 6.2 | <<lz-oparl-ingestion,OParl- und Drucksachen-Ingestion>>            | Datenverarbeitung
+| 6.3 | <<lz-build,Statischer Build und Datenauswertung>>                  | Build-Zeit
+| 6.4 | <<lz-pruefung-freigabe,Prüfung und Freigabe einer Sitzung>>        | Datenverarbeitung ↔ Build
+|===
+
+include::01-sitzungsverarbeitung.adoc[leveloffset=+1]
+
+include::02-oparl-ingestion.adoc[leveloffset=+1]
+
+include::03-build-und-auswertung.adoc[leveloffset=+1]
+
+include::04-pruefung-und-freigabe.adoc[leveloffset=+1]
