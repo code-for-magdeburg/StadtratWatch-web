@@ -15,35 +15,17 @@ Sie folgt dem https://arc42.org[arc42]-Template für Architekturdokumentation.
 Jedes Kapitel liegt in einem eigenen Verzeichnis mit einer `index.adoc` und kann
 sowohl eigenständig als auch über dieses Hauptdokument gelesen werden.
 
-// Kapitel 1 — geschrieben
 include::01-einfuehrung-und-ziele/index.adoc[leveloffset=+1]
-
-// Kapitel 2 — geschrieben
 include::02-randbedingungen/index.adoc[leveloffset=+1]
-
-// Kapitel 3 — geschrieben
 include::03-kontextabgrenzung/index.adoc[leveloffset=+1]
-
-// Kapitel 4 — geschrieben
 include::04-loesungsstrategie/index.adoc[leveloffset=+1]
-
-// Kapitel 5 — geschrieben
 include::05-bausteinsicht/index.adoc[leveloffset=+1]
-
-// Kapitel 6 — geschrieben
 include::06-laufzeitsicht/index.adoc[leveloffset=+1]
-
-// Kapitel 7 — geschrieben
 include::07-verteilungssicht/index.adoc[leveloffset=+1]
-
-// Die folgenden Kapitel sind noch zu erstellen:
-//
-// include::08-querschnittliche-konzepte/index.adoc[leveloffset=+1]
-// include::09-architekturentscheidungen/index.adoc[leveloffset=+1]
-// include::10-qualitaetsanforderungen/index.adoc[leveloffset=+1]
-// include::11-risiken-und-technische-schulden/index.adoc[leveloffset=+1]
-
-// Kapitel 12 — geschrieben (vorgezogen)
+include::08-querschnittliche-konzepte/index.adoc[leveloffset=+1]
+include::09-architekturentscheidungen/index.adoc[leveloffset=+1]
+include::10-qualitaetsanforderungen/index.adoc[leveloffset=+1]
+include::11-risiken-und-technische-schulden/index.adoc[leveloffset=+1]
 include::12-glossar/index.adoc[leveloffset=+1]
 
 [discrete]
