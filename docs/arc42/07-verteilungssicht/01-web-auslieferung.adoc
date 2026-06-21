@@ -1,0 +1,121 @@
+[#vt-web-auslieferung]
+= Web-Auslieferung
+
+Die Web-Anwendung wird *nicht* aus diesem Repository heraus deployt, sondern
+extern gebaut: Ein Push auf den `main`-Branch löst bei *Netlify* einen Build aus,
+der die statische Website erzeugt und unter `https://www.stadtratwatch.de` über
+das Netlify-CDN ausliefert. Es gibt keinen Anwendungsserver — zur Laufzeit hält
+der Browser der Nutzer:innen alle Fäden zusammen und spricht die übrigen Dienste
+direkt an.
+
+[NOTE]
+====
+Die GitHub-Actions-CI dieses Repositories (`.github/workflows/ci.yml`) ist ein
+reines *Qualitäts-Gate* (Typecheck, Format, Tests, Probe-Build) und *kein*
+Deployment-Schritt. Der produktive Build läuft ausschließlich bei Netlify. Beide
+werden durch denselben Push ausgelöst, sind aber voneinander unabhängig.
+====
+
+[plantuml,verteilungssicht-web,svg]
+....
+@startuml
+skinparam shadowing false
+skinparam componentStyle rectangle
+
+node "GitHub" as GH {
+  artifact "Repository\n(main-Branch)" as Repo
+}
+
+node "Netlify" as Netlify {
+  artifact "Build\n(npm run build)" as Build
+  artifact "Statische Website\n+ REST-API (dist/)" as CDN
+}
+
+node "Projekt-Server (VPS)" as VPS {
+  database "Typesense" as TS
+}
+
+cloud "AWS S3 + CloudFront" as AWS
+cloud "Ratsinformationssystem\n(PDF)" as Ratsinfo
+
+node "Browser (Endnutzer:in)" as Browser {
+  artifact "Astro-Seiten\n+ Alpine.js" as App
+}
+
+Repo --> Build : Push triggert Build
+Build --> CDN : erzeugt
+CDN --> App : HTTPS, HTML/JS/CSS
+
+App --> TS : HTTPS, Suchanfragen
+App --> AWS : HTTPS, Assets
+App --> Ratsinfo : HTTPS, PDF-Abruf
+@enduml
+....
+
+== Knoten und Kanäle
+
+[cols="2,3,3",options="header"]
+|===
+| Knoten | Umgebung / Artefakt | Kanäle
+
+| *GitHub-Repository*
+| Git-Remote mit Code und versionierter Datenablage; der `main`-Branch ist die
+  Veröffentlichungsbasis.
+| Push auf `main` triggert den Netlify-Build (Webhook).
+
+| *Netlify — Build*
+| Vom Provider bereitgestellte Build-Umgebung (Node.js), führt `npm run build`
+  aus. Konfiguration und Secrets (z. B. `AWS_CLOUDFRONT_BASE_URL`,
+  Typesense-Verbindungsdaten) werden als Netlify-Umgebungsvariablen injiziert.
+| Liest den `main`-Stand, erzeugt das `dist/`-Verzeichnis.
+
+| *Netlify — CDN*
+| Global verteiltes CDN, liefert die statischen Artefakte aus.
+| HTTPS an den Browser (`https://www.stadtratwatch.de`).
+
+| *Projekt-Server (VPS) — Typesense*
+| Selbstgehosteter Typesense-Container, öffentlich erreichbar unter
+  `https://typesense.unser-magdeburg.de`.
+| Beantwortet die clientseitigen Suchanfragen des Browsers (Search-only-Key).
+
+| *AWS S3 + CloudFront*
+| Object-Store mit vorgelagertem CDN (öffentliche CloudFront-Domain, z. B.
+  `https://d2zk2bghxwzsug.cloudfront.net`).
+| Liefert die großen Binär-Assets (Abstimmungs-PNGs) und die
+  Drucksachen-JSON-Batches an den Browser.
+
+| *Ratsinformationssystem*
+| Externes System der Stadt (kein StadtratWatch-Knoten).
+| Der Browser lädt verlinkte Drucksachen-PDFs zur Laufzeit direkt von dort.
+
+| *Browser (Endnutzer:in)*
+| Client-Laufzeit: statische Seiten mit progressiver Interaktivität (Alpine.js)
+  und clientseitiger Suche.
+| Empfängt die Website vom CDN, spricht Typesense, CloudFront und das
+  Ratsinformationssystem direkt an.
+|===
+
+== Verteilung der Bausteine
+
+[cols="2,2,3",options="header"]
+|===
+| Baustein (Kap. 5) | Knoten | Artefakt
+
+| *Web-Anwendung* (Astro)
+| Netlify (Build) → Netlify-CDN
+| Statisch gebaute Seiten samt öffentlicher REST-API im `dist/`-Verzeichnis.
+
+| *Datenauswertung* (Teil der Web-Anwendung)
+| Netlify (Build)
+| Wird zur Bauzeit aus der Datenablage berechnet und in die statischen Seiten
+  eingebacken — zur Laufzeit existiert sie nicht mehr als eigener Baustein.
+
+| *Datenablage* (gelesener Teil)
+| Netlify (Build) liest aus dem Repository; große Assets aus S3/CloudFront
+| JSON-Dateien im Repository; ausgelagerte PNG- und Drucksachen-Assets über
+  CloudFront.
+
+| *Suchindex*
+| Projekt-Server (VPS)
+| Typesense-Collections (Drucksachen, Redebeiträge), gegen die der Browser sucht.
+|===

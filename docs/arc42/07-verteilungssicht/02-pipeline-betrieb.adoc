@@ -1,0 +1,122 @@
+[#vt-pipeline-betrieb]
+= Pipeline-Betrieb
+
+Die Verarbeitungs-Pipelines (Kapitel 5, Ebene 2) sind kein betriebener Dienst,
+sondern werden *bedarfsweise und manuell* auf dem Arbeitsplatz einer:eines
+Maintainer:in ausgeführt — als Deno-, Python- und Shell-Skripte, für die jeweils
+ein Docker-Image bereitsteht (`docker/`). Es gibt keinen Scheduler und keinen
+Server, der die Pipelines automatisch anstößt; der Anstoß und die fachliche
+Reihenfolge liegen in menschlicher Hand (siehe `HOWTO.md`).
+
+Das Ergebnis fließt an drei Ziele: in das *GitHub-Repository* (die strukturierten
+JSON-Daten, per Git committet und gepusht), in *AWS S3* (große Binär-Assets) und
+in das *Typesense* auf dem Projekt-Server (der Suchindex). Der Push ins
+Repository ist zugleich die Naht zur Web-Auslieferung (<<vt-web-auslieferung>>):
+Er macht die neuen Daten zur Grundlage des nächsten Netlify-Builds.
+
+[plantuml,verteilungssicht-pipeline,svg]
+....
+@startuml
+skinparam shadowing false
+skinparam componentStyle rectangle
+
+actor "Maintainer:in" as Maint
+
+cloud "OParl-API" as OParl
+cloud "YouTube" as YT
+cloud "OpenAI API" as OpenAI
+cloud "HuggingFace" as HF
+
+node "Arbeitsplatz (lokal)" as Local {
+  artifact "Pipeline-Container\n(Deno / Python / Shell)" as Pipe
+  database "Repo-Klon\n(Datenablage)" as LocalData
+}
+
+node "GitHub" as GH {
+  artifact "Repository\n(main-Branch)" as Repo
+}
+
+node "Projekt-Server (VPS)" as VPS {
+  database "Typesense" as TS
+}
+cloud "AWS S3 + CloudFront" as AWS
+
+Maint --> Pipe : startet bedarfsweise
+
+OParl --> Pipe : HTTPS/JSON
+YT --> Pipe : Video-/Audio-Download
+Pipe --> OpenAI : HTTPS, Whisper
+Pipe --> HF : HTTPS, Modell-Download
+
+Pipe --> LocalData : schreibt
+LocalData --> Repo : git push
+Pipe --> AWS : Assets ablegen
+Pipe --> TS : Index schreiben
+@enduml
+....
+
+== Knoten und Kanäle
+
+[cols="2,3,3",options="header"]
+|===
+| Knoten | Umgebung / Artefakt | Kanäle
+
+| *Arbeitsplatz (lokal)*
+| Rechner einer:eines Maintainer:in mit Docker- und Deno-Laufzeit sowie einem
+  Klon des Repositories. Trägt die API-Keys (OpenAI, HuggingFace, AWS,
+  Typesense-Admin) lokal, etwa über eine `.env`-Datei.
+| Stößt die Pipeline-Stufen an, liest/schreibt die lokale Datenablage.
+
+| *Externe Quellen* (OParl-API, YouTube)
+| Amtliche bzw. Drittsysteme, aus denen die Pipelines die Rohdaten beziehen.
+| OParl über HTTPS/JSON; Sitzungsvideos als manueller Medien-Download.
+
+| *KI-Dienste* (OpenAI, HuggingFace)
+| Externe Dienste für Transkription (Whisper) und das Diarisierungs-Modell
+  (`pyannote`).
+| HTTPS mit API-Key bzw. Zugriffstoken.
+
+| *GitHub-Repository*
+| Git-Remote; nimmt die committeten JSON-Daten auf und versioniert sie.
+| `git push` vom Arbeitsplatz; löst anschließend die Web-Auslieferung aus.
+
+| *AWS S3 + CloudFront*
+| Object-Store mit CDN für die ausgelagerten Binär-Assets.
+| Die Asset-Generierung legt Abstimmungs-PNGs und Drucksachen-Batches ab.
+
+| *Projekt-Server (VPS) — Typesense*
+| Selbstgehosteter Typesense-Container unter
+  `https://typesense.unser-magdeburg.de`.
+| Die Suchindizierung schreibt die Collections über den Admin-Key.
+|===
+
+== Verteilung der Bausteine
+
+[cols="2,2,3",options="header"]
+|===
+| Baustein (Kap. 5) | Knoten | Artefakt
+
+| *Verarbeitungs-Pipelines*
+| Arbeitsplatz (lokal), containerisiert
+| Deno-/Python-/Shell-Skripte je Stufe (`docker/*.Dockerfile`).
+
+| *Datenablage* (geschriebener Teil)
+| Lokaler Repo-Klon → GitHub-Repository
+| JSON-Dateien je Wahlperiode und Sitzung; per `git push` versioniert.
+
+| *Ausgelagerte Assets*
+| AWS S3 / CloudFront
+| Abstimmungs-PNGs und Drucksachen-JSON-Batches, zur Laufzeit vom Browser geladen.
+
+| *Suchindex*
+| Projekt-Server (VPS), Typesense
+| Befüllte Collections (Drucksachen, Redebeiträge).
+|===
+
+[NOTE]
+====
+Die hier gezeigten Schreibziele werden nicht in einem einzigen Lauf bedient,
+sondern von verschiedenen Pipeline-Stufen in fachlicher Reihenfolge (Kapitel 6,
+<<laufzeitsicht,Laufzeitsicht>>). Die Verteilungssicht zeigt nur, *wohin* die
+jeweilige Stufe schreibt, nicht *wann*.
+====

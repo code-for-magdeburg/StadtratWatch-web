@@ -1,0 +1,83 @@
+[#verteilungssicht]
+= Verteilungssicht
+:icons: font
+
+Dieses Kapitel zeigt, *wo* die in Kapitel 5 (<<bausteinsicht,Bausteinsicht>>)
+beschriebenen Bausteine betrieben werden und über welche Infrastruktur sie
+miteinander und mit den Nutzer:innen kommunizieren. Es ergänzt damit Kapitel 6
+(<<laufzeitsicht,Laufzeitsicht>>), das den zeitlichen Ablauf beschreibt, um die
+räumliche Zuordnung auf Knoten.
+
+StadtratWatch betreibt bewusst *keinen dauerhaft laufenden Anwendungsserver*
+(siehe Qualitätsziel #3, _Wartbarkeit & geringe Betriebskosten_). Die Verteilung
+zerfällt dadurch in zwei deutlich verschiedene Welten, die über das
+*GitHub-Repository* als Naht verbunden sind:
+
+* die *Web-Auslieferung* — bei jedem Push auf `main` baut Netlify die statische
+  Website selbst und liefert sie über sein CDN aus (<<vt-web-auslieferung>>), und
+* der *Pipeline-Betrieb* — die Verarbeitungs-Pipelines laufen bedarfsweise und
+  manuell auf dem Arbeitsplatz einer:eines Maintainer:in und schreiben ihr
+  Ergebnis zurück ins Repository (<<vt-pipeline-betrieb>>).
+
+Das Repository ist zugleich versionierte Datenablage und Auslöser des Builds:
+Was der Pipeline-Betrieb hineinschreibt, wird beim nächsten Push zur Grundlage
+einer neuen Veröffentlichung.
+
+== Infrastruktur — Ebene 1
+
+[plantuml,verteilungssicht-ebene-1,svg]
+....
+@startuml
+skinparam shadowing false
+skinparam componentStyle rectangle
+
+actor "Maintainer:in" as Maint
+node "Arbeitsplatz\n(lokal, Docker/Deno)" as Local
+cloud "Externe Quellen\n& KI-Dienste" as Quellen
+
+node "GitHub" as GH {
+  artifact "Repository\n(Code + Datenablage)" as Repo
+}
+
+node "Netlify" as Netlify {
+  artifact "Build\n(npm run build)" as Build
+  artifact "Statische Website\n(CDN)" as CDN
+}
+
+node "Projekt-Server (VPS)" as VPS {
+  database "Typesense\n(Suchindex)" as TS
+}
+
+cloud "AWS\nS3 + CloudFront" as AWS
+actor "Browser\n(Endnutzer:in)" as Browser
+
+Maint --> Local : startet Pipelines
+Quellen --> Local : Quelldaten
+Local --> Repo : git push (Daten)
+Local --> AWS : Assets ablegen
+Local --> TS : Index schreiben
+
+Repo --> Build : Push triggert Build
+Build --> CDN : dist/
+CDN --> Browser : HTML/JS/CSS
+
+Browser --> TS : Suchanfragen
+Browser --> AWS : Assets
+@enduml
+....
+
+Die beiden folgenden Abschnitte verfeinern je eine Welt mit eigenem
+Knoten-Diagramm und einer Zuordnung der Bausteine aus Kapitel 5 zu Knoten und
+Artefakten.
+
+[cols="1,3,2",options="header"]
+|===
+| Nr. | Sicht | Charakter
+
+| 7.1 | <<vt-web-auslieferung,Web-Auslieferung>>  | Build-Zeit & Client-Laufzeit
+| 7.2 | <<vt-pipeline-betrieb,Pipeline-Betrieb>>  | Datenverarbeitung (bedarfsweise)
+|===
+
+include::01-web-auslieferung.adoc[leveloffset=+1]
+
+include::02-pipeline-betrieb.adoc[leveloffset=+1]
