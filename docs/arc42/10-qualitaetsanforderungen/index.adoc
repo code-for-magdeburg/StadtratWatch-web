@@ -1,2 +1,145 @@
 [#qualitaetsanforderungen]
 = Qualitätsanforderungen
+:icons: font
+
+Dieses Kapitel verfeinert die in <<qualitaetsziele,Kapitel 1.2>> festgelegten vier Qualitätsziele zu einem Qualitätsbaum und unterlegt sie mit konkreten, überprüfbaren Szenarien. Während Kapitel 1.2 begründet, _warum_ ein Ziel wichtig ist, beschreibt dieses Kapitel, _woran_ sich die Erfüllung messen lässt. Die übergeordneten Konzepte, die diese Ziele tragen, sind in <<querschnittliche-konzepte,Kapitel 8>> beschrieben und werden hier nicht wiederholt.
+
+Als Strukturraster für die Verfeinerung dient die Produktqualitätsnorm https://iso25000.com/index.php/en/iso-25000-standards/iso-25010[ISO/IEC 25010]. Da das Projekt ehrenamtlich und ohne Mess-Infrastruktur betrieben wird, sind quantitative Zielwerte als _angestrebt_ gekennzeichnet; ein Szenario gilt erst dann als _gemessen_, wenn eine entsprechende Messung etabliert ist.
+
+== Qualitätsbaum
+
+Der Qualitätsbaum verbindet die vier priorisierten Qualitätsziele (erste Ebene) mit den jeweils tragenden ISO-25010-Kategorien (zweite Ebene). Eine Kategorie kann mehreren Zielen dienen und erscheint dann mehrfach.
+
+[plantuml,qualitaetsbaum,svg]
+....
+@startmindmap
+skinparam shadowing false
+* Qualität\nStadtratWatch
+** Transparenz &\nNachvollziehbarkeit (1)
+*** Functional Suitability
+*** Maintainability\n(Reproduzierbarkeit)
+** Datenkorrektheit &\nGlaubwürdigkeit (2)
+*** Functional Suitability
+*** Reliability
+*** Security
+** Wartbarkeit &\ngeringe Betriebskosten (3)
+*** Maintainability
+*** Performance Efficiency\n(Betriebskosten)
+** Barrierefreiheit &\nZugänglichkeit (4)
+*** Performance Efficiency
+*** Interaction Capability
+@endmindmap
+....
+
+Die folgende Tabelle konkretisiert jede ISO-Kategorie für StadtratWatch und verweist auf die zugehörigen Qualitätsszenarien (Abschnitt 10.2).
+
+[cols="2,4,2,2",options="header"]
+|===
+| ISO-25010-Kategorie | Konkretisierung für StadtratWatch | Qualitätsziel (Prio) | Szenarien
+
+| *Functional Suitability*
+| Angezeigte Aussagen sind sachlich korrekt und bis zur amtlichen Quelle (Video, OParl) rückverfolgbar.
+| Datenkorrektheit (2), Transparenz (1)
+| <<szenario-fs-1,FS-1>>, <<szenario-fs-2,FS-2>>
+
+| *Reliability*
+| Freigegebene Daten bleiben unverändert verfügbar; die Verarbeitung ist ohne Datenverlust wiederholbar.
+| Datenkorrektheit (2)
+| <<szenario-rel-1,REL-1>>, <<szenario-rel-2,REL-2>>
+
+| *Maintainability*
+| Neue Wahlperioden, Sitzungen und Modelländerungen sind mit geringem Aufwand umsetzbar und damit ehrenamtlich tragbar.
+| Wartbarkeit (3), Transparenz/Reproduzierbarkeit (1)
+| <<szenario-maint-1,MAINT-1>>, <<szenario-maint-2,MAINT-2>>, <<szenario-maint-3,MAINT-3>>
+
+| *Performance Efficiency*
+| Schnelles Laden auch auf Mobilgeräten; minimale laufende Betriebskosten durch statische Auslieferung.
+| Barrierefreiheit (4), Wartbarkeit/Kosten (3)
+| <<szenario-perf-1,PERF-1>>
+
+| *Interaction Capability*
+| Barrierearme, mobil bedienbare Oberfläche, die ohne Maus und auf kleinen Bildschirmen nutzbar ist.
+| Barrierefreiheit (4)
+| <<szenario-use-1,USE-1>>, <<szenario-use-2,USE-2>>
+
+| *Security*
+| Geringe Angriffsfläche durch read-only statische Auslieferung; Schutz und Beleg sensibler personenbezogener Angaben.
+| Datenkorrektheit/Integrität (2)
+| — (vollständig behandelt in <<konzept-sicherheit,Kapitel 8.4>>)
+|===
+
+Die ISO-Kategorien *Compatibility* und *Portability* sind für eine statisch ausgelieferte, in sich geschlossene Web-Anwendung nachrangig und werden hier nicht weiter als eigene Qualitätsanforderungen geführt.
+
+== Qualitätsszenarien
+
+Die folgenden Szenarien machen die Qualitätsziele überprüfbar. Die Spalte _Status_ unterscheidet:
+
+* *erfüllt* — durch Architektur oder Prozess konzeptionell sichergestellt;
+* *angestrebt* — Zielwert festgelegt, aber mangels Mess-Infrastruktur noch nicht gemessen.
+
+Die Szenarien sind nach der Priorität des zugehörigen Qualitätsziels geordnet. Änderungsszenarien (Reaktion der Architektur auf Änderungen) sind unter _Maintainability_ zusammengefasst.
+
+[cols="1,2,4,3,1",options="header"]
+|===
+| ID | Kategorie | Szenario (Auslöser → erwartete Reaktion) | Messgröße / Zielwert | Status
+
+| [[szenario-fs-1]]FS-1
+| Functional Suitability
+| Eine Nutzer:in betrachtet ein Abstimmungsergebnis → jede einzelne Stimme ist mit einem Verweis auf die amtliche Quelle (Sitzungsvideo mit Zeitstempel bzw. OParl-Dokument) hinterlegt.
+| 100 % der angezeigten Abstimmungen mit Quellverweis
+| erfüllt
+
+| [[szenario-fs-2]]FS-2
+| Functional Suitability
+| Stimmen werden per OCR aus Videostandbildern erkannt → kein Abstimmungsergebnis wird veröffentlicht, bevor es von einem Menschen geprüft und freigegeben wurde.
+| 100 % der veröffentlichten Sitzungen mit Freigabe (`approved`)
+| erfüllt
+
+| [[szenario-rel-1]]REL-1
+| Reliability
+| Eine Verarbeitungs-Pipeline fällt für eine Sitzung aus → bereits freigegebene Sitzungsdaten bleiben unverändert verfügbar; nicht freigegebene Sitzungen werden nur mit klarem Warnhinweis als noch ungeprüft angezeigt.
+| 100 % der nicht freigegebenen Sitzungen in Listen und Detailseiten mit Warnhinweis
+| erfüllt
+
+| [[szenario-rel-2]]REL-2
+| Reliability
+| Eine externe Quelle (OParl, YouTube, OpenAI) ist während der Verarbeitung zeitweise nicht erreichbar → der betroffene Verarbeitungsschritt lässt sich später ohne Datenverlust wiederholen.
+| Wiederholung führt zum selben Ergebnis (reproduzierbar)
+| erfüllt
+
+| [[szenario-perf-1]]PERF-1
+| Performance Efficiency
+| Eine Nutzer:in öffnet eine Sitzungsseite auf einem Mobilgerät → die Seite ist schnell sichtbar und bedienbar.
+| Largest Contentful Paint < 2,5 s (Core Web Vitals)
+| angestrebt
+
+| [[szenario-use-1]]USE-1
+| Interaction Capability
+| Eine Screenreader-Nutzer:in navigiert eine Personenseite → alle interaktiven Elemente sind per Tastatur erreichbar und sinnvoll beschriftet.
+| Lighthouse-Accessibility-Score &#8805; 90
+| angestrebt
+
+| [[szenario-use-2]]USE-2
+| Interaction Capability
+| Eine Nutzer:in bedient die Plattform auf einem schmalen Mobil-Viewport (360 px) → alle Kernfunktionen sind vollständig nutzbar.
+| Kernfunktionen ab 360 px Breite bedienbar
+| angestrebt
+
+| [[szenario-maint-1]]MAINT-1
+| Maintainability (Änderung)
+| Eine neue Wahlperiode soll ergänzt werden → es genügen eine neue `registry.json` und ein Datenverzeichnis; der Anwendungscode bleibt unangetastet.
+| Neue Wahlperiode ohne Code-Änderung
+| erfüllt
+
+| [[szenario-maint-2]]MAINT-2
+| Maintainability (Änderung)
+| Eine neue Sitzung soll veröffentlicht werden → die Pipelines werden bedarfsweise ausgeführt, der nächste Build übernimmt die Daten automatisch.
+| Keine manuelle Code- oder Konfigurationsänderung je Sitzung
+| erfüllt
+
+| [[szenario-maint-3]]MAINT-3
+| Maintainability (Änderung)
+| Das fachliche Datenmodell ändert sich → die Anpassung erfolgt an der geteilten, getypten Modelldefinition; Pipeline und Web-Anwendung verwenden dieselbe Quelle (siehe <<adr-0004,ADR-0004>>).
+| Modelländerung an einer Stelle, typgeprüft über beide Teilsysteme
+| erfüllt
+|===
