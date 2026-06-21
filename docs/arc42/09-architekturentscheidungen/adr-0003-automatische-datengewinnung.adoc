@@ -1,0 +1,32 @@
+[#adr-0003]
+= ADR-0003: Automatische Datengewinnung aus Video mit menschlicher Freigabe
+
+*Status:* Akzeptiert
+
+== Kontext und Problem
+
+Abstimmungsergebnisse und Redebeiträge des Stadtrats liegen amtlich nur als Videoaufzeichnung vor. Um sie auswertbar zu machen, müssen sie in strukturierte Daten überführt werden. Eine rein manuelle Erfassung wäre für jede Sitzung sehr aufwändig; eine vollautomatische Übernahme birgt das Risiko, fehlerhafte Daten zu veröffentlichen. Da Glaubwürdigkeit für das Projekt zentral ist, war der Umgang mit dieser Fehleranfälligkeit zu klären.
+
+== Betrachtete Optionen
+
+* *Automatische Gewinnung mit anschließender menschlicher Freigabe* — OCR (Tesseract) erkennt die Abstimmungstafeln, OpenAI Whisper transkribiert die Redebeiträge; die Ergebnisse werden menschlich geprüft, korrigiert und danach über `approved` als bestätigt markiert.
+* *Rein manuelle Erfassung* — vollständige Übertragung von Hand.
+* *Vollautomatische Veröffentlichung ohne Freigabe* — die erkannten Daten gehen ungeprüft live.
+
+== Entscheidung
+
+Die Datengewinnung läuft automatisch über OCR und Transkription; die automatisch erzeugten Daten werden jedoch als vorläufig behandelt, bis Menschen sie geprüft, korrigiert und über das `approved`-Kennzeichen als bestätigt freigegeben haben. `approved` ist dabei kein Veröffentlichungs-Gate: auch unbestätigte Sitzungen können öffentlich sichtbar sein, müssen dann aber als vorläufig gekennzeichnet werden. Freigegebene Sitzungsdaten gelten danach als unveränderlich (siehe <<konzept-datengewinnung,Datengewinnung & -qualität>> und <<konzept-datenhaltung,Datenhaltung & Versionierung>>).
+
+== Konsequenzen
+
+*Positiv*
+
+* Skaliert über viele Sitzungen, ohne die Glaubwürdigkeit zu opfern — die menschliche Freigabe fängt Erkennungsfehler ab (_Datenkorrektheit & Glaubwürdigkeit_, siehe <<qualitaetsziele,Qualitätsziele>>).
+* Jede veröffentlichte Aussage bleibt mit ihrer amtlichen Quelle (Video-Zeitstempel, OParl-Dokument) verknüpft (_Transparenz & Nachvollziehbarkeit_).
+* Der Aufwand je Sitzung beschränkt sich auf Prüfung statt vollständiger Erfassung.
+
+*Negativ*
+
+* Es bleibt ein manueller Freigabeschritt im Prozess; ohne ihn entstehen nur vorläufig gekennzeichnete, noch nicht bestätigte Daten.
+* Abhängigkeit von einem externen Dienst (OpenAI Whisper) für die Transkription.
+* Die Erkennungsqualität hängt von der Aufnahme- bzw. Screenshot-Qualität ab; Korrekturen sind die begründete Ausnahme von der Unveränderlichkeit.

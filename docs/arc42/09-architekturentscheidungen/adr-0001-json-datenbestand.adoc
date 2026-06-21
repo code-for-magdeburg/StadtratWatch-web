@@ -1,0 +1,33 @@
+[#adr-0001]
+= ADR-0001: Versionierter JSON-Datenbestand statt Datenbank
+
+*Status:* Akzeptiert
+
+== Kontext und Problem
+
+StadtratWatch verarbeitet Sitzungsdaten des Magdeburger Stadtrats (Abstimmungen, Redebeiträge, Stammdaten zu Personen, Fraktionen und Parteien) und stellt daraus Auswertungen bereit. Der Bestand ändert sich selten, wird überwiegend lesend genutzt und muss für die Bürgerinnen und Bürger nachvollziehbar sein. Zu klären war, wie dieser Bestand gehalten und zwischen Verarbeitungs-Pipeline und Web-Anwendung übergeben wird.
+
+== Betrachtete Optionen
+
+* *Versionierte JSON-Dateien im Repository* — der Bestand liegt als JSON unter `data/`, gegliedert nach Wahlperiode und Sitzungsdatum.
+* *Relationale Datenbank* (z. B. PostgreSQL oder SQLite) — strukturierte Ablage mit Abfragesprache.
+* *Headless CMS* — verwaltete Inhalts- und Auslieferungsschicht.
+
+== Entscheidung
+
+Der gesamte verarbeitete Bestand wird als versionierte JSON-Dateien im Repository gehalten. Sie bilden das einzige Bindeglied zwischen Pipelines und Web-Anwendung und werden zur Bauzeit eingelesen (siehe Bausteinsicht, Kapitel 5, sowie <<konzept-datenhaltung,Datenhaltung & Versionierung>>).
+
+== Konsequenzen
+
+*Positiv*
+
+* Jede Änderung am Bestand ist über die Git-Historie nachvollziehbar — das stützt das vorrangige Qualitätsziel _Transparenz & Nachvollziehbarkeit_ (siehe <<qualitaetsziele,Qualitätsziele>>).
+* Builds sind reproduzierbar, da der Bestand Teil des Repositories ist.
+* Es ist keine Datenbank zu betreiben — geringe Betriebskosten und einfache Wartung (_Wartbarkeit & geringe Betriebskosten_).
+* Freigegebene Sitzungsdaten lassen sich als unveränderlich behandeln.
+
+*Negativ*
+
+* Keine Ad-hoc-Abfragen über eine Abfragesprache; alle Auswertungen werden in Code zur Bauzeit berechnet.
+* Sehr große oder häufig schreibende Datenbestände wären in diesem Modell unpraktisch — für den gegebenen, selten ändernden Bestand jedoch unkritisch.
+* Große Binär-Assets gehören nicht in das Repository und werden gesondert ausgelagert (siehe <<adr-0002>> und <<konzept-datenhaltung>>).
