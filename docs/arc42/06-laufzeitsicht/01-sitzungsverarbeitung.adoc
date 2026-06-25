@@ -149,6 +149,12 @@ Die so erzeugten Sitzungsdaten gelten zunächst als *unbestätigt*. Erst die
 menschliche Prüfung und Freigabe (siehe
 <<lz-pruefung-freigabe,Szenario 6.4>>) markiert sie als bestätigt.
 
+Die lokale Videodatei dient nur als Arbeitsartefakt der Verarbeitung. Der
+aktuelle Laufzeitablauf archiviert weder das vollständige Sitzungsvideo noch die
+belegenden Standbild-Ausschnitte der Abstimmungstafeln dauerhaft im Projekt. Die
+Nachvollziehbarkeit über Video-Zeitstempel hängt daher weiterhin von der
+Verfügbarkeit des externen YouTube-Videos ab (siehe <<risiko-r2,R2>>).
+
 == Fehler- und Sonderfälle
 
 * *OCR-Fehlerkennung:* Die Erkennung der Abstimmungstafeln ist fehleranfällig
@@ -158,6 +164,8 @@ menschliche Prüfung und Freigabe (siehe
   Qualitätsziel #2 (_Datenkorrektheit & Glaubwürdigkeit_).
 * *Ausfall externer Dienste* (YouTube, OpenAI): Jede Stufe arbeitet auf Dateien
   und ist wiederholbar; ein fehlgeschlagener Schritt kann ohne Seiteneffekte
-  erneut ausgeführt werden.
+  erneut ausgeführt werden. Dies gilt für temporäre Ausfälle während der
+  Verarbeitung; eine spätere Löschung oder Verschiebung des YouTube-Videos
+  bleibt ein akzeptiertes Restrisiko (<<risiko-r2,R2>>).
 * *Unabhängigkeit der Zweige:* Schlägt ein Zweig fehl, bleibt das Ergebnis des
   anderen nutzbar — die Datenablage entkoppelt beide.

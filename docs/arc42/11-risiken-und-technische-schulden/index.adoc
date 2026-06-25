@@ -26,8 +26,8 @@ Dieses Kapitel ist ein lebendes Dokument; die zeitliche Nachvollziehbarkeit ergi
 | [[risiko-r2]]R2
 | *Quell-Verfügbarkeit der Videos.* Die Sitzungsvideos liegen bei einem externen Anbieter (YouTube). Werden Videos gelöscht oder verschoben, brechen die Zeitstempel-Belege, auf denen die Nachvollziehbarkeit der Abstimmungen beruht.
 | hoch
-| Die strukturierten Ergebnisdaten bleiben erhalten; gefährdet ist die Rückverfolgbarkeit zur amtlichen Quelle. Mögliche Gegenmaßnahme: Eigenarchivierung der belegenden Standbild-Ausschnitte je Abstimmung.
-| <<szenario-fs-1,FS-1>>
+| Die strukturierten Ergebnisdaten bleiben erhalten; gefährdet ist die Rückverfolgbarkeit zur amtlichen Quelle. Eine Eigenarchivierung der belegenden Standbild-Ausschnitte je Abstimmung ist derzeit *nicht* beschlossen und nicht Bestandteil der Pipeline. Das Risiko wird bis zur Verfügbarkeit von Zeit, Speicher- und Rechtsklärung bewusst als ungelöst akzeptiert.
+| <<szenario-fs-1,FS-1>>, <<lz-sitzungsverarbeitung,Kap. 6.1>>
 
 | [[risiko-r3]]R3
 | *OParl-Anbieter- oder Schemawechsel.* Wechselt die Stadt ihr Ratsinformationssystem oder ändert das OParl-Schema, bricht die Datenübernahme (Ingestion).
