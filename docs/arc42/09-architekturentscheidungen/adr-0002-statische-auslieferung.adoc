@@ -1,0 +1,32 @@
+[#adr-0002]
+= ADR-0002: Statisch ausgelieferte Web-Anwendung statt Anwendungsserver
+
+*Status:* Akzeptiert
+
+== Kontext und Problem
+
+Die Web-Anwendung zeigt eine überwiegend lesende, sich selten ändernde Datenbasis (siehe <<adr-0001>>). Sie soll für viele Besucherinnen und Besucher schnell und barrierearm erreichbar sein und mit möglichst geringem Betriebsaufwand laufen. Zu entscheiden war, ob und in welchem Umfang ein serverseitiger Anwendungsbetrieb nötig ist.
+
+== Betrachtete Optionen
+
+* *Statisch gebaute Seiten (Astro)* — alle Seiten werden zur Bauzeit aus dem JSON-Bestand erzeugt und über Standard-Hosting/CDN ausgeliefert.
+* *Server-seitiges Rendering (SSR)* mit dauerhaftem Anwendungsserver (z. B. Node).
+* *Single-Page-Application mit Backend-API* — Auslieferung einer SPA, Daten zur Laufzeit über eine eigene API.
+
+== Entscheidung
+
+Die Web-Anwendung wird mit Astro zur Bauzeit in statische Seiten überführt und über Standard-Hosting bzw. ein CDN ausgeliefert. Interaktivität wird clientseitig als progressive Erweiterung ergänzt (Alpine.js); die clientseitige Volltextsuche läuft gegen einen vorab erzeugten Typesense-Index.
+
+== Konsequenzen
+
+*Positiv*
+
+* Kein Anwendungsserver im Betrieb — geringe Betriebskosten und geringe Angriffsfläche (_Wartbarkeit & geringe Betriebskosten_; siehe auch <<konzept-sicherheit,Sicherheit & Datenschutz>>).
+* Schnell ladendes statisches HTML, gut über CDN skalierbar, Kerninhalte auch ohne JavaScript zugänglich (_Barrierefreiheit & Zugänglichkeit_, siehe <<qualitaetsziele,Qualitätsziele>>).
+* Reproduzierbare Auslieferung: der ausgelieferte Stand entspricht exakt dem gebauten Bestand.
+
+*Negativ*
+
+* Inhaltsänderungen erfordern einen erneuten Build und ein Deployment; es gibt keine Live-Aktualisierung zur Laufzeit. Für die selten ändernde Datenbasis ist das akzeptabel.
+* Dynamische, nutzerindividuelle Funktionen sind nicht ohne Weiteres möglich — sie sind für die Aufgabenstellung aber nicht erforderlich.
+* Funktionen, die zur Laufzeit Daten brauchen (z. B. Suche), müssen clientseitig oder über vorab erzeugte Artefakte gelöst werden.

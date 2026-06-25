@@ -1,0 +1,79 @@
+[#konzept-datenmodell]
+= Fachliches Datenmodell
+
+Das fachliche Datenmodell ist über alle Bausteine hinweg dasselbe: Pipelines erzeugen es, die Datenablage hält es vor, die Web-Anwendung liest und wertet es aus. Damit beide Seiten dieselbe Struktur erzeugen und lesen, sind die Modelle als getypte TypeScript-Definitionen die gemeinsame Quelle der Wahrheit (siehe Kapitel 4, Technologieentscheidungen).
+
+== Entitäten und Beziehungen
+
+Oberste Gliederungsebene ist die _Wahlperiode_. Ihre _Registry_ ist die Quelle der Wahrheit für Personen, Fraktionen, Parteien und die Sitzungsliste. An einer _Sitzung_ hängen _Abstimmungen_ (mit je einem _Votum_ pro Person) und _Redebeiträge_. Die fachliche Verknüpfung zu den _Drucksachen_ entsteht über _Tagesordnungspunkt_ und _Beratung_ (siehe Glossar, Kapitel 12).
+
+[plantuml,konzept-datenmodell,svg]
+....
+@startuml
+hide circle
+skinparam shadowing false
+skinparam linetype ortho
+
+entity "Wahlperiode" as WP
+entity "Sitzung" as S
+entity "Person" as P
+entity "Fraktion" as F
+entity "Partei" as PA
+entity "Abstimmung" as A
+entity "Votum" as V
+entity "Redebeitrag" as R
+entity "Tagesordnungspunkt" as TOP
+entity "Beratung" as B
+entity "Drucksache\n(OParl)" as D
+
+WP ||--o{ S
+WP ||--o{ P
+WP ||--o{ F
+WP ||--o{ PA
+P }o--|| F
+P }o--|| PA
+S ||--o{ A
+A ||--o{ V
+V }o--|| P
+S ||--o{ R
+R }o--|| P
+S ||--o{ TOP
+TOP ||--o{ B
+B }o--|| D
+@enduml
+....
+
+[cols="2,4",options="header"]
+|===
+| Entität | Bedeutung und Inhalt
+
+| *Wahlperiode*
+| Amtszeit des Stadtrats; oberste Gliederungsebene. Die `registry.json` je Wahlperiode listet Sitzungen, Personen, Fraktionen und Parteien und ist deren Quelle der Wahrheit.
+
+| *Sitzung*
+| Einzelne Stadtratssitzung an einem Datum. Trägt Abstimmungen, Redebeiträge und Tagesordnung; verweist auf das Sitzungsvideo und – sofern vorhanden – das Protokoll. Das Kennzeichen `approved` markiert die Freigabe (siehe <<konzept-datengewinnung,Datengewinnung & -qualität>>).
+
+| *Person*
+| Mandatsträger:in mit Zugehörigkeit zu genau einer Fraktion und einer Partei sowie optionalem Start- und Enddatum der Mitgliedschaft. Es werden ausschließlich mandatsbezogene Angaben geführt, keine Kontakt- oder privaten Daten (siehe <<konzept-sicherheit,Sicherheit & Datenschutz>>).
+
+| *Fraktion*
+| Organisatorischer Zusammenschluss von Ratsmitgliedern mit Sitzanzahl.
+
+| *Partei*
+| Politische Partei mit Sitzanzahl. Kann über `additionalInformation` eine belegte verfassungsschutzrechtliche Einstufung tragen.
+
+| *Abstimmung*
+| Ergebnis einer namentlichen Abstimmung zu einem Tagesordnungspunkt, mit Abstimmungsgegenstand (Titel, Antrag/Vorlage, Antragsteller) und Video-Zeitstempel.
+
+| *Votum*
+| Stimmabgabe einer Person zu einer Abstimmung (Ja, Nein, Enthaltung, nicht abgestimmt).
+
+| *Redebeitrag*
+| Transkribierter Wortbeitrag einer Person in einer Sitzung, mit Startzeit und Dauer.
+|===
+
+== Geteilte, getypte Modelle als Quelle der Wahrheit
+
+Die Modelle liegen im Monorepo und werden über den Deno-Workspace von beiden Teilsystemen verwendet. So beschreibt genau eine Definition die Struktur, die die Pipeline schreibt und die Web-Anwendung liest; Abweichungen zwischen erzeugten und dargestellten Daten werden dadurch ausgeschlossen, was die Datenkorrektheit stützt.
+
+Eine bewusste Eigenheit ist die *Verknüpfung über Namen statt technischer Schlüssel* in den Sitzungsdaten: Vota und Redebeiträge referenzieren die Person über ihren Namen, nicht über eine ID. Das hält die aus Video gewonnenen Sitzungsdateien menschenlesbar und unabhängig prüfbar; die Zuordnung zur Registry-Person erfolgt über den Namen.

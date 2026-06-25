@@ -1,0 +1,62 @@
+= Fachlicher Kontext
+
+Aus fachlicher Sicht steht StadtratWatch zwischen den *Quellen* der Ratsarbeit
+und der *Öffentlichkeit*, die diese Arbeit nachvollziehen möchte. Die Plattform
+erschließt amtliche und öffentlich verfügbare Quellen, verknüpft und bereitet sie
+auf und stellt das Ergebnis allgemeinverständlich sowie als offene Daten bereit.
+
+Eine Besonderheit der Domäne ist die *redaktionelle Mitwirkung*: Ein Teil der
+Daten entsteht nicht automatisch, sondern wird vom ehrenamtlichen Projektteam
+manuell gepflegt und korrigiert.
+
+[plantuml,fachlicher-kontext,svg]
+....
+@startuml
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+actor "Öffentlichkeit" as Public
+actor "Daten- /\nAPI-Nutzende" as Reuser
+actor "Projektteam /\nRedaktion" as Editors
+
+rectangle "Ratsinformationssystem" as Ratsinfo
+rectangle "Sitzungs-\naufzeichnungen" as Videos
+
+rectangle "StadtratWatch" as SRW #lightyellow
+
+Ratsinfo --> SRW : Dokumente, Sitzungen,\nBeratungsverläufe
+Videos --> SRW : Video-Aufzeichnungen
+Editors --> SRW : Stammdatenpflege,\nKorrekturen
+
+SRW --> Public : Aufbereitete Sitzungen,\nAbstimmungen, Profile
+SRW --> Reuser : Offene Daten,\nAPI
+@enduml
+....
+
+== Externe Partner
+
+[cols="2,1,3",options="header"]
+|===
+| Partner | Richtung | Fachlicher Austausch
+
+| *Ratsinformationssystem*
+| Quelle
+| Parlamentarische Dokumente (Drucksachen), Sitzungen und
+  Beratungsverläufe. Amtliche, von der Stadt veröffentlichte Quelle.
+
+| *Sitzungsaufzeichnungen*
+| Quelle
+| Video­aufzeichnungen der öffentlichen Stadtratssitzungen, aus denen Abstimmungsergebnisse, Redner:innen und Redebeiträge gewonnen werden.
+
+| *Projektteam / Redaktion*
+| Quelle
+| Manuell gepflegte Stammdaten (Personen, Fraktionen, Parteien, etc.) sowie Korrekturen automatisch gewonnener Ergebnisse (z.B. OCR der Abstimmungstafeln, Transkripte). Die Stammdaten sind die fachliche Wahrheitsquelle der jeweiligen Wahlperiode.
+
+| *Öffentlichkeit*
+| Senke
+| Aufbereitete und verständlich dargestellte Sitzungen, Abstimmungen, Auswertungen sowie Personen-, Fraktions- und Parteiprofile.
+
+| *Daten- / API-Nutzende*
+| Senke
+| Programmatischer Zugriff auf die Parlamentsdaten über die öffentliche API; die bereitgestellten Daten stehen unter CC0 1.0 zur freien Nutzung. Adressiert insbesondere Journalismus und Forschung.
+|===

@@ -1,0 +1,24 @@
+= Technische Randbedingungen
+
+Die folgenden technischen Vorgaben sind von außen gesetzt und vom Projekt nicht
+beeinflussbar.
+
+[cols="2,4",options="header"]
+|===
+| Randbedingung | Erläuterung
+
+| *OParl als Datenschnittstelle*
+| Parlamentarische Dokumente und Sitzungsdaten werden über die OParl-Schnittstelle
+  der Stadt bezogen. Struktur, Umfang und Verfügbarkeit der Daten gibt die Stadt
+  vor; das Projekt kann die Schnittstelle weder ändern noch ersetzen.
+
+| *Sitzungsvideos auf YouTube*
+| Die Aufzeichnungen der Stadtratssitzungen liegen ausschließlich auf YouTube vor.
+  Die Videoverarbeitung (OCR der Abstimmungstafeln, Diarisierung, Transkription)
+  muss von dieser Quelle ausgehen.
+
+| *Browser als Zielplattform*
+| Die Anwendung wird als Website im Browser ausgeliefert; es gibt keine native
+  App. Funktionalität und Auslieferung richten sich nach den Möglichkeiten des
+  Webs.
+|===

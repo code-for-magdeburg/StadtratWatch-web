@@ -1,3 +1,16 @@
+## Mandatory processing order
+
+Run the processing pipeline in this order. The script sections below document individual tools, but this sequence is mandatory because later steps depend on files produced by earlier steps.
+
+1. `scrape-oparl` - fetch current OParl data.
+2. `generate-paper-assets` - convert scraped OParl data into the internal paper assets.
+3. Video processing steps:
+   1. `parse-speakers` - combine speaker diarization data for the session.
+   2. `scan-voting-images` - extract voting results from session screenshots.
+   3. `speech-to-text` - generate speech transcriptions.
+4. `generate-image-assets` - create voting visualization image assets from processed session data.
+5. `index-search` - rebuild the Typesense search index after all paper, speech, and asset data is available.
+
 
 ### Parse Speakers
 This tool parses multiple rttm files (from one session) and generates a single json file containing all speakers data.

@@ -1,0 +1,20 @@
+[#konzept-barrierefreiheit]
+= Barrierefreiheit & UI/UX
+
+Als öffentliches Gut soll die Plattform für alle Bürger:innen nutzbar sein. Die UI-Konzepte folgen daher durchgängig dem Grundsatz, dass die Kerninhalte robust und ohne Voraussetzungen zugänglich bleiben und Interaktivität nur eine Ergänzung ist.
+
+[cols="2,4",options="header"]
+|===
+| Konzept | Umsetzung
+
+| *Schnelles statisches HTML*
+| Die Seiten werden zur Bauzeit als statisches HTML erzeugt und über ein CDN ausgeliefert. Sie laden schnell — auch bei langsamer Verbindung oder schwacher Hardware — und stellen ihre Inhalte ohne Wartezeit auf serverseitige Logik dar.
+
+| *Progressive Enhancement*
+| Interaktivität wird als progressive Erweiterung mit Alpine.js ergänzt. Die Kerninhalte (Texte, Tabellen, Verweise) bleiben auch dann zugänglich, wenn diese clientseitige Schicht nicht greift.
+
+| *Responsives, mobil bedienbares Layout*
+| Das Layout ist mit Tailwind CSS und DaisyUI durchgängig responsiv und auf mobile Bedienung ausgelegt, sodass die Plattform unabhängig vom Endgerät nutzbar ist.
+|===
+
+Damit zahlt dieses Konzept unmittelbar auf das Qualitätsziel Barrierefreiheit & Zugänglichkeit ein und ergänzt die statische Auslieferung aus der Lösungsstrategie (Kapitel 4) um die nutzerseitige Perspektive.

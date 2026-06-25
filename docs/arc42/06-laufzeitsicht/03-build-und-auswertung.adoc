@@ -1,0 +1,67 @@
+[#lz-build]
+= Statischer Build und Datenauswertung
+
+Dieses Szenario beschreibt, wie aus der Datenablage die ausgelieferte statische
+Website entsteht. Es ist der einzige Schritt, in dem die Web-Anwendung „läuft" —
+zur Bauzeit, nicht im Betrieb. Ergebnis sind fertige HTML-Seiten, die statischen
+API-Antworten und die eingebetteten Visualisierungen.
+
+Der Build folgt für jede Seite demselben Muster: Astro liest die benötigten
+Dateien der Datenablage über Content Collections ein, lässt die *Datenauswertung*
+die Kennzahlen berechnen und rendert daraus statisches HTML. Die Datenauswertung
+ist hier als _ein_ Baustein dargestellt; sie bündelt mehrere Analyse-Algorithmen
+(z. B. `VotingMatrix`, `ParticipationRate`, `SpeakingTime`, `UniformityScore`,
+`PersonsForces`, `AbstentionRate`, `VotingSuccess`, `MotionsSuccess`), die nach
+demselben Schema aus Sitzungsdaten und Registry abgeleitete Metriken liefern.
+
+[plantuml,lz-build,svg]
+....
+@startuml
+skinparam shadowing false
+skinparam sequenceMessageAlign center
+actor "CI / Build" as CI
+participant "Astro\n(Seiten-Rendering)" as Astro
+database "Datenablage\n(JSON)" as Data
+participant "Datenauswertung\n(data-analysis)" as Analyse
+collections "Statische Website\n+ API" as Out
+
+CI -> Astro : Build starten
+activate Astro
+
+Astro -> Data : Sitzungsdaten + registry.json lesen\n(Content Collections)
+Data --> Astro : getypte Datenmodelle
+
+loop je Seitentyp (Sitzung, Person, Fraktion, ...)
+  Astro -> Analyse : Kennzahlen aus SessionInput[]\n+ registry.json berechnen
+  Analyse --> Astro : Auswertungsergebnis
+  Astro -> Out : Seite / API-Antwort rendern
+end
+
+Astro --> CI : statische Website erzeugt
+deactivate Astro
+@enduml
+....
+
+== Erläuterung
+
+* *Datenzugriff zur Bauzeit:* Die Web-Anwendung greift nie zur Laufzeit auf die
+  Datenablage zu, sondern ausschließlich während des Builds. Dadurch entfällt ein
+  Anwendungsserver (Qualitätsziel #3, _Wartbarkeit & geringe Betriebskosten_).
+* *Auswertung statt Datenbank:* Die Kennzahlen werden bei jedem Build neu aus den
+  JSON-Dateien berechnet; es gibt keine vorberechnete oder persistierte
+  Auswertung.
+* *Öffentliche API:* Dieselben Daten werden zusätzlich als statische
+  JSON-Antworten unter `/api/v1/...` ausgegeben (CC0), was Qualitätsziel #1
+  (_Transparenz & Nachvollziehbarkeit_) bedient.
+
+== Fehler- und Sonderfälle
+
+* *Unbestätigte Sitzungen blockieren den Build nicht.* Sitzungen ohne Freigabe
+  (`approved = false`) werden trotzdem gerendert, aber in der Sitzungsliste sichtbar
+  als _vorläufig_ gekennzeichnet (gestrichelte Darstellung). Die Veröffentlichung
+  wird also nicht durch das Freigabe-Flag verhindert; das Flag steuert lediglich die
+  Kennzeichnung. Der dahinterstehende Prüfablauf ist
+  <<lz-pruefung-freigabe,Szenario 6.4>>.
+* *Fehlende oder inkonsistente Daten:* Schlägt der Build aufgrund unvollständiger
+  Daten fehl, wird keine fehlerhafte Website veröffentlicht — der bisherige Stand
+  bleibt bestehen.

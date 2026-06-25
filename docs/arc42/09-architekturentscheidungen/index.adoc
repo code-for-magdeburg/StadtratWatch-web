@@ -1,0 +1,36 @@
+[#architekturentscheidungen]
+= Architekturentscheidungen
+:icons: font
+
+Dieses Kapitel vertieft die wenigen Entscheidungen, die die Architektur am stärksten prägen, am schwersten umkehrbar oder am riskantesten sind. Während Kapitel 4 (Lösungsstrategie) alle wesentlichen Technologieentscheidungen knapp und in der Übersicht begründet, dokumentieren die folgenden _Architecture Decision Records_ (ADR) zusätzlich den Problemkontext, die betrachteten Alternativen und die Konsequenzen.
+
+Die ADRs folgen einem schlanken https://adr.github.io/madr/[MADR]-Format. Sie sind nachträglich für bereits umgesetzte Entscheidungen verfasst; ihr Status ist daher durchgängig _Akzeptiert_. Die zeitliche Nachvollziehbarkeit ergibt sich aus der Git-Historie dieses Dokuments.
+
+[cols="1,4,1",options="header"]
+|===
+| ID | Entscheidung | Status
+
+| <<adr-0001,ADR-0001>>
+| Versionierter JSON-Datenbestand statt Datenbank
+| Akzeptiert
+
+| <<adr-0002,ADR-0002>>
+| Statisch ausgelieferte Web-Anwendung statt Anwendungsserver
+| Akzeptiert
+
+| <<adr-0003,ADR-0003>>
+| Automatische Datengewinnung aus Video mit menschlicher Freigabe
+| Akzeptiert
+
+| <<adr-0004,ADR-0004>>
+| Geteilte Datenmodelle im Monorepo
+| Akzeptiert
+|===
+
+include::adr-0001-json-datenbestand.adoc[leveloffset=+1]
+
+include::adr-0002-statische-auslieferung.adoc[leveloffset=+1]
+
+include::adr-0003-automatische-datengewinnung.adoc[leveloffset=+1]
+
+include::adr-0004-geteilte-modelle.adoc[leveloffset=+1]

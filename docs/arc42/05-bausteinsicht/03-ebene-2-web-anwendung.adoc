@@ -1,0 +1,52 @@
+= Ebene 2 — Whitebox Web-Anwendung
+
+Die Web-Anwendung ist ein Astro-Projekt, das zur Bauzeit die Datenablage einliest und daraus statische Seiten sowie die JSON-Antworten der öffentlichen API erzeugt. Interaktivität im Browser ist eine ergänzende Schicht (Alpine.js, Chart.js/D3, Typesense-Suche), die auf den statisch ausgelieferten Inhalten aufsetzt.
+
+[plantuml,bausteinsicht-ebene-2-web,svg]
+....
+@startuml
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+database "Datenablage" as Data
+
+rectangle "Web-Anwendung (Astro)" #lightyellow {
+  component "Datenzugriff\n(Content Collections)" as Load
+  component "Datenauswertung\n(data-analysis)" as Analyse
+  component "Seiten & API\n(pages)" as Pages
+  component "Layouts &\nKomponenten" as UI
+  component "Hilfsfunktionen\n(utils)" as Utils
+}
+
+actor "Browser" as Browser
+
+Data --> Load
+Load --> Pages
+Analyse --> Pages
+UI --> Pages
+Utils --> Pages
+Pages --> Browser : statisches HTML/JS + API-JSON
+@enduml
+....
+
+== Enthaltene Bausteine
+
+[cols="2,4",options="header"]
+|===
+| Baustein | Verantwortung
+
+| *Datenzugriff* (`content.config.ts`)
+| Bündelt den Datenzugriff der Web-Anwendung auf die Datenablage und stellt die eingelesenen Daten typisiert bereit.
+
+| *Datenauswertung* (`data-analysis/`)
+| Berechnet die Kennzahlen und Auswertungen — u. a. Abstimmungs-Ähnlichkeit (VotingMatrix), Beteiligungs- und Enthaltungsraten, Redezeiten, Fraktionsgeschlossenheit und Antragserfolg. Reine Berechnung auf den eingelesenen Daten.
+
+| *Seiten & API* (`pages/`)
+| Definiert das Routing und rendert die Seiten (Startseite, Wahlperioden, Sitzungen, Personen, Fraktionen, Parteien, Drucksachen, Suche) sowie die öffentliche REST-API unter `/api/v1/`.
+
+| *Layouts & Komponenten* (`layouts/`, `components/`)
+| Wiederverwendbares Seitengerüst und UI-Bausteine (Navigation, Kopfzeilen, Redebeitrags-Darstellung u. a.), gestaltet mit Tailwind/DaisyUI.
+
+| *Hilfsfunktionen* (`utils/`)
+| Querschnittliche Helfer wie Formatierung von Datum, Zeit und Zahlen, Partei-Hilfen und Feature-Flags.
+|===

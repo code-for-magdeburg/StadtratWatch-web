@@ -1,0 +1,34 @@
+[#konzept-datengewinnung]
+= Datengewinnung & -qualität
+
+Ein Teil der Daten entsteht nicht aus strukturierten Quellen, sondern wird automatisch aus den Sitzungsvideos gewonnen. Diese automatische Erkennung ist fehleranfällig. Da die Glaubwürdigkeit der Plattform vollständig von der Richtigkeit der Daten abhängt, ist die Datengewinnung als *Vertrauenskette* angelegt: automatisch gewonnene Daten werden menschlich geprüft, korrigiert und mit einem sichtbaren Prüfstatus versehen.
+
+== Vertrauenskette
+
+[cols="1,3",options="header"]
+|===
+| Stufe | Beitrag zur Datenqualität
+
+| *1 — Automatische Gewinnung*
+| OCR (Tesseract) liest die Abstimmungstafeln aus dem Video, die Diarisierung segmentiert die Sprecher:innen (RTTM), Whisper transkribiert die Redebeiträge. Ergebnis ist ein _Rohbestand_ mit bekannter Fehlerquote.
+
+| *2 — Menschliche Prüfung & Korrektur*
+| Das separate Prüfwerkzeug `scan-check-ui` dient der manuellen Sichtung und Korrektur der erkannten Abstimmungsdaten sowie der Zuordnung der Sprecher:innen-Segmente zu Personen. Hier wird der Rohbestand gegen das Video abgeglichen.
+
+| *3 — Freigabe*
+| Erst nach der Prüfung wird die Sitzung über das `approved`-Kennzeichen als bestätigt markiert. Das Kennzeichen steuert die Darstellung des Prüfstatus; es ist kein Veröffentlichungs-Gate. Auch unbestätigte Sitzungen können öffentlich sichtbar sein, werden dann aber als vorläufig gekennzeichnet.
+
+| *4 — Unveränderlichkeit*
+| Freigegebene Sitzungsdaten werden nicht mehr verändert (siehe <<konzept-datenhaltung,Datenhaltung & Versionierung>>). Die geprüfte Aussage bleibt stabil und über die Git-Historie nachvollziehbar.
+|===
+
+Der konkrete Ablauf dieser Schritte ist in der Laufzeitsicht beschrieben (Kapitel 6, „Prüfung und Freigabe“ sowie „Sitzungsverarbeitung“); dieses Konzept benennt nur das durchgängige Prinzip.
+
+== Nachvollziehbarkeit bis zur Quelle
+
+Jede gewonnene Aussage bleibt mit ihrer amtlichen Quelle verknüpft: Abstimmungen und Redebeiträge tragen den Video-Zeitstempel bzw. die Startzeit, Drucksachen verweisen auf ihr OParl-Dokument. So ist jede angezeigte Angabe gegen die Originalquelle prüfbar — die Grundlage des Qualitätsziels Transparenz & Nachvollziehbarkeit.
+
+Diese Nachvollziehbarkeit ist bei Videobelegen eine Referenz auf die externe
+Quelle, kein eigenes Quellenarchiv. StadtratWatch archiviert derzeit weder die
+Sitzungsvideos noch die belegenden Abstimmungs-Standbilder dauerhaft; das daraus
+entstehende Verfügbarkeitsrisiko ist in <<risiko-r2,R2>> bewusst akzeptiert.

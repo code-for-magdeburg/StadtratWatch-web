@@ -1,0 +1,20 @@
+[#einfuehrung-und-ziele]
+= Einführung und Ziele
+:icons: font
+
+StadtratWatch ist eine zivilgesellschaftliche Plattform für Transparenz und
+Bürgerbeteiligung im Magdeburger Stadtrat. Sie macht Stadtratssitzungen
+nachvollziehbar, indem sie öffentlich verfügbare Quellen — Sitzungsvideos,
+Abstimmungsergebnisse und parlamentarische Dokumente (OParl) — automatisiert
+verarbeitet, miteinander verknüpft und allgemeinverständlich aufbereitet.
+
+Das Projekt wird ehrenamtlich von https://codefor.de/magdeburg/[Code for Magdeburg]
+betrieben. Es besteht aus einer statisch ausgelieferten Web-Anwendung (Astro) und
+einer vorgelagerten Datenverarbeitungs-Pipeline (Deno), die Modelle über einen
+Monorepo-Workspace teilen.
+
+include::01-aufgabenstellung.adoc[leveloffset=+1]
+
+include::02-qualitaetsziele.adoc[leveloffset=+1]
+
+include::03-stakeholder.adoc[leveloffset=+1]

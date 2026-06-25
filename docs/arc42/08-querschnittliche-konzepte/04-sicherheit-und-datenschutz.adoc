@@ -1,0 +1,40 @@
+[#konzept-sicherheit]
+= Sicherheit & Datenschutz
+
+Dieses Konzept beschreibt, wie die Architektur mit Sicherheit und personenbezogenen Daten umgeht. Es bleibt bei der architektonischen Perspektive — also bei dem, was das System tatsächlich tut — und trifft keine rechtlichen Aussagen. Datenschutz ist hier primär Motivation, nicht juristische Argumentation.
+
+== Datensparsamkeit durch Modellzuschnitt
+
+[cols="2,4",options="header"]
+|===
+| Maßnahme | Wirkung
+
+| *Nur mandatsbezogene Daten*
+| Zu Personen werden ausschließlich Angaben geführt, die das öffentliche Mandat betreffen (Name, Fraktion, Partei, Zeitraum). Es werden keine Kontaktdaten, privaten Adressen oder sonstigen privaten Merkmale gespeichert.
+
+| *Nur öffentlich beobachtbares Handeln*
+| Gespeichert wird, was in öffentlicher Sitzung geschieht: namentliche Abstimmungen und Redebeiträge. Diese Daten stammen aus den öffentlichen Sitzungsvideos und dem amtlichen Ratsinformationssystem.
+
+| *Belegte Einstufungen statt Wertung*
+| Eine verfassungsschutzrechtliche Einstufung einer Partei wird nur mit Begründung, Quelle und Quell-URL geführt (`EXTREMIST_CLASSIFICATION` samt `_REASON`, `_SOURCE`, `_SOURCE_URL`). Sie ist damit als belegter Verweis auf eine amtliche Einstufung ausgewiesen, nicht als redaktionelle Bewertung.
+|===
+
+== Geringe Angriffsfläche durch statische Auslieferung
+
+[cols="2,4",options="header"]
+|===
+| Maßnahme | Wirkung
+
+| *Keine Nutzerkonten, keine Anmeldung*
+| Die Plattform kennt keine Benutzer:innen. Es werden keine personenbezogenen Daten von Besucher:innen erhoben oder vorgehalten, die geschützt werden müssten, und es gibt keine Authentifizierung, die kompromittiert werden könnte.
+
+| *Statische Website ohne Anwendungsserver*
+| Die Auslieferung besteht aus vorab erzeugtem HTML über Standard-Hosting/CDN. Ohne serverseitige Anwendungslogik und ohne Datenbank entfällt eine ganze Klasse von Angriffsflächen (Injection, Server-Übernahme).
+
+| *Keine Geheimnisse in der Auslieferung*
+| Die ausgelieferte Anwendung enthält nur öffentliche Konfigurationswerte (siehe <<konzept-datenhaltung,Datenhaltung & Versionierung>>); der Typesense-Schlüssel ist ein reiner Such-Schlüssel. Geheimnisse der Pipelines verbleiben in der Verarbeitungsumgebung.
+|===
+
+== Datensparsame Reichweitenmessung
+
+Zur Reichweitenmessung kommt eine *selbst gehostete Matomo-Instanz* zum Einsatz (`matomo.unser-magdeburg.de`). Damit verlassen keine Besucherdaten die eigene Infrastruktur an Dritte; es findet kein Tracking durch externe Werbe- oder Analysedienste statt. Die datenschutzbezogene Feinkonfiguration (z. B. Anonymisierung, Cookie-Verhalten) liegt in der Matomo-Instanz selbst und ist nicht Teil dieses Repositorys.

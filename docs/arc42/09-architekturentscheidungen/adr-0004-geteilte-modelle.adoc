@@ -1,0 +1,31 @@
+[#adr-0004]
+= ADR-0004: Geteilte Datenmodelle im Monorepo
+
+*Status:* Akzeptiert
+
+== Kontext und Problem
+
+StadtratWatch besteht aus zwei Teilsystemen: der Verarbeitungs-Pipeline (Deno), die den Datenbestand erzeugt, und der Web-Anwendung (Astro), die ihn darstellt. Beide arbeiten mit denselben fachlichen Strukturen (OParl-Objekte, Registry, Abstimmungs- und Redebeitragsdaten). Weichen die Modelle beider Seiten voneinander ab, entstehen Daten, die erzeugt, aber nicht korrekt dargestellt werden. Zu entscheiden war, wie die Modelle zwischen beiden Teilsystemen konsistent gehalten werden.
+
+== Betrachtete Optionen
+
+* *Geteilte Modelle im Monorepo* — beide Teilsysteme liegen in einem Repository und teilen sich getypte Modelle über einen Deno-Workspace.
+* *Getrennte Repositories mit duplizierten Modellen* — jede Seite pflegt ihre eigene Kopie der Typen.
+* *Publiziertes npm-Modellpaket* — die Modelle werden als versioniertes Paket veröffentlicht und von beiden Seiten eingebunden.
+
+== Entscheidung
+
+Pipeline und Web-Anwendung liegen in einem Monorepo und teilen sich dieselben getypten Datenmodelle als einzige Quelle der Wahrheit (Deno-Workspace). Durchgängig TypeScript über beide Teilsysteme (siehe <<konzept-datenmodell,Fachliches Datenmodell>>).
+
+== Konsequenzen
+
+*Positiv*
+
+* Erzeugte und dargestellte Daten verwenden garantiert dieselben Strukturen — das verhindert Abweichungen und stützt die _Datenkorrektheit & Glaubwürdigkeit_ (siehe <<qualitaetsziele,Qualitätsziele>>).
+* Ein gemeinsamer Technologie-Stack (TypeScript) und ein gemeinsamer Build-/Prüfprozess senken den Wartungsaufwand (_Wartbarkeit & geringe Betriebskosten_).
+* Änderungen an einem Modell und ihre Auswirkungen auf beide Seiten sind in einem Commit sichtbar.
+
+*Negativ*
+
+* Modelländerungen müssen an den vorgesehenen geteilten Stellen gepflegt werden; geschieht das nicht konsistent, läuft der Vorteil ins Leere.
+* Engere Kopplung der Teilsysteme über das Repository; eine unabhängige Versionierung der Modelle (wie bei einem npm-Paket) gibt es nicht.

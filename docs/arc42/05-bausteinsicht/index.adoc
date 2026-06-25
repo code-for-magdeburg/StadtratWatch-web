@@ -1,0 +1,19 @@
+[#bausteinsicht]
+= Bausteinsicht
+:icons: font
+
+Dieses Kapitel zeigt die statische Zerlegung von StadtratWatch in seine Bausteine.
+Es beginnt mit dem Gesamtsystem (Ebene 1) und verfeinert anschließend die beiden
+Bausteine mit der höchsten inneren Komplexität — die Verarbeitungs-Pipelines und
+die Web-Anwendung — auf Ebene 2.
+
+Die Sicht ist *strukturell*, nicht ablauforientiert: Sie beschreibt, woraus das
+System besteht und welche Verantwortung jeder Baustein trägt. Wie die Bausteine
+zur Laufzeit zusammenspielen, behandelt Kapitel 6 (Laufzeitsicht); wo sie betrieben
+werden, Kapitel 7 (Verteilungssicht).
+
+include::01-ebene-1-gesamtsystem.adoc[leveloffset=+1]
+
+include::02-ebene-2-verarbeitungs-pipelines.adoc[leveloffset=+1]
+
+include::03-ebene-2-web-anwendung.adoc[leveloffset=+1]

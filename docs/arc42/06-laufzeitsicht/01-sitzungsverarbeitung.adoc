@@ -1,0 +1,171 @@
+[#lz-sitzungsverarbeitung]
+= Sitzungsverarbeitung (Video-Pipeline)
+
+Dieses Szenario beschreibt, wie aus dem Video einer Stadtratssitzung die
+maschinenlesbaren Sitzungsdaten entstehen: die Abstimmungsergebnisse, die
+Sprecher:innen-Segmente und die transkribierten Redebeiträge. Es ist der
+aufwendigste und heterogenste Ablauf des Systems.
+
+Die Verarbeitung zerfällt in *zwei voneinander unabhängige Zweige*, die aus
+demselben Sitzungsvideo gewonnen werden und am Ende in den abgelegten
+Sitzungsdateien zusammenlaufen:
+
+* der *Abstimmungs-Zweig*, der per OCR die Abstimmungstafeln ausliest, und
+* der *Rede-Zweig*, der aus der Tonspur Diarisierung und Transkription gewinnt.
+
+Bemerkenswert ist der heterogene Technologie-Stack: Neben den Deno/TypeScript-
+Stufen kommen ein Python-Skript (Diarisierung) und Shell-/ffmpeg-Schritte
+(Audio-Extraktion, Zuschnitt) zum Einsatz. Die Stufen sind über Dateien
+entkoppelt; jede liest ihre Eingabe und schreibt ihr Ergebnis zurück.
+
+Beide Zweige enthalten zudem *manuelle* Schritte. Mit dem Werkzeug
+`scan-check-ui` erfolgen: im
+Abstimmungs-Zweig die Prüfung der erkannten Voten, Tagesordnungspunkte und
+Drucksachennummern; im Rede-Zweig die Zuordnung der anonym erkannten
+Sprecher:innen zu echten Personen samt Definition der Rede-Segmente — dieser
+Schritt erzeugt erst die `session-speeches-*.json`, auf der `extract-speeches`
+und `speech-to-text` aufsetzen. Hinzu kommt im Rede-Zweig ein weiterer manueller
+Schritt *ohne* dieses Werkzeug: Nach der Transkription sichtet und korrigiert
+eine prüfende Person die erzeugten Texte. Die Prüfung
+der Abstimmungsdaten ist Gegenstand von <<lz-pruefung-freigabe,Szenario 6.4>>.
+
+[plantuml,lz-sitzungsverarbeitung,svg]
+....
+@startuml
+skinparam shadowing false
+skinparam activity {
+  BackgroundColor #lightyellow
+  BorderColor #999999
+}
+
+start
+:Sitzungsvideo bereitstellen\n(Download von YouTube);
+
+fork
+  ' --- Abstimmungs-Zweig (OCR) ---
+  :Abstimmungstafeln als Bilder\nbereitstellen;
+  :**scan-voting-images** (Deno, Tesseract)\nOCR der Abstimmungstafeln;
+  note right
+    Eingabe: Abstimmungsbilder + Scan-Config
+    Ausgabe: **session-scan-*.json**
+  end note
+  :**scan-check-ui** (manuell)\nVoten, TOPs, Drucksachen-\nnummern prüfen/korrigieren;
+  note right: Detail in Szenario 6.4
+  :**generate-image-assets** (Deno)\nVisualisierungs-PNGs erzeugen;
+  note right
+    nur aus **session-scan-*.json**;
+    unabhängig vom Rede-Zweig
+  end note
+fork again
+  ' --- Rede-Zweig (Audio) ---
+  :**ffmpeg** (Shell)\nTonspur extrahieren;
+  note right: video.mp4 -> audio.wav/mp3
+  :**speaker-diarization** (Python, pyannote)\nwer spricht wann;
+  note right: Ausgabe: RTTM-Datei
+  :**parse-speakers** (Deno)\nRTTM aufbereiten;
+  note right
+    Ausgabe: **session-speakers-*.json**
+    (noch anonyme Sprecher:innen)
+  end note
+  :**scan-check-ui** (manuell)\nSprecher:innen zuordnen,\nRede-Segmente definieren;
+  note right
+    Ausgabe: **session-speeches-*.json**
+    (Segmente, ohne Transkription)
+  end note
+  :**extract-speeches** (Shell, ffmpeg)\nAudio je Rede zuschneiden;
+  note right: Ausgabe: einzelne MP3 je Redebeitrag
+  :**speech-to-text** (Deno, OpenAI Whisper)\nRedebeiträge transkribieren;
+  note right
+    liest session-speeches + MP3s
+    Ausgabe: **session-speeches-with-**
+    **transcriptions-*.json**
+  end note
+  :**Manuelle Prüfung** (Editor)\nTranskription in der JSON\nsichten/korrigieren;
+  note right
+    Ergebnis finalisiert als
+    **session-speeches-*.json**
+  end note
+end fork
+
+:Sitzungsdaten in der Datenablage\n(noch unbestätigt);
+stop
+@enduml
+....
+
+== Ablauf im Einzelnen
+
+[cols="1,3,3",options="header"]
+|===
+| Stufe (Werkzeug) | Eingabe | Ausgabe
+
+| *Video bereitstellen*
+| Sitzungsvideo (YouTube)
+| Lokale Videodatei als gemeinsame Quelle beider Zweige
+
+| *scan-voting-images* (Deno, Tesseract)
+| Bilder der Abstimmungstafeln + Scan-Config (Bildregionen)
+| `session-scan-*.json` (roh, Voten je Person)
+
+| *scan-check-ui* (manuell)
+| `session-scan-*.json` (roh)
+| Geprüfte `session-scan-*.json` (Voten, TOPs, Drucksachennummern) — siehe
+  <<lz-pruefung-freigabe,Szenario 6.4>>
+
+| *generate-image-assets* (Deno)
+| `session-scan-*.json`
+| Visualisierungs-PNGs (ausgelagert, S3/CloudFront)
+
+| *ffmpeg* (Shell)
+| Videodatei
+| Einkanalige Audiodatei (`audio.wav`/`.mp3`)
+
+| *speaker-diarization* (Python, pyannote)
+| Audiodatei
+| RTTM-Datei (zeitlich markierte Sprecher:innen-Segmente, anonyme Labels)
+
+| *parse-speakers* (Deno)
+| RTTM-Datei
+| `session-speakers-*.json` (noch anonyme Sprecher:innen)
+
+| *scan-check-ui* (manuell)
+| `session-speakers-*.json` + Audio
+| `session-speeches-*.json` (Sprecher:innen zugeordnet, Rede-Segmente, ohne
+  Transkription)
+
+| *extract-speeches* (Shell, ffmpeg)
+| Audiodatei + `session-speeches-*.json`
+| Eine MP3-Datei je Redebeitrag
+
+| *speech-to-text* (Deno, OpenAI Whisper)
+| `session-speeches-*.json` + einzelne MP3-Dateien
+| `session-speeches-with-transcriptions-*.json`
+
+| *Manuelle Prüfung*
+| `session-speeches-with-transcriptions-*.json`
+| Geprüfte/korrigierte Transkription, finalisiert als `session-speeches-*.json`
+|===
+
+Die so erzeugten Sitzungsdaten gelten zunächst als *unbestätigt*. Erst die
+menschliche Prüfung und Freigabe (siehe
+<<lz-pruefung-freigabe,Szenario 6.4>>) markiert sie als bestätigt.
+
+Die lokale Videodatei dient nur als Arbeitsartefakt der Verarbeitung. Der
+aktuelle Laufzeitablauf archiviert weder das vollständige Sitzungsvideo noch die
+belegenden Standbild-Ausschnitte der Abstimmungstafeln dauerhaft im Projekt. Die
+Nachvollziehbarkeit über Video-Zeitstempel hängt daher weiterhin von der
+Verfügbarkeit des externen YouTube-Videos ab (siehe <<risiko-r2,R2>>).
+
+== Fehler- und Sonderfälle
+
+* *OCR-Fehlerkennung:* Die Erkennung der Abstimmungstafeln ist fehleranfällig
+  (Bildqualität). Solche Fehler werden *bewusst nicht automatisch korrigiert*,
+  sondern in der nachgelagerten menschlichen Prüfung
+  (<<lz-pruefung-freigabe,Szenario 6.4>>) erkannt und behoben — das schützt
+  Qualitätsziel #2 (_Datenkorrektheit & Glaubwürdigkeit_).
+* *Ausfall externer Dienste* (YouTube, OpenAI): Jede Stufe arbeitet auf Dateien
+  und ist wiederholbar; ein fehlgeschlagener Schritt kann ohne Seiteneffekte
+  erneut ausgeführt werden. Dies gilt für temporäre Ausfälle während der
+  Verarbeitung; eine spätere Löschung oder Verschiebung des YouTube-Videos
+  bleibt ein akzeptiertes Restrisiko (<<risiko-r2,R2>>).
+* *Unabhängigkeit der Zweige:* Schlägt ein Zweig fehl, bleibt das Ergebnis des
+  anderen nutzbar — die Datenablage entkoppelt beide.

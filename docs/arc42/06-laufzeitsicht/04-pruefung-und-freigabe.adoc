@@ -1,0 +1,88 @@
+[#lz-pruefung-freigabe]
+= Prüfung und Freigabe einer Sitzung
+
+Dieses Szenario beschreibt den zentralen Freigabeablauf mit *Mensch im Loop*. Es
+schließt die Lücke zwischen der automatischen Sitzungsverarbeitung
+(<<lz-sitzungsverarbeitung,Szenario 6.1>>) und der Veröffentlichung
+(<<lz-build,Szenario 6.3>>) und ist der zentrale Mechanismus, mit dem
+StadtratWatch Datenkorrektheit sicherstellt (Qualitätsziel #2,
+_Datenkorrektheit & Glaubwürdigkeit_).
+
+Die automatisch gewonnenen Abstimmungsdaten sind fehleranfällig (OCR). Statt zu
+versuchen, diese Fehler automatisch zu korrigieren, setzt die Architektur auf eine
+*menschliche Sichtung und Korrektur* mit anschließender expliziter Freigabe.
+Sichtung und Korrektur erfolgen mit dem separaten Prüfwerkzeug `scan-check-ui`,
+das die erkannten Voten, Tagesordnungspunkte und Drucksachennummern darstellt und
+manuell korrigierbar macht. Wo das nicht genügt, ergänzen den Ablauf:
+
+* Anpassen der *Scan-Config* (Bildregionen) und erneuter Lauf von
+  `scan-voting-images`, und
+* fallweise *direktes manuelles Editieren* der `session-scan-*.json`.
+
+Ist das Ergebnis korrekt, wird die Sitzung durch Setzen von `approved = true` in
+der `registry.json` freigegeben.
+
+[plantuml,lz-pruefung-freigabe,svg]
+....
+@startuml
+skinparam shadowing false
+actor "Prüfer:in" as Mensch
+participant "scan-check-ui" as UI
+participant "scan-voting-images\n(Deno)" as Scan
+database "Datenablage\n(JSON)" as Data
+participant "registry.json" as Reg
+
+== Sichtung ==
+Mensch -> UI : Sitzung öffnen
+UI -> Data : session-scan-*.json lesen
+Data --> UI : Abstimmungsdaten
+UI --> Mensch : Voten, TOPs, Drucksachen-\nnummern (vorläufig)
+
+== Korrektur-Iteration ==
+loop bis Ergebnis korrekt
+  alt Korrektur in scan-check-ui
+    Mensch -> UI : Voten/TOPs/Nummern korrigieren
+    UI -> Data : session-scan-*.json schreiben
+  else Neu-Scan über Scan-Config
+    Mensch -> Scan : Scan-Config anpassen, erneut ausführen
+    Scan -> Data : session-scan-*.json neu schreiben
+  else Direkte Korrektur
+    Mensch -> Data : session-scan-*.json direkt editieren
+  end
+  Mensch -> UI : erneut sichten
+end
+
+== Freigabe ==
+Mensch -> Reg : approved = true setzen
+note right of Reg
+  Statuswechsel **vorläufig -> bestätigt**.
+  Kein Veröffentlichungs-Gate: Die Sitzung
+  war auch vorher schon sichtbar.
+end note
+@enduml
+....
+
+== Erläuterung
+
+* *`approved` ist ein Anzeige-Status, kein Veröffentlichungs-Gate.* Das Feld
+  `approved` an der Sitzung (`RegistrySession`) steuert nur, ob eine Sitzung als
+  bestätigt oder als _vorläufig_ dargestellt wird — siehe
+  <<lz-build,Szenario 6.3>>. Auch unbestätigte Sitzungen sind öffentlich sichtbar.
+  Das ist die bewusst transparentere Variante (Qualitätsziel #1): Daten werden
+  offen gezeigt und ihr Prüfstatus offen ausgewiesen, statt sie bis zur Freigabe
+  zu verbergen.
+* *Werkzeugunterstützung:* Sichtung und Korrektur erfolgen mit dem separaten
+  Prüfwerkzeug `scan-check-ui`. Dasselbe Werkzeug unterstützt auch den Rede-Zweig
+  aus <<lz-sitzungsverarbeitung,Szenario 6.1>> (Sprecher:innen-Zuordnung,
+  Definition der Rede-Segmente). Das eigentliche Setzen von `approved = true`
+  bleibt eine bewusste menschliche Handlung in der `registry.json`, der Quelle
+  der Wahrheit je Wahlperiode.
+* *Unveränderlichkeit nach Freigabe:* Freigegebene Sitzungsdaten gelten als
+  unveränderlich und werden ohne triftigen Grund nicht mehr angefasst.
+
+== Fehler- und Sonderfälle
+
+Dieses Szenario _ist_ der Fehlerbehandlungsmechanismus für die fehleranfällige
+automatische Verarbeitung. Die hier korrigierten OCR-Fehler stammen aus
+<<lz-sitzungsverarbeitung,Szenario 6.1>>; die Auswirkung des Freigabe-Status auf
+die Auslieferung ist in <<lz-build,Szenario 6.3>> beschrieben.
