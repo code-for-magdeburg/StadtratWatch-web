@@ -1453,12 +1453,21 @@
             "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
             "agendaItem": "5.2",
             "result": "geändert empfohlen"
+          },
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-06-18T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "5.32",
+            "result": "geändert beschlossen"
           }
         ],
         "rootPaperId": 248561,
         "subordinatedPaperIds": [
           248881,
-          248978
+          248978,
+          249239
         ],
         "superOrdinatedPaperIds": []
       },
@@ -1544,6 +1553,35 @@
             "organization": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
             "agendaItem": "5.2.2",
             "result": "nicht empfohlen"
+          }
+        ],
+        "rootPaperId": 248561,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": [
+          248561
+        ]
+      },
+      {
+        "id": 249239,
+        "reference": "DS0105/26/3",
+        "type": "Änderungsantrag",
+        "title": "Neubau Kinderschutzzentrum, Wilhelm-Kobelt-Straße 31, 39108 Magdeburg Erweiterung der Aufgabenstellung",
+        "files": [
+          {
+            "id": 746159,
+            "name": "Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=746159&type=do",
+            "size": 15071
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+            "date": "2026-06-18T14:00:00+02:00",
+            "role": "Beschlussfassung",
+            "organization": "Stadtrat",
+            "agendaItem": "5.32.3",
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 248561,
@@ -2303,7 +2341,7 @@
             "role": "Beratung",
             "organization": "Ausschuss für Bildung, Schule und Sport",
             "agendaItem": "8.1",
-            "result": null
+            "result": "vertagt"
           }
         ],
         "rootPaperId": 248588,
@@ -2356,7 +2394,7 @@
             "role": "Kenntnisnahme",
             "organization": "Ausschuss für Bildung, Schule und Sport",
             "agendaItem": "8.2",
-            "result": null
+            "result": "vertagt"
           }
         ],
         "rootPaperId": 248588,

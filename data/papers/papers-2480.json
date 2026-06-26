@@ -640,10 +640,28 @@
         "organization": "Stadtrat",
         "agendaItem": "6.16",
         "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Umwelt und Energie",
+        "date": "2026-06-09T17:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Ausschuss für Umwelt und Energie",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.19",
+        "result": "in die Ausschüsse verwiesen"
       }
     ],
     "rootPaperId": 241684,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      248965
+    ],
     "superOrdinatedPaperIds": [
       241684
     ]

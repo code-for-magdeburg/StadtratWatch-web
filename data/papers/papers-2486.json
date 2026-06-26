@@ -491,10 +491,34 @@
       {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Familie und Gleichstellung",
         "date": "2026-05-19T16:00:00+02:00",
-        "role": "Beratung",
+        "role": "Kenntnisnahme",
         "organization": "Ausschuss für Familie und Gleichstellung",
         "agendaItem": "5.2.1",
         "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Gesundheits- und Sozialausschusses",
+        "date": "2026-06-17T17:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Gesundheits- und Sozialausschuss",
+        "agendaItem": "6.1.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-06-24T16:30:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.5.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2026-07-03T17:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "6.5.1",
+        "result": null
       }
     ],
     "rootPaperId": 248225,
@@ -1455,7 +1479,9 @@
       }
     ],
     "rootPaperId": 248650,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249180
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1570,7 +1596,9 @@
       }
     ],
     "rootPaperId": 248653,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249020
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1703,6 +1731,33 @@
     "superOrdinatedPaperIds": []
   },
   {
+    "id": 248658,
+    "reference": "DS0120/26",
+    "type": "Beschlussvorlage",
+    "title": "Am Fuchsberg - Schaffung einer durchgehenden Radverkehrsanlage an der Südseite zwischen Wiener Straße und Helmholzstraße - Geänderte Finanzierung der bestätigten Vorzugsvariante",
+    "files": [
+      {
+        "id": 742945,
+        "name": "DS0120/26",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742945&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "3.7",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248658,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
     "id": 248659,
     "reference": "S0181/26",
     "type": "Stellungnahme",
@@ -1769,7 +1824,9 @@
       }
     ],
     "rootPaperId": 248660,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249093
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1820,7 +1877,9 @@
       }
     ],
     "rootPaperId": 248661,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249194
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1925,7 +1984,8 @@
     ],
     "rootPaperId": 248663,
     "subordinatedPaperIds": [
-      249005
+      249005,
+      249146
     ],
     "superOrdinatedPaperIds": []
   },
@@ -2143,12 +2203,20 @@
         "result": "empfohlen"
       },
       {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Gesundheits- und Sozialausschusses",
+        "date": "2026-06-17T17:00:00+02:00",
+        "role": "Beratung",
+        "organization": "Gesundheits- und Sozialausschuss",
+        "agendaItem": "5.1",
+        "result": "empfohlen"
+      },
+      {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
         "date": "2026-06-18T14:00:00+02:00",
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "5.17",
-        "result": null
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 248678,
@@ -2275,6 +2343,69 @@
     ]
   },
   {
+    "id": 248686,
+    "reference": "I0130/26",
+    "type": "Informationsvorlage",
+    "title": "Erstellung eines Schulwegsicherungskonzeptes für das Stadtgebiet der LH Magdeburg",
+    "files": [
+      {
+        "id": 741342,
+        "name": "I0130/26 Information",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=741342&type=do",
+        "size": null
+      },
+      {
+        "id": 745811,
+        "name": "I0130/26 Anlage 6 Schulweggrundlagenplaene Onlinebeteiligung Radius 500m",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745811&type=do",
+        "size": null
+      },
+      {
+        "id": 745812,
+        "name": "I0130/26 Anlage 1 Ergebnisbericht Planungsgesellschaft RV-K vom 04.05.2026",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745812&type=do",
+        "size": null
+      },
+      {
+        "id": 745813,
+        "name": "I0130/26 Anlage 2 Schulweggrundlagenplaene Radius 200m",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745813&type=do",
+        "size": null
+      },
+      {
+        "id": 745814,
+        "name": "I0130/26 Anlage 4 Handlungssteckbriefe SWP01 bis SWP09",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745814&type=do",
+        "size": null
+      },
+      {
+        "id": 745815,
+        "name": "I0130/26 Anlage 3 Schulwegrundlagenplaene Radius 500m",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745815&type=do",
+        "size": null
+      },
+      {
+        "id": 745816,
+        "name": "I0130/26 Anlage 5 Schulweggrundlagenplaene Onlinebeteiligung Radius 200m",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745816&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-23T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "6.3",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248686,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
     "id": 248688,
     "reference": "DS0486/25/1",
     "type": "Änderungsantrag",
@@ -2309,6 +2440,35 @@
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247269
+    ]
+  },
+  {
+    "id": 248690,
+    "reference": "S0187/26",
+    "type": "Stellungnahme",
+    "title": "Protestaktion Trümmerberg",
+    "files": [
+      {
+        "id": 741374,
+        "name": "Stellungnahme",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=741374&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-23T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.12",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248690,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248048
     ]
   },
   {
@@ -2456,5 +2616,50 @@
     "superOrdinatedPaperIds": [
       248549
     ]
+  },
+  {
+    "id": 248699,
+    "reference": "DS0133/26",
+    "type": "Beschlussvorlage",
+    "title": "Entsiegelung Olvenstedter Markt und Marktbreite in Neu Olvenstedt",
+    "files": [
+      {
+        "id": 743896,
+        "name": "DS0133/26",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743896&type=do",
+        "size": null
+      },
+      {
+        "id": 743917,
+        "name": "DS0133/26 - Anlage 1 Lageplan Entwurf Olvenstedter Markt und Marktbreite",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743917&type=do",
+        "size": null
+      },
+      {
+        "id": 743918,
+        "name": "DS0133/26 - Anlage 2 Erläuterung mit Bildern Olvenstedter Markt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743918&type=do",
+        "size": null
+      },
+      {
+        "id": 743919,
+        "name": "DS0133/26 - Anlage 3 Erläuterung mit Bildern Marktbreite",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743919&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-23T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "4.3",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248699,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
   }
 ]
