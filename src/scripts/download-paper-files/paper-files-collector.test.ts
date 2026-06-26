@@ -2,7 +2,7 @@ import { PaperFilesCollector } from './paper-files-collector.ts';
 import type { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
 import type { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
 import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
-import type { OparlFile, OparlMeeting } from '../shared/model/oparl.ts';
+import type { OparlFile, OparlMeeting } from '@srw-astro/models/oparl';
 import { assertSpyCall, assertSpyCalls, spy } from '@std/testing/mock';
 import { describe, it } from '@std/testing/bdd';
 

@@ -1,5 +1,5 @@
 import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
-import type { OparlMeeting } from '../shared/model/oparl.ts';
+import type { OparlMeeting } from '@srw-astro/models/oparl';
 import { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
 import { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
 

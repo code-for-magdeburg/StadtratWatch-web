@@ -1,5 +1,5 @@
 import { assertEquals } from '@std/assert';
-import { OparlAgendaItem } from '../model/oparl.ts';
+import { OparlAgendaItem } from '@srw-astro/models/oparl';
 import { OparlAgendaItemsInMemoryRepository, OparlAgendaItemsRepository } from './oparl-agenda-items-repository.ts';
 
 Deno.test('OparlAgendaItemsInMemoryRepository', async (t) => {
@@ -11,7 +11,7 @@ Deno.test('OparlAgendaItemsInMemoryRepository', async (t) => {
       order: 1,
       meeting: 'https://example.org/oparl/v1.1/meetings/1',
       number: '1.1',
-      isPublic: true,
+      public: true,
       consultation: 'https://example.org/oparl/v1.1/consultations/1',
       result: 'Approved',
     },
@@ -22,7 +22,7 @@ Deno.test('OparlAgendaItemsInMemoryRepository', async (t) => {
       order: 2,
       meeting: 'https://example.org/oparl/v1.1/meetings/1',
       number: '1.2',
-      isPublic: false,
+      public: false,
     },
     {
       id: 'https://example.org/oparl/v1.1/agenda-items/3',
@@ -31,7 +31,7 @@ Deno.test('OparlAgendaItemsInMemoryRepository', async (t) => {
       order: 3,
       meeting: 'https://example.org/oparl/v1.1/meetings/2',
       number: '2.1',
-      isPublic: true,
+      public: true,
       result: 'Rejected',
     },
   ];
@@ -86,7 +86,7 @@ Deno.test('OparlAgendaItemsInMemoryRepository', async (t) => {
       const result = repository.getAgendaItemById('https://example.org/oparl/v1.1/agenda-items/1');
       assertEquals(result?.meeting, 'https://example.org/oparl/v1.1/meetings/1');
       assertEquals(result?.number, '1.1');
-      assertEquals(result?.isPublic, true);
+      assertEquals(result?.public, true);
       assertEquals(result?.consultation, 'https://example.org/oparl/v1.1/consultations/1');
       assertEquals(result?.result, 'Approved');
     });

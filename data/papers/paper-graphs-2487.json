@@ -1,5 +1,55 @@
 [
   {
+    "rootPaperId": 248700,
+    "papers": [
+      {
+        "id": 248700,
+        "reference": "DS0134/26",
+        "type": "Beschlussvorlage",
+        "title": "Entsiegelung Bruno-Taut-Ring in Neu Olvenstedt",
+        "files": [
+          {
+            "id": 743927,
+            "name": "DS0134/26",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743927&type=do",
+            "size": null
+          },
+          {
+            "id": 743932,
+            "name": "DS0134/26 - Anlage 1 Lageplan Entwurf Platz und Weg Bruno-Taut-Ring",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743932&type=do",
+            "size": null
+          },
+          {
+            "id": 743933,
+            "name": "DS0134/26 - Anlage 2 Erläuterung Platz Bruno-Taut-Ring",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743933&type=do",
+            "size": null
+          },
+          {
+            "id": 743934,
+            "name": "DS0134/26 - Anlage 3 Erläuterung Bruno-Taut-Ring",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743934&type=do",
+            "size": null
+          }
+        ],
+        "consultations": [
+          {
+            "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+            "date": "2026-06-23T09:00:00+02:00",
+            "role": "Genehmigung OB",
+            "organization": "Die Oberbürgermeisterin",
+            "agendaItem": "4.4",
+            "result": "genehmigt OB"
+          }
+        ],
+        "rootPaperId": 248700,
+        "subordinatedPaperIds": [],
+        "superOrdinatedPaperIds": []
+      }
+    ]
+  },
+  {
     "rootPaperId": 248703,
     "papers": [
       {
@@ -348,7 +398,7 @@
             "role": "Kenntnisnahme",
             "organization": "Stadtrat",
             "agendaItem": "9.15",
-            "result": null
+            "result": "zur Kenntnis genommen"
           }
         ],
         "rootPaperId": 248711,
@@ -969,46 +1019,12 @@
             "role": "Beschlussfassung",
             "organization": "Theaterausschuss",
             "agendaItem": "6.1",
-            "result": null
+            "result": "ungeändert beschlossen"
           }
         ],
         "rootPaperId": 248743,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": []
-      }
-    ]
-  },
-  {
-    "rootPaperId": 248745,
-    "papers": [
-      {
-        "id": 248745,
-        "reference": "A0045/25/1",
-        "type": "Änderungsantrag",
-        "title": "Investitionen in den Messeplatz fördern",
-        "files": [
-          {
-            "id": 741892,
-            "name": "Änderungsantrag",
-            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=741892&type=do",
-            "size": 17301
-          }
-        ],
-        "consultations": [
-          {
-            "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
-            "date": "2026-04-23T14:00:00+02:00",
-            "role": "Beschlussfassung",
-            "organization": "Stadtrat",
-            "agendaItem": "6.5.1",
-            "result": "zurückgestellt"
-          }
-        ],
-        "rootPaperId": 248745,
-        "subordinatedPaperIds": [],
-        "superOrdinatedPaperIds": [
-          245800
-        ]
       }
     ]
   },
@@ -1480,35 +1496,35 @@
     ]
   },
   {
-    "rootPaperId": 248763,
+    "rootPaperId": 248764,
     "papers": [
       {
-        "id": 248763,
-        "reference": "A0045/25/1/1",
+        "id": 248764,
+        "reference": "DS0466/25/2",
         "type": "Änderungsantrag",
-        "title": "Investitionen in den Messeplatz fördern",
+        "title": "Benutzungs- und Entgeltordnung für die Räume des Alten Rathauses",
         "files": [
           {
-            "id": 741987,
-            "name": "DS0045/25/1/1 Änderungsantrag",
-            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=741987&type=do",
-            "size": 17079
+            "id": 746137,
+            "name": "DS0466/25/2 Änderungsantrag",
+            "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=746137&type=do",
+            "size": 14755
           }
         ],
         "consultations": [
           {
             "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
-            "date": "2026-04-23T14:00:00+02:00",
+            "date": "2026-06-18T14:00:00+02:00",
             "role": "Beschlussfassung",
             "organization": "Stadtrat",
-            "agendaItem": "6.5.1.1",
-            "result": "zurückgestellt"
+            "agendaItem": "5.1.2",
+            "result": "geändert beschlossen"
           }
         ],
-        "rootPaperId": 248763,
+        "rootPaperId": 248764,
         "subordinatedPaperIds": [],
         "superOrdinatedPaperIds": [
-          245800
+          247165
         ]
       }
     ]

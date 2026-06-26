@@ -1,7 +1,7 @@
 import type { SessionInput } from '@srw-astro/models/session-input';
 import type { Registry, RegistryFaction, RegistryPerson } from '@srw-astro/models/registry';
 import type { Voting, VotingPerFaction } from './model.ts';
-import { type Vote, VoteResult } from '../shared/model/session.ts';
+import { type Vote, VoteResult } from '@srw-astro/models/session';
 import { type SessionScanVote } from '@srw-astro/models/session-scan';
 
 function getPersonsOfSession(persons: RegistryPerson[], sessionDate: string): RegistryPerson[] {

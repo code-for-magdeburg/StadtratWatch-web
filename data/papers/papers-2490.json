@@ -130,7 +130,9 @@
       }
     ],
     "rootPaperId": 249004,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249058
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -398,6 +400,35 @@
     ]
   },
   {
+    "id": 249020,
+    "reference": "S0256/26",
+    "type": "Stellungnahme (Antrag)",
+    "title": "Fußgängerüberweg Zerrennerstraße",
+    "files": [
+      {
+        "id": 746172,
+        "name": "S0256/26 Stellungnahme (Antrag)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=746172&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-23T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.13",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248653,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248653
+    ]
+  },
+  {
     "id": 249021,
     "reference": "S0257/26",
     "type": "Stellungnahme (Anfrage)",
@@ -436,7 +467,7 @@
         "id": 744843,
         "name": "Beschlussvorlage EB",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744843&type=do",
-        "size": null
+        "size": 206607
       }
     ],
     "consultations": [
@@ -463,6 +494,14 @@
         "organization": "Finanz- und Grundstücksausschuss",
         "agendaItem": "5.11",
         "result": "empfohlen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.33",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 249022,
@@ -547,7 +586,9 @@
       }
     ],
     "rootPaperId": 249027,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249206
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -638,7 +679,7 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "5.10",
-        "result": null
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 249039,
@@ -679,12 +720,41 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "5.11",
-        "result": null
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 249041,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249044,
+    "reference": "S0260/26",
+    "type": "Stellungnahme (Anfrage)",
+    "title": "Mögliche Umweltgefährdung und ordnungswidrige Fahrzeugabstellungen am Gübser Weg 36 sowie im Gewerbegebiet „Am Cracauer Tor“",
+    "files": [
+      {
+        "id": 744641,
+        "name": "Stellungnahme (Anfrage)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744641&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "8.10",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 249044,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248974
+    ]
   },
   {
     "id": 249047,
@@ -720,7 +790,7 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "5.12",
-        "result": null
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 249047,
@@ -769,6 +839,514 @@
     ]
   },
   {
+    "id": 249050,
+    "reference": "A0114/26",
+    "type": "Antrag",
+    "title": "Sicherstellung von Ersatzparkplätzen für Menschen mit Behinderung bei Baustellen",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.19",
+        "result": "in die Ausschüsse verwiesen"
+      }
+    ],
+    "rootPaperId": 249050,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249051,
+    "reference": "A0115/26",
+    "type": "Antrag",
+    "title": "Vorbereitungen zur Einführung eines Seniorentickets im Nahverkehr",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.17",
+        "result": "in die Ausschüsse verwiesen"
+      }
+    ],
+    "rootPaperId": 249051,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249052,
+    "reference": "A0116/26",
+    "type": "Antrag",
+    "title": "Erweiterung des städtischen MD-Melders um die Kategorie „Barrieren melden“",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.18",
+        "result": "in die Ausschüsse verwiesen"
+      }
+    ],
+    "rootPaperId": 249052,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249053,
+    "reference": "S0262/26",
+    "type": "Stellungnahme (Anfrage)",
+    "title": "Public Viewing WM 2026",
+    "files": [
+      {
+        "id": 744842,
+        "name": "Stellungnahme (Anfrage)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744842&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "8.7",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 249053,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248844
+    ]
+  },
+  {
+    "id": 249054,
+    "reference": "A0117/26",
+    "type": "Antrag",
+    "title": "Sicheres Spielen in Buckau",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.20",
+        "result": "in die Ausschüsse verwiesen"
+      }
+    ],
+    "rootPaperId": 249054,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249058,
+    "reference": "S0266/26",
+    "type": "Stellungnahme",
+    "title": "Sachstand Disziplinarverfahren Beigeordneter Krug, Konsequenzen nach Ergebnis des Berichts des Untersuchungsausschusses",
+    "files": [
+      {
+        "id": 744812,
+        "name": "Stellungnahme",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744812&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "8.3",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 249004,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      249004
+    ]
+  },
+  {
+    "id": 249060,
+    "reference": "A0118/26",
+    "type": "Antrag",
+    "title": "Verbindliche Aktivierungsmaßnahmen für junge Bürgergeldempfänger prüfen",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.7",
+        "result": "ungeändert beschlossen"
+      }
+    ],
+    "rootPaperId": 249060,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249064,
+    "reference": "I0181/26",
+    "type": "Informationsvorlage",
+    "title": "Interaktiver Stadtplan für Defibrillatorenstandorte und Ausführung Ersthelfer-App",
+    "files": [
+      {
+        "id": 744829,
+        "name": "Information",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744829&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "5.4",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 249064,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248862
+    ]
+  },
+  {
+    "id": 249067,
+    "reference": "F0178/26",
+    "type": "Anfrage",
+    "title": "Aufkommender Müll durch Essenslieferungen im öffentlichen Raum",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Stellungnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "8.30",
+        "result": "schriftliche Stellungnahme"
+      }
+    ],
+    "rootPaperId": 249067,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249068,
+    "reference": "DS0229/26",
+    "type": "Beschlussvorlage",
+    "title": "Genehmigung der Annahme von Spenden gem. § 99 Abs. 6 KVG-LSA",
+    "files": [
+      {
+        "id": 744872,
+        "name": "Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744872&type=do",
+        "size": null
+      },
+      {
+        "id": 744874,
+        "name": "DS0229/26-  Anlage 1 Spendenannahme SR",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744874&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "3.3",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 249068,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249069,
+    "reference": "F0179/26",
+    "type": "Anfrage",
+    "title": "Brunnen Leiterstraße 5",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Stellungnahme",
+        "organization": "Stadtrat",
+        "agendaItem": "8.13",
+        "result": "schriftliche Stellungnahme"
+      }
+    ],
+    "rootPaperId": 249069,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249070,
+    "reference": "A0120/26",
+    "type": "Antrag",
+    "title": "Botschafter der Literatur",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.12",
+        "result": "in die Ausschüsse verwiesen"
+      }
+    ],
+    "rootPaperId": 249070,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249072,
+    "reference": "S0268/26",
+    "type": "Stellungnahme (Anfrage)",
+    "title": "Fernwärme in der Hermann-Beims-Siedlung",
+    "files": [
+      {
+        "id": 744932,
+        "name": "Stellungnahme (Anfrage)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744932&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "8.4",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 249072,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248988
+    ]
+  },
+  {
+    "id": 249073,
+    "reference": "S0269/26",
+    "type": "Stellungnahme (Antrag)",
+    "title": "Aufwertung des Heinrich-Apel-Platzes in der Leiterstraße",
+    "files": [
+      {
+        "id": 744948,
+        "name": "Stellungnahme (Antrag)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744948&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-23T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.15",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 249073,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248633
+    ]
+  },
+  {
+    "id": 249075,
+    "reference": "S0271/26",
+    "type": "Stellungnahme (Anfrage)",
+    "title": "Bauarbeiten in der Alexander-Puschkin-Straße",
+    "files": [
+      {
+        "id": 744946,
+        "name": "Stellungnahme (Anfrage)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744946&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "8.5",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 249075,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248968
+    ]
+  },
+  {
+    "id": 249076,
+    "reference": "I0183/26",
+    "type": "Informationsvorlage",
+    "title": "Fürstenwall sanieren",
+    "files": [
+      {
+        "id": 744990,
+        "name": "I0183/26 Information",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744990&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "5.8",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Stadtgarten und Friedhöfe Magdeburg",
+        "date": "2026-06-30T16:30:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Betriebsausschuss Stadtgarten und Friedhöfe Magdeburg",
+        "agendaItem": "7.1",
+        "result": null
+      }
+    ],
+    "rootPaperId": 247388,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      247388
+    ]
+  },
+  {
+    "id": 249077,
+    "reference": "I0184/26",
+    "type": "Informationsvorlage",
+    "title": "Weiterentwicklung der kommunalen Bürgerbeteiligungs- und Projektmanagementstrukturen am neuen gemeinsamen Standort im Breiten Weg 117a",
+    "files": [
+      {
+        "id": 745446,
+        "name": "Information",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745446&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "5.2",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2026-07-03T17:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "7.3",
+        "result": null
+      }
+    ],
+    "rootPaperId": 249077,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249090,
+    "reference": "A0131/26",
+    "type": "Antrag",
+    "title": "Breiter Weg Nordabschnitt- Erhöhung der Attraktivität",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.11",
+        "result": "in die Ausschüsse verwiesen"
+      }
+    ],
+    "rootPaperId": 249090,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249091,
+    "reference": "A0132/26",
+    "type": "Antrag",
+    "title": "Magdeburg- Innenstadt am Fluss",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.10",
+        "result": "in die Ausschüsse verwiesen"
+      }
+    ],
+    "rootPaperId": 249091,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 249093,
+    "reference": "S0272/26",
+    "type": "Stellungnahme (Antrag)",
+    "title": "Schulwegsicherheit in Diesdorf verbessern – Gefahrenstelle Zerrennerstraße entschärfen",
+    "files": [
+      {
+        "id": 745054,
+        "name": "S0272/26 Stellungnahme (Antrag)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745054&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-23T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.14",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248660,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248660
+    ]
+  },
+  {
     "id": 249095,
     "reference": "DS0599/25/1",
     "type": "Änderungsantrag",
@@ -798,6 +1376,64 @@
     ]
   },
   {
+    "id": 249096,
+    "reference": "S0273/26",
+    "type": "Stellungnahme (Antrag)",
+    "title": "Verkehrssicherheit Kita „Beimskinder“",
+    "files": [
+      {
+        "id": 745056,
+        "name": "S0273/26 Stellungnahme (Antrag)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745056&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "8.11",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248876,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248876
+    ]
+  },
+  {
+    "id": 249097,
+    "reference": "S0274/26",
+    "type": "Stellungnahme (Antrag)",
+    "title": "Behebung der Unfallquellen in der Egelner Straße zwischen Osterweddinger Straße und Königsstraße",
+    "files": [
+      {
+        "id": 745058,
+        "name": "S0274/26 Stellungnahme (Antrag)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745058&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "8.12",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248871,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248871
+    ]
+  },
+  {
     "id": 249098,
     "reference": "A0133/26",
     "type": "Antrag",
@@ -810,7 +1446,7 @@
         "role": "Beschlussfassung",
         "organization": "Stadtrat",
         "agendaItem": "6.13",
-        "result": null
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 249098,

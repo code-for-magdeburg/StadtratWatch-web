@@ -78,13 +78,14 @@ data/
 
 ### Key Models
 
-Models are **shared between Astro and Deno** via Deno workspaces:
+Models are **shared between Astro and Deno** via Deno workspaces. The canonical definitions live in `astro/src/models/` and are re-exported to Deno through the `@srw-astro/models` workspace package in `src/deps/astro/`:
 
-- `astro/src/models/oparl.ts` + `src/scripts/shared/model/oparl.ts` - OParl types (OparlBody, OparlMeeting, OparlPaper, OparlFile, etc.)
+- `astro/src/models/oparl.ts` - OParl types (OparlBody, OparlMeeting, OparlPaper, OparlFile, etc.)
 - `astro/src/models/registry.ts` - Parliament period registry (sessions, persons, factions, parties)
 - `astro/src/models/session-scan.ts` - Voting data (SessionScanItem, votes array)
 - `astro/src/models/session-speech.ts` - Speech transcriptions
 - `astro/src/models/SessionInput.ts` - Combined session data
+- `astro/src/models/Session.ts` - Shared voting enums and derived vote type
 
 The **registry.json** file is the **source of truth** for parliament period metadata (persons, factions, parties, sessions). Each parliament period has its own registry.json in `data/{period-id}/registry.json`.
 
@@ -212,7 +213,7 @@ Index is rebuilt with index-search script (see HOWTO.md). Frontend uses Typesens
 
 ## Code Conventions
 
-- **Shared models**: Always define in both `astro/src/models/` and `src/scripts/shared/model/` (or use Deno workspace imports)
+- **Shared models**: Define canonical model changes in `astro/src/models/`
 - **Deno formatting**: Uses single quotes, 120 char line width (see deno.json)
 - **Astro formatting**: Uses Prettier with .prettierrc
 - **File naming**: Use kebab-case for directories, camelCase for TypeScript

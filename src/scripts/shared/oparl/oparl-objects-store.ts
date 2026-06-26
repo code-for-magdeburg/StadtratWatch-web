@@ -5,7 +5,7 @@ import type {
   OparlMeeting,
   OparlOrganization,
   OparlPaper,
-} from '../model/oparl.ts';
+} from '@srw-astro/models/oparl';
 import * as path from '@std/path';
 
 export interface OparlObjectsStore {

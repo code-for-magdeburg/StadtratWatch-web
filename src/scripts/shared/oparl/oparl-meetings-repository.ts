@@ -1,4 +1,4 @@
-import { OparlMeeting } from '../model/oparl.ts';
+import { OparlMeeting } from '@srw-astro/models/oparl';
 
 export interface OparlMeetingsRepository {
   getMeetingById(meetingId: string): OparlMeeting | null;

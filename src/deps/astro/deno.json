@@ -2,9 +2,11 @@
   "name": "@srw-astro/models",
   "version": "0.1.0",
   "exports": {
+    "./oparl": "./oparl.ts",
     "./registry": "./registry.ts",
     "./session-input": "./session-input.ts",
     "./session-scan": "./session-scan.ts",
-    "./session-speech": "./session-speech.ts"
+    "./session-speech": "./session-speech.ts",
+    "./session": "./session.ts"
   }
 }

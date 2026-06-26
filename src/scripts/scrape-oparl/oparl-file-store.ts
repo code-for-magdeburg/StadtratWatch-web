@@ -1,4 +1,4 @@
-import { type OparlObject } from '../shared/model/oparl.ts';
+import { type OparlObject } from '@srw-astro/models/oparl';
 import * as path from '@std/path';
 
 export interface IOparlObjectFileStore {

@@ -146,7 +146,9 @@
       }
     ],
     "rootPaperId": 248809,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249227
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -186,6 +188,12 @@
         "id": 742325,
         "name": "Beschlussvorlage Stadt",
         "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742325&type=do",
+        "size": null
+      },
+      {
+        "id": 745748,
+        "name": "DS0162/26 - Anlage 1 Haushaltssystematische Darstellung und Vergleich",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745748&type=do",
         "size": null
       }
     ],
@@ -690,6 +698,45 @@
     "superOrdinatedPaperIds": []
   },
   {
+    "id": 248835,
+    "reference": "DS0178/26",
+    "type": "Beschlussvorlage",
+    "title": "Verfahrensweise zur Durchführung der Sportlerehrung der Landeshauptstadt Magdeburg",
+    "files": [
+      {
+        "id": 745514,
+        "name": "Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745514&type=do",
+        "size": null
+      },
+      {
+        "id": 745624,
+        "name": "DS0178_26_Anlage 2_Verfahrensweise zur Durchführung der Sportlerehrung des Landeshauptstadt Magdeburg",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745624&type=do",
+        "size": null
+      },
+      {
+        "id": 745626,
+        "name": "DS0178/26_Anlage 1_Synopse",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745626&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "3.1",
+        "result": "ungeändert beschlossen"
+      }
+    ],
+    "rootPaperId": 248835,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
     "id": 248838,
     "reference": "S0215/26",
     "type": "Stellungnahme (Anfrage)",
@@ -847,7 +894,9 @@
       }
     ],
     "rootPaperId": 248843,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249121
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -946,7 +995,7 @@
       },
       {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
-        "date": "2026-06-11T17:00:00+02:00",
+        "date": "2026-06-11T17:10:00+02:00",
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
         "agendaItem": "6.4",
@@ -1139,10 +1188,57 @@
         "role": "Beratung",
         "organization": "Ausschuss für Bildung, Schule und Sport",
         "agendaItem": "7.1",
-        "result": null
+        "result": "empfohlen"
       }
     ],
     "rootPaperId": 248850,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
+    "id": 248851,
+    "reference": "DS0185/26",
+    "type": "Beschlussvorlage",
+    "title": "Übertragung von Anlagevermögen in das Sondervermögen des Eigenbetriebes Stadtgarten und Friedhöfe Magdeburg (EB SFM)",
+    "files": [
+      {
+        "id": 742991,
+        "name": "DS0185/26 Beschlussvorlage Stadt",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=742991&type=do",
+        "size": null
+      },
+      {
+        "id": 743973,
+        "name": "DS0185/26 Anlage 1 Aufstellung Blumenladen Westfriedhof",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743973&type=do",
+        "size": null
+      },
+      {
+        "id": 743974,
+        "name": "DS0185/26 Anlage 2 Freizeitsportanlage Umfassungsstraße",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743974&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "3.2",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Stadtgarten und Friedhöfe Magdeburg",
+        "date": "2026-06-30T16:30:00+02:00",
+        "role": "Beratung",
+        "organization": "Betriebsausschuss Stadtgarten und Friedhöfe Magdeburg",
+        "agendaItem": "5.1",
+        "result": null
+      }
+    ],
+    "rootPaperId": 248851,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": []
   },
@@ -1690,7 +1786,7 @@
       },
       {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
-        "date": "2026-06-11T17:00:00+02:00",
+        "date": "2026-06-11T17:10:00+02:00",
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
         "agendaItem": "6.5",
@@ -1770,7 +1866,9 @@
       }
     ],
     "rootPaperId": 248871,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249097
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1881,7 +1979,9 @@
       }
     ],
     "rootPaperId": 248876,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249096
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1998,7 +2098,9 @@
       }
     ],
     "rootPaperId": 248879,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249138
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -2098,7 +2200,7 @@
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für Bildung, Schule und Sport",
         "agendaItem": "8.2",
-        "result": null
+        "result": "vertagt"
       }
     ],
     "rootPaperId": 248588,
@@ -2353,7 +2455,9 @@
       }
     ],
     "rootPaperId": 248892,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249127
+    ],
     "superOrdinatedPaperIds": []
   },
   {

@@ -417,7 +417,7 @@
       },
       {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
-        "date": "2026-06-11T17:00:00+02:00",
+        "date": "2026-06-11T17:10:00+02:00",
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
         "agendaItem": "6.6",
@@ -584,7 +584,7 @@
       },
       {
         "meeting": "öffentliche/nicht öffentliche Sitzung des Ausschusses für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
-        "date": "2026-06-11T17:00:00+02:00",
+        "date": "2026-06-11T17:10:00+02:00",
         "role": "Kenntnisnahme",
         "organization": "Ausschuss für Wirtschaftsförderung, Tourismus und regionale Entwicklung",
         "agendaItem": "6.7",
@@ -770,7 +770,9 @@
       }
     ],
     "rootPaperId": 248941,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249122
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -867,6 +869,35 @@
     ]
   },
   {
+    "id": 248948,
+    "reference": "I0166/26",
+    "type": "Informationsvorlage Prüfantrag",
+    "title": "Projekt „Nachtengel“",
+    "files": [
+      {
+        "id": 743845,
+        "name": "Information",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=743845&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "5.7",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248948,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248168
+    ]
+  },
+  {
     "id": 248949,
     "reference": "F0152/26",
     "type": "Anfrage",
@@ -898,7 +929,9 @@
       }
     ],
     "rootPaperId": 248949,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249195
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1079,6 +1112,14 @@
         "organization": "Die Oberbürgermeisterin",
         "agendaItem": "7.2",
         "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Betriebsausschusses Stadtgarten und Friedhöfe Magdeburg",
+        "date": "2026-06-30T16:30:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Betriebsausschuss Stadtgarten und Friedhöfe Magdeburg",
+        "agendaItem": "6.1.2",
+        "result": null
       }
     ],
     "rootPaperId": 248199,
@@ -1164,9 +1205,17 @@
         "organization": "Stadtrat",
         "agendaItem": "6.16.1",
         "result": "zurückgestellt"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "5.19.1",
+        "result": "in die Ausschüsse verwiesen"
       }
     ],
-    "rootPaperId": 248965,
+    "rootPaperId": 241684,
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       248019
@@ -1239,7 +1288,9 @@
       }
     ],
     "rootPaperId": 248967,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249142
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1321,7 +1372,9 @@
       }
     ],
     "rootPaperId": 248970,
-    "subordinatedPaperIds": [],
+    "subordinatedPaperIds": [
+      249144
+    ],
     "superOrdinatedPaperIds": []
   },
   {
@@ -1424,6 +1477,26 @@
     "superOrdinatedPaperIds": []
   },
   {
+    "id": 248976,
+    "reference": "A0112/26",
+    "type": "Antrag",
+    "title": "Zukunft der Jehmlich-Orgel",
+    "files": [],
+    "consultations": [
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.6",
+        "result": "in die Ausschüsse verwiesen"
+      }
+    ],
+    "rootPaperId": 248976,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": []
+  },
+  {
     "id": 248977,
     "reference": "A0113/26",
     "type": "Antrag",
@@ -1444,6 +1517,14 @@
         "organization": "Stadtrat",
         "agendaItem": "2.1",
         "result": null
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Stadtrates",
+        "date": "2026-06-18T14:00:00+02:00",
+        "role": "Beschlussfassung",
+        "organization": "Stadtrat",
+        "agendaItem": "6.5",
+        "result": "ungeändert beschlossen"
       }
     ],
     "rootPaperId": 248977,
@@ -1522,6 +1603,35 @@
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       247506
+    ]
+  },
+  {
+    "id": 248982,
+    "reference": "S0245/26",
+    "type": "Stellungnahme (Anfrage)",
+    "title": "Verletzung der politischen Neutralität bei \"Bunter Bahnhof Buckau\"?",
+    "files": [
+      {
+        "id": 745363,
+        "name": "Stellungnahme (Anfrage)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745363&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "8.2",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248982,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248767
     ]
   },
   {
@@ -1615,6 +1725,51 @@
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       248769
+    ]
+  },
+  {
+    "id": 248987,
+    "reference": "S0248/26",
+    "type": "Stellungnahme (Antrag)",
+    "title": "Optimierung des StadtratsTVs",
+    "files": [
+      {
+        "id": 745383,
+        "name": "Stellungnahme (Antrag)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=745383&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-16T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "8.1",
+        "result": "genehmigt OB"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Finanz- und Grundstücksausschusses",
+        "date": "2026-06-24T16:30:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Finanz- und Grundstücksausschuss",
+        "agendaItem": "6.1.1",
+        "result": "zur Kenntnis genommen"
+      },
+      {
+        "meeting": "öffentliche/nicht öffentliche Sitzung des Verwaltungsausschusses",
+        "date": "2026-07-03T17:00:00+02:00",
+        "role": "Kenntnisnahme",
+        "organization": "Verwaltungsausschuss",
+        "agendaItem": "6.1.1",
+        "result": null
+      }
+    ],
+    "rootPaperId": 248987,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      248636
     ]
   },
   {
@@ -1991,6 +2146,35 @@
     "subordinatedPaperIds": [],
     "superOrdinatedPaperIds": [
       246143
+    ]
+  },
+  {
+    "id": 248999,
+    "reference": "S0249/26",
+    "type": "Stellungnahme (Antrag)",
+    "title": "Renaturierung der Schrote auf dem Zoogelände",
+    "files": [
+      {
+        "id": 744174,
+        "name": "Stellungnahme (Antrag)",
+        "url": "https://ratsinfo.magdeburg.de/getfile.asp?id=744174&type=do",
+        "size": null
+      }
+    ],
+    "consultations": [
+      {
+        "meeting": "nicht öffentliche Sitzung der Oberbürgermeisterin",
+        "date": "2026-06-23T09:00:00+02:00",
+        "role": "Genehmigung OB",
+        "organization": "Die Oberbürgermeisterin",
+        "agendaItem": "9.11",
+        "result": "genehmigt OB"
+      }
+    ],
+    "rootPaperId": 248999,
+    "subordinatedPaperIds": [],
+    "superOrdinatedPaperIds": [
+      247454
     ]
   }
 ]

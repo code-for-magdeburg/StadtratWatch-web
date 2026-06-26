@@ -62,8 +62,8 @@ Models .. Web
 ====
 Die geteilten Modelle liegen primär in der Web-Anwendung (`astro/src/models/`) und
 werden der Deno-Seite über den Workspace (`src/deps/astro/`) als Re-Export
-bereitgestellt. Einzelne Modelle sind derzeit noch dupliziert statt geteilt; diese
-technische Schuld ist in Kapitel 11 vermerkt.
+bereitgestellt. Damit nutzen Web-Anwendung und Deno-Pipelines dieselben
+TypeScript-Definitionen.
 ====
 
 == Aufbau der Datenablage

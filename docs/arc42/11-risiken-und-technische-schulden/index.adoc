@@ -60,12 +60,6 @@ Dieses Kapitel ist ein lebendes Dokument; die zeitliche Nachvollziehbarkeit ergi
 |===
 | ID | Technische Schuld | Auswirkung | Geplanter Umgang / Tilgung | Bezug
 
-| [[schuld-td1]]TD1
-| *Partielle Modell-Duplikation.* Die geteilten Modelle für Registry, Sitzungseingabe, Scan und Redebeiträge werden korrekt über das Workspace-Paket `@srw-astro/models` aus der Web-Anwendung re-exportiert. Die OParl- und `session`-Modelle in `src/scripts/shared/model/` umgehen diese Brücke jedoch als eigene Kopien und sind bereits inhaltlich auseinandergelaufen.
-| mittel
-| Tilgung: die verbliebenen Kopien ebenfalls über `@srw-astro/models` führen, sodass eine einzige getypte Quelle gilt. Bis dahin sind beide Stellen bei Modelländerungen manuell synchron zu halten.
-| <<adr-0004,ADR-0004>>
-
 | [[schuld-td2]]TD2
 | *Fehlende Mess-Infrastruktur.* Die Qualitätsszenarien zu Performance und Bedienbarkeit (<<szenario-perf-1,PERF-1>>, <<szenario-use-1,USE-1>>, <<szenario-use-2,USE-2>>) sind in Kapitel 10 als _angestrebt_ markiert; es gibt keine automatisierte Messung (z. B. Lighthouse / Core Web Vitals) in der CI.
 | mittel
