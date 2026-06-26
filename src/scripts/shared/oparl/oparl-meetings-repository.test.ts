@@ -1,7 +1,7 @@
 import { assertEquals } from '@std/assert';
 import { describe, it } from '@std/testing/bdd';
 import { OparlMeetingsInMemoryRepository } from './oparl-meetings-repository.ts';
-import type { OparlMeeting } from '../model/oparl.ts';
+import type { OparlMeeting } from '@srw-astro/models/oparl';
 
 describe('OparlMeetingsInMemoryRepository', () => {
   describe('getMeetingById', () => {

@@ -1,4 +1,4 @@
-import { type OparlBody, type OparlObject } from '../shared/model/oparl.ts';
+import { type OparlBody, type OparlObject } from '@srw-astro/models/oparl';
 import { type OparlClient } from './oparl-client.ts';
 import { type IOparlObjectFileStore } from './oparl-file-store.ts';
 

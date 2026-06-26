@@ -18,7 +18,7 @@ import {
   OparlAgendaItemsInMemoryRepository,
   OparlAgendaItemsRepository,
 } from '../shared/oparl/oparl-agenda-items-repository.ts';
-import { OparlPaper } from '../shared/model/oparl.ts';
+import { OparlPaper } from '@srw-astro/models/oparl';
 import { createInMemoryPaperGraph } from './paper-graph.ts';
 import { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
 import { PaperAssetsWriter } from './paper-assets-writer.ts';

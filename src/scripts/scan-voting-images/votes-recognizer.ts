@@ -2,7 +2,7 @@ import { ScanConfig, ScanConfigLayout, ScanConfigPerson } from './scan-config.ts
 import { IVotingImagesSource } from './voting-images-source.ts';
 import { SessionScanVote } from '@srw-astro/models/session-scan';
 import { CanvasRenderingContext2D } from '@gfx/canvas';
-import { VoteResult } from '../shared/model/session.ts';
+import { VoteResult } from '@srw-astro/models/session';
 
 type CategorizedColor = 'red' | 'green' | 'yellow' | 'white' | 'unknown';
 type VoteCode = VoteResult.VOTE_FOR | VoteResult.VOTE_AGAINST | VoteResult.VOTE_ABSTENTION | VoteResult.DID_NOT_VOTE;

@@ -2,7 +2,7 @@ import { assertEquals } from '@std/assert';
 import { describe, it } from '@std/testing/bdd';
 import { OparlFilesInMemoryRepository } from './oparl-files-repository.ts';
 import { OparlPapersInMemoryRepository } from './oparl-papers-repository.ts';
-import type { OparlFile, OparlPaper } from '../model/oparl.ts';
+import type { OparlFile, OparlPaper } from '@srw-astro/models/oparl';
 
 describe('OparlFilesInMemoryRepository', () => {
   describe('getFilesByPaper', () => {

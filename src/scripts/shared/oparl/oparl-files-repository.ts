@@ -1,5 +1,5 @@
 import { OparlPapersRepository } from './oparl-papers-repository.ts';
-import { OparlFile } from '../model/oparl.ts';
+import { OparlFile } from '@srw-astro/models/oparl';
 
 export interface OparlFilesRepository {
   getFilesByPaper(paperId: string): OparlFile[];

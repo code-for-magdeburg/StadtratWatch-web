@@ -10,7 +10,7 @@ import {
   OparlMeeting,
   OparlOrganization,
   OparlPaper,
-} from '../../shared/model/oparl.ts';
+} from '@srw-astro/models/oparl';
 import { PaperAssetDto, PaperGraphAssetDto } from '../model.ts';
 import { PaperFilesStore } from '../paper-files-store.ts';
 import { PaperGraphAssetsWriter } from '../paper-graph-assets-writer.ts';

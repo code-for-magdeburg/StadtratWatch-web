@@ -1,7 +1,7 @@
 import { assertEquals } from '@std/assert';
 import { describe, it } from '@std/testing/bdd';
 import { OparlOrganizationsInMemoryRepository } from './oparl-organizations-repository.ts';
-import type { OparlOrganization } from '../model/oparl.ts';
+import type { OparlOrganization } from '@srw-astro/models/oparl';
 
 describe('OparlOrganizationsInMemoryRepository', () => {
   describe('getOrganizationById', () => {
