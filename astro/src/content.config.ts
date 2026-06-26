@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import type { Registry } from '@models/registry.ts';
 import type { SessionScan } from '@models/session-scan.ts';
@@ -10,6 +10,7 @@ import type {
   OparlMeeting,
   OparlPaper,
 } from '@models/oparl.ts';
+import { z } from 'astro/zod';
 
 const parliamentPeriods = defineCollection({
   loader: glob({
