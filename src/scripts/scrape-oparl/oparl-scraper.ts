@@ -1,18 +1,7 @@
 import { type OparlBody, type OparlObject } from '@srw-astro/models/oparl';
 import { type OparlClient } from './oparl-client.ts';
 import { type IOparlObjectFileStore } from './oparl-file-store.ts';
-
-enum OparlObjectType {
-  Organization,
-  Person,
-  Meeting,
-  Paper,
-  Membership,
-  Location,
-  AgendaItem,
-  Consultation,
-  File,
-}
+import { OPARL_FILENAME_BY_TYPE, OparlObjectType } from './oparl-filenames.ts';
 
 export class OparlScraper {
   constructor(private readonly client: OparlClient, private readonly oparlObjectsStore: IOparlObjectFileStore) {}
@@ -63,7 +52,7 @@ export class OparlScraper {
     objectType: OparlObjectType,
   ): Promise<void> {
     const objects = await this.client.fetchObjects(objectsUrl, createdSince);
-    const filename = this.getObjectTypeFilename(objectType);
+    const filename = OPARL_FILENAME_BY_TYPE[objectType];
     this.oparlObjectsStore.saveObjects(objects, filename);
   }
 
@@ -78,7 +67,7 @@ export class OparlScraper {
       return;
     }
 
-    const filename = this.getObjectTypeFilename(objectType);
+    const filename = OPARL_FILENAME_BY_TYPE[objectType];
     const existingObjects = this.oparlObjectsStore.loadObjects(filename);
     const updatedObjects = this.updateObjects(existingObjects, modifiedObjects);
     this.oparlObjectsStore.saveObjects(updatedObjects, filename);
@@ -97,30 +86,5 @@ export class OparlScraper {
     }
 
     return updatedObjects;
-  }
-
-  private getObjectTypeFilename(objectType: OparlObjectType): string {
-    switch (objectType) {
-      case OparlObjectType.Organization:
-        return 'organizations.json';
-      case OparlObjectType.Person:
-        return 'persons.json';
-      case OparlObjectType.Meeting:
-        return 'meetings.json';
-      case OparlObjectType.Paper:
-        return 'papers.json';
-      case OparlObjectType.Membership:
-        return 'memberships.json';
-      case OparlObjectType.Location:
-        return 'locations.json';
-      case OparlObjectType.AgendaItem:
-        return 'agenda-items.json';
-      case OparlObjectType.Consultation:
-        return 'consultations.json';
-      case OparlObjectType.File:
-        return 'files.json';
-      default:
-        throw new Error('Unknown OParl object type');
-    }
   }
 }

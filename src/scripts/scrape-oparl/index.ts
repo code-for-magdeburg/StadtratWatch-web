@@ -1,5 +1,6 @@
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
-import { tryGetScrapeOparlEnv } from './env.ts';
+import { tryGetScrapeOparlEnv, tryGetScrapeOparlPushEnv } from './env.ts';
+import { publishOparlSnapshot } from './oparl-s3-publisher.ts';
 import { ScraperMetadataFileStore } from './scraper-metadata-store.ts';
 import { OparlScraper } from './oparl-scraper.ts';
 import { OparlClient } from './oparl-client.ts';
@@ -34,6 +35,12 @@ switch (args.mode) {
     }
     setLastSuccessfulRunDate(new Date().toISOString());
     break;
+}
+
+if (args.push) {
+  console.log('Pushing snapshot to S3...');
+  const pushEnv = tryGetScrapeOparlPushEnv();
+  await publishOparlSnapshot(args.ratsinfosystemDir, pushEnv);
 }
 
 function tryGetLastSuccessfulRunDate(): string {
