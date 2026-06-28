@@ -5,18 +5,20 @@ export type ScrapeOparlArgs = {
   mode: 'full' | 'incremental';
   date?: string;
   ratsinfosystemDir: string;
+  push: boolean;
 };
 
 export function parseArgs(args: string[]): ScrapeOparlArgs {
   return stdCliParseArgs(args, {
-    boolean: ['help'],
+    boolean: ['help', 'push'],
     string: ['mode', 'date', 'ratsinfosystemDir'],
-    default: { date: undefined },
+    default: { date: undefined, push: false },
     alias: {
       help: 'h',
       mode: 'm',
       date: 'd',
       'ratsinfosystem-dir': ['r', 'ratsinfosystemDir'],
+      push: 'p',
     },
   }) as ScrapeOparlArgs;
 }
@@ -47,5 +49,6 @@ Usage: deno run index.ts
 -m, --mode                  Specify the mode of operation: 'full' to fetch all data, 'incremental' to fetch only changes. (default: 'full')
 -d, --date                  Specify the date from which to fetch changes when in 'incremental' mode created objects in 'full' mode. Use the format 'YYYY-MM-DD'.
 -r, --ratsinfosystem-dir    Specify the directory where the ratsinfosystem data will be stored.
+-p, --push                  After scraping, upload the snapshot to S3. (default: false)
   `);
 }

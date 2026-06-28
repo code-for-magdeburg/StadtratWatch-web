@@ -32,8 +32,8 @@ Dieses Kapitel ist ein lebendes Dokument; die zeitliche Nachvollziehbarkeit ergi
 | [[risiko-r3]]R3
 | *OParl-Anbieter- oder Schemawechsel.* Wechselt die Stadt ihr Ratsinformationssystem oder ändert das OParl-Schema, bricht die Datenübernahme (Ingestion).
 | hoch
-| Der Zugriff auf OParl-Daten ist hinter einem Repository-Muster gekapselt, der Rohdatenbestand wird versioniert vorgehalten. Eine Schema-Änderung bleibt damit lokal begrenzt und nachvollziehbar; bereits importierte Daten bleiben verfügbar.
-| <<kontextabgrenzung,Kap. 3>>
+| Der Zugriff auf OParl-Daten ist hinter einem Repository-Muster gekapselt; der Rohdatenbestand wird extern (S3/CloudFront) als aktueller Snapshot vorgehalten und ist aus OParl reproduzierbar (siehe <<adr-0005,ADR-0005>>). Eine Schema-Änderung bleibt damit lokal begrenzt und nachvollziehbar; bereits importierte Daten bleiben verfügbar.
+| <<kontextabgrenzung,Kap. 3>>, <<adr-0005,ADR-0005>>
 
 | [[risiko-r4]]R4
 | *Personenabhängigkeit (Bus-Faktor).* Das Projekt wird ehrenamtlich getragen; insbesondere der manuelle Freigabeschritt und die Wartung hängen an wenigen Personen.
