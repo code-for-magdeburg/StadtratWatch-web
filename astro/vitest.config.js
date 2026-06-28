@@ -5,7 +5,8 @@ export default getViteConfig({
   test: {
     include: [
       'src/tests/**/*.{test,spec}.?(c|m)[jt]s?(x)',
-      'src/**/*.{test,spec}.?(c|m)[jt]s?(x)'
+      'src/**/*.{test,spec}.?(c|m)[jt]s?(x)',
+      'scripts/**/*.{test,spec}.?(c|m)[jt]s?(x)'
     ],
   },
 });
