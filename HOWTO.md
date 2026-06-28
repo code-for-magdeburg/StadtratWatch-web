@@ -229,7 +229,7 @@ Running the OParl scraper requires to set the following environment variables:
 
 
 #### Scrape all data (full)
-This command scrapes all data from the OParl API and stores it in the `output/ratsinfosystem` folder. It may take several hours to complete.
+This command scrapes all data from the OParl API and stores it in the `data/oparl-magdeburg` folder. It may take several hours to complete.
 A date has to be specified (format: YYYY-MM-DD) to limit the amount of data to be scraped. Only objects that where created or modified since that date will be fetched.
 
 ```bash
@@ -237,14 +237,14 @@ deno run \
   --allow-net \
   --allow-read \
   --allow-write \
-  src/scripts/scrape-oparl/scrape-oparl/index.ts \
+  src/scripts/scrape-oparl/index.ts \
   -m full \
   -d 2019-01-01 \
-  -r output/ratsinfosystem
+  -r data/oparl-magdeburg
 ```
 
 #### Scrape only new and updated data (incremental)
-This command scrapes only new and updated data from the OParl API and stores it in the `output/ratsinfosystem` folder. It may take several minutes to complete.
+This command scrapes only new and updated data from the OParl API and stores it in the `data/oparl-magdeburg` folder. It may take several minutes to complete.
 
 Provide an optional `-d` parameter to limit the amount of data to be scraped. Only objects that where created or modified since that date will be fetched. If no date is provided, the tool will try to read the last modified date from a file named `scraper-metadata.txt` in the output folder. If the file does not exist, it will stop with an error message.
 
@@ -253,7 +253,63 @@ deno run \
   --allow-net \
   --allow-read \
   --allow-write \
-  src/scripts/scrape-oparl/scrape-oparl/index.ts \
+  src/scripts/scrape-oparl/index.ts \
   -m incremental \
-  -r output/ratsinfosystem
+  -r data/oparl-magdeburg
 ```
+
+#### Publish the snapshot to S3/CloudFront (`--push`)
+
+Pass `-p` / `--push` to upload the scraped snapshot to S3 after writing it locally. This is the
+**only authenticated** OParl step and is meant for the maintainer; without the flag `scrape-oparl`
+just writes local files (the default). When pushing, each of the snapshot files is gzipped and
+uploaded as a content-hashed, immutable blob (`oparl/<file>.<sha>.json.gz`), followed by a short-TTL
+`oparl/manifest.json`. Because blob names are content-addressed, no CloudFront invalidation is ever
+needed. The manifest also carries a `lastSync` timestamp (read from the local `scraper-metadata.txt`)
+so other machines can resume incremental scrapes via `fetch-oparl`.
+
+The push reads these additional environment variables, validated **only when `--push` is set**:
+- `OPARL_S3_BUCKET` - target S3 bucket (the existing bucket behind CloudFront).
+- `OPARL_S3_PREFIX` - key prefix (default `oparl`).
+- `AWS_REGION` - bucket region.
+- `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` - credentials with write access to the bucket.
+  **Never commit credentials**; provide them via the environment at runtime.
+
+```bash
+deno run \
+  --allow-net \
+  --allow-read \
+  --allow-write \
+  --allow-env \
+  src/scripts/scrape-oparl/index.ts \
+  -m incremental \
+  -r data/oparl-magdeburg \
+  --push
+```
+
+
+### Fetch OParl snapshot
+
+The processing scripts and the web build do not scrape OParl themselves — they read the local
+`data/oparl-magdeburg/` directory, which is populated by `fetch-oparl`. This step runs
+automatically before the web build and dev server (the `prebuild` / `predev` hooks in
+`astro/package.json` call `npm run fetch-oparl`), so CI, Netlify and local dev all obtain the data
+without extra steps. You can also run it on its own:
+
+```bash
+cd astro
+npm run fetch-oparl
+```
+
+`fetch-oparl` reads `oparl/manifest.json` from CloudFront, compares each file's content hash against
+the local copy and downloads only the blobs that changed or are missing (it is idempotent — if
+everything matches it does nothing). It needs only the public base URL; no AWS credentials are
+involved:
+- `AWS_CLOUDFRONT_BASE_URL` - base URL of the public CloudFront distribution (already required by
+  the Astro build; see `astro/astro.config.mjs`).
+
+Resilience: missing local files are a hard requirement, so the run fails if a needed file is absent
+and the manifest cannot be fetched. If the manifest is unreachable but every file already exists
+locally, it warns and keeps the local copy, so offline dev and builds keep working after the first
+fetch. The manifest's `lastSync` timestamp is written back to `data/oparl-magdeburg/scraper-metadata.txt`,
+so an incremental `scrape-oparl` on a fresh clone resumes from the last published snapshot.

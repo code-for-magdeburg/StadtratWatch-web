@@ -23,6 +23,12 @@ StadtratWatch kommt ohne Datenbank aus. Der gesamte verarbeitete Bestand liegt a
 
 Große, generierte Binärdaten gehören nicht in das Repository. Abstimmungs-PNGs und die als JSON-Batches abgelegten Drucksachen-Daten liegen außerhalb in AWS S3 und werden zur Laufzeit über das CDN CloudFront geladen. Das hält das Repository schlank und die Auslieferung schnell. Die Basis-URL ist über die Umgebung konfiguriert (siehe unten).
 
+== Externer OParl-Rohdaten-Snapshot
+
+Der OParl-Datenbestand (`data/oparl-magdeburg/`) ist umfangreich, wird bei jedem Scrape vollständig neu geschrieben und ist aus der OParl-Schnittstelle reproduzierbar. Er liegt daher *nicht im Repository*, sondern extern in AWS S3 unter dem Präfix `oparl/` und wird über CloudFront öffentlich ausgeliefert. Es wird genau ein „aktueller“ Snapshot gehalten: inhaltsadressierte, unveränderliche Blobs (`oparl/<datei>.<sha>.json.gz`) zusammen mit einer kleinen `manifest.json`. Weil die Blob-Namen inhaltsbasiert sind, ist nie eine CloudFront-Invalidierung nötig.
+
+Das Veröffentlichen ist ein optionaler, authentifizierter Abschlussschritt des Scrapers (`scrape-oparl --push`); das Laden (`fetch-oparl`) ist öffentlich und benötigt keine Zugangsdaten. Vor jedem Web-Build und Dev-Start lädt `fetch-oparl` den Snapshot anhand des Manifests in das lokale `data/oparl-magdeburg/` — automatisiert über die `prebuild`/`predev`-Hooks. Diese Entscheidung ist in <<adr-0005,ADR-0005>> festgehalten; sie betrifft nur die reproduzierbaren _OParl-Rohdaten_, während der verarbeitete Sitzungsbestand weiterhin versioniert im Repository bleibt (<<adr-0001,ADR-0001>>).
+
 == Einlesen zur Bauzeit
 
 Die Web-Anwendung liest die Dateien der Datenablage zur Bauzeit über Astro _Content Collections_ (`glob`-Loader) typisiert ein. Damit wird der Dateibestand gegen die geteilten Modelle (siehe <<konzept-datenmodell,Fachliches Datenmodell>>) geprüft und steht den statischen Seiten strukturiert zur Verfügung.

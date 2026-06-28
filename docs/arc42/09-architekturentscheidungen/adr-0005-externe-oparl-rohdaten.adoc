@@ -1,0 +1,38 @@
+[#adr-0005]
+= ADR-0005: OParl-Rohdaten extern statt im Repository
+
+*Status:* Akzeptiert
+
+== Kontext und Problem
+
+Der rohe OParl-Bestand (`data/oparl-magdeburg/`) umfasst rund 122 MB in wenigen großen JSON-Dateien. Er wird bei jedem Scrape vollständig neu geschrieben und war zuvor über Git LFS versioniert. Da LFS je Revision einen kompletten neuen Blob ohne Delta-Kompression ablegt, wuchs die `.git`-Historie auf mehrere Gigabyte. Gleichzeitig ist dieser Bestand eine *Bauzeit-Eingabe*: Astro liest vier der Dateien über _Content Collections_ ein, die Deno-Verarbeitungsskripte lesen weitere. Zu klären war, wie dieser große, häufig komplett überschriebene und zugleich öffentlich-reproduzierbare Bestand gehalten wird, ohne das Repository und seine Historie aufzublähen.
+
+== Betrachtete Optionen
+
+* *Weiter in Git/LFS versionieren* — der bisherige Zustand; einfache Reproduzierbarkeit, aber unkontrolliertes Wachstum der `.git`-Historie.
+* *Remote Content Loader* — Astro lädt die Daten zur Bauzeit direkt aus dem Netz, ohne lokale Datei. Bricht Offline-Entwicklung und erfordert Netz bei jedem Build.
+* *Vorab-Abruf in eine lokale Datei* (gewählt) — ein Skript lädt den Snapshot vor dem Build aus öffentlichem S3/CloudFront in das lokale Verzeichnis; die bestehenden Loader bleiben unverändert.
+
+== Entscheidung
+
+Der rohe OParl-Bestand wird *nicht mehr im Repository* gehalten (`data/oparl-magdeburg/` ist `gitignore`-t), sondern extern in der bestehenden AWS-S3/CloudFront-Infrastruktur unter dem Präfix `oparl/`. Statt einer Versionshistorie wird genau ein „aktueller“ Snapshot vorgehalten: inhaltsadressierte, unveränderliche Blobs (`oparl/<datei>.<sha>.json.gz`) und eine kleine `manifest.json` mit den Hashes und einem `lastSync`-Zeitstempel.
+
+* *Veröffentlichen* ist ein optionaler, authentifizierter Abschlussschritt des Scrapers (`scrape-oparl --push`); ohne das Flag schreibt der Scraper nur lokal. Nur dieser Schritt benötigt AWS-Zugangsdaten und ist dem Maintainer vorbehalten.
+* *Laden* erfolgt öffentlich und ohne Zugangsdaten über `fetch-oparl`; das Skript vergleicht die Hashes des Manifests mit den lokalen Dateien und lädt nur Geändertes. Es läuft automatisch über die `prebuild`/`predev`-Hooks der Web-Anwendung, sodass CI, Netlify und lokale Entwicklung den Bestand ohne Zusatzschritte erhalten.
+
+Diese Entscheidung betrifft ausschließlich die reproduzierbaren _Rohdaten_. Der verarbeitete Sitzungsbestand (Abstimmungen, Reden, `registry.json`) bleibt weiterhin versioniert im Repository (<<adr-0001,ADR-0001>>).
+
+== Konsequenzen
+
+*Positiv*
+
+* Repository und `.git`-Historie bleiben schlank; das Wachstum durch wiederholte Komplett-Überschreibungen entfällt.
+* Inhaltsadressierte, unveränderliche Blobs machen eine CloudFront-Invalidierung überflüssig; ein neuer Scrape erzeugt neue Blob-Namen und ein neues Manifest.
+* Offline-Entwicklung bleibt möglich: nach dem ersten Abruf liegen die Dateien lokal vor; ist das Manifest nicht erreichbar, aber alle Dateien vorhanden, wird mit dem lokalen Stand weitergearbeitet.
+* Die bestehenden Astro-Loader und das Repository-Muster der Deno-Skripte bleiben unverändert — sie lesen weiterhin lokale JSON-Dateien.
+
+*Negativ*
+
+* Der Rohdatenbestand ist nicht mehr über die Git-Historie diffbar. Das wird bewusst akzeptiert, da der Bestand aus der OParl-Schnittstelle reproduzierbar ist und nur ein aktueller Snapshot benötigt wird.
+* Ein Build auf einer frischen Umgebung benötigt beim ersten Mal Netzzugriff, um den Snapshot zu laden.
+* Es entsteht eine zusätzliche, wenngleich öffentliche und ungeheime, Abhängigkeit von der S3/CloudFront-Verfügbarkeit (durch die Offline-Resilienz abgefedert).

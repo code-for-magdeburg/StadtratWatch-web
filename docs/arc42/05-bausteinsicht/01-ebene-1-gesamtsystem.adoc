@@ -83,6 +83,7 @@ data/
 │       ├── session-speakers-*.json   # Sprecher:innen-Segmente
 │       └── session-speeches-*.json   # Transkripte
 ├── magdeburg-8/
-├── oparl-magdeburg/              # rohe OParl-Daten
+├── oparl-magdeburg/              # rohe OParl-Daten (nicht im Repository;
+│                                 #   extern gehalten, zur Bauzeit geladen)
 └── papers/                       # Drucksachen-Metadaten (JSON-Batches)
 ----
