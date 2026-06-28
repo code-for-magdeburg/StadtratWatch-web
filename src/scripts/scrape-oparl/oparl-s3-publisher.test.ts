@@ -1,4 +1,4 @@
-import { type FileReader, uploadOparlSnapshot } from './oparl-s3-publisher.ts';
+import { type FileReader, type MetadataReader, uploadOparlSnapshot } from './oparl-s3-publisher.ts';
 import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
 import { assertEquals, assertMatch, assertRejects } from '@std/assert';
 import { describe, it } from '@std/testing/bdd';
@@ -7,6 +7,11 @@ import { OPARL_FILENAMES } from './oparl-filenames.ts';
 const BUCKET = 'test-bucket';
 const PREFIX = 'oparl';
 const DIR = '/ignored'; // unused: the reader is injected, so no filesystem is touched
+
+/** Metadata reader yielding a fixed timestamp, so tests need no filesystem access. */
+function fakeMetadata(lastSync: string | null): MetadataReader {
+  return () => Promise.resolve(lastSync);
+}
 
 type PutInput = PutObjectCommandInput;
 
@@ -47,7 +52,7 @@ describe('uploadOparlSnapshot', () => {
   it('uploads one blob per file plus the manifest', async () => {
     const calls: PutInput[] = [];
 
-    await uploadOparlSnapshot(DIR, BUCKET, PREFIX, recordingSend(calls), fakeReader());
+    await uploadOparlSnapshot(DIR, BUCKET, PREFIX, recordingSend(calls), fakeReader(), fakeMetadata(null));
 
     assertEquals(calls.length, OPARL_FILENAMES.length + 1);
     assertEquals(calls.every((input) => input.Bucket === BUCKET), true);
@@ -56,7 +61,7 @@ describe('uploadOparlSnapshot', () => {
   it('sets immutable cache headers and gzip encoding on blobs', async () => {
     const calls: PutInput[] = [];
 
-    await uploadOparlSnapshot(DIR, BUCKET, PREFIX, recordingSend(calls), fakeReader());
+    await uploadOparlSnapshot(DIR, BUCKET, PREFIX, recordingSend(calls), fakeReader(), fakeMetadata(null));
 
     const blobPuts = calls.filter((input) => input.Key !== `${PREFIX}/manifest.json`);
     assertEquals(blobPuts.length, OPARL_FILENAMES.length);
@@ -71,7 +76,14 @@ describe('uploadOparlSnapshot', () => {
   it('writes a short-lived manifest referencing every blob with its hash and size', async () => {
     const calls: PutInput[] = [];
 
-    const manifest = await uploadOparlSnapshot(DIR, BUCKET, PREFIX, recordingSend(calls), fakeReader());
+    const manifest = await uploadOparlSnapshot(
+      DIR,
+      BUCKET,
+      PREFIX,
+      recordingSend(calls),
+      fakeReader(),
+      fakeMetadata(null),
+    );
 
     const manifestPut = calls.find((input) => input.Key === `${PREFIX}/manifest.json`);
     if (!manifestPut) throw new Error('manifest was not uploaded');
@@ -80,10 +92,10 @@ describe('uploadOparlSnapshot', () => {
 
     const uploaded = JSON.parse(new TextDecoder().decode(manifestPut.Body as Uint8Array));
     assertEquals(uploaded, manifest);
-    assertEquals(Object.keys(manifest).sort(), [...OPARL_FILENAMES].sort());
+    assertEquals(Object.keys(manifest.files).sort(), [...OPARL_FILENAMES].sort());
 
     for (const filename of OPARL_FILENAMES) {
-      const entry = manifest[filename];
+      const entry = manifest.files[filename];
       const raw = contentFor(filename);
       assertEquals(entry.bytes, raw.length);
       assertEquals(entry.sha, await shortSha(raw));
@@ -91,10 +103,35 @@ describe('uploadOparlSnapshot', () => {
     }
   });
 
+  it('records lastSync from the metadata reader, and omits it when none exists', async () => {
+    const withTimestamp: PutInput[] = [];
+    const stamp = '2026-06-28T12:34:56.000Z';
+    const withManifest = await uploadOparlSnapshot(
+      DIR,
+      BUCKET,
+      PREFIX,
+      recordingSend(withTimestamp),
+      fakeReader(),
+      fakeMetadata(stamp),
+    );
+    assertEquals(withManifest.lastSync, stamp);
+
+    const withoutTimestamp: PutInput[] = [];
+    const withoutManifest = await uploadOparlSnapshot(
+      DIR,
+      BUCKET,
+      PREFIX,
+      recordingSend(withoutTimestamp),
+      fakeReader(),
+      fakeMetadata(null),
+    );
+    assertEquals('lastSync' in withoutManifest, false);
+  });
+
   it('uploads gzipped bodies that decompress to the original file', async () => {
     const calls: PutInput[] = [];
 
-    await uploadOparlSnapshot(DIR, BUCKET, PREFIX, recordingSend(calls), fakeReader());
+    await uploadOparlSnapshot(DIR, BUCKET, PREFIX, recordingSend(calls), fakeReader(), fakeMetadata(null));
 
     const meetingsPut = calls.find((input) => input.Key?.startsWith(`${PREFIX}/meetings.`));
     if (!meetingsPut) throw new Error('meetings blob was not uploaded');
@@ -107,7 +144,14 @@ describe('uploadOparlSnapshot', () => {
     const calls: PutInput[] = [];
 
     await assertRejects(() =>
-      uploadOparlSnapshot(DIR, BUCKET, PREFIX, recordingSend(calls), fakeReader(new Set(['papers.json'])))
+      uploadOparlSnapshot(
+        DIR,
+        BUCKET,
+        PREFIX,
+        recordingSend(calls),
+        fakeReader(new Set(['papers.json'])),
+        fakeMetadata(null),
+      )
     );
 
     assertEquals(calls.length, 0);

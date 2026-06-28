@@ -1,9 +1,12 @@
 import { createHash } from 'node:crypto';
 import { createReadStream, createWriteStream } from 'node:fs';
-import { mkdir, rename, stat } from 'node:fs/promises';
+import { mkdir, rename, stat, writeFile } from 'node:fs/promises';
 import * as path from 'node:path';
 import { Readable } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
+
+/** Local file the scraper reads to resume an incremental run; restored from `manifest.lastSync`. */
+const METADATA_FILENAME = 'scraper-metadata.txt';
 
 /**
  * Every OParl snapshot file the scraper publishes.
@@ -27,7 +30,7 @@ const SHA_LENGTH = 12;
 
 /**
  * @typedef {{ blob: string, sha: string, bytes: number }} ManifestEntry
- * @typedef {Record<string, ManifestEntry>} Manifest
+ * @typedef {{ lastSync?: string, files: Record<string, ManifestEntry> }} Manifest
  * @typedef {{ log: (msg: string) => void, warn: (msg: string) => void }} Logger
  */
 
@@ -89,10 +92,11 @@ export async function syncOparlSnapshot({
     return { downloaded: [], upToDate: [...NEEDED_FILES] };
   }
 
+  const files = manifest.files;
   const downloaded = [];
   const upToDate = [];
   for (const filename of NEEDED_FILES) {
-    const entry = manifest[filename];
+    const entry = files[filename];
     const localSha = localShas[filename];
 
     if (!entry) {
@@ -122,6 +126,12 @@ export async function syncOparlSnapshot({
       fetchFn,
     );
     downloaded.push(filename);
+  }
+
+  // Restore the last-sync timestamp locally so an incremental scrape on this machine resumes from
+  // the last published snapshot. The scraper reads it via ScraperMetadataFileStore (unchanged).
+  if (typeof manifest.lastSync === 'string' && manifest.lastSync.length > 0) {
+    await writeFile(path.join(dir, METADATA_FILENAME), manifest.lastSync);
   }
 
   if (downloaded.length === 0) {

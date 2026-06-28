@@ -33,16 +33,19 @@ function shortSha(buffer) {
  * plain JSON, matching what the HTTP client yields after transparently decoding `Content-Encoding:
  * gzip` (the fetch side never gunzips itself).
  */
-function makeRemote(files) {
-  const manifest = {};
+function makeRemote(files, { lastSync } = {}) {
+  const fileEntries = {};
   const blobs = {};
   for (const [filename, content] of Object.entries(files)) {
     const data = Buffer.from(content);
     const sha = shortSha(data);
     const blob = `${filename.replace(/\.json$/, '')}.${sha}.json.gz`;
-    manifest[filename] = { blob, sha, bytes: data.length };
+    fileEntries[filename] = { blob, sha, bytes: data.length };
     blobs[blob] = data;
   }
+  const manifest = lastSync
+    ? { lastSync, files: fileEntries }
+    : { files: fileEntries };
   return { manifest, blobs };
 }
 
@@ -170,6 +173,43 @@ describe('syncOparlSnapshot', () => {
 
     expect(result.downloaded).toEqual([]);
     expect(log.warn).toHaveBeenCalledOnce();
+  });
+
+  it('restores scraper-metadata.txt from the manifest lastSync', async () => {
+    const content = fullContent();
+    await writeLocal(content);
+    const lastSync = '2026-06-28T12:34:56.000Z';
+    const fetchFn = makeFetch(makeRemote(content, { lastSync }));
+
+    await syncOparlSnapshot({
+      baseUrl: BASE_URL,
+      dir,
+      prefix: PREFIX,
+      fetchFn,
+      log: silentLog(),
+    });
+
+    expect(await readFile(path.join(dir, 'scraper-metadata.txt'), 'utf8')).toBe(
+      lastSync,
+    );
+  });
+
+  it('does not write scraper-metadata.txt when the manifest has no lastSync', async () => {
+    const content = fullContent();
+    await writeLocal(content);
+    const fetchFn = makeFetch(makeRemote(content));
+
+    await syncOparlSnapshot({
+      baseUrl: BASE_URL,
+      dir,
+      prefix: PREFIX,
+      fetchFn,
+      log: silentLog(),
+    });
+
+    await expect(
+      readFile(path.join(dir, 'scraper-metadata.txt'), 'utf8'),
+    ).rejects.toThrow();
   });
 
   it('throws when the manifest is unreachable and a required file is missing', async () => {

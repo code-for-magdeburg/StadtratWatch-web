@@ -6,6 +6,8 @@ import { OPARL_FILENAMES } from './oparl-filenames.ts';
 const BLOB_CACHE_CONTROL = 'public, max-age=31536000, immutable';
 const MANIFEST_CACHE_CONTROL = 'public, max-age=60';
 const MANIFEST_FILENAME = 'manifest.json';
+/** Mirrors the file `ScraperMetadataFileStore` writes; carried in the manifest, not as a blob. */
+const METADATA_FILENAME = 'scraper-metadata.txt';
 
 export type OparlManifestEntry = {
   /** Object key (relative to the prefix), e.g. `meetings.<sha>.json.gz`. */
@@ -16,7 +18,16 @@ export type OparlManifestEntry = {
   bytes: number;
 };
 
-export type OparlManifest = Record<string, OparlManifestEntry>;
+export type OparlManifest = {
+  /**
+   * ISO timestamp of the last successful scrape, taken from the local `scraper-metadata.txt`.
+   * Absent when no such file exists at push time. `fetch-oparl` restores it locally so an
+   * incremental scrape on another machine resumes from the last published snapshot.
+   */
+  lastSync?: string;
+  /** One entry per snapshot file, keyed by filename. */
+  files: Record<string, OparlManifestEntry>;
+};
 
 /**
  * Sends a single S3 put given its input. Abstracted so tests can inject a fake, and so the (heavy)
@@ -27,10 +38,14 @@ export type S3Send = (input: PutObjectCommandInput) => Promise<unknown>;
 /** Reads a snapshot file's raw bytes by filename. Injectable so tests need no filesystem access. */
 export type FileReader = (filename: string) => Promise<Uint8Array<ArrayBuffer>>;
 
+/** Reads the last-sync timestamp, or null if none exists. Injectable for tests. */
+export type MetadataReader = () => Promise<string | null>;
+
 /**
  * Uploads the local OParl snapshot to S3: one gzipped, content-hashed blob per file plus a small
- * `manifest.json`. All files are read, hashed and gzipped up front, so a missing file fails before
- * any object is uploaded (no partial snapshot). Returns the manifest that was written.
+ * `manifest.json` that also carries the last-sync timestamp. All files are read, hashed and gzipped
+ * up front, so a missing file fails before any object is uploaded (no partial snapshot). Returns the
+ * manifest that was written.
  */
 export async function uploadOparlSnapshot(
   directory: string,
@@ -38,8 +53,10 @@ export async function uploadOparlSnapshot(
   prefix: string,
   send: S3Send,
   readFile: FileReader = (filename) => Deno.readFile(path.join(directory, filename)),
+  readMetadata: MetadataReader = () => readLastSync(directory),
 ): Promise<OparlManifest> {
   const blobs = await prepareBlobs(prefix, readFile);
+  const lastSync = await readMetadata();
 
   for (const blob of blobs) {
     await send({
@@ -53,7 +70,7 @@ export async function uploadOparlSnapshot(
     console.log(`Uploaded ${blob.key} (${blob.bytes} bytes uncompressed, ${blob.body.length} gzipped).`);
   }
 
-  const manifest = buildManifest(blobs);
+  const manifest = buildManifest(blobs, lastSync);
   const manifestKey = `${prefix}/${MANIFEST_FILENAME}`;
   await send({
     Bucket: bucket,
@@ -62,9 +79,21 @@ export async function uploadOparlSnapshot(
     ContentType: 'application/json',
     CacheControl: MANIFEST_CACHE_CONTROL,
   });
-  console.log(`Uploaded ${manifestKey} (${OPARL_FILENAMES.length} entries).`);
+  console.log(
+    `Uploaded ${manifestKey} (${OPARL_FILENAMES.length} entries, lastSync ${lastSync ?? 'none'}).`,
+  );
 
   return manifest;
+}
+
+/** Reads `<directory>/scraper-metadata.txt`, trimmed; null if absent, empty or unreadable. */
+async function readLastSync(directory: string): Promise<string | null> {
+  try {
+    const text = (await Deno.readTextFile(path.join(directory, METADATA_FILENAME))).trim();
+    return text.length > 0 ? text : null;
+  } catch {
+    return null;
+  }
 }
 
 /** Builds an S3 client from env and uploads the snapshot. */
@@ -109,12 +138,12 @@ async function prepareBlobs(prefix: string, readFile: FileReader): Promise<Prepa
   return blobs;
 }
 
-function buildManifest(blobs: PreparedBlob[]): OparlManifest {
-  const manifest: OparlManifest = {};
+function buildManifest(blobs: PreparedBlob[], lastSync: string | null): OparlManifest {
+  const files: Record<string, OparlManifestEntry> = {};
   for (const blob of blobs) {
-    manifest[blob.filename] = { blob: blob.blob, sha: blob.sha, bytes: blob.bytes };
+    files[blob.filename] = { blob: blob.blob, sha: blob.sha, bytes: blob.bytes };
   }
-  return manifest;
+  return lastSync ? { lastSync, files } : { files };
 }
 
 /** First 12 hex chars of the SHA-256 of the uncompressed bytes (gzip determinism is irrelevant). */
