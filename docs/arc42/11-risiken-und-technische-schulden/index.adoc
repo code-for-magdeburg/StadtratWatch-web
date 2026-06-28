@@ -67,7 +67,7 @@ Dieses Kapitel ist ein lebendes Dokument; die zeitliche Nachvollziehbarkeit ergi
 | <<qualitaetsanforderungen,Kap. 10>>
 
 | [[schuld-td3]]TD3
-| *Manuelle Pipeline-Orchestrierung.* Die Verarbeitungsschritte (Ingestion, OCR, Transkription, Asset- und Index-Erzeugung) werden manuell in dokumentierter Reihenfolge nach HOWTO.md ausgeführt; eine durchgehende, automatisierte Orchestrierung fehlt.
+| *Manuelle Pipeline-Orchestrierung.* Die Verarbeitungsschritte (Ingestion, OCR, Transkription, Asset- und Index-Erzeugung) werden manuell in dokumentierter Reihenfolge nach docs/guides/HOWTO.md ausgeführt; eine durchgehende, automatisierte Orchestrierung fehlt.
 | mittel
 | Umgang: bewusst akzeptiert, da die Schritte selten und idempotent sind und sich ohne Datenverlust wiederholen lassen. Tilgung durch schrittweise Automatisierung unter Wahrung der Reproduzierbarkeit.
 | <<laufzeitsicht,Kap. 6>>

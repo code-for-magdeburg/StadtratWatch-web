@@ -6,7 +6,7 @@ sondern werden *bedarfsweise und manuell* auf dem Arbeitsplatz einer:eines
 Maintainer:in ausgeführt — als Deno-, Python- und Shell-Skripte, für die jeweils
 ein Docker-Image bereitsteht (`docker/`). Es gibt keinen Scheduler und keinen
 Server, der die Pipelines automatisch anstößt; der Anstoß und die fachliche
-Reihenfolge liegen in menschlicher Hand (siehe `HOWTO.md`).
+Reihenfolge liegen in menschlicher Hand (siehe `docs/guides/HOWTO.md`).
 
 Das Ergebnis fließt an drei Ziele: in das *GitHub-Repository* (die strukturierten
 JSON-Daten, per Git committet und gepusht), in *AWS S3* (große Binär-Assets) und

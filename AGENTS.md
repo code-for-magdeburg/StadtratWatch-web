@@ -35,7 +35,7 @@ npm test                # Run Vitest tests
 
 ### Deno Scripts
 
-For detailed instructions on running data processing scripts (OParl scraping, paper assets, video processing, search indexing, etc.), see **HOWTO.md** in the project root.
+For detailed instructions on running data processing scripts (OParl scraping, paper assets, video processing, search indexing, etc.), see **docs/guides/HOWTO.md**.
 
 For code quality:
 ```bash
@@ -144,7 +144,7 @@ Environment variables are configured in `astro/astro.config.mjs` using Astro's e
 
 ### Docker Containers
 
-Each data processing script has a corresponding Dockerfile in `docker/` for containerized execution. See HOWTO.md for build and run instructions.
+Each data processing script has a corresponding Dockerfile in `docker/` for containerized execution. See docs/guides/HOWTO.md for build and run instructions.
 
 ## Development Workflow
 
@@ -152,7 +152,7 @@ Each data processing script has a corresponding Dockerfile in `docker/` for cont
 
 1. To add a new parliament period, create `data/{period-id}/registry.json` with sessions, persons, factions, parties
 2. For new sessions, create `data/{period-id}/{session-date}/` directory
-3. Run processing scripts in order (see HOWTO.md): scrape-oparl → generate-paper-assets → video processing → generate-image-assets → index-search
+3. Run processing scripts in order (see docs/guides/HOWTO.md): scrape-oparl → generate-paper-assets → video processing → generate-image-assets → index-search
 4. The Astro build automatically picks up data from `data/` directory
 
 ### Testing Changes
@@ -209,7 +209,7 @@ Typesense collections:
 - **papers** - All council papers with full-text PDF content
 - **speeches** - Transcribed speeches
 
-Index is rebuilt with index-search script (see HOWTO.md). Frontend uses Typesense JS client for instant search. Client configuration is in `astro/astro.config.mjs`.
+Index is rebuilt with index-search script (see docs/guides/HOWTO.md). Frontend uses Typesense JS client for instant search. Client configuration is in `astro/astro.config.mjs`.
 
 ## Code Conventions
 

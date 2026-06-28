@@ -5,7 +5,7 @@ Web frontend for StadtratWatch, a civic participation platform for tracking Magd
 ## Prerequisites
 
 - Node.js 18+ and npm
-- Processed data in `../data/` directory (see root HOWTO.md)
+- Processed data in `../data/` directory (see root docs/guides/HOWTO.md)
 - Typesense server running (for search functionality)
 
 ## Getting Started
@@ -64,7 +64,7 @@ The application reads from the `../data/` directory:
 - `data/{period-id}/{session-date}/` - Session votings, speeches, speakers
 - `data/papers/` - Council papers and PDFs
 
-Run data processing scripts (see root HOWTO.md) before starting the web app.
+Run data processing scripts (see root docs/guides/HOWTO.md) before starting the web app.
 
 ## Tech Stack
 
