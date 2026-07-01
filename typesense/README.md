@@ -10,7 +10,7 @@ docker run \
   -d \
   -p 8108:8108 \
   -v $(pwd)/data:/data \
-  typesense/typesense:27.0 \
+  typesense/typesense:30.2 \
   --data-dir /data \
   --api-key <API KEY> \
   --enable-cors
@@ -23,7 +23,7 @@ docker run `
   -d `
   -p 8108:8108 `
   -v ${pwd}/data:/data `
-  typesense/typesense:27.0 `
+  typesense/typesense:30.2 `
   --data-dir /data `
   --api-key <API KEY> `
   --enable-cors
