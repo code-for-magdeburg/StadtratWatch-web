@@ -2,6 +2,8 @@
 import { type SessionSpeech } from '@models/session-speech';
 import { getFactionOfPerson, getPersonByName } from '@utils/session-utils';
 import { type Registry, type RegistrySession } from '@models/registry';
+import { shouldExposeAiTextAssessment } from '@models/ai-text-assessment';
+import { isFeatureEnabled } from '@utils/feature-flags';
 
 type Props = {
   parliamentPeriod: Registry;
@@ -23,6 +25,11 @@ const youtubeUrl = getYoutubeUrl(session.youtubeUrl, speech.start);
 const linkTitle = getLinkTitle(speech.speaker, session.date);
 const hintMailHref = getHintMailHref(speech, session.date);
 const hintMailTitle = getHintMailTitle(speech);
+const showAiTextAssessmentBadge =
+  isFeatureEnabled('ai-text-assessment') &&
+  shouldExposeAiTextAssessment(speech);
+const aiTextAssessmentBadgeDescription =
+  'Dieser Redebeitrag enthält möglicherweise in Teilen KI-generierten Text.';
 
 function getYoutubeUrl(baseUrl: string, start: number): string {
   return `${baseUrl}?t=${start}`;
@@ -71,6 +78,29 @@ function getHintMailTitle(speech: SessionSpeech): string {
   class="timeline-start text-sm flex flex-row flex-wrap gap-2 w-full items-center"
 >
   <span class="text-base-content/80">{speech.speaker}</span>
+  {
+    showAiTextAssessmentBadge && (
+      <div class="dropdown dropdown-bottom">
+        <button
+          type="button"
+          tabindex="0"
+          class="btn btn-ghost btn-xs btn-circle"
+          aria-label={aiTextAssessmentBadgeDescription}
+        >
+          <span class="iconify lucide--bot size-4 text-warning align-middle" />
+        </button>
+        <div
+          tabindex="0"
+          class="dropdown-content z-10 bg-base-200 rounded-box shadow p-3 w-64 text-sm space-y-2"
+        >
+          <p>{aiTextAssessmentBadgeDescription}</p>
+          <a href="/transparency/ai-assessment/" class="link link-primary">
+            Informationen zur Analyse-Methodik.
+          </a>
+        </div>
+      </div>
+    )
+  }
   {faction && <span class="badge badge-sm badge-neutral">{faction.name}</span>}
   {
     speech.onBehalfOf && (

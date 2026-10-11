@@ -3,6 +3,7 @@ import { type Registry } from '@models/registry';
 import { type SessionInput } from '@models/SessionInput';
 import { type RegistryPerson } from '@models/registry';
 import Speech from '@components/Speech.astro';
+import AiTextAssessmentDisclaimer from '@components/AiTextAssessmentDisclaimer.astro';
 import { formatDate } from '@utils/format-date';
 
 type Props = {
@@ -41,6 +42,7 @@ const speechesBySessionDate = sessions
       und senden Sie uns eine Nachricht. Wir werden den Fehler umgehend prüfen
       und korrigieren.
     </p>
+    <AiTextAssessmentDisclaimer />
   </div>
 </div>
 
