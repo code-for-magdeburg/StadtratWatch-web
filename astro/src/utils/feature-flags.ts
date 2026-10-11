@@ -1,9 +1,6 @@
 import { SRW_FEATURE_FLAGS } from 'astro:env/client';
 
-export type FeatureFlag =
-  // No flags defined yet - remove this line when adding real flags
-  string;
-// | 'feature-name-2'
+export type FeatureFlag = 'ai-text-assessment';
 
 function parseEnabledFeatures(featuresString: string | undefined): Set<string> {
   if (!featuresString || featuresString.trim() === '') {
