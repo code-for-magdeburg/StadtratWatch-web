@@ -37,7 +37,13 @@ function sha256Hex(text: string): string {
   return createHash('sha256').update(text, 'utf8').digest('hex');
 }
 
-export function shouldExposeAiTextAssessment(speech: SessionSpeech): boolean {
+export type AssessedSessionSpeech = SessionSpeech & {
+  aiTextAssessment: AiTextAssessment;
+};
+
+export function shouldExposeAiTextAssessment(
+  speech: SessionSpeech,
+): speech is AssessedSessionSpeech {
   const assessment = speech.aiTextAssessment;
   if (!assessment || !assessment.highConfidenceNonHuman) {
     return false;
