@@ -77,11 +77,8 @@ end note
   Definition der Rede-Segmente). Das eigentliche Setzen von `approved = true`
   bleibt eine bewusste menschliche Handlung in der `registry.json`, der Quelle
   der Wahrheit je Wahlperiode.
-* *Unveränderlichkeit nach Freigabe:* Freigegebene Sitzungsdaten gelten als
-  unveränderlich und werden ohne triftigen Grund nicht mehr angefasst. Einzige
-  planmäßige Ausnahme ist die KI-Einschätzung von Redebeiträgen
-  (`aiTextAssessment`), die `detect-ai-text` auch nachträglich ergänzen oder
-  überschreiben darf (siehe <<konzept-datengewinnung,Datengewinnung & -qualität>>).
+* *Korrekturen nach der Freigabe:* Freigegebene Sitzungsdaten dürfen jederzeit
+  korrigiert werden (siehe <<konzept-datenhaltung,Datenhaltung & Versionierung>>).
 
 == Fehler- und Sonderfälle
 

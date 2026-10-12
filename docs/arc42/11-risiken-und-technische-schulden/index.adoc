@@ -44,7 +44,7 @@ Dieses Kapitel ist ein lebendes Dokument; die zeitliche Nachvollziehbarkeit ergi
 | [[risiko-r5]]R5
 | *Reputations- und Rechtsrisiko durch Datenfehler.* Fehlerhaft veröffentlichte, personenbezogene Abstimmungs- oder Redeaussagen können rufschädigend oder im Hinblick auf Persönlichkeitsrechte heikel sein.
 | hoch
-| Die menschliche Freigabe (`approved`) fängt Erkennungsfehler vor der Bestätigung ab; freigegebene Daten gelten als unveränderlich, Korrekturen sind die begründete Ausnahme. Noch ungeprüfte Sitzungen werden als vorläufig gekennzeichnet.
+| Die menschliche Freigabe (`approved`) fängt Erkennungsfehler vor der Bestätigung ab. Freigegebene Sitzungsdaten dürfen jederzeit korrigiert werden (siehe <<konzept-datenhaltung,Datenhaltung & Versionierung>>). Noch ungeprüfte Sitzungen werden als vorläufig gekennzeichnet.
 | <<adr-0003,ADR-0003>>, <<szenario-fs-2,FS-2>>
 
 | [[risiko-r6]]R6

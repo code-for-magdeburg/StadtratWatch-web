@@ -7,7 +7,7 @@ Die folgenden Entscheidungen prägen die Architektur am stärksten. Anders als d
 | Entscheidung | Begründung
 
 | *Versionierter JSON-Datenbestand statt Datenbank*
-| Der gesamte verarbeitete Bestand liegt als versionierte JSON-Dateien im Repository. Das macht jede Änderung über die Git-Historie nachvollziehbar (Transparenz), erlaubt reproduzierbare Builds und kommt ohne den Betrieb einer Datenbank aus (geringe Betriebskosten). Freigegebene Sitzungsdaten werden nicht mehr verändert. (Vertieft in <<adr-0001,ADR-0001>>.)
+| Der gesamte verarbeitete Bestand liegt als versionierte JSON-Dateien im Repository. Das macht jede Änderung über die Git-Historie nachvollziehbar (Transparenz), erlaubt reproduzierbare Builds und kommt ohne den Betrieb einer Datenbank aus (geringe Betriebskosten). (Vertieft in <<adr-0001,ADR-0001>>.)
 
 | *Statisch ausgelieferte Web-Anwendung (Astro)*
 | Die überwiegend lesende, sich selten ändernde Datenbasis wird zur Bauzeit in statische Seiten überführt. Es ist kein Anwendungsserver zu betreiben, die Auslieferung erfolgt über günstiges Standard-Hosting/CDN, und die Seiten laden schnell — was Betriebskosten, Wartbarkeit und Zugänglichkeit zugleich dient. (Vertieft in <<adr-0002,ADR-0002>>.)

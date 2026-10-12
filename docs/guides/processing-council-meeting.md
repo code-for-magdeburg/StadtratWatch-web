@@ -299,9 +299,6 @@ Before calling Pangram, the script prints a cost estimate and asks for a y/n con
 speech is skipped only if its existing `aiTextAssessment` still matches the current transcript; a speech whose transcript
 was corrected since the last check is re-assessed. A failed request for a single speech is logged and the run continues.
 
-Running this on an already approved session is allowed as a narrow exception to session-data immutability. Commit such a
-change on its own (see [ADR 0001](../adr/0001-additive-ai-text-assessment-exception-to-session-immutability.md)).
-
 Pangram API key has to be provided by setting the environment variable `PANGRAM_API_KEY`.
 
 ### Using the deno script
