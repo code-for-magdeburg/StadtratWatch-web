@@ -10,16 +10,16 @@ const isAiTextAssessmentEnabled = isFeatureEnabled('ai-text-assessment');
       <h1 class="mb-3 text-3xl">KI-Einschätzung bei Redebeiträgen</h1>
 
       <p class="mt-3">
-        Bei einigen Redebeiträgen zeigen wir neben dem Namen der sprechenden
-        Person ein kleines Symbol mit dem Hinweis: „Dieser Redebeitrag enthält
+        Bei einigen Redebeiträgen zeigen wir neben dem Namen der Person eine
+        Kennzeichnung mit dem Hinweis: „Dieser Redebeitrag enthält
         möglicherweise in Teilen KI-generierten Text.“ Diese Seite erklärt, wie
-        diese Einschätzung entsteht, was sie bedeutet - und was nicht.
+        dieser Hinweis zustande kommt.
       </p>
 
-      <h2 class="mt-8 mb-3 text-xl">Was schätzen wir ein?</h2>
+      <h2 class="mt-8 mb-3 text-xl">Was prüfen wir?</h2>
       <p class="mt-3">
-        Für ausgewählte Redebeiträge lassen wir das korrigierte Transkript durch
-        einen KI-Textdetektor des Anbieters{' '}
+        Für ausgewählte Redebeiträge lassen wir das Transkript durch einen
+        KI-Textdetektor des Anbieters{' '}
         <a
           href="https://www.pangram.com/research/model-card/pangram-4"
           target="_blank"
@@ -28,15 +28,15 @@ const isAiTextAssessmentEnabled = isFeatureEnabled('ai-text-assessment');
           Pangram
         </a>{' '}
         prüfen. Pangram ordnet einen Text als überwiegend menschlich,
-        überwiegend KI-generiert oder gemischt ein. Das Symbol erscheint nur,
-        wenn diese Einschätzung mit hoher Zuversicht auf KI oder gemischten Text
-        hindeutet.
+        überwiegend KI-generiert oder gemischt ein. Die Kennzeichnung erscheint
+        nur, wenn das Ergebnis mit hoher Wahrscheinlichkeit auf KI-generierten
+        oder gemischten Text hindeutet.
       </p>
       <p class="mt-3">
-        Welche Redebeiträge eingeschätzt werden, wählen wir redaktionell aus.
-        Wir veröffentlichen nicht, welche Beiträge eingeschätzt wurden und
-        welche nicht - nur das Ergebnis der Einschätzung ist über das Symbol
-        sichtbar, wenn es eine auffällige Einschätzung ergibt.
+        Welche Redebeiträge geprüft werden, wählen wir redaktionell aus. Wir
+        veröffentlichen nicht, welche Beiträge geprüft wurden und welche nicht.
+        Sichtbar ist nur die Kennzeichnung, und zwar nur bei einem auffälligen
+        Befund.
       </p>
 
       <h2 class="mt-8 mb-3 text-xl">Wofür der Detektor nicht gebaut ist</h2>
@@ -45,31 +45,31 @@ const isAiTextAssessmentEnabled = isFeatureEnabled('ai-text-assessment');
         Redebeiträge sind dagegen Transkripte gesprochener Sprache - ein
         Einsatzbereich, für den der Hersteller keine Eignung erklärt.
         Gesprochene Sprache unterscheidet sich von geschriebenem Text
-        (Füllwörter, Abbrüche, Umgangssprache), was die Einschätzung verzerren
+        (Füllwörter, Abbrüche, Umgangssprache), was die Erkennung verfälschen
         kann.
       </p>
       <p class="mt-3">
-        Deshalb haben wir die Einschätzung vor dem Einsatz überprüft: Wir haben
-        sie an 199 Redebeiträgen aus der Zeit vor 2023 getestet — Beiträgen, bei
+        Deshalb haben wir den KI-Detektor vor dem Einsatz überprüft: Wir haben
+        ihn an 200 Redebeiträgen aus der Zeit vor 2023 getestet - Beiträgen, bei
         denen eine KI-Beteiligung ausgeschlossen werden kann. Das Ergebnis:{' '}
-        <strong>0 % dieser Beiträge</strong> wurden mit hoher Zuversicht als
-        KI-generiert oder gemischt eingeordnet. Dieser Test lässt sich nicht auf
-        alle denkbaren Fälle verallgemeinern, gibt uns aber Vertrauen in die
-        geringe Fehlalarmquote auf unseren Transkripten.
+        <strong>Keiner dieser Beiträge</strong> wurde als KI-generiert
+        eingeordnet. Dieser Test lässt sich nicht auf alle denkbaren Fälle
+        verallgemeinern, gibt uns aber Vertrauen in die geringe Fehlalarmquote
+        auf den Transkripten.
       </p>
 
-      <h2 class="mt-8 mb-3 text-xl">Was das Symbol bedeutet — und was nicht</h2>
+      <h2 class="mt-8 mb-3 text-xl">
+        Was die Kennzeichnung bedeutet - und was nicht
+      </h2>
       <p class="mt-3">
-        Das Symbol bedeutet: Ein automatisierter Textdetektor hat im
-        korrigierten Transkript dieses Redebeitrags mit hoher Zuversicht Muster
-        erkannt, die typisch für KI-generierten oder KI-unterstützten Text sind.
+        Die Kennzeichnung bedeutet: Ein automatisierter Textdetektor hat im
+        Transkript dieses Redebeitrags Muster erkannt, die typisch für
+        KI-generierten oder KI-unterstützten Text sind.
       </p>
       <p class="mt-3">
-        Das Symbol bedeutet <strong>nicht</strong>, dass die sprechende Person
-        den Beitrag nicht selbst verfasst hat, dass eine Täuschung vorliegt,
-        oder dass wir eine Bewertung des Inhalts vornehmen. Es ist ein Hinweis
-        auf ein automatisiert erkanntes Muster, keine Feststellung von
-        Fehlverhalten.
+        Die Kennzeichnung bedeutet <strong>nicht</strong>, dass die Person den
+        Beitrag nicht selbst verfasst hat, dass eine Täuschung vorliegt, oder
+        dass wir eine Bewertung des Inhalts vornehmen.
       </p>
 
       <h2 class="mt-8 mb-3 text-xl">Einspruch</h2>

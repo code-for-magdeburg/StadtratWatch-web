@@ -31,8 +31,8 @@ describe('AI assessment methodology page', () => {
 
     expect(html).toContain('Pangram');
     expect(html).toContain('Wofür der Detektor nicht gebaut ist');
-    expect(html).toContain('<strong>0 % dieser Beiträge</strong>');
-    expect(html).toContain('Was das Symbol bedeutet');
+    expect(html).toContain('<strong>Keiner dieser Beiträge</strong>');
+    expect(html).toContain('Was die Kennzeichnung bedeutet');
     expect(html).toContain('Beitrag melden');
     expect(html).not.toContain('Diese Seite ist derzeit nicht verfügbar.');
   });
