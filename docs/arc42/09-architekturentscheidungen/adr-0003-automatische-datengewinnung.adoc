@@ -15,7 +15,7 @@ Abstimmungsergebnisse und Redebeiträge des Stadtrats liegen amtlich nur als Vid
 
 == Entscheidung
 
-Die Datengewinnung läuft automatisch über OCR und Transkription; die automatisch erzeugten Daten werden jedoch als vorläufig behandelt, bis Menschen sie geprüft, korrigiert und über das `approved`-Kennzeichen als bestätigt freigegeben haben. `approved` ist dabei kein Veröffentlichungs-Gate: auch unbestätigte Sitzungen können öffentlich sichtbar sein, müssen dann aber als vorläufig gekennzeichnet werden. Freigegebene Sitzungsdaten gelten danach als unveränderlich (siehe <<konzept-datengewinnung,Datengewinnung & -qualität>> und <<konzept-datenhaltung,Datenhaltung & Versionierung>>).
+Die Datengewinnung läuft automatisch über OCR und Transkription; die automatisch erzeugten Daten werden jedoch als vorläufig behandelt, bis Menschen sie geprüft, korrigiert und über das `approved`-Kennzeichen als bestätigt freigegeben haben. `approved` ist dabei kein Veröffentlichungs-Gate: Auch unbestätigte Sitzungen können öffentlich sichtbar sein, müssen dann aber als vorläufig gekennzeichnet werden.
 
 == Konsequenzen
 
@@ -29,4 +29,4 @@ Die Datengewinnung läuft automatisch über OCR und Transkription; die automatis
 
 * Es bleibt ein manueller Freigabeschritt im Prozess; ohne ihn entstehen nur vorläufig gekennzeichnete, noch nicht bestätigte Daten.
 * Abhängigkeit von einem externen Dienst (OpenAI Whisper) für die Transkription.
-* Die Erkennungsqualität hängt von der Aufnahme- bzw. Screenshot-Qualität ab; Korrekturen sind die begründete Ausnahme von der Unveränderlichkeit.
+* Die Erkennungsqualität hängt von der Aufnahme- bzw. Screenshot-Qualität ab; Erkennungsfehler, die erst nach der Freigabe auffallen, dürfen nachträglich korrigiert werden.

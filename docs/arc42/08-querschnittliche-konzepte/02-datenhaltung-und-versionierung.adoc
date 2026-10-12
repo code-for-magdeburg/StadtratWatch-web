@@ -12,8 +12,8 @@ StadtratWatch kommt ohne Datenbank aus. Der gesamte verarbeitete Bestand liegt a
 | *Dateien statt Datenbank*
 | Der Bestand liegt als JSON im Verzeichnis `data/`, gegliedert nach Wahlperiode und Sitzungsdatum. Jede Änderung ist über die Git-Historie nachvollziehbar (Transparenz) und Builds sind reproduzierbar. Es ist keine Datenbank zu betreiben (geringe Betriebskosten).
 
-| *Unveränderlichkeit freigegebener Sitzungsdaten*
-| Eine Sitzung gilt mit gesetztem `approved`-Kennzeichen als freigegeben. Freigegebene Sitzungsdaten werden danach nicht mehr verändert; Korrekturen sind die begründete Ausnahme. Das schützt die einmal geprüften Daten und stützt ihre Glaubwürdigkeit.
+| *Korrigierbarkeit freigegebener Sitzungsdaten*
+| Eine Sitzung gilt mit gesetztem `approved`-Kennzeichen als freigegeben. Auch danach werden erkannte Fehler jederzeit korrigiert; die Sitzung bleibt freigegeben. Ein eigener Korrekturhinweis ist nicht vorgesehen.
 
 | *Registry als Quelle der Wahrheit*
 | Je Wahlperiode hält die `registry.json` Personen, Fraktionen, Parteien und die Sitzungsliste. Sie ist der referenzierte Stammdatensatz für alle abgeleiteten Auswertungen.

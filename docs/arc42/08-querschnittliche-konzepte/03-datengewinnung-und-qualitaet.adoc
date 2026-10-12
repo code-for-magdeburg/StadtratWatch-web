@@ -18,8 +18,8 @@ Ein Teil der Daten entsteht nicht aus strukturierten Quellen, sondern wird autom
 | *3 — Freigabe*
 | Erst nach der Prüfung wird die Sitzung über das `approved`-Kennzeichen als bestätigt markiert. Das Kennzeichen steuert die Darstellung des Prüfstatus; es ist kein Veröffentlichungs-Gate. Auch unbestätigte Sitzungen können öffentlich sichtbar sein, werden dann aber als vorläufig gekennzeichnet.
 
-| *4 — Unveränderlichkeit*
-| Freigegebene Sitzungsdaten werden nicht mehr verändert (siehe <<konzept-datenhaltung,Datenhaltung & Versionierung>>). Die geprüfte Aussage bleibt stabil und über die Git-Historie nachvollziehbar.
+| *4 — Korrektur*
+| Fehler, die erst nach der Freigabe auffallen, dürfen jederzeit korrigiert werden (siehe <<konzept-datenhaltung,Datenhaltung & Versionierung>>).
 |===
 
 Der konkrete Ablauf dieser Schritte ist in der Laufzeitsicht beschrieben (Kapitel 6, „Prüfung und Freigabe“ sowie „Sitzungsverarbeitung“); dieses Konzept benennt nur das durchgängige Prinzip.
