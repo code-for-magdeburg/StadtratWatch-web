@@ -80,10 +80,10 @@ export async function GET({
 
 function getExposedAiTextAssessment(
   speech: SessionSpeech,
-): { aiTextAssessment: AiTextAssessmentLabel } | Record<string, never> {
+): { aiTextAssessmentLabel: AiTextAssessmentLabel } | Record<string, never> {
   if (!isAiTextAssessmentVisible(speech)) {
     return {};
   }
 
-  return { aiTextAssessment: speech.aiTextAssessment.label };
+  return { aiTextAssessmentLabel: speech.aiTextAssessment.label };
 }

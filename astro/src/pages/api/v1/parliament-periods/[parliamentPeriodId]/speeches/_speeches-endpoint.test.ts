@@ -80,7 +80,7 @@ async function getSpeechesResponseData(
   return body.data;
 }
 
-describe('speeches endpoint aiTextAssessment', () => {
+describe('speeches endpoint aiTextAssessmentLabel', () => {
   afterEach(() => {
     vi.mocked(isFeatureEnabled).mockReturnValue(false);
   });
@@ -94,7 +94,8 @@ describe('speeches endpoint aiTextAssessment', () => {
         createSpeech(createAssessment({ label })),
       ]);
 
-      expect(speech.aiTextAssessment).toBe(label);
+      expect(speech.aiTextAssessmentLabel).toBe(label);
+      expect(speech).not.toHaveProperty('aiTextAssessment');
     },
   );
 
@@ -103,7 +104,7 @@ describe('speeches endpoint aiTextAssessment', () => {
       createSpeech(createAssessment()),
     ]);
 
-    expect(speech).not.toHaveProperty('aiTextAssessment');
+    expect(speech).not.toHaveProperty('aiTextAssessmentLabel');
   });
 
   test('omits the field when assessment is not high-confidence non-human', async () => {
@@ -113,7 +114,7 @@ describe('speeches endpoint aiTextAssessment', () => {
       createSpeech(createAssessment({ highConfidenceNonHuman: false })),
     ]);
 
-    expect(speech).not.toHaveProperty('aiTextAssessment');
+    expect(speech).not.toHaveProperty('aiTextAssessmentLabel');
   });
 
   test('omits the field when transcript drifted since assessment', async () => {
@@ -125,7 +126,7 @@ describe('speeches endpoint aiTextAssessment', () => {
       ),
     ]);
 
-    expect(speech).not.toHaveProperty('aiTextAssessment');
+    expect(speech).not.toHaveProperty('aiTextAssessmentLabel');
   });
 
   test('omits the field when speech has no assessment', async () => {
@@ -133,6 +134,6 @@ describe('speeches endpoint aiTextAssessment', () => {
 
     const [speech] = await getSpeechesResponseData([createSpeech()]);
 
-    expect(speech).not.toHaveProperty('aiTextAssessment');
+    expect(speech).not.toHaveProperty('aiTextAssessmentLabel');
   });
 });

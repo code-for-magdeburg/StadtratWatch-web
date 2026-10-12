@@ -114,7 +114,7 @@ Gibt alle Redebeiträge einer spezifischen Stadtratssitzung zurück.
       "duration": "00:03:45",
       "onBehalfOf": "Ausschuss für Stadtentwicklung, Bauen und Verkehr",
       "transcription": "Meine Damen und Herren, ich möchte zu diesem Punkt folgendes sagen...",
-      "aiTextAssessment": "Mixed"
+      "aiTextAssessmentLabel": "Mixed"
     }
   ]
 }
@@ -128,7 +128,7 @@ Gibt alle Redebeiträge einer spezifischen Stadtratssitzung zurück.
 - `duration`: Dauer des Redebeitrags in Sekunden
 - `onBehalfOf`: Name des Gremiums, für das die Person spricht (bspw. ein Ausschuss, optional)
 - `transcription`: Transkription des Redebeitrags
-- `aiTextAssessment`: Ergebnis der Prüfung auf KI-generierten Text, entweder `"AI"` oder `"Mixed"` (optional). Das Feld ist nur vorhanden, wenn der Redebeitrag mit hoher Wahrscheinlichkeit KI-generierte Textanteile enthält und die Bewertung zur aktuellen Transkription passt; andernfalls fehlt es vollständig. Zur Methodik siehe https://www.stadtratwatch.de/transparency/ai-assessment/
+- `aiTextAssessmentLabel`: Ergebnis der Prüfung auf KI-generierten Text, entweder `"AI"` oder `"Mixed"` (optional). Das Feld ist nur vorhanden, wenn der Redebeitrag mit hoher Wahrscheinlichkeit KI-generierte Textanteile enthält und die Bewertung zur aktuellen Transkription passt; andernfalls fehlt es vollständig. Zur Methodik siehe https://www.stadtratwatch.de/transparency/ai-assessment/
 
 **Hinweise:**
 
