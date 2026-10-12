@@ -1,19 +1,19 @@
 ---
-import { isFeatureEnabled } from '@utils/feature-flags';
-
-const isAiTextAssessmentEnabled = isFeatureEnabled('ai-text-assessment');
+import {
+  AI_TEXT_ASSESSMENT_BADGE_DESCRIPTION,
+  isAiTextAssessmentEnabled,
+} from '@utils/ai-text-assessment-presentation';
 ---
 
 {
-  isAiTextAssessmentEnabled ? (
+  isAiTextAssessmentEnabled() ? (
     <>
       <h1 class="mb-3 text-3xl">KI-Einschätzung bei Redebeiträgen</h1>
 
       <p class="mt-3">
         Bei einigen Redebeiträgen zeigen wir neben dem Namen der Person eine
-        Kennzeichnung mit dem Hinweis: „Dieser Redebeitrag enthält
-        möglicherweise in Teilen KI-generierten Text.“ Diese Seite erklärt, wie
-        dieser Hinweis zustande kommt.
+        Kennzeichnung mit dem Hinweis: „{AI_TEXT_ASSESSMENT_BADGE_DESCRIPTION}“
+        Diese Seite erklärt, wie dieser Hinweis zustande kommt.
       </p>
 
       <h2 class="mt-8 mb-3 text-xl">Was prüfen wir?</h2>

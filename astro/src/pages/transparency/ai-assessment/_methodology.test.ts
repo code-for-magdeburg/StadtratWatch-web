@@ -30,6 +30,9 @@ describe('AI assessment methodology page', () => {
     const html = await renderPage();
 
     expect(html).toContain('Pangram');
+    expect(html).toContain(
+      '„Dieser Redebeitrag enthält möglicherweise in Teilen KI-generierten Text.“',
+    );
     expect(html).toContain('Wofür der Detektor nicht gebaut ist');
     expect(html).toContain('<strong>Keiner dieser Beiträge</strong>');
     expect(html).toContain('Was die Kennzeichnung bedeutet');

@@ -4,7 +4,7 @@ import { getEntry } from 'astro:content';
 import type { Registry, RegistrySession } from '@models/registry.ts';
 import type { SessionSpeech } from '@models/session-speech.ts';
 import type { AiTextAssessmentLabel } from '@models/ai-text-assessment.ts';
-import { isAiTextAssessmentVisible } from '@utils/ai-text-assessment-visibility.ts';
+import { isAiTextAssessmentVisible } from '@utils/ai-text-assessment-presentation.ts';
 
 export const getStaticPaths = async () => {
   const paths = await getStaticParliamentPeriodPaths();
