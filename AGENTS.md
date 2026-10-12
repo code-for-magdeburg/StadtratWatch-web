@@ -239,6 +239,7 @@ Index is rebuilt with index-search script (see docs/guides/HOWTO.md). Frontend u
 
 - The project is specific to Magdeburg city council but could be adapted for other German municipalities using OParl
 - Voting data comes from manual OCR scanning, so accuracy depends on screenshot quality
+- Corrections to approved session data go in their own PR whose title names the error; never mix them into a PR that adds new sessions
 - Speech transcriptions require OpenAI API key (configured via environment variables in Deno scripts)
 - Some parties may have an "EXTREMIST_CLASSIFICATION" field in registry due to constitutional protection office classifications
 - When working with shared models between Astro and Deno, make changes in both locations to maintain consistency
