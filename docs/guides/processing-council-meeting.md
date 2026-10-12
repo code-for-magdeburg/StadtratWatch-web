@@ -288,6 +288,58 @@ docker run \
 
 Review the transcriptions and correct mistakes. Save the corrected transcriptions in the S3 bucket in the folder `sessions-speeches-with-transcriptions`.
 
+## Detect AI Text
+
+Optional, editorial step: run selected speeches through Pangram to check whether their corrected transcripts may be
+AI-generated or AI-assisted. Only selected speeches are assessed, never all speeches of a session. The script reads and
+writes the `session-speeches-*.json` file in place and only ever adds or overwrites the `aiTextAssessment` field of the
+selected speeches (identified by their `start` timestamps).
+
+Before calling Pangram, the script prints a cost estimate and asks for a y/n confirmation. With `--skip-existing`, a
+speech is skipped only if its existing `aiTextAssessment` still matches the current transcript; a speech whose transcript
+was corrected since the last check is re-assessed. A failed request for a single speech is logged and the run continues.
+
+Running this on an already approved session is allowed as a narrow exception to session-data immutability. Commit such a
+change on its own (see [ADR 0001](../adr/0001-additive-ai-text-assessment-exception-to-session-immutability.md)).
+
+Pangram API key has to be provided by setting the environment variable `PANGRAM_API_KEY`.
+
+### Using the deno script
+
+```bash
+PARLIAMENT_PERIOD=magdeburg-8
+DATE=2025-12-04
+deno run \
+	-A \
+	--env-file=.env.local \
+	src/scripts/detect-ai-text/index.ts \
+	-f data/$PARLIAMENT_PERIOD/$DATE/session-speeches-$DATE.json \
+	-t 120,980 \
+	--skip-existing
+```
+
+### Using docker
+
+```bash
+docker build -t srw-detect-ai-text -f docker/detect-ai-text.Dockerfile .
+```
+
+`-it` is required so the y/n cost confirmation works interactively:
+
+```bash
+PANGRAM_API_KEY=<Pangram api key>
+PARLIAMENT_PERIOD=magdeburg-8
+DATE=2025-12-04
+docker run \
+	-it \
+	--rm \
+	-e PANGRAM_API_KEY=$PANGRAM_API_KEY \
+	-v $(pwd)/data/$PARLIAMENT_PERIOD/$DATE/session-speeches-$DATE.json:/app/session-speeches.json \
+	srw-detect-ai-text \
+	120,980 \
+	--skip-existing
+```
+
 ## Collect and Process Votings
 
 ### Screenshot Voting Images

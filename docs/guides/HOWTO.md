@@ -110,7 +110,7 @@ docker run \
 ```
 
 
-### Detect AI text (step 14b)
+### Detect AI text (step 14c)
 
 Manual, editorial step: after a redaction-selected speech's transcript has been corrected and before
 committing the session data, run it through Pangram to check whether it may be AI-generated or

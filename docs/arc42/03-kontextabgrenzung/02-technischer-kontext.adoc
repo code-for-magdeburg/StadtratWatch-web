@@ -26,6 +26,7 @@ cloud "Ratsinformationssystem\n(PDF-Dokumente)" as Ratsinfo
 cloud "YouTube" as YT
 cloud "OpenAI API" as OpenAI
 cloud "HuggingFace" as HF
+cloud "Pangram API" as Pangram
 cloud "Typesense" as TS
 cloud "AWS S3 + CloudFront" as AWS
 cloud "Static Hosting / CDN" as Host
@@ -41,6 +42,7 @@ OParl --> Pipe : HTTPS/JSON
 YT --> Pipe : Video-/Audio-Download
 Pipe --> OpenAI : HTTPS, Whisper
 Pipe --> HF : HTTPS, Modell-Download
+Pipe --> Pangram : HTTPS, KI-Einschätzung
 Pipe --> TS : HTTPS, Index schreiben
 Pipe --> AWS : Assets ablegen
 
@@ -85,6 +87,11 @@ Browser --> Ratsinfo : HTTPS, PDF-Abruf
 | aus
 | HTTPS, Zugriffstoken
 | Bezug des `pyannote`-Modells für die Sprecher:innen-Diarisierung.
+
+| *Pangram API*
+| aus
+| HTTPS, API-Key
+| KI-Einschätzung ausgewählter Redebeiträge: Die Pipeline sendet das Transkript und erhält Label, Anteilswerte und Konfidenzen zurück.
 
 | *Typesense*
 | aus / ein

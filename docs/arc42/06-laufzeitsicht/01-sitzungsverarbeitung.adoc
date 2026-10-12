@@ -29,6 +29,10 @@ Schritt *ohne* dieses Werkzeug: Nach der Transkription sichtet und korrigiert
 eine prüfende Person die erzeugten Texte. Die Prüfung
 der Abstimmungsdaten ist Gegenstand von <<lz-pruefung-freigabe,Szenario 6.4>>.
 
+Am Ende des Rede-Zweigs steht ein *optionaler, redaktioneller* Schritt: Für
+gezielt ausgewählte Redebeiträge holt `detect-ai-text` beim externen Dienst
+Pangram eine KI-Einschätzung des Transkripts ein und ergänzt sie in derselben `session-speeches-*.json`.
+
 [plantuml,lz-sitzungsverarbeitung,svg]
 ....
 @startuml
@@ -84,6 +88,10 @@ fork again
   note right
     Ergebnis finalisiert als
     **session-speeches-*.json**
+  end note
+  :**detect-ai-text** (Deno, Pangram, optional)\nKI-Einschätzung ausgewählter\nRedebeiträge einholen;
+  note right
+    ergänzt **session-speeches-*.json**
   end note
 end fork
 
@@ -143,6 +151,10 @@ stop
 | *Manuelle Prüfung*
 | `session-speeches-with-transcriptions-*.json`
 | Geprüfte/korrigierte Transkription, finalisiert als `session-speeches-*.json`
+
+| *detect-ai-text* (Deno, Pangram; optional)
+| `session-speeches-*.json` + Startzeiten der ausgewählten Redebeiträge
+| `session-speeches-*.json`, ausgewählte Redebeiträge erhalten Daten zur KI-Einschätzung
 |===
 
 Die so erzeugten Sitzungsdaten gelten zunächst als *unbestätigt*. Erst die
@@ -162,7 +174,7 @@ Verfügbarkeit des externen YouTube-Videos ab (siehe <<risiko-r2,R2>>).
   sondern in der nachgelagerten menschlichen Prüfung
   (<<lz-pruefung-freigabe,Szenario 6.4>>) erkannt und behoben — das schützt
   Qualitätsziel #2 (_Datenkorrektheit & Glaubwürdigkeit_).
-* *Ausfall externer Dienste* (YouTube, OpenAI): Jede Stufe arbeitet auf Dateien
+* *Ausfall externer Dienste* (YouTube, OpenAI, Pangram): Jede Stufe arbeitet auf Dateien
   und ist wiederholbar; ein fehlgeschlagener Schritt kann ohne Seiteneffekte
   erneut ausgeführt werden. Dies gilt für temporäre Ausfälle während der
   Verarbeitung; eine spätere Löschung oder Verschiebung des YouTube-Videos

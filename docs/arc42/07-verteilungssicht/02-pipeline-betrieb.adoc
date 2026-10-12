@@ -26,6 +26,7 @@ cloud "OParl-API" as OParl
 cloud "YouTube" as YT
 cloud "OpenAI API" as OpenAI
 cloud "HuggingFace" as HF
+cloud "Pangram API" as Pangram
 
 node "Arbeitsplatz (lokal)" as Local {
   artifact "Pipeline-Container\n(Deno / Python / Shell)" as Pipe
@@ -47,6 +48,7 @@ OParl --> Pipe : HTTPS/JSON
 YT --> Pipe : Video-/Audio-Download
 Pipe --> OpenAI : HTTPS, Whisper
 Pipe --> HF : HTTPS, Modell-Download
+Pipe --> Pangram : HTTPS, KI-Einschätzung
 
 Pipe --> LocalData : schreibt
 LocalData --> Repo : git push
@@ -63,7 +65,7 @@ Pipe --> TS : Index schreiben
 
 | *Arbeitsplatz (lokal)*
 | Rechner einer:eines Maintainer:in mit Docker- und Deno-Laufzeit sowie einem
-  Klon des Repositories. Trägt die API-Keys (OpenAI, HuggingFace, AWS,
+  Klon des Repositories. Trägt die API-Keys (OpenAI, HuggingFace, Pangram, AWS,
   Typesense-Admin) lokal, etwa über eine `.env`-Datei.
 | Stößt die Pipeline-Stufen an, liest/schreibt die lokale Datenablage.
 
@@ -71,9 +73,9 @@ Pipe --> TS : Index schreiben
 | Amtliche bzw. Drittsysteme, aus denen die Pipelines die Rohdaten beziehen.
 | OParl über HTTPS/JSON; Sitzungsvideos als manueller Medien-Download.
 
-| *KI-Dienste* (OpenAI, HuggingFace)
-| Externe Dienste für Transkription (Whisper) und das Diarisierungs-Modell
-  (`pyannote`).
+| *KI-Dienste* (OpenAI, HuggingFace, Pangram)
+| Externe Dienste für Transkription (Whisper), das Diarisierungs-Modell
+  (`pyannote`) und die KI-Einschätzung von Redebeiträgen.
 | HTTPS mit API-Key bzw. Zugriffstoken.
 
 | *GitHub-Repository*

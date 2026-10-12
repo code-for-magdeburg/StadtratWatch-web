@@ -69,7 +69,7 @@ B }o--|| D
 | Stimmabgabe einer Person zu einer Abstimmung (Ja, Nein, Enthaltung, nicht abgestimmt).
 
 | *Redebeitrag*
-| Transkribierter Wortbeitrag einer Person in einer Sitzung, mit Startzeit und Dauer.
+| Transkribierter Wortbeitrag einer Person in einer Sitzung, mit Startzeit und Dauer. Ausgewählte Redebeiträge tragen optional eine KI-Einschätzung (Feld `aiTextAssessment`).
 |===
 
 == Geteilte, getypte Modelle als Quelle der Wahrheit

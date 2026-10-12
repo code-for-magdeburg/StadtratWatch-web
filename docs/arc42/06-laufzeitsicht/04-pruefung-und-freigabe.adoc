@@ -78,7 +78,10 @@ end note
   bleibt eine bewusste menschliche Handlung in der `registry.json`, der Quelle
   der Wahrheit je Wahlperiode.
 * *Unveränderlichkeit nach Freigabe:* Freigegebene Sitzungsdaten gelten als
-  unveränderlich und werden ohne triftigen Grund nicht mehr angefasst.
+  unveränderlich und werden ohne triftigen Grund nicht mehr angefasst. Einzige
+  planmäßige Ausnahme ist die KI-Einschätzung von Redebeiträgen
+  (`aiTextAssessment`), die `detect-ai-text` auch nachträglich ergänzen oder
+  überschreiben darf (siehe <<konzept-datengewinnung,Datengewinnung & -qualität>>).
 
 == Fehler- und Sonderfälle
 

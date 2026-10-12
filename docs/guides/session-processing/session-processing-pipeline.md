@@ -39,7 +39,7 @@ und macht deutlich, **was wann durch wen** geschieht.
 |--------|-------|
 | **Maintainer:in** | Führt alle Pipeline-Schritte bedarfsweise am lokalen Arbeitsplatz aus, sichtet, korrigiert, gibt frei, publiziert. Es gibt **keinen Scheduler** — der Anstoß liegt in menschlicher Hand. |
 | **scan-check-ui** | **Externes** Prüfwerkzeug (nicht Teil dieses Repos) für die manuelle Sichtung/Korrektur der Abstimmungsdaten und die Zuordnung der Sprecher:innen-Segmente. |
-| **Externe Dienste** | YouTube (Video), HuggingFace (pyannote-Modell), OpenAI Whisper (Transkription), OParl-API (Parlamentsdaten). |
+| **Externe Dienste** | YouTube (Video), HuggingFace (pyannote-Modell), OpenAI Whisper (Transkription), Pangram (KI-Einschätzung), OParl-API (Parlamentsdaten). |
 | **Netlify** | Baut und liefert die statische Website — **automatisch** bei jedem Push auf `main`. |
 
 ### Datenablagen (Datensenken)
@@ -65,7 +65,8 @@ laufen können und über die Datenablage entkoppelt sind, gefolgt von einer
 - **Zweig A — Abstimmungen (OCR):** Screenshots der Abstimmungstafeln → OCR →
   menschliche Prüfung → `session-scan-*.json`.
 - **Zweig B — Reden (Audio):** Tonspur → Diarisierung → Sprecher-Zuordnung →
-  Transkription → Prüfung → `session-speeches-*.json`.
+  Transkription → Prüfung → KI-Einschätzung →
+  `session-speeches-*.json`.
 - **Zweig C — OParl/Drucksachen:** OParl-Abruf → PDFs → Drucksachen-Assets →
   Build-Derivate → Volltext.
 - **Zusammenführung:** Bild-Assets, Paper-Votings, Suchindex.
@@ -117,7 +118,9 @@ Ergebnisse der jeweils benötigten Zweige voraus.
 | 11 | ✋ | Maintainer:in | `scan-check-ui` / Editor | `session-speeches` (Segmente) | Fachlich gesichtete Reden (Vorsitz/Ortsbürgermeister:in/Kommission markiert, Rauschen entfernt) → S3 »sessions-speeches-redacted« |
 | 12 | 🤖 | Skript | **`extract-speeches`** (Shell, ffmpeg) | Audio + `session-speeches` | Eine **MP3 je Redebeitrag** → lokal `output/speeches/{date}/` |
 | 13 | 🤖 | Skript | **`speech-to-text`** (Deno, OpenAI Whisper) | `session-speeches` + MP3s | `session-speeches-{date}.json` **mit Transkript** → S3 »sessions-speeches-with-transcriptions« |
-| 14 | ✋ | Maintainer:in | Editor | transkribierte `session-speeches` | Korrigierte Transkription → S3 »sessions-speeches-with-transcriptions« **und** Git (`data/{periode}/{date}/session-speeches-{date}.json`) |
+| 14a | ✋ | Maintainer:in | Editor | transkribierte `session-speeches` | Korrigierte Transkription → S3 »sessions-speeches-with-transcriptions« **und** Git (`data/{periode}/{date}/session-speeches-{date}.json`) |
+| 14b | ✋ | Maintainer:in | - (redaktionelle Auswahl) | korrigierte `session-speeches-{date}.json` | Startzeiten der Redebeiträge, die eine KI-Einschätzung erhalten sollen |
+| 14c | 🤖 | Skript | **`detect-ai-text`** (Deno, Pangram) | korrigierte `session-speeches-{date}.json` + Startzeiten der Redebeiträge | `session-speeches-{date}.json`, um das Feld `aiTextAssessment` der ausgewählten Redebeiträge ergänzt → Git |
 
 ### Phase C — OParl-/Drucksachen-Zweig (unabhängig)
 
@@ -135,7 +138,7 @@ Ergebnisse der jeweils benötigten Zweige voraus.
 |---|------|-----|----------|------------------|-----------------|
 | 16 | 🤖 | Skript | **`generate-image-assets`** (Deno) | `session-scan-{date}.json` + `registry.json` | Abstimmungs-**PNGs** (`{date}-{voting}.png`) → lokal `output/image-assets/{periode}/`, mit `--push` nach S3/CloudFront (`web-assets/parliament-periods/{periode}/`) |
 | 17 | 🤖 | Skript | **`generate-paper-votings`** (Deno) | `voting-paper-map.json` (15d) + `session-scan-{date}.json` (6) | **`paper-votings-*.json`** → lokal `output/paper-votings/`, mit `--push` nach S3/CloudFront (`web-assets/paper-votings/`) |
-| 18 | 🤖 | Skript | **`index-search`** (Deno) | OParl-Rohdaten-Metadaten (15a) + extrahierter Volltext (15e) + `session-speeches-{date}.json` (14) | Befüllte **Typesense**-Collections (`papers`, `speeches`) → VPS |
+| 18 | 🤖 | Skript | **`index-search`** (Deno) | OParl-Rohdaten-Metadaten (15a) + extrahierter Volltext (15e) + `session-speeches-{date}.json` (14a) | Befüllte **Typesense**-Collections (`papers`, `speeches`) → VPS |
 
 ### Phase E — Freigabe & Veröffentlichung
 
@@ -156,7 +159,8 @@ Ergebnisse der jeweils benötigten Zweige voraus.
 - **Parallelität:** Die Zweige **A**, **B** und **C** sind voneinander unabhängig.
   Schlägt einer fehl, bleiben die Ergebnisse der anderen nutzbar (Entkopplung über
   Dateien). Jede Stufe ist **wiederholbar** ohne Seiteneffekte.
-- **Mensch im Loop:** Die qualitätssichernden Schritte **6, 10, 11, 14** und die
+- **Mensch im Loop:** Die qualitätssichernden Schritte **6, 10, 11, 14a**, die
+  Auswahl für die KI-Einschätzung (**14b**) und die
   **Freigabe (19)** sind bewusst manuell. `approved` ist ein **Anzeige-Status**,
   **kein Veröffentlichungs-Gate**: Auch unbestätigte Sitzungen sind sichtbar, dann
   aber als *vorläufig* gekennzeichnet (arc42 Szenario 6.4).
@@ -175,7 +179,7 @@ Ergebnisse der jeweils benötigten Zweige voraus.
 
 - **OCR-Fehlerkennung** (Zweig A): fehleranfällig durch Bildqualität; wird nicht
   automatisch, sondern in Schritt 6 menschlich korrigiert.
-- **Ausfall externer Dienste** (YouTube, OpenAI, HuggingFace, OParl): Jede Stufe
+- **Ausfall externer Dienste** (YouTube, OpenAI, HuggingFace, Pangram, OParl): Jede Stufe
   arbeitet auf Dateien und ist wiederholbar; ein fehlgeschlagener Schritt kann
   gefahrlos erneut laufen. Eine spätere Löschung/Verschiebung des YouTube-Videos
   bleibt ein akzeptiertes Restrisiko (arc42 R2).

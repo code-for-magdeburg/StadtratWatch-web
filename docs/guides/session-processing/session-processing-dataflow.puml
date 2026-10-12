@@ -19,6 +19,7 @@ cloud "OParl-API\n(Ratsinfo MD)" as OParl
 cloud "YouTube" as YT
 cloud "HuggingFace\n(pyannote)" as HF
 cloud "OpenAI\n(Whisper)" as OAI
+cloud "Pangram\n(KI-Textdetektor)" as PG
 component "scan-check-ui\n(externes Prüfwerkzeug)" as UI #E3F2FD
 
 package "Skripte - lokal, bedarfsweise" #FFFDE7 {
@@ -33,6 +34,7 @@ package "Skripte - lokal, bedarfsweise" #FFFDE7 {
   component "parse-speakers" as PS
   component "extract-speeches" as ES
   component "speech-to-text" as STT
+  component "detect-ai-text" as DAT
   component "generate-image-assets" as GIA
   component "generate-paper-votings" as GPV
   component "index-search" as IDX
@@ -50,6 +52,8 @@ YT --> MEDIA
 HF --> SD
 STT --> OAI : Audio
 OAI --> STT : Text
+DAT --> PG : Transkript
+PG --> DAT : KI-Einschätzung
 
 ' --- OParl-/Drucksachen-Zweig ---
 SCRAPE --> S3WEB : oparl-Snapshot
@@ -80,6 +84,8 @@ GIA --> S3WEB : Abstimmungs-PNGs (--push)
 GIT --> GPV
 GPV --> S3WEB : paper-votings (--push)
 GIT --> IDX : session-speeches
+GIT --> DAT : session-speeches
+DAT --> GIT : aiTextAssessment\n(dieselbe Datei)
 IDX --> TS
 
 ' --- Veröffentlichung ---

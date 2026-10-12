@@ -19,6 +19,21 @@ Dieses Konzept beschreibt, wie die Architektur mit Sicherheit und personenbezoge
 | Eine verfassungsschutzrechtliche Einstufung einer Partei wird nur mit Begründung, Quelle und Quell-URL geführt (`EXTREMIST_CLASSIFICATION` samt `_REASON`, `_SOURCE`, `_SOURCE_URL`). Sie ist damit als belegter Verweis auf eine amtliche Einstufung ausgewiesen, nicht als redaktionelle Bewertung.
 |===
 
+== Weitergabe an externe Verarbeitungsdienste
+
+Für einzelne Pipeline-Schritte verlassen Sitzungsinhalte die eigene Infrastruktur an externe Dienste. Es handelt sich ausschließlich um Material aus öffentlicher Sitzung.
+
+[cols="2,4",options="header"]
+|===
+| Dienst | Was übermittelt wird
+
+| *OpenAI* (Whisper)
+| Audioausschnitte der einzelnen Redebeiträge zur Transkription.
+
+| *Pangram* (KI-Textdetektor)
+| Das vollständige Transkript ausgewählter Redebeiträge zur KI-Einschätzung.
+|===
+
 == Geringe Angriffsfläche durch statische Auslieferung
 
 [cols="2,4",options="header"]
