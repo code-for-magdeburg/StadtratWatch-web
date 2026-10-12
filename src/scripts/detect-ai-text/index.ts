@@ -3,6 +3,7 @@ import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { executeDetectAiTextRun, planDetectAiTextRun } from './detect-ai-text-processor.ts';
 import { tryGetDetectAiTextEnv } from './env.ts';
 import { PangramHttpClient } from './pangram-client.ts';
+import { serializeSpeeches } from './speeches-file.ts';
 
 const args = parseArgs(Deno.args);
 
@@ -43,7 +44,7 @@ const env = tryGetDetectAiTextEnv();
 const pangramClient = new PangramHttpClient(env.pangramApiKey);
 const result = await executeDetectAiTextRun(plan.toAssess, pangramClient, () => new Date().toISOString());
 
-Deno.writeTextFileSync(args.speechesFile, JSON.stringify(speeches, null, 2));
+Deno.writeTextFileSync(args.speechesFile, serializeSpeeches(speeches));
 
 console.log(
   `Done. Assessed: ${result.assessedCount}, skipped (too short): ${result.skippedTooShortCount}, ` +
