@@ -1,7 +1,9 @@
-import { createHash } from 'node:crypto';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { afterEach, describe, expect, test, vi } from 'vitest';
-import type { AiTextAssessment } from '@models/ai-text-assessment';
+import {
+  hashTranscript,
+  type AiTextAssessment,
+} from '@models/ai-text-assessment';
 import type { Registry, RegistrySession } from '@models/registry';
 import type { SessionSpeech } from '@models/session-speech';
 import { isFeatureEnabled } from '@utils/feature-flags';
@@ -15,10 +17,6 @@ const transcription = 'Transkribierter Text';
 const methodologyHref = '/transparency/ai-assessment/';
 const badgeDescription =
   'Dieser Redebeitrag enthält möglicherweise in Teilen KI-generierten Text.';
-
-function sha256Hex(text: string): string {
-  return createHash('sha256').update(text, 'utf8').digest('hex');
-}
 
 function createAssessment(
   overrides: Partial<AiTextAssessment> = {},
@@ -35,7 +33,7 @@ function createAssessment(
     modelName: 'pangram-4',
     modelVersion: '4.0',
     checkedAt: '2026-10-11',
-    transcriptSha256: sha256Hex(transcription),
+    transcriptSha256: hashTranscript(transcription),
     ...overrides,
   };
 }
@@ -118,7 +116,9 @@ describe('Speech AI text assessment badge', () => {
     vi.mocked(isFeatureEnabled).mockReturnValue(true);
 
     const html = await renderSpeech(
-      createSpeech(createAssessment({ transcriptSha256: sha256Hex('alt') })),
+      createSpeech(
+        createAssessment({ transcriptSha256: hashTranscript('alt') }),
+      ),
     );
 
     expect(html).not.toContain(badgeDescription);

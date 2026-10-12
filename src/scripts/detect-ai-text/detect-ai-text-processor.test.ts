@@ -1,9 +1,9 @@
 import { assertEquals } from '@std/assert';
 import { describe, it } from '@std/testing/bdd';
+import { hashTranscript } from '@srw-astro/models/ai-text-assessment';
 import type { SessionSpeech } from '@srw-astro/models/session-speech';
 import { executeDetectAiTextRun, planDetectAiTextRun } from './detect-ai-text-processor.ts';
 import type { PangramAssessmentOutcome, PangramClient, PangramTaskResult } from './pangram-client.ts';
-import { sha256Hex } from './transcript-hash.ts';
 
 function speech(overrides: Partial<SessionSpeech> = {}): SessionSpeech {
   return {
@@ -43,24 +43,24 @@ class FakePangramClient implements PangramClient {
 }
 
 describe('planDetectAiTextRun', () => {
-  it('selects speeches whose start matches the requested list', async () => {
+  it('selects speeches whose start matches the requested list', () => {
     const speeches = [speech({ start: 100 }), speech({ start: 200 }), speech({ start: 300 })];
 
-    const plan = await planDetectAiTextRun(speeches, [100, 300], false);
+    const plan = planDetectAiTextRun(speeches, [100, 300], false);
 
     assertEquals(plan.toAssess.map((s) => s.start), [100, 300]);
   });
 
-  it('reports a requested start that does not exist in the file', async () => {
+  it('reports a requested start that does not exist in the file', () => {
     const speeches = [speech({ start: 100 })];
 
-    const plan = await planDetectAiTextRun(speeches, [999], false);
+    const plan = planDetectAiTextRun(speeches, [999], false);
 
     assertEquals(plan.toAssess, []);
     assertEquals(plan.notFoundStarts, [999]);
   });
 
-  it('skips a speech with a matching existing assessment when skip-existing is set', async () => {
+  it('skips a speech with a matching existing assessment when skip-existing is set', () => {
     const transcription = 'Ein ausreichend langes Transkript fuer diesen Redebeitrag.';
     const existing = speech({
       start: 100,
@@ -77,17 +77,17 @@ describe('planDetectAiTextRun', () => {
         modelName: 'pangram-4',
         modelVersion: '4.0',
         checkedAt: '2026-10-01',
-        transcriptSha256: await sha256Hex(transcription),
+        transcriptSha256: hashTranscript(transcription),
       },
     });
 
-    const plan = await planDetectAiTextRun([existing], [100], true);
+    const plan = planDetectAiTextRun([existing], [100], true);
 
     assertEquals(plan.toAssess, []);
     assertEquals(plan.skippedExisting, [existing]);
   });
 
-  it('treats a drifted transcript (hash mismatch) as unassessed and re-selects it', async () => {
+  it('treats a drifted transcript (hash mismatch) as unassessed and re-selects it', () => {
     const existing = speech({
       start: 100,
       transcription: 'Der korrigierte Text nach der Transkriptkorrektur.',
@@ -103,20 +103,20 @@ describe('planDetectAiTextRun', () => {
         modelName: 'pangram-4',
         modelVersion: '4.0',
         checkedAt: '2026-10-01',
-        transcriptSha256: await sha256Hex('Der urspruengliche, nicht korrigierte Text.'),
+        transcriptSha256: hashTranscript('Der urspruengliche, nicht korrigierte Text.'),
       },
     });
 
-    const plan = await planDetectAiTextRun([existing], [100], true);
+    const plan = planDetectAiTextRun([existing], [100], true);
 
     assertEquals(plan.toAssess, [existing]);
     assertEquals(plan.skippedExisting, []);
   });
 
-  it('estimates the cost from the total word count of the selected speeches', async () => {
+  it('estimates the cost from the total word count of the selected speeches', () => {
     const speeches = [speech({ start: 100, transcription: Array(200).fill('wort').join(' ') })];
 
-    const plan = await planDetectAiTextRun(speeches, [100], false);
+    const plan = planDetectAiTextRun(speeches, [100], false);
 
     assertEquals(plan.totalWordCount, 200);
     assertEquals(plan.estimatedCostUsd, 0.1);

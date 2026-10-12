@@ -1,7 +1,9 @@
-import { createHash } from 'node:crypto';
 import { getEntry } from 'astro:content';
 import { afterEach, describe, expect, test, vi } from 'vitest';
-import type { AiTextAssessment } from '@models/ai-text-assessment';
+import {
+  hashTranscript,
+  type AiTextAssessment,
+} from '@models/ai-text-assessment';
 import type { Registry, RegistrySession } from '@models/registry';
 import type { SessionSpeech } from '@models/session-speech';
 import { isFeatureEnabled } from '@utils/feature-flags';
@@ -16,10 +18,6 @@ vi.mock('@utils/feature-flags', () => ({
 }));
 
 const transcription = 'Transkribierter Text';
-
-function sha256Hex(text: string): string {
-  return createHash('sha256').update(text, 'utf8').digest('hex');
-}
 
 function createAssessment(
   overrides: Partial<AiTextAssessment> = {},
@@ -36,7 +34,7 @@ function createAssessment(
     modelName: 'pangram-4',
     modelVersion: '4.0',
     checkedAt: '2026-10-11',
-    transcriptSha256: sha256Hex(transcription),
+    transcriptSha256: hashTranscript(transcription),
     ...overrides,
   };
 }
@@ -122,7 +120,9 @@ describe('speeches endpoint aiTextAssessment', () => {
     vi.mocked(isFeatureEnabled).mockReturnValue(true);
 
     const [speech] = await getSpeechesResponseData([
-      createSpeech(createAssessment({ transcriptSha256: sha256Hex('alt') })),
+      createSpeech(
+        createAssessment({ transcriptSha256: hashTranscript('alt') }),
+      ),
     ]);
 
     expect(speech).not.toHaveProperty('aiTextAssessment');

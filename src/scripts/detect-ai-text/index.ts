@@ -14,7 +14,7 @@ if (args.help) {
 checkArgs(args);
 
 const speeches: SessionSpeech[] = JSON.parse(Deno.readTextFileSync(args.speechesFile));
-const plan = await planDetectAiTextRun(speeches, args.starts, args.skipExisting);
+const plan = planDetectAiTextRun(speeches, args.starts, args.skipExisting);
 
 for (const start of plan.notFoundStarts) {
   console.warn(`No speech found with start ${start} in ${args.speechesFile}.`);

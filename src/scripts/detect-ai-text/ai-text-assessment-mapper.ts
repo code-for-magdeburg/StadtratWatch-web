@@ -1,20 +1,19 @@
-import type { AiTextAssessment } from '@srw-astro/models/ai-text-assessment';
+import { type AiTextAssessment, hashTranscript } from '@srw-astro/models/ai-text-assessment';
 import {
   PANGRAM_MODEL_NAME,
   type PangramConfidence,
   type PangramTaskResult,
   type PangramWindow,
 } from './pangram-client.ts';
-import { sha256Hex } from './transcript-hash.ts';
 
 const NON_HUMAN_WINDOW_LABELS = ['AI-Generated', 'AI-Assisted'];
 const HIGH_CONFIDENCE_NON_HUMAN_RULE_VERSION = 'weakest-non-human-window@1';
 
-export async function buildAiTextAssessment(
+export function buildAiTextAssessment(
   pangramResult: PangramTaskResult,
   transcript: string,
   checkedAt: string,
-): Promise<AiTextAssessment> {
+): AiTextAssessment {
   const nonHumanWindows = pangramResult.windows.filter((window) => NON_HUMAN_WINDOW_LABELS.includes(window.label));
   const totalNonHumanWords = sumWordCounts(nonHumanWindows);
 
@@ -43,7 +42,7 @@ export async function buildAiTextAssessment(
     modelName: PANGRAM_MODEL_NAME,
     modelVersion: pangramResult.version,
     checkedAt,
-    transcriptSha256: await sha256Hex(transcript),
+    transcriptSha256: hashTranscript(transcript),
   };
 }
 
