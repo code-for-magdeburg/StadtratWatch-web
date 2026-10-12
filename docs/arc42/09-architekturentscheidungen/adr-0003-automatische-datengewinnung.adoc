@@ -29,4 +29,4 @@ Die Datengewinnung läuft automatisch über OCR und Transkription; die automatis
 
 * Es bleibt ein manueller Freigabeschritt im Prozess; ohne ihn entstehen nur vorläufig gekennzeichnete, noch nicht bestätigte Daten.
 * Abhängigkeit von einem externen Dienst (OpenAI Whisper) für die Transkription.
-* Die Erkennungsqualität hängt von der Aufnahme- bzw. Screenshot-Qualität ab; Erkennungsfehler, die erst nach der Freigabe auffallen, dürfen nachträglich korrigiert werden.
+* Die Erkennungsqualität hängt von der Aufnahme- bzw. Screenshot-Qualität ab.

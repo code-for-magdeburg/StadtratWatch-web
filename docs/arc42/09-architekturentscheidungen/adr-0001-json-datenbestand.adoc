@@ -24,7 +24,6 @@ Der gesamte verarbeitete Bestand wird als versionierte JSON-Dateien im Repositor
 * Jede Änderung am Bestand ist über die Git-Historie nachvollziehbar — das stützt das vorrangige Qualitätsziel _Transparenz & Nachvollziehbarkeit_ (siehe <<qualitaetsziele,Qualitätsziele>>).
 * Builds sind reproduzierbar, da der Bestand Teil des Repositories ist.
 * Es ist keine Datenbank zu betreiben — geringe Betriebskosten und einfache Wartung (_Wartbarkeit & geringe Betriebskosten_).
-* Korrekturen an freigegebenen Sitzungsdaten bleiben über die Git-Historie nachvollziehbar.
 
 *Negativ*
 

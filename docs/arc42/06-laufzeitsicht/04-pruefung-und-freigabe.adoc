@@ -77,10 +77,8 @@ end note
   Definition der Rede-Segmente). Das eigentliche Setzen von `approved = true`
   bleibt eine bewusste menschliche Handlung in der `registry.json`, der Quelle
   der Wahrheit je Wahlperiode.
-* *Korrekturen nach der Freigabe:* Auch freigegebene Sitzungsdaten dürfen
-  jederzeit korrigiert werden, von Hand oder durch ein erneut ausgeführtes Skript.
-  Die Sitzung bleibt dabei freigegeben. Nachvollziehbar ist die Korrektur über die
-  Git-Historie (siehe <<konzept-datenhaltung,Datenhaltung & Versionierung>>).
+* *Korrekturen nach der Freigabe:* Freigegebene Sitzungsdaten dürfen jederzeit
+  korrigiert werden (siehe <<konzept-datenhaltung,Datenhaltung & Versionierung>>).
 
 == Fehler- und Sonderfälle
 
