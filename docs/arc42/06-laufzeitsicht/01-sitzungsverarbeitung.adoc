@@ -19,7 +19,7 @@ Stufen kommen ein Python-Skript (Diarisierung) und Shell-/ffmpeg-Schritte
 entkoppelt; jede liest ihre Eingabe und schreibt ihr Ergebnis zurück.
 
 Beide Zweige enthalten zudem *manuelle* Schritte. Mit dem Werkzeug
-`scan-check-ui` erfolgen: im
+`session-review` erfolgen: im
 Abstimmungs-Zweig die Prüfung der erkannten Voten, Tagesordnungspunkte und
 Drucksachennummern; im Rede-Zweig die Zuordnung der anonym erkannten
 Sprecher:innen zu echten Personen samt Definition der Rede-Segmente — dieser
@@ -53,7 +53,7 @@ fork
     Eingabe: Abstimmungsbilder + Scan-Config
     Ausgabe: **session-scan-*.json**
   end note
-  :**scan-check-ui** (manuell)\nVoten, TOPs, Drucksachen-\nnummern prüfen/korrigieren;
+  :**session-review** (manuell)\nVoten, TOPs, Drucksachen-\nnummern prüfen/korrigieren;
   note right: Detail in Szenario 6.4
   :**generate-image-assets** (Deno)\nVisualisierungs-PNGs erzeugen;
   note right
@@ -71,7 +71,7 @@ fork again
     Ausgabe: **session-speakers-*.json**
     (noch anonyme Sprecher:innen)
   end note
-  :**scan-check-ui** (manuell)\nSprecher:innen zuordnen,\nRede-Segmente definieren;
+  :**session-review** (manuell)\nSprecher:innen zuordnen,\nRede-Segmente definieren;
   note right
     Ausgabe: **session-speeches-*.json**
     (Segmente, ohne Transkription)
@@ -114,7 +114,7 @@ stop
 | Bilder der Abstimmungstafeln + Scan-Config (Bildregionen)
 | `session-scan-*.json` (roh, Voten je Person)
 
-| *scan-check-ui* (manuell)
+| *session-review* (manuell)
 | `session-scan-*.json` (roh)
 | Geprüfte `session-scan-*.json` (Voten, TOPs, Drucksachennummern) — siehe
   <<lz-pruefung-freigabe,Szenario 6.4>>
@@ -135,7 +135,7 @@ stop
 | RTTM-Datei
 | `session-speakers-*.json` (noch anonyme Sprecher:innen)
 
-| *scan-check-ui* (manuell)
+| *session-review* (manuell)
 | `session-speakers-*.json` + Audio
 | `session-speeches-*.json` (Sprecher:innen zugeordnet, Rede-Segmente, ohne
   Transkription)

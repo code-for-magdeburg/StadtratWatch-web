@@ -11,7 +11,7 @@ _Datenkorrektheit & Glaubwürdigkeit_).
 Die automatisch gewonnenen Abstimmungsdaten sind fehleranfällig (OCR). Statt zu
 versuchen, diese Fehler automatisch zu korrigieren, setzt die Architektur auf eine
 *menschliche Sichtung und Korrektur* mit anschließender expliziter Freigabe.
-Sichtung und Korrektur erfolgen mit dem separaten Prüfwerkzeug `scan-check-ui`,
+Sichtung und Korrektur erfolgen mit dem separaten Prüfwerkzeug `session-review`,
 das die erkannten Voten, Tagesordnungspunkte und Drucksachennummern darstellt und
 manuell korrigierbar macht. Wo das nicht genügt, ergänzen den Ablauf:
 
@@ -27,7 +27,7 @@ der `registry.json` freigegeben.
 @startuml
 skinparam shadowing false
 actor "Prüfer:in" as Mensch
-participant "scan-check-ui" as UI
+participant "session-review" as UI
 participant "scan-voting-images\n(Deno)" as Scan
 database "Datenablage\n(JSON)" as Data
 participant "registry.json" as Reg
@@ -40,7 +40,7 @@ UI --> Mensch : Voten, TOPs, Drucksachen-\nnummern (vorläufig)
 
 == Korrektur-Iteration ==
 loop bis Ergebnis korrekt
-  alt Korrektur in scan-check-ui
+  alt Korrektur in session-review
     Mensch -> UI : Voten/TOPs/Nummern korrigieren
     UI -> Data : session-scan-*.json schreiben
   else Neu-Scan über Scan-Config
@@ -72,7 +72,7 @@ end note
   offen gezeigt und ihr Prüfstatus offen ausgewiesen, statt sie bis zur Freigabe
   zu verbergen.
 * *Werkzeugunterstützung:* Sichtung und Korrektur erfolgen mit dem separaten
-  Prüfwerkzeug `scan-check-ui`. Dasselbe Werkzeug unterstützt auch den Rede-Zweig
+  Prüfwerkzeug `session-review`. Dasselbe Werkzeug unterstützt auch den Rede-Zweig
   aus <<lz-sitzungsverarbeitung,Szenario 6.1>> (Sprecher:innen-Zuordnung,
   Definition der Rede-Segmente). Das eigentliche Setzen von `approved = true`
   bleibt eine bewusste menschliche Handlung in der `registry.json`, der Quelle

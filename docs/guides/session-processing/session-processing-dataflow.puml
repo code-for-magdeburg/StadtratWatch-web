@@ -20,7 +20,7 @@ cloud "YouTube" as YT
 cloud "HuggingFace\n(pyannote)" as HF
 cloud "OpenAI\n(Whisper)" as OAI
 cloud "Pangram\n(KI-Textdetektor)" as PG
-component "scan-check-ui\n(externes Prüfwerkzeug)" as UI #E3F2FD
+component "session-review\n(Prüfwerkzeug)" as UI #E3F2FD
 
 package "Skripte - lokal, bedarfsweise" #FFFDE7 {
   component "scrape-oparl" as SCRAPE

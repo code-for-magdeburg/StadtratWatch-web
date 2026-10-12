@@ -38,7 +38,7 @@ und macht deutlich, **was wann durch wen** geschieht.
 | Akteur | Rolle |
 |--------|-------|
 | **Maintainer:in** | Führt alle Pipeline-Schritte bedarfsweise am lokalen Arbeitsplatz aus, sichtet, korrigiert, gibt frei, publiziert. Es gibt **keinen Scheduler** — der Anstoß liegt in menschlicher Hand. |
-| **scan-check-ui** | **Externes** Prüfwerkzeug (nicht Teil dieses Repos) für die manuelle Sichtung/Korrektur der Abstimmungsdaten und die Zuordnung der Sprecher:innen-Segmente. |
+| **session-review** | Prüfwerkzeug im Verzeichnis `session-review/` für die manuelle Sichtung/Korrektur der Abstimmungsdaten, die Zuordnung der Sprecher:innen-Segmente und die Sichtung der Reden. |
 | **Externe Dienste** | YouTube (Video), HuggingFace (pyannote-Modell), OpenAI Whisper (Transkription), Pangram (KI-Einschätzung), OParl-API (Parlamentsdaten). |
 | **Netlify** | Baut und liefert die statische Website — **automatisch** bei jedem Push auf `main`. |
 
@@ -100,9 +100,9 @@ Ergebnisse der jeweils benötigten Zweige voraus.
 |---|------|-----|----------|------------------|-----------------|
 | 4 | ✋ | Maintainer:in | Screenshot | Video | **Screenshots** der Tafeln (`YYYY-MM-DD-XXX.png`, chronologisch, gleich groß) → lokal **und** S3 »sessions-raw/{date}« |
 | 5 | 🧑‍🔧 | Skript | **`scan-voting-images`** (Deno + Tesseract) | Screenshots + `config-*.json` | **`session-scan-{date}.json`** (roh) → S3 »sessions-scan-results« |
-| 6 | ✋ | Maintainer:in | **`scan-check-ui`** (extern) | rohe `session-scan` + Video | Geprüfte **`session-scan-{date}.json`** (Voten, TOPs, Drucksachennummern) → S3 »sessions-scan-results-redacted« **und** Git (`data/{periode}/{date}/`) |
+| 6 | ✋ | Maintainer:in | **`session-review`** | rohe `session-scan` + Video | Geprüfte **`session-scan-{date}.json`** (Voten, TOPs, Drucksachennummern) → S3 »sessions-scan-results-redacted« **und** Git (`data/{periode}/{date}/`) |
 
-> **Korrektur-Iteration (Phase A):** Reicht die Korrektur in `scan-check-ui` nicht,
+> **Korrektur-Iteration (Phase A):** Reicht die Korrektur in `session-review` nicht,
 > wird die **Scan-Config angepasst** und `scan-voting-images` erneut ausgeführt,
 > oder die JSON **direkt editiert**. OCR-Fehler werden **bewusst nicht automatisch**
 > korrigiert, sondern hier menschlich behoben (Qualitätsziel #2).
@@ -114,8 +114,8 @@ Ergebnisse der jeweils benötigten Zweige voraus.
 | 7 | 🤖 | Skript | **`ffmpeg`** (Shell) | Videodatei | Einkanaliges Audio (`audio.wav`/`.mp3`), ggf. gesplittet → lokal |
 | 8 | 🤖 | Skript | **`speaker-diarization`** (Python, pyannote; HuggingFace-Token) | Audiodatei | **RTTM**-Datei (anonyme Sprecher-Segmente) → S3 »sessions-speakers« |
 | 9 | 🤖 | Skript | **`parse-speakers`** (Deno) | RTTM-Datei(en) | **`session-speakers-{date}.json`** (anonym) → S3 »sessions-speakers« |
-| 10 | ✋ | Maintainer:in | **`scan-check-ui`** (extern) | `session-speakers` + Audio | **`session-speeches-{date}.json`** (Segmente zugeordnet, ohne Transkript) → S3 »sessions-speakers-redacted« |
-| 11 | ✋ | Maintainer:in | `scan-check-ui` / Editor | `session-speeches` (Segmente) | Fachlich gesichtete Reden (Vorsitz/Ortsbürgermeister:in/Kommission markiert, Rauschen entfernt) → S3 »sessions-speeches-redacted« |
+| 10 | ✋ | Maintainer:in | **`session-review`** | `session-speakers` + Audio | **`session-speeches-{date}.json`** (Segmente zugeordnet, ohne Transkript) → S3 »sessions-speakers-redacted« |
+| 11 | ✋ | Maintainer:in | `session-review` / Editor | `session-speeches` (Segmente) | Fachlich gesichtete Reden (Vorsitz/Ortsbürgermeister:in/Kommission markiert, Rauschen entfernt) → S3 »sessions-speeches-redacted« |
 | 12 | 🤖 | Skript | **`extract-speeches`** (Shell, ffmpeg) | Audio + `session-speeches` | Eine **MP3 je Redebeitrag** → lokal `output/speeches/{date}/` |
 | 13 | 🤖 | Skript | **`speech-to-text`** (Deno, OpenAI Whisper) | `session-speeches` + MP3s | `session-speeches-{date}.json` **mit Transkript** → S3 »sessions-speeches-with-transcriptions« |
 | 14a | ✋ | Maintainer:in | Editor | transkribierte `session-speeches` | Korrigierte Transkription → S3 »sessions-speeches-with-transcriptions« **und** Git (`data/{periode}/{date}/session-speeches-{date}.json`) |

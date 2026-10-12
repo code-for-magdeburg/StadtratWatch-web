@@ -56,7 +56,7 @@ fork
     -> S3-Bucket »sessions-scan-results«
   end note
   |Maintainer:in (manuell)|
-  :**scan-check-ui** (externes Prüfwerkzeug)
+  :**session-review** (Prüfwerkzeug)
   Voten, TOPs, Drucksachennummern prüfen/korrigieren;
   note right
     ggf. Scan-Config anpassen und
@@ -85,7 +85,7 @@ fork again
     -> S3-Bucket »sessions-speakers«
   end note
   |Maintainer:in (manuell)|
-  :**scan-check-ui** (externes Prüfwerkzeug)
+  :**session-review** (Prüfwerkzeug)
   Sprecher:innen zuordnen, Rede-Segmente definieren;
   note right
     Ausgabe: **session-speeches-{date}.json** (ohne Transkript)
