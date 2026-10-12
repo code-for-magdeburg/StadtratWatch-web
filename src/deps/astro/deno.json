@@ -2,6 +2,7 @@
   "name": "@srw-astro/models",
   "version": "0.1.0",
   "exports": {
+    "./ai-text-assessment": "./ai-text-assessment.ts",
     "./oparl": "./oparl.ts",
     "./oparl-derivatives": "./oparl-derivatives.ts",
     "./paper-batch": "./paper-batch.ts",

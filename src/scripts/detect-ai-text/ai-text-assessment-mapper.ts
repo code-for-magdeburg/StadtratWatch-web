@@ -1,4 +1,4 @@
-import type { AiTextAssessment } from '@srw-astro/models/session-speech';
+import type { AiTextAssessment } from '@srw-astro/models/ai-text-assessment';
 import {
   PANGRAM_MODEL_NAME,
   type PangramConfidence,
