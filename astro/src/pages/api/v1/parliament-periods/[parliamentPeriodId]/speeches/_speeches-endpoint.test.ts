@@ -1,7 +1,9 @@
-import { createHash } from 'node:crypto';
 import { getEntry } from 'astro:content';
 import { afterEach, describe, expect, test, vi } from 'vitest';
-import type { AiTextAssessment } from '@models/ai-text-assessment';
+import {
+  hashTranscript,
+  type AiTextAssessment,
+} from '@models/ai-text-assessment';
 import type { Registry, RegistrySession } from '@models/registry';
 import type { SessionSpeech } from '@models/session-speech';
 import { isFeatureEnabled } from '@utils/feature-flags';
@@ -16,10 +18,6 @@ vi.mock('@utils/feature-flags', () => ({
 }));
 
 const transcription = 'Transkribierter Text';
-
-function sha256Hex(text: string): string {
-  return createHash('sha256').update(text, 'utf8').digest('hex');
-}
 
 function createAssessment(
   overrides: Partial<AiTextAssessment> = {},
@@ -36,7 +34,7 @@ function createAssessment(
     modelName: 'pangram-4',
     modelVersion: '4.0',
     checkedAt: '2026-10-11',
-    transcriptSha256: sha256Hex(transcription),
+    transcriptSha256: hashTranscript(transcription),
     ...overrides,
   };
 }
@@ -82,7 +80,7 @@ async function getSpeechesResponseData(
   return body.data;
 }
 
-describe('speeches endpoint aiTextAssessment', () => {
+describe('speeches endpoint aiTextAssessmentLabel', () => {
   afterEach(() => {
     vi.mocked(isFeatureEnabled).mockReturnValue(false);
   });
@@ -96,7 +94,8 @@ describe('speeches endpoint aiTextAssessment', () => {
         createSpeech(createAssessment({ label })),
       ]);
 
-      expect(speech.aiTextAssessment).toBe(label);
+      expect(speech.aiTextAssessmentLabel).toBe(label);
+      expect(speech).not.toHaveProperty('aiTextAssessment');
     },
   );
 
@@ -105,7 +104,7 @@ describe('speeches endpoint aiTextAssessment', () => {
       createSpeech(createAssessment()),
     ]);
 
-    expect(speech).not.toHaveProperty('aiTextAssessment');
+    expect(speech).not.toHaveProperty('aiTextAssessmentLabel');
   });
 
   test('omits the field when assessment is not high-confidence non-human', async () => {
@@ -115,17 +114,19 @@ describe('speeches endpoint aiTextAssessment', () => {
       createSpeech(createAssessment({ highConfidenceNonHuman: false })),
     ]);
 
-    expect(speech).not.toHaveProperty('aiTextAssessment');
+    expect(speech).not.toHaveProperty('aiTextAssessmentLabel');
   });
 
   test('omits the field when transcript drifted since assessment', async () => {
     vi.mocked(isFeatureEnabled).mockReturnValue(true);
 
     const [speech] = await getSpeechesResponseData([
-      createSpeech(createAssessment({ transcriptSha256: sha256Hex('alt') })),
+      createSpeech(
+        createAssessment({ transcriptSha256: hashTranscript('alt') }),
+      ),
     ]);
 
-    expect(speech).not.toHaveProperty('aiTextAssessment');
+    expect(speech).not.toHaveProperty('aiTextAssessmentLabel');
   });
 
   test('omits the field when speech has no assessment', async () => {
@@ -133,6 +134,6 @@ describe('speeches endpoint aiTextAssessment', () => {
 
     const [speech] = await getSpeechesResponseData([createSpeech()]);
 
-    expect(speech).not.toHaveProperty('aiTextAssessment');
+    expect(speech).not.toHaveProperty('aiTextAssessmentLabel');
   });
 });

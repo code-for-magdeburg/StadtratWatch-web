@@ -1,7 +1,7 @@
+import { isAiTextAssessmentCurrent } from '@srw-astro/models/ai-text-assessment';
 import type { SessionSpeech } from '@srw-astro/models/session-speech';
 import { buildAiTextAssessment } from './ai-text-assessment-mapper.ts';
 import { countWords, type PangramClient } from './pangram-client.ts';
-import { sha256Hex } from './transcript-hash.ts';
 
 const USD_PER_100_WORDS = 0.05;
 
@@ -13,11 +13,11 @@ export type DetectAiTextPlan = {
   estimatedCostUsd: number;
 };
 
-export async function planDetectAiTextRun(
+export function planDetectAiTextRun(
   speeches: SessionSpeech[],
   starts: number[],
   skipExisting: boolean,
-): Promise<DetectAiTextPlan> {
+): DetectAiTextPlan {
   const toAssess: SessionSpeech[] = [];
   const skippedExisting: SessionSpeech[] = [];
   const notFoundStarts: number[] = [];
@@ -29,7 +29,7 @@ export async function planDetectAiTextRun(
       continue;
     }
 
-    if (skipExisting && (await isAlreadyAssessed(speech))) {
+    if (skipExisting && isAiTextAssessmentCurrent(speech)) {
       skippedExisting.push(speech);
       continue;
     }
@@ -41,15 +41,6 @@ export async function planDetectAiTextRun(
   const estimatedCostUsd = (totalWordCount / 100) * USD_PER_100_WORDS;
 
   return { toAssess, skippedExisting, notFoundStarts, totalWordCount, estimatedCostUsd };
-}
-
-async function isAlreadyAssessed(speech: SessionSpeech): Promise<boolean> {
-  const assessment = speech.aiTextAssessment;
-  if (!assessment) {
-    return false;
-  }
-
-  return assessment.transcriptSha256 === (await sha256Hex(speech.transcription ?? ''));
 }
 
 export type DetectAiTextRunResult = {
@@ -78,7 +69,7 @@ export async function executeDetectAiTextRun(
         continue;
       }
 
-      speech.aiTextAssessment = await buildAiTextAssessment(outcome.result, transcript, checkedAtProvider());
+      speech.aiTextAssessment = buildAiTextAssessment(outcome.result, transcript, checkedAtProvider());
       assessedCount++;
     } catch (error) {
       console.error(`Failed to assess speech by ${speech.speaker} at ${speech.start}:`, error);

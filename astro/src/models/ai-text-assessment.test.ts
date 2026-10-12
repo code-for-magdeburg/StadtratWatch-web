@@ -1,12 +1,11 @@
-import { createHash } from 'node:crypto';
 import { describe, expect, test } from 'vitest';
-import { shouldExposeAiTextAssessment } from './ai-text-assessment.ts';
+import {
+  hashTranscript,
+  isAiTextAssessmentCurrent,
+  shouldExposeAiTextAssessment,
+} from './ai-text-assessment.ts';
 import type { AiTextAssessment } from './ai-text-assessment.ts';
 import type { SessionSpeech } from './session-speech.ts';
-
-function sha256Hex(text: string): string {
-  return createHash('sha256').update(text, 'utf8').digest('hex');
-}
 
 function createAssessment(
   overrides: Partial<AiTextAssessment> = {},
@@ -23,7 +22,7 @@ function createAssessment(
     modelName: 'pangram-4',
     modelVersion: '4.0',
     checkedAt: '2026-10-11',
-    transcriptSha256: sha256Hex('Transkribierter Text'),
+    transcriptSha256: hashTranscript('Transkribierter Text'),
     ...overrides,
   };
 }
@@ -37,6 +36,37 @@ function createSpeech(overrides: Partial<SessionSpeech> = {}): SessionSpeech {
     ...overrides,
   };
 }
+
+describe('hashTranscript', () => {
+  test('returns the SHA-256 hex digest of the UTF-8 encoded transcript', () => {
+    expect(hashTranscript('Bürgerhaushalt für Magdeburg')).toBe(
+      'f76f603d6a53407656677b032b96c89dd61f04286e9a17b1314e517881c3a601',
+    );
+  });
+});
+
+describe('isAiTextAssessmentCurrent', () => {
+  test('returns false when no assessment is present', () => {
+    expect(isAiTextAssessmentCurrent(createSpeech())).toBe(false);
+  });
+
+  test('returns true when the transcript hash matches the current transcription', () => {
+    const speech = createSpeech({
+      aiTextAssessment: createAssessment({ highConfidenceNonHuman: false }),
+    });
+
+    expect(isAiTextAssessmentCurrent(speech)).toBe(true);
+  });
+
+  test('returns false when the transcript hash no longer matches the current transcription', () => {
+    const speech = createSpeech({
+      transcription: 'Korrigierter Transkriptionstext',
+      aiTextAssessment: createAssessment(),
+    });
+
+    expect(isAiTextAssessmentCurrent(speech)).toBe(false);
+  });
+});
 
 describe('shouldExposeAiTextAssessment', () => {
   test('returns false when no assessment is present', () => {

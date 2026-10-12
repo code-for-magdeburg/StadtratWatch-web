@@ -33,21 +33,28 @@ export type AiTextAssessment = {
   transcriptSha256: string;
 };
 
-function sha256Hex(text: string): string {
-  return createHash('sha256').update(text, 'utf8').digest('hex');
+export function hashTranscript(transcription: string): string {
+  return createHash('sha256').update(transcription, 'utf8').digest('hex');
 }
 
 export type AssessedSessionSpeech = SessionSpeech & {
   aiTextAssessment: AiTextAssessment;
 };
 
+export function isAiTextAssessmentCurrent(
+  speech: SessionSpeech,
+): speech is AssessedSessionSpeech {
+  return (
+    speech.aiTextAssessment?.transcriptSha256 ===
+    hashTranscript(speech.transcription ?? '')
+  );
+}
+
 export function shouldExposeAiTextAssessment(
   speech: SessionSpeech,
 ): speech is AssessedSessionSpeech {
-  const assessment = speech.aiTextAssessment;
-  if (!assessment || !assessment.highConfidenceNonHuman) {
-    return false;
-  }
-
-  return assessment.transcriptSha256 === sha256Hex(speech.transcription ?? '');
+  return (
+    isAiTextAssessmentCurrent(speech) &&
+    speech.aiTextAssessment.highConfidenceNonHuman
+  );
 }

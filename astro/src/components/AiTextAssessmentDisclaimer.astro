@@ -1,11 +1,9 @@
 ---
-import { isFeatureEnabled } from '@utils/feature-flags';
-
-const isAiTextAssessmentEnabled = isFeatureEnabled('ai-text-assessment');
+import { isAiTextAssessmentEnabled } from '@utils/ai-text-assessment-presentation';
 ---
 
 {
-  isAiTextAssessmentEnabled && (
+  isAiTextAssessmentEnabled() && (
     <p>
       Bei einigen Redebeiträgen zeigen wir zudem die Einschätzung eines
       KI-Textdetektors an, wenn dieser auf KI-generierten Text hindeutet. Mehr
