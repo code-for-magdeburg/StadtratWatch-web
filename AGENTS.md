@@ -219,7 +219,7 @@ Index is rebuilt with index-search script (see docs/guides/HOWTO.md). Frontend u
 - **Shared models**: Define canonical model changes in `astro/src/models/`
 - **Deno formatting**: Uses single quotes, 120 char line width (see deno.json)
 - **Astro formatting**: Uses Prettier with .prettierrc
-- **File naming**: Use kebab-case for directories, camelCase for TypeScript
+- **File naming**: Use kebab-case for directories and TypeScript files. Existing camelCase and PascalCase files keep their names
 - **Session IDs**: Always use ISO date format YYYY-MM-DD
 - **Code Style**:
   - **Always** write self-documenting code with clear, descriptive names
