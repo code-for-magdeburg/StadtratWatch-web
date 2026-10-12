@@ -1,0 +1,29 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 4px 8px;
+  font: inherit;
+  font-size: 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.item:hover {
+  background: #ddd;
+}
+
+.selected {
+  background: #cfe2ff;
+}
+
+.selected:hover {
+  background: #cfe2ff;
+}

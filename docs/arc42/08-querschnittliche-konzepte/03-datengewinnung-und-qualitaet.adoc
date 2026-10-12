@@ -13,7 +13,7 @@ Ein Teil der Daten entsteht nicht aus strukturierten Quellen, sondern wird autom
 | OCR (Tesseract) liest die Abstimmungstafeln aus dem Video, die Diarisierung segmentiert die Sprecher:innen (RTTM), Whisper transkribiert die Redebeiträge. Ergebnis ist ein _Rohbestand_ mit bekannter Fehlerquote.
 
 | *2 — Menschliche Prüfung & Korrektur*
-| Das separate Prüfwerkzeug `scan-check-ui` dient der manuellen Sichtung und Korrektur der erkannten Abstimmungsdaten sowie der Zuordnung der Sprecher:innen-Segmente zu Personen. Hier wird der Rohbestand gegen das Video abgeglichen.
+| Das separate Prüfwerkzeug `session-review` dient der manuellen Sichtung und Korrektur der erkannten Abstimmungsdaten sowie der Zuordnung der Sprecher:innen-Segmente zu Personen. Hier wird der Rohbestand gegen das Video abgeglichen.
 
 | *3 — Freigabe*
 | Erst nach der Prüfung wird die Sitzung über das `approved`-Kennzeichen als bestätigt markiert. Das Kennzeichen steuert die Darstellung des Prüfstatus; es ist kein Veröffentlichungs-Gate. Auch unbestätigte Sitzungen können öffentlich sichtbar sein, werden dann aber als vorläufig gekennzeichnet.
