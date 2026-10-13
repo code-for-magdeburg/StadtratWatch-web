@@ -10,7 +10,7 @@ StadtratWatch kommt ohne Datenbank aus. Der gesamte verarbeitete Bestand liegt a
 | Prinzip | Bedeutung
 
 | *Dateien statt Datenbank*
-| Der Bestand liegt als JSON im Verzeichnis `data/`, gegliedert nach Wahlperiode und Sitzungsdatum. Jede Änderung ist über die Git-Historie nachvollziehbar (Transparenz) und Builds sind reproduzierbar. Es ist keine Datenbank zu betreiben (geringe Betriebskosten).
+| Der Bestand liegt als JSON im Verzeichnis `data/`, gegliedert nach Wahlperiode und Sitzungsdatum. Jede Änderung ist über die Git-Historie nachvollziehbar (Transparenz) und Builds sind reproduzierbar. Es ist keine Datenbank zu betreiben (geringe Betriebskosten). Nicht versioniert werden die Sprecher:innen-Segmente (`session-speakers-*.json`): Sie sind ein Zwischenergebnis des Rede-Zweigs, das die Web-Anwendung nicht liest, und liegen nur in AWS S3 (»sessions-speakers-redacted«).
 
 | *Korrigierbarkeit freigegebener Sitzungsdaten*
 | Eine Sitzung gilt mit gesetztem `approved`-Kennzeichen als freigegeben. Auch danach werden erkannte Fehler jederzeit korrigiert; die Sitzung bleibt freigegeben. Eine Korrektur kommt nicht zusammen mit neuen Sitzungsdaten ins Repository, sondern in einem eigenen Pull Request, dessen Titel den Fehler benennt (z. B. `fix(data): Stimme von Ulf S. in Abstimmung 12 am 2026-05-14 korrigiert`). So bleibt jede Korrektur in der Git-Historie auffindbar; ein eigener Korrekturhinweis auf der Website ist nicht vorgesehen.

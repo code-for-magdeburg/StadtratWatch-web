@@ -70,7 +70,6 @@ data/
 │   └── YYYY-MM-DD/          # Per-session data
 │       ├── config-*.json
 │       ├── session-scan-*.json      # Voting results
-│       ├── session-speakers-*.json  # Speaker segments
 │       └── session-speeches-*.json  # Transcriptions
 ├── magdeburg-8/              # Parliament period 8 (2024-)
 ├── oparl-magdeburg/          # Raw OParl API data (populated via `fetch-oparl`, not committed)
@@ -78,6 +77,8 @@ data/
 ├── {period}/voting-paper-map.json  # OParl derivate per period
 └── papers/                   # Paper metadata in batched JSON files
 ```
+
+Speaker segments (`session-speakers-*.json`) are not part of `data/`; they are kept in S3 »sessions-speakers-redacted«.
 
 ### Key Models
 
@@ -204,7 +205,9 @@ Videos are hosted on YouTube. Processing extracts:
 2. **Speaker diarization** → RTTM files identify who speaks when
 3. **Speech transcription** → OpenAI Whisper API generates text
 
-Results are stored per session in JSON files (session-scan-*.json, session-speakers-*.json, session-speeches-*.json).
+Results are stored per session in JSON files (session-scan-*.json, session-speeches-*.json).
+
+Speaker segments (session-speakers-*.json) are an intermediate artifact of the speech branch. They live only in S3 »sessions-speakers-redacted« and are not committed to `data/`.
 
 ### Search Implementation
 
