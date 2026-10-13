@@ -16,16 +16,10 @@ import { SpeechEditor } from './SpeechEditor';
 
 const dataUrl = (date: string) =>
   `${env.awsCloudFrontSessionsSpeechesRedactedBaseFolder}/session-speeches-${date}.json`;
-const configUrl = (date: string) =>
-  `${env.awsCloudFrontSessionsConfigsBaseFolder}/config-${date}.json`;
 
 export function SpeechesRoute() {
   const { sessionDate } = useParams();
-  const { loading, error, data, config } = useSessionData<Speech[]>(
-    sessionDate,
-    dataUrl,
-    configUrl,
-  );
+  const { loading, error, data, config } = useSessionData<Speech[]>(sessionDate, dataUrl);
 
   const [state, dispatch] = useReducer(speechesReducer, initialSpeechesState);
 

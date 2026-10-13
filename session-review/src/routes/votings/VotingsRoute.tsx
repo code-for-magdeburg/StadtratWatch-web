@@ -13,16 +13,10 @@ import { VotingInfo } from './VotingInfo';
 
 const dataUrl = (date: string) =>
   `${env.awsCloudFrontSessionsScanResultsRedactedBaseFolder}/session-scan-${date}.json`;
-const configUrl = (date: string) =>
-  `${env.awsCloudFrontSessionsConfigsBaseFolder}/config-${date}.json`;
 
 export function VotingsRoute() {
   const { sessionDate } = useParams();
-  const { loading, error, data, config } = useSessionData<Voting[]>(
-    sessionDate,
-    dataUrl,
-    configUrl,
-  );
+  const { loading, error, data, config } = useSessionData<Voting[]>(sessionDate, dataUrl);
 
   const [state, dispatch] = useReducer(votingsReducer, initialVotingsState);
 

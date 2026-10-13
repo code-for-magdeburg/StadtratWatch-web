@@ -15,16 +15,10 @@ import { SpeakerEditor } from './SpeakerEditor';
 
 const dataUrl = (date: string) =>
   `${env.awsCloudFrontSessionsSpeakersRedactedBaseFolder}/session-speakers-${date}.json`;
-const configUrl = (date: string) =>
-  `${env.awsCloudFrontSessionsConfigsBaseFolder}/config-${date}.json`;
 
 export function SpeakersRoute() {
   const { sessionDate } = useParams();
-  const { loading, error, data, config } = useSessionData<Speaker[]>(
-    sessionDate,
-    dataUrl,
-    configUrl,
-  );
+  const { loading, error, data, config } = useSessionData<Speaker[]>(sessionDate, dataUrl);
 
   const [state, dispatch] = useReducer(speakersReducer, initialSpeakersState);
 
