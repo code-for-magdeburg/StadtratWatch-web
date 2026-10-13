@@ -61,7 +61,7 @@ Environment variables are configured in `astro.config.mjs` using Astro's env sch
 The application reads from the `../data/` directory:
 
 - `data/{period-id}/registry.json` - Parliament period metadata
-- `data/{period-id}/{session-date}/` - Session votings, speeches, speakers
+- `data/{period-id}/{session-date}/` - Session votings, speeches
 - `data/papers/` - Council papers and PDFs
 
 Run data processing scripts (see root docs/guides/HOWTO.md) before starting the web app.

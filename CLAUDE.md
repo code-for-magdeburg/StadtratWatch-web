@@ -78,8 +78,6 @@ data/
 └── papers/                   # Paper metadata in batched JSON files
 ```
 
-Speaker segments (`session-speakers-*.json`) are not part of `data/`; they are kept in S3 »sessions-speakers-redacted«.
-
 ### Key Models
 
 Models are **shared between Astro and Deno** via Deno workspaces. The canonical definitions live in `astro/src/models/` and are re-exported to Deno through the `@srw-astro/models` workspace package in `src/deps/astro/`:
@@ -207,7 +205,7 @@ Videos are hosted on YouTube. Processing extracts:
 
 Results are stored per session in JSON files (session-scan-*.json, session-speeches-*.json).
 
-Speaker segments (session-speakers-*.json) are an intermediate artifact of the speech branch. They live only in S3 »sessions-speakers-redacted« and are not committed to `data/`.
+Speaker segments (session-speakers-*.json) are an intermediate artifact of the speech pipeline (parse-speakers → session-review). They live only in S3 »sessions-speakers-redacted« and are not committed to `data/`.
 
 ### Search Implementation
 

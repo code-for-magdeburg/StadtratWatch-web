@@ -70,8 +70,8 @@ fork again
   note right
     Ausgabe: **session-speakers-*.json**
     (noch anonyme Sprecher:innen)
-    -> S3 »sessions-speakers«, Kopie nach
-    »sessions-speakers-redacted«
+    -> S3 »sessions-speakers«, manuell kopiert
+    nach »sessions-speakers-redacted«
     (nicht in der Datenablage)
   end note
   :**session-review** (manuell)\nSprecher:innen zuordnen,\nRede-Segmente definieren;
@@ -139,7 +139,7 @@ stop
 | *parse-speakers* (Deno)
 | RTTM-Datei
 | `session-speakers-*.json` (noch anonyme Sprecher:innen) in AWS S3
-  (»sessions-speakers«, Kopie nach »sessions-speakers-redacted«); nicht in der
+  (»sessions-speakers«, manuell kopiert nach »sessions-speakers-redacted«); nicht in der
   Datenablage `data/`
 
 | *session-review* (manuell)
