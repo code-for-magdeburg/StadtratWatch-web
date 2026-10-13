@@ -83,13 +83,17 @@ fork again
   note right
     Ausgabe: **session-speakers-{date}.json** (anonym)
     -> S3-Bucket »sessions-speakers«
+    manuell kopiert nach »sessions-speakers-redacted«
   end note
   |Maintainer:in (manuell)|
   :**session-review** (Prüfwerkzeug)
   Sprecher:innen zuordnen, Rede-Segmente definieren;
   note right
-    Ausgabe: **session-speeches-{date}.json** (ohne Transkript)
-    -> S3-Bucket »sessions-speakers-redacted«
+    Ausgabe: **session-speakers-{date}.json** (zugeordnet)
+    -> S3-Bucket »sessions-speakers-redacted« (überschreibt)
+    daraus: **session-speeches-{date}.json** (ohne Transkript)
+    -> S3-Bucket »sessions-speeches«
+    manuell kopiert nach »sessions-speeches-redacted«
   end note
   :Redebeiträge fachlich sichten
   (Vorsitz / Ortsbürgermeister:in / Kommission markieren,

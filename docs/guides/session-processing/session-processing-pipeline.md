@@ -113,8 +113,8 @@ Ergebnisse der jeweils benötigten Zweige voraus.
 |---|------|-----|----------|------------------|-----------------|
 | 7 | 🤖 | Skript | **`ffmpeg`** (Shell) | Videodatei | Einkanaliges Audio (`audio.wav`/`.mp3`), ggf. gesplittet → lokal |
 | 8 | 🤖 | Skript | **`speaker-diarization`** (Python, pyannote; HuggingFace-Token) | Audiodatei | **RTTM**-Datei (anonyme Sprecher-Segmente) → S3 »sessions-speakers« |
-| 9 | 🤖 | Skript | **`parse-speakers`** (Deno) | RTTM-Datei(en) | **`session-speakers-{date}.json`** (anonym) → S3 »sessions-speakers« |
-| 10 | ✋ | Maintainer:in | **`session-review`** | `session-speakers` + Audio | **`session-speeches-{date}.json`** (Segmente zugeordnet, ohne Transkript) → S3 »sessions-speakers-redacted« |
+| 9 | 🤖 | Skript | **`parse-speakers`** (Deno) | RTTM-Datei(en) | **`session-speakers-{date}.json`** (anonym) → S3 »sessions-speakers«, zusätzlich manuell nach »sessions-speakers-redacted« kopiert (Eingabe für `session-review`) |
+| 10 | ✋ | Maintainer:in | **`session-review`** | `session-speakers` (aus »sessions-speakers-redacted«) + Audio | **`session-speakers-{date}.json`** (Sprecher:innen zugeordnet) → S3 »sessions-speakers-redacted« (überschreibt die anonyme Datei); daraus erzeugt: **`session-speeches-{date}.json`** (ohne Transkript) → S3 »sessions-speeches«, zusätzlich manuell nach »sessions-speeches-redacted« kopiert (Eingabe für Schritt 11) |
 | 11 | ✋ | Maintainer:in | `session-review` / Editor | `session-speeches` (Segmente) | Fachlich gesichtete Reden (Vorsitz/Ortsbürgermeister:in/Kommission markiert, Rauschen entfernt) → S3 »sessions-speeches-redacted« |
 | 12 | 🤖 | Skript | **`extract-speeches`** (Shell, ffmpeg) | Audio + `session-speeches` | Eine **MP3 je Redebeitrag** → lokal `output/speeches/{date}/` |
 | 13 | 🤖 | Skript | **`speech-to-text`** (Deno, OpenAI Whisper) | `session-speeches` + MP3s | `session-speeches-{date}.json` **mit Transkript** → S3 »sessions-speeches-with-transcriptions« |

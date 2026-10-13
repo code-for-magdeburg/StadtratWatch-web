@@ -20,7 +20,7 @@ cloud "YouTube" as YT
 cloud "HuggingFace\n(pyannote)" as HF
 cloud "OpenAI\n(Whisper)" as OAI
 cloud "Pangram\n(KI-Textdetektor)" as PG
-component "session-review\n(Prüfwerkzeug)" as UI #E3F2FD
+component "session-review" as UI #E3F2FD
 
 package "Skripte - lokal, bedarfsweise" #FFFDE7 {
   component "scrape-oparl" as SCRAPE
@@ -75,8 +75,9 @@ ES --> STT
 
 ' --- Manuelle Prüfung ---
 M --> UI
-UI --> S3RAW : geprüfte Scans / Speeches
-UI --> GIT : session-scan / session-speeches
+S3RAW --> UI : rohe Scans, Sprecher,\nConfigs, Video/Audio
+UI ..> S3RAW : geprüfte Scans / Speakers / Speeches\n(Export, manueller Upload)
+UI ..> GIT : session-scan / session-speeches\n(Export, manueller Commit)
 
 ' --- Zusammenführung ---
 GIT --> GIA
@@ -84,8 +85,7 @@ GIA --> S3WEB : Abstimmungs-PNGs (--push)
 GIT --> GPV
 GPV --> S3WEB : paper-votings (--push)
 GIT --> IDX : session-speeches
-GIT --> DAT : session-speeches
-DAT --> GIT : aiTextAssessment\n(dieselbe Datei)
+GIT <--> DAT : session-speeches
 IDX --> TS
 
 ' --- Veröffentlichung ---
