@@ -209,8 +209,6 @@ Store the RTTM files and the parsed speaker files in folder `sessions-speakers` 
 
 Also store the parsed speaker files in folder `sessions-speakers-redacted` inside the `stadtrat-watch` bucket.
 
-S3 is the only store for speaker files. Do not commit `session-speakers-*.json` to `data/`.
-
 ## Identify speaker names
 
 Identify the speaker names using the parsed speaker files and the session video. This is a manual process that requires watching the video and listening to the audio.

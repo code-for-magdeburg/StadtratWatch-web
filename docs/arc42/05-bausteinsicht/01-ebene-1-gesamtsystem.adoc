@@ -90,7 +90,3 @@ data/
 ├── magdeburg-*/voting-paper-map.json  # committetes OParl-Derivat je Periode
 └── papers/                       # Drucksachen-Metadaten (JSON-Batches)
 ----
-
-Die Sprecher:innen-Segmente (`session-speakers-*.json`) gehören nicht zur
-Datenablage. Sie sind ein Zwischenergebnis des Rede-Zweigs und liegen nur in
-AWS S3 (»sessions-speakers-redacted«).

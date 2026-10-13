@@ -205,8 +205,6 @@ Videos are hosted on YouTube. Processing extracts:
 
 Results are stored per session in JSON files (session-scan-*.json, session-speeches-*.json).
 
-Speaker segments (session-speakers-*.json) are an intermediate artifact of the speech pipeline (parse-speakers → session-review). They live only in S3 »sessions-speakers-redacted« and are not committed to `data/`.
-
 ### Search Implementation
 
 Typesense collections:

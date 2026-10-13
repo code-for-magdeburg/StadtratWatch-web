@@ -18,8 +18,6 @@ Run the processing pipeline in this order. The script sections below document in
 ### Parse Speakers
 This tool parses multiple rttm files (from one session) and generates a single json file containing all speakers data.
 
-The resulting `session-speakers-{date}.json` belongs in S3 (`sessions-speakers`, copied to `sessions-speakers-redacted`). Do not commit it to `data/`.
-
 #### Using the deno script
 ```bash
 DATE=2025-09-25
