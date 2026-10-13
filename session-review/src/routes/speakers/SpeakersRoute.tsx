@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import type { Speaker } from '../../types';
 import { env } from '../../constants/env';
@@ -15,18 +15,10 @@ import { SpeakerEditor } from './SpeakerEditor';
 
 const dataUrl = (date: string) =>
   `${env.awsCloudFrontSessionsSpeakersRedactedBaseFolder}/session-speakers-${date}.json`;
-const configUrl = (date: string) =>
-  `${env.awsCloudFrontSessionsConfigsBaseFolder}/config-${date}.json`;
 
 export function SpeakersRoute() {
   const { sessionDate } = useParams();
-  const dataCb = useCallback(dataUrl, []);
-  const configCb = useCallback(configUrl, []);
-  const { loading, error, data, config } = useSessionData<Speaker[]>(
-    sessionDate,
-    dataCb,
-    configCb,
-  );
+  const { loading, error, data, config } = useSessionData<Speaker[]>(sessionDate, dataUrl);
 
   const [state, dispatch] = useReducer(speakersReducer, initialSpeakersState);
 

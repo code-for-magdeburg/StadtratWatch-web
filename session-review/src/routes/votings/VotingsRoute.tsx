@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import type { Voting } from '../../types';
 import { env } from '../../constants/env';
@@ -13,18 +13,10 @@ import { VotingInfo } from './VotingInfo';
 
 const dataUrl = (date: string) =>
   `${env.awsCloudFrontSessionsScanResultsRedactedBaseFolder}/session-scan-${date}.json`;
-const configUrl = (date: string) =>
-  `${env.awsCloudFrontSessionsConfigsBaseFolder}/config-${date}.json`;
 
 export function VotingsRoute() {
   const { sessionDate } = useParams();
-  const dataCb = useCallback(dataUrl, []);
-  const configCb = useCallback(configUrl, []);
-  const { loading, error, data, config } = useSessionData<Voting[]>(
-    sessionDate,
-    dataCb,
-    configCb,
-  );
+  const { loading, error, data, config } = useSessionData<Voting[]>(sessionDate, dataUrl);
 
   const [state, dispatch] = useReducer(votingsReducer, initialVotingsState);
 
