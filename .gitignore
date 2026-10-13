@@ -55,6 +55,10 @@ typesense/data
 # OParl raw data — fetched from S3/CloudFront at build time (see astro/scripts/fetch-oparl)
 /data/oparl-magdeburg/
 
+# Speaker segments — intermediate artifact of the speech branch (parse-speakers → session-review).
+# They live in S3 »sessions-speakers-redacted«; the web build never reads them. Not committed.
+/data/**/session-speakers-*.json
+
 # Paper batches — generated to output/ and published to web-assets/papers/ on CloudFront, from where
 # the web build fetches them at runtime (see src/scripts/generate-paper-assets --push). Not committed.
 /data/papers/
