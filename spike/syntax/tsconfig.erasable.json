@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "erasableSyntaxOnly": true,
+    "noEmit": true,
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowImportingTsExtensions": true,
+    "skipLibCheck": true,
+    "noResolve": true
+  },
+  "include": ["../../src/**/*.ts", "../../astro/src/models/**/*.ts"]
+}

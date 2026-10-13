@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "noEmit": true, "strict": true, "target": "ES2022", "types": [],
+    "module": "NodeNext", "moduleResolution": "NodeNext", "allowImportingTsExtensions": true, "skipLibCheck": true
+  },
+  "files": ["subpath-imports-erasable.ts"]
+}
