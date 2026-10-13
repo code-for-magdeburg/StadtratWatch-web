@@ -209,7 +209,7 @@ Store the RTTM files and the parsed speaker files in folder `sessions-speakers` 
 
 Also store the parsed speaker files in folder `sessions-speakers-redacted` inside the `stadtrat-watch` bucket.
 
-S3 is the only store for speaker files. Do not commit `session-speakers-*.json` to `data/` (Git ignores them).
+S3 is the only store for speaker files. Do not commit `session-speakers-*.json` to `data/`.
 
 ## Identify speaker names
 
