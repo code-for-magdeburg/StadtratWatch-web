@@ -70,9 +70,13 @@ fork again
   note right
     Ausgabe: **session-speakers-*.json**
     (noch anonyme Sprecher:innen)
+    -> S3 »sessions-speakers«, manuell kopiert
+    nach »sessions-speakers-redacted«
   end note
   :**session-review** (manuell)\nSprecher:innen zuordnen,\nRede-Segmente definieren;
   note right
+    liest/schreibt **session-speakers-*.json**
+    in S3 »sessions-speakers-redacted«
     Ausgabe: **session-speeches-*.json**
     (Segmente, ohne Transkription)
   end note

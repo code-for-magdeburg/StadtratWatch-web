@@ -61,23 +61,7 @@ deno check src/         # Type-check code
 
 ### Data Storage
 
-All processed data lives in `data/` directory with this structure:
-
-```text
-data/
-├── magdeburg-7/              # Parliament period 7 (2019-2024)
-│   ├── registry.json         # Persons, factions, parties, sessions list
-│   └── YYYY-MM-DD/          # Per-session data
-│       ├── config-*.json
-│       ├── session-scan-*.json      # Voting results
-│       ├── session-speakers-*.json  # Speaker segments
-│       └── session-speeches-*.json  # Transcriptions
-├── magdeburg-8/              # Parliament period 8 (2024-)
-├── oparl-magdeburg/          # Raw OParl API data (populated via `fetch-oparl`, not committed)
-├── paper-index.json          # OParl derivate: main papers
-├── {period}/voting-paper-map.json  # OParl derivate per period
-└── papers/                   # Paper metadata in batched JSON files
-```
+Processed data lives in `data/`: one directory per parliament period with its `registry.json` and one subdirectory per session (`YYYY-MM-DD`). The full layout, including what is committed and what lives in S3, is in `docs/arc42/05-bausteinsicht/01-ebene-1-gesamtsystem.adoc` (section "Aufbau der Datenablage").
 
 ### Key Models
 
@@ -204,7 +188,7 @@ Videos are hosted on YouTube. Processing extracts:
 2. **Speaker diarization** → RTTM files identify who speaks when
 3. **Speech transcription** → OpenAI Whisper API generates text
 
-Results are stored per session in JSON files (session-scan-*.json, session-speakers-*.json, session-speeches-*.json).
+Results are stored per session in JSON files (session-scan-*.json, session-speeches-*.json).
 
 ### Search Implementation
 
