@@ -8,6 +8,13 @@ interface FetchState<T> {
   config: SessionConfig | null;
 }
 
+interface SessionDataResult<T> {
+  sessionDate: string;
+  error: string | null;
+  data: T | null;
+  config: SessionConfig | null;
+}
+
 async function fetchJson<T>(url: string): Promise<T> {
   const res = await fetch(url);
   if (!res.ok) {
@@ -23,21 +30,12 @@ export function useSessionData<T>(
   dataUrl: (date: string) => string,
   configUrl: (date: string) => string,
 ): FetchState<T> {
-  const [state, setState] = useState<FetchState<T>>({
-    loading: true,
-    error: null,
-    data: null,
-    config: null,
-  });
+  const [result, setResult] = useState<SessionDataResult<T> | null>(null);
 
   useEffect(() => {
-    if (!sessionDate) {
-      setState({ loading: false, error: null, data: null, config: null });
-      return;
-    }
+    if (!sessionDate) return;
 
     let cancelled = false;
-    setState({ loading: true, error: null, data: null, config: null });
 
     Promise.all([
       fetchJson<T>(dataUrl(sessionDate)),
@@ -45,12 +43,12 @@ export function useSessionData<T>(
     ])
       .then(([data, config]) => {
         if (!cancelled) {
-          setState({ loading: false, error: null, data, config });
+          setResult({ sessionDate, error: null, data, config });
         }
       })
       .catch((err: Error) => {
         if (!cancelled) {
-          setState({ loading: false, error: err.message, data: null, config: null });
+          setResult({ sessionDate, error: err.message, data: null, config: null });
         }
       });
 
@@ -59,5 +57,11 @@ export function useSessionData<T>(
     };
   }, [sessionDate, dataUrl, configUrl]);
 
-  return state;
+  if (!sessionDate) {
+    return { loading: false, error: null, data: null, config: null };
+  }
+  if (result?.sessionDate !== sessionDate) {
+    return { loading: true, error: null, data: null, config: null };
+  }
+  return { loading: false, error: result.error, data: result.data, config: result.config };
 }

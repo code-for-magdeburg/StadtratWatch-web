@@ -55,7 +55,7 @@ export const speechesReducer = produce(
 export function speechesForSave(speeches: Speech[]): Speech[] {
   return speeches.map((speech) => {
     if (speech.isChairPerson === false) {
-      const { isChairPerson: _omit, ...rest } = speech;
+      const { isChairPerson, ...rest } = speech;
       return rest;
     }
     return speech;
