@@ -33,6 +33,10 @@ Die ADRs folgen einem schlanken https://adr.github.io/madr/[MADR]-Format. Die me
 | <<adr-0006,ADR-0006>>
 | Web-Assets dezentral je Generator publizieren
 | Akzeptiert
+
+| <<adr-0007,ADR-0007>>
+| Bun statt Deno für die Verarbeitungs-Pipeline
+| Vorgeschlagen
 |===
 
 include::adr-0001-json-datenbestand.adoc[leveloffset=+1]
@@ -46,3 +50,5 @@ include::adr-0004-geteilte-modelle.adoc[leveloffset=+1]
 include::adr-0005-externe-oparl-rohdaten.adoc[leveloffset=+1]
 
 include::adr-0006-web-assets-dezentral-publizieren.adoc[leveloffset=+1]
+
+include::adr-0007-bun-statt-deno.adoc[leveloffset=+1]
