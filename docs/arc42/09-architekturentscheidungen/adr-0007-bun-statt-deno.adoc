@@ -1,0 +1,47 @@
+[#adr-0007]
+= ADR-0007: Bun statt Deno für die Verarbeitungs-Pipeline
+
+*Status:* Vorgeschlagen (entschieden in https://github.com/JensWinter/StadtratWatch-web/issues/537[#537], Teil von https://github.com/JensWinter/StadtratWatch-web/issues/530[#530])
+
+== Kontext und Problem
+
+Die Skripte der Verarbeitungs-Pipeline unter `src/` laufen auf Deno: 12 Skripte, 25 Testdateien, 11 Dockerfiles auf Basis von `denoland/deno`, dazu `@std/*`-Module, `Deno.*`-APIs und die geteilten Modelle über den Deno-Workspace (<<adr-0004,ADR-0004>>).
+
+Deno wird nicht weiterentwickelt (https://deno.com/blog/cloudflare). Betroffen ist die Laufzeitumgebung selbst, nicht nur Deno Deploy: Es folgt noch etwa ein Jahr mit Fehler- und Sicherheitskorrekturen, danach nichts mehr — nach unserer Schätzung um Oktober 2027. Eine harte Frist gibt es bis dahin nicht; Deno läuft in Docker und CI weiter, beide Laufzeitumgebungen können während der Umstellung nebeneinander bestehen.
+
+Zu entscheiden war, auf welche Laufzeitumgebung die Pipeline wechselt. `astro/` läuft bereits stabil auf Node/npm und ist nicht betroffen.
+
+== Betrachtete Optionen
+
+* *Node mit nativem Type-Stripping* — kein Zusatzwerkzeug, Node verweigert aber TypeScript-Syntax, die beim Ausführen erzeugt werden muss. Betroffen sind 3 Enums (2 davon im geteilten `Session.ts`, das auch `astro/` nutzt) und 71 Parameter-Properties in 45 Dateien, die vorher umgeschrieben werden müssten.
+* *Node mit `tsx`* — führt den Code unverändert aus und bietet einen festen LTS-Zeitplan, braucht aber einen zusätzlichen Loader und ein separates Test-Framework.
+* *Bun* (gewählt) — führt den Code unverändert aus und bringt Laufzeitumgebung, Paketverwaltung und Test-Runner in einem Werkzeug mit. Kein LTS-Zeitplan, kein Berechtigungsmodell.
+
+Ein Spike (https://github.com/JensWinter/StadtratWatch-web/issues/542[#542]) hat die riskanten Teile auf allen drei Laufzeitumgebungen geprüft: Die OCR mit tesseract.js liefert überall byte-identische Ergebnisse, ist auf Bun aber am schnellsten (~300 ms je Bild gegenüber ~600 ms auf Deno). S3-Uploads und -Downloads verhalten sich gleich. Die Mechanismen zum Teilen der Modelle funktionieren überall. Die Canvas-Bibliothek `@gfx/canvas` läuft weder auf Bun noch auf Node und muss in jedem Fall ersetzt werden (https://github.com/JensWinter/StadtratWatch-web/issues/536[#536]); die Wahl der Laufzeitumgebung hängt davon nicht ab.
+
+== Entscheidung
+
+Die Skripte unter `src/` laufen künftig auf *Bun*.
+
+* *Feste Version.* Weil Bun keinen LTS-Zeitplan hat, wird in Docker-Images und CI eine exakte Bun-Version festgelegt (z. B. `oven/bun:1.4.2`, keine Tags wie `1` oder `latest`). Updates erfolgen bewusst.
+* *Paketverwaltung.* Abhängigkeiten von `src/` werden mit `bun install` verwaltet (`bun.lock`). `astro/` bleibt bei npm und Node.
+* *Bun-eigene APIs bevorzugt.* Beim Ersetzen von `@std/*` und `Deno.*` werden Bun-eigene APIs bevorzugt (`Bun.file`, `Bun.write`, `Bun.env`, `Bun.argv`, `Bun.CryptoHasher` usw.). `node:`-Module kommen nur dort zum Einsatz, wo Bun kein Gegenstück hat (etwa `node:path`, Verzeichnisoperationen aus `node:fs`, `util.parseArgs`).
+* *Keine Portabilität zu Node.* Der Code muss nicht unter Node lauffähig bleiben. Enums und Parameter-Properties bleiben erhalten.
+
+Wie die Modelle künftig geteilt werden, welches Test-Framework zum Einsatz kommt und in welcher Reihenfolge umgestellt wird, wird gesondert entschieden (siehe https://github.com/JensWinter/StadtratWatch-web/issues/530[#530]). Ändert sich der Mechanismus zum Teilen der Modelle, wird <<adr-0004,ADR-0004>> entsprechend fortgeschrieben.
+
+== Konsequenzen
+
+*Positiv*
+
+* Der bestehende TypeScript-Code läuft ohne Umschreiben; auch das geteilte `Session.ts` bleibt unverändert.
+* Ein Werkzeug für Ausführung, Paketverwaltung und Tests statt mehrerer.
+* Die OCR in `scan-voting-images` läuft etwa doppelt so schnell wie auf Deno.
+
+*Negativ*
+
+* Kein LTS-Zeitplan. Ausgeglichen durch feste Versionen und bewusste Updates.
+* Deno-Berechtigungen (`-R=`, `-W=`, `-E=` in den Dockerfiles) entfallen ersatzlos, da Bun kein Berechtigungsmodell hat. Akzeptiert, weil die Container die Skripte ohnehin voneinander isolieren.
+* Durch Bun-eigene APIs ist ein späterer Wechsel zu Node aufwendiger. Bewusst in Kauf genommen.
+* Pipeline (Bun) und Web-Anwendung (Node/npm) nutzen unterschiedliche Laufzeitumgebungen und Paketverwaltungen.
+* Die Umstellung erfordert Anpassungen an Dockerfiles, CI, `docs/guides/HOWTO.md`, `AGENTS.md`, `README` sowie den arc42-Kapiteln 1, 3 bis 8 und 12.
