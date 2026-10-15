@@ -1,0 +1,17 @@
+{
+  "name": "canvas-parity-spike",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@napi-rs/canvas": "1.0.11",
+    "canvas": "3.2.3",
+    "canvas-rc": "npm:canvas@4.0.0-rc3",
+    "fast-png": "^8.0.0",
+    "pngjs": "^7.0.0",
+    "skia-canvas": "4.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "@types/bun": "latest"
+  }
+}

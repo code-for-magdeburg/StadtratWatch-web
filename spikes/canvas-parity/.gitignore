@@ -1,0 +1,13 @@
+# Regenerable or already public (see README); only the Linux renders, diffs, sheets and summaries are committed.
+node_modules
+out/fonts
+out/*.bin
+out/published
+out/*-macos
+out/*-registered
+out/*-nofonts
+out/diff/*-macos
+out/diff/*-registered
+out/votes-*.json
+out/wrap-all-*.json
+out/scan-*.json

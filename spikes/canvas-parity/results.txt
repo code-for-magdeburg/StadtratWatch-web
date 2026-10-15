@@ -1,0 +1,52 @@
+# Wrapping over all 3915 subjects (magdeburg-7 + magdeburg-8), compared to @gfx/canvas on the same platform
+napi-macos                    wrapping changed: 1 / 3915
+node-macos                    wrapping changed: 1 / 3915
+skia-macos                    wrapping changed: 0 / 3915
+napi-linux-nofonts            wrapping changed: 205 / 3915
+napi-linux-registered         wrapping changed: 1 / 3915
+napi-linux                    wrapping changed: 1 / 3915
+node-linux-nofonts            wrapping changed: 205 / 3915
+node-linux-registered         wrapping changed: 1 / 3915
+node-linux                    wrapping changed: 1 / 3915
+node-rc-linux-nofonts         wrapping changed: 200 / 3915
+node-rc-linux-registered      wrapping changed: 0 / 3915
+node-rc-linux                 wrapping changed: 0 / 3915
+skia-linux-nofonts            wrapping changed: 204 / 3915
+skia-linux-registered         wrapping changed: 0 / 3915
+skia-linux                    wrapping changed: 0 / 3915
+
+# Recognised votes, compared to @gfx/canvas (macOS: 652 screenshots / 37164 votes; linux-subset: 2 sessions / 6156 votes)
+fast-png-macos             0 / 37164 {}
+napi-linux-subset          268 / 6156 {"E->N":268}
+napi-macos                 1407 / 37164 {"E->N":1407}
+napi-p3-linux-subset       0 / 6156 {}
+napi-p3-macos              0 / 37164 {}
+node-linux-subset          0 / 6156 {}
+node-macos                 0 / 37164 {}
+node-rc-linux-subset       0 / 6156 {}
+pngjs-linux-subset         0 / 6156 {}
+pngjs-macos                0 / 37164 {}
+skia-linux-subset          268 / 6156 {"E->N":268}
+skia-macos                 1412 / 37164 {"E->N":1412}
+skia-p3-linux-subset       0 / 6156 {}
+skia-p3-macos              0 / 37164 {}
+
+# Full RGBA decode of 652 screenshots (sync load), compared to @gfx/canvas (macOS)
+napi                       identical: 0 / 652
+skia                       identical: 0 / 652
+node                       identical: 652 / 652
+node-rc                    crashes Bun 1.4.2 on macOS at import (segfault in dlopen)
+
+# Pixel diffs of the 20 sample votings (2% fuzz; percent of 756000 pixels; the newline subject 2025-02-13-001 is reported separately)
+gfx-linux vs published                    mean 0.22%  max 0.31%  newline subject 0.28%
+napi-linux vs gfx-linux                   mean 0.00%  max 0.00%  newline subject 1.45%
+skia-linux vs gfx-linux                   mean 0.27%  max 0.37%  newline subject 1.06%
+node-linux vs gfx-linux                   mean 0.16%  max 0.22%  newline subject 1.43%
+node-rc-linux vs gfx-linux                mean 0.20%  max 0.27%  newline subject 0.96%
+napi-macos vs published                   mean 0.22%  max 0.31%  newline subject 1.65%
+skia-macos vs published                   mean 0.26%  max 0.37%  newline subject 1.06%
+node-macos vs published                   mean 0.32%  max 0.44%  newline subject 1.57%
+napi-linux-registered vs napi-linux       mean 0.00%  max 0.00%  newline subject 0.00%
+skia-linux-registered vs skia-linux       mean 0.00%  max 0.00%  newline subject 0.00%
+node-linux-registered vs node-linux       mean 0.00%  max 0.00%  newline subject 0.00%
+node-rc-linux-registered vs node-rc-linux mean 0.00%  max 0.00%  newline subject 0.00%
