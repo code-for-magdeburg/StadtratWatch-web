@@ -93,7 +93,7 @@ fork again
     Ergebnis finalisiert als
     **session-speeches-*.json**
   end note
-  :**detect-ai-text** (Deno, Pangram, optional)\nKI-Einschätzung ausgewählter\nRedebeiträge einholen;
+  :**detect-ai-text** (Bun, Pangram, optional)\nKI-Einschätzung ausgewählter\nRedebeiträge einholen;
   note right
     ergänzt **session-speeches-*.json**
   end note
@@ -156,7 +156,7 @@ stop
 | `session-speeches-with-transcriptions-*.json`
 | Geprüfte/korrigierte Transkription, finalisiert als `session-speeches-*.json`
 
-| *detect-ai-text* (Deno, Pangram; optional)
+| *detect-ai-text* (Bun, Pangram; optional)
 | `session-speeches-*.json` + Startzeiten der ausgewählten Redebeiträge
 | `session-speeches-*.json`, ausgewählte Redebeiträge erhalten Daten zur KI-Einschätzung
 |===

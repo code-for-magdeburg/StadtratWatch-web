@@ -3,10 +3,10 @@ export type DetectAiTextEnv = {
 };
 
 export function tryGetDetectAiTextEnv(): DetectAiTextEnv {
-  const pangramApiKey = Deno.env.get('PANGRAM_API_KEY');
+  const pangramApiKey = Bun.env.PANGRAM_API_KEY;
   if (!pangramApiKey) {
     console.error('Environment variable PANGRAM_API_KEY must be set.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   return { pangramApiKey };

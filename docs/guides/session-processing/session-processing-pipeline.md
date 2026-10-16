@@ -120,7 +120,7 @@ Ergebnisse der jeweils benötigten Zweige voraus.
 | 13 | 🤖 | Skript | **`speech-to-text`** (Deno, OpenAI Whisper) | `session-speeches` + MP3s | `session-speeches-{date}.json` **mit Transkript** → S3 »sessions-speeches-with-transcriptions« |
 | 14a | ✋ | Maintainer:in | Editor | transkribierte `session-speeches` | Korrigierte Transkription → S3 »sessions-speeches-with-transcriptions« **und** Git (`data/{periode}/{date}/session-speeches-{date}.json`) |
 | 14b | ✋ | Maintainer:in | - (redaktionelle Auswahl) | korrigierte `session-speeches-{date}.json` | Startzeiten der Redebeiträge, die eine KI-Einschätzung erhalten sollen |
-| 14c | 🤖 | Skript | **`detect-ai-text`** (Deno, Pangram) | korrigierte `session-speeches-{date}.json` + Startzeiten der Redebeiträge | `session-speeches-{date}.json`, um das Feld `aiTextAssessment` der ausgewählten Redebeiträge ergänzt → Git |
+| 14c | 🤖 | Skript | **`detect-ai-text`** (Bun, Pangram) | korrigierte `session-speeches-{date}.json` + Startzeiten der Redebeiträge | `session-speeches-{date}.json`, um das Feld `aiTextAssessment` der ausgewählten Redebeiträge ergänzt → Git |
 
 ### Phase C — OParl-/Drucksachen-Zweig (unabhängig)
 

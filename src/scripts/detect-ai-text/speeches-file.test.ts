@@ -1,5 +1,4 @@
-import { assertEquals } from '@std/assert';
-import { describe, it } from '@std/testing/bdd';
+import { describe, expect, it } from 'bun:test';
 import { serializeSpeeches } from './speeches-file.ts';
 
 describe('serializeSpeeches', () => {
@@ -14,6 +13,6 @@ describe('serializeSpeeches', () => {
 ]
 `;
 
-    assertEquals(serializeSpeeches(JSON.parse(fileContent)), fileContent);
+    expect(serializeSpeeches(JSON.parse(fileContent))).toEqual(fileContent);
   });
 });

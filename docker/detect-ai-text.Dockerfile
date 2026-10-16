@@ -1,20 +1,15 @@
-FROM denoland/deno:2.3.3
+FROM oven/bun:1.4.3-debian
 
 WORKDIR /app
 
-COPY deno.json /app
-COPY deno.lock /app
+COPY package.json bun.lock bunfig.toml /app/
+COPY src/deps/astro/package.json /app/src/deps/astro/package.json
+
+RUN bun install --frozen-lockfile --production
+
 COPY src /app/src
+COPY astro/src/models /app/astro/src/models
 
-RUN deno install --entrypoint src/scripts/detect-ai-text/index.ts
+USER bun
 
-RUN deno cache src/scripts/detect-ai-text/index.ts
-
-ENTRYPOINT ["deno", "run", \
-              "-R=/app/session-speeches.json", \
-              "-W=/app/session-speeches.json", \
-              "-E=PANGRAM_API_KEY", \
-              "--allow-net", \
-              "src/scripts/detect-ai-text/index.ts", \
-              "-f=/app/session-speeches.json", \
-              "-t"]
+ENTRYPOINT ["bun", "src/scripts/detect-ai-text/index.ts", "-f", "/app/session-speeches.json", "-t"]
