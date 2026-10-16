@@ -1,7 +1,6 @@
-import { ScanConfig, ScanConfigLayout, ScanConfigPerson } from './scan-config.ts';
-import { IVotingImagesSource } from './voting-images-source.ts';
-import { SessionScanVote } from '@srw-astro/models/session-scan';
-import { CanvasRenderingContext2D } from '@gfx/canvas';
+import type { ScanConfig, ScanConfigLayout, ScanConfigPerson } from './scan-config.ts';
+import type { IVotingImagesSource, PixelMatrix } from './voting-images-source.ts';
+import type { SessionScanVote } from '@srw-astro/models/session-scan';
 import { VoteResult } from '@srw-astro/models/session';
 
 type CategorizedColor = 'red' | 'green' | 'yellow' | 'white' | 'unknown';
@@ -16,17 +15,17 @@ export class VotesRecognizer implements IVotesRecognizer {
   }
 
   public getVotesForNames(votingFilepath: string, config: ScanConfig): SessionScanVote[] {
-    const ctx = this.imagesSource.loadVotingImage(votingFilepath);
-    return config.names.map((name) => this.getVoteForName(ctx, name, config.layout));
+    const image = this.imagesSource.loadVotingImage(votingFilepath);
+    return config.names.map((name) => this.getVoteForName(image, name, config.layout));
   }
 
   private getVoteForName(
-    ctx: CanvasRenderingContext2D,
+    image: PixelMatrix,
     name: ScanConfigPerson,
     layout: ScanConfigLayout,
   ): SessionScanVote {
     const position = this.getTestPositionForName(name, layout);
-    const color = this.getColorAtPosition(ctx, position.x, position.y);
+    const color = this.getColorAtPosition(image, position.x, position.y);
     const categorizedColor = this.categorizeColor(color);
     const vote = this.categoryToVote(categorizedColor);
 
@@ -41,22 +40,18 @@ export class VotesRecognizer implements IVotesRecognizer {
     };
   }
 
-  private getColorAtPosition(ctx: CanvasRenderingContext2D, sx: number, sy: number): number[] {
-    const pixelMatrix = ctx.getImageData(sx - 1, sy - 1, 3, 3).data;
-    const r = Math.round(
-      (pixelMatrix[0] + pixelMatrix[4] + pixelMatrix[8] + pixelMatrix[12] + pixelMatrix[16] + pixelMatrix[20] +
-        pixelMatrix[24] + pixelMatrix[28] + pixelMatrix[32]) / 9,
-    );
-    const g = Math.round(
-      (pixelMatrix[1] + pixelMatrix[5] + pixelMatrix[9] + pixelMatrix[13] + pixelMatrix[17] + pixelMatrix[21] +
-        pixelMatrix[25] + pixelMatrix[29] + pixelMatrix[33]) / 9,
-    );
-    const b = Math.round(
-      (pixelMatrix[2] + pixelMatrix[6] + pixelMatrix[10] + pixelMatrix[14] + pixelMatrix[18] + pixelMatrix[22] +
-        pixelMatrix[26] + pixelMatrix[30] + pixelMatrix[34]) / 9,
-    );
+  private getColorAtPosition(image: PixelMatrix, centerX: number, centerY: number): number[] {
+    const channelSums = [0, 0, 0];
+    for (let y = centerY - 1; y <= centerY + 1; y++) {
+      for (let x = centerX - 1; x <= centerX + 1; x++) {
+        const pixelOffset = (y * image.width + x) * image.channels;
+        for (let channel = 0; channel < 3; channel++) {
+          channelSums[channel] += image.data[pixelOffset + channel];
+        }
+      }
+    }
 
-    return [r, g, b];
+    return channelSums.map((sum) => Math.round(sum / 9));
   }
 
   private categorizeColor(color: number[]): CategorizedColor {

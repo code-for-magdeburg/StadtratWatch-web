@@ -254,33 +254,8 @@ Store the images in a subfolder of `sessions-raw` folder inside the `stadtrat-wa
 
 ### Scan voting images
 
-Process the voting images using the `scan-voting-images` script. Store the resulting file 
-
-#### Using the deno script
-
-```bash
-PARLIAMENT_PERIOD=magdeburg-8
-DATE=2025-12-04
-deno run \
-  -A \
-  src/scripts/scan-voting-images/index.ts \
-  -c data/$PARLIAMENT_PERIOD/$DATE/config-$DATE.json \
-  -i sessions-media-files/$DATE \
-  -o output/sessions-scan-results/$DATE \
-  -s $DATE
-```
-
-#### Using docker
-
-```bash
-docker run \
-  --rm \
-  -v $(pwd)/data/magdeburg-8/2025-12-04/config-2025-12-04.json:/app/scan-config.json:ro \
-  -v $(pwd)/sessions-media-files/2025-12-04:/app/voting-images:ro \
-  -v $(pwd)/output/sessions-scan-results/2025-12-04:/app/output \
-  srw-scan-voting-images \
-  2025-12-04
-```
+Process the voting images using the `scan-voting-images` script.
+See [scan-voting-images](../../src/scripts/scan-voting-images/README.md) for usage.
 
 ### Store scan results in S3 bucket
 

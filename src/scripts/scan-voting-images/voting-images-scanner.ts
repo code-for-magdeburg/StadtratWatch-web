@@ -1,9 +1,9 @@
-import { ScanConfig } from './scan-config.ts';
-import { IVotingImagesSource } from './voting-images-source.ts';
-import { SessionScan } from '@srw-astro/models/session-scan';
-import { ISessionScanStore } from './session-scan-store.ts';
-import { ITextRecognizer } from './text-recognizer.ts';
-import { IVotesRecognizer } from './votes-recognizer.ts';
+import type { ScanConfig } from './scan-config.ts';
+import type { IVotingImagesSource } from './voting-images-source.ts';
+import type { SessionScan } from '@srw-astro/models/session-scan';
+import type { ISessionScanStore } from './session-scan-store.ts';
+import type { ITextRecognizer } from './text-recognizer.ts';
+import type { IVotesRecognizer } from './votes-recognizer.ts';
 
 export class VotingImagesScanner {
   constructor(
@@ -38,6 +38,6 @@ export class VotingImagesScanner {
 
     summary.sort((a, b) => a.videoTimestamp.localeCompare(b.videoTimestamp));
 
-    this.sessionScanStore.writeSessionScan(session, summary);
+    await this.sessionScanStore.writeSessionScan(session, summary);
   }
 }

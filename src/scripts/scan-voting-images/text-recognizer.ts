@@ -1,6 +1,6 @@
-import { ScanConfigLayout } from './scan-config.ts';
-import { SessionScanVotingSubject } from '@srw-astro/models/session-scan';
-import { Worker } from 'npm:tesseract.js@^6.0.1';
+import type { ScanConfigLayout } from './scan-config.ts';
+import type { SessionScanVotingSubject } from '@srw-astro/models/session-scan';
+import type { Worker } from 'tesseract.js';
 
 export interface ITextRecognizer {
   getVideoTimestamp(filepath: string, layout: ScanConfigLayout): Promise<string>;

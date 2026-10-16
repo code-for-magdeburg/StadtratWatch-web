@@ -10,5 +10,11 @@
     "skipLibCheck": true,
     "types": ["bun"]
   },
-  "include": ["src/deps/astro", "src/scripts/detect-ai-text", "src/scripts/parse-speakers", "src/scripts/speech-to-text"]
+  "include": [
+    "src/deps/astro",
+    "src/scripts/detect-ai-text",
+    "src/scripts/parse-speakers",
+    "src/scripts/scan-voting-images",
+    "src/scripts/speech-to-text"
+  ]
 }
