@@ -1,12 +1,12 @@
 import { tryGetSpeechToTextEnv } from './env.ts';
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
-import { SpeechToText, SpeechTranscriberConfig } from './speech-to-text.ts';
+import { SpeechToText, type SpeechTranscriberConfig } from './speech-to-text.ts';
 
-const args = parseArgs(Deno.args);
+const args = parseArgs(Bun.argv.slice(2));
 
 if (args.help) {
   printHelpText();
-  Deno.exit(0);
+  process.exit(0);
 }
 
 checkArgs(args);

@@ -82,7 +82,7 @@ fork again
   end note
   :**extract-speeches** (Shell, ffmpeg)\nAudio je Rede zuschneiden;
   note right: Ausgabe: einzelne MP3 je Redebeitrag
-  :**speech-to-text** (Deno, OpenAI Whisper)\nRedebeiträge transkribieren;
+  :**speech-to-text** (Bun, OpenAI Whisper)\nRedebeiträge transkribieren;
   note right
     liest session-speeches + MP3s
     Ausgabe: **session-speeches-with-**
@@ -148,7 +148,7 @@ stop
 | Audiodatei + `session-speeches-*.json`
 | Eine MP3-Datei je Redebeitrag
 
-| *speech-to-text* (Deno, OpenAI Whisper)
+| *speech-to-text* (Bun, OpenAI Whisper)
 | `session-speeches-*.json` + einzelne MP3-Dateien
 | `session-speeches-with-transcriptions-*.json`
 

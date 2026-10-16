@@ -1,6 +1,5 @@
-import * as fs from '@std/fs';
-import * as path from '@std/path';
-import { OpenAI } from 'npm:openai@^5.6.0';
+import * as path from 'node:path';
+import { OpenAI } from 'openai';
 
 export type SpeechTranscriberConfig = {
   openaiOrganizationId: string;
@@ -24,9 +23,10 @@ export class SpeechToText {
       `session-speeches-with-transcriptions-${session}.json`,
     );
     const sessionSpeechesFileName = path.join(outputDir, `session-speeches-${session}.json`);
-    const sessionSpeeches = fs.existsSync(sessionSpeechesWithTranscriptionsFilename)
-      ? JSON.parse(Deno.readTextFileSync(sessionSpeechesWithTranscriptionsFilename))
-      : JSON.parse(Deno.readTextFileSync(sessionSpeechesFileName));
+    const sessionSpeechesWithTranscriptionsFile = Bun.file(sessionSpeechesWithTranscriptionsFilename);
+    const sessionSpeeches = await sessionSpeechesWithTranscriptionsFile.exists()
+      ? await sessionSpeechesWithTranscriptionsFile.json()
+      : await Bun.file(sessionSpeechesFileName).json();
     for (const speech of sessionSpeeches) {
       const { start, speaker, isChairPerson, transcription } = speech;
 
@@ -44,7 +44,7 @@ export class SpeechToText {
       const speakerName = speaker.replaceAll(' ', '_');
       const speechAudioFilename = path.join(speechesDir, `${startPadded}-${speakerName}.mp3`);
 
-      if (fs.existsSync(speechAudioFilename)) {
+      if (await Bun.file(speechAudioFilename).exists()) {
         console.log(`Transcribing ${speechAudioFilename}...`);
 
         try {
@@ -74,14 +74,11 @@ export class SpeechToText {
       }
     }
 
-    Deno.writeTextFileSync(
-      sessionSpeechesWithTranscriptionsFilename,
-      JSON.stringify(sessionSpeeches, null, 2),
-    );
+    await Bun.write(sessionSpeechesWithTranscriptionsFilename, JSON.stringify(sessionSpeeches, null, 2));
   }
 
   private async transcribe(openai: OpenAI, speechFilename: string): Promise<string> {
-    const fileBuffer = await Deno.readFile(speechFilename);
+    const fileBuffer = await Bun.file(speechFilename).bytes();
     const file = new File([fileBuffer], speechFilename, { type: 'audio/mpeg' });
     const transcription = await openai.audio.transcriptions.create({
       file,
