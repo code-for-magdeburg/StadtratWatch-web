@@ -3,7 +3,7 @@
 # Runs the CI checks for the parts of the repo that have staged changes.
 # Output of a check is only printed when it fails, so passing commits stay short.
 
-STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+STAGED_FILES=$(git diff --cached --name-only --no-renames)
 
 run_check() {
   local label="$1"
