@@ -3,11 +3,11 @@ import { ParsedFilesStore } from './parsed-files-store.ts';
 import { RttmFilesStore } from './rttm-files-store.ts';
 import { RttmFilesParser } from './rttm-files-parser.ts';
 
-const args = parseArgs(Deno.args);
+const args = parseArgs(Bun.argv.slice(2));
 
 if (args.help) {
   printHelpText();
-  Deno.exit(0);
+  process.exit(0);
 }
 
 checkArgs(args);
@@ -15,5 +15,5 @@ checkArgs(args);
 const rttmFilesStore = new RttmFilesStore(args.inputDir);
 const parsedFileStore = new ParsedFilesStore(args.outputDir);
 const rttmFileParser = new RttmFilesParser(rttmFilesStore, parsedFileStore);
-rttmFileParser.process(args.session);
+await rttmFileParser.process(args.session);
 console.log('Done.');

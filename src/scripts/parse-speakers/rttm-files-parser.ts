@@ -1,25 +1,23 @@
-import { parse, ParseOptions } from '@std/csv';
-import { IParsedFilesStore } from './parsed-files-store.ts';
-import { IRttmFilesStore } from './rttm-files-store.ts';
-import { Segment, SpeakerSegment, SpeakerWithSegments } from './types.ts';
+import type { IParsedFilesStore } from './parsed-files-store.ts';
+import type { IRttmFilesStore } from './rttm-files-store.ts';
+import type { Segment, SpeakerSegment, SpeakerWithSegments } from './types.ts';
 
 export class RttmFilesParser {
   constructor(private readonly rttmFilesStore: IRttmFilesStore, private readonly parsedFilesStore: IParsedFilesStore) {
   }
 
-  public process(session: string) {
-    const rttmFiles = this.rttmFilesStore.getRttmFiles();
-    const speakers = rttmFiles.flatMap((rttmFile) => this.processRttmFile(rttmFile));
-    this.parsedFilesStore.writeSpeakerFile(session, speakers);
+  public async process(session: string) {
+    const rttmFiles = await this.rttmFilesStore.getRttmFiles();
+    const speakersPerFile = await Promise.all(rttmFiles.map((rttmFile) => this.processRttmFile(rttmFile)));
+    await this.parsedFilesStore.writeSpeakerFile(session, speakersPerFile.flat());
   }
 
-  private processRttmFile(rttmFile: string): SpeakerWithSegments[] {
-    const rttmFileContent = this.rttmFilesStore.getRttmFileContent(rttmFile);
-    const parseOptions: ParseOptions = { separator: ' ' };
-    const parsed = parse(rttmFileContent, parseOptions) as string[][];
+  private async processRttmFile(rttmFile: string): Promise<SpeakerWithSegments[]> {
+    const rttmFileContent = await this.rttmFilesStore.getRttmFileContent(rttmFile);
+    const rttmLines = parseRttmLines(rttmFileContent);
 
     const part = rttmFile.replace('.rttm', '').split('-').pop()!;
-    const speakerSegments = parsed
+    const speakerSegments = rttmLines
       .filter((line) => !!line[7])
       .filter((line) => Number.parseFloat(line[4]) > 1)
       .map<SpeakerSegment>((line) => {
@@ -44,4 +42,11 @@ export class RttmFilesParser {
       .keys(bySpeaker)
       .map((speaker) => ({ speaker, segments: bySpeaker[speaker] }));
   }
+}
+
+function parseRttmLines(rttmFileContent: string): string[][] {
+  return rttmFileContent
+    .split(/\r?\n/)
+    .filter((line) => line.trim() !== '')
+    .map((line) => line.trim().split(/\s+/));
 }

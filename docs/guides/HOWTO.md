@@ -6,7 +6,7 @@ Run the processing pipeline in this order. The script sections below document in
 2. `generate-paper-assets` - convert scraped OParl data into the internal paper assets.
    `generate-oparl-derivatives` - precompile the committed OParl derivates (`voting-paper-map.json`, `paper-index.json`) the Astro build consumes.
 3. Video processing steps:
-   1. `parse-speakers` - combine speaker diarization data for the session.
+   1. [`parse-speakers`](../../src/scripts/parse-speakers/README.md) - combine speaker diarization data for the session.
    2. `scan-voting-images` - extract voting results from session screenshots.
    3. `speech-to-text` - generate speech transcriptions.
    4. `detect-ai-text` - optional, manual step: after transcripts are corrected and before committing
@@ -14,38 +14,6 @@ Run the processing pipeline in this order. The script sections below document in
 4. `generate-image-assets` - create voting visualization image assets from processed session data.
 5. `generate-paper-votings` - reverse the voting-paper-map against the session scans into the per-paper voting assets. Needs both the OParl derivates (step 2) and the scanned votings (step 3.2).
 6. `index-search` - rebuild the Typesense search index after all paper, speech, and asset data is available.
-
-### Parse Speakers
-This tool parses multiple rttm files (from one session) and generates a single json file containing all speakers data.
-
-#### Using the deno script
-```bash
-DATE=2025-09-25
-deno run \
-  -A \
-  src/scripts/parse-speakers/index.ts \
-  -i sessions-media-files/$DATE \
-  -o output/sessions-scan-results/$DATE \
-  -s $DATE
-```
-
-#### Using a docker container
-
-Build the docker image:
-```bash
-docker build -t srw-parse-speakers -f docker/parse-speakers.Dockerfile .
-```
-
-Run the docker container:
-```bash
-docker run \
-  --rm \
-  -v $(pwd)/sessions-media-files/2022-09-01:/app/input:ro \
-  -v $(pwd)/output/sessions-scan-results/2022-09-01:/app/output \
-  srw-parse-speakers \
-  2022-09-01
-```
-
 
 ### Scan voting images
 This tool scans the voting images and generates a json file containing the voting data.

@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.3",
+  "workspaces": [
+    "src/deps/astro"
+  ],
+  "scripts": {
+    "typecheck": "bun check",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@srw-astro/models": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.3",
+    "typescript": "7.0.2"
+  }
+}

@@ -16,7 +16,7 @@ skinparam activity {
 }
 
 |#E3F2FD|Maintainer:in (manuell)|
-|#FFF9C4|Skripte (Deno / Python / Shell)|
+|#FFF9C4|Skripte (Deno / Bun / Python / Shell)|
 |#E8F5E9|Externe Dienste|
 
 |Maintainer:in (manuell)|
@@ -47,7 +47,7 @@ fork
     -> lokal: sessions-media-files/{date}/
     -> S3-Bucket »sessions-raw/{date}«
   end note
-  |Skripte (Deno / Python / Shell)|
+  |Skripte (Deno / Bun / Python / Shell)|
   :**scan-voting-images** (Deno + Tesseract)
   OCR der Tafeln (Voten, TOP, Drucksachennr.);
   note right
@@ -68,17 +68,17 @@ fork
 
 fork again
   ' ===================== Zweig B: Reden (Audio) =====================
-  |Skripte (Deno / Python / Shell)|
+  |Skripte (Deno / Bun / Python / Shell)|
   :**ffmpeg** (Shell)
   Tonspur extrahieren (wav/mp3), ggf. splitten;
   note right: -> lokal: sessions-media-files/{date}/
   |Externe Dienste|
   :**HuggingFace** stellt pyannote-Modell bereit;
-  |Skripte (Deno / Python / Shell)|
+  |Skripte (Deno / Bun / Python / Shell)|
   :**speaker-diarization** (Python, pyannote)
   wer spricht wann -> RTTM;
   note right: -> S3-Bucket »sessions-speakers«
-  :**parse-speakers** (Deno)
+  :**parse-speakers** (Bun)
   RTTM aufbereiten;
   note right
     Ausgabe: **session-speakers-{date}.json** (anonym)
@@ -99,13 +99,13 @@ fork again
   (Vorsitz / Ortsbürgermeister:in / Kommission markieren,
   Rausch-Segmente entfernen);
   note right: -> S3-Bucket »sessions-speeches-redacted«
-  |Skripte (Deno / Python / Shell)|
+  |Skripte (Deno / Bun / Python / Shell)|
   :**extract-speeches** (Shell, ffmpeg)
   Audio je Redebeitrag zuschneiden;
   note right: -> lokal: output/speeches/{date}/ (MP3 je Rede)
   |Externe Dienste|
   :**OpenAI Whisper** transkribiert;
-  |Skripte (Deno / Python / Shell)|
+  |Skripte (Deno / Bun / Python / Shell)|
   :**speech-to-text** (Deno)
   Redebeiträge transkribieren;
   note right: Ausgabe: session-speeches-{date}.json (mit Text)
@@ -119,7 +119,7 @@ fork again
   note right: Ergebnis: Startzeiten der ausgewählten Redebeiträge
   |Externe Dienste|
   :**Pangram** schätzt Texte auf KI-Anteile ein;
-  |Skripte (Deno / Python / Shell)|
+  |Skripte (Deno / Bun / Python / Shell)|
   :**detect-ai-text** (Deno, optional)
   KI-Einschätzung ausgewählter Redebeiträge;
   note right
@@ -133,7 +133,7 @@ fork again
   ' ============ Zweig C: OParl / Drucksachen (unabhängig) ============
   |Externe Dienste|
   :**OParl-API** (Ratsinfo Magdeburg);
-  |Skripte (Deno / Python / Shell)|
+  |Skripte (Deno / Bun / Python / Shell)|
   :**scrape-oparl** (Deno, --push)
   OParl-Rohdaten abrufen;
   note right
@@ -161,7 +161,7 @@ fork again
 end fork
 
 ' ===================== Zusammenführung (Assets, Suche) =====================
-|Skripte (Deno / Python / Shell)|
+|Skripte (Deno / Bun / Python / Shell)|
 :**generate-image-assets** (Deno, --push)
 Abstimmungs-PNGs erzeugen;
 note right
@@ -190,7 +190,7 @@ note right: -> Git: data/{periode}/registry.json
 :**git commit + push** auf main;
 note right: -> GitHub-Repository (main)
 
-|Skripte (Deno / Python / Shell)|
+|Skripte (Deno / Bun / Python / Shell)|
 :**Netlify-Build** (automatisch bei Push)
 Astro rendert statische Website + API v1;
 note right
