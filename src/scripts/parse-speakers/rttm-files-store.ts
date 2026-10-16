@@ -1,23 +1,24 @@
-import * as path from '@std/path';
+import { readdir } from 'node:fs/promises';
+import * as path from 'node:path';
 
 export interface IRttmFilesStore {
-  getRttmFiles(): string[];
-  getRttmFileContent(rttmFile: string): string;
+  getRttmFiles(): Promise<string[]>;
+  getRttmFileContent(rttmFile: string): Promise<string>;
 }
 
 export class RttmFilesStore implements IRttmFilesStore {
   constructor(private readonly directory: string) {
   }
 
-  public getRttmFiles(): string[] {
-    return Array
-      .from(Deno.readDirSync(this.directory))
-      .filter((entry) => entry.isFile)
+  public async getRttmFiles(): Promise<string[]> {
+    const entries = await readdir(this.directory, { withFileTypes: true });
+    return entries
+      .filter((entry) => entry.isFile())
       .map((file) => file.name)
       .filter((file) => file.endsWith('.rttm'));
   }
 
-  public getRttmFileContent(rttmFile: string): string {
-    return Deno.readTextFileSync(path.join(this.directory, rttmFile));
+  public getRttmFileContent(rttmFile: string): Promise<string> {
+    return Bun.file(path.join(this.directory, rttmFile)).text();
   }
 }

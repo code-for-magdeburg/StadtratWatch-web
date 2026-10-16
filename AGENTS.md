@@ -45,6 +45,16 @@ deno test               # Run tests
 deno check src/         # Type-check code
 ```
 
+### Bun Scripts
+
+The scripts in `src/` are moving from Deno to Bun one by one (see ADR-0007). Folders already on Bun are listed in `tsconfig.json` `include`; `deno fmt`/`deno lint` still cover them, `deno check`/`deno test` skip them.
+
+```bash
+bun install             # Install dependencies
+bun run typecheck       # Type-check migrated folders (bun check)
+bun run test            # Run tests of migrated folders (never pass paths)
+```
+
 ## Architecture
 
 **Architecture documentation (arc42):** A structured architecture description following the [arc42](https://arc42.org) template lives in `docs/arc42/` (in German). Start at `docs/arc42/index.adoc`. Consult and keep it up to date when making architectural changes.
@@ -146,12 +156,14 @@ Each data processing script has a corresponding Dockerfile in `docker/` for cont
 
 - Astro: Use `npm test` in astro/ directory (Vitest)
 - Deno scripts: Use `@std/testing` and run with `deno test`
+- Bun scripts: Use `bun:test` and run with `bun run test`
 - Manual testing: Run `npm run dev` in astro/ to see changes live
 
 ### Continuous Integration
 
 The project uses GitHub Actions for automated quality checks (`.github/workflows/ci.yml`) on push/PR to main branch:
 - Deno Checks
+- Bun Checks
 - Astro Checks
 
 All checks must pass before merging PRs.

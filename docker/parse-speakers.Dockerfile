@@ -1,19 +1,15 @@
-FROM denoland/deno:2.3.3
+FROM oven/bun:1.4.3-debian
 
 WORKDIR /app
 
-COPY deno.json /app
-COPY deno.lock /app
+COPY package.json bun.lock bunfig.toml /app/
+COPY src/deps/astro/package.json /app/src/deps/astro/package.json
+
+RUN bun install --frozen-lockfile --production
+
 COPY src /app/src
+COPY astro/src/models /app/astro/src/models
 
-RUN deno install --entrypoint src/scripts/parse-speakers/index.ts
+USER bun
 
-RUN deno cache src/scripts/parse-speakers/index.ts
-
-ENTRYPOINT ["deno", "run", \
-        "-R=/app/input,/app/output", \
-        "-W=/app/output", \
-        "src/scripts/parse-speakers/index.ts", \
-        "-i=/app/input", \
-        "-o=/app/output", \
-        "-s"]
+ENTRYPOINT ["bun", "src/scripts/parse-speakers/index.ts", "-i", "/app/input", "-o", "/app/output", "-s"]

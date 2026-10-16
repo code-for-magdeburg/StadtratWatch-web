@@ -66,7 +66,7 @@ fork again
   note right: video.mp4 -> audio.wav/mp3
   :**speaker-diarization** (Python, pyannote)\nwer spricht wann;
   note right: Ausgabe: RTTM-Datei
-  :**parse-speakers** (Deno)\nRTTM aufbereiten;
+  :**parse-speakers** (Bun)\nRTTM aufbereiten;
   note right
     Ausgabe: **session-speakers-*.json**
     (noch anonyme Sprecher:innen)
@@ -135,7 +135,7 @@ stop
 | Audiodatei
 | RTTM-Datei (zeitlich markierte Sprecher:innen-Segmente, anonyme Labels)
 
-| *parse-speakers* (Deno)
+| *parse-speakers* (Bun)
 | RTTM-Datei
 | `session-speakers-*.json` (noch anonyme Sprecher:innen)
 

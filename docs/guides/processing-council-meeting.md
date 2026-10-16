@@ -180,28 +180,7 @@ docker run \
 ## Parse Speakers
 
 This tool parses multiple rttm files (from one session) and generates a single json file containing all speakers data.
-
-### Using the deno script
-```bash
-DATE=2025-11-06
-deno run \
-  -A \
-  src/scripts/parse-speakers/index.ts \
-  -i sessions-media-files/$DATE \
-  -o output/sessions-scan-results/$DATE \
-  -s $DATE
-```
-
-### Using docker
-
-```bash
-docker run \
-  --rm \
-  -v $(pwd)/sessions-media-files/2022-09-01:/app/input:ro \
-  -v $(pwd)/output/sessions-scan-results/2022-09-01:/app/output \
-  srw-parse-speakers \
-  2022-09-01
-```
+See [parse-speakers](../../src/scripts/parse-speakers/README.md) for usage.
 
 ## Store speaker files in S3 bucket
 
