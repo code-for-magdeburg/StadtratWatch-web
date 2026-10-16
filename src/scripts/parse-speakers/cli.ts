@@ -46,7 +46,7 @@ export function checkArgs(args: ParseSpeakersArgs) {
 
 export function printHelpText() {
   console.log(`
-Usage: bun src/scripts/parse-speakers/index.ts -i <input-dir> -o <output-dir> -s <session>
+Usage: bun index.ts -i <input-dir> -o <output-dir> -s <session>
 -h, --help          Show this help message and exit.
 -i, --input-dir     Specify the input directory. It has to contain the RTTM files.
 -o, --output-dir    Specify the output directory where the resulting JSON file will be saved.
