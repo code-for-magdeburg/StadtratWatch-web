@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Runs the CI checks for the parts of the repo that have staged changes.
+# Output of a check is only printed when it fails, so passing commits stay short.
+
+STAGED_FILES=$(git diff --cached --name-only --no-renames)
+
+run_check() {
+  local label="$1"
+  shift
+  local output
+  if ! output=$("$@" 2>&1); then
+    echo "$output"
+    echo "❌ $label failed."
+    exit 1
+  fi
+  echo "✓ $label"
+}
+
+if echo "$STAGED_FILES" | grep -q '^src/'; then
+  run_check "deno fmt --check" deno fmt --check
+  run_check "deno lint" deno lint
+  run_check "deno check src" deno check src
+  run_check "deno test" deno test
+  run_check "bun run typecheck" bun run typecheck
+  run_check "bun run test" bun run test
+fi
+
+if echo "$STAGED_FILES" | grep -q '^astro/'; then
+  cd astro || exit 1
+  run_check "npm run format:check" npm run format:check
+  run_check "astro check" npx astro check
+  run_check "npm test" npm test -- --run
+  cd ..
+fi
+
+exit 0

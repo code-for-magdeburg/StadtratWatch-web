@@ -154,6 +154,7 @@ Each data processing script has a corresponding Dockerfile in `docker/` for cont
 
 ### Testing Changes
 
+- Enable the versioned pre-commit hook once per clone: `git config core.hooksPath .githooks`
 - Astro: Use `npm test` in astro/ directory (Vitest)
 - Deno scripts: Use `@std/testing` and run with `deno test`
 - Bun scripts: Use `bun:test` and run with `bun run test`
