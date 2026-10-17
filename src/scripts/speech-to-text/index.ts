@@ -1,8 +1,8 @@
 import { tryGetSpeechToTextEnv } from './env.ts';
-import { checkArgs, parseArgs, printHelpText } from './cli.ts';
+import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
 import { SpeechToText, type SpeechTranscriberConfig } from './speech-to-text.ts';
 
-const args = parseArgs(Bun.argv.slice(2));
+const args = parseCliArgs(Bun.argv.slice(2));
 
 if (args.help) {
   printHelpText();

@@ -1,4 +1,4 @@
-import { parseArgs as nodeParseArgs } from 'node:util';
+import { parseArgs } from 'node:util';
 
 export type SpeechToTextArgs = {
   help: boolean;
@@ -8,8 +8,8 @@ export type SpeechToTextArgs = {
   skipExisting: boolean;
 };
 
-export function parseArgs(args: string[]): SpeechToTextArgs {
-  const { values } = nodeParseArgs({
+export function parseCliArgs(args: string[]): SpeechToTextArgs {
+  const { values } = parseArgs({
     args,
     allowNegative: true,
     options: {
