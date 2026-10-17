@@ -6,6 +6,12 @@ Rules the reviewer applies to a diff. Conventions in `AGENTS.md` (Code Conventio
 
 - **Removals delete their mentions.** When a change removes a file, folder or step, delete every mention of it from the docs. Notes that only explain an absence ("X is not in `data/`", "do not commit X") are findings.
 
+## Naming
+
+- **Own names leave imports unaliased.** Name your own exports so an import keeps its original name (`parseCliArgs` next
+  to `node:util`'s `parseArgs`, not `parseArgs` plus `import { parseArgs as nodeParseArgs }`). An alias is fine only
+  for a clash between two imports. A pattern copied from a sibling file is no exception.
+
 ## Scripts
 
 - **CLI help describes the interface.** The usage line in a script's `--help` text names the script and its flags (`bun index.ts -i <input-dir> …`), like the sibling `cli.ts` files. Commands with paths from the repo root belong in the script's README.
