@@ -149,7 +149,7 @@ fork again
     -> lokal: output/paper-assets/
     -> S3/CloudFront (web-assets/papers/) via --push
   end note
-  :**generate-oparl-derivatives** (Deno)
+  :**generate-oparl-derivatives** (Bun)
   Derivate für den Build erzeugen;
   note right
     -> Git: data/paper-index.json

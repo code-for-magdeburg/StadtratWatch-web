@@ -36,17 +36,17 @@ export class OparlDerivativesGenerator {
     this.papersRepository = new OparlPapersInMemoryRepository(this.oparlObjectsStore.loadPapers());
   }
 
-  public generate(): void {
+  public async generate(): Promise<void> {
     const councilMeetingsByDate = this.indexCouncilMeetingsByDate();
 
-    for (const registry of this.registryStore.loadRegistries()) {
+    for (const registry of await this.registryStore.loadRegistries()) {
       console.log(`Generating voting-paper-map for period ${registry.id}`);
       const votingPaperMap = this.buildVotingPaperMap(registry, councilMeetingsByDate);
-      this.writer.writeVotingPaperMap(registry.id, votingPaperMap);
+      await this.writer.writeVotingPaperMap(registry.id, votingPaperMap);
     }
 
     console.log('Generating global paper-index');
-    this.writer.writePaperIndex(this.buildPaperIndex());
+    await this.writer.writePaperIndex(this.buildPaperIndex());
   }
 
   private indexCouncilMeetingsByDate(): Map<string, OparlMeeting> {
