@@ -3,6 +3,7 @@
     "src/scripts/detect-ai-text/",
     "src/scripts/parse-speakers/",
     "src/scripts/scan-voting-images/",
+    "src/scripts/shared/**/*.test.ts",
     "src/scripts/speech-to-text/"
   ],
   "nodeModulesDir": "none",
@@ -28,6 +29,7 @@
       "!src/scripts/detect-ai-text/",
       "!src/scripts/parse-speakers/",
       "!src/scripts/scan-voting-images/",
+      "!src/scripts/shared/**/*.test.ts",
       "!src/scripts/speech-to-text/"
     ],
     "rules": {
@@ -47,6 +49,7 @@
       "!src/scripts/detect-ai-text/",
       "!src/scripts/parse-speakers/",
       "!src/scripts/scan-voting-images/",
+      "!src/scripts/shared/**/*.test.ts",
       "!src/scripts/speech-to-text/"
     ]
   },

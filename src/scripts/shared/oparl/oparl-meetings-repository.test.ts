@@ -1,5 +1,4 @@
-import { assertEquals } from '@std/assert';
-import { describe, it } from '@std/testing/bdd';
+import { describe, expect, it } from 'bun:test';
 import { OparlMeetingsInMemoryRepository } from './oparl-meetings-repository.ts';
 import type { OparlMeeting } from '@srw-astro/models/oparl';
 
@@ -24,8 +23,8 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingById('meeting-1');
 
-      assertEquals(result?.id, 'meeting-1');
-      assertEquals(result?.name, 'Meeting 1');
+      expect(result?.id).toEqual('meeting-1');
+      expect(result?.name).toEqual('Meeting 1');
     });
 
     it('should return null when ID does not match', () => {
@@ -41,14 +40,14 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingById('non-existent-id');
 
-      assertEquals(result, null);
+      expect(result).toEqual(null);
     });
 
     it('should return null when meetings array is empty', () => {
       const repository = new OparlMeetingsInMemoryRepository([]);
       const result = repository.getMeetingById('meeting-1');
 
-      assertEquals(result, null);
+      expect(result).toEqual(null);
     });
 
     it('should return the first matching meeting when duplicates exist', () => {
@@ -70,7 +69,7 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingById('meeting-1');
 
-      assertEquals(result?.name, 'First Meeting');
+      expect(result?.name).toEqual('First Meeting');
     });
 
     it('should preserve all meeting properties', () => {
@@ -89,11 +88,11 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingById('meeting-1');
 
-      assertEquals(result?.id, 'meeting-1');
-      assertEquals(result?.name, 'City Council Meeting');
-      assertEquals(result?.start, '2024-01-15T10:00:00Z');
-      assertEquals(result?.end, '2024-01-15T12:00:00Z');
-      assertEquals(result?.cancelled, false);
+      expect(result?.id).toEqual('meeting-1');
+      expect(result?.name).toEqual('City Council Meeting');
+      expect(result?.start).toEqual('2024-01-15T10:00:00Z');
+      expect(result?.end).toEqual('2024-01-15T12:00:00Z');
+      expect(result?.cancelled).toEqual(false);
     });
 
     it('should handle cancelled meetings', () => {
@@ -110,8 +109,8 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingById('meeting-1');
 
-      assertEquals(result?.id, 'meeting-1');
-      assertEquals(result?.cancelled, true);
+      expect(result?.id).toEqual('meeting-1');
+      expect(result?.cancelled).toEqual(true);
     });
 
     it('should be case-sensitive when matching IDs', () => {
@@ -127,7 +126,7 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingById('MEETING-1');
 
-      assertEquals(result, null);
+      expect(result).toEqual(null);
     });
 
     it('should handle special characters in IDs', () => {
@@ -143,8 +142,8 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingById('https://oparl.example.org/meeting/12345');
 
-      assertEquals(result?.id, 'https://oparl.example.org/meeting/12345');
-      assertEquals(result?.name, 'Meeting with URL ID');
+      expect(result?.id).toEqual('https://oparl.example.org/meeting/12345');
+      expect(result?.name).toEqual('Meeting with URL ID');
     });
   });
 
@@ -174,9 +173,9 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingsByOrganization('org-1');
 
-      assertEquals(result.length, 2);
-      assertEquals(result[0].id, 'meeting-1');
-      assertEquals(result[1].id, 'meeting-3');
+      expect(result.length).toEqual(2);
+      expect(result[0].id).toEqual('meeting-1');
+      expect(result[1].id).toEqual('meeting-3');
     });
 
     it('should return empty array when no meetings match', () => {
@@ -198,7 +197,7 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingsByOrganization('org-1');
 
-      assertEquals(result.length, 0);
+      expect(result.length).toEqual(0);
     });
 
     it('should handle meetings without organization field', () => {
@@ -219,15 +218,15 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingsByOrganization('org-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'meeting-1');
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('meeting-1');
     });
 
     it('should handle empty meetings array', () => {
       const repository = new OparlMeetingsInMemoryRepository([]);
       const result = repository.getMeetingsByOrganization('org-1');
 
-      assertEquals(result.length, 0);
+      expect(result.length).toEqual(0);
     });
 
     it('should return all meetings when all match', () => {
@@ -255,10 +254,10 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingsByOrganization('org-1');
 
-      assertEquals(result.length, 3);
-      assertEquals(result[0].id, 'meeting-1');
-      assertEquals(result[1].id, 'meeting-2');
-      assertEquals(result[2].id, 'meeting-3');
+      expect(result.length).toEqual(3);
+      expect(result[0].id).toEqual('meeting-1');
+      expect(result[1].id).toEqual('meeting-2');
+      expect(result[2].id).toEqual('meeting-3');
     });
 
     it('should preserve all meeting properties', () => {
@@ -277,12 +276,12 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingsByOrganization('org-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'meeting-1');
-      assertEquals(result[0].name, 'City Council Meeting');
-      assertEquals(result[0].start, '2024-01-15T10:00:00Z');
-      assertEquals(result[0].end, '2024-01-15T12:00:00Z');
-      assertEquals(result[0].cancelled, false);
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('meeting-1');
+      expect(result[0].name).toEqual('City Council Meeting');
+      expect(result[0].start).toEqual('2024-01-15T10:00:00Z');
+      expect(result[0].end).toEqual('2024-01-15T12:00:00Z');
+      expect(result[0].cancelled).toEqual(false);
     });
 
     it('should handle cancelled meetings', () => {
@@ -306,9 +305,9 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const repository = new OparlMeetingsInMemoryRepository(meetings);
       const result = repository.getMeetingsByOrganization('org-1');
 
-      assertEquals(result.length, 2);
-      assertEquals(result[0].id, 'meeting-1');
-      assertEquals(result[1].id, 'meeting-2');
+      expect(result.length).toEqual(2);
+      expect(result[0].id).toEqual('meeting-1');
+      expect(result[1].id).toEqual('meeting-2');
     });
 
     it('should return different instances for different queries', () => {
@@ -331,10 +330,10 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const result1 = repository.getMeetingsByOrganization('org-1');
       const result2 = repository.getMeetingsByOrganization('org-2');
 
-      assertEquals(result1.length, 1);
-      assertEquals(result1[0].id, 'meeting-1');
-      assertEquals(result2.length, 1);
-      assertEquals(result2[0].id, 'meeting-2');
+      expect(result1.length).toEqual(1);
+      expect(result1[0].id).toEqual('meeting-1');
+      expect(result2.length).toEqual(1);
+      expect(result2[0].id).toEqual('meeting-2');
     });
 
     it('should handle meetings with multiple organizations', () => {
@@ -352,12 +351,12 @@ describe('OparlMeetingsInMemoryRepository', () => {
       const result2 = repository.getMeetingsByOrganization('org-2');
       const result3 = repository.getMeetingsByOrganization('org-3');
 
-      assertEquals(result1.length, 1);
-      assertEquals(result1[0].id, 'meeting-1');
-      assertEquals(result2.length, 1);
-      assertEquals(result2[0].id, 'meeting-1');
-      assertEquals(result3.length, 1);
-      assertEquals(result3[0].id, 'meeting-1');
+      expect(result1.length).toEqual(1);
+      expect(result1[0].id).toEqual('meeting-1');
+      expect(result2.length).toEqual(1);
+      expect(result2[0].id).toEqual('meeting-1');
+      expect(result3.length).toEqual(1);
+      expect(result3[0].id).toEqual('meeting-1');
     });
   });
 });

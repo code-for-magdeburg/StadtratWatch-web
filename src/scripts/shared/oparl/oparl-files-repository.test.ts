@@ -1,5 +1,4 @@
-import { assertEquals } from '@std/assert';
-import { describe, it } from '@std/testing/bdd';
+import { describe, expect, it } from 'bun:test';
 import { OparlFilesInMemoryRepository } from './oparl-files-repository.ts';
 import { OparlPapersInMemoryRepository } from './oparl-papers-repository.ts';
 import type { OparlFile, OparlPaper } from '@srw-astro/models/oparl';
@@ -35,9 +34,9 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByPaper('paper-1');
 
-      assertEquals(result.length, 2);
-      assertEquals(result[0].id, 'file-1');
-      assertEquals(result[1].id, 'file-3');
+      expect(result.length).toEqual(2);
+      expect(result[0].id).toEqual('file-1');
+      expect(result[1].id).toEqual('file-3');
     });
 
     it('should return empty array when no files match the paper', () => {
@@ -62,7 +61,7 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByPaper('paper-3');
 
-      assertEquals(result.length, 0);
+      expect(result.length).toEqual(0);
     });
 
     it('should handle files with multiple papers', () => {
@@ -89,13 +88,13 @@ describe('OparlFilesInMemoryRepository', () => {
       const result2 = repository.getFilesByPaper('paper-2');
       const result3 = repository.getFilesByPaper('paper-3');
 
-      assertEquals(result1.length, 1);
-      assertEquals(result1[0].id, 'file-1');
-      assertEquals(result2.length, 2);
-      assertEquals(result2[0].id, 'file-1');
-      assertEquals(result2[1].id, 'file-2');
-      assertEquals(result3.length, 1);
-      assertEquals(result3[0].id, 'file-1');
+      expect(result1.length).toEqual(1);
+      expect(result1[0].id).toEqual('file-1');
+      expect(result2.length).toEqual(2);
+      expect(result2[0].id).toEqual('file-1');
+      expect(result2[1].id).toEqual('file-2');
+      expect(result3.length).toEqual(1);
+      expect(result3[0].id).toEqual('file-1');
     });
 
     it('should handle files with undefined paper property', () => {
@@ -119,8 +118,8 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByPaper('paper-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'file-2');
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('file-2');
     });
 
     it('should handle files with empty paper array', () => {
@@ -145,8 +144,8 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByPaper('paper-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'file-2');
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('file-2');
     });
 
     it('should handle empty files array', () => {
@@ -154,7 +153,7 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository([], papersRepository);
       const result = repository.getFilesByPaper('paper-1');
 
-      assertEquals(result.length, 0);
+      expect(result.length).toEqual(0);
     });
 
     it('should preserve all file properties', () => {
@@ -172,11 +171,11 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByPaper('paper-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'file-1');
-      assertEquals(result[0].name, 'Important Document.pdf');
-      assertEquals(result[0].accessUrl, 'https://example.com/important-document.pdf');
-      assertEquals(result[0].paper, ['paper-1']);
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('file-1');
+      expect(result[0].name).toEqual('Important Document.pdf');
+      expect(result[0].accessUrl).toEqual('https://example.com/important-document.pdf');
+      expect(result[0].paper).toEqual(['paper-1']);
     });
 
     it('should match exact paper IDs including full URLs', () => {
@@ -209,10 +208,10 @@ describe('OparlFilesInMemoryRepository', () => {
       const result1 = repository.getFilesByPaper('https://oparl.example.com/paper-1');
       const result2 = repository.getFilesByPaper('paper-1');
 
-      assertEquals(result1.length, 1);
-      assertEquals(result1[0].id, 'file-1');
-      assertEquals(result2.length, 1);
-      assertEquals(result2[0].id, 'file-2');
+      expect(result1.length).toEqual(1);
+      expect(result1[0].id).toEqual('file-1');
+      expect(result2.length).toEqual(1);
+      expect(result2[0].id).toEqual('file-2');
     });
 
     it('should return different results for different paper queries', () => {
@@ -246,12 +245,12 @@ describe('OparlFilesInMemoryRepository', () => {
       const result2 = repository.getFilesByPaper('paper-2');
       const result3 = repository.getFilesByPaper('paper-3');
 
-      assertEquals(result1.length, 1);
-      assertEquals(result1[0].id, 'file-1');
-      assertEquals(result2.length, 1);
-      assertEquals(result2[0].id, 'file-2');
-      assertEquals(result3.length, 1);
-      assertEquals(result3[0].id, 'file-3');
+      expect(result1.length).toEqual(1);
+      expect(result1[0].id).toEqual('file-1');
+      expect(result2.length).toEqual(1);
+      expect(result2[0].id).toEqual('file-2');
+      expect(result3.length).toEqual(1);
+      expect(result3[0].id).toEqual('file-3');
     });
   });
 
@@ -314,9 +313,9 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByMeeting('meeting-1');
 
-      assertEquals(result.length, 2);
-      assertEquals(result[0].id, 'file-1');
-      assertEquals(result[1].id, 'file-3');
+      expect(result.length).toEqual(2);
+      expect(result[0].id).toEqual('file-1');
+      expect(result[1].id).toEqual('file-3');
     });
 
     it('should return empty array when no files match', () => {
@@ -350,7 +349,7 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByMeeting('meeting-1');
 
-      assertEquals(result.length, 0);
+      expect(result.length).toEqual(0);
     });
 
     it('should return empty array when meeting has no papers', () => {
@@ -384,7 +383,7 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByMeeting('meeting-2');
 
-      assertEquals(result.length, 0);
+      expect(result.length).toEqual(0);
     });
 
     it('should handle files with multiple papers', () => {
@@ -432,10 +431,10 @@ describe('OparlFilesInMemoryRepository', () => {
       const result1 = repository.getFilesByMeeting('meeting-1');
       const result2 = repository.getFilesByMeeting('meeting-2');
 
-      assertEquals(result1.length, 1);
-      assertEquals(result1[0].id, 'file-1');
-      assertEquals(result2.length, 1);
-      assertEquals(result2[0].id, 'file-1');
+      expect(result1.length).toEqual(1);
+      expect(result1[0].id).toEqual('file-1');
+      expect(result2.length).toEqual(1);
+      expect(result2[0].id).toEqual('file-1');
     });
 
     it('should handle files with undefined paper property', () => {
@@ -475,8 +474,8 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByMeeting('meeting-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'file-2');
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('file-2');
     });
 
     it('should handle files with empty paper array', () => {
@@ -517,8 +516,8 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByMeeting('meeting-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'file-2');
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('file-2');
     });
 
     it('should handle empty files array', () => {
@@ -542,7 +541,7 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository([], papersRepository);
       const result = repository.getFilesByMeeting('meeting-1');
 
-      assertEquals(result.length, 0);
+      expect(result.length).toEqual(0);
     });
 
     it('should handle paper linked to multiple meetings', () => {
@@ -583,10 +582,10 @@ describe('OparlFilesInMemoryRepository', () => {
       const result1 = repository.getFilesByMeeting('meeting-1');
       const result2 = repository.getFilesByMeeting('meeting-2');
 
-      assertEquals(result1.length, 1);
-      assertEquals(result1[0].id, 'file-1');
-      assertEquals(result2.length, 1);
-      assertEquals(result2[0].id, 'file-1');
+      expect(result1.length).toEqual(1);
+      expect(result1[0].id).toEqual('file-1');
+      expect(result2.length).toEqual(1);
+      expect(result2[0].id).toEqual('file-1');
     });
 
     it('should preserve all file properties', () => {
@@ -620,11 +619,11 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByMeeting('meeting-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'file-1');
-      assertEquals(result[0].name, 'Important Document.pdf');
-      assertEquals(result[0].accessUrl, 'https://example.com/important-document.pdf');
-      assertEquals(result[0].paper, ['paper-1']);
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('file-1');
+      expect(result[0].name).toEqual('Important Document.pdf');
+      expect(result[0].accessUrl).toEqual('https://example.com/important-document.pdf');
+      expect(result[0].paper).toEqual(['paper-1']);
     });
 
     it('should return different instances for different queries', () => {
@@ -679,10 +678,10 @@ describe('OparlFilesInMemoryRepository', () => {
       const result1 = repository.getFilesByMeeting('meeting-1');
       const result2 = repository.getFilesByMeeting('meeting-2');
 
-      assertEquals(result1.length, 1);
-      assertEquals(result1[0].id, 'file-1');
-      assertEquals(result2.length, 1);
-      assertEquals(result2[0].id, 'file-2');
+      expect(result1.length).toEqual(1);
+      expect(result1[0].id).toEqual('file-1');
+      expect(result2.length).toEqual(1);
+      expect(result2[0].id).toEqual('file-2');
     });
 
     it('should filter out files not linked to any paper in the meeting', () => {
@@ -743,9 +742,9 @@ describe('OparlFilesInMemoryRepository', () => {
       const repository = new OparlFilesInMemoryRepository(files, papersRepository);
       const result = repository.getFilesByMeeting('meeting-1');
 
-      assertEquals(result.length, 2);
-      assertEquals(result[0].id, 'file-1');
-      assertEquals(result[1].id, 'file-3');
+      expect(result.length).toEqual(2);
+      expect(result[0].id).toEqual('file-1');
+      expect(result[1].id).toEqual('file-3');
     });
   });
 });

@@ -28,10 +28,10 @@ export function tryGetPushEnv(): PushEnv {
 }
 
 function requireEnv(name: string): string {
-  const value = Deno.env.get(name);
+  const value = process.env[name];
   if (!value) {
     console.error(`Environment variable ${name} must be set when using --push.`);
-    Deno.exit(1);
+    process.exit(1);
   }
   return value;
 }

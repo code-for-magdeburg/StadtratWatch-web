@@ -1,11 +1,11 @@
-import { assertEquals } from '@std/assert';
+import { describe, expect, it } from 'bun:test';
 import type { OparlConsultation } from '@srw-astro/models/oparl';
 import {
   OparlConsultationsInMemoryRepository,
   type OparlConsultationsRepository,
 } from './oparl-consultations-repository.ts';
 
-Deno.test('OparlConsultationsInMemoryRepository', async (t) => {
+describe('OparlConsultationsInMemoryRepository', () => {
   const mockConsultations: OparlConsultation[] = [
     {
       id: 'https://example.org/oparl/v1.1/consultations/1',
@@ -24,37 +24,37 @@ Deno.test('OparlConsultationsInMemoryRepository', async (t) => {
     },
   ];
 
-  await t.step('should implement OparlConsultationsRepository interface', () => {
+  it('should implement OparlConsultationsRepository interface', () => {
     const repository: OparlConsultationsRepository = new OparlConsultationsInMemoryRepository(mockConsultations);
-    assertEquals(typeof repository.getConsultationById, 'function');
+    expect(typeof repository.getConsultationById).toEqual('function');
   });
 
-  await t.step('getConsultationById', async (t) => {
+  describe('getConsultationById', () => {
     const repository = new OparlConsultationsInMemoryRepository(mockConsultations);
 
-    await t.step('should return consultation when ID exists', () => {
+    it('should return consultation when ID exists', () => {
       const result = repository.getConsultationById('https://example.org/oparl/v1.1/consultations/1');
-      assertEquals(result, mockConsultations[0]);
+      expect(result).toEqual(mockConsultations[0]);
     });
 
-    await t.step('should return null when ID does not exist', () => {
+    it('should return null when ID does not exist', () => {
       const result = repository.getConsultationById('https://example.org/oparl/v1.1/consultations/999');
-      assertEquals(result, null);
+      expect(result).toEqual(null);
     });
 
-    await t.step('should return null for empty string ID', () => {
+    it('should return null for empty string ID', () => {
       const result = repository.getConsultationById('');
-      assertEquals(result, null);
+      expect(result).toEqual(null);
     });
   });
 
-  await t.step('should work with empty array', () => {
+  it('should work with empty array', () => {
     const repository = new OparlConsultationsInMemoryRepository([]);
     const result = repository.getConsultationById('https://example.org/oparl/v1.1/consultations/1');
-    assertEquals(result, null);
+    expect(result).toEqual(null);
   });
 
-  await t.step('should return first match for duplicate IDs', () => {
+  it('should return first match for duplicate IDs', () => {
     const duplicates: OparlConsultation[] = [
       {
         id: 'https://example.org/oparl/v1.1/consultations/1',
@@ -69,6 +69,6 @@ Deno.test('OparlConsultationsInMemoryRepository', async (t) => {
     ];
     const repository = new OparlConsultationsInMemoryRepository(duplicates);
     const result = repository.getConsultationById('https://example.org/oparl/v1.1/consultations/1');
-    assertEquals(result?.name, 'First occurrence');
+    expect(result?.name).toEqual('First occurrence');
   });
 });
