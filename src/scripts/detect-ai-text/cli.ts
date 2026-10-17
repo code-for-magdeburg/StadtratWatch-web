@@ -31,10 +31,15 @@ function parseStarts(value: string): number[] {
     return [];
   }
 
-  return value
-    .split(',')
-    .map((part) => Number(part.trim()))
-    .filter((start) => !Number.isNaN(start));
+  return value.split(',').map((part) => {
+    const trimmedPart = part.trim();
+    const start = Number(trimmedPart);
+    if (trimmedPart === '' || !Number.isFinite(start)) {
+      console.error(`Invalid start value "${part}". Use comma-separated numeric timestamps.`);
+      process.exit(1);
+    }
+    return start;
+  });
 }
 
 export function checkArgs(args: DetectAiTextArgs) {
