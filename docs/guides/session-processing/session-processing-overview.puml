@@ -140,7 +140,7 @@ fork again
     -> lokal: data/oparl-magdeburg/ (nicht committed)
     -> S3/CloudFront (oparl-Snapshot)
   end note
-  :**download-paper-files** (Deno)
+  :**download-paper-files** (Bun)
   verlinkte PDFs laden;
   note right: -> lokal: output/papers/{jahr}/
   :**generate-paper-assets** (Deno, --push)

@@ -1,23 +1,16 @@
-FROM denoland/deno:2.3.3
+FROM oven/bun:1.4.3-debian
 
 WORKDIR /app
 
-COPY deno.json /app
-COPY deno.lock /app
+COPY package.json bun.lock bunfig.toml /app/
+COPY src/deps/astro/package.json /app/src/deps/astro/package.json
+
+RUN bun install --frozen-lockfile --production
+
 COPY src /app/src
 COPY astro/src/models /app/astro/src/models
 
-RUN deno install --entrypoint src/scripts/download-paper-files/index.ts
+USER bun
 
-RUN deno cache src/scripts/download-paper-files/index.ts
-
-ENTRYPOINT ["deno", "run", \
-        "-R=/app/oparl,/app/papers", \
-        "-W=/app/papers", \
-        "-E=OPARL_COUNCIL_ORGANIZATION_ID", \
-        "--allow-net", \
-        "src/scripts/download-paper-files/index.ts", \
-        "-r=./oparl", \
-        "-p=./papers", \
-        "-y"]
+ENTRYPOINT ["bun", "src/scripts/download-paper-files/index.ts", "-r", "/app/oparl", "-p", "/app/papers", "-y"]
 CMD ["2025"]

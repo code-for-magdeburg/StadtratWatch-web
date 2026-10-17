@@ -1,6 +1,7 @@
 {
   "exclude": [
     "src/scripts/detect-ai-text/",
+    "src/scripts/download-paper-files/",
     "src/scripts/fetch-oparl/",
     "src/scripts/generate-oparl-derivatives/",
     "src/scripts/parse-speakers/",
@@ -30,6 +31,7 @@
     "include": ["src/"],
     "exclude": [
       "!src/scripts/detect-ai-text/",
+      "!src/scripts/download-paper-files/",
       "!src/scripts/fetch-oparl/",
       "!src/scripts/generate-oparl-derivatives/",
       "!src/scripts/parse-speakers/",
@@ -53,6 +55,7 @@
     "exclude": [
       "**/*.md",
       "!src/scripts/detect-ai-text/",
+      "!src/scripts/download-paper-files/",
       "!src/scripts/fetch-oparl/",
       "!src/scripts/generate-oparl-derivatives/",
       "!src/scripts/parse-speakers/",
