@@ -1,4 +1,4 @@
-import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
+import { parseArgs } from 'node:util';
 
 export type DetectAiTextArgs = {
   help: boolean;
@@ -7,53 +7,56 @@ export type DetectAiTextArgs = {
   skipExisting: boolean;
 };
 
-export function parseArgs(args: string[]): DetectAiTextArgs {
-  const parsed = stdCliParseArgs(args, {
-    boolean: ['help', 'skip-existing'],
-    string: ['speeches-file', 'starts'],
-    default: { 'skip-existing': false },
-    alias: {
-      help: 'h',
-      'speeches-file': ['f', 'speechesFile'],
-      starts: 't',
-      'skip-existing': ['x', 'skipExisting'],
+export function parseCliArgs(args: string[]): DetectAiTextArgs {
+  const { values } = parseArgs({
+    args,
+    options: {
+      help: { type: 'boolean', short: 'h', default: false },
+      'speeches-file': { type: 'string', short: 'f', default: '' },
+      starts: { type: 'string', short: 't', default: '' },
+      'skip-existing': { type: 'boolean', short: 'x', default: false },
     },
   });
 
   return {
-    help: parsed.help as boolean,
-    speechesFile: parsed.speechesFile as string,
-    starts: parseStarts(parsed.starts as string | undefined),
-    skipExisting: parsed.skipExisting as boolean,
+    help: values.help,
+    speechesFile: values['speeches-file'],
+    starts: parseStarts(values.starts),
+    skipExisting: values['skip-existing'],
   };
 }
 
-function parseStarts(value: string | undefined): number[] {
+function parseStarts(value: string): number[] {
   if (!value) {
     return [];
   }
 
-  return value
-    .split(',')
-    .map((part) => Number(part.trim()))
-    .filter((start) => !Number.isNaN(start));
+  return value.split(',').map((part) => {
+    const trimmedPart = part.trim();
+    const start = Number(trimmedPart);
+    if (trimmedPart === '' || !Number.isFinite(start)) {
+      console.error(`Invalid start value "${part}". Use comma-separated numeric timestamps.`);
+      process.exit(1);
+    }
+    return start;
+  });
 }
 
 export function checkArgs(args: DetectAiTextArgs) {
   if (!args.speechesFile) {
     console.error('Missing speeches-file parameter. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   if (args.starts.length === 0) {
     console.error('Missing or empty starts parameter. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 }
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts -f <speeches-file> -t <start,start,...> [-x]
+Usage: bun index.ts -f <speeches-file> -t <start,start,...> [-x]
 -h, --help                  Show this help message and exit.
 -f, --speeches-file         Path to the session-speeches-*.json file to read and write in place.
 -t, --starts                Comma-separated list of speech 'start' timestamps to assess.

@@ -1,7 +1,6 @@
 [test]
 root = "src"
 pathIgnorePatterns = [
-  "src/scripts/detect-ai-text/**",
   "src/scripts/download-paper-files/**",
   "src/scripts/fetch-oparl/**",
   "src/scripts/generate-image-assets/**",

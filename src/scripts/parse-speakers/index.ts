@@ -1,9 +1,9 @@
-import { checkArgs, parseArgs, printHelpText } from './cli.ts';
+import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
 import { ParsedFilesStore } from './parsed-files-store.ts';
 import { RttmFilesStore } from './rttm-files-store.ts';
 import { RttmFilesParser } from './rttm-files-parser.ts';
 
-const args = parseArgs(Bun.argv.slice(2));
+const args = parseCliArgs(Bun.argv.slice(2));
 
 if (args.help) {
   printHelpText();

@@ -1,5 +1,4 @@
-import { assertEquals } from '@std/assert';
-import { describe, it } from '@std/testing/bdd';
+import { describe, expect, it } from 'bun:test';
 import { buildAiTextAssessment } from './ai-text-assessment-mapper.ts';
 import type { PangramLabel, PangramTaskResult, PangramWindow } from './pangram-client.ts';
 
@@ -27,8 +26,8 @@ describe('buildAiTextAssessment', () => {
 
     const assessment = buildAiTextAssessment(result, 'Transkript', '2026-10-11');
 
-    assertEquals(assessment.label, 'AI');
-    assertEquals(assessment.highConfidenceNonHuman, true);
+    expect(assessment.label).toEqual('AI');
+    expect(assessment.highConfidenceNonHuman).toEqual(true);
   });
 
   it('marks a Mixed label with all-high-confidence non-human windows as high-confidence', () => {
@@ -39,8 +38,8 @@ describe('buildAiTextAssessment', () => {
 
     const assessment = buildAiTextAssessment(result, 'Transkript', '2026-10-11');
 
-    assertEquals(assessment.label, 'Mixed');
-    assertEquals(assessment.highConfidenceNonHuman, true);
+    expect(assessment.label).toEqual('Mixed');
+    expect(assessment.highConfidenceNonHuman).toEqual(true);
   });
 
   it('never marks a Human label as high-confidence, even with stray non-human windows', () => {
@@ -48,8 +47,8 @@ describe('buildAiTextAssessment', () => {
 
     const assessment = buildAiTextAssessment(result, 'Transkript', '2026-10-11');
 
-    assertEquals(assessment.label, 'Human');
-    assertEquals(assessment.highConfidenceNonHuman, false);
+    expect(assessment.label).toEqual('Human');
+    expect(assessment.highConfidenceNonHuman).toEqual(false);
   });
 
   it('is false when a non-human window has non-high confidence', () => {
@@ -57,7 +56,7 @@ describe('buildAiTextAssessment', () => {
 
     const assessment = buildAiTextAssessment(result, 'Transkript', '2026-10-11');
 
-    assertEquals(assessment.highConfidenceNonHuman, false);
+    expect(assessment.highConfidenceNonHuman).toEqual(false);
   });
 
   it('is false when non-human windows have mixed confidence (one High, one Medium)', () => {
@@ -68,7 +67,7 @@ describe('buildAiTextAssessment', () => {
 
     const assessment = buildAiTextAssessment(result, 'Transkript', '2026-10-11');
 
-    assertEquals(assessment.highConfidenceNonHuman, false);
+    expect(assessment.highConfidenceNonHuman).toEqual(false);
   });
 
   it('is false when there are no non-human windows at all', () => {
@@ -76,7 +75,7 @@ describe('buildAiTextAssessment', () => {
 
     const assessment = buildAiTextAssessment(result, 'Transkript', '2026-10-11');
 
-    assertEquals(assessment.highConfidenceNonHuman, false);
+    expect(assessment.highConfidenceNonHuman).toEqual(false);
   });
 
   it('always carries the weakest-non-human-window@1 rule version', () => {
@@ -84,7 +83,7 @@ describe('buildAiTextAssessment', () => {
 
     const assessment = buildAiTextAssessment(result, 'Transkript', '2026-10-11');
 
-    assertEquals(assessment.highConfidenceNonHumanRuleVersion, 'weakest-non-human-window@1');
+    expect(assessment.highConfidenceNonHumanRuleVersion).toEqual('weakest-non-human-window@1');
   });
 
   it('computes the word-weighted confidence distribution across non-human windows only', () => {
@@ -96,7 +95,7 @@ describe('buildAiTextAssessment', () => {
 
     const assessment = buildAiTextAssessment(result, 'Transkript', '2026-10-11');
 
-    assertEquals(assessment.nonHumanWordWeightedConfidenceDistribution, { High: 0.75, Medium: 0.25, Low: 0 });
+    expect(assessment.nonHumanWordWeightedConfidenceDistribution).toEqual({ High: 0.75, Medium: 0.25, Low: 0 });
   });
 
   it('computes transcriptSha256 from the given transcript', () => {
@@ -105,11 +104,8 @@ describe('buildAiTextAssessment', () => {
     const assessment = buildAiTextAssessment(result, 'Ein Transkript', '2026-10-11');
     const otherAssessment = buildAiTextAssessment(result, 'Ein anderes Transkript', '2026-10-11');
 
-    assertEquals(assessment.transcriptSha256.length, 64);
-    assertEquals(
-      assessment.transcriptSha256 !== otherAssessment.transcriptSha256,
-      true,
-    );
+    expect(assessment.transcriptSha256.length).toEqual(64);
+    expect(assessment.transcriptSha256 !== otherAssessment.transcriptSha256).toEqual(true);
   });
 
   it('carries the model name, model version, and checked-at date through', () => {
@@ -117,8 +113,8 @@ describe('buildAiTextAssessment', () => {
 
     const assessment = buildAiTextAssessment(result, 'Transkript', '2026-10-11');
 
-    assertEquals(assessment.modelName, 'pangram-4');
-    assertEquals(assessment.modelVersion, '4.0');
-    assertEquals(assessment.checkedAt, '2026-10-11');
+    expect(assessment.modelName).toEqual('pangram-4');
+    expect(assessment.modelVersion).toEqual('4.0');
+    expect(assessment.checkedAt).toEqual('2026-10-11');
   });
 });

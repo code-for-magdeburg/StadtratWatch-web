@@ -1,5 +1,4 @@
-import { assertEquals } from '@std/assert';
-import { describe, it } from '@std/testing/bdd';
+import { describe, expect, it } from 'bun:test';
 import { hashTranscript } from '@srw-astro/models/ai-text-assessment';
 import type { SessionSpeech } from '@srw-astro/models/session-speech';
 import { executeDetectAiTextRun, planDetectAiTextRun } from './detect-ai-text-processor.ts';
@@ -48,7 +47,7 @@ describe('planDetectAiTextRun', () => {
 
     const plan = planDetectAiTextRun(speeches, [100, 300], false);
 
-    assertEquals(plan.toAssess.map((s) => s.start), [100, 300]);
+    expect(plan.toAssess.map((s) => s.start)).toEqual([100, 300]);
   });
 
   it('reports a requested start that does not exist in the file', () => {
@@ -56,8 +55,8 @@ describe('planDetectAiTextRun', () => {
 
     const plan = planDetectAiTextRun(speeches, [999], false);
 
-    assertEquals(plan.toAssess, []);
-    assertEquals(plan.notFoundStarts, [999]);
+    expect(plan.toAssess).toEqual([]);
+    expect(plan.notFoundStarts).toEqual([999]);
   });
 
   it('skips a speech with a matching existing assessment when skip-existing is set', () => {
@@ -83,8 +82,8 @@ describe('planDetectAiTextRun', () => {
 
     const plan = planDetectAiTextRun([existing], [100], true);
 
-    assertEquals(plan.toAssess, []);
-    assertEquals(plan.skippedExisting, [existing]);
+    expect(plan.toAssess).toEqual([]);
+    expect(plan.skippedExisting).toEqual([existing]);
   });
 
   it('treats a drifted transcript (hash mismatch) as unassessed and re-selects it', () => {
@@ -109,8 +108,8 @@ describe('planDetectAiTextRun', () => {
 
     const plan = planDetectAiTextRun([existing], [100], true);
 
-    assertEquals(plan.toAssess, [existing]);
-    assertEquals(plan.skippedExisting, []);
+    expect(plan.toAssess).toEqual([existing]);
+    expect(plan.skippedExisting).toEqual([]);
   });
 
   it('estimates the cost from the total word count of the selected speeches', () => {
@@ -118,8 +117,8 @@ describe('planDetectAiTextRun', () => {
 
     const plan = planDetectAiTextRun(speeches, [100], false);
 
-    assertEquals(plan.totalWordCount, 200);
-    assertEquals(plan.estimatedCostUsd, 0.1);
+    expect(plan.totalWordCount).toEqual(200);
+    expect(plan.estimatedCostUsd).toEqual(0.1);
   });
 });
 
@@ -130,9 +129,9 @@ describe('executeDetectAiTextRun', () => {
 
     const result = await executeDetectAiTextRun([target], client, () => '2026-10-11');
 
-    assertEquals(result, { assessedCount: 1, skippedTooShortCount: 0, failedCount: 0 });
-    assertEquals(target.aiTextAssessment?.label, 'AI');
-    assertEquals(target.aiTextAssessment?.highConfidenceNonHuman, true);
+    expect(result).toEqual({ assessedCount: 1, skippedTooShortCount: 0, failedCount: 0 });
+    expect(target.aiTextAssessment?.label).toEqual('AI');
+    expect(target.aiTextAssessment?.highConfidenceNonHuman).toEqual(true);
   });
 
   it('continues with the next speech when one Pangram request fails', async () => {
@@ -147,9 +146,9 @@ describe('executeDetectAiTextRun', () => {
 
     const result = await executeDetectAiTextRun([failing, succeeding], client, () => '2026-10-11');
 
-    assertEquals(result, { assessedCount: 1, skippedTooShortCount: 0, failedCount: 1 });
-    assertEquals(failing.aiTextAssessment, undefined);
-    assertEquals(succeeding.aiTextAssessment?.label, 'AI');
+    expect(result).toEqual({ assessedCount: 1, skippedTooShortCount: 0, failedCount: 1 });
+    expect(failing.aiTextAssessment).toEqual(undefined);
+    expect(succeeding.aiTextAssessment?.label).toEqual('AI');
   });
 
   it('counts a too-short outcome as skipped without writing an assessment', async () => {
@@ -158,7 +157,7 @@ describe('executeDetectAiTextRun', () => {
 
     const result = await executeDetectAiTextRun([target], client, () => '2026-10-11');
 
-    assertEquals(result, { assessedCount: 0, skippedTooShortCount: 1, failedCount: 0 });
-    assertEquals(target.aiTextAssessment, undefined);
+    expect(result).toEqual({ assessedCount: 0, skippedTooShortCount: 1, failedCount: 0 });
+    expect(target.aiTextAssessment).toEqual(undefined);
   });
 });

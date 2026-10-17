@@ -9,7 +9,7 @@ Run the processing pipeline in this order. The script sections below document in
    1. [`parse-speakers`](../../src/scripts/parse-speakers/README.md) - combine speaker diarization data for the session.
    2. `scan-voting-images` - extract voting results from session screenshots.
    3. `speech-to-text` - generate speech transcriptions.
-   4. `detect-ai-text` - optional, manual step: after transcripts are corrected and before committing
+   4. [`detect-ai-text`](../../src/scripts/detect-ai-text/README.md) - optional, manual step: after transcripts are corrected and before committing
       session data, run a Pangram-based AI-text check on redaction-selected speeches.
 4. `generate-image-assets` - create voting visualization image assets from processed session data.
 5. `generate-paper-votings` - reverse the voting-paper-map against the session scans into the per-paper voting assets. Needs both the OParl derivates (step 2) and the scanned votings (step 3.2).
@@ -75,53 +75,6 @@ docker run \
 	-v $(pwd)/output/speeches/2022-09-01:/app/speeches:ro \
 	srw-speech-to-text \
 	2022-09-01
-```
-
-
-### Detect AI text (step 14c)
-
-Manual, editorial step: after a redaction-selected speech's transcript has been corrected and before
-committing the session data, run it through Pangram to check whether it may be AI-generated or
-AI-assisted. Reads and writes the same `session-speeches-*.json` file in place, only ever adding the
-`aiTextAssessment` field to the selected speeches. Not run automatically and not run for every speech.
-
-Before calling Pangram, the tool prints a cost estimate (word count × $0.05/100 words) and asks for a
-y/n confirmation. `--skip-existing` skips a speech only if it already has an `aiTextAssessment` whose
-`transcriptSha256` matches the current transcript - a speech whose transcript drifted since the last
-check (e.g. after a correction) is treated as unassessed and re-checked. A single speech's request
-failure is logged and the run continues with the remaining speeches.
-
-#### Using the deno script
-
-Requires the `PANGRAM_API_KEY` environment variable.
-
-```bash
-PANGRAM_API_KEY=<pangram api key> \
-deno run \
-  -A \
-  src/scripts/detect-ai-text/index.ts \
-  -f output/sessions-scan-results/2025-09-25/session-speeches-2025-09-25.json \
-  -t 120,980 \
-  --skip-existing
-```
-
-#### Using a docker container
-
-Build the docker image:
-```bash
-docker build -t srw-detect-ai-text -f docker/detect-ai-text.Dockerfile .
-```
-
-Run the docker container. `-it` is required so the y/n cost confirmation works interactively:
-```shell
-docker run \
-  -it \
-  --rm \
-  -e PANGRAM_API_KEY=<pangram api key> \
-  -v $(pwd)/output/sessions-scan-results/2025-09-25/session-speeches-2025-09-25.json:/app/session-speeches.json \
-  srw-detect-ai-text \
-  120,980 \
-  --skip-existing
 ```
 
 
