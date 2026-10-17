@@ -134,7 +134,7 @@ fork again
   |Externe Dienste|
   :**OParl-API** (Ratsinfo Magdeburg);
   |Skripte (Deno / Bun / Python / Shell)|
-  :**scrape-oparl** (Deno, --push)
+  :**scrape-oparl** (Bun, --push)
   OParl-Rohdaten abrufen;
   note right
     -> lokal: data/oparl-magdeburg/ (nicht committed)

@@ -34,7 +34,7 @@ skinparam activity {
 }
 
 start
-:**scrape-oparl** (Deno)\nOParl-API abrufen;
+:**scrape-oparl** (Bun)\nOParl-API abrufen;
 if (Modus?) then (full)
   :alle Objekte ab Stichdatum holen;
 else (incremental)

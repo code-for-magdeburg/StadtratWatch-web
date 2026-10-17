@@ -4,6 +4,7 @@
     "src/scripts/fetch-oparl/",
     "src/scripts/parse-speakers/",
     "src/scripts/scan-voting-images/",
+    "src/scripts/scrape-oparl/",
     "src/scripts/shared/**/*.test.ts",
     "src/scripts/speech-to-text/"
   ],
@@ -31,6 +32,7 @@
       "!src/scripts/fetch-oparl/",
       "!src/scripts/parse-speakers/",
       "!src/scripts/scan-voting-images/",
+      "!src/scripts/scrape-oparl/",
       "!src/scripts/shared/**/*.test.ts",
       "!src/scripts/speech-to-text/"
     ],
@@ -52,6 +54,7 @@
       "!src/scripts/fetch-oparl/",
       "!src/scripts/parse-speakers/",
       "!src/scripts/scan-voting-images/",
+      "!src/scripts/scrape-oparl/",
       "!src/scripts/shared/**/*.test.ts",
       "!src/scripts/speech-to-text/"
     ]

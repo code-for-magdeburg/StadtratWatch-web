@@ -53,7 +53,7 @@ export class OparlScraper {
   ): Promise<void> {
     const objects = await this.client.fetchObjects(objectsUrl, createdSince);
     const filename = OPARL_FILENAME_BY_TYPE[objectType];
-    this.oparlObjectsStore.saveObjects(objects, filename);
+    await this.oparlObjectsStore.saveObjects(objects, filename);
   }
 
   private async fetchAndStoreIncrementalObjects(
@@ -68,9 +68,9 @@ export class OparlScraper {
     }
 
     const filename = OPARL_FILENAME_BY_TYPE[objectType];
-    const existingObjects = this.oparlObjectsStore.loadObjects(filename);
+    const existingObjects = await this.oparlObjectsStore.loadObjects(filename);
     const updatedObjects = this.updateObjects(existingObjects, modifiedObjects);
-    this.oparlObjectsStore.saveObjects(updatedObjects, filename);
+    await this.oparlObjectsStore.saveObjects(updatedObjects, filename);
   }
 
   private updateObjects(existingObjects: OparlObject[], modifiedObjects: OparlObject[]): OparlObject[] {
