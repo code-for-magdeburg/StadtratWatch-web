@@ -50,7 +50,7 @@ note right
   -> S3/CloudFront (web-assets/papers/) via --push
 end note
 
-:**generate-oparl-derivatives** (Deno)\nOParl-Derivate erzeugen;
+:**generate-oparl-derivatives** (Bun)\nOParl-Derivate erzeugen;
 note right
   Eingabe: OParl-Rohdaten + registry.json
   Ausgabe:

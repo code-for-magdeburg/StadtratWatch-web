@@ -1,5 +1,4 @@
-import { describe, it } from '@std/testing/bdd';
-import { assertEquals } from '@std/assert';
+import { describe, expect, it } from 'bun:test';
 import { OparlDerivativesGenerator } from '../oparl-derivatives-generator.ts';
 import type { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
 import type { RegistryStore } from '../registry-store.ts';
@@ -80,34 +79,37 @@ class MockOparlObjectsStore implements OparlObjectsStore {
 const CANONICAL_PERIOD_ID = 'example-8';
 
 class MockRegistryStore implements RegistryStore {
-  loadRegistries = (): Registry[] => [
-    {
-      id: CANONICAL_PERIOD_ID,
-      name: 'Example period',
-      lastUpdate: '2024-10-01',
-      sessions: [
-        session('2024-09-12'),
-        session('2024-08-15'),
-        // Registry session without a matching OParl meeting -> skipped.
-        session('2024-10-10'),
-      ],
-      factions: [],
-      parties: [],
-      persons: [],
-    },
-  ];
+  loadRegistries = (): Promise<Registry[]> =>
+    Promise.resolve([
+      {
+        id: CANONICAL_PERIOD_ID,
+        name: 'Example period',
+        lastUpdate: '2024-10-01',
+        sessions: [
+          session('2024-09-12'),
+          session('2024-08-15'),
+          // Registry session without a matching OParl meeting -> skipped.
+          session('2024-10-10'),
+        ],
+        factions: [],
+        parties: [],
+        persons: [],
+      },
+    ]);
 }
 
 class MockDerivativesWriter implements DerivativesWriter {
   votingPaperMaps: { [periodId: string]: VotingPaperMap } = {};
   paperIndex: PaperIndex = [];
 
-  writeVotingPaperMap(periodId: string, votingPaperMap: VotingPaperMap): void {
+  writeVotingPaperMap(periodId: string, votingPaperMap: VotingPaperMap): Promise<void> {
     this.votingPaperMaps[periodId] = votingPaperMap;
+    return Promise.resolve();
   }
 
-  writePaperIndex(paperIndex: PaperIndex): void {
+  writePaperIndex(paperIndex: PaperIndex): Promise<void> {
     this.paperIndex = paperIndex;
+    return Promise.resolve();
   }
 }
 
@@ -116,30 +118,30 @@ describe('Generating OParl derivates', () => {
   let registryStore: MockRegistryStore;
   let writer: MockDerivativesWriter;
 
-  it('maps session agenda item numbers to paper ids for council meetings only', () => {
+  it('maps session agenda item numbers to paper ids for council meetings only', async () => {
     givenStoresAreAvailable();
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(writer.votingPaperMaps[CANONICAL_PERIOD_ID], {
+    expect(writer.votingPaperMaps[CANONICAL_PERIOD_ID]).toEqual({
       '2024-08-15': { '4.1': 100, '4.2': 200 },
     });
   });
 
-  it('writes the voting-paper-map under the canonical registry id', () => {
+  it('writes the voting-paper-map under the canonical registry id', async () => {
     givenStoresAreAvailable();
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(Object.keys(writer.votingPaperMaps), [CANONICAL_PERIOD_ID]);
+    expect(Object.keys(writer.votingPaperMaps)).toEqual([CANONICAL_PERIOD_ID]);
   });
 
-  it('projects all dated main papers into a sorted paper index', () => {
+  it('projects all dated main papers into a sorted paper index', async () => {
     givenStoresAreAvailable();
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(writer.paperIndex, [
+    expect(writer.paperIndex).toEqual([
       {
         oparlId: url('papers/100'),
         id: '100',
@@ -165,8 +167,8 @@ describe('Generating OParl derivates', () => {
     writer = new MockDerivativesWriter();
   }
 
-  function runGeneration() {
-    new OparlDerivativesGenerator(oparlObjectsStore, registryStore, writer, COUNCIL_ORG).generate();
+  async function runGeneration() {
+    await new OparlDerivativesGenerator(oparlObjectsStore, registryStore, writer, COUNCIL_ORG).generate();
   }
 });
 
