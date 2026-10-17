@@ -45,15 +45,15 @@ Build the image from the repository root:
 docker build -t srw-speech-to-text -f docker/speech-to-text.Dockerfile .
 ```
 
-Run it with the session as the only argument:
+Run it with the session as the only argument. The OpenAI environment variables must be set in your shell:
 
 ```bash
 SESSION=2025-09-25
 docker run \
   --rm \
-  -e OPENAI_ORGANIZATION_ID=<OpenAI organization ID> \
-  -e OPENAI_PROJECT_ID=<OpenAI project ID> \
-  -e OPENAI_API_KEY=<OpenAI API key> \
+  -e OPENAI_ORGANIZATION_ID \
+  -e OPENAI_PROJECT_ID \
+  -e OPENAI_API_KEY \
   -v $(pwd)/output/speeches/$SESSION:/app/speeches:ro \
   -v $(pwd)/output/sessions-scan-results/$SESSION:/app/output \
   srw-speech-to-text \
