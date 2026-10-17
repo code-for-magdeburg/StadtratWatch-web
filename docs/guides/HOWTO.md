@@ -5,17 +5,18 @@ Run the processing pipeline in this order. The script sections below document in
 1. [`scrape-oparl`](../../src/scripts/scrape-oparl/README.md) - fetch current OParl data. On a machine without a local snapshot, run
    [`fetch-oparl`](../../src/scripts/fetch-oparl/README.md) first: it mirrors the published snapshot into
    `data/oparl-magdeburg/`, so the incremental scrape resumes from it.
-2. `generate-paper-assets` - convert scraped OParl data into the internal paper assets.
-3. [`generate-oparl-derivatives`](../../src/scripts/generate-oparl-derivatives/README.md) - precompile the committed OParl derivates (`voting-paper-map.json`, `paper-index.json`) the Astro build consumes.
-4. Video processing steps:
+2. [`download-paper-files`](../../src/scripts/download-paper-files/README.md) - download the PDF documents linked to the council meetings of a year.
+3. `generate-paper-assets` - convert scraped OParl data into the internal paper assets. Needs the downloaded PDFs (step 2) for the file sizes.
+4. [`generate-oparl-derivatives`](../../src/scripts/generate-oparl-derivatives/README.md) - precompile the committed OParl derivates (`voting-paper-map.json`, `paper-index.json`) the Astro build consumes.
+5. Video processing steps:
    1. [`parse-speakers`](../../src/scripts/parse-speakers/README.md) - combine speaker diarization data for the session.
    2. [`scan-voting-images`](../../src/scripts/scan-voting-images/README.md) - extract voting results from session screenshots.
    3. [`speech-to-text`](../../src/scripts/speech-to-text/README.md) - generate speech transcriptions.
    4. [`detect-ai-text`](../../src/scripts/detect-ai-text/README.md) - optional, manual step: after transcripts are corrected and before committing
       session data, run a Pangram-based AI-text check on redaction-selected speeches.
-5. `generate-image-assets` - create voting visualization image assets from processed session data.
-6. `generate-paper-votings` - reverse the voting-paper-map against the session scans into the per-paper voting assets. Needs both the OParl derivates (step 3) and the scanned votings (step 4.2).
-7. `index-search` - rebuild the Typesense search index after all paper, speech, and asset data is available.
+6. `generate-image-assets` - create voting visualization image assets from processed session data.
+7. `generate-paper-votings` - reverse the voting-paper-map against the session scans into the per-paper voting assets. Needs both the OParl derivates (step 4) and the scanned votings (step 5.2).
+8. `index-search` - rebuild the Typesense search index after all paper, speech, and asset data is available.
 
 ### Generate image assets
 
@@ -54,25 +55,6 @@ deno run -A \
   -i=data/magdeburg-8 \
   -o=output/image-assets/magdeburg-8 \
   --push
-```
-
-
-### Download paper files
-
-#### Build the docker image
-```bash
-docker build -t srw-download-paper-files -f docker/download-paper-files.Dockerfile .
-```
-
-#### Run the docker container
-```shell
-docker run \
-  --rm \
-  -e OPARL_COUNCIL_ORGANIZATION_ID=https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1 \
-  -v $(pwd)/output/papers/2026:/app/papers \
-  -v $(pwd)/data/oparl-magdeburg:/app/oparl:ro \
-  srw-download-paper-files \
-  2026
 ```
 
 

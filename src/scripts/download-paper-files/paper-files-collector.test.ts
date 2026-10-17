@@ -3,8 +3,7 @@ import type { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-rep
 import type { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
 import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
 import type { OparlFile, OparlMeeting } from '@srw-astro/models/oparl';
-import { assertSpyCall, assertSpyCalls, spy } from '@std/testing/mock';
-import { describe, it } from '@std/testing/bdd';
+import { afterEach, describe, expect, it, mock, spyOn } from 'bun:test';
 
 const mockMeetings: OparlMeeting[] = [
   {
@@ -102,9 +101,11 @@ const mockDownloader: IPaperFilesDownloader = {
 };
 
 describe('PaperFilesCollector', () => {
+  afterEach(() => mock.restore());
+
   describe('collectFiles', () => {
     it('should not download any files when no meetings exist for the year', async () => {
-      using downloadFileSpy = spy(mockDownloader, 'downloadFile');
+      const downloadFileSpy = spyOn(mockDownloader, 'downloadFile');
 
       const collector = new PaperFilesCollector(
         mockMeetingsRepository,
@@ -114,11 +115,11 @@ describe('PaperFilesCollector', () => {
       );
       await collector.collectFiles('2025');
 
-      assertSpyCalls(downloadFileSpy, 0);
+      expect(downloadFileSpy).toHaveBeenCalledTimes(0);
     });
 
     it('should download files for a single meeting in the specified year', async () => {
-      using downloadFileSpy = spy(mockDownloader, 'downloadFile');
+      const downloadFileSpy = spyOn(mockDownloader, 'downloadFile');
 
       const collector = new PaperFilesCollector(
         mockMeetingsRepository,
@@ -128,14 +129,12 @@ describe('PaperFilesCollector', () => {
       );
       await collector.collectFiles('2023');
 
-      assertSpyCalls(downloadFileSpy, 1);
-      assertSpyCall(downloadFileSpy, 0, {
-        args: ['https://example.com/file/301'],
-      });
+      expect(downloadFileSpy).toHaveBeenCalledTimes(1);
+      expect(downloadFileSpy).toHaveBeenNthCalledWith(1, 'https://example.com/file/301');
     });
 
     it('should download files for all meetings in the specified year', async () => {
-      using downloadFileSpy = spy(mockDownloader, 'downloadFile');
+      const downloadFileSpy = spyOn(mockDownloader, 'downloadFile');
 
       const collector = new PaperFilesCollector(
         mockMeetingsRepository,
@@ -145,20 +144,14 @@ describe('PaperFilesCollector', () => {
       );
       await collector.collectFiles('2024');
 
-      assertSpyCalls(downloadFileSpy, 3);
-      assertSpyCall(downloadFileSpy, 0, {
-        args: ['https://example.com/file/101'],
-      });
-      assertSpyCall(downloadFileSpy, 1, {
-        args: ['https://example.com/file/102'],
-      });
-      assertSpyCall(downloadFileSpy, 2, {
-        args: ['https://example.com/file/201'],
-      });
+      expect(downloadFileSpy).toHaveBeenCalledTimes(3);
+      expect(downloadFileSpy).toHaveBeenNthCalledWith(1, 'https://example.com/file/101');
+      expect(downloadFileSpy).toHaveBeenNthCalledWith(2, 'https://example.com/file/102');
+      expect(downloadFileSpy).toHaveBeenNthCalledWith(3, 'https://example.com/file/201');
     });
 
     it('should handle meetings without files gracefully', async () => {
-      using downloadFileSpy = spy(mockDownloader, 'downloadFile');
+      const downloadFileSpy = spyOn(mockDownloader, 'downloadFile');
 
       // Create a custom repository that returns only the meeting without files
       const customMeetingsRepository: OparlMeetingsRepository = {
@@ -178,12 +171,12 @@ describe('PaperFilesCollector', () => {
       );
       await collector.collectFiles('2024');
 
-      assertSpyCalls(downloadFileSpy, 0);
+      expect(downloadFileSpy).toHaveBeenCalledTimes(0);
     });
 
     it('should only process meetings that start with the specified year', async () => {
-      using getMeetingsSpy = spy(mockMeetingsRepository, 'getMeetingsByOrganization');
-      using downloadFileSpy = spy(mockDownloader, 'downloadFile');
+      const getMeetingsSpy = spyOn(mockMeetingsRepository, 'getMeetingsByOrganization');
+      const downloadFileSpy = spyOn(mockDownloader, 'downloadFile');
 
       const collector = new PaperFilesCollector(
         mockMeetingsRepository,
@@ -193,11 +186,11 @@ describe('PaperFilesCollector', () => {
       );
       await collector.collectFiles('2024');
 
-      assertSpyCalls(getMeetingsSpy, 1);
+      expect(getMeetingsSpy).toHaveBeenCalledTimes(1);
 
       // Should download files from meetings 1, 2, and 4 (all from 2024), but meeting 4 has no files
       // So total downloads: 2 files from meeting 1 + 1 file from meeting 2 = 3 downloads
-      assertSpyCalls(downloadFileSpy, 3);
+      expect(downloadFileSpy).toHaveBeenCalledTimes(3);
     });
 
     it('should process meetings in sequence', async () => {

@@ -1,5 +1,4 @@
-import * as fs from '@std/fs';
-import * as path from '@std/path';
+import * as path from 'node:path';
 
 export interface IPaperFilesDownloader {
   downloadFile(fileId: string): void;
@@ -16,15 +15,14 @@ export class PaperFilesDownloader implements IPaperFilesDownloader {
     }
 
     const filePath = this.getFilePath(fileId);
-    if (fs.existsSync(filePath)) {
+    if (await Bun.file(filePath).exists()) {
       return;
     }
 
     const downloadUrl = PaperFilesDownloader.getDownloadUrl(fileId);
     const fileResponse = await fetch(downloadUrl);
     if (fileResponse.body) {
-      const file = await Deno.open(filePath, { write: true, create: true });
-      await fileResponse.body.pipeTo(file.writable);
+      await Bun.write(filePath, fileResponse);
       console.log('Download finished: ', oparlFileId);
     }
   }

@@ -1,4 +1,4 @@
-import { checkArgs, parseArgs, printHelpText } from './cli.ts';
+import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
 import { PaperFilesCollector } from './paper-files-collector.ts';
 import { PaperFilesDownloader } from './paper-files-downloader.ts';
 import { OparlObjectsFileStore } from '../shared/oparl/oparl-objects-store.ts';
@@ -7,11 +7,11 @@ import { OparlMeetingsInMemoryRepository } from '../shared/oparl/oparl-meetings-
 import { OparlFilesInMemoryRepository } from '../shared/oparl/oparl-files-repository.ts';
 import { OparlPapersInMemoryRepository } from '../shared/oparl/oparl-papers-repository.ts';
 
-const args = parseArgs(Deno.args);
+const args = parseCliArgs(Bun.argv.slice(2));
 
 if (args.help) {
   printHelpText();
-  Deno.exit(0);
+  process.exit(0);
 }
 
 checkArgs(args);
