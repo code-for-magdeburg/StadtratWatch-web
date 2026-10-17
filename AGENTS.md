@@ -149,7 +149,7 @@ Each data processing script has a corresponding Dockerfile in `docker/` for cont
 
 1. To add a new parliament period, create `data/{period-id}/registry.json` with sessions, persons, factions, parties
 2. For new sessions, create `data/{period-id}/{session-date}/` directory
-3. Run processing scripts in order (see docs/guides/HOWTO.md): scrape-oparl → generate-paper-assets → generate-oparl-derivatives → video processing → generate-image-assets → generate-paper-votings → index-search
+3. Run the processing scripts in the order in docs/guides/HOWTO.md ("Mandatory processing order")
 4. The Astro build automatically picks up data from `data/` directory
 
 ### Testing Changes
@@ -227,10 +227,9 @@ Index is rebuilt with index-search script (see docs/guides/HOWTO.md). Frontend u
 
 ## Boundaries
 
-- **Always** ensure git commits list only human authors and co-authors
+- **Always** give commits and PR descriptions human attribution only: no AI co-author trailers, no "Generated with" footers
 - **Never** commit secrets or `.env` files
 - **Never** force push to main
-- **Never** list AI agents as commit authors or co-authors
 
 ## Important Notes
 
@@ -254,4 +253,4 @@ Default canonical labels (`needs-triage`, `needs-info`, `ready-for-agent`, `read
 
 ### Domain docs
 
-Single-context: `GLOSSARY.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+Single-context: `GLOSSARY.md` at the repo root + ADRs in `docs/arc42/09-architekturentscheidungen/`. See `docs/agents/domain.md`.

@@ -4,39 +4,24 @@ How the engineering skills should consume this repo's domain documentation when 
 
 ## Before exploring, read these
 
-- **`GLOSSARY.md`** at the repo root, or
-- **`GLOSSARY-MAP.md`** at the repo root if it exists: it points at one `GLOSSARY.md` per context. Read each one relevant to the topic.
-- **`docs/adr/`**: read ADRs that touch the area you're about to work in. In multi-context repos, also check `src/<context>/docs/adr/` for context-scoped decisions.
-
-If any of these files don't exist, **proceed silently**. Don't flag their absence; don't suggest creating them upfront. The `/domain-modeling` skill (reached via `/grill-with-docs` and `/improve-codebase-architecture`) creates them lazily when terms or decisions actually get resolved.
+- **`GLOSSARY.md`** at the repo root.
+- **ADRs** in `docs/arc42/09-architekturentscheidungen/`: read the ADRs that touch the area you're about to work in. `index.adoc` there lists them all.
 
 ## File structure
 
-Single-context repo (most repos):
+This is a single-context repo. The ADRs are part of the arc42 documentation, written in German as AsciiDoc:
 
 ```
 /
 ├── GLOSSARY.md
-├── docs/adr/
-│   ├── 0001-event-sourced-orders.md
-│   └── 0002-postgres-for-write-model.md
+├── docs/arc42/09-architekturentscheidungen/
+│   ├── index.adoc
+│   ├── adr-0001-json-datenbestand.adoc
+│   └── adr-0007-bun-statt-deno.adoc
 └── src/
 ```
 
-Multi-context repo (presence of `GLOSSARY-MAP.md` at the root):
-
-```
-/
-├── GLOSSARY-MAP.md
-├── docs/adr/                          ← system-wide decisions
-└── src/
-    ├── ordering/
-    │   ├── GLOSSARY.md
-    │   └── docs/adr/                  ← context-specific decisions
-    └── billing/
-        ├── GLOSSARY.md
-        └── docs/adr/
-```
+A new ADR goes into the same folder as `adr-NNNN-<slug>.adoc`, with the next free number, and gets a table row and an `include::` line in `index.adoc`.
 
 ## Use the glossary's vocabulary
 
@@ -48,4 +33,4 @@ If the concept you need isn't in the glossary yet, that's a signal: either you'r
 
 If your output contradicts an existing ADR, surface it explicitly rather than silently overriding:
 
-> _Contradicts ADR-0007 (event-sourced orders), but worth reopening because…_
+> _Contradicts ADR-0004 (geteilte Modelle), but worth reopening because…_
