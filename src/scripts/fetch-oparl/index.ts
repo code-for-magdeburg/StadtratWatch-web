@@ -1,14 +1,14 @@
-import { checkArgs, parseArgs, printHelpText } from './cli.ts';
+import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
 import { getFetchOparlEnvOrExit } from './env.ts';
 import { createHttpSnapshotSource } from './snapshot-source.ts';
 import { createFileSnapshotStore } from './snapshot-store.ts';
 import { syncOparlSnapshot } from './sync-snapshot.ts';
 
-const args = parseArgs(Deno.args);
+const args = parseCliArgs(Bun.argv.slice(2));
 
 if (args.help) {
   printHelpText();
-  Deno.exit(0);
+  process.exit(0);
 }
 
 checkArgs(args);
@@ -22,5 +22,5 @@ try {
   await syncOparlSnapshot(source, store, log);
 } catch (error) {
   console.error(`fetch-oparl failed: ${error instanceof Error ? error.message : String(error)}`);
-  Deno.exit(1);
+  process.exit(1);
 }

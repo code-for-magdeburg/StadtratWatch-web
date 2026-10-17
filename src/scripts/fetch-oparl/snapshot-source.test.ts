@@ -1,5 +1,4 @@
-import { assertEquals, assertRejects, assertStringIncludes } from '@std/assert';
-import { describe, it } from '@std/testing/bdd';
+import { describe, expect, it } from 'bun:test';
 import type { OparlManifest } from '../shared/oparl/oparl-snapshot.ts';
 import { createHttpSnapshotSource, type FetchFn } from './snapshot-source.ts';
 
@@ -24,8 +23,8 @@ describe('createHttpSnapshotSource', () => {
 
     const result = await source.tryFetchManifest();
 
-    assertEquals(fetchFn.urls, ['https://cdn.example.test/oparl/manifest.json']);
-    assertEquals(result, { ok: true, manifest: MANIFEST });
+    expect(fetchFn.urls).toEqual(['https://cdn.example.test/oparl/manifest.json']);
+    expect(result).toEqual({ ok: true, manifest: MANIFEST });
   });
 
   it('reports an unreachable manifest as a value, not an exception', async () => {
@@ -34,8 +33,8 @@ describe('createHttpSnapshotSource', () => {
 
     const result = await source.tryFetchManifest();
 
-    assertEquals(result.ok, false);
-    if (!result.ok) assertStringIncludes(result.reason, '503');
+    expect(result.ok).toEqual(false);
+    if (!result.ok) expect(result.reason).toContain('503');
   });
 
   it('reports a malformed 200 manifest as a value, not an exception', async () => {
@@ -44,8 +43,8 @@ describe('createHttpSnapshotSource', () => {
 
     const result = await source.tryFetchManifest();
 
-    assertEquals(result.ok, false);
-    if (!result.ok) assertStringIncludes(result.reason, 'malformed');
+    expect(result.ok).toEqual(false);
+    if (!result.ok) expect(result.reason).toContain('malformed');
   });
 
   it('reports a thrown fetch as a value', async () => {
@@ -53,8 +52,8 @@ describe('createHttpSnapshotSource', () => {
 
     const result = await source.tryFetchManifest();
 
-    assertEquals(result.ok, false);
-    if (!result.ok) assertStringIncludes(result.reason, 'network down');
+    expect(result.ok).toEqual(false);
+    if (!result.ok) expect(result.reason).toContain('network down');
   });
 
   it('streams a blob body from the prefixed URL', async () => {
@@ -63,8 +62,8 @@ describe('createHttpSnapshotSource', () => {
 
     const body = await source.fetchBlob('papers.abc.json.gz');
 
-    assertEquals(fetchFn.urls, ['https://cdn.example.test/oparl/papers.abc.json.gz']);
-    assertEquals(await new Response(body).text(), 'payload');
+    expect(fetchFn.urls).toEqual(['https://cdn.example.test/oparl/papers.abc.json.gz']);
+    expect(await new Response(body).text()).toEqual('payload');
   });
 
   it('throws when a blob request fails', async () => {
@@ -74,6 +73,6 @@ describe('createHttpSnapshotSource', () => {
       () => Promise.resolve(new Response(null, { status: 404, statusText: 'Not Found' })),
     );
 
-    await assertRejects(() => source.fetchBlob('missing.json.gz'), Error, '404');
+    await expect(source.fetchBlob('missing.json.gz')).rejects.toThrow('404');
   });
 });
