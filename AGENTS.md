@@ -47,7 +47,7 @@ deno check src/         # Type-check code
 
 ### Bun Scripts
 
-The scripts in `src/` are moving from Deno to Bun one by one (see ADR-0007). Folders already on Bun are listed in `tsconfig.json` `include`; `deno fmt`/`deno lint` still cover them, `deno check`/`deno test` skip them.
+The scripts in `src/` are moving from Deno to Bun one by one (see ADR-0007). Folders already on Bun are listed in `tsconfig.json` `include`; `deno fmt`/`deno lint` still cover them, `deno check`/`deno test` skip them. Exception: `src/scripts/shared/` runs on both runtimes until the last script that uses it is on Bun, so `deno check` still covers its code and only its tests are skipped.
 
 ```bash
 bun install             # Install dependencies

@@ -8,10 +8,8 @@ import {
   type WebAssetTarget,
 } from './web-asset-publisher.ts';
 import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
-import { crypto } from '@std/crypto';
-import { encodeHex } from '@std/encoding/hex';
-import { assertEquals, assertRejects } from '@std/assert';
-import { describe, it } from '@std/testing/bdd';
+import { describe, expect, it } from 'bun:test';
+import { createHash } from 'node:crypto';
 
 const TARGET: WebAssetTarget = {
   bucket: 'test-bucket',
@@ -24,8 +22,8 @@ function bytes(text: string): Uint8Array<ArrayBuffer> {
 }
 
 /** The ETag S3 reports for a single-part upload: the body's MD5, hex-encoded and quoted. */
-async function etagOf(text: string): Promise<string> {
-  return `"${encodeHex(await crypto.subtle.digest('MD5', bytes(text)))}"`;
+function etagOf(text: string): string {
+  return `"${createHash('md5').update(bytes(text)).digest('hex')}"`;
 }
 
 type Recorder = {
@@ -66,48 +64,48 @@ describe('publishWebAssets', () => {
 
     const plan = await publishWebAssets(assets, TARGET, operations);
 
-    assertEquals(plan.uploads, [KEY_A]);
-    assertEquals(recorder.puts.length, 1);
-    assertEquals(recorder.puts[0].Bucket, TARGET.bucket);
-    assertEquals(recorder.puts[0].Key, KEY_A);
-    assertEquals(recorder.puts[0].ContentType, 'application/json');
-    assertEquals(recorder.puts[0].CacheControl, WEB_ASSET_CACHE_CONTROL);
+    expect(plan.uploads).toEqual([KEY_A]);
+    expect(recorder.puts.length).toEqual(1);
+    expect(recorder.puts[0].Bucket).toEqual(TARGET.bucket);
+    expect(recorder.puts[0].Key).toEqual(KEY_A);
+    expect(recorder.puts[0].ContentType).toEqual('application/json');
+    expect(recorder.puts[0].CacheControl).toEqual(WEB_ASSET_CACHE_CONTROL);
   });
 
   it('skips an asset whose remote ETag already matches its content', async () => {
     const body = '{"unchanged":true}';
     const assets = [{ key: KEY_A, body: bytes(body) }];
-    const { operations, recorder } = fakeOperations([{ key: KEY_A, etag: await etagOf(body) }]);
+    const { operations, recorder } = fakeOperations([{ key: KEY_A, etag: etagOf(body) }]);
 
     const plan = await publishWebAssets(assets, TARGET, operations);
 
-    assertEquals(plan.uploads, []);
-    assertEquals(plan.unchanged, [KEY_A]);
-    assertEquals(recorder.puts, []);
-    assertEquals(recorder.invalidated, []);
+    expect(plan.uploads).toEqual([]);
+    expect(plan.unchanged).toEqual([KEY_A]);
+    expect(recorder.puts).toEqual([]);
+    expect(recorder.invalidated).toEqual([]);
   });
 
   it('re-uploads an asset whose content changed', async () => {
     const assets = [{ key: KEY_A, body: bytes('new') }];
-    const { operations, recorder } = fakeOperations([{ key: KEY_A, etag: await etagOf('old') }]);
+    const { operations, recorder } = fakeOperations([{ key: KEY_A, etag: etagOf('old') }]);
 
     const plan = await publishWebAssets(assets, TARGET, operations);
 
-    assertEquals(plan.uploads, [KEY_A]);
-    assertEquals(recorder.puts.length, 1);
+    expect(plan.uploads).toEqual([KEY_A]);
+    expect(recorder.puts.length).toEqual(1);
   });
 
   it('prunes remote orphans that are absent from the authoritative list', async () => {
     const assets = [{ key: KEY_A, body: bytes('keep') }];
     const { operations, recorder } = fakeOperations([
-      { key: KEY_A, etag: await etagOf('keep') },
-      { key: ORPHAN, etag: await etagOf('gone') },
+      { key: KEY_A, etag: etagOf('keep') },
+      { key: ORPHAN, etag: etagOf('gone') },
     ]);
 
     const plan = await publishWebAssets(assets, TARGET, operations);
 
-    assertEquals(plan.deletes, [ORPHAN]);
-    assertEquals(recorder.deleted, [[ORPHAN]]);
+    expect(plan.deletes).toEqual([ORPHAN]);
+    expect(recorder.deleted).toEqual([[ORPHAN]]);
   });
 
   it('invalidates every uploaded and deleted path, and nothing that stayed unchanged', async () => {
@@ -116,44 +114,44 @@ describe('publishWebAssets', () => {
       { key: KEY_B, body: bytes('same') },
     ];
     const { operations, recorder } = fakeOperations([
-      { key: KEY_A, etag: await etagOf('old') },
-      { key: KEY_B, etag: await etagOf('same') },
-      { key: ORPHAN, etag: await etagOf('gone') },
+      { key: KEY_A, etag: etagOf('old') },
+      { key: KEY_B, etag: etagOf('same') },
+      { key: ORPHAN, etag: etagOf('gone') },
     ]);
 
     const plan = await publishWebAssets(assets, TARGET, operations);
 
-    assertEquals(plan.invalidations, [`/${KEY_A}`, `/${ORPHAN}`].sort());
-    assertEquals(recorder.invalidated, [{ distributionId: TARGET.distributionId, paths: plan.invalidations }]);
+    expect(plan.invalidations).toEqual([`/${KEY_A}`, `/${ORPHAN}`].sort());
+    expect(recorder.invalidated).toEqual([{ distributionId: TARGET.distributionId, paths: plan.invalidations }]);
   });
 
   it('performs no mutations on a dry-run but returns the full plan', async () => {
     const assets = [{ key: KEY_A, body: bytes('new') }];
     const { operations, recorder } = fakeOperations([
-      { key: KEY_A, etag: await etagOf('old') },
-      { key: ORPHAN, etag: await etagOf('gone') },
+      { key: KEY_A, etag: etagOf('old') },
+      { key: ORPHAN, etag: etagOf('gone') },
     ]);
 
     const plan = await publishWebAssets(assets, TARGET, operations, { dryRun: true });
 
-    assertEquals(plan.uploads, [KEY_A]);
-    assertEquals(plan.deletes, [ORPHAN]);
-    assertEquals(plan.invalidations, [`/${KEY_A}`, `/${ORPHAN}`].sort());
-    assertEquals(recorder.puts, []);
-    assertEquals(recorder.deleted, []);
-    assertEquals(recorder.invalidated, []);
+    expect(plan.uploads).toEqual([KEY_A]);
+    expect(plan.deletes).toEqual([ORPHAN]);
+    expect(plan.invalidations).toEqual([`/${KEY_A}`, `/${ORPHAN}`].sort());
+    expect(recorder.puts).toEqual([]);
+    expect(recorder.deleted).toEqual([]);
+    expect(recorder.invalidated).toEqual([]);
   });
 
   it('does not delete or invalidate when nothing changed', async () => {
     const body = 'same';
     const assets = [{ key: KEY_A, body: bytes(body) }];
-    const { operations, recorder } = fakeOperations([{ key: KEY_A, etag: await etagOf(body) }]);
+    const { operations, recorder } = fakeOperations([{ key: KEY_A, etag: etagOf(body) }]);
 
     await publishWebAssets(assets, TARGET, operations);
 
-    assertEquals(recorder.puts, []);
-    assertEquals(recorder.deleted, []);
-    assertEquals(recorder.invalidated, []);
+    expect(recorder.puts).toEqual([]);
+    expect(recorder.deleted).toEqual([]);
+    expect(recorder.invalidated).toEqual([]);
   });
 });
 
@@ -164,8 +162,8 @@ describe('verifyWebAssets', () => {
       { key: KEY_B, body: bytes('b') },
     ];
     const { operations } = fakeOperations([
-      { key: KEY_A, etag: await etagOf('a') },
-      { key: KEY_B, etag: await etagOf('b') },
+      { key: KEY_A, etag: etagOf('a') },
+      { key: KEY_B, etag: etagOf('b') },
     ]);
 
     await verifyWebAssets(assets, TARGET, operations);
@@ -176,18 +174,18 @@ describe('verifyWebAssets', () => {
       { key: KEY_A, body: bytes('a') },
       { key: KEY_B, body: bytes('b') },
     ];
-    const { operations } = fakeOperations([{ key: KEY_A, etag: await etagOf('a') }]);
+    const { operations } = fakeOperations([{ key: KEY_A, etag: etagOf('a') }]);
 
-    await assertRejects(() => verifyWebAssets(assets, TARGET, operations), Error, KEY_B);
+    await expect(verifyWebAssets(assets, TARGET, operations)).rejects.toThrow(KEY_B);
   });
 
   it('rejects when the remote prefix still holds an orphan the run did not produce', async () => {
     const assets: LocalAsset[] = [{ key: KEY_A, body: bytes('a') }];
     const { operations } = fakeOperations([
-      { key: KEY_A, etag: await etagOf('a') },
-      { key: ORPHAN, etag: await etagOf('gone') },
+      { key: KEY_A, etag: etagOf('a') },
+      { key: ORPHAN, etag: etagOf('gone') },
     ]);
 
-    await assertRejects(() => verifyWebAssets(assets, TARGET, operations), Error, ORPHAN);
+    await expect(verifyWebAssets(assets, TARGET, operations)).rejects.toThrow(ORPHAN);
   });
 });

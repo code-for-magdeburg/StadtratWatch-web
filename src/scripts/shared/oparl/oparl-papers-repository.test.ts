@@ -1,5 +1,4 @@
-import { assertEquals } from '@std/assert';
-import { describe, it } from '@std/testing/bdd';
+import { describe, expect, it } from 'bun:test';
 import { OparlPapersInMemoryRepository } from './oparl-papers-repository.ts';
 import type { OparlPaper } from '@srw-astro/models/oparl';
 
@@ -27,17 +26,17 @@ describe('OparlPapersInMemoryRepository', () => {
       const repository = new OparlPapersInMemoryRepository(papers);
       const result = repository.getAllPapers();
 
-      assertEquals(result.length, 3);
-      assertEquals(result[0].id, 'paper-1');
-      assertEquals(result[1].id, 'paper-2');
-      assertEquals(result[2].id, 'paper-3');
+      expect(result.length).toEqual(3);
+      expect(result[0].id).toEqual('paper-1');
+      expect(result[1].id).toEqual('paper-2');
+      expect(result[2].id).toEqual('paper-3');
     });
 
     it('should return empty array when no papers exist', () => {
       const repository = new OparlPapersInMemoryRepository([]);
       const result = repository.getAllPapers();
 
-      assertEquals(result.length, 0);
+      expect(result.length).toEqual(0);
     });
 
     it('should preserve all paper properties', () => {
@@ -63,14 +62,14 @@ describe('OparlPapersInMemoryRepository', () => {
       const repository = new OparlPapersInMemoryRepository(papers);
       const result = repository.getAllPapers();
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'paper-1');
-      assertEquals(result[0].name, 'Important Paper');
-      assertEquals(result[0].reference, 'REF-2024-001');
-      assertEquals(result[0].paperType, 'Antrag');
-      assertEquals(result[0].deleted, true);
-      assertEquals(result[0].consultation?.length, 1);
-      assertEquals(result[0].consultation?.[0].id, 'consultation-1');
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('paper-1');
+      expect(result[0].name).toEqual('Important Paper');
+      expect(result[0].reference).toEqual('REF-2024-001');
+      expect(result[0].paperType).toEqual('Antrag');
+      expect(result[0].deleted).toEqual(true);
+      expect(result[0].consultation?.length).toEqual(1);
+      expect(result[0].consultation?.[0].id).toEqual('consultation-1');
     });
 
     it('should return same reference as constructor array', () => {
@@ -86,7 +85,7 @@ describe('OparlPapersInMemoryRepository', () => {
       const result = repository.getAllPapers();
 
       // Check that it returns the same reference
-      assertEquals(result, papers);
+      expect(result).toEqual(papers);
     });
 
     it('should handle papers with various optional properties', () => {
@@ -119,11 +118,11 @@ describe('OparlPapersInMemoryRepository', () => {
       const repository = new OparlPapersInMemoryRepository(papers);
       const result = repository.getAllPapers();
 
-      assertEquals(result.length, 4);
-      assertEquals(result[0].reference, undefined);
-      assertEquals(result[1].reference, 'REF-002');
-      assertEquals(result[2].paperType, 'Beschlussvorlage');
-      assertEquals(result[3].consultation, []);
+      expect(result.length).toEqual(4);
+      expect(result[0].reference).toEqual(undefined);
+      expect(result[1].reference).toEqual('REF-002');
+      expect(result[2].paperType).toEqual('Beschlussvorlage');
+      expect(result[3].consultation).toEqual([]);
     });
   });
 
@@ -174,9 +173,9 @@ describe('OparlPapersInMemoryRepository', () => {
       const repository = new OparlPapersInMemoryRepository(papers);
       const result = repository.getPapersByMeeting('meeting-1');
 
-      assertEquals(result.length, 2);
-      assertEquals(result[0].id, 'paper-1');
-      assertEquals(result[1].id, 'paper-3');
+      expect(result.length).toEqual(2);
+      expect(result[0].id).toEqual('paper-1');
+      expect(result[1].id).toEqual('paper-3');
     });
 
     it('should return empty array when no papers match', () => {
@@ -199,7 +198,7 @@ describe('OparlPapersInMemoryRepository', () => {
       const repository = new OparlPapersInMemoryRepository(papers);
       const result = repository.getPapersByMeeting('meeting-2');
 
-      assertEquals(result.length, 0);
+      expect(result.length).toEqual(0);
     });
 
     it('should handle papers with multiple consultations', () => {
@@ -229,10 +228,10 @@ describe('OparlPapersInMemoryRepository', () => {
       const result1 = repository.getPapersByMeeting('meeting-1');
       const result2 = repository.getPapersByMeeting('meeting-2');
 
-      assertEquals(result1.length, 1);
-      assertEquals(result1[0].id, 'paper-1');
-      assertEquals(result2.length, 1);
-      assertEquals(result2[0].id, 'paper-1');
+      expect(result1.length).toEqual(1);
+      expect(result1[0].id).toEqual('paper-1');
+      expect(result2.length).toEqual(1);
+      expect(result2[0].id).toEqual('paper-1');
     });
 
     it('should handle papers with undefined consultation', () => {
@@ -260,8 +259,8 @@ describe('OparlPapersInMemoryRepository', () => {
       const repository = new OparlPapersInMemoryRepository(papers);
       const result = repository.getPapersByMeeting('meeting-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'paper-2');
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('paper-2');
     });
 
     it('should handle papers with empty consultation array', () => {
@@ -290,8 +289,8 @@ describe('OparlPapersInMemoryRepository', () => {
       const repository = new OparlPapersInMemoryRepository(papers);
       const result = repository.getPapersByMeeting('meeting-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'paper-2');
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('paper-2');
     });
 
     it('should handle consultation with undefined meeting', () => {
@@ -326,15 +325,15 @@ describe('OparlPapersInMemoryRepository', () => {
       const repository = new OparlPapersInMemoryRepository(papers);
       const result = repository.getPapersByMeeting('meeting-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'paper-2');
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('paper-2');
     });
 
     it('should handle empty papers array', () => {
       const repository = new OparlPapersInMemoryRepository([]);
       const result = repository.getPapersByMeeting('meeting-1');
 
-      assertEquals(result.length, 0);
+      expect(result.length).toEqual(0);
     });
 
     it('should return different instances for different queries', () => {
@@ -371,10 +370,10 @@ describe('OparlPapersInMemoryRepository', () => {
       const result1 = repository.getPapersByMeeting('meeting-1');
       const result2 = repository.getPapersByMeeting('meeting-2');
 
-      assertEquals(result1.length, 1);
-      assertEquals(result1[0].id, 'paper-1');
-      assertEquals(result2.length, 1);
-      assertEquals(result2[0].id, 'paper-2');
+      expect(result1.length).toEqual(1);
+      expect(result1[0].id).toEqual('paper-1');
+      expect(result2.length).toEqual(1);
+      expect(result2[0].id).toEqual('paper-2');
     });
 
     it('should preserve all paper properties', () => {
@@ -400,12 +399,12 @@ describe('OparlPapersInMemoryRepository', () => {
       const repository = new OparlPapersInMemoryRepository(papers);
       const result = repository.getPapersByMeeting('meeting-1');
 
-      assertEquals(result.length, 1);
-      assertEquals(result[0].id, 'paper-1');
-      assertEquals(result[0].name, 'Important Paper');
-      assertEquals(result[0].reference, 'REF-2024-001');
-      assertEquals(result[0].paperType, 'Antrag');
-      assertEquals(result[0].deleted, true);
+      expect(result.length).toEqual(1);
+      expect(result[0].id).toEqual('paper-1');
+      expect(result[0].name).toEqual('Important Paper');
+      expect(result[0].reference).toEqual('REF-2024-001');
+      expect(result[0].paperType).toEqual('Antrag');
+      expect(result[0].deleted).toEqual(true);
     });
   });
 });

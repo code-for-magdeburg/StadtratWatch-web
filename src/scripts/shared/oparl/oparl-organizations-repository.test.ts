@@ -1,5 +1,4 @@
-import { assertEquals } from '@std/assert';
-import { describe, it } from '@std/testing/bdd';
+import { describe, expect, it } from 'bun:test';
 import { OparlOrganizationsInMemoryRepository } from './oparl-organizations-repository.ts';
 import type { OparlOrganization } from '@srw-astro/models/oparl';
 
@@ -27,9 +26,9 @@ describe('OparlOrganizationsInMemoryRepository', () => {
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
       const result = repository.getOrganizationById('org-2');
 
-      assertEquals(result?.id, 'org-2');
-      assertEquals(result?.name, 'Finance Committee');
-      assertEquals(result?.type, 'organization');
+      expect(result?.id).toEqual('org-2');
+      expect(result?.name).toEqual('Finance Committee');
+      expect(result?.type).toEqual('organization');
     });
 
     it('should return null when organization not found', () => {
@@ -49,14 +48,14 @@ describe('OparlOrganizationsInMemoryRepository', () => {
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
       const result = repository.getOrganizationById('org-999');
 
-      assertEquals(result, null);
+      expect(result).toEqual(null);
     });
 
     it('should return null when searching empty array', () => {
       const repository = new OparlOrganizationsInMemoryRepository([]);
       const result = repository.getOrganizationById('org-1');
 
-      assertEquals(result, null);
+      expect(result).toEqual(null);
     });
 
     it('should return first match when duplicate IDs exist', () => {
@@ -76,7 +75,7 @@ describe('OparlOrganizationsInMemoryRepository', () => {
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
       const result = repository.getOrganizationById('org-1');
 
-      assertEquals(result?.name, 'First Organization');
+      expect(result?.name).toEqual('First Organization');
     });
 
     it('should preserve all organization properties', () => {
@@ -91,9 +90,9 @@ describe('OparlOrganizationsInMemoryRepository', () => {
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
       const result = repository.getOrganizationById('org-1');
 
-      assertEquals(result?.id, 'org-1');
-      assertEquals(result?.type, 'organization');
-      assertEquals(result?.name, 'City Council of Magdeburg');
+      expect(result?.id).toEqual('org-1');
+      expect(result?.type).toEqual('organization');
+      expect(result?.name).toEqual('City Council of Magdeburg');
     });
 
     it('should perform case-sensitive ID matching', () => {
@@ -107,9 +106,9 @@ describe('OparlOrganizationsInMemoryRepository', () => {
 
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
 
-      assertEquals(repository.getOrganizationById('Org-1')?.name, 'Uppercase Organization');
-      assertEquals(repository.getOrganizationById('org-1'), null);
-      assertEquals(repository.getOrganizationById('ORG-1'), null);
+      expect(repository.getOrganizationById('Org-1')?.name).toEqual('Uppercase Organization');
+      expect(repository.getOrganizationById('org-1')).toEqual(null);
+      expect(repository.getOrganizationById('ORG-1')).toEqual(null);
     });
 
     it('should handle organizations with special characters in ID', () => {
@@ -133,18 +132,11 @@ describe('OparlOrganizationsInMemoryRepository', () => {
 
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
 
-      assertEquals(
-        repository.getOrganizationById('https://example.com/oparl/organization/123')?.name,
+      expect(repository.getOrganizationById('https://example.com/oparl/organization/123')?.name).toEqual(
         'URL-based ID',
       );
-      assertEquals(
-        repository.getOrganizationById('org:committee:456')?.name,
-        'Colon-separated ID',
-      );
-      assertEquals(
-        repository.getOrganizationById('org/sub/789')?.name,
-        'Slash-separated ID',
-      );
+      expect(repository.getOrganizationById('org:committee:456')?.name).toEqual('Colon-separated ID');
+      expect(repository.getOrganizationById('org/sub/789')?.name).toEqual('Slash-separated ID');
     });
 
     it('should handle multiple queries returning different results', () => {
@@ -173,10 +165,10 @@ describe('OparlOrganizationsInMemoryRepository', () => {
       const result3 = repository.getOrganizationById('org-3');
       const resultNull = repository.getOrganizationById('org-999');
 
-      assertEquals(result1?.name, 'City Council');
-      assertEquals(result2?.name, 'Finance Committee');
-      assertEquals(result3?.name, 'Planning Committee');
-      assertEquals(resultNull, null);
+      expect(result1?.name).toEqual('City Council');
+      expect(result2?.name).toEqual('Finance Committee');
+      expect(result3?.name).toEqual('Planning Committee');
+      expect(resultNull).toEqual(null);
     });
 
     it('should handle organizations with empty string name', () => {
@@ -191,7 +183,7 @@ describe('OparlOrganizationsInMemoryRepository', () => {
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
       const result = repository.getOrganizationById('org-1');
 
-      assertEquals(result?.name, '');
+      expect(result?.name).toEqual('');
     });
 
     it('should handle organizations with very long names', () => {
@@ -208,7 +200,7 @@ describe('OparlOrganizationsInMemoryRepository', () => {
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
       const result = repository.getOrganizationById('org-1');
 
-      assertEquals(result?.name, longName);
+      expect(result?.name).toEqual(longName);
     });
 
     it('should handle organizations with special characters in name', () => {
@@ -232,12 +224,9 @@ describe('OparlOrganizationsInMemoryRepository', () => {
 
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
 
-      assertEquals(
-        repository.getOrganizationById('org-1')?.name,
-        'Committee for "Special Projects" & Innovation',
-      );
-      assertEquals(repository.getOrganizationById('org-2')?.name, 'Fraktion CDU/CSU');
-      assertEquals(repository.getOrganizationById('org-3')?.name, 'Arbeitsgruppe § 42');
+      expect(repository.getOrganizationById('org-1')?.name).toEqual('Committee for "Special Projects" & Innovation');
+      expect(repository.getOrganizationById('org-2')?.name).toEqual('Fraktion CDU/CSU');
+      expect(repository.getOrganizationById('org-3')?.name).toEqual('Arbeitsgruppe § 42');
     });
 
     it('should handle organizations with Unicode characters in name', () => {
@@ -261,12 +250,9 @@ describe('OparlOrganizationsInMemoryRepository', () => {
 
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
 
-      assertEquals(
-        repository.getOrganizationById('org-1')?.name,
-        'Ausschuss für Bürgerbeteiligung',
-      );
-      assertEquals(repository.getOrganizationById('org-2')?.name, 'Комитет по образованию');
-      assertEquals(repository.getOrganizationById('org-3')?.name, '市民参加委員会');
+      expect(repository.getOrganizationById('org-1')?.name).toEqual('Ausschuss für Bürgerbeteiligung');
+      expect(repository.getOrganizationById('org-2')?.name).toEqual('Комитет по образованию');
+      expect(repository.getOrganizationById('org-3')?.name).toEqual('市民参加委員会');
     });
 
     it('should return different instances for different queries', () => {
@@ -287,10 +273,10 @@ describe('OparlOrganizationsInMemoryRepository', () => {
       const result1 = repository.getOrganizationById('org-1');
       const result2 = repository.getOrganizationById('org-2');
 
-      assertEquals(result1?.id, 'org-1');
-      assertEquals(result2?.id, 'org-2');
-      assertEquals(result1?.name, 'Organization 1');
-      assertEquals(result2?.name, 'Organization 2');
+      expect(result1?.id).toEqual('org-1');
+      expect(result2?.id).toEqual('org-2');
+      expect(result1?.name).toEqual('Organization 1');
+      expect(result2?.name).toEqual('Organization 2');
     });
 
     it('should handle organizations with numeric IDs', () => {
@@ -305,7 +291,7 @@ describe('OparlOrganizationsInMemoryRepository', () => {
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
       const result = repository.getOrganizationById('123');
 
-      assertEquals(result?.name, 'Numeric ID Organization');
+      expect(result?.name).toEqual('Numeric ID Organization');
     });
 
     it('should handle organizations with whitespace in ID', () => {
@@ -324,9 +310,9 @@ describe('OparlOrganizationsInMemoryRepository', () => {
 
       const repository = new OparlOrganizationsInMemoryRepository(organizations);
 
-      assertEquals(repository.getOrganizationById('org 1')?.name, 'Whitespace ID');
-      assertEquals(repository.getOrganizationById('org\t2')?.name, 'Tab ID');
-      assertEquals(repository.getOrganizationById('org  1'), null);
+      expect(repository.getOrganizationById('org 1')?.name).toEqual('Whitespace ID');
+      expect(repository.getOrganizationById('org\t2')?.name).toEqual('Tab ID');
+      expect(repository.getOrganizationById('org  1')).toEqual(null);
     });
 
     it('should handle large number of organizations efficiently', () => {
@@ -343,10 +329,10 @@ describe('OparlOrganizationsInMemoryRepository', () => {
       const result999 = repository.getOrganizationById('org-999');
       const resultNone = repository.getOrganizationById('org-1000');
 
-      assertEquals(result1?.name, 'Organization 0');
-      assertEquals(result500?.name, 'Organization 500');
-      assertEquals(result999?.name, 'Organization 999');
-      assertEquals(resultNone, null);
+      expect(result1?.name).toEqual('Organization 0');
+      expect(result500?.name).toEqual('Organization 500');
+      expect(result999?.name).toEqual('Organization 999');
+      expect(resultNone).toEqual(null);
     });
   });
 });

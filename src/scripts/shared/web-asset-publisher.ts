@@ -1,8 +1,7 @@
 import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
-import { crypto } from '@std/crypto';
-import { encodeHex } from '@std/encoding/hex';
-import { walk } from '@std/fs';
-import * as path from '@std/path';
+import { createHash } from 'node:crypto';
+import { readdir, readFile } from 'node:fs/promises';
+import * as path from 'node:path';
 import type { PushEnv } from './push-env.ts';
 
 /**
@@ -82,7 +81,7 @@ export type WebAssetPlan = {
  * upload and delete — are the ones to invalidate, because those are the only keys whose cached
  * bytes changed.
  */
-export async function diffWebAssets(assets: LocalAsset[], remote: RemoteObject[]): Promise<WebAssetPlan> {
+export function diffWebAssets(assets: LocalAsset[], remote: RemoteObject[]): WebAssetPlan {
   const remoteEtagByKey = new Map(remote.map((object) => [object.key, normalizeEtag(object.etag)]));
   const localKeys = new Set(assets.map((asset) => asset.key));
 
@@ -90,7 +89,7 @@ export async function diffWebAssets(assets: LocalAsset[], remote: RemoteObject[]
   const unchanged: string[] = [];
   for (const asset of assets) {
     const remoteEtag = remoteEtagByKey.get(asset.key);
-    if (remoteEtag !== undefined && remoteEtag === await md5Hex(asset.body)) {
+    if (remoteEtag !== undefined && remoteEtag === md5Hex(asset.body)) {
       unchanged.push(asset.key);
     } else {
       uploads.push(asset.key);
@@ -120,7 +119,7 @@ export async function publishWebAssets(
   options: { dryRun?: boolean } = {},
 ): Promise<WebAssetPlan> {
   const remote = await operations.list(target.bucket, target.prefix);
-  const plan = await diffWebAssets(assets, remote);
+  const plan = diffWebAssets(assets, remote);
 
   if (options.dryRun) {
     return plan;
@@ -185,10 +184,12 @@ export async function verifyWebAssets(
 export async function collectWebAssets(directory: string, prefix: string): Promise<LocalAsset[]> {
   const base = trimTrailingSlash(prefix);
   const assets: LocalAsset[] = [];
-  for await (const entry of walk(directory, { includeDirs: false })) {
-    const relativeKey = path.relative(directory, entry.path).split(path.SEPARATOR).join('/');
+  const entries = await readdir(directory, { recursive: true, withFileTypes: true });
+  for (const entry of entries.filter((candidate) => !candidate.isDirectory())) {
+    const entryPath = path.join(entry.parentPath, entry.name);
+    const relativeKey = path.relative(directory, entryPath).split(path.sep).join('/');
     const key = base ? `${base}/${relativeKey}` : relativeKey;
-    assets.push({ key, body: await Deno.readFile(entry.path) });
+    assets.push({ key, body: new Uint8Array(await readFile(entryPath)) });
   }
   return assets.sort((first, second) => first.key.localeCompare(second.key));
 }
@@ -267,8 +268,8 @@ function normalizeEtag(etag: string): string {
   return etag.replace(/^W\//, '').replaceAll('"', '').toLowerCase();
 }
 
-async function md5Hex(body: Uint8Array<ArrayBuffer>): Promise<string> {
-  return encodeHex(await crypto.subtle.digest('MD5', body));
+function md5Hex(body: Uint8Array<ArrayBuffer>): string {
+  return createHash('md5').update(body).digest('hex');
 }
 
 function toInvalidationPath(key: string): string {
