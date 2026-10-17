@@ -12,7 +12,7 @@ export type PaperVotingView = PaperVotingItem & {
 
 const periodNumberPattern = /-(\d+)$/;
 
-// Only cast votes get a colour; anything else keeps daisyUI's faint default
+// Only cast votes get a color; anything else keeps daisyUI's faint default
 // dot, matching how the session page renders the same breakdown.
 const voteStatusClasses = new Map<string, string>([
   [VoteResult.VOTE_FOR, 'status-success'],

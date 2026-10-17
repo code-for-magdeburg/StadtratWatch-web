@@ -111,7 +111,7 @@ describe('toPaperVotingViews', () => {
 });
 
 describe('getVoteStatusClass', () => {
-  test('maps each cast vote to its status colour', () => {
+  test('maps each cast vote to its status color', () => {
     assert.equal(getVoteStatusClass(VoteResult.VOTE_FOR), 'status-success');
     assert.equal(getVoteStatusClass(VoteResult.VOTE_AGAINST), 'status-error');
     assert.equal(

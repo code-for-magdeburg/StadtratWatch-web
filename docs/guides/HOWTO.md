@@ -4,51 +4,16 @@ Run the processing pipeline in this order. The script sections below document in
 
 1. `scrape-oparl` - fetch current OParl data.
 2. `generate-paper-assets` - convert scraped OParl data into the internal paper assets.
-   `generate-oparl-derivatives` - precompile the committed OParl derivates (`voting-paper-map.json`, `paper-index.json`) the Astro build consumes.
-3. Video processing steps:
+3. `generate-oparl-derivatives` - precompile the committed OParl derivates (`voting-paper-map.json`, `paper-index.json`) the Astro build consumes.
+4. Video processing steps:
    1. [`parse-speakers`](../../src/scripts/parse-speakers/README.md) - combine speaker diarization data for the session.
-   2. `scan-voting-images` - extract voting results from session screenshots.
+   2. [`scan-voting-images`](../../src/scripts/scan-voting-images/README.md) - extract voting results from session screenshots.
    3. [`speech-to-text`](../../src/scripts/speech-to-text/README.md) - generate speech transcriptions.
    4. [`detect-ai-text`](../../src/scripts/detect-ai-text/README.md) - optional, manual step: after transcripts are corrected and before committing
       session data, run a Pangram-based AI-text check on redaction-selected speeches.
-4. `generate-image-assets` - create voting visualization image assets from processed session data.
-5. `generate-paper-votings` - reverse the voting-paper-map against the session scans into the per-paper voting assets. Needs both the OParl derivates (step 2) and the scanned votings (step 3.2).
-6. `index-search` - rebuild the Typesense search index after all paper, speech, and asset data is available.
-
-### Scan voting images
-This tool scans the voting images and generates a json file containing the voting data.
-
-#### Using the deno script
-```bash
-PARLIAMENT_PERIOD=magdeburg-8
-DATE=2025-09-25
-deno run \
-  -A \
-  src/scripts/scan-voting-images/index.ts \
-  -c data/$PARLIAMENT_PERIOD/$DATE/config-$DATE.json \
-  -i sessions-media-files/$DATE \
-  -o output/sessions-scan-results/$DATE \
-  -s $DATE
-```
-
-#### Using a docker container
-
-Build the docker image:
-
-```bash
-docker build -t srw-scan-voting-images -f docker/scan-voting-images.Dockerfile .
-```
-
-Run the docker container:
-```bash
-docker run \
-	--rm \
-	-v $(pwd)/data/magdeburg-7/2022-09-01/config-2022-09-01.json:/app/scan-config.json:ro \
-	-v $(pwd)/sessions-media-files/2022-09-01:/app/voting-images:ro \
-	-v $(pwd)/output/sessions-scan-results/2022-09-01:/app/output \
-	srw-scan-voting-images \
-	2022-09-01
-```
+5. `generate-image-assets` - create voting visualization image assets from processed session data.
+6. `generate-paper-votings` - reverse the voting-paper-map against the session scans into the per-paper voting assets. Needs both the OParl derivates (step 3) and the scanned votings (step 4.2).
+7. `index-search` - rebuild the Typesense search index after all paper, speech, and asset data is available.
 
 ### Generate image assets
 

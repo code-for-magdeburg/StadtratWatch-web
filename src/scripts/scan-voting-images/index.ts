@@ -1,17 +1,17 @@
-import { ScanConfig } from './scan-config.ts';
-import { createWorker } from 'npm:tesseract.js@^6.0.1';
-import { checkArgs, parseArgs, printHelpText } from './cli.ts';
+import type { ScanConfig } from './scan-config.ts';
+import { createWorker } from 'tesseract.js';
+import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
 import { VotingImagesScanner } from './voting-images-scanner.ts';
 import { VotingImagesSource } from './voting-images-source.ts';
 import { SessionScanStore } from './session-scan-store.ts';
 import { TextRecognizer } from './text-recognizer.ts';
 import { VotesRecognizer } from './votes-recognizer.ts';
 
-const args = parseArgs(Deno.args);
+const args = parseCliArgs(Bun.argv.slice(2));
 
 if (args.help) {
   printHelpText();
-  Deno.exit(0);
+  process.exit(0);
 }
 
 checkArgs(args);
@@ -28,7 +28,7 @@ const scanner = new VotingImagesScanner(
   textRecognizer,
   votesRecognizer,
 );
-const scanConfig = JSON.parse(Deno.readTextFileSync(args.scanConfigFile)) as ScanConfig;
+const scanConfig = (await Bun.file(args.scanConfigFile).json()) as ScanConfig;
 await scanner.processSession(args.session, scanConfig);
 
 await worker.terminate();

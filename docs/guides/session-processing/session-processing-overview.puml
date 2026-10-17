@@ -48,7 +48,7 @@ fork
     -> S3-Bucket »sessions-raw/{date}«
   end note
   |Skripte (Deno / Bun / Python / Shell)|
-  :**scan-voting-images** (Deno + Tesseract)
+  :**scan-voting-images** (Bun + Tesseract)
   OCR der Tafeln (Voten, TOP, Drucksachennr.);
   note right
     Eingabe: Screenshots + config

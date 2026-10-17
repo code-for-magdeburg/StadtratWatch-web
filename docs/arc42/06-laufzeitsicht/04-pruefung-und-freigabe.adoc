@@ -28,7 +28,7 @@ der `registry.json` freigegeben.
 skinparam shadowing false
 actor "Prüfer:in" as Mensch
 participant "session-review" as UI
-participant "scan-voting-images\n(Deno)" as Scan
+participant "scan-voting-images\n(Bun)" as Scan
 database "Datenablage\n(JSON)" as Data
 participant "registry.json" as Reg
 

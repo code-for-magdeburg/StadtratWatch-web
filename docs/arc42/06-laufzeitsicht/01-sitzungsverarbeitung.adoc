@@ -48,7 +48,7 @@ start
 fork
   ' --- Abstimmungs-Zweig (OCR) ---
   :Abstimmungstafeln als Bilder\nbereitstellen;
-  :**scan-voting-images** (Deno, Tesseract)\nOCR der Abstimmungstafeln;
+  :**scan-voting-images** (Bun, Tesseract)\nOCR der Abstimmungstafeln;
   note right
     Eingabe: Abstimmungsbilder + Scan-Config
     Ausgabe: **session-scan-*.json**
@@ -114,7 +114,7 @@ stop
 | Sitzungsvideo (YouTube)
 | Lokale Videodatei als gemeinsame Quelle beider Zweige
 
-| *scan-voting-images* (Deno, Tesseract)
+| *scan-voting-images* (Bun, Tesseract)
 | Bilder der Abstimmungstafeln + Scan-Config (Bildregionen)
 | `session-scan-*.json` (roh, Voten je Person)
 

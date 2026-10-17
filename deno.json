@@ -2,6 +2,7 @@
   "exclude": [
     "src/scripts/detect-ai-text/",
     "src/scripts/parse-speakers/",
+    "src/scripts/scan-voting-images/",
     "src/scripts/speech-to-text/"
   ],
   "nodeModulesDir": "none",
@@ -26,6 +27,7 @@
     "exclude": [
       "!src/scripts/detect-ai-text/",
       "!src/scripts/parse-speakers/",
+      "!src/scripts/scan-voting-images/",
       "!src/scripts/speech-to-text/"
     ],
     "rules": {
@@ -43,6 +45,7 @@
       "**/*.md",
       "!src/scripts/detect-ai-text/",
       "!src/scripts/parse-speakers/",
+      "!src/scripts/scan-voting-images/",
       "!src/scripts/speech-to-text/"
     ]
   },

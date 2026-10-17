@@ -149,7 +149,7 @@ Each data processing script has a corresponding Dockerfile in `docker/` for cont
 
 1. To add a new parliament period, create `data/{period-id}/registry.json` with sessions, persons, factions, parties
 2. For new sessions, create `data/{period-id}/{session-date}/` directory
-3. Run processing scripts in order (see docs/guides/HOWTO.md): scrape-oparl → generate-paper-assets → video processing → generate-image-assets → index-search
+3. Run processing scripts in order (see docs/guides/HOWTO.md): scrape-oparl → generate-paper-assets → generate-oparl-derivatives → video processing → generate-image-assets → generate-paper-votings → index-search
 4. The Astro build automatically picks up data from `data/` directory
 
 ### Testing Changes

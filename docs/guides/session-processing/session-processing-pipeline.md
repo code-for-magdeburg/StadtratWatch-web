@@ -99,7 +99,7 @@ Ergebnisse der jeweils benötigten Zweige voraus.
 | # | Grad | Wer | Werkzeug | Eingabe (Quelle) | Ausgabe (Senke) |
 |---|------|-----|----------|------------------|-----------------|
 | 4 | ✋ | Maintainer:in | Screenshot | Video | **Screenshots** der Tafeln (`YYYY-MM-DD-XXX.png`, chronologisch, gleich groß) → lokal **und** S3 »sessions-raw/{date}« |
-| 5 | 🧑‍🔧 | Skript | **`scan-voting-images`** (Deno + Tesseract) | Screenshots + `config-*.json` | **`session-scan-{date}.json`** (roh) → S3 »sessions-scan-results« |
+| 5 | 🧑‍🔧 | Skript | **`scan-voting-images`** (Bun + Tesseract) | Screenshots + `config-*.json` | **`session-scan-{date}.json`** (roh) → S3 »sessions-scan-results« |
 | 6 | ✋ | Maintainer:in | **`session-review`** | rohe `session-scan` + Video | Geprüfte **`session-scan-{date}.json`** (Voten, TOPs, Drucksachennummern) → S3 »sessions-scan-results-redacted« **und** Git (`data/{periode}/{date}/`) |
 
 > **Korrektur-Iteration (Phase A):** Reicht die Korrektur in `session-review` nicht,
