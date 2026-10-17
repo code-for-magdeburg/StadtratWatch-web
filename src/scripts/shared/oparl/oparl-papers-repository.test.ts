@@ -85,7 +85,7 @@ describe('OparlPapersInMemoryRepository', () => {
       const result = repository.getAllPapers();
 
       // Check that it returns the same reference
-      expect(result).toEqual(papers);
+      expect(result).toBe(papers);
     });
 
     it('should handle papers with various optional properties', () => {
