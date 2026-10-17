@@ -1,7 +1,7 @@
 import * as fs from '@std/fs';
 import * as path from '@std/path';
-import { Registry, RegistrySession } from '@srw-astro/models/registry';
-import { SessionSpeech } from '@srw-astro/models/session-speech';
+import type { Registry, RegistrySession } from '@srw-astro/models/registry';
+import type { SessionSpeech } from '@srw-astro/models/session-speech';
 
 export type IndexableSpeech = {
   parliamentPeriod: Registry;

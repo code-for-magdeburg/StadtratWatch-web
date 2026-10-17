@@ -1,7 +1,7 @@
-import { IndexSearchEnv, tryGetIndexSearchEnv } from './env.ts';
+import { type IndexSearchEnv, tryGetIndexSearchEnv } from './env.ts';
 import { checkArgs, parseArgs, printHelpText } from './cli.ts';
 import { SearchIndexer } from './search-indexer.ts';
-import { IDocumentsImporter, TypesenseImporter } from './typesense-importer.ts';
+import { type IDocumentsImporter, TypesenseImporter } from './typesense-importer.ts';
 import { BatchedDocumentsImporter } from './batched-documents-importer.ts';
 import { PapersContentSource } from './papers-content-source.ts';
 import { SpeechesSource } from './speeches-source.ts';

@@ -1,7 +1,7 @@
 import * as fs from '@std/fs';
 import * as path from '@std/path';
 import { decodeBase64 } from '@std/encoding';
-import { type GeneratedVotingImage } from './images-generator.ts';
+import type { GeneratedVotingImage } from './images-generator.ts';
 
 export class ImageAssetsWriter {
   private readonly votingsImagesOutputDir: string;

@@ -1,12 +1,12 @@
 import { describe, it } from '@std/testing/bdd';
 import { assertEquals, assertThrows } from '@std/assert';
 import { PaperVotingsGenerator } from '../paper-votings-generator.ts';
-import { PeriodData, PeriodDataStore } from '../period-data-store.ts';
-import { PaperVotingsWriter } from '../paper-votings-writer.ts';
-import { PaperVotingsAssetDto } from '../model.ts';
-import { Registry, RegistryFaction, RegistryPerson } from '@srw-astro/models/registry';
-import { SessionScan, SessionScanItem, SessionScanVote } from '@srw-astro/models/session-scan';
-import { PaperVotingsDto } from '@srw-astro/models/paper-votings';
+import type { PeriodData, PeriodDataStore } from '../period-data-store.ts';
+import type { PaperVotingsWriter } from '../paper-votings-writer.ts';
+import type { PaperVotingsAssetDto } from '../model.ts';
+import type { Registry, RegistryFaction, RegistryPerson } from '@srw-astro/models/registry';
+import type { SessionScan, SessionScanItem, SessionScanVote } from '@srw-astro/models/session-scan';
+import type { PaperVotingsDto } from '@srw-astro/models/paper-votings';
 
 const PERIOD_7 = 'example-7';
 const PERIOD_8 = 'example-8';

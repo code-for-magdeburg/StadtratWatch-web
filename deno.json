@@ -31,7 +31,8 @@
       "!src/scripts/speech-to-text/"
     ],
     "rules": {
-      "tags": ["recommended"]
+      "tags": ["recommended"],
+      "include": ["verbatim-module-syntax"]
     }
   },
   "fmt": {

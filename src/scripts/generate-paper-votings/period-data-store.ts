@@ -1,7 +1,7 @@
 import * as path from '@std/path';
-import { Registry } from '@srw-astro/models/registry';
-import { SessionScan } from '@srw-astro/models/session-scan';
-import { VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
+import type { Registry } from '@srw-astro/models/registry';
+import type { SessionScan } from '@srw-astro/models/session-scan';
+import type { VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
 
 export type PeriodData = {
   registry: Registry;

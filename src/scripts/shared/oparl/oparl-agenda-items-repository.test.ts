@@ -1,6 +1,9 @@
 import { assertEquals } from '@std/assert';
-import { OparlAgendaItem } from '@srw-astro/models/oparl';
-import { OparlAgendaItemsInMemoryRepository, OparlAgendaItemsRepository } from './oparl-agenda-items-repository.ts';
+import type { OparlAgendaItem } from '@srw-astro/models/oparl';
+import {
+  OparlAgendaItemsInMemoryRepository,
+  type OparlAgendaItemsRepository,
+} from './oparl-agenda-items-repository.ts';
 
 Deno.test('OparlAgendaItemsInMemoryRepository', async (t) => {
   const mockAgendaItems: OparlAgendaItem[] = [

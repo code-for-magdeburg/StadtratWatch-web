@@ -1,5 +1,5 @@
 import * as path from '@std/path';
-import { PaperAssetDto } from './model.ts';
+import type { PaperAssetDto } from './model.ts';
 
 export interface PaperAssetsWriter {
   writePaperAssets(papers: PaperAssetDto[]): void;

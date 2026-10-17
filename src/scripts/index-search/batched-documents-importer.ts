@@ -1,4 +1,4 @@
-import { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-importer.ts';
+import type { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-importer.ts';
 
 export class BatchedDocumentsImporter implements IDocumentsImporter {
   constructor(private readonly importer: IDocumentsImporter, private readonly maxBatchSize: number) {

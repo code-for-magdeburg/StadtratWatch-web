@@ -1,6 +1,6 @@
 import { assertEquals, assertRejects, assertStringIncludes } from '@std/assert';
 import { describe, it } from '@std/testing/bdd';
-import { type OparlManifest } from '../shared/oparl/oparl-snapshot.ts';
+import type { OparlManifest } from '../shared/oparl/oparl-snapshot.ts';
 import { createHttpSnapshotSource, type FetchFn } from './snapshot-source.ts';
 
 const BASE_URL = 'https://cdn.example.test/';

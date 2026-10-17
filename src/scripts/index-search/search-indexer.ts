@@ -1,10 +1,10 @@
-import { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-importer.ts';
-import { IPapersContentSource } from './papers-content-source.ts';
-import { ISpeechesSource } from './speeches-source.ts';
-import { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
-import { OparlPapersInMemoryRepository } from '../shared/oparl/oparl-papers-repository.ts';
-import { OparlFilesInMemoryRepository } from '../shared/oparl/oparl-files-repository.ts';
-import { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
+import type { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-importer.ts';
+import type { IPapersContentSource } from './papers-content-source.ts';
+import type { ISpeechesSource } from './speeches-source.ts';
+import type { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
+import type { OparlPapersInMemoryRepository } from '../shared/oparl/oparl-papers-repository.ts';
+import type { OparlFilesInMemoryRepository } from '../shared/oparl/oparl-files-repository.ts';
+import type { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
 
 function isPersonInSession(person: RegistryPerson, session: RegistrySession): boolean {
   const sessionDate = session.date;

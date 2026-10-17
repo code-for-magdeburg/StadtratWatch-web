@@ -1,4 +1,4 @@
-import { OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
+import type { OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
 
 export interface PaperGraphNode {
   id: number;

@@ -1,8 +1,8 @@
 import { assertEquals, assertThrows } from '@std/assert';
 import { describe, it } from '@std/testing/bdd';
 import { OPARL_SNAPSHOT_FILENAMES, type OparlManifest } from '../shared/oparl/oparl-snapshot.ts';
-import { type ManifestFetch } from './snapshot-source.ts';
-import { type LocalShas } from './snapshot-store.ts';
+import type { ManifestFetch } from './snapshot-source.ts';
+import type { LocalShas } from './snapshot-store.ts';
 import { createSyncPlan, SnapshotPlanError } from './sync-plan.ts';
 
 function manifestFor(shaByFile: Record<string, string>, lastSync?: string): OparlManifest {

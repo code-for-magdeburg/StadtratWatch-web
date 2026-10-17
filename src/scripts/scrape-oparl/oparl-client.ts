@@ -1,4 +1,4 @@
-import { type OparlObject } from '@srw-astro/models/oparl';
+import type { OparlObject } from '@srw-astro/models/oparl';
 
 export class OparlClient {
   constructor(private readonly fetchDelayMs: number) {}

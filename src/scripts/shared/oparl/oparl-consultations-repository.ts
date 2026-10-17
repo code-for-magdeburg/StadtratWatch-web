@@ -1,4 +1,4 @@
-import { OparlConsultation } from '@srw-astro/models/oparl';
+import type { OparlConsultation } from '@srw-astro/models/oparl';
 
 export interface OparlConsultationsRepository {
   getConsultationById(consultationId: string): OparlConsultation | null;

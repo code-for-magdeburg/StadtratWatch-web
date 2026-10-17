@@ -1,6 +1,6 @@
-import { type PutObjectCommandInput } from '@aws-sdk/client-s3';
+import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
 import * as path from '@std/path';
-import { type ScrapeOparlPushEnv } from './env.ts';
+import type { ScrapeOparlPushEnv } from './env.ts';
 import {
   MANIFEST_FILENAME,
   OPARL_SNAPSHOT_FILENAMES,
