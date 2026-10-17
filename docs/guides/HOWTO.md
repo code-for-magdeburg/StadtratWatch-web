@@ -2,7 +2,7 @@
 
 Run the processing pipeline in this order. The script sections below document individual tools, but this sequence is mandatory because later steps depend on files produced by earlier steps.
 
-1. `scrape-oparl` - fetch current OParl data. On a machine without a local snapshot, run
+1. [`scrape-oparl`](../../src/scripts/scrape-oparl/README.md) - fetch current OParl data. On a machine without a local snapshot, run
    [`fetch-oparl`](../../src/scripts/fetch-oparl/README.md) first: it mirrors the published snapshot into
    `data/oparl-magdeburg/`, so the incremental scrape resumes from it.
 2. `generate-paper-assets` - convert scraped OParl data into the internal paper assets.
@@ -292,71 +292,4 @@ docker build -t srw-stadtratwatch-web -f docker/stadtrat-watch-web.Dockerfile .
 #### Run the docker container
 ```bash
 docker run --rm -p 8080:80 srw-stadtratwatch-web
-```
-
-
-### Scrape OParl data
-
-Running the OParl scraper requires to set the following environment variables:
-- `SCRAPE_OPARL_FETCH_DELAY_MS` - Delay between requests to the OParl API in milliseconds (e.g. `2000`)
-- `SCRAPE_OPARL_BODY_URL` - URL of the OParl body endpoint (e.g. `https://ratsinfo.magdeburg.de/oparl/bodies/0001`)
-
-
-#### Scrape all data (full)
-This command scrapes all data from the OParl API and stores it in the `data/oparl-magdeburg` folder. It may take several hours to complete.
-A date has to be specified (format: YYYY-MM-DD) to limit the amount of data to be scraped. Only objects that where created or modified since that date will be fetched.
-
-```bash
-deno run \
-  --allow-net \
-  --allow-read \
-  --allow-write \
-  src/scripts/scrape-oparl/index.ts \
-  -m full \
-  -d 2019-01-01 \
-  -r data/oparl-magdeburg
-```
-
-#### Scrape only new and updated data (incremental)
-This command scrapes only new and updated data from the OParl API and stores it in the `data/oparl-magdeburg` folder. It may take several minutes to complete.
-
-Provide an optional `-d` parameter to limit the amount of data to be scraped. Only objects that where created or modified since that date will be fetched. If no date is provided, the tool will try to read the last modified date from a file named `scraper-metadata.txt` in the output folder. If the file does not exist, it will stop with an error message.
-
-```bash
-deno run \
-  --allow-net \
-  --allow-read \
-  --allow-write \
-  src/scripts/scrape-oparl/index.ts \
-  -m incremental \
-  -r data/oparl-magdeburg
-```
-
-#### Publish the snapshot to S3/CloudFront (`--push`)
-
-Pass `-p` / `--push` to upload the scraped snapshot to S3 after writing it locally. This is the
-**only authenticated** OParl step and is meant for the maintainer; without the flag `scrape-oparl`
-just writes local files (the default). When pushing, each of the snapshot files is gzipped and
-uploaded as a content-hashed, immutable blob (`oparl/<file>.<sha>.json.gz`), followed by a short-TTL
-`oparl/manifest.json`. Because blob names are content-addressed, no CloudFront invalidation is ever
-needed. The manifest also carries a `lastSync` timestamp (read from the local `scraper-metadata.txt`)
-so other machines can resume incremental scrapes via `fetch-oparl`.
-
-The push reads these additional environment variables, validated **only when `--push` is set**:
-- `AWS_S3_BUCKET` - target S3 bucket (the existing bucket behind CloudFront).
-- `AWS_S3_OPARL_PREFIX` - key prefix (default `oparl`).
-- `AWS_REGION` - bucket region.
-- `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` - credentials with write access to the bucket.
-  **Never commit credentials**; provide them via the environment at runtime.
-
-```bash
-deno run \
-  --allow-net \
-  --allow-read \
-  --allow-write \
-  --allow-env \
-  src/scripts/scrape-oparl/index.ts \
-  -m incremental \
-  -r data/oparl-magdeburg \
-  --push
 ```

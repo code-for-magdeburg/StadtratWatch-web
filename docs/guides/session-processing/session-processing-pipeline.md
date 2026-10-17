@@ -126,7 +126,7 @@ Ergebnisse der jeweils benötigten Zweige voraus.
 
 | # | Grad | Wer | Werkzeug | Eingabe (Quelle) | Ausgabe (Senke) |
 |---|------|-----|----------|------------------|-----------------|
-| 15a | 🤖 | Skript | **`scrape-oparl`** (Deno) | OParl-API der Stadt | OParl-Rohdaten → lokal `data/oparl-magdeburg/` (**nicht** committed) **und** S3/CloudFront (oparl-Snapshot). Auf anderen Rechnern via `fetch-oparl` beziehbar. |
+| 15a | 🤖 | Skript | **`scrape-oparl`** (Bun) | OParl-API der Stadt | OParl-Rohdaten → lokal `data/oparl-magdeburg/` (**nicht** committed) **und** S3/CloudFront (oparl-Snapshot). Auf anderen Rechnern via `fetch-oparl` beziehbar. |
 | 15b | 🤖 | Skript | **`download-paper-files`** (Deno) | Datei-Verweise aus OParl | PDF-Dokumente → lokal `output/papers/{jahr}/` |
 | 15c | 🤖 | Skript | **`generate-paper-assets`** (Deno) | OParl-Rohdaten + PDF-Dateigrößen + Registries | Drucksachen-**JSON-Batches** → lokal `output/paper-assets/`, mit `--push` nach S3/CloudFront (`web-assets/papers/`) |
 | 15d | 🤖 | Skript | **`generate-oparl-derivatives`** (Deno) | OParl-Rohdaten + `registry.json` | **`data/paper-index.json`** + **`data/{periode}/voting-paper-map.json`** → Git (die **einzigen** OParl-Eingaben des Builds) |

@@ -6,16 +6,16 @@ export type ScrapeOparlEnv = {
 };
 
 export function tryGetScrapeOparlEnv(): ScrapeOparlEnv {
-  const bodyUrl = Deno.env.get('SCRAPE_OPARL_BODY_URL');
+  const bodyUrl = Bun.env.SCRAPE_OPARL_BODY_URL;
   if (!bodyUrl) {
     console.error('Environment variable SCRAPE_OPARL_BODY_URL must be set.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
-  const fetchDelayMs = Deno.env.get('SCRAPE_OPARL_FETCH_DELAY_MS');
+  const fetchDelayMs = Bun.env.SCRAPE_OPARL_FETCH_DELAY_MS;
   if (!fetchDelayMs) {
     console.error('Environment variable SCRAPE_OPARL_FETCH_DELAY_MS must be set.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   return { bodyUrl, fetchDelayMs };
@@ -35,7 +35,7 @@ export type ScrapeOparlPushEnv = {
  */
 export function tryGetScrapeOparlPushEnv(): ScrapeOparlPushEnv {
   const bucket = requireEnv('AWS_S3_BUCKET');
-  const prefix = Deno.env.get('AWS_S3_OPARL_PREFIX') ?? DEFAULT_SNAPSHOT_PREFIX;
+  const prefix = Bun.env.AWS_S3_OPARL_PREFIX ?? DEFAULT_SNAPSHOT_PREFIX;
   const region = requireEnv('AWS_REGION');
   const accessKeyId = requireEnv('AWS_ACCESS_KEY_ID');
   const secretAccessKey = requireEnv('AWS_SECRET_ACCESS_KEY');
@@ -44,10 +44,10 @@ export function tryGetScrapeOparlPushEnv(): ScrapeOparlPushEnv {
 }
 
 function requireEnv(name: string): string {
-  const value = Deno.env.get(name);
+  const value = Bun.env[name];
   if (!value) {
     console.error(`Environment variable ${name} must be set when using --push.`);
-    Deno.exit(1);
+    process.exit(1);
   }
   return value;
 }

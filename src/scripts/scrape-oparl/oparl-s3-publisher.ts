@@ -1,5 +1,5 @@
 import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
-import * as path from '@std/path';
+import * as path from 'node:path';
 import type { ScrapeOparlPushEnv } from './env.ts';
 import {
   MANIFEST_FILENAME,
@@ -36,7 +36,7 @@ export async function uploadOparlSnapshot(
   bucket: string,
   prefix: string,
   send: S3Send,
-  readFile: FileReader = (filename) => Deno.readFile(path.join(directory, filename)),
+  readFile: FileReader = (filename) => Bun.file(path.join(directory, filename)).bytes(),
   readMetadata: MetadataReader = () => readLastSync(directory),
 ): Promise<OparlManifest> {
   const blobs = await prepareBlobs(prefix, readFile);
@@ -73,7 +73,7 @@ export async function uploadOparlSnapshot(
 /** Reads `<directory>/scraper-metadata.txt`, trimmed; null if absent, empty or unreadable. */
 async function readLastSync(directory: string): Promise<string | null> {
   try {
-    const text = (await Deno.readTextFile(path.join(directory, SCRAPER_METADATA_FILENAME))).trim();
+    const text = (await Bun.file(path.join(directory, SCRAPER_METADATA_FILENAME)).text()).trim();
     return text.length > 0 ? text : null;
   } catch {
     return null;

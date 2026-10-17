@@ -1,25 +1,24 @@
 import type { OparlObject } from '@srw-astro/models/oparl';
-import * as path from '@std/path';
+import * as path from 'node:path';
 
 export interface IOparlObjectFileStore {
-  saveObjects(objects: OparlObject[], filename: string): void;
-  loadObjects(filename: string): OparlObject[];
+  saveObjects(objects: OparlObject[], filename: string): Promise<void>;
+  loadObjects(filename: string): Promise<OparlObject[]>;
 }
 
 export class OparlObjectsFileStore implements IOparlObjectFileStore {
   constructor(private readonly directory: string) {
   }
 
-  public saveObjects(objects: OparlObject[], filename: string): void {
-    Deno.writeTextFileSync(
+  public async saveObjects(objects: OparlObject[], filename: string): Promise<void> {
+    await Bun.write(
       this.getObjectFilePath(filename),
       JSON.stringify(objects, null, 2),
     );
   }
 
-  public loadObjects(filename: string): OparlObject[] {
-    const objectsJson = Deno.readTextFileSync(this.getObjectFilePath(filename));
-    return JSON.parse(objectsJson) as OparlObject[];
+  public async loadObjects(filename: string): Promise<OparlObject[]> {
+    return await Bun.file(this.getObjectFilePath(filename)).json() as OparlObject[];
   }
 
   private getObjectFilePath(filename: string) {

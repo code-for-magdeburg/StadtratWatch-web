@@ -1,4 +1,4 @@
-import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
+import { parseArgs } from 'node:util';
 
 export type ScrapeOparlArgs = {
   help: boolean;
@@ -8,19 +8,24 @@ export type ScrapeOparlArgs = {
   push: boolean;
 };
 
-export function parseArgs(args: string[]): ScrapeOparlArgs {
-  return stdCliParseArgs(args, {
-    boolean: ['help', 'push'],
-    string: ['mode', 'date', 'ratsinfosystemDir'],
-    default: { date: undefined, push: false },
-    alias: {
-      help: 'h',
-      mode: 'm',
-      date: 'd',
-      'ratsinfosystem-dir': ['r', 'ratsinfosystemDir'],
-      push: 'p',
+export function parseCliArgs(args: string[]): ScrapeOparlArgs {
+  const { values } = parseArgs({
+    args,
+    options: {
+      help: { type: 'boolean', short: 'h', default: false },
+      mode: { type: 'string', short: 'm' },
+      date: { type: 'string', short: 'd' },
+      'ratsinfosystem-dir': { type: 'string', short: 'r', default: '' },
+      push: { type: 'boolean', short: 'p', default: false },
     },
-  }) as ScrapeOparlArgs;
+  });
+  return {
+    help: values.help,
+    mode: values.mode as ScrapeOparlArgs['mode'],
+    date: values.date,
+    ratsinfosystemDir: values['ratsinfosystem-dir'],
+    push: values.push,
+  };
 }
 
 export function checkArgs(args: ScrapeOparlArgs) {
@@ -28,23 +33,23 @@ export function checkArgs(args: ScrapeOparlArgs) {
 
   if (args.mode !== 'full' && args.mode !== 'incremental') {
     console.error('Invalid mode parameter. Allowed values are "full" or "incremental". See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   if (args.mode === 'full' && !args.date) {
     console.error('Missing date parameter for "full" mode. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   if (!ratsinfosystemDir) {
     console.error('Missing ratsinfosystem-dir parameter. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 }
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts
+Usage: bun index.ts
 -h, --help                  Show this help message and exit.
 -m, --mode                  Specify the mode of operation: 'full' to fetch all data, 'incremental' to fetch only changes. (default: 'full')
 -d, --date                  Specify the date from which to fetch changes when in 'incremental' mode created objects in 'full' mode. Use the format 'YYYY-MM-DD'.
