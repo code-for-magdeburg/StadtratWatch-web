@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs';
-import { parseArgs as nodeParseArgs } from 'node:util';
+import { parseArgs } from 'node:util';
 
 export type ScanVotingImagesArgs = {
   help: boolean;
@@ -9,8 +9,8 @@ export type ScanVotingImagesArgs = {
   session: string;
 };
 
-export function parseArgs(args: string[]): ScanVotingImagesArgs {
-  const { values } = nodeParseArgs({
+export function parseCliArgs(args: string[]): ScanVotingImagesArgs {
+  const { values } = parseArgs({
     args,
     options: {
       help: { type: 'boolean', short: 'h', default: false },
