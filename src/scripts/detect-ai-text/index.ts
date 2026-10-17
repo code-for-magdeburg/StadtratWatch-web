@@ -1,11 +1,11 @@
 import type { SessionSpeech } from '@srw-astro/models/session-speech';
-import { checkArgs, parseArgs, printHelpText } from './cli.ts';
+import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
 import { executeDetectAiTextRun, planDetectAiTextRun } from './detect-ai-text-processor.ts';
 import { tryGetDetectAiTextEnv } from './env.ts';
 import { PangramHttpClient } from './pangram-client.ts';
 import { serializeSpeeches } from './speeches-file.ts';
 
-const args = parseArgs(Bun.argv.slice(2));
+const args = parseCliArgs(Bun.argv.slice(2));
 
 if (args.help) {
   printHelpText();

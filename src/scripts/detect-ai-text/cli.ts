@@ -1,4 +1,4 @@
-import { parseArgs as nodeParseArgs } from 'node:util';
+import { parseArgs } from 'node:util';
 
 export type DetectAiTextArgs = {
   help: boolean;
@@ -7,8 +7,8 @@ export type DetectAiTextArgs = {
   skipExisting: boolean;
 };
 
-export function parseArgs(args: string[]): DetectAiTextArgs {
-  const { values } = nodeParseArgs({
+export function parseCliArgs(args: string[]): DetectAiTextArgs {
+  const { values } = parseArgs({
     args,
     options: {
       help: { type: 'boolean', short: 'h', default: false },

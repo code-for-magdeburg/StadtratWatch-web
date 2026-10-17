@@ -1,4 +1,4 @@
-import { parseArgs as nodeParseArgs } from 'node:util';
+import { parseArgs } from 'node:util';
 
 export type ParseSpeakersArgs = {
   help: boolean;
@@ -7,8 +7,8 @@ export type ParseSpeakersArgs = {
   session: string;
 };
 
-export function parseArgs(args: string[]): ParseSpeakersArgs {
-  const { values } = nodeParseArgs({
+export function parseCliArgs(args: string[]): ParseSpeakersArgs {
+  const { values } = parseArgs({
     args,
     options: {
       help: { type: 'boolean', short: 'h', default: false },
