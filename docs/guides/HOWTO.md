@@ -8,7 +8,7 @@ Run the processing pipeline in this order. The script sections below document in
 3. Video processing steps:
    1. [`parse-speakers`](../../src/scripts/parse-speakers/README.md) - combine speaker diarization data for the session.
    2. `scan-voting-images` - extract voting results from session screenshots.
-   3. `speech-to-text` - generate speech transcriptions.
+   3. [`speech-to-text`](../../src/scripts/speech-to-text/README.md) - generate speech transcriptions.
    4. [`detect-ai-text`](../../src/scripts/detect-ai-text/README.md) - optional, manual step: after transcripts are corrected and before committing
       session data, run a Pangram-based AI-text check on redaction-selected speeches.
 4. `generate-image-assets` - create voting visualization image assets from processed session data.
@@ -49,34 +49,6 @@ docker run \
 	srw-scan-voting-images \
 	2022-09-01
 ```
-
-
-### Speech transcriptions
-
-#### Build the docker image
-```bash
-docker build -t srw-speech-to-text -f docker/speech-to-text.Dockerfile .
-```
-
-#### Run the docker container
-
-OpenAI API key has to be provided by setting the following environment variable:
-- `OPENAI_ORGANIZATION_ID`
-- `OPENAI_PROJECT_ID`
-- `OPENAI_API_KEY`
-
-```shell
-docker run \
-	--rm \
-	-e OPENAI_ORGANIZATION_ID=<OpenAI organization id> \
-	-e OPENAI_PROJECT_ID=<OpenAI project id> \
-	-e OPENAI_API_KEY=<OpenAI api key> \
-	-v $(pwd)/output/sessions-scan-results/2022-09-01:/app/output \
-	-v $(pwd)/output/speeches/2022-09-01:/app/speeches:ro \
-	srw-speech-to-text \
-	2022-09-01
-```
-
 
 ### Generate image assets
 

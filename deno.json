@@ -1,7 +1,8 @@
 {
   "exclude": [
     "src/scripts/detect-ai-text/",
-    "src/scripts/parse-speakers/"
+    "src/scripts/parse-speakers/",
+    "src/scripts/speech-to-text/"
   ],
   "nodeModulesDir": "none",
   "workspace": [
@@ -18,14 +19,14 @@
     "@std/expect": "jsr:@std/expect@^1.0.8",
     "@std/fs": "jsr:@std/fs@^1.0.5",
     "@std/path": "jsr:@std/path@^1.0.8",
-    "@std/testing": "jsr:@std/testing@^1.0.5",
-    "openai": "npm:openai@^5.6.0"
+    "@std/testing": "jsr:@std/testing@^1.0.5"
   },
   "lint": {
     "include": ["src/"],
     "exclude": [
       "!src/scripts/detect-ai-text/",
-      "!src/scripts/parse-speakers/"
+      "!src/scripts/parse-speakers/",
+      "!src/scripts/speech-to-text/"
     ],
     "rules": {
       "tags": ["recommended"]
@@ -41,7 +42,8 @@
     "exclude": [
       "**/*.md",
       "!src/scripts/detect-ai-text/",
-      "!src/scripts/parse-speakers/"
+      "!src/scripts/parse-speakers/",
+      "!src/scripts/speech-to-text/"
     ]
   },
   "test": {

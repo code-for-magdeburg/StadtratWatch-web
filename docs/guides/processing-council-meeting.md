@@ -227,41 +227,8 @@ docker run \
 
 ## Transcribe Speeches
 
-OpenAI API key has to be provided by setting the following environment variable:
-- `OPENAI_ORGANIZATION_ID`
-- `OPENAI_PROJECT_ID`
-- `OPENAI_API_KEY`
-
-### Using the deno script
-
-```bash
-DATE=2025-12-04
-deno run \
-	-A \
-	--env-file=.env.local \
-	src/scripts/speech-to-text/index.ts \
-	-i output/speeches/$DATE \
-	-o output/sessions-scan-results/$DATE \
-	-s $DATE
-```
-
-### Using docker
-
-```bash
-OPENAI_ORGANIZATION_ID=<OpenAI organization id>
-OPENAI_PROJECT_ID=<OpenAI project id>
-OPENAI_API_KEY=<OpenAI api key>
-DATE=2022-09-01
-docker run \
-	--rm \
-	-e OPENAI_ORGANIZATION_ID=$OPENAI_ORGANIZATION_ID \
-	-e OPENAI_PROJECT_ID=$OPENAI_PROJECT_ID \
-	-e OPENAI_API_KEY=$OPENAI_API_KEY \
-	-v $(pwd)/output/sessions-scan-results/$DATE:/app/output \
-	-v $(pwd)/output/speeches/$DATE:/app/speeches:ro \
-	srw-speech-to-text \
-	$DATE
-```
+This tool transcribes the speeches of one session with OpenAI.
+See [speech-to-text](../../src/scripts/speech-to-text/README.md) for usage.
 
 ## Review Transcriptions
 
