@@ -2,7 +2,6 @@
 root = "src"
 pathIgnorePatterns = [
   "src/scripts/download-paper-files/**",
-  "src/scripts/fetch-oparl/**",
   "src/scripts/generate-image-assets/**",
   "src/scripts/generate-oparl-derivatives/**",
   "src/scripts/generate-paper-assets/**",

@@ -10,13 +10,13 @@ export type FetchOparlEnv = {
  * credentials are involved — unlike `scrape-oparl --push`.
  */
 export function getFetchOparlEnvOrExit(): FetchOparlEnv {
-  const baseUrl = Deno.env.get('AWS_CLOUDFRONT_BASE_URL');
+  const baseUrl = Bun.env.AWS_CLOUDFRONT_BASE_URL;
   if (!baseUrl) {
     console.error('Environment variable AWS_CLOUDFRONT_BASE_URL must be set.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
-  const prefix = Deno.env.get('AWS_S3_OPARL_PREFIX') ?? DEFAULT_SNAPSHOT_PREFIX;
+  const prefix = Bun.env.AWS_S3_OPARL_PREFIX ?? DEFAULT_SNAPSHOT_PREFIX;
 
   return { baseUrl, prefix };
 }

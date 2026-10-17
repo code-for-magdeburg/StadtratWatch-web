@@ -1,5 +1,4 @@
-import { assertEquals, assertThrows } from '@std/assert';
-import { describe, it } from '@std/testing/bdd';
+import { describe, expect, it } from 'bun:test';
 import { OPARL_SNAPSHOT_FILENAMES, type OparlManifest } from '../shared/oparl/oparl-snapshot.ts';
 import type { ManifestFetch } from './snapshot-source.ts';
 import type { LocalShas } from './snapshot-store.ts';
@@ -33,17 +32,17 @@ describe('createSyncPlan', () => {
   it('downloads nothing when every local hash matches the manifest', () => {
     const plan = createSyncPlan(ok(manifestFor(allFilesWithSha('aaa'))), localShasAllMatching('aaa'));
 
-    assertEquals(plan.downloads, []);
-    assertEquals(plan.upToDate.length, OPARL_SNAPSHOT_FILENAMES.length);
-    assertEquals(plan.warnings, []);
+    expect(plan.downloads).toEqual([]);
+    expect(plan.upToDate.length).toEqual(OPARL_SNAPSHOT_FILENAMES.length);
+    expect(plan.warnings).toEqual([]);
   });
 
   it('plans a download for a file whose hash changed', () => {
     const localShas = localShasAllMatching('aaa');
     const plan = createSyncPlan(ok(manifestFor({ ...allFilesWithSha('aaa'), 'papers.json': 'bbb' })), localShas);
 
-    assertEquals(plan.downloads.map((download) => download.filename), ['papers.json']);
-    assertEquals(plan.downloads[0].entry.sha, 'bbb');
+    expect(plan.downloads.map((download) => download.filename)).toEqual(['papers.json']);
+    expect(plan.downloads[0].entry.sha).toEqual('bbb');
   });
 
   it('plans a download for a file missing locally', () => {
@@ -52,7 +51,7 @@ describe('createSyncPlan', () => {
 
     const plan = createSyncPlan(ok(manifestFor(allFilesWithSha('aaa'))), localShas);
 
-    assertEquals(plan.downloads.map((download) => download.filename), ['files.json']);
+    expect(plan.downloads.map((download) => download.filename)).toEqual(['files.json']);
   });
 
   it('carries the manifest lastSync into the plan', () => {
@@ -61,13 +60,13 @@ describe('createSyncPlan', () => {
       localShasAllMatching('aaa'),
     );
 
-    assertEquals(plan.lastSync, '2026-06-28T12:34:56.000Z');
+    expect(plan.lastSync).toEqual('2026-06-28T12:34:56.000Z');
   });
 
   it('omits lastSync when the manifest has none', () => {
     const plan = createSyncPlan(ok(manifestFor(allFilesWithSha('aaa'))), localShasAllMatching('aaa'));
 
-    assertEquals(plan.lastSync, undefined);
+    expect(plan.lastSync).toEqual(undefined);
   });
 
   it('keeps a local file that is absent from the manifest, with a warning', () => {
@@ -76,9 +75,9 @@ describe('createSyncPlan', () => {
 
     const plan = createSyncPlan(ok(manifest), localShasAllMatching('aaa'));
 
-    assertEquals(plan.downloads, []);
-    assertEquals(plan.upToDate.includes('locations.json'), true);
-    assertEquals(plan.warnings.length, 1);
+    expect(plan.downloads).toEqual([]);
+    expect(plan.upToDate.includes('locations.json')).toEqual(true);
+    expect(plan.warnings.length).toEqual(1);
   });
 
   it('throws when a file is absent from the manifest and missing locally', () => {
@@ -87,25 +86,24 @@ describe('createSyncPlan', () => {
     const localShas = localShasAllMatching('aaa');
     localShas.set('locations.json', null);
 
-    assertThrows(() => createSyncPlan(ok(manifest), localShas), SnapshotPlanError);
+    expect(() => createSyncPlan(ok(manifest), localShas)).toThrow(SnapshotPlanError);
   });
 
   it('keeps the local snapshot when the manifest is unavailable but all files exist', () => {
     const plan = createSyncPlan(unavailable('503'), localShasAllMatching('aaa'));
 
-    assertEquals(plan.downloads, []);
-    assertEquals(plan.upToDate.length, OPARL_SNAPSHOT_FILENAMES.length);
-    assertEquals(plan.warnings.length, 1);
+    expect(plan.downloads).toEqual([]);
+    expect(plan.upToDate.length).toEqual(OPARL_SNAPSHOT_FILENAMES.length);
+    expect(plan.warnings.length).toEqual(1);
   });
 
   it('throws when the manifest is unavailable and a required file is missing', () => {
     const localShas = localShasAllMatching('aaa');
     localShas.set('organizations.json', null);
 
-    assertThrows(
-      () => createSyncPlan(unavailable('503'), localShas),
-      SnapshotPlanError,
-      'organizations.json',
-    );
+    const planWithoutManifest = () => createSyncPlan(unavailable('503'), localShas);
+
+    expect(planWithoutManifest).toThrow(SnapshotPlanError);
+    expect(planWithoutManifest).toThrow('organizations.json');
   });
 });

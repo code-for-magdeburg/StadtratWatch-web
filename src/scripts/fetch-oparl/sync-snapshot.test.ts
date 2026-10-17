@@ -1,5 +1,4 @@
-import { assertEquals, assertRejects } from '@std/assert';
-import { describe, it } from '@std/testing/bdd';
+import { describe, expect, it } from 'bun:test';
 import { OPARL_SNAPSHOT_FILENAMES, type OparlManifest, shortSnapshotSha } from '../shared/oparl/oparl-snapshot.ts';
 import type { SnapshotSource } from './snapshot-source.ts';
 import type { LocalShas, SnapshotStore } from './snapshot-store.ts';
@@ -119,9 +118,9 @@ describe('syncOparlSnapshot', () => {
 
     const result = await syncOparlSnapshot(source, store, silentLog());
 
-    assertEquals(result.downloaded, []);
-    assertEquals(result.upToDate.length, OPARL_SNAPSHOT_FILENAMES.length);
-    assertEquals(blobRequests, []);
+    expect(result.downloaded).toEqual([]);
+    expect(result.upToDate.length).toEqual(OPARL_SNAPSHOT_FILENAMES.length);
+    expect(blobRequests).toEqual([]);
   });
 
   it('downloads only the file whose hash changed and writes the new content', async () => {
@@ -131,8 +130,8 @@ describe('syncOparlSnapshot', () => {
 
     const result = await syncOparlSnapshot(source, store, silentLog());
 
-    assertEquals(result.downloaded, ['papers.json']);
-    assertEquals(files.get('papers.json'), remoteContent['papers.json']);
+    expect(result.downloaded).toEqual(['papers.json']);
+    expect(files.get('papers.json')).toEqual(remoteContent['papers.json']);
   });
 
   it('downloads a file that is missing locally', async () => {
@@ -144,8 +143,8 @@ describe('syncOparlSnapshot', () => {
 
     const result = await syncOparlSnapshot(source, store, silentLog());
 
-    assertEquals(result.downloaded, ['files.json']);
-    assertEquals(files.get('files.json'), content['files.json']);
+    expect(result.downloaded).toEqual(['files.json']);
+    expect(files.get('files.json')).toEqual(content['files.json']);
   });
 
   it('warns and keeps local files when the manifest is unreachable but all files exist', async () => {
@@ -156,8 +155,8 @@ describe('syncOparlSnapshot', () => {
 
     const result = await syncOparlSnapshot(source, store, log);
 
-    assertEquals(result.downloaded, []);
-    assertEquals(log.warnings.length, 1);
+    expect(result.downloaded).toEqual([]);
+    expect(log.warnings.length).toEqual(1);
   });
 
   it('restores the scraper metadata from the manifest lastSync', async () => {
@@ -167,7 +166,7 @@ describe('syncOparlSnapshot', () => {
 
     await syncOparlSnapshot(source, store, silentLog());
 
-    assertEquals(getMetadata(), '2026-06-28T12:34:56.000Z');
+    expect(getMetadata()).toEqual('2026-06-28T12:34:56.000Z');
   });
 
   it('does not touch the scraper metadata when the manifest has no lastSync', async () => {
@@ -177,7 +176,7 @@ describe('syncOparlSnapshot', () => {
 
     await syncOparlSnapshot(source, store, silentLog());
 
-    assertEquals(getMetadata(), undefined);
+    expect(getMetadata()).toEqual(undefined);
   });
 
   it('throws when the manifest is unreachable and a required file is missing', async () => {
@@ -187,7 +186,7 @@ describe('syncOparlSnapshot', () => {
     const { store } = inMemoryStore(local);
     const { source } = await inMemorySource(content, { failManifest: true });
 
-    await assertRejects(() => syncOparlSnapshot(source, store, silentLog()), Error, 'organizations.json');
+    await expect(syncOparlSnapshot(source, store, silentLog())).rejects.toThrow('organizations.json');
   });
 
   it('keeps the current snapshot intact when a later blob download fails', async () => {
@@ -202,8 +201,8 @@ describe('syncOparlSnapshot', () => {
     source.fetchBlob = (blob) =>
       blob.startsWith('papers.') ? Promise.reject(new Error('papers download failed')) : originalFetchBlob(blob);
 
-    await assertRejects(() => syncOparlSnapshot(source, store, silentLog()), Error, 'papers download failed');
+    await expect(syncOparlSnapshot(source, store, silentLog())).rejects.toThrow('papers download failed');
 
-    assertEquals(Object.fromEntries(files), initial);
+    expect(Object.fromEntries(files)).toEqual(initial);
   });
 });

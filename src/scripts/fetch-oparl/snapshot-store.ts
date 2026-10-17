@@ -1,5 +1,5 @@
-import * as path from '@std/path';
-import { copy } from '@std/fs';
+import { cp, mkdir, rename, rm } from 'node:fs/promises';
+import path from 'node:path';
 import {
   OPARL_SNAPSHOT_FILENAMES,
   SCRAPER_METADATA_FILENAME,
@@ -31,7 +31,7 @@ export function createFileSnapshotStore(directory: string): SnapshotStore {
 
   return {
     async ensureReady() {
-      await Deno.mkdir(directory, { recursive: true });
+      await mkdir(directory, { recursive: true });
     },
 
     async readLocalShas() {
@@ -47,36 +47,33 @@ export function createFileSnapshotStore(directory: string): SnapshotStore {
     async writeBlob(filename, body) {
       const destPath = pathTo(filename);
       const tmpPath = `${destPath}.tmp`;
-      const tmpFile = await Deno.open(tmpPath, { write: true, create: true, truncate: true });
-      await body.pipeTo(tmpFile.writable);
-      await Deno.rename(tmpPath, destPath);
+      await Bun.write(tmpPath, new Response(body));
+      await rename(tmpPath, destPath);
     },
 
     async writeScraperMetadata(lastSync) {
-      await Deno.writeTextFile(pathTo(SCRAPER_METADATA_FILENAME), lastSync);
+      await Bun.write(pathTo(SCRAPER_METADATA_FILENAME), lastSync);
     },
 
     async createStagingSnapshot() {
       const stagingDirectory = `${directory}.staging-${crypto.randomUUID()}`;
-      await copy(directory, stagingDirectory);
+      await cp(directory, stagingDirectory, { recursive: true });
 
       return {
         store: createFileSnapshotStore(stagingDirectory),
         async commit() {
           const previousDirectory = `${directory}.previous-${crypto.randomUUID()}`;
-          await Deno.rename(directory, previousDirectory);
+          await rename(directory, previousDirectory);
           try {
-            await Deno.rename(stagingDirectory, directory);
+            await rename(stagingDirectory, directory);
           } catch (error) {
-            await Deno.rename(previousDirectory, directory);
+            await rename(previousDirectory, directory);
             throw error;
           }
-          await Deno.remove(previousDirectory, { recursive: true }).catch(() => {});
+          await rm(previousDirectory, { recursive: true }).catch(() => {});
         },
         async discard() {
-          await Deno.remove(stagingDirectory, { recursive: true }).catch((error) => {
-            if (!(error instanceof Deno.errors.NotFound)) throw error;
-          });
+          await rm(stagingDirectory, { recursive: true, force: true });
         },
       };
     },
@@ -85,11 +82,15 @@ export function createFileSnapshotStore(directory: string): SnapshotStore {
 
 async function readShaIfExists(filePath: string): Promise<string | null> {
   try {
-    return await shortSnapshotSha(await Deno.readFile(filePath));
+    return await shortSnapshotSha(await Bun.file(filePath).bytes());
   } catch (error) {
-    if (error instanceof Deno.errors.NotFound) {
+    if (isFileNotFound(error)) {
       return null;
     }
     throw error;
   }
+}
+
+function isFileNotFound(error: unknown): boolean {
+  return (error as NodeJS.ErrnoException).code === 'ENOENT';
 }

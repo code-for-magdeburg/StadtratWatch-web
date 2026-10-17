@@ -1,22 +1,15 @@
-FROM denoland/deno:2.3.3
+FROM oven/bun:1.4.3-debian
 
 WORKDIR /app
 
-COPY deno.json /app
-COPY deno.lock /app
+COPY package.json bun.lock bunfig.toml /app/
+COPY src/deps/astro/package.json /app/src/deps/astro/package.json
+
+RUN bun install --frozen-lockfile --production
+
 COPY src /app/src
 COPY astro/src/models /app/astro/src/models
 
-RUN deno install --entrypoint src/scripts/fetch-oparl/index.ts --unstable-sloppy-imports && \
-    mkdir -p /app/data && \
-    chown deno:deno /app/data
+USER bun
 
-USER deno
-
-CMD ["run", \
-        "--allow-net", \
-        "-R=/app/data", \
-        "-W=/app/data", \
-        "-E=AWS_CLOUDFRONT_BASE_URL,AWS_S3_OPARL_PREFIX", \
-        "src/scripts/fetch-oparl/index.ts", \
-        "-d=./data/oparl-magdeburg"]
+ENTRYPOINT ["bun", "src/scripts/fetch-oparl/index.ts", "-d", "/app/data/oparl-magdeburg"]

@@ -1,6 +1,7 @@
 {
   "exclude": [
     "src/scripts/detect-ai-text/",
+    "src/scripts/fetch-oparl/",
     "src/scripts/parse-speakers/",
     "src/scripts/scan-voting-images/",
     "src/scripts/shared/**/*.test.ts",
@@ -27,6 +28,7 @@
     "include": ["src/"],
     "exclude": [
       "!src/scripts/detect-ai-text/",
+      "!src/scripts/fetch-oparl/",
       "!src/scripts/parse-speakers/",
       "!src/scripts/scan-voting-images/",
       "!src/scripts/shared/**/*.test.ts",
@@ -47,6 +49,7 @@
     "exclude": [
       "**/*.md",
       "!src/scripts/detect-ai-text/",
+      "!src/scripts/fetch-oparl/",
       "!src/scripts/parse-speakers/",
       "!src/scripts/scan-voting-images/",
       "!src/scripts/shared/**/*.test.ts",

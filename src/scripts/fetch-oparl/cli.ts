@@ -1,34 +1,31 @@
-import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
+import { parseArgs } from 'node:util';
 
 export type FetchOparlArgs = {
   help: boolean;
   dir: string;
 };
 
-export function parseArgs(args: string[]): FetchOparlArgs {
-  return stdCliParseArgs(args, {
-    boolean: ['help'],
-    string: ['dir'],
-    alias: {
-      help: 'h',
-      dir: 'd',
+export function parseCliArgs(args: string[]): FetchOparlArgs {
+  const { values } = parseArgs({
+    args,
+    options: {
+      help: { type: 'boolean', short: 'h', default: false },
+      dir: { type: 'string', short: 'd', default: 'data/oparl-magdeburg/' },
     },
-    default: {
-      dir: 'data/oparl-magdeburg/',
-    },
-  }) as FetchOparlArgs;
+  });
+  return { help: values.help, dir: values.dir };
 }
 
 export function checkArgs(args: FetchOparlArgs) {
   if (!args.dir) {
     console.error('Missing dir parameter. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 }
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts [-d <dir>]
+Usage: bun index.ts [-d <dir>]
 
 Mirrors the published OParl snapshot into <dir>. It reads the remote manifest, compares each file's
 content hash against the local copy and downloads only the blobs that changed or are missing
