@@ -1,7 +1,7 @@
 import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
 import type { OparlMeeting } from '@srw-astro/models/oparl';
-import { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
-import { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
+import type { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
+import type { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
 
 export class PaperFilesCollector {
   constructor(

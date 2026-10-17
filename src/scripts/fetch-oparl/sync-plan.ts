@@ -3,8 +3,8 @@ import {
   type OparlManifest,
   type OparlManifestEntry,
 } from '../shared/oparl/oparl-snapshot.ts';
-import { type ManifestFetch } from './snapshot-source.ts';
-import { type LocalShas } from './snapshot-store.ts';
+import type { ManifestFetch } from './snapshot-source.ts';
+import type { LocalShas } from './snapshot-store.ts';
 
 export type BlobDownload = { filename: string; entry: OparlManifestEntry };
 

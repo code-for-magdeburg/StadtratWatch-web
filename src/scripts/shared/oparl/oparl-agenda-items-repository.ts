@@ -1,4 +1,4 @@
-import { OparlAgendaItem } from '@srw-astro/models/oparl';
+import type { OparlAgendaItem } from '@srw-astro/models/oparl';
 
 export interface OparlAgendaItemsRepository {
   getAgendaItemById(agendaItemId: string): OparlAgendaItem | null;

@@ -1,4 +1,4 @@
-import { OparlPaper } from '@srw-astro/models/oparl';
+import type { OparlPaper } from '@srw-astro/models/oparl';
 
 export interface OparlPapersRepository {
   getAllPapers(): OparlPaper[];

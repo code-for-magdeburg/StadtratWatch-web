@@ -1,4 +1,4 @@
-import {
+import type {
   PaperAssetDto,
   PaperConsultationDto,
   PaperDto,
@@ -6,25 +6,28 @@ import {
   PaperGraphAssetDto,
   PaperGraphDto,
 } from './model.ts';
-import { PaperFilesStore } from './paper-files-store.ts';
-import { OparlMeetingsInMemoryRepository, OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
-import { OparlPapersInMemoryRepository, OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
-import { OparlFilesInMemoryRepository, OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
+import type { PaperFilesStore } from './paper-files-store.ts';
+import {
+  OparlMeetingsInMemoryRepository,
+  type OparlMeetingsRepository,
+} from '../shared/oparl/oparl-meetings-repository.ts';
+import { OparlPapersInMemoryRepository, type OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
+import { OparlFilesInMemoryRepository, type OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
 import {
   OparlOrganizationsInMemoryRepository,
-  OparlOrganizationsRepository,
+  type OparlOrganizationsRepository,
 } from '../shared/oparl/oparl-organizations-repository.ts';
 import {
   OparlAgendaItemsInMemoryRepository,
-  OparlAgendaItemsRepository,
+  type OparlAgendaItemsRepository,
 } from '../shared/oparl/oparl-agenda-items-repository.ts';
-import { OparlMeeting, OparlPaper } from '@srw-astro/models/oparl';
+import type { OparlMeeting, OparlPaper } from '@srw-astro/models/oparl';
 import { toPaperBatchNo } from '@srw-astro/models/paper-batch';
 import { createInMemoryPaperGraph } from './paper-graph.ts';
-import { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
-import { PaperAssetsWriter } from './paper-assets-writer.ts';
-import { PaperGraphAssetsWriter } from './paper-graph-assets-writer.ts';
-import { SessionIndex, SessionIndexStore, SessionLocation } from './session-index.ts';
+import type { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
+import type { PaperAssetsWriter } from './paper-assets-writer.ts';
+import type { PaperGraphAssetsWriter } from './paper-graph-assets-writer.ts';
+import type { SessionIndex, SessionIndexStore, SessionLocation } from './session-index.ts';
 
 export class PaperAssetsGenerator {
   private readonly meetingsRepository: OparlMeetingsRepository;

@@ -1,8 +1,8 @@
 import { assertEquals } from '@std/assert';
-import { OparlConsultation } from '@srw-astro/models/oparl';
+import type { OparlConsultation } from '@srw-astro/models/oparl';
 import {
   OparlConsultationsInMemoryRepository,
-  OparlConsultationsRepository,
+  type OparlConsultationsRepository,
 } from './oparl-consultations-repository.ts';
 
 Deno.test('OparlConsultationsInMemoryRepository', async (t) => {

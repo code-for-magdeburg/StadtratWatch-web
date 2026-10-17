@@ -1,9 +1,9 @@
-import { type PutObjectCommandInput } from '@aws-sdk/client-s3';
+import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
 import { crypto } from '@std/crypto';
 import { encodeHex } from '@std/encoding/hex';
 import { walk } from '@std/fs';
 import * as path from '@std/path';
-import { type PushEnv } from './push-env.ts';
+import type { PushEnv } from './push-env.ts';
 
 /**
  * Cache-Control for published web assets. Unlike the content-addressed OParl blobs (immutable, one

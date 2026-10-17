@@ -1,4 +1,4 @@
-import { Canvas, CanvasRenderingContext2D, createCanvas } from '@gfx/canvas';
+import { type Canvas, type CanvasRenderingContext2D, createCanvas } from '@gfx/canvas';
 import type { Voting } from './model.ts';
 
 const TOTAL_WIDTH = 1200;

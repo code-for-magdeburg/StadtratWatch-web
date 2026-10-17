@@ -1,4 +1,4 @@
-import { OparlOrganization } from '@srw-astro/models/oparl';
+import type { OparlOrganization } from '@srw-astro/models/oparl';
 
 export interface OparlOrganizationsRepository {
   getOrganizationById(organizationId: string): OparlOrganization | null;

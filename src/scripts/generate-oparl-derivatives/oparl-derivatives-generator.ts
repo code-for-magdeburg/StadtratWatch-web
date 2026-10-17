@@ -1,19 +1,22 @@
-import { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
-import { OparlMeetingsInMemoryRepository, OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
+import type { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
+import {
+  OparlMeetingsInMemoryRepository,
+  type OparlMeetingsRepository,
+} from '../shared/oparl/oparl-meetings-repository.ts';
 import {
   OparlAgendaItemsInMemoryRepository,
-  OparlAgendaItemsRepository,
+  type OparlAgendaItemsRepository,
 } from '../shared/oparl/oparl-agenda-items-repository.ts';
 import {
   OparlConsultationsInMemoryRepository,
-  OparlConsultationsRepository,
+  type OparlConsultationsRepository,
 } from '../shared/oparl/oparl-consultations-repository.ts';
-import { OparlPapersInMemoryRepository, OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
-import { PaperIndex, PaperIndexEntry, VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
-import { OparlMeeting } from '@srw-astro/models/oparl';
-import { Registry } from '@srw-astro/models/registry';
-import { RegistryStore } from './registry-store.ts';
-import { DerivativesWriter } from './derivatives-writer.ts';
+import { OparlPapersInMemoryRepository, type OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
+import type { PaperIndex, PaperIndexEntry, VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
+import type { OparlMeeting } from '@srw-astro/models/oparl';
+import type { Registry } from '@srw-astro/models/registry';
+import type { RegistryStore } from './registry-store.ts';
+import type { DerivativesWriter } from './derivatives-writer.ts';
 
 export class OparlDerivativesGenerator {
   private readonly meetingsRepository: OparlMeetingsRepository;

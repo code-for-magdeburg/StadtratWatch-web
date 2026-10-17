@@ -1,8 +1,8 @@
-import { Registry } from '@srw-astro/models/registry';
+import type { Registry } from '@srw-astro/models/registry';
 import * as path from '@std/path';
-import { SessionInput } from '@srw-astro/models/session-input';
-import { SessionScan } from '@srw-astro/models/session-scan';
-import { SessionSpeech } from '@srw-astro/models/session-speech';
+import type { SessionInput } from '@srw-astro/models/session-input';
+import type { SessionScan } from '@srw-astro/models/session-scan';
+import type { SessionSpeech } from '@srw-astro/models/session-speech';
 import { existsSync } from '@std/fs';
 
 export type InputData = {

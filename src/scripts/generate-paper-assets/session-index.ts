@@ -1,5 +1,5 @@
 import * as path from '@std/path';
-import { Registry } from '@srw-astro/models/registry';
+import type { Registry } from '@srw-astro/models/registry';
 
 export type SessionLocation = {
   parliamentPeriodId: string;

@@ -1,11 +1,11 @@
 import { describe, it } from '@std/testing/bdd';
 import { assertEquals } from '@std/assert';
 import { OparlDerivativesGenerator } from '../oparl-derivatives-generator.ts';
-import { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
-import { RegistryStore } from '../registry-store.ts';
-import { DerivativesWriter } from '../derivatives-writer.ts';
-import { Registry } from '@srw-astro/models/registry';
-import {
+import type { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
+import type { RegistryStore } from '../registry-store.ts';
+import type { DerivativesWriter } from '../derivatives-writer.ts';
+import type { Registry } from '@srw-astro/models/registry';
+import type {
   OparlAgendaItem,
   OparlConsultation,
   OparlFile,
@@ -13,7 +13,7 @@ import {
   OparlOrganization,
   OparlPaper,
 } from '@srw-astro/models/oparl';
-import { PaperIndex, VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
+import type { PaperIndex, VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
 
 const COUNCIL_ORG = 'https://example.org/oparl/organizations/gr/1';
 const OTHER_ORG = 'https://example.org/oparl/organizations/committee/1';

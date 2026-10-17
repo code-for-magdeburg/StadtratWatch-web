@@ -1,8 +1,8 @@
 import { describe, it } from '@std/testing/bdd';
 import { assertEquals } from '@std/assert';
 import { PaperAssetsGenerator } from '../paper-assets-generator.ts';
-import { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
-import {
+import type { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
+import type {
   OparlAgendaItem,
   OparlConsultation,
   OparlFile,
@@ -10,11 +10,11 @@ import {
   OparlOrganization,
   OparlPaper,
 } from '@srw-astro/models/oparl';
-import { PaperAssetDto, PaperConsultationDto, PaperGraphAssetDto } from '../model.ts';
-import { PaperFilesStore } from '../paper-files-store.ts';
-import { PaperAssetsWriter } from '../paper-assets-writer.ts';
-import { PaperGraphAssetsWriter } from '../paper-graph-assets-writer.ts';
-import { SessionIndex, SessionIndexStore } from '../session-index.ts';
+import type { PaperAssetDto, PaperConsultationDto, PaperGraphAssetDto } from '../model.ts';
+import type { PaperFilesStore } from '../paper-files-store.ts';
+import type { PaperAssetsWriter } from '../paper-assets-writer.ts';
+import type { PaperGraphAssetsWriter } from '../paper-graph-assets-writer.ts';
+import type { SessionIndex, SessionIndexStore } from '../session-index.ts';
 
 const COUNCIL_ORGANIZATION = 'http://example.com/oparl/organizations/council';
 const MAYOR_ORGANIZATION = 'http://example.com/oparl/organizations/mayor';

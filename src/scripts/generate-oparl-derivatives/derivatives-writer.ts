@@ -1,5 +1,5 @@
 import * as path from '@std/path';
-import { PaperIndex, VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
+import type { PaperIndex, VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
 import { ensureDirSync } from '@std/fs';
 
 export interface DerivativesWriter {

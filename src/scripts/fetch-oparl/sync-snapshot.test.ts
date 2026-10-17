@@ -1,8 +1,8 @@
 import { assertEquals, assertRejects } from '@std/assert';
 import { describe, it } from '@std/testing/bdd';
 import { OPARL_SNAPSHOT_FILENAMES, type OparlManifest, shortSnapshotSha } from '../shared/oparl/oparl-snapshot.ts';
-import { type SnapshotSource } from './snapshot-source.ts';
-import { type LocalShas, type SnapshotStore } from './snapshot-store.ts';
+import type { SnapshotSource } from './snapshot-source.ts';
+import type { LocalShas, SnapshotStore } from './snapshot-store.ts';
 import { type SyncLogger, syncOparlSnapshot } from './sync-snapshot.ts';
 
 const encoder = new TextEncoder();
