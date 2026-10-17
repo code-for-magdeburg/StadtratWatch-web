@@ -30,7 +30,7 @@ export class VotingImagesSource implements IVotingImagesSource {
   }
 
   public loadVotingImage(filePath: string): PixelMatrix {
-    // Decode without colour management: canvas libraries convert the Display-P3 screenshots to sRGB,
+    // Decode without color management: canvas libraries convert the Display-P3 screenshots to sRGB,
     // which made a test run misread 63% of abstentions as votes against.
     const image = decode(readFileSync(filePath));
     if (image.depth !== 8 || image.palette || image.channels < 3) {

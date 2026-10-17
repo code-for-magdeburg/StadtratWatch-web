@@ -8,7 +8,7 @@ every voting. It is the second step of the video processing (see the processing 
 [HOWTO](../../../docs/guides/HOWTO.md)).
 
 The texts are read with Tesseract OCR; the `deu` language data is downloaded from the Tesseract CDN at runtime, so the
-script needs network access. The votes are read from the colour of each person's test pixel.
+script needs network access. The votes are read from the color of each person's test pixel.
 
 ## Usage
 
