@@ -185,7 +185,7 @@ export async function collectWebAssets(directory: string, prefix: string): Promi
   const base = trimTrailingSlash(prefix);
   const assets: LocalAsset[] = [];
   const entries = await readdir(directory, { recursive: true, withFileTypes: true });
-  for (const entry of entries.filter((candidate) => !candidate.isDirectory())) {
+  for (const entry of entries.filter((candidate) => candidate.isFile())) {
     const entryPath = path.join(entry.parentPath, entry.name);
     const relativeKey = path.relative(directory, entryPath).split(path.sep).join('/');
     const key = base ? `${base}/${relativeKey}` : relativeKey;
