@@ -41,7 +41,7 @@ For code quality:
 ```bash
 deno fmt                # Format code
 deno lint               # Lint code
-deno test               # Run tests
+deno test --permit-no-files  # Run tests
 deno check src/         # Type-check code
 ```
 

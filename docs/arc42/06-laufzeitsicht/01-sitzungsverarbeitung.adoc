@@ -55,7 +55,7 @@ fork
   end note
   :**session-review** (manuell)\nVoten, TOPs, Drucksachen-\nnummern prüfen/korrigieren;
   note right: Detail in Szenario 6.4
-  :**generate-image-assets** (Deno)\nVisualisierungs-PNGs erzeugen;
+  :**generate-image-assets** (Bun)\nVisualisierungs-PNGs erzeugen;
   note right
     nur aus **session-scan-*.json**;
     unabhängig vom Rede-Zweig
@@ -123,7 +123,7 @@ stop
 | Geprüfte `session-scan-*.json` (Voten, TOPs, Drucksachennummern) — siehe
   <<lz-pruefung-freigabe,Szenario 6.4>>
 
-| *generate-image-assets* (Deno)
+| *generate-image-assets* (Bun)
 | `session-scan-*.json`
 | Visualisierungs-PNGs (ausgelagert, S3/CloudFront)
 

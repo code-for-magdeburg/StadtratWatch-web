@@ -21,7 +21,7 @@ if echo "$STAGED_FILES" | grep -q '^src/'; then
   run_check "deno fmt --check" deno fmt --check
   run_check "deno lint" deno lint
   run_check "deno check src" deno check src
-  run_check "deno test" deno test
+  run_check "deno test" deno test --permit-no-files
   run_check "bun run typecheck" bun run typecheck
   run_check "bun run test" bun run test
 fi

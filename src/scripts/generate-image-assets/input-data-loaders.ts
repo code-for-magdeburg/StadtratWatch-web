@@ -1,9 +1,8 @@
 import type { Registry } from '@srw-astro/models/registry';
-import * as path from '@std/path';
+import * as path from 'node:path';
 import type { SessionInput } from '@srw-astro/models/session-input';
 import type { SessionScan } from '@srw-astro/models/session-scan';
 import type { SessionSpeech } from '@srw-astro/models/session-speech';
-import { existsSync } from '@std/fs';
 
 export type InputData = {
   registry: Registry;
@@ -14,32 +13,34 @@ export class InputDataLoaders {
   constructor(private readonly inputDir: string) {
   }
 
-  public loadInputData(): InputData {
-    const registry = this.loadRegistry();
-    const sessionsInput = this.loadSessionsInputData(registry);
+  public async loadInputData(): Promise<InputData> {
+    const registry = await this.loadRegistry();
+    const sessionsInput = await this.loadSessionsInputData(registry);
     return { registry, sessionsInput };
   }
 
-  private loadRegistry(): Registry {
+  private async loadRegistry(): Promise<Registry> {
     const registryFilename = path.join(this.inputDir, 'registry.json');
-    return JSON.parse(Deno.readTextFileSync(registryFilename)) as Registry;
+    return await Bun.file(registryFilename).json() as Registry;
   }
 
-  private loadSessionsInputData(registry: Registry): SessionInput[] {
-    return registry.sessions.map<SessionInput>((session) => {
+  private loadSessionsInputData(registry: Registry): Promise<SessionInput[]> {
+    return Promise.all(registry.sessions.map(async (session) => {
       const sessionDir = path.join(this.inputDir, session.date);
-
-      const sessionScanFilename = path.join(sessionDir, `session-scan-${session.date}.json`);
-      const votings = existsSync(sessionScanFilename)
-        ? JSON.parse(Deno.readTextFileSync(sessionScanFilename)) as SessionScan
-        : [];
-
-      const sessionSpeechesFilename = path.join(sessionDir, `session-speeches-${session.date}.json`);
-      const speeches = existsSync(sessionSpeechesFilename)
-        ? JSON.parse(Deno.readTextFileSync(sessionSpeechesFilename)) as SessionSpeech[]
-        : [];
-
+      const votings = await readJsonOrDefault<SessionScan>(
+        path.join(sessionDir, `session-scan-${session.date}.json`),
+        [],
+      );
+      const speeches = await readJsonOrDefault<SessionSpeech[]>(
+        path.join(sessionDir, `session-speeches-${session.date}.json`),
+        [],
+      );
       return { session, votings, speeches } satisfies SessionInput;
-    });
+    }));
   }
+}
+
+async function readJsonOrDefault<T>(filename: string, defaultValue: T): Promise<T> {
+  const file = Bun.file(filename);
+  return await file.exists() ? await file.json() as T : defaultValue;
 }

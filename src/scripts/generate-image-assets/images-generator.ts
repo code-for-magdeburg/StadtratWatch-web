@@ -1,4 +1,4 @@
-import { type Canvas, type CanvasRenderingContext2D, createCanvas } from '@gfx/canvas';
+import { type Canvas, createCanvas, GlobalFonts, type SKRSContext2D } from '@napi-rs/canvas';
 import type { Voting } from './model.ts';
 
 const TOTAL_WIDTH = 1200;
@@ -18,6 +18,13 @@ const ABSTENTIONS_FILL_COLOR = '#DDDDDD';
 const TEXT_COLOR = '#DDDDDD';
 const TEXT_COLOR_DARK = '#3C3C3C';
 
+// A fallback font has different glyph widths and changes how about 5% of the subjects wrap.
+const REQUIRED_FONT_FAMILY = 'Verdana';
+
+export type InstalledFonts = {
+  has(family: string): boolean;
+};
+
 export type GeneratedVotingImage = {
   sessionId: string;
   votingId: number;
@@ -25,6 +32,15 @@ export type GeneratedVotingImage = {
 };
 
 export class ImagesGenerator {
+  constructor(installedFonts: InstalledFonts = GlobalFonts) {
+    if (!installedFonts.has(REQUIRED_FONT_FAMILY)) {
+      throw new Error(
+        `Font "${REQUIRED_FONT_FAMILY}" is not installed. The voting images need it to wrap subjects correctly. ` +
+          'macOS has it built in; on Linux, install msttcorefonts (see src/scripts/generate-image-assets/README.md).',
+      );
+    }
+  }
+
   public generateVotingImages(votings: Voting[]): GeneratedVotingImage[] {
     return votings.map((voting) => this.generateVotingImage(voting));
   }
@@ -44,7 +60,7 @@ export class ImagesGenerator {
     return { sessionId: voting.sessionId, votingId: voting.votingId, canvas };
   }
 
-  private fillCanvas(context: CanvasRenderingContext2D) {
+  private fillCanvas(context: SKRSContext2D) {
     const MAIN_BORDER_WIDTH = 3;
 
     context.fillStyle = TEXT_COLOR;
@@ -185,7 +201,7 @@ export class ImagesGenerator {
   }
 
   private drawVotesSummary(
-    context: CanvasRenderingContext2D,
+    context: SKRSContext2D,
     votes: number,
     text: string,
     xCenter: number,
@@ -210,7 +226,7 @@ export class ImagesGenerator {
     context.fillText(`${votes}`, xCenter, 65);
   }
 
-  private drawTotalVotingSummary(context: CanvasRenderingContext2D, text: string, fillColor: string) {
+  private drawTotalVotingSummary(context: SKRSContext2D, text: string, fillColor: string) {
     context.beginPath();
     context.fillStyle = fillColor;
     context.roundRect(0, 90, COLUMN_WIDTH, 80, 10);
