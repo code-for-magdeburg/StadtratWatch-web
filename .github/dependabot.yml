@@ -1,0 +1,34 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns:
+          - '*'
+    commit-message:
+      prefix: ci
+
+  - package-ecosystem: bun
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      bun:
+        patterns:
+          - '*'
+    commit-message:
+      prefix: chore(deps)
+
+  - package-ecosystem: npm
+    directory: /astro
+    schedule:
+      interval: weekly
+    groups:
+      npm:
+        patterns:
+          - '*'
+    commit-message:
+      prefix: chore(deps)
