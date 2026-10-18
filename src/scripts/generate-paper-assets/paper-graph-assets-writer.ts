@@ -1,39 +1,40 @@
-import * as path from '@std/path';
+import * as path from 'node:path';
+import { mkdir, readdir } from 'node:fs/promises';
 import type { PaperGraphAssetDto } from './model.ts';
 
 export interface PaperGraphAssetsWriter {
-  writePaperGraphAssets(assets: PaperGraphAssetDto[]): void;
+  writePaperGraphAssets(assets: PaperGraphAssetDto[]): Promise<void>;
 }
 
 export class PaperGraphAssetsFileWriter implements PaperGraphAssetsWriter {
   constructor(private readonly paperAssetsDir: string) {
   }
 
-  writePaperGraphAssets(assets: PaperGraphAssetDto[]): void {
-    Deno.mkdirSync(this.paperAssetsDir, { recursive: true });
+  async writePaperGraphAssets(assets: PaperGraphAssetDto[]): Promise<void> {
+    await mkdir(this.paperAssetsDir, { recursive: true });
 
-    const generatedFilenames = this.writePaperGraphAssetFiles(assets);
-    this.removeStalePaperGraphAssetFiles(generatedFilenames);
+    const generatedFilenames = await this.writePaperGraphAssetFiles(assets);
+    await this.removeStalePaperGraphAssetFiles(generatedFilenames);
   }
 
-  private writePaperGraphAssetFiles(assets: PaperGraphAssetDto[]): Set<string> {
+  private async writePaperGraphAssetFiles(assets: PaperGraphAssetDto[]): Promise<Set<string>> {
     const generatedFilenames = new Set<string>();
     for (const asset of assets) {
       const filename = `paper-graphs-${asset.batchNo}.json`;
       generatedFilenames.add(filename);
       const filePath = path.join(this.paperAssetsDir, filename);
-      Deno.writeTextFileSync(filePath, JSON.stringify(asset.paperGraphs, null, 2));
+      await Bun.write(filePath, JSON.stringify(asset.paperGraphs, null, 2));
     }
     return generatedFilenames;
   }
 
-  private removeStalePaperGraphAssetFiles(generatedFilenames: Set<string>): void {
-    for (const entry of Deno.readDirSync(this.paperAssetsDir)) {
-      const isStalePaperGraphAssetFile = entry.isFile &&
+  private async removeStalePaperGraphAssetFiles(generatedFilenames: Set<string>): Promise<void> {
+    for (const entry of await readdir(this.paperAssetsDir, { withFileTypes: true })) {
+      const isStalePaperGraphAssetFile = entry.isFile() &&
         /^paper-graphs-.*\.json$/.test(entry.name) &&
         !generatedFilenames.has(entry.name);
       if (isStalePaperGraphAssetFile) {
-        Deno.removeSync(path.join(this.paperAssetsDir, entry.name));
+        await Bun.file(path.join(this.paperAssetsDir, entry.name)).delete();
       }
     }
   }

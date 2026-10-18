@@ -1,21 +1,25 @@
-import * as fs from '@std/fs';
+import * as path from 'node:path';
+import { readdir } from 'node:fs/promises';
 
 export interface PaperFilesStore {
   getFileSize(fileId: number): number | null;
 }
 
 export class PaperFilesFileStore implements PaperFilesStore {
-  private filesDict: Map<string, number> = new Map<string, number>();
+  private constructor(private readonly fileSizesByName: Map<string, number>) {
+  }
 
-  constructor(private readonly papersDir: string) {
-    for (const entry of fs.walkSync(papersDir)) {
-      if (entry.isFile && entry.name.endsWith('.pdf')) {
-        this.filesDict.set(entry.name, Deno.statSync(entry.path).size);
+  static async load(papersDir: string): Promise<PaperFilesFileStore> {
+    const fileSizesByName = new Map<string, number>();
+    for (const entry of await readdir(papersDir, { recursive: true, withFileTypes: true })) {
+      if (entry.isFile() && entry.name.endsWith('.pdf')) {
+        fileSizesByName.set(entry.name, Bun.file(path.join(entry.parentPath, entry.name)).size);
       }
     }
+    return new PaperFilesFileStore(fileSizesByName);
   }
 
   getFileSize(fileId: number): number | null {
-    return this.filesDict.get(`${fileId}.pdf`) || null;
+    return this.fileSizesByName.get(`${fileId}.pdf`) || null;
   }
 }

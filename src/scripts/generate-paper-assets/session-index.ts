@@ -1,4 +1,5 @@
-import * as path from '@std/path';
+import * as path from 'node:path';
+import { readdir } from 'node:fs/promises';
 import type { Registry } from '@srw-astro/models/registry';
 
 export type SessionLocation = {
@@ -12,22 +13,22 @@ export type SessionLocation = {
 export type SessionIndex = { [sessionDate: string]: SessionLocation };
 
 export interface SessionIndexStore {
-  loadSessionIndex(): SessionIndex;
+  loadSessionIndex(): Promise<SessionIndex>;
 }
 
 export class SessionIndexFileStore implements SessionIndexStore {
   constructor(private readonly dataDir: string) {
   }
 
-  public loadSessionIndex(): SessionIndex {
+  public async loadSessionIndex(): Promise<SessionIndex> {
     const sessionIndex: SessionIndex = {};
 
-    for (const entry of Deno.readDirSync(this.dataDir)) {
-      if (!entry.isDirectory) {
+    for (const entry of await readdir(this.dataDir, { withFileTypes: true })) {
+      if (!entry.isDirectory()) {
         continue;
       }
 
-      const registry = this.readRegistry(path.join(this.dataDir, entry.name, 'registry.json'));
+      const registry = await this.readRegistry(path.join(this.dataDir, entry.name, 'registry.json'));
       if (!registry) {
         continue;
       }
@@ -43,14 +44,11 @@ export class SessionIndexFileStore implements SessionIndexStore {
     return sessionIndex;
   }
 
-  private readRegistry(filePath: string): Registry | null {
-    try {
-      return JSON.parse(Deno.readTextFileSync(filePath)) as Registry;
-    } catch (error) {
-      if (error instanceof Deno.errors.NotFound) {
-        return null;
-      }
-      throw error;
+  private async readRegistry(filePath: string): Promise<Registry | null> {
+    const registryFile = Bun.file(filePath);
+    if (!(await registryFile.exists())) {
+      return null;
     }
+    return await registryFile.json() as Registry;
   }
 }

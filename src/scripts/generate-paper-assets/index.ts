@@ -1,4 +1,4 @@
-import { checkArgs, parseArgs, printHelpText } from './cli.ts';
+import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
 import { PaperFilesFileStore } from './paper-files-store.ts';
 import { PaperAssetsGenerator } from './paper-assets-generator.ts';
 import { PaperAssetsFileWriter } from './paper-assets-writer.ts';
@@ -8,18 +8,18 @@ import { SessionIndexFileStore } from './session-index.ts';
 import { getGeneratePaperAssetsEnvOrExit } from './env.ts';
 import { pushPaperAssetsFromEnv } from './push.ts';
 
-const args = parseArgs(Deno.args);
+const args = parseCliArgs(Bun.argv.slice(2));
 
 if (args.help) {
   printHelpText();
-  Deno.exit(0);
+  process.exit(0);
 }
 
 checkArgs(args);
 
 const { councilOrganizationId } = getGeneratePaperAssetsEnvOrExit();
 
-const paperFilesStore = new PaperFilesFileStore(args.papersDir);
+const paperFilesStore = await PaperFilesFileStore.load(args.papersDir);
 const oparlObjectsStore = new OparlObjectsFileStore(args.ratsinfoDir);
 const sessionIndexStore = new SessionIndexFileStore(args.dataDir);
 const paperAssetsWriter = new PaperAssetsFileWriter(args.outputDir);
@@ -33,7 +33,7 @@ const generator = new PaperAssetsGenerator(
   paperAssetsWriter,
   paperGraphAssetsWriter,
 );
-generator.generatePaperAssets();
+await generator.generatePaperAssets();
 
 if (args.push) {
   await pushPaperAssetsFromEnv(args.outputDir, { dryRun: args.dryRun });
