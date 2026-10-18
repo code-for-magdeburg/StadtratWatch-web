@@ -72,8 +72,7 @@ would, so it is the safe way to see what a publish would change before committin
 The exact per-generator invocations live in the
 [`generate-paper-assets` README](../../src/scripts/generate-paper-assets/README.md#publish---push), the
 [`generate-paper-votings` README](../../src/scripts/generate-paper-votings/README.md#publish---push)
-and, for the generator still on Deno, in [HOWTO.md](HOWTO.md) under its
-*Publish to S3/CloudFront (`--push`)* section.
+and the [`generate-image-assets` README](../../src/scripts/generate-image-assets/README.md#publish---push).
 
 ### Verifying a publish
 

@@ -162,7 +162,7 @@ end fork
 
 ' ===================== Zusammenführung (Assets, Suche) =====================
 |Skripte (Deno / Bun / Python / Shell)|
-:**generate-image-assets** (Deno, --push)
+:**generate-image-assets** (Bun, --push)
 Abstimmungs-PNGs erzeugen;
 note right
   Eingabe: session-scan-{date}.json + registry.json

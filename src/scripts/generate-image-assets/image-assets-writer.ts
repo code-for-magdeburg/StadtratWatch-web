@@ -1,6 +1,5 @@
-import * as fs from '@std/fs';
-import * as path from '@std/path';
-import { decodeBase64 } from '@std/encoding';
+import * as path from 'node:path';
+import { mkdir } from 'node:fs/promises';
 import type { GeneratedVotingImage } from './images-generator.ts';
 
 export class ImageAssetsWriter {
@@ -8,31 +7,19 @@ export class ImageAssetsWriter {
 
   constructor(private readonly outputDir: string) {
     this.votingsImagesOutputDir = path.join(this.outputDir, 'images', 'votings');
-    this.ensureOutputDirsExists();
   }
 
-  public writeImageAssets(votingImages: GeneratedVotingImage[]) {
-    this.writeVotingImagesFiles(votingImages);
+  public async writeImageAssets(votingImages: GeneratedVotingImage[]): Promise<void> {
+    await mkdir(this.votingsImagesOutputDir, { recursive: true });
+    await this.writeVotingImagesFiles(votingImages);
   }
 
-  private writeVotingImagesFiles(votingImages: GeneratedVotingImage[]) {
+  private async writeVotingImagesFiles(votingImages: GeneratedVotingImage[]): Promise<void> {
     console.log('Writing votings images...');
 
-    votingImages.forEach((votingImage) => {
-      const { sessionId, votingId, canvas } = votingImage;
-
-      const sessionOutputDir = path.join(this.votingsImagesOutputDir, sessionId);
-      fs.ensureDirSync(sessionOutputDir);
-
-      const imageBase64Encoded = canvas.toDataURL().replace(/^data:image\/png;base64,/, '');
-      const image = decodeBase64(imageBase64Encoded);
+    for (const { sessionId, votingId, canvas } of votingImages) {
       const filename = `${sessionId}-${votingId.toString().padStart(3, '0')}.png`;
-      Deno.writeFileSync(path.join(sessionOutputDir, filename), image);
-    });
-  }
-
-  private ensureOutputDirsExists() {
-    fs.ensureDirSync(this.outputDir);
-    fs.ensureDirSync(this.votingsImagesOutputDir);
+      await Bun.write(path.join(this.votingsImagesOutputDir, sessionId, filename), canvas.toBuffer('image/png'));
+    }
   }
 }

@@ -14,49 +14,9 @@ Run the processing pipeline in this order. The script sections below document in
    3. [`speech-to-text`](../../src/scripts/speech-to-text/README.md) - generate speech transcriptions.
    4. [`detect-ai-text`](../../src/scripts/detect-ai-text/README.md) - optional, manual step: after transcripts are corrected and before committing
       session data, run a Pangram-based AI-text check on redaction-selected speeches.
-6. `generate-image-assets` - create voting visualization image assets from processed session data.
+6. [`generate-image-assets`](../../src/scripts/generate-image-assets/README.md) - create voting visualization image assets from processed session data.
 7. [`generate-paper-votings`](../../src/scripts/generate-paper-votings/README.md) - reverse the voting-paper-map against the session scans into the per-paper voting assets. Needs both the OParl derivates (step 4) and the scanned votings (step 5.2).
 8. [`index-search`](../../src/scripts/index-search/README.md) - rebuild the Typesense search index after all paper, speech, and asset data is available.
-
-### Generate image assets
-
-#### Build the docker image
-```bash
-docker build -t srw-generate-image-assets -f docker/generate-image-assets.Dockerfile .
-```
-
-#### Run the docker container
-```bash
-docker run \
-  --rm \
-  -v $(pwd)/data/magdeburg-8:/app/input-dir:ro \
-  -v $(pwd)/output/image-assets/magdeburg-8:/app/output-dir \
-  srw-generate-image-assets
-```
-
-#### Publish to S3/CloudFront (`--push`)
-Adding `--push` publishes the generated output directory to
-`web-assets/parliament-periods/{period}/` after generating — this is the only way to publish this
-prefix (see [publishing-web-assets.md](publishing-web-assets.md)). The period
-is read from the input registry's `id`, and the nested `images/votings/{sessionId}/` sub-tree is
-mirrored as-is under the period prefix. The output directory is the authoritative picture of the
-period prefix, so the push uploads new or changed images, **prunes** orphaned ones, sets
-`Cache-Control`, invalidates the touched paths, and then verifies the remote prefix against the
-images it produced — catching a silent upload failure.
-
-Pushing needs `AWS_S3_BUCKET` (the target bucket) plus the AWS credentials and
-`AWS_CLOUDFRONT_DISTRIBUTION_ID` (see `.env.sample`); a plain generate run needs none of them. Use
-`--push --dry-run` to print the upload/delete/invalidate diff without writing to S3 or invalidating
-CloudFront.
-
-```shell
-deno run -A \
-  src/scripts/generate-image-assets/index.ts \
-  -i=data/magdeburg-8 \
-  -o=output/image-assets/magdeburg-8 \
-  --push
-```
-
 
 ### Extract text from paper files
 

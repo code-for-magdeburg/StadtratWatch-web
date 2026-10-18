@@ -271,13 +271,8 @@ Also save the corrected scanned votings file in `data/$PARLIAMENT_PERIOD/$DATE/s
 
 ### Generate Voting Images
 
-```bash
-deno run \
-  -A \
-  src/scripts/generate-image-assets/index.ts \
-  -i data/magdeburg-8 \
-  -o output/image-assets/magdeburg-8
-```
+Create the voting images using the `generate-image-assets` script.
+See [generate-image-assets](../../src/scripts/generate-image-assets/README.md) for usage.
 
 ### Store image assets in S3 bucket
 

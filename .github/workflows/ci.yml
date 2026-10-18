@@ -39,7 +39,7 @@ jobs:
         run: deno lint
 
       - name: Deno tests
-        run: deno test
+        run: deno test --permit-no-files
 
   bun-checks:
     name: Bun Checks

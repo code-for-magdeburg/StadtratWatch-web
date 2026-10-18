@@ -1,5 +1,3 @@
 [test]
 root = "src"
-pathIgnorePatterns = [
-  "src/scripts/generate-image-assets/**",
-]
+pathIgnorePatterns = []

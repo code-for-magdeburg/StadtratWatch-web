@@ -1,51 +1,58 @@
-import * as fs from '@std/fs';
-import * as path from '@std/path';
-import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
+import { existsSync } from 'node:fs';
+import * as path from 'node:path';
+import { parseArgs } from 'node:util';
 
-export type GenerateDataAssetsArgs = {
+export type GenerateImageAssetsArgs = {
   help: boolean;
-  inputDir: string;
-  outputDir: string;
+  inputDir?: string;
+  outputDir?: string;
   push: boolean;
   dryRun: boolean;
 };
 
-export function parseArgs(args: string[]): GenerateDataAssetsArgs {
-  return stdCliParseArgs(args, {
-    boolean: ['help', 'push', 'dry-run'],
-    string: ['input-dir', 'output-dir'],
-    alias: {
-      help: 'h',
-      'input-dir': ['i', 'inputDir'],
-      'output-dir': ['o', 'outputDir'],
-      'dry-run': 'dryRun',
+export function parseCliArgs(args: string[]): GenerateImageAssetsArgs {
+  const { values } = parseArgs({
+    args,
+    options: {
+      help: { type: 'boolean', short: 'h', default: false },
+      'input-dir': { type: 'string', short: 'i' },
+      'output-dir': { type: 'string', short: 'o' },
+      push: { type: 'boolean', default: false },
+      'dry-run': { type: 'boolean', default: false },
     },
-  }) as GenerateDataAssetsArgs;
+  });
+  return {
+    help: values.help,
+    inputDir: values['input-dir'],
+    outputDir: values['output-dir'],
+    push: values.push,
+    dryRun: values['dry-run'],
+  };
 }
 
-export function checkArgs(args: GenerateDataAssetsArgs) {
+export function checkArgs(args: GenerateImageAssetsArgs): asserts args is Required<GenerateImageAssetsArgs> {
   const { inputDir, outputDir } = args;
 
   if (!inputDir) {
     console.error('Missing input directory. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   if (!outputDir) {
     console.error('Missing output directory. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   const registryFilename = path.join(inputDir, 'registry.json');
-  if (!fs.existsSync(registryFilename)) {
+  if (!existsSync(registryFilename)) {
     console.error(`Registry file "${registryFilename}" does not exist.`);
-    Deno.exit(1);
+    process.exit(1);
   }
 }
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts -i <input-dir> -o <output-dir> [--push [--dry-run]]
+Usage: bun index.ts -i <input-dir> -o <output-dir> [--push [--dry-run]]
 -h, --help                  Show this help message and exit.
 -i, --input-dir             The input directory.
 -o, --output-dir            The output directory.
