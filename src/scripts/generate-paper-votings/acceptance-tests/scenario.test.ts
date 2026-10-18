@@ -1,5 +1,4 @@
-import { describe, it } from '@std/testing/bdd';
-import { assertEquals, assertThrows } from '@std/assert';
+import { describe, expect, it } from 'bun:test';
 import { PaperVotingsGenerator } from '../paper-votings-generator.ts';
 import type { PeriodData, PeriodDataStore } from '../period-data-store.ts';
 import type { PaperVotingsWriter } from '../paper-votings-writer.ts';
@@ -21,14 +20,15 @@ class MockPeriodDataStore implements PeriodDataStore {
   constructor(private readonly periods: PeriodData[]) {
   }
 
-  loadPeriods = (): PeriodData[] => this.periods;
+  loadPeriods = (): Promise<PeriodData[]> => Promise.resolve(this.periods);
 }
 
 class MockPaperVotingsWriter implements PaperVotingsWriter {
   assets: PaperVotingsAssetDto[] = [];
 
-  writePaperVotings(assets: PaperVotingsAssetDto[]): void {
+  writePaperVotings(assets: PaperVotingsAssetDto[]): Promise<void> {
     this.assets = assets;
+    return Promise.resolve();
   }
 }
 
@@ -36,7 +36,7 @@ describe('Generating paper votings', () => {
   let writer: MockPaperVotingsWriter;
   let generator: PaperVotingsGenerator;
 
-  it('omits agenda items that are mapped to a paper but were never scanned', () => {
+  it('omits agenda items that are mapped to a paper but were never scanned', async () => {
     givenPeriods([
       period(PERIOD_8, {
         votingPaperMap: { '2024-07-08': { '1.1': 111 } },
@@ -44,12 +44,12 @@ describe('Generating paper votings', () => {
       }),
     ]);
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(writer.assets, []);
+    expect(writer.assets).toEqual([]);
   });
 
-  it('omits scanned agenda items that are not mapped to any paper', () => {
+  it('omits scanned agenda items that are not mapped to any paper', async () => {
     givenPeriods([
       period(PERIOD_8, {
         votingPaperMap: {},
@@ -57,12 +57,12 @@ describe('Generating paper votings', () => {
       }),
     ]);
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(writer.assets, []);
+    expect(writer.assets).toEqual([]);
   });
 
-  it('keeps every scan of the same agenda item as its own voting', () => {
+  it('keeps every scan of the same agenda item as its own voting', async () => {
     givenPeriods([
       period(PERIOD_8, {
         votingPaperMap: { '2024-07-08': { '12.6': MULTI_SCAN_PAPER } },
@@ -75,12 +75,12 @@ describe('Generating paper votings', () => {
       }),
     ]);
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(votingsOf(MULTI_SCAN_PAPER).map((voting) => voting.votingId), [12, 14]);
+    expect(votingsOf(MULTI_SCAN_PAPER).map((voting) => voting.votingId)).toEqual([12, 14]);
   });
 
-  it('merges votings of one paper across parliament periods, each against its own registry', () => {
+  it('merges votings of one paper across parliament periods, each against its own registry', async () => {
     givenPeriods([
       period(PERIOD_7, {
         votingPaperMap: { '2022-09-01': { '6.29': CROSS_PERIOD_PAPER } },
@@ -100,13 +100,13 @@ describe('Generating paper votings', () => {
       }),
     ]);
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(
-      votingsOf(CROSS_PERIOD_PAPER).map((voting) => [voting.parliamentPeriodId, voting.sessionId]),
-      [[PERIOD_8, '2024-10-17'], [PERIOD_7, '2022-09-01']],
-    );
-    assertEquals(votingsOf(CROSS_PERIOD_PAPER)[0].votesByFactions, [
+    expect(votingsOf(CROSS_PERIOD_PAPER).map((voting) => [voting.parliamentPeriodId, voting.sessionId])).toEqual([
+      [PERIOD_8, '2024-10-17'],
+      [PERIOD_7, '2022-09-01'],
+    ]);
+    expect(votingsOf(CROSS_PERIOD_PAPER)[0].votesByFactions).toEqual([
       {
         factionId: 'new-faction',
         factionName: 'New Faction',
@@ -114,7 +114,7 @@ describe('Generating paper votings', () => {
         votes: [{ personName: 'New Councillor', vote: 'J' }],
       },
     ]);
-    assertEquals(votingsOf(CROSS_PERIOD_PAPER)[1].votesByFactions, [
+    expect(votingsOf(CROSS_PERIOD_PAPER)[1].votesByFactions).toEqual([
       {
         factionId: 'old-faction',
         factionName: 'Old Faction',
@@ -124,7 +124,7 @@ describe('Generating paper votings', () => {
     ]);
   });
 
-  it('counts votes per result, treating anything that is not yes, no or abstention as absent', () => {
+  it('counts votes per result, treating anything that is not yes, no or abstention as absent', async () => {
     givenPeriods([
       period(PERIOD_8, {
         votingPaperMap: { '2024-07-08': { '1.1': 111 } },
@@ -149,28 +149,28 @@ describe('Generating paper votings', () => {
       }),
     ]);
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(votingsOf(111)[0].counts, { J: 1, N: 1, E: 1, O: 2 });
+    expect(votingsOf(111)[0].counts).toEqual({ J: 1, N: 1, E: 1, O: 2 });
   });
 
-  it('accepts a voting with more yes than no votes', () => {
+  it('accepts a voting with more yes than no votes', async () => {
     givenPeriods([periodWithVotes([vote('Supporter', 'J'), vote('Opposer', 'N'), vote('Abstainer', 'J')])]);
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(votingsOf(111)[0].accepted, true);
+    expect(votingsOf(111)[0].accepted).toBe(true);
   });
 
-  it('rejects a voting without a yes majority', () => {
+  it('rejects a voting without a yes majority', async () => {
     givenPeriods([periodWithVotes([vote('Supporter', 'J'), vote('Opposer', 'N')])]);
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(votingsOf(111)[0].accepted, false);
+    expect(votingsOf(111)[0].accepted).toBe(false);
   });
 
-  it('carries the scanned subject through to the asset', () => {
+  it('carries the scanned subject through to the asset', async () => {
     givenPeriods([
       period(PERIOD_8, {
         votingPaperMap: { '2024-07-08': { '12.6': MULTI_SCAN_PAPER } },
@@ -178,16 +178,16 @@ describe('Generating paper votings', () => {
       }),
     ]);
 
-    runGeneration();
+    await runGeneration();
 
     const voting = votingsOf(MULTI_SCAN_PAPER)[0];
-    assertEquals(voting.agendaItem, '12.6');
-    assertEquals(voting.title, 'Subject 12.6');
-    assertEquals(voting.type, 'Antrag');
-    assertEquals(voting.date, '2024-07-08');
+    expect(voting.agendaItem).toEqual('12.6');
+    expect(voting.title).toEqual('Subject 12.6');
+    expect(voting.type).toEqual('Antrag');
+    expect(voting.date).toEqual('2024-07-08');
   });
 
-  it('sorts votings by session date descending, then by voting id ascending', () => {
+  it('sorts votings by session date descending, then by voting id ascending', async () => {
     givenPeriods([
       period(PERIOD_8, {
         votingPaperMap: {
@@ -201,15 +201,16 @@ describe('Generating paper votings', () => {
       }),
     ]);
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(
-      votingsOf(111).map((voting) => [voting.date, voting.votingId]),
-      [['2024-10-17', 9], ['2024-07-08', 2], ['2024-07-08', 14]],
-    );
+    expect(votingsOf(111).map((voting) => [voting.date, voting.votingId])).toEqual([
+      ['2024-10-17', 9],
+      ['2024-07-08', 2],
+      ['2024-07-08', 14],
+    ]);
   });
 
-  it('groups papers into batches of hundred, padded to four digits', () => {
+  it('groups papers into batches of hundred, padded to four digits', async () => {
     givenPeriods([
       period(PERIOD_8, {
         votingPaperMap: { '2024-07-08': { '1.1': LOW_ID_PAPER, '2.2': CROSS_PERIOD_PAPER } },
@@ -219,17 +220,17 @@ describe('Generating paper votings', () => {
       }),
     ]);
 
-    runGeneration();
+    await runGeneration();
 
-    assertEquals(writer.assets.map((asset) => asset.batchNo), ['0000', '2391']);
-    assertEquals(writer.assets[0].paperVotings.map((entry) => entry.paperId), [LOW_ID_PAPER]);
-    assertEquals(writer.assets[1].paperVotings.map((entry) => entry.paperId), [CROSS_PERIOD_PAPER]);
+    expect(writer.assets.map((asset) => asset.batchNo)).toEqual(['0000', '2391']);
+    expect(writer.assets[0].paperVotings.map((entry) => entry.paperId)).toEqual([LOW_ID_PAPER]);
+    expect(writer.assets[1].paperVotings.map((entry) => entry.paperId)).toEqual([CROSS_PERIOD_PAPER]);
   });
 
-  it('fails when a vote references a person outside the period registry', () => {
+  it('fails when a vote references a person outside the period registry', async () => {
     givenPeriods([periodWithVotes([vote('Ghost', 'J')])]);
 
-    assertThrows(() => runGeneration(), Error, 'Person Ghost not found');
+    await expect(runGeneration()).rejects.toThrow('Person Ghost not found');
   });
 
   function givenPeriods(periods: PeriodData[]) {
@@ -237,8 +238,8 @@ describe('Generating paper votings', () => {
     generator = new PaperVotingsGenerator(new MockPeriodDataStore(periods), writer);
   }
 
-  function runGeneration() {
-    generator.generatePaperVotings();
+  async function runGeneration() {
+    await generator.generatePaperVotings();
   }
 
   function votingsOf(paperId: number) {

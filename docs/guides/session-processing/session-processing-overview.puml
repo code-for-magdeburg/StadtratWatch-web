@@ -169,7 +169,7 @@ note right
   -> lokal: output/image-assets/{periode}/
   -> S3/CloudFront (web-assets/parliament-periods/{periode}/) via --push
 end note
-:**generate-paper-votings** (Deno, --push)
+:**generate-paper-votings** (Bun, --push)
 voting-paper-map gegen Scans umkehren;
 note right
   Eingabe: voting-paper-map.json + session-scan-{date}.json

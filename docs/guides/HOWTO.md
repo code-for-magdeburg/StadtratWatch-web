@@ -15,7 +15,7 @@ Run the processing pipeline in this order. The script sections below document in
    4. [`detect-ai-text`](../../src/scripts/detect-ai-text/README.md) - optional, manual step: after transcripts are corrected and before committing
       session data, run a Pangram-based AI-text check on redaction-selected speeches.
 6. `generate-image-assets` - create voting visualization image assets from processed session data.
-7. `generate-paper-votings` - reverse the voting-paper-map against the session scans into the per-paper voting assets. Needs both the OParl derivates (step 4) and the scanned votings (step 5.2).
+7. [`generate-paper-votings`](../../src/scripts/generate-paper-votings/README.md) - reverse the voting-paper-map against the session scans into the per-paper voting assets. Needs both the OParl derivates (step 4) and the scanned votings (step 5.2).
 8. [`index-search`](../../src/scripts/index-search/README.md) - rebuild the Typesense search index after all paper, speech, and asset data is available.
 
 ### Generate image assets
@@ -125,62 +125,6 @@ docker run \
   -v $(pwd)/data/oparl-magdeburg:/app/oparl:ro \
   -v $(pwd)/data:/app/data:ro \
   srw-generate-paper-assets
-```
-
-
-### Generate paper votings
-This tool builds the web assets behind the »Abstimmungen« tab on the paper detail page. The link from a voting to a paper only exists forwards (`{period}/voting-paper-map.json`: session date → agenda item → paper id), so this tool reverses it at build time and resolves each vote to its person and faction against the period's `registry.json` — the same breakdown the session detail page renders.
-
-It scans `<data-dir>` for `{period-id}/registry.json` and intersects each period's `voting-paper-map.json` with the session scans: only agenda items that were **actually scanned** produce a voting, so papers that were never voted on do not appear in the output at all (which is what disables the tab). A paper voted on in several parliament periods collects the votings of all of them, each joined against its own registry.
-
-Output is batched by paper id (`paper-votings-{batch}.json`, `batch = paperId / 100`), stably sorted (session date descending, then voting id ascending), so a repeated run produces no diff. The files belong next to the other web assets on S3/CloudFront under `web-assets/paper-votings/`; generating them does **not** publish them — see [publishing-web-assets.md](publishing-web-assets.md).
-
-Run this **after** the OParl derivates (`voting-paper-map.json`) and the video processing (`session-scan-*.json`) exist.
-
-#### Using the deno script
-```shell
-deno run \
-  -R=data,output/paper-votings \
-  -W=output/paper-votings \
-  src/scripts/generate-paper-votings/index.ts \
-  -d=data/ \
-  -o=output/paper-votings/
-```
-
-`-d`/`--data-dir` defaults to `data/`, so it can be omitted when run from the repository root.
-
-#### Publish to S3/CloudFront (`--push`)
-Adding `--push` publishes `output/paper-votings/` to `web-assets/paper-votings/` after generating —
-this is the only way to publish this prefix (see
-[publishing-web-assets.md](publishing-web-assets.md)). The output directory is the authoritative
-picture of the prefix (the run prunes empty batches), so the push uploads new or changed batches,
-**prunes** orphaned ones, sets `Cache-Control`, invalidates the touched paths, and then verifies the
-remote prefix against the batches it produced — catching a silent upload failure.
-
-Pushing needs `AWS_S3_BUCKET` (the target bucket) plus the AWS credentials and
-`AWS_CLOUDFRONT_DISTRIBUTION_ID` (see `.env.sample`); a plain generate run needs none of them. Use
-`--push --dry-run` to print the upload/delete/invalidate diff without writing to S3 or invalidating
-CloudFront.
-
-```shell
-deno run -A \
-  src/scripts/generate-paper-votings/index.ts \
-  -o=output/paper-votings/ \
-  --push
-```
-
-#### Build the docker image
-```bash
-docker build -t srw-generate-paper-votings -f docker/generate-paper-votings.Dockerfile .
-```
-
-#### Run the docker container
-```shell
-docker run \
-  --rm \
-  -v $(pwd)/data:/app/data:ro \
-  -v $(pwd)/output/paper-votings:/app/generated \
-  srw-generate-paper-votings
 ```
 
 

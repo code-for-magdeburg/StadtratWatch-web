@@ -1,4 +1,5 @@
-import * as path from '@std/path';
+import * as path from 'node:path';
+import { readdir } from 'node:fs/promises';
 import type { Registry } from '@srw-astro/models/registry';
 import type { SessionScan } from '@srw-astro/models/session-scan';
 import type { VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
@@ -10,31 +11,31 @@ export type PeriodData = {
 };
 
 export interface PeriodDataStore {
-  loadPeriods(): PeriodData[];
+  loadPeriods(): Promise<PeriodData[]>;
 }
 
 export class PeriodDataFileStore implements PeriodDataStore {
   constructor(private readonly dataDir: string) {
   }
 
-  public loadPeriods(): PeriodData[] {
+  public async loadPeriods(): Promise<PeriodData[]> {
     const periods: PeriodData[] = [];
 
-    for (const entry of Deno.readDirSync(this.dataDir)) {
-      if (!entry.isDirectory) {
+    for (const entry of await readdir(this.dataDir, { withFileTypes: true })) {
+      if (!entry.isDirectory()) {
         continue;
       }
 
       const periodDir = path.join(this.dataDir, entry.name);
-      const registry = this.readJsonFile<Registry>(path.join(periodDir, 'registry.json'));
+      const registry = await this.readJsonFile<Registry>(path.join(periodDir, 'registry.json'));
       if (!registry) {
         continue;
       }
 
       periods.push({
         registry,
-        votingPaperMap: this.readJsonFile<VotingPaperMap>(path.join(periodDir, 'voting-paper-map.json')) ?? {},
-        sessionScansByDate: this.loadSessionScansByDate(periodDir, registry),
+        votingPaperMap: await this.readJsonFile<VotingPaperMap>(path.join(periodDir, 'voting-paper-map.json')) ?? {},
+        sessionScansByDate: await this.loadSessionScansByDate(periodDir, registry),
       });
     }
 
@@ -42,12 +43,15 @@ export class PeriodDataFileStore implements PeriodDataStore {
     return periods.toSorted((a, b) => a.registry.id.localeCompare(b.registry.id));
   }
 
-  private loadSessionScansByDate(periodDir: string, registry: Registry): { [sessionDate: string]: SessionScan } {
+  private async loadSessionScansByDate(
+    periodDir: string,
+    registry: Registry,
+  ): Promise<{ [sessionDate: string]: SessionScan }> {
     const sessionScansByDate: { [sessionDate: string]: SessionScan } = {};
 
     for (const session of registry.sessions) {
       const sessionScanPath = path.join(periodDir, session.date, `session-scan-${session.date}.json`);
-      const sessionScan = this.readJsonFile<SessionScan>(sessionScanPath);
+      const sessionScan = await this.readJsonFile<SessionScan>(sessionScanPath);
       if (sessionScan) {
         sessionScansByDate[session.date] = sessionScan;
       }
@@ -56,14 +60,11 @@ export class PeriodDataFileStore implements PeriodDataStore {
     return sessionScansByDate;
   }
 
-  private readJsonFile<T>(filePath: string): T | null {
-    try {
-      return JSON.parse(Deno.readTextFileSync(filePath)) as T;
-    } catch (error) {
-      if (error instanceof Deno.errors.NotFound) {
-        return null;
-      }
-      throw error;
+  private async readJsonFile<T>(filePath: string): Promise<T | null> {
+    const file = Bun.file(filePath);
+    if (!(await file.exists())) {
+      return null;
     }
+    return await file.json() as T;
   }
 }
