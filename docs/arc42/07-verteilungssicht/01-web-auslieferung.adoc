@@ -14,6 +14,9 @@ Die GitHub-Actions-CI dieses Repositories (`.github/workflows/ci.yml`) ist ein
 reines *Qualitäts-Gate* (Typecheck, Format, Tests, Probe-Build) und *kein*
 Deployment-Schritt. Der produktive Build läuft ausschließlich bei Netlify. Beide
 werden durch denselben Push ausgelöst, sind aber voneinander unabhängig.
+Dependabot (`.github/dependabot.yml`) hält die GitHub Actions sowie die Bun- und
+npm-Abhängigkeiten aktuell und fasst die Updates je Bereich wöchentlich in einem
+Pull Request zusammen.
 ====
 
 [plantuml,verteilungssicht-web,svg]
