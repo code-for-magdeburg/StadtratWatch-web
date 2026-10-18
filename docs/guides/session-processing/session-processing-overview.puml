@@ -176,7 +176,7 @@ note right
   -> lokal: output/paper-votings/
   -> S3/CloudFront (web-assets/paper-votings/) via --push
 end note
-:**index-search** (Deno)
+:**index-search** (Bun)
 Drucksachen + Redebeiträge indizieren;
 note right
   Eingabe: OParl-Rohdaten-Metadaten + extrahierter PDF-Volltext

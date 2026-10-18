@@ -59,9 +59,9 @@ export class SearchIndexer {
     const processedPaperIds: string[] = [];
     const papers: IndexedPaper[] = [];
     const meetings = this.meetingsRepository.getMeetingsByOrganization(this.organizationId);
-    meetings.forEach((meeting) => {
+    for (const meeting of meetings) {
       if (!meeting.start) {
-        return;
+        continue;
       }
 
       console.log(`Indexing papers for meeting ${meeting.id} (${meeting.start})`);
@@ -71,22 +71,24 @@ export class SearchIndexer {
         .filter((paper) => processedPaperIds.every((id) => id !== paper.id));
       const meetingFiles = this.filesRepository.getFilesByMeeting(meeting.id);
 
-      papers.push(...meetingPapers.map<IndexedPaper>((paper) => {
-        const content = meetingFiles
-          .filter((file) => file.paper && file.paper.includes(paper.id))
-          .map((file) => contentSource.getContent(+file.id.split('/').pop()!));
-        return {
+      for (const paper of meetingPapers) {
+        const content = await Promise.all(
+          meetingFiles
+            .filter((file) => file.paper && file.paper.includes(paper.id))
+            .map((file) => contentSource.getContent(+file.id.split('/').pop()!)),
+        );
+        papers.push({
           id: `paper-${paper.id.split('/').pop()!}`,
           content,
 
           paper_name: paper.name,
           paper_type: paper.paperType || '',
           paper_reference: paper.reference || '',
-        };
-      }));
+        });
+      }
 
       processedPaperIds.push(...meetingPapers.map((paper) => paper.id));
-    });
+    }
 
     if (!await this.importer.importPapers(papers)) {
       console.error('Failed to import papers.');
@@ -94,8 +96,7 @@ export class SearchIndexer {
   }
 
   public async indexSpeeches(speechesSource: ISpeechesSource) {
-    const speechesWithTranscriptions = speechesSource
-      .getSpeeches()
+    const speechesWithTranscriptions = (await speechesSource.getSpeeches())
       .filter((indexableSpeech) => indexableSpeech.speech.transcription)
       .map<IndexedSpeech>((indexableSpeech) => {
         const { parliamentPeriod, session, speech } = indexableSpeech;

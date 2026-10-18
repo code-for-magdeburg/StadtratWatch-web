@@ -1,5 +1,5 @@
-import * as fs from '@std/fs';
-import * as path from '@std/path';
+import * as path from 'node:path';
+import { readdir } from 'node:fs/promises';
 import type { Registry, RegistrySession } from '@srw-astro/models/registry';
 import type { SessionSpeech } from '@srw-astro/models/session-speech';
 
@@ -10,46 +10,48 @@ export type IndexableSpeech = {
 };
 
 export interface ISpeechesSource {
-  getSpeeches(): IndexableSpeech[];
+  getSpeeches(): Promise<IndexableSpeech[]>;
 }
 
 export class SpeechesSource implements ISpeechesSource {
   constructor(private readonly parliamentPeriodsBaseDir: string) {
   }
 
-  public getSpeeches(): IndexableSpeech[] {
-    return this
-      .getParliamentPeriods()
-      .flatMap<IndexableSpeech>((registry) => {
-        return registry.sessions
-          .flatMap<IndexableSpeech>((session) =>
-            this
-              .getSessionSpeeches(registry, session)
-              .map((speech) => ({ parliamentPeriod: registry, session, speech }))
-          );
-      });
+  public async getSpeeches(): Promise<IndexableSpeech[]> {
+    const speeches: IndexableSpeech[] = [];
+
+    for (const registry of await this.getParliamentPeriods()) {
+      for (const session of registry.sessions) {
+        const sessionSpeeches = await this.getSessionSpeeches(registry, session);
+        speeches.push(...sessionSpeeches.map((speech) => ({ parliamentPeriod: registry, session, speech })));
+      }
+    }
+
+    return speeches;
   }
 
-  private getParliamentPeriods(): Registry[] {
-    return Array
-      .from(Deno.readDirSync(this.parliamentPeriodsBaseDir))
-      .filter((entry) => Deno.statSync(path.join(this.parliamentPeriodsBaseDir, entry.name)).isDirectory)
-      .filter((entry) => fs.existsSync(path.join(this.parliamentPeriodsBaseDir, entry.name, 'registry.json')))
-      .map((entry) => {
-        const registryFilename = path.join(this.parliamentPeriodsBaseDir, entry.name, 'registry.json');
-        return JSON.parse(Deno.readTextFileSync(registryFilename)) as Registry;
-      });
+  private async getParliamentPeriods(): Promise<Registry[]> {
+    const registries: Registry[] = [];
+
+    for (const entryName of await readdir(this.parliamentPeriodsBaseDir)) {
+      const registryFile = Bun.file(path.join(this.parliamentPeriodsBaseDir, entryName, 'registry.json'));
+      if (!(await registryFile.exists())) {
+        continue;
+      }
+
+      registries.push(await registryFile.json() as Registry);
+    }
+
+    return registries;
   }
 
-  private getSessionSpeeches(parliamentPeriod: Registry, session: RegistrySession): SessionSpeech[] {
-    const sessionSpeechesFilename = path.join(
+  private async getSessionSpeeches(parliamentPeriod: Registry, session: RegistrySession): Promise<SessionSpeech[]> {
+    const sessionSpeechesFile = Bun.file(path.join(
       this.parliamentPeriodsBaseDir,
       parliamentPeriod.id,
       session.id,
       `session-speeches-${session.id}.json`,
-    );
-    return fs.existsSync(sessionSpeechesFilename)
-      ? JSON.parse(Deno.readTextFileSync(sessionSpeechesFilename)) as SessionSpeech[]
-      : [];
+    ));
+    return await sessionSpeechesFile.exists() ? await sessionSpeechesFile.json() as SessionSpeech[] : [];
   }
 }

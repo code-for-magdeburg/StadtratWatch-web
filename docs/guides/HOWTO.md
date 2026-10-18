@@ -16,7 +16,7 @@ Run the processing pipeline in this order. The script sections below document in
       session data, run a Pangram-based AI-text check on redaction-selected speeches.
 6. `generate-image-assets` - create voting visualization image assets from processed session data.
 7. `generate-paper-votings` - reverse the voting-paper-map against the session scans into the per-paper voting assets. Needs both the OParl derivates (step 4) and the scanned votings (step 5.2).
-8. `index-search` - rebuild the Typesense search index after all paper, speech, and asset data is available.
+8. [`index-search`](../../src/scripts/index-search/README.md) - rebuild the Typesense search index after all paper, speech, and asset data is available.
 
 ### Generate image assets
 
@@ -199,34 +199,6 @@ docker run \
   -v $(pwd)/output/papers/2026:/input \
   -v $(pwd)/output/papers/2026-extracted:/output \
   srw-tika
-```
-
-
-### Index Typesense search data
-
-#### Build the docker image
-```bash
-docker build -t srw-index-search -f docker/index-search.Dockerfile .
-```
-
-#### Run the docker container
-
-Typesense connection information have to be provided by setting the following environment variables:
-- `TYPESENSE_SERVER_URL`
-- `TYPESENSE_API_KEY`
-- `TYPESENSE_COLLECTION_NAME`
-
-```shell
-docker run \
-	--rm \
-	-e TYPESENSE_SERVER_URL=http://host.docker.internal:8108 \
-	-e TYPESENSE_COLLECTION_NAME=papers-and-speeches-0001 \
-	-e TYPESENSE_API_KEY=abc123 \
-  -e OPARL_COUNCIL_ORGANIZATION_ID=https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1 \
-	-v $(pwd)/output/papers/all-extracted:/app/papers-content:ro \
-	-v $(pwd)/data:/app/parliament-periods:ro \
-	-v $(pwd)/data/oparl-magdeburg:/app/oparl:ro \
-	srw-index-search
 ```
 
 
