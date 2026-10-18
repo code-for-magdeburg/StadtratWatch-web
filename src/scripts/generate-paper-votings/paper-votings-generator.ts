@@ -14,17 +14,17 @@ export class PaperVotingsGenerator {
   ) {
   }
 
-  public generatePaperVotings(): void {
+  public async generatePaperVotings(): Promise<void> {
     const votingsByPaperId = new Map<number, PaperVotingItem[]>();
 
-    for (const period of this.periodDataStore.loadPeriods()) {
+    for (const period of await this.periodDataStore.loadPeriods()) {
       console.log(`Collecting paper votings for period ${period.registry.id}`);
       this.collectPeriodVotings(period, votingsByPaperId);
     }
 
     const paperVotings = this.sortPaperVotings(votingsByPaperId);
     console.log(`Generated votings for ${paperVotings.length} papers`);
-    this.writer.writePaperVotings(this.batchPaperVotings(paperVotings));
+    await this.writer.writePaperVotings(this.batchPaperVotings(paperVotings));
   }
 
   private collectPeriodVotings(period: PeriodData, votingsByPaperId: Map<number, PaperVotingItem[]>): void {

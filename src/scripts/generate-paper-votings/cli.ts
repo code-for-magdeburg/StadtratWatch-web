@@ -1,46 +1,50 @@
-import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
+import { parseArgs } from 'node:util';
 
 export type GeneratePaperVotingsArgs = {
   help: boolean;
   dataDir: string;
-  outputDir: string;
+  outputDir?: string;
   push: boolean;
   dryRun: boolean;
 };
 
-export function parseArgs(args: string[]): GeneratePaperVotingsArgs {
-  return stdCliParseArgs(args, {
-    boolean: ['help', 'push', 'dry-run'],
-    string: ['data-dir', 'output-dir'],
-    alias: {
-      help: 'h',
-      'data-dir': ['d', 'dataDir'],
-      'output-dir': ['o', 'outputDir'],
-      'dry-run': 'dryRun',
+export function parseCliArgs(args: string[]): GeneratePaperVotingsArgs {
+  const { values } = parseArgs({
+    args,
+    options: {
+      help: { type: 'boolean', short: 'h', default: false },
+      'data-dir': { type: 'string', short: 'd', default: 'data/' },
+      'output-dir': { type: 'string', short: 'o' },
+      push: { type: 'boolean', default: false },
+      'dry-run': { type: 'boolean', default: false },
     },
-    default: {
-      'data-dir': 'data/',
-    },
-  }) as GeneratePaperVotingsArgs;
+  });
+  return {
+    help: values.help,
+    dataDir: values['data-dir'],
+    outputDir: values['output-dir'],
+    push: values.push,
+    dryRun: values['dry-run'],
+  };
 }
 
-export function checkArgs(args: GeneratePaperVotingsArgs) {
+export function checkArgs(args: GeneratePaperVotingsArgs): asserts args is Required<GeneratePaperVotingsArgs> {
   const { dataDir, outputDir } = args;
 
   if (!dataDir) {
     console.error('Missing data directory. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   if (!outputDir) {
     console.error('Missing output directory. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 }
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts [-d <data-dir>] -o <output-dir> [--push [--dry-run]]
+Usage: bun index.ts [-d <data-dir>] -o <output-dir> [--push [--dry-run]]
 
 Scans <data-dir> for {period-id}/registry.json and reverses every period's
 voting-paper-map.json against the scanned votings, so that each paper carries the
