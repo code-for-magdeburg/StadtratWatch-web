@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'bun:test';
+import { afterEach, describe, expect, it, mock, spyOn } from 'bun:test';
 import { hashTranscript } from '@srw-astro/models/ai-text-assessment';
 import type { SessionSpeech } from '@srw-astro/models/session-speech';
 import { executeDetectAiTextRun, planDetectAiTextRun } from './detect-ai-text-processor.ts';
@@ -123,6 +123,8 @@ describe('planDetectAiTextRun', () => {
 });
 
 describe('executeDetectAiTextRun', () => {
+  afterEach(() => mock.restore());
+
   it('writes the resulting assessment onto the speech', async () => {
     const target = speech({ start: 100 });
     const client = new FakePangramClient(() => ({ kind: 'assessed', result: AI_RESULT }));
@@ -143,10 +145,12 @@ describe('executeDetectAiTextRun', () => {
           ? Promise.reject(new Error('Pangram request failed'))
           : Promise.resolve({ kind: 'assessed', result: AI_RESULT }),
     };
+    const consoleErrorSpy = spyOn(console, 'error').mockImplementation(() => {});
 
     const result = await executeDetectAiTextRun([failing, succeeding], client, () => '2026-10-11');
 
     expect(result).toEqual({ assessedCount: 1, skippedTooShortCount: 0, failedCount: 1 });
+    expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
     expect(failing.aiTextAssessment).toEqual(undefined);
     expect(succeeding.aiTextAssessment?.label).toEqual('AI');
   });

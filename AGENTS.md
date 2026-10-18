@@ -75,7 +75,7 @@ Processed data lives in `data/`: one directory per parliament period with its `r
 
 ### Key Models
 
-Models are **shared between Astro and Deno** via Deno workspaces. The canonical definitions live in `astro/src/models/` and are re-exported to Deno through the `@srw-astro/models` workspace package in `src/deps/astro/`:
+Models are **shared between Astro and the scripts in `src/`** via Deno and Bun workspaces. The canonical definitions live in `astro/src/models/` and are re-exported to the scripts through the `@srw-astro/models` workspace package in `src/deps/astro/`:
 
 - `astro/src/models/oparl.ts` - OParl types (OparlBody, OparlMeeting, OparlPaper, OparlFile, etc.)
 - `astro/src/models/registry.ts` - Parliament period registry (sessions, persons, factions, parties)
@@ -131,7 +131,7 @@ All API responses include metadata and are licensed under CC0 1.0. See `astro/sr
 
 ### Frontend Tech Stack
 
-- **Astro 5** - Static site generator with server-side rendering
+- **Astro 7** - Static site generator with server-side rendering
 - **Alpine.js** - Lightweight interactivity
 - **Tailwind CSS 4 + DaisyUI** - Styling
 - **Chart.js + D3.js** - Data visualization
@@ -213,7 +213,7 @@ Index is rebuilt with index-search script (see src/scripts/index-search/README.m
 
 ## Code Conventions
 
-- **Shared models**: Define canonical model changes in `astro/src/models/`
+- **Shared models**: Define canonical model changes in `astro/src/models/`. A new model file also needs a one-line re-export in `src/deps/astro/` and an entry in the `exports` map of both `src/deps/astro/package.json` and `src/deps/astro/deno.json`
 - **Deno formatting**: Uses single quotes, 120 char line width (see deno.json)
 - **Astro formatting**: Uses Prettier with .prettierrc
 - **File naming**: Use kebab-case for directories and TypeScript files. Existing camelCase and PascalCase files keep their names
@@ -238,8 +238,6 @@ Index is rebuilt with index-search script (see src/scripts/index-search/README.m
 - Corrections to approved session data go in their own PR whose title names the error; never mix them into a PR that adds new sessions
 - Speech transcriptions require OpenAI API key (configured via environment variables, see `src/scripts/speech-to-text/README.md`)
 - Some parties may have an "EXTREMIST_CLASSIFICATION" field in registry due to constitutional protection office classifications
-- When working with shared models between Astro and Deno, make changes in both locations to maintain consistency
-- Be sure to typecheck when you’re done making a series of code changes
 
 ## Agent skills
 
