@@ -6,7 +6,7 @@ Run the processing pipeline in this order. The script sections below document in
    [`fetch-oparl`](../../src/scripts/fetch-oparl/README.md) first: it mirrors the published snapshot into
    `data/oparl-magdeburg/`, so the incremental scrape resumes from it.
 2. [`download-paper-files`](../../src/scripts/download-paper-files/README.md) - download the PDF documents linked to the council meetings of a year.
-3. `generate-paper-assets` - convert scraped OParl data into the internal paper assets. Needs the downloaded PDFs (step 2) for the file sizes.
+3. [`generate-paper-assets`](../../src/scripts/generate-paper-assets/README.md) - convert scraped OParl data into the internal paper assets. Needs the downloaded PDFs (step 2) for the file sizes.
 4. [`generate-oparl-derivatives`](../../src/scripts/generate-oparl-derivatives/README.md) - precompile the committed OParl derivates (`voting-paper-map.json`, `paper-index.json`) the Astro build consumes.
 5. Video processing steps:
    1. [`parse-speakers`](../../src/scripts/parse-speakers/README.md) - combine speaker diarization data for the session.
@@ -55,76 +55,6 @@ deno run -A \
   -i=data/magdeburg-8 \
   -o=output/image-assets/magdeburg-8 \
   --push
-```
-
-
-### Generate paper assets
-This tool converts OParl data into the internal paper asset format and generates the batched
-metadata files behind the paper detail page: `papers-{batch}.json` (paper metadata) and
-`paper-graphs-{batch}.json` (the related-papers graph). It writes them to the output directory; the
-web build does **not** read them from disk — they belong next to the other web assets on S3/CloudFront
-under `web-assets/papers/`, from where the paper detail page fetches them at runtime. The committed
-derivate the build actually consumes is `data/paper-index.json` (see
-[`generate-oparl-derivatives`](../../src/scripts/generate-oparl-derivatives/README.md)), not
-these batches, so `data/papers/` is no longer committed.
-
-The council organization id is read from the `OPARL_COUNCIL_ORGANIZATION_ID` environment variable (e.g. `https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1`). It is used to link consultations to their session pages only for council (Stadtrat) meetings.
-
-#### Using the deno script
-```shell
-OPARL_COUNCIL_ORGANIZATION_ID=https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1 \
-  deno run \
-    -R=data,data/oparl-magdeburg,output/papers,output/paper-assets \
-    -W=output/paper-assets \
-    -E=OPARL_COUNCIL_ORGANIZATION_ID \
-    src/scripts/generate-paper-assets/index.ts \
-    -r=data/oparl-magdeburg/ \
-    -p=output/papers/ \
-    -d=data/ \
-    -o=output/paper-assets/
-```
-
-`-d`/`--data-dir` defaults to `data/`, so it can be omitted when run from the repository root. The
-`data` directory holds the parliament period registries; it lets the generator link consultations to
-their session pages when a council session exists for the meeting's date.
-
-#### Publish to S3/CloudFront (`--push`)
-Adding `--push` publishes `output/paper-assets/` to `web-assets/papers/` after generating — this is
-the only way to publish this prefix (see [publishing-web-assets.md](publishing-web-assets.md)). The
-output directory is the authoritative picture of the prefix (the run prunes stale
-batches as it writes), so the push uploads new or changed batches, **prunes** orphaned ones, sets
-`Cache-Control`, invalidates the touched paths, and then verifies the remote prefix against the
-batches it produced — catching a silent upload failure.
-
-Pushing needs `AWS_S3_BUCKET` (the target bucket) plus the AWS credentials and
-`AWS_CLOUDFRONT_DISTRIBUTION_ID` (see `.env.sample`); a plain generate run needs none of them. Use
-`--push --dry-run` to print the upload/delete/invalidate diff without writing to S3 or invalidating
-CloudFront.
-
-```shell
-deno run -A \
-  src/scripts/generate-paper-assets/index.ts \
-  -r=data/oparl-magdeburg/ \
-  -p=output/papers/ \
-  -o=output/paper-assets/ \
-  --push
-```
-
-#### Build the docker image
-```bash
-docker build -t srw-generate-paper-assets -f docker/generate-paper-assets.Dockerfile .
-```
-
-#### Run the docker container
-```shell
-docker run \
-  --rm \
-  -e OPARL_COUNCIL_ORGANIZATION_ID=https://ratsinfo.magdeburg.de/oparl/bodies/0001/organizations/gr/1 \
-  -v $(pwd)/output/papers:/app/papers:ro \
-  -v $(pwd)/output/paper-assets:/app/generated \
-  -v $(pwd)/data/oparl-magdeburg:/app/oparl:ro \
-  -v $(pwd)/data:/app/data:ro \
-  srw-generate-paper-assets
 ```
 
 

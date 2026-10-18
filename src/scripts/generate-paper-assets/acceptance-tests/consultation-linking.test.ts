@@ -1,5 +1,4 @@
-import { describe, it } from '@std/testing/bdd';
-import { assertEquals } from '@std/assert';
+import { describe, expect, it } from 'bun:test';
 import { PaperAssetsGenerator } from '../paper-assets-generator.ts';
 import type { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
 import type {
@@ -94,41 +93,46 @@ class MockSessionIndexStore implements SessionIndexStore {
   constructor(private readonly sessionIndex: SessionIndex) {
   }
 
-  loadSessionIndex = (): SessionIndex => this.sessionIndex;
+  loadSessionIndex = (): Promise<SessionIndex> => Promise.resolve(this.sessionIndex);
 }
 
 class CapturingPaperAssetsWriter implements PaperAssetsWriter {
   consultations: PaperConsultationDto[] = [];
 
-  writePaperAssets(assets: PaperAssetDto[]): void {
+  writePaperAssets(assets: PaperAssetDto[]): Promise<void> {
     this.consultations = assets.flatMap((asset) => asset.papers).flatMap((paper) => paper.consultations);
+    return Promise.resolve();
   }
 }
 
 class NoopPaperGraphAssetsWriter implements PaperGraphAssetsWriter {
-  writePaperGraphAssets(_assets: PaperGraphAssetDto[]): void {}
+  writePaperGraphAssets(_assets: PaperGraphAssetDto[]): Promise<void> {
+    return Promise.resolve();
+  }
 }
 
 describe('Linking consultations to session pages', () => {
-  it('attaches the parliament period and session id when a council meeting has a session page', () => {
-    const linked = generateConsultations().find((consultation) => consultation.agendaItem === '5.1')!;
-    assertEquals(linked.parliamentPeriodId, PARLIAMENT_PERIOD_ID);
-    assertEquals(linked.sessionId, SESSION_DATE);
+  it('attaches the parliament period and session id when a council meeting has a session page', async () => {
+    const linked = (await generateConsultations()).find((consultation) => consultation.agendaItem === '5.1')!;
+    expect(linked.parliamentPeriodId).toEqual(PARLIAMENT_PERIOD_ID);
+    expect(linked.sessionId).toEqual(SESSION_DATE);
   });
 
-  it('leaves council consultations without a matching session page unlinked', () => {
-    const unlinked = generateConsultations().find((consultation) => consultation.agendaItem === '5.2')!;
-    assertEquals(unlinked.parliamentPeriodId, undefined);
-    assertEquals(unlinked.sessionId, undefined);
+  it('leaves council consultations without a matching session page unlinked', async () => {
+    const unlinked = (await generateConsultations()).find((consultation) => consultation.agendaItem === '5.2')!;
+    expect(unlinked.parliamentPeriodId).toEqual(undefined);
+    expect(unlinked.sessionId).toEqual(undefined);
   });
 
-  it('does not link non-council meetings that merely share a session date', () => {
-    const mayorConsultation = generateConsultations().find((consultation) => consultation.agendaItem === '5.3')!;
-    assertEquals(mayorConsultation.parliamentPeriodId, undefined);
-    assertEquals(mayorConsultation.sessionId, undefined);
+  it('does not link non-council meetings that merely share a session date', async () => {
+    const mayorConsultation = (await generateConsultations()).find((consultation) =>
+      consultation.agendaItem === '5.3'
+    )!;
+    expect(mayorConsultation.parliamentPeriodId).toEqual(undefined);
+    expect(mayorConsultation.sessionId).toEqual(undefined);
   });
 
-  function generateConsultations(): PaperConsultationDto[] {
+  async function generateConsultations(): Promise<PaperConsultationDto[]> {
     const writer = new CapturingPaperAssetsWriter();
     const generator = new PaperAssetsGenerator(
       new MockPaperFilesStore(),
@@ -140,7 +144,7 @@ describe('Linking consultations to session pages', () => {
       writer,
       new NoopPaperGraphAssetsWriter(),
     );
-    generator.generatePaperAssets();
+    await generator.generatePaperAssets();
     return writer.consultations;
   }
 });

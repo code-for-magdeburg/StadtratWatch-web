@@ -143,7 +143,7 @@ fork again
   :**download-paper-files** (Bun)
   verlinkte PDFs laden;
   note right: -> lokal: output/papers/{jahr}/
-  :**generate-paper-assets** (Deno, --push)
+  :**generate-paper-assets** (Bun, --push)
   Drucksachen in JSON-Batches überführen;
   note right
     -> lokal: output/paper-assets/

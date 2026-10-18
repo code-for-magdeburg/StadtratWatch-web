@@ -35,7 +35,6 @@ export class PaperAssetsGenerator {
   private readonly organizationsRepository: OparlOrganizationsRepository;
   private readonly agendaItemsRepository: OparlAgendaItemsRepository;
   private readonly filesRepository: OparlFilesRepository;
-  private readonly sessionIndex: SessionIndex;
 
   constructor(
     private readonly paperFilesStore: PaperFilesStore,
@@ -50,10 +49,10 @@ export class PaperAssetsGenerator {
     this.organizationsRepository = new OparlOrganizationsInMemoryRepository(this.oparlObjectsStore.loadOrganizations());
     this.agendaItemsRepository = new OparlAgendaItemsInMemoryRepository(this.oparlObjectsStore.loadAgendaItems());
     this.filesRepository = new OparlFilesInMemoryRepository(this.oparlObjectsStore.loadFiles(), this.papersRepository);
-    this.sessionIndex = this.sessionIndexStore.loadSessionIndex();
   }
 
-  public generatePaperAssets() {
+  public async generatePaperAssets(): Promise<void> {
+    const sessionIndex = await this.sessionIndexStore.loadSessionIndex();
     const onePaperGraph = createInMemoryPaperGraph(this.papersRepository);
 
     const extractPaperId = (oparlPaperId: string) => +oparlPaperId.split('/').pop()!;
@@ -61,7 +60,7 @@ export class PaperAssetsGenerator {
     const papers = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperDto>(
       (paper) => {
         console.log(`Processing paper ${paper.id} with reference ${paper.reference}`);
-        const consultations = this.getConsultations(paper);
+        const consultations = this.getConsultations(paper, sessionIndex);
         const files = this.getFiles(paper);
         const paperId = extractPaperId(paper.id);
         const rootPaperId = onePaperGraph.getRootPapersOfPaper(paperId)[0];
@@ -98,7 +97,7 @@ export class PaperAssetsGenerator {
         papers,
       }),
     );
-    this.paperAssetsWriter.writePaperAssets(paperAssets);
+    await this.paperAssetsWriter.writePaperAssets(paperAssets);
 
     const paperGraphs = onePaperGraph
       .getAllRootPapers()
@@ -126,10 +125,10 @@ export class PaperAssetsGenerator {
       }),
     );
 
-    this.paperGraphAssetsWriter.writePaperGraphAssets(paperGraphAssets);
+    await this.paperGraphAssetsWriter.writePaperGraphAssets(paperGraphAssets);
   }
 
-  private getConsultations(paper: OparlPaper) {
+  private getConsultations(paper: OparlPaper, sessionIndex: SessionIndex) {
     return (paper.consultation || [])
       .map<PaperConsultationDto | null>((consultation) => {
         if (
@@ -154,7 +153,7 @@ export class PaperAssetsGenerator {
           return null;
         }
 
-        const sessionLocation = this.resolveSessionLocation(meeting);
+        const sessionLocation = this.resolveSessionLocation(meeting, sessionIndex);
 
         return {
           meeting: meeting.name,
@@ -179,14 +178,14 @@ export class PaperAssetsGenerator {
   // is only linkable when its meeting belongs to the council organization. Matching
   // on the meeting date alone would wrongly link non-council meetings (e.g. the
   // mayor's) that happen to fall on the same day as a council session.
-  private resolveSessionLocation(meeting: OparlMeeting): Partial<SessionLocation> {
+  private resolveSessionLocation(meeting: OparlMeeting, sessionIndex: SessionIndex): Partial<SessionLocation> {
     const isCouncilMeeting = (meeting.organization || []).includes(this.councilOrganizationId);
     if (!isCouncilMeeting || !meeting.start) {
       return {};
     }
 
     const meetingDate = meeting.start.split('T')[0];
-    return this.sessionIndex[meetingDate] ?? {};
+    return sessionIndex[meetingDate] ?? {};
   }
 
   private getFiles(paper: OparlPaper) {

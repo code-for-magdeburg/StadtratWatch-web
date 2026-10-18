@@ -1,60 +1,66 @@
-import { parseArgs as stdCliParseArgs } from '@std/cli/parse-args';
+import { parseArgs } from 'node:util';
 
 export type GeneratePaperAssetsArgs = {
   help: boolean;
-  ratsinfoDir: string;
-  papersDir: string;
+  ratsinfoDir?: string;
+  papersDir?: string;
   dataDir: string;
-  outputDir: string;
+  outputDir?: string;
   push: boolean;
   dryRun: boolean;
 };
 
-export function parseArgs(args: string[]): GeneratePaperAssetsArgs {
-  return stdCliParseArgs(args, {
-    boolean: ['help', 'push', 'dry-run'],
-    string: ['ratsinfoDir', 'papers-dir', 'data-dir', 'output-dir'],
-    alias: {
-      help: 'h',
-      'ratsinfo-dir': ['r', 'ratsinfoDir'],
-      'papers-dir': ['p', 'papersDir'],
-      'data-dir': ['d', 'dataDir'],
-      'output-dir': ['o', 'outputDir'],
-      'dry-run': 'dryRun',
+export function parseCliArgs(args: string[]): GeneratePaperAssetsArgs {
+  const { values } = parseArgs({
+    args,
+    options: {
+      help: { type: 'boolean', short: 'h', default: false },
+      'ratsinfo-dir': { type: 'string', short: 'r' },
+      'papers-dir': { type: 'string', short: 'p' },
+      'data-dir': { type: 'string', short: 'd', default: 'data/' },
+      'output-dir': { type: 'string', short: 'o' },
+      push: { type: 'boolean', default: false },
+      'dry-run': { type: 'boolean', default: false },
     },
-    default: {
-      'data-dir': 'data/',
-    },
-  }) as GeneratePaperAssetsArgs;
+  });
+  return {
+    help: values.help,
+    ratsinfoDir: values['ratsinfo-dir'],
+    papersDir: values['papers-dir'],
+    dataDir: values['data-dir'],
+    outputDir: values['output-dir'],
+    push: values.push,
+    dryRun: values['dry-run'],
+  };
 }
 
-export function checkArgs(args: GeneratePaperAssetsArgs) {
+export function checkArgs(args: GeneratePaperAssetsArgs): asserts args is Required<GeneratePaperAssetsArgs> {
   const { ratsinfoDir, papersDir, dataDir, outputDir } = args;
 
   if (!ratsinfoDir) {
     console.error('Missing ratsinfo directory. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   if (!papersDir) {
     console.error('Missing papers directory. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   if (!dataDir) {
     console.error('Missing data directory. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   if (!outputDir) {
     console.error('Missing output directory. See --help for usage.');
-    Deno.exit(1);
+    process.exit(1);
   }
 }
 
 export function printHelpText() {
   console.log(`
-Usage: deno run index.ts -r <ratsinfo-dir> -p <papers-dir> [-d <data-dir>] -o <output-dir> [--push [--dry-run]]
+Usage: bun index.ts -r <ratsinfo-dir> -p <papers-dir> [-d <data-dir>] -o <output-dir> [--push [--dry-run]]
 -h, --help                  Show this help message and exit.
 -r, --ratsinfo-dir          The directory containing the OParl files (meetings.json, papers.json, files.json).
 -p, --papers-dir            The papers directory. It should contain directories with the paper files per year.

@@ -1,5 +1,4 @@
-import { describe, it } from '@std/testing/bdd';
-import { assert } from '@std/assert';
+import { describe, expect, it } from 'bun:test';
 import { PaperAssetsGenerator } from '../paper-assets-generator.ts';
 import type { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
 import type { PaperAssetsWriter } from '../paper-assets-writer.ts';
@@ -94,16 +93,17 @@ class MockSessionIndexStore implements SessionIndexStore {
   constructor(private readonly sessionIndex: SessionIndex = {}) {
   }
 
-  loadSessionIndex = (): SessionIndex => this.sessionIndex;
+  loadSessionIndex = (): Promise<SessionIndex> => Promise.resolve(this.sessionIndex);
 }
 
 class MockPaperAssetsWriter implements PaperAssetsWriter {
   papersWritten = 0;
   paperAssetsWritten = 0;
 
-  writePaperAssets(assets: PaperAssetDto[]): void {
+  writePaperAssets(assets: PaperAssetDto[]): Promise<void> {
     this.papersWritten = assets.map((a) => a.papers.length).reduce((a, b) => a + b, 0);
     this.paperAssetsWritten = assets.length;
+    return Promise.resolve();
   }
 }
 
@@ -111,9 +111,10 @@ class MockPaperGraphAssetsWriter implements PaperGraphAssetsWriter {
   paperGraphsWritten = 0;
   paperGraphAssetsWritten = 0;
 
-  writePaperGraphAssets(assets: PaperGraphAssetDto[]): void {
+  writePaperGraphAssets(assets: PaperGraphAssetDto[]): Promise<void> {
     this.paperGraphsWritten = assets.map((a) => a.paperGraphs.length).reduce((a, b) => a + b, 0);
     this.paperGraphAssetsWritten = assets.length;
+    return Promise.resolve();
   }
 }
 
@@ -124,7 +125,7 @@ describe('Generating paper assets', () => {
   let paperAssetsWriter: MockPaperAssetsWriter;
   let paperGraphAssetsWriter: MockPaperGraphAssetsWriter;
 
-  it('writes papers into assets', () => {
+  it('writes papers into assets', async () => {
     // GIVEN
     paperFilesStoreIsAvailable();
     oparlObjectStoreIsAvailable();
@@ -133,14 +134,14 @@ describe('Generating paper assets', () => {
     paperGraphAssetWriterIsAvailable();
 
     // WHEN
-    runPaperAssetsGeneration();
+    await runPaperAssetsGeneration();
 
     // THEN
-    assert(papersAreWritten());
-    assert(paperAssetsAreWritten());
+    expect(papersAreWritten()).toBe(true);
+    expect(paperAssetsAreWritten()).toBe(true);
   });
 
-  it('writes paper graphs into assets', () => {
+  it('writes paper graphs into assets', async () => {
     // GIVEN
     paperFilesStoreIsAvailable();
     oparlObjectStoreIsAvailable();
@@ -149,11 +150,11 @@ describe('Generating paper assets', () => {
     paperGraphAssetWriterIsAvailable();
 
     // WHEN
-    runPaperAssetsGeneration();
+    await runPaperAssetsGeneration();
 
     // THEN
-    assert(paperGraphsAreWritten(), 'Expected paper graphs to be written');
-    assert(paperGraphAssetsAreWritten(), 'Expected paper graph assets to be written');
+    expect(paperGraphsAreWritten(), 'Expected paper graphs to be written').toBe(true);
+    expect(paperGraphAssetsAreWritten(), 'Expected paper graph assets to be written').toBe(true);
   });
 
   function paperFilesStoreIsAvailable() {
@@ -176,7 +177,7 @@ describe('Generating paper assets', () => {
     paperGraphAssetsWriter = new MockPaperGraphAssetsWriter();
   }
 
-  function runPaperAssetsGeneration() {
+  async function runPaperAssetsGeneration() {
     const generator = new PaperAssetsGenerator(
       paperFilesStore,
       oparlObjectsStore,
@@ -185,7 +186,7 @@ describe('Generating paper assets', () => {
       paperAssetsWriter,
       paperGraphAssetsWriter,
     );
-    generator.generatePaperAssets();
+    await generator.generatePaperAssets();
   }
 
   function papersAreWritten() {

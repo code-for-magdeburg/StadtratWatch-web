@@ -43,7 +43,7 @@ endif
 :OParl-Rohdaten ablegen\n(data/oparl-magdeburg/);
 
 :**download-paper-files** (Bun)\nverlinkte PDF-Dokumente laden;
-:**generate-paper-assets** (Deno)\nDrucksachen in JSON-Batches überführen;
+:**generate-paper-assets** (Bun)\nDrucksachen in JSON-Batches überführen;
 note right
   Eingabe: OParl-Rohdaten + PDF-Dateigrößen
   Ausgabe: output/paper-assets/
