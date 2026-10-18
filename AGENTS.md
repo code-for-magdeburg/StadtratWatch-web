@@ -209,7 +209,7 @@ Typesense collections:
 - **papers** - All council papers with full-text PDF content
 - **speeches** - Transcribed speeches
 
-Index is rebuilt with index-search script (see docs/guides/HOWTO.md). Frontend uses Typesense JS client for instant search. Client configuration is in `astro/astro.config.mjs`.
+Index is rebuilt with index-search script (see src/scripts/index-search/README.md). Frontend uses Typesense JS client for instant search. Client configuration is in `astro/astro.config.mjs`.
 
 ## Code Conventions
 

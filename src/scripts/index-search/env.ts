@@ -6,28 +6,28 @@ export type IndexSearchEnv = {
 };
 
 export function tryGetIndexSearchEnv(): IndexSearchEnv {
-  const typesenseServerUrl = Deno.env.get('TYPESENSE_SERVER_URL');
+  const typesenseServerUrl = Bun.env.TYPESENSE_SERVER_URL;
   if (!typesenseServerUrl) {
     console.error('Environment variable TYPESENSE_SERVER_URL must be set.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
-  const typesenseCollectionName = Deno.env.get('TYPESENSE_COLLECTION_NAME');
+  const typesenseCollectionName = Bun.env.TYPESENSE_COLLECTION_NAME;
   if (!typesenseCollectionName) {
     console.error('Environment variable TYPESENSE_COLLECTION_NAME must be set.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
-  const typesenseApiKey = Deno.env.get('TYPESENSE_API_KEY');
+  const typesenseApiKey = Bun.env.TYPESENSE_API_KEY;
   if (!typesenseApiKey) {
     console.error('Environment variable TYPESENSE_API_KEY must be set.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
-  const councilOrganizationId = Deno.env.get('OPARL_COUNCIL_ORGANIZATION_ID');
+  const councilOrganizationId = Bun.env.OPARL_COUNCIL_ORGANIZATION_ID;
   if (!councilOrganizationId) {
     console.error('Environment variable OPARL_COUNCIL_ORGANIZATION_ID must be set.');
-    Deno.exit(1);
+    process.exit(1);
   }
 
   return { typesenseServerUrl, typesenseCollectionName, typesenseApiKey, councilOrganizationId };
