@@ -237,21 +237,33 @@ const barHeight = factions.length * 40;
                   <a
                     :href="`/pp/${parliamentPeriodId}/faction/${faction.id}`"
                     class="link link-primary"
-                    x-text="faction.name"></a>
+                    x-text="faction.name"
+                  ></a>
                 </td>
                 <td class="text-right" x-text="faction.seats"></td>
-                <td class="text-right" x-text="faction.votingSuccessRateDisplay"
-                ></td>
-                <td class="text-right" x-text="faction.uniformityScoreDisplay"
-                ></td>
-                <td class="text-right" x-text="faction.participationRateDisplay"
-                ></td>
-                <td class="text-right" x-text="faction.abstentionRateDisplay"
+                <td
+                  class="text-right"
+                  x-text="faction.votingSuccessRateDisplay"
                 ></td>
                 <td
                   class="text-right"
-                  x-text="faction.motionsSuccessRateDisplay"></td>
-                <td class="text-right" x-text="faction.speakingTimeDisplay"
+                  x-text="faction.uniformityScoreDisplay"
+                ></td>
+                <td
+                  class="text-right"
+                  x-text="faction.participationRateDisplay"
+                ></td>
+                <td
+                  class="text-right"
+                  x-text="faction.abstentionRateDisplay"
+                ></td>
+                <td
+                  class="text-right"
+                  x-text="faction.motionsSuccessRateDisplay"
+                ></td>
+                <td
+                  class="text-right"
+                  x-text="faction.speakingTimeDisplay"
                 ></td>
               </tr>
             </template>

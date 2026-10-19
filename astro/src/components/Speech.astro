@@ -76,35 +76,31 @@ function getHintMailTitle(speech: SessionSpeech): string {
   class="timeline-start text-sm flex flex-row flex-wrap gap-2 w-full items-center"
 >
   <span class="text-base-content/80">{speech.speaker}</span>
-  {
-    showAiTextAssessmentBadge && (
-      <div class="dropdown dropdown-bottom">
-        <button
-          type="button"
-          tabindex="0"
-          class="btn btn-ghost btn-xs btn-circle"
-          aria-label={AI_TEXT_ASSESSMENT_BADGE_DESCRIPTION}
-        >
-          <span class="iconify lucide--bot size-4 text-warning align-middle" />
-        </button>
-        <div
-          tabindex="0"
-          class="dropdown-content z-10 bg-base-200 rounded-box shadow p-3 w-64 text-sm space-y-2"
-        >
-          <p>{AI_TEXT_ASSESSMENT_BADGE_DESCRIPTION}</p>
-          <a href="/transparency/ai-assessment/" class="link link-primary">
-            Informationen zur Analyse-Methodik.
-          </a>
-        </div>
+  {showAiTextAssessmentBadge && (
+    <div class="dropdown dropdown-bottom">
+      <button
+        type="button"
+        tabindex="0"
+        class="btn btn-ghost btn-xs btn-circle"
+        aria-label={AI_TEXT_ASSESSMENT_BADGE_DESCRIPTION}
+      >
+        <span class="iconify lucide--bot size-4 text-warning align-middle" />
+      </button>
+      <div
+        tabindex="0"
+        class="dropdown-content z-10 bg-base-200 rounded-box shadow p-3 w-64 text-sm space-y-2"
+      >
+        <p>{AI_TEXT_ASSESSMENT_BADGE_DESCRIPTION}</p>
+        <a href="/transparency/ai-assessment/" class="link link-primary">
+          Informationen zur Analyse-Methodik.
+        </a>
       </div>
-    )
-  }
+    </div>
+  )}
   {faction && <span class="badge badge-sm badge-neutral">{faction.name}</span>}
-  {
-    speech.onBehalfOf && (
-      <span class="badge badge-sm badge-neutral">{speech.onBehalfOf}</span>
-    )
-  }
+  {speech.onBehalfOf && (
+    <span class="badge badge-sm badge-neutral">{speech.onBehalfOf}</span>
+  )}
   <div class="dropdown dropdown-end ml-auto">
     <button tabindex="0" class="btn btn-sm btn-ghost">
       <span class="iconify lucide--more-horizontal"></span>
@@ -134,15 +130,15 @@ function getHintMailTitle(speech: SessionSpeech): string {
   </div>
 </div>
 <div class="timeline-middle">
-  <div
-    class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1"
-  >
+  <div class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1">
     <span class="iconify lucide--message-circle"></span>
   </div>
 </div>
 <div class="timeline-end timeline-box w-full">
   <div class="space-y-3">
-    {(speech.transcription || '').split('\n\n').map((line) => <p>{line}</p>)}
+    {(speech.transcription || '').split('\n\n').map((line) => (
+      <p>{line}</p>
+    ))}
   </div>
   <div class="flex justify-between items-center mt-5">
     <a

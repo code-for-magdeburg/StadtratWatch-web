@@ -47,45 +47,41 @@ const speechesBySessionDate = sessions
 </div>
 
 <div class="mt-4 space-y-4">
-  {
-    speechesBySessionDate.map((speechesBySessionDate) => {
-      return (
-        <div class="bg-base-200 rounded-box rounded-md border border-base-300 collapse collapse-arrow">
-          <input
-            aria-label="Collapse trigger"
-            type="checkbox"
-            checked
-            name="accordion-multiple"
-          />
-          <div class="collapse-title">
-            {formatDate(speechesBySessionDate.session.date)}
-            {speechesBySessionDate.session.title}
-          </div>
-          <div class="collapse-content">
-            <ul class="timeline timeline-vertical timeline-compact">
-              {speechesBySessionDate.speeches.map((speech, index) => {
-                return (
-                  <li>
-                    {index > 0 && <hr />}
-                    <Speech
-                      parliamentPeriod={parliamentPeriod}
-                      session={speechesBySessionDate.session}
-                      speech={speech}
-                      speechElementId={`speech-${speechesBySessionDate.session.id}-${speech.start}`}
-                      link={`/pp/${parliamentPeriod.id}/person/${person.id}?tab=speeches`}
-                    />
-                    {index < speechesBySessionDate.speeches.length - 1 && (
-                      <hr />
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+  {speechesBySessionDate.map((speechesBySessionDate) => {
+    return (
+      <div class="bg-base-200 rounded-box rounded-md border border-base-300 collapse collapse-arrow">
+        <input
+          aria-label="Collapse trigger"
+          type="checkbox"
+          checked
+          name="accordion-multiple"
+        />
+        <div class="collapse-title">
+          {formatDate(speechesBySessionDate.session.date)}
+          {speechesBySessionDate.session.title}
         </div>
-      );
-    })
-  }
+        <div class="collapse-content">
+          <ul class="timeline timeline-vertical timeline-compact">
+            {speechesBySessionDate.speeches.map((speech, index) => {
+              return (
+                <li>
+                  {index > 0 && <hr />}
+                  <Speech
+                    parliamentPeriod={parliamentPeriod}
+                    session={speechesBySessionDate.session}
+                    speech={speech}
+                    speechElementId={`speech-${speechesBySessionDate.session.id}-${speech.start}`}
+                    link={`/pp/${parliamentPeriod.id}/person/${person.id}?tab=speeches`}
+                  />
+                  {index < speechesBySessionDate.speeches.length - 1 && <hr />}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    );
+  })}
 </div>
 
 <div

@@ -2,16 +2,14 @@
 import { isAiTextAssessmentEnabled } from '@utils/ai-text-assessment-presentation';
 ---
 
-{
-  isAiTextAssessmentEnabled() && (
-    <p>
-      Bei einigen Redebeiträgen zeigen wir zudem die Einschätzung eines
-      KI-Textdetektors an, wenn dieser auf KI-generierten Text hindeutet. Mehr
-      dazu in unserer{' '}
-      <a href="/transparency/ai-assessment/" class="link link-primary">
-        Methodik zur KI-Einschätzung
-      </a>
-      .
-    </p>
-  )
-}
+{isAiTextAssessmentEnabled() && (
+  <p>
+    Bei einigen Redebeiträgen zeigen wir zudem die Einschätzung eines
+    KI-Textdetektors an, wenn dieser auf KI-generierten Text hindeutet. Mehr
+    dazu in unserer{' '}
+    <a href="/transparency/ai-assessment/" class="link link-primary">
+      Methodik zur KI-Einschätzung
+    </a>
+    .
+  </p>
+)}

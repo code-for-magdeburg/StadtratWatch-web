@@ -5,88 +5,85 @@ import {
 } from '@utils/ai-text-assessment-presentation';
 ---
 
-{
-  isAiTextAssessmentEnabled() ? (
-    <>
-      <h1 class="mb-3 text-3xl">KI-Einschätzung bei Redebeiträgen</h1>
+{isAiTextAssessmentEnabled() ? (
+  <>
+    <h1 class="mb-3 text-3xl">KI-Einschätzung bei Redebeiträgen</h1>
 
-      <p class="mt-3">
-        Bei einigen Redebeiträgen zeigen wir neben dem Namen der Person eine
-        Kennzeichnung mit dem Hinweis: „{AI_TEXT_ASSESSMENT_BADGE_DESCRIPTION}“
-        Diese Seite erklärt, wie dieser Hinweis zustande kommt.
-      </p>
+    <p class="mt-3">
+      Bei einigen Redebeiträgen zeigen wir neben dem Namen der Person eine
+      Kennzeichnung mit dem Hinweis: „{AI_TEXT_ASSESSMENT_BADGE_DESCRIPTION}“
+      Diese Seite erklärt, wie dieser Hinweis zustande kommt.
+    </p>
 
-      <h2 class="mt-8 mb-3 text-xl">Was prüfen wir?</h2>
-      <p class="mt-3">
-        Für ausgewählte Redebeiträge lassen wir das Transkript durch einen
-        KI-Textdetektor des Anbieters{' '}
-        <a
-          href="https://www.pangram.com/research/model-card/pangram-4"
-          target="_blank"
-          class="link link-primary"
-        >
-          Pangram
-        </a>{' '}
-        prüfen. Pangram ordnet einen Text als überwiegend menschlich,
-        überwiegend KI-generiert oder gemischt ein. Die Kennzeichnung erscheint
-        nur, wenn das Ergebnis mit hoher Wahrscheinlichkeit auf KI-generierten
-        oder gemischten Text hindeutet.
-      </p>
-      <p class="mt-3">
-        Welche Redebeiträge geprüft werden, wählen wir redaktionell aus. Wir
-        veröffentlichen nicht, welche Beiträge geprüft wurden und welche nicht.
-        Sichtbar ist nur die Kennzeichnung, und zwar nur bei einem auffälligen
-        Befund.
-      </p>
+    <h2 class="mt-8 mb-3 text-xl">Was prüfen wir?</h2>
+    <p class="mt-3">
+      Für ausgewählte Redebeiträge lassen wir das Transkript durch einen
+      KI-Textdetektor des Anbieters{' '}
+      <a
+        href="https://www.pangram.com/research/model-card/pangram-4"
+        target="_blank"
+        class="link link-primary"
+      >
+        Pangram
+      </a>{' '}
+      prüfen. Pangram ordnet einen Text als überwiegend menschlich, überwiegend
+      KI-generiert oder gemischt ein. Die Kennzeichnung erscheint nur, wenn das
+      Ergebnis mit hoher Wahrscheinlichkeit auf KI-generierten oder gemischten
+      Text hindeutet.
+    </p>
+    <p class="mt-3">
+      Welche Redebeiträge geprüft werden, wählen wir redaktionell aus. Wir
+      veröffentlichen nicht, welche Beiträge geprüft wurden und welche nicht.
+      Sichtbar ist nur die Kennzeichnung, und zwar nur bei einem auffälligen
+      Befund.
+    </p>
 
-      <h2 class="mt-8 mb-3 text-xl">Wofür der Detektor nicht gebaut ist</h2>
-      <p class="mt-3">
-        Pangram ist für geschriebenen Text entwickelt und evaluiert. Die
-        Redebeiträge sind dagegen Transkripte gesprochener Sprache - ein
-        Einsatzbereich, für den der Hersteller keine Eignung erklärt.
-        Gesprochene Sprache unterscheidet sich von geschriebenem Text
-        (Füllwörter, Abbrüche, Umgangssprache), was die Erkennung verfälschen
-        kann.
-      </p>
-      <p class="mt-3">
-        Deshalb haben wir den KI-Detektor vor dem Einsatz überprüft: Wir haben
-        ihn an 200 Redebeiträgen aus der Zeit vor 2023 getestet - Beiträgen, bei
-        denen eine KI-Beteiligung ausgeschlossen werden kann. Das Ergebnis:{' '}
-        <strong>Keiner dieser Beiträge</strong> wurde als KI-generiert
-        eingeordnet. Dieser Test lässt sich nicht auf alle denkbaren Fälle
-        verallgemeinern, gibt uns aber Vertrauen in die geringe Fehlalarmquote
-        auf den Transkripten.
-      </p>
+    <h2 class="mt-8 mb-3 text-xl">Wofür der Detektor nicht gebaut ist</h2>
+    <p class="mt-3">
+      Pangram ist für geschriebenen Text entwickelt und evaluiert. Die
+      Redebeiträge sind dagegen Transkripte gesprochener Sprache - ein
+      Einsatzbereich, für den der Hersteller keine Eignung erklärt. Gesprochene
+      Sprache unterscheidet sich von geschriebenem Text (Füllwörter, Abbrüche,
+      Umgangssprache), was die Erkennung verfälschen kann.
+    </p>
+    <p class="mt-3">
+      Deshalb haben wir den KI-Detektor vor dem Einsatz überprüft: Wir haben ihn
+      an 200 Redebeiträgen aus der Zeit vor 2023 getestet - Beiträgen, bei denen
+      eine KI-Beteiligung ausgeschlossen werden kann. Das Ergebnis:{' '}
+      <strong>Keiner dieser Beiträge</strong> wurde als KI-generiert
+      eingeordnet. Dieser Test lässt sich nicht auf alle denkbaren Fälle
+      verallgemeinern, gibt uns aber Vertrauen in die geringe Fehlalarmquote auf
+      den Transkripten.
+    </p>
 
-      <h2 class="mt-8 mb-3 text-xl">
-        Was die Kennzeichnung bedeutet - und was nicht
-      </h2>
-      <p class="mt-3">
-        Die Kennzeichnung bedeutet: Ein automatisierter Textdetektor hat im
-        Transkript dieses Redebeitrags Muster erkannt, die typisch für
-        KI-generierten oder KI-unterstützten Text sind.
-      </p>
-      <p class="mt-3">
-        Die Kennzeichnung bedeutet <strong>nicht</strong>, dass die Person den
-        Beitrag nicht selbst verfasst hat, dass eine Täuschung vorliegt, oder
-        dass wir eine Bewertung des Inhalts vornehmen.
-      </p>
+    <h2 class="mt-8 mb-3 text-xl">
+      Was die Kennzeichnung bedeutet - und was nicht
+    </h2>
+    <p class="mt-3">
+      Die Kennzeichnung bedeutet: Ein automatisierter Textdetektor hat im
+      Transkript dieses Redebeitrags Muster erkannt, die typisch für
+      KI-generierten oder KI-unterstützten Text sind.
+    </p>
+    <p class="mt-3">
+      Die Kennzeichnung bedeutet <strong>nicht</strong>, dass die Person den
+      Beitrag nicht selbst verfasst hat, dass eine Täuschung vorliegt, oder dass
+      wir eine Bewertung des Inhalts vornehmen.
+    </p>
 
-      <h2 class="mt-8 mb-3 text-xl">Einspruch</h2>
-      <p class="mt-3">
-        Wenn Sie eine Einschätzung für falsch halten oder Rückfragen haben,
-        nutzen Sie bitte die Funktion „Beitrag melden“ im Menü des jeweiligen
-        Redebeitrags oder unsere{' '}
-        <a href="/contact/" class="link link-primary">
-          Kontaktseite
-        </a>
-        . Wir prüfen jeden Hinweis.
-      </p>
-    </>
-  ) : (
-    <>
-      <h1 class="mb-3 text-3xl">KI-Einschätzung bei Redebeiträgen</h1>
-      <p class="mt-3">Diese Seite ist derzeit nicht verfügbar.</p>
-    </>
-  )
-}
+    <h2 class="mt-8 mb-3 text-xl">Einspruch</h2>
+    <p class="mt-3">
+      Wenn Sie eine Einschätzung für falsch halten oder Rückfragen haben, nutzen
+      Sie bitte die Funktion „Beitrag melden“ im Menü des jeweiligen
+      Redebeitrags oder unsere{' '}
+      <a href="/contact/" class="link link-primary">
+        Kontaktseite
+      </a>
+      . Wir prüfen jeden Hinweis.
+    </p>
+  </>
+) : (
+  <>
+    <h1 class="mb-3 text-3xl">KI-Einschätzung bei Redebeiträgen</h1>
+    <p class="mt-3">Diese Seite ist derzeit nicht verfügbar.</p>
+  </>
+)}

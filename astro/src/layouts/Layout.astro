@@ -59,21 +59,19 @@ if (!parliamentPeriod) {
 
   <body>
     <div class="size-full" id="layout-main">
-      {
-        parliamentPeriod && (
-          <div class="flex">
-            <Sidebar parliamentPeriod={parliamentPeriod} />
+      {parliamentPeriod && (
+        <div class="flex">
+          <Sidebar parliamentPeriod={parliamentPeriod} />
 
-            <div class="flex h-screen min-w-0 grow flex-col overflow-auto">
-              <Topbar />
+          <div class="flex h-screen min-w-0 grow flex-col overflow-auto">
+            <Topbar />
 
-              <div id="layout-content">
-                <slot />
-              </div>
+            <div id="layout-content">
+              <slot />
             </div>
           </div>
-        )
-      }
+        </div>
+      )}
     </div>
   </body>
 </html>

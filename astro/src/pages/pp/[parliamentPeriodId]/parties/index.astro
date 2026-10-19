@@ -212,16 +212,25 @@ const barHeight = parties.length * 40;
                   <a
                     :href="`/pp/${parliamentPeriodId}/party/${party.id}`"
                     class="link link-primary"
-                    x-text="party.name"></a>
+                    x-text="party.name"
+                  ></a>
                 </td>
                 <td class="text-right" x-text="party.seats"></td>
-                <td class="text-right" x-text="party.votingSuccessRateDisplay"
+                <td
+                  class="text-right"
+                  x-text="party.votingSuccessRateDisplay"
                 ></td>
-                <td class="text-right" x-text="party.uniformityScoreDisplay"
+                <td
+                  class="text-right"
+                  x-text="party.uniformityScoreDisplay"
                 ></td>
-                <td class="text-right" x-text="party.participationRateDisplay"
+                <td
+                  class="text-right"
+                  x-text="party.participationRateDisplay"
                 ></td>
-                <td class="text-right" x-text="party.abstentionRateDisplay"
+                <td
+                  class="text-right"
+                  x-text="party.abstentionRateDisplay"
                 ></td>
                 <td class="text-right" x-text="party.speakingTimeDisplay"></td>
               </tr>

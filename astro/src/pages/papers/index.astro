@@ -29,22 +29,20 @@ const pageTitle = getRecentPapersPeriod();
           </tr>
         </thead>
         <tbody>
-          {
-            recentMainPapers.map((paper) => (
-              <tr>
-                <td>{paper.dateDisplay}</td>
-                <td>
-                  <a
-                    href={`/paper?paperId=${paper.id}`}
-                    class="link link-primary"
-                  >
-                    {paper.paperType || 'Drucksache'} {paper.reference || ''}
-                  </a>
-                </td>
-                <td>{paper.name}</td>
-              </tr>
-            ))
-          }
+          {recentMainPapers.map((paper) => (
+            <tr>
+              <td>{paper.dateDisplay}</td>
+              <td>
+                <a
+                  href={`/paper?paperId=${paper.id}`}
+                  class="link link-primary"
+                >
+                  {paper.paperType || 'Drucksache'} {paper.reference || ''}
+                </a>
+              </td>
+              <td>{paper.name}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
