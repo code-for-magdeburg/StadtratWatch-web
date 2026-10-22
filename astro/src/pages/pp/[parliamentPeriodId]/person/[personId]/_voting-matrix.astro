@@ -74,19 +74,22 @@ const votingMatrix = calcVotingMatrix(parliamentPeriod, person, sessions)
             <a
               :href="`/pp/${parliamentPeriodId}/person/${item.personId}`"
               class="link link-primary"
-              x-text="item.personName"></a>
+              x-text="item.personName"
+            ></a>
           </td>
           <td>
             <a
               :href="`/pp/${parliamentPeriodId}/faction/${item.factionId}`"
               class="link link-primary"
-              x-text="item.factionName"></a>
+              x-text="item.factionName"
+            ></a>
           </td>
           <td>
             <a
               :href="`/pp/${parliamentPeriodId}/party/${item.partyId}`"
               class="link link-primary"
-              x-text="item.partyName"></a>
+              x-text="item.partyName"
+            ></a>
           </td>
           <td class="text-right" x-text="item.comparisonScoreDisplay"></td>
         </tr>

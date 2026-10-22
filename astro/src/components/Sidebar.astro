@@ -64,24 +64,20 @@ switch (true) {
               Stand: {formatDate(parliamentPeriod.lastUpdate)}
             </p>
           </div>
-          <span
-            class="iconify lucide--chevrons-up-down text-base-content/60 size-4"
-          ></span>
+          <span class="iconify lucide--chevrons-up-down text-base-content/60 size-4"></span>
         </div>
         <ul
           role="menu"
           class="dropdown-content menu bg-base-100 rounded-box shadow-base-content/4 mb-1 w-48 p-1 shadow-[0px_-10px_40px_0px]"
           tabindex="0"
         >
-          {
-            parliamentPeriods.map((parliamentPeriod) => (
-              <li>
-                <a href={`/pp/${parliamentPeriod.id}`}>
-                  <span>{parliamentPeriod.name}</span>
-                </a>
-              </li>
-            ))
-          }
+          {parliamentPeriods.map((parliamentPeriod) => (
+            <li>
+              <a href={`/pp/${parliamentPeriod.id}`}>
+                <span>{parliamentPeriod.name}</span>
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -139,11 +135,13 @@ switch (true) {
 
   <div class="alert alert-soft alert-info m-3 dark:opacity-60" role="alert">
     <span>
-      Diese Seite ist <em>keine</em> offizielle Seite der Stadt Magdeburg. Es handelt
-      sich hierbei um ein Privatprojekt und wird ehrenamtlich entwickelt von
+      Diese Seite ist <em>keine</em> offizielle Seite der Stadt Magdeburg. Es
+      handelt sich hierbei um ein Privatprojekt und wird ehrenamtlich entwickelt
+      von
       <a class="link" href="https://codefor.de/magdeburg" target="_blank">
         Code for Magdeburg
-      </a>.
+      </a>
+      .
     </span>
   </div>
 

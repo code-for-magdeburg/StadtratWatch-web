@@ -45,42 +45,32 @@ const youtubeUrl = sessionInput.session.youtubeUrl;
 
   <div slot="sub-page-header">
     <div class="flex items-center mt-1 gap-4">
-      {
-        meetingMinutesUrl && (
-          <a
-            href={meetingMinutesUrl}
-            target="_blank"
-            class="link link-primary text-xs"
-          >
-            <span class="iconify lucide--file-text" />
-            Niederschrift
-          </a>
-        )
-      }
-      {
-        youtubeUrl && (
-          <a
-            href={youtubeUrl}
-            target="_blank"
-            class="link link-primary text-xs"
-          >
-            <span class="iconify lucide--youtube" />
-            YouTube
-          </a>
-        )
-      }
+      {meetingMinutesUrl && (
+        <a
+          href={meetingMinutesUrl}
+          target="_blank"
+          class="link link-primary text-xs"
+        >
+          <span class="iconify lucide--file-text" />
+          Niederschrift
+        </a>
+      )}
+      {youtubeUrl && (
+        <a href={youtubeUrl} target="_blank" class="link link-primary text-xs">
+          <span class="iconify lucide--youtube" />
+          YouTube
+        </a>
+      )}
     </div>
   </div>
 
-  {
-    !sessionInput.session.approved && (
-      <div class="alert alert-warning alert-soft mb-4">
-        <span class="iconify lucide--alert-triangle" />
-        Die Prüfung dieser Sitzung ist noch nicht abgeschlossen. Die Daten sind
-        unter Umständen noch unvollständig oder werden sich noch ändern.
-      </div>
-    )
-  }
+  {!sessionInput.session.approved && (
+    <div class="alert alert-warning alert-soft mb-4">
+      <span class="iconify lucide--alert-triangle" />
+      Die Prüfung dieser Sitzung ist noch nicht abgeschlossen. Die Daten sind
+      unter Umständen noch unvollständig oder werden sich noch ändern.
+    </div>
+  )}
 
   <div
     id="tabs"

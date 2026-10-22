@@ -46,17 +46,15 @@ const {
 >
   <MetaTags slot="srw-meta-tags" partyName={party.name} />
 
-  {
-    extremistClassification && (
-      <div class="mb-4">
-        <ExtremistClassificationAlert
-          extremistClassificationReason={extremistClassificationReason}
-          extremistClassificationSource={extremistClassificationSource}
-          extremistClassificationSourceUrl={extremistClassificationSourceUrl}
-        />
-      </div>
-    )
-  }
+  {extremistClassification && (
+    <div class="mb-4">
+      <ExtremistClassificationAlert
+        extremistClassificationReason={extremistClassificationReason}
+        extremistClassificationSource={extremistClassificationSource}
+        extremistClassificationSourceUrl={extremistClassificationSourceUrl}
+      />
+    </div>
+  )}
 
   <div
     id="tabs"
