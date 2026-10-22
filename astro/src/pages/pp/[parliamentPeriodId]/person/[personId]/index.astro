@@ -62,17 +62,15 @@ const {
 >
   <MetaTags slot="srw-meta-tags" personName={person.name} />
 
-  {
-    extremistClassification && (
-      <div class="mb-4">
-        <ExtremistClassificationAlert
-          extremistClassificationReason={extremistClassificationReason}
-          extremistClassificationSource={extremistClassificationSource}
-          extremistClassificationSourceUrl={extremistClassificationSourceUrl}
-        />
-      </div>
-    )
-  }
+  {extremistClassification && (
+    <div class="mb-4">
+      <ExtremistClassificationAlert
+        extremistClassificationReason={extremistClassificationReason}
+        extremistClassificationSource={extremistClassificationSource}
+        extremistClassificationSourceUrl={extremistClassificationSourceUrl}
+      />
+    </div>
+  )}
 
   <div slot="sub-page-header">
     <div class="flex flex-row flex-wrap text-base-content/60 text-sm gap-x-4">
@@ -80,15 +78,19 @@ const {
         Fraktion
         <a
           href={`/pp/${parliamentPeriodId}/faction/${person.factionId}`}
-          class="link link-primary">{faction.name}</a
+          class="link link-primary"
         >
+          {faction.name}
+        </a>
       </div>
       <div>
         Partei
         <a
           href={`/pp/${parliamentPeriodId}/party/${person.partyId}`}
-          class="link link-primary">{party.name}</a
+          class="link link-primary"
         >
+          {party.name}
+        </a>
       </div>
     </div>
   </div>

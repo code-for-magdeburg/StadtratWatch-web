@@ -8,9 +8,7 @@ import Layout from '@layouts/Layout.astro';
 
     <div class="space-y-10">
       <div class="text-base-content/60 text-sm">
-        <span x-text="paper.reference"></span>
-        -
-        <span x-text="paper.type"></span>
+        <span x-text="paper.reference"></span>-<span x-text="paper.type"></span>
       </div>
 
       <div id="tabs" role="tablist" class="tabs tabs-lift">
@@ -28,15 +26,15 @@ import Layout from '@layouts/Layout.astro';
               <div class="w-1/4">
                 <ul class="menu bg-base-200 w-full -mx-2 space-y-1 rounded-box">
                   <template x-for="file in paper.files">
-                    <li
-                      @click="selectedFile !== file.id && selectFile(file.id)"
-                    >
+                    <li @click="selectedFile !== file.id && selectFile(file.id)">
                       <div
                         class="flex flex-col items-start"
                         :class="{ 'menu-active': selectedFile === file.id }"
                       >
                         <span x-text="file.name"></span>
-                        <span class="opacity-60" x-text="file.fileSizeDisplay"
+                        <span
+                          class="opacity-60"
+                          x-text="file.fileSizeDisplay"
                         ></span>
                       </div>
                     </li>
@@ -48,7 +46,8 @@ import Layout from '@layouts/Layout.astro';
                   x-show="fileSizeOk"
                   :src="documentUrl"
                   style="width: 100%; height: 90vh; border: 0"
-                  loading="lazy"></iframe>
+                  loading="lazy"
+                ></iframe>
 
                 <div x-show="!fileSizeOk" class="alert alert-soft alert-info">
                   <span class="iconify lucide--info size-5"></span>
@@ -77,7 +76,9 @@ import Layout from '@layouts/Layout.astro';
                     target="_blank"
                   >
                     <span x-text="file.name"></span>
-                    <span class="opacity-60" x-text="file.fileSizeDisplay"
+                    <span
+                      class="opacity-60"
+                      x-text="file.fileSizeDisplay"
                     ></span>
                   </a>
                 </li>
@@ -102,14 +103,9 @@ import Layout from '@layouts/Layout.astro';
                   <span x-text="consultation.dateDisplay"></span>
                 </div>
                 <div class="timeline-middle">
-                  <div
-                    class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1"
-                  >
-                  </div>
+                  <div class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1"></div>
                 </div>
-                <template
-                  x-if="consultation.parliamentPeriodId && consultation.sessionId"
-                >
+                <template x-if="consultation.parliamentPeriodId && consultation.sessionId">
                   <a
                     class="timeline-end timeline-box mt-5 ms-3 block w-full space-y-2 hover:bg-base-200 hover:cursor-pointer"
                     :href="`/pp/${consultation.parliamentPeriodId}/session/${consultation.sessionId}/`"
@@ -118,31 +114,33 @@ import Layout from '@layouts/Layout.astro';
                       <span>TOP</span>
                       <span x-text="consultation.agendaItem"></span>
                     </div>
-                    <div class="text-base" x-text="consultation.organization">
-                    </div>
+                    <div
+                      class="text-base"
+                      x-text="consultation.organization"
+                    ></div>
                     <div x-show="consultation.result">
                       <span
                         class="badge badge-neutral badge-sm"
-                        x-text="consultation.result"></span>
+                        x-text="consultation.result"
+                      ></span>
                     </div>
                   </a>
                 </template>
-                <template
-                  x-if="!(consultation.parliamentPeriodId && consultation.sessionId)"
-                >
-                  <div
-                    class="timeline-end timeline-box mt-5 ms-3 w-full space-y-2"
-                  >
+                <template x-if="!(consultation.parliamentPeriodId && consultation.sessionId)">
+                  <div class="timeline-end timeline-box mt-5 ms-3 w-full space-y-2">
                     <div class="text-base-content/70 space-x-1">
                       <span>TOP</span>
                       <span x-text="consultation.agendaItem"></span>
                     </div>
-                    <div class="text-base" x-text="consultation.organization">
-                    </div>
+                    <div
+                      class="text-base"
+                      x-text="consultation.organization"
+                    ></div>
                     <div x-show="consultation.result">
                       <span
                         class="badge badge-neutral badge-sm"
-                        x-text="consultation.result"></span>
+                        x-text="consultation.result"
+                      ></span>
                     </div>
                   </div>
                 </template>
@@ -171,19 +169,19 @@ import Layout from '@layouts/Layout.astro';
                 class="card card-border border-base-300 bg-base-100 hover:bg-base-200 hover:cursor-pointer block"
               >
                 <div class="card-body space-y-2">
-                  <div
-                    class="text-base-content/70 flex flex-wrap items-center gap-2 text-sm"
-                  >
+                  <div class="text-base-content/70 flex flex-wrap items-center gap-2 text-sm">
                     <span
                       x-show="showPeriodBadge"
                       class="badge badge-outline badge-sm"
-                      x-text="voting.periodBadgeLabel"></span>
+                      x-text="voting.periodBadgeLabel"
+                    ></span>
                     <span x-text="voting.dateDisplay"></span>
                     <span x-text="`TOP ${voting.agendaItem}`"></span>
                     <span
                       x-show="voting.type"
                       class="badge badge-neutral badge-sm"
-                      x-text="voting.type"></span>
+                      x-text="voting.type"
+                    ></span>
                     <span
                       class="badge badge-sm"
                       :class="voting.accepted ? 'badge-success' : 'badge-error'"
@@ -194,16 +192,22 @@ import Layout from '@layouts/Layout.astro';
                   <div class="text-base" x-text="voting.title"></div>
 
                   <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm">
-                    <span class="text-success" x-text="`${voting.counts.J} Ja`"
+                    <span
+                      class="text-success"
+                      x-text="`${voting.counts.J} Ja`"
                     ></span>
-                    <span class="text-error" x-text="`${voting.counts.N} Nein`"
+                    <span
+                      class="text-error"
+                      x-text="`${voting.counts.N} Nein`"
                     ></span>
                     <span
                       class="text-warning"
-                      x-text="`${voting.counts.E} Enth.`"></span>
+                      x-text="`${voting.counts.E} Enth.`"
+                    ></span>
                     <span
                       class="text-base-content/60"
-                      x-text="`${voting.counts.O} —`"></span>
+                      x-text="`${voting.counts.O} —`"
+                    ></span>
                   </div>
 
                   <div class="grid sm:grid-cols-[auto_1fr] sm:gap-x-2">
@@ -212,16 +216,14 @@ import Layout from '@layouts/Layout.astro';
                         <div
                           class="text-base-content/70"
                           x-text="`${votesByFaction.factionName}:`"
-                        >
-                        </div>
+                        ></div>
                         <div class="space-x-1 mb-1">
                           <template x-for="vote in votesByFaction.votes">
                             <div class="tooltip" :data-tip="vote.personName">
                               <div
                                 class="status status-lg"
                                 :class="voteStatusClass(vote.vote)"
-                              >
-                              </div>
+                              ></div>
                             </div>
                           </template>
                         </div>

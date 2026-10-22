@@ -12,7 +12,9 @@ import PaginationComponent from './Pagination.astro';
         <span class="iconify lucide--search text-base-content/60 size-5"></span>
         <input placeholder="Suche" id="search" type="search" name="search" />
       </label>
-      <button type="submit" class="btn btn-primary">Suchen</button>
+      <button type="submit" class="btn btn-primary">
+        Suchen
+      </button>
     </form>
 
     <div
@@ -34,8 +36,7 @@ import PaginationComponent from './Pagination.astro';
                 <div
                   class="opacity-60"
                   x-text="searchResultItem.paper.reference"
-                >
-                </div>
+                ></div>
                 <div x-text="searchResultItem.paper.title"></div>
               </div>
             </template>
@@ -44,12 +45,13 @@ import PaginationComponent from './Pagination.astro';
                 <p
                   class="text-base-content/80"
                   x-html="searchResultItem.paper.content"
-                >
-                </p>
+                ></p>
                 <a
                   :href="`/paper?paperId=${searchResultItem.paper.id}`"
-                  class="btn btn-soft btn-primary btn-sm">Dokument öffnen</a
+                  class="btn btn-soft btn-primary btn-sm"
                 >
+                  Dokument öffnen
+                </a>
               </div>
             </template>
             <template x-if="searchResultItem.type === 'speech'">
@@ -57,14 +59,14 @@ import PaginationComponent from './Pagination.astro';
                 <div
                   class="opacity-60"
                   x-text="formatDate(searchResultItem.speech.sessionDate)"
-                >
-                </div>
+                ></div>
                 <div class="flex flex-row items-center gap-2">
                   <div x-text="searchResultItem.speech.speaker"></div>
                   <span
                     class="badge badge-neutral badge-sm"
                     x-text="searchResultItem.speech.faction"
-                    x-show="searchResultItem.speech.faction"></span>
+                    x-show="searchResultItem.speech.faction"
+                  ></span>
                 </div>
               </div>
             </template>
@@ -73,12 +75,13 @@ import PaginationComponent from './Pagination.astro';
                 <p
                   class="text-base-content/80"
                   x-html="searchResultItem.speech.content"
-                >
-                </p>
+                ></p>
                 <a
                   :href="`/pp/${searchResultItem.speech.parliamentPeriod}/session/${searchResultItem.speech.session}?tab=speeches#speech-${searchResultItem.speech.start}`"
-                  class="btn btn-soft btn-primary btn-sm">Zum Redebeitrag</a
+                  class="btn btn-soft btn-primary btn-sm"
                 >
+                  Zum Redebeitrag
+                </a>
               </div>
             </template>
           </li>

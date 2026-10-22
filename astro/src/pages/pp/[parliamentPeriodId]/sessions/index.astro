@@ -90,58 +90,56 @@ const breadcrumbItems: BreadcrumbItem[] = [
   breadcrumbItems={breadcrumbItems}
 >
   <ul class="timeline timeline-vertical">
-    {
-      timelineEntries.map((entry, index) => {
-        const approved =
-          entry.type === 'session' && (entry as SessionEntry).approved;
-        return entry.type === 'month' ? (
-          <li>
-            {index !== 0 && <hr />}
-            <div class="timeline-start">{(entry as MonthEntry).label}</div>
-            <div class="timeline-middle">
-              <div class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1">
-                <span class="iconify lucide--calendar-1" />
-              </div>
+    {timelineEntries.map((entry, index) => {
+      const approved =
+        entry.type === 'session' && (entry as SessionEntry).approved;
+      return entry.type === 'month' ? (
+        <li>
+          {index !== 0 && <hr />}
+          <div class="timeline-start">{(entry as MonthEntry).label}</div>
+          <div class="timeline-middle">
+            <div class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1">
+              <span class="iconify lucide--calendar-1" />
             </div>
-            {index < timelineEntries.length - 1 && <hr />}
-          </li>
-        ) : (
-          <li>
-            {index !== 0 && <hr />}
-            <div class="timeline-middle">
-              <div class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1" />
-            </div>
-            <a
-              href={`/pp/${parliamentPeriodId}/session/${(entry as SessionEntry).sessionId}`}
-              class="timeline-end timeline-box ms-3 hover:bg-base-200 hover:cursor-pointer space-y-2"
-              class:list={approved ? undefined : 'border-dashed'}
+          </div>
+          {index < timelineEntries.length - 1 && <hr />}
+        </li>
+      ) : (
+        <li>
+          {index !== 0 && <hr />}
+          <div class="timeline-middle">
+            <div class="bg-base-200 grid place-items-center rounded-full border border-base-300 p-1" />
+          </div>
+          <a
+            href={`/pp/${parliamentPeriodId}/session/${(entry as SessionEntry).sessionId}`}
+            class="timeline-end timeline-box ms-3 hover:bg-base-200 hover:cursor-pointer space-y-2"
+            class:list={approved ? undefined : 'border-dashed'}
+          >
+            <div
+              class:list={
+                approved ? 'text-base-content/70' : 'text-base-content/40'
+              }
             >
+              {(entry as SessionEntry).dateDisplay}
+            </div>
+            {(entry as SessionEntry).title && (
               <div
-                class:list={
-                  approved ? 'text-base-content/70' : 'text-base-content/40'
-                }
+                class="text-base"
+                class:list={approved ? undefined : 'text-base-content/50'}
               >
-                {(entry as SessionEntry).dateDisplay}
+                {(entry as SessionEntry).title}
               </div>
-              {(entry as SessionEntry).title && (
-                <div
-                  class="text-base"
-                  class:list={approved ? undefined : 'text-base-content/50'}
-                >
-                  {(entry as SessionEntry).title}
-                </div>
-              )}
-              {!approved && (
-                <div class="text-warning flex items-center gap-1">
-                  <span class="iconify lucide--alert-triangle" />
-                  Prüfung noch nicht abgeschlossen
-                </div>
-              )}
-            </a>
-            {index < timelineEntries.length - 1 && <hr />}
-          </li>
-        );
-      })
-    }
+            )}
+            {!approved && (
+              <div class="text-warning flex items-center gap-1">
+                <span class="iconify lucide--alert-triangle" />
+                Prüfung noch nicht abgeschlossen
+              </div>
+            )}
+          </a>
+          {index < timelineEntries.length - 1 && <hr />}
+        </li>
+      );
+    })}
   </ul>
 </PageLayout>

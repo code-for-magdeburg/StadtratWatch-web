@@ -105,7 +105,10 @@ const motions = Array.from(motionsMap)
         checked
         @change="filterList($event.target.checked, $refs.changeRequestsFilterCheckbox.checked, $refs.pointsOfOrderFilterCheckbox.checked)"
       />
-      <label class="label text-sm" for="motionsFilterCheckbox"> Anträge </label>
+      <label class="label text-sm" for="motionsFilterCheckbox">
+        {' '}
+        Anträge{' '}
+      </label>
     </div>
     <div class="flex items-center gap-2">
       <input
@@ -185,7 +188,8 @@ const motions = Array.from(motionsMap)
               <a
                 :href="`/paper?paperId=${motion.paperId}`"
                 class="link link-primary"
-                x-text="motion.motionId"></a>
+                x-text="motion.motionId"
+              ></a>
             </template>
             <template x-if="!motion.paperId">
               <span x-text="motion.motionId"></span>
@@ -195,7 +199,8 @@ const motions = Array.from(motionsMap)
             <a
               :href="`/pp/${parliamentPeriodId}/session/${motion.sessionId}/voting/${motion.votingId}`"
               class="link link-primary"
-              x-text="motion.title"></a>
+              x-text="motion.title"
+            ></a>
           </td>
           <td class="text-center">
             <template x-if="motion.result === 'ACCEPTED'">
