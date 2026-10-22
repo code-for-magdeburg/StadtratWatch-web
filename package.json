@@ -10,15 +10,11 @@
     "test": "bun test"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudfront": "^3.1127.0",
-    "@aws-sdk/client-s3": "^3.1079.0",
-    "@napi-rs/canvas": "1.0.11",
     "@aws-sdk/client-cloudfront": "^3.1155.0",
     "@aws-sdk/client-s3": "^3.1155.0",
     "@napi-rs/canvas": "1.0.12",
     "@srw-astro/models": "workspace:*",
     "fast-png": "8.0.0",
-    "openai": "^7.34.0",
     "openai": "^7.42.0",
     "tesseract.js": "7.0.0"
   },
