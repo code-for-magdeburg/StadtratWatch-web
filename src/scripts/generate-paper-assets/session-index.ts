@@ -1,5 +1,6 @@
-import * as path from 'node:path';
 import { readdir } from 'node:fs/promises';
+import * as path from 'node:path';
+
 import type { Registry } from '@srw-astro/models/registry';
 
 export type SessionLocation = {
@@ -17,8 +18,7 @@ export interface SessionIndexStore {
 }
 
 export class SessionIndexFileStore implements SessionIndexStore {
-  constructor(private readonly dataDir: string) {
-  }
+  constructor(private readonly dataDir: string) {}
 
   public async loadSessionIndex(): Promise<SessionIndex> {
     const sessionIndex: SessionIndex = {};
@@ -49,6 +49,6 @@ export class SessionIndexFileStore implements SessionIndexStore {
     if (!(await registryFile.exists())) {
       return null;
     }
-    return await registryFile.json() as Registry;
+    return (await registryFile.json()) as Registry;
   }
 }

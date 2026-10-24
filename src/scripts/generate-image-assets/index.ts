@@ -1,9 +1,9 @@
 import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
 import { ImageAssetsWriter } from './image-assets-writer.ts';
-import { VotingsImageDataGenerator } from './votings-image-data-generator.ts';
 import { ImagesGenerator } from './images-generator.ts';
 import { InputDataLoaders } from './input-data-loaders.ts';
 import { pushImageAssetsFromEnv } from './push.ts';
+import { VotingsImageDataGenerator } from './votings-image-data-generator.ts';
 
 const args = parseCliArgs(Bun.argv.slice(2));
 

@@ -1,0 +1,6 @@
+# Bulk formatting commits that git blame should skip.
+# GitHub uses this file automatically. Locally, run once per clone:
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# style: reformat src/ with bun fmt (#560)
+786bc6ba610675b878d826f68ad65cc84bee742c

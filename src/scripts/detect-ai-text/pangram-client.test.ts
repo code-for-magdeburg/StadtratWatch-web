@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, mock, spyOn } from 'bun:test';
+
 import { countWords, PangramHttpClient } from './pangram-client.ts';
 
 afterEach(() => mock.restore());
@@ -20,9 +21,7 @@ describe('countWords', () => {
 
 describe('PangramHttpClient.assessText', () => {
   it('skips text below the 50-word minimum without calling Pangram', async () => {
-    const fetchSpy = spyOn(globalThis, 'fetch').mockRejectedValue(
-      new Error('fetch must not be called for short text'),
-    );
+    const fetchSpy = spyOn(globalThis, 'fetch').mockRejectedValue(new Error('fetch must not be called for short text'));
 
     const client = new PangramHttpClient('test-api-key');
     const outcome = await client.assessText('Nur ein paar Worte.');

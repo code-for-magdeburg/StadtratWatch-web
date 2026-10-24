@@ -50,8 +50,7 @@ export class TypesenseImporter implements IDocumentsImporter {
     private readonly typesenseServerUrl: string,
     private readonly typesenseCollectionName: string,
     private readonly typesenseApiKey: string,
-  ) {
-  }
+  ) {}
 
   async importPapers(papers: IndexedPaper[]): Promise<boolean> {
     const data = papers.map<TypesenseDocument>((paper) => ({
@@ -102,8 +101,7 @@ export class TypesenseImporter implements IDocumentsImporter {
   private async importDocuments(documents: TypesenseDocument[]): Promise<boolean> {
     const data = documents.map((document) => JSON.stringify(document)).join('\n');
     const queryParams = new URLSearchParams({ action: 'upsert' });
-    const url =
-      `${this.typesenseServerUrl}/collections/${this.typesenseCollectionName}/documents/import?${queryParams}`;
+    const url = `${this.typesenseServerUrl}/collections/${this.typesenseCollectionName}/documents/import?${queryParams}`;
     const init: RequestInit = {
       method: 'POST',
       headers: {

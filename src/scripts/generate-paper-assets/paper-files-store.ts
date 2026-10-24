@@ -1,13 +1,12 @@
-import * as path from 'node:path';
 import { readdir } from 'node:fs/promises';
+import * as path from 'node:path';
 
 export interface PaperFilesStore {
   getFileSize(fileId: number): number | null;
 }
 
 export class PaperFilesFileStore implements PaperFilesStore {
-  private constructor(private readonly fileSizesByName: Map<string, number>) {
-  }
+  private constructor(private readonly fileSizesByName: Map<string, number>) {}
 
   static async load(papersDir: string): Promise<PaperFilesFileStore> {
     const fileSizesByName = new Map<string, number>();

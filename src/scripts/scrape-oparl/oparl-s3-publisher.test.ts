@@ -1,7 +1,9 @@
-import { type FileReader, type MetadataReader, uploadOparlSnapshot } from './oparl-s3-publisher.ts';
-import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
 import { describe, expect, it } from 'bun:test';
+
+import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
+
 import { OPARL_SNAPSHOT_FILENAMES } from '../shared/oparl/oparl-snapshot.ts';
+import { type FileReader, type MetadataReader, uploadOparlSnapshot } from './oparl-s3-publisher.ts';
 
 const BUCKET = 'test-bucket';
 const PREFIX = 'oparl';

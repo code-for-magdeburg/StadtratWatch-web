@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'bun:test';
+
 import type { OparlManifest } from '../shared/oparl/oparl-snapshot.ts';
 import { createHttpSnapshotSource, type FetchFn } from './snapshot-source.ts';
 
@@ -67,10 +68,8 @@ describe('createHttpSnapshotSource', () => {
   });
 
   it('throws when a blob request fails', async () => {
-    const source = createHttpSnapshotSource(
-      BASE_URL,
-      PREFIX,
-      () => Promise.resolve(new Response(null, { status: 404, statusText: 'Not Found' })),
+    const source = createHttpSnapshotSource(BASE_URL, PREFIX, () =>
+      Promise.resolve(new Response(null, { status: 404, statusText: 'Not Found' })),
     );
 
     await expect(source.fetchBlob('missing.json.gz')).rejects.toThrow('404');

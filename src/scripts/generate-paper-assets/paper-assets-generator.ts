@@ -1,3 +1,21 @@
+import type { OparlMeeting, OparlPaper } from '@srw-astro/models/oparl';
+import { toPaperBatchNo } from '@srw-astro/models/paper-batch';
+
+import {
+  OparlAgendaItemsInMemoryRepository,
+  type OparlAgendaItemsRepository,
+} from '../shared/oparl/oparl-agenda-items-repository.ts';
+import { OparlFilesInMemoryRepository, type OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
+import {
+  OparlMeetingsInMemoryRepository,
+  type OparlMeetingsRepository,
+} from '../shared/oparl/oparl-meetings-repository.ts';
+import type { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
+import {
+  OparlOrganizationsInMemoryRepository,
+  type OparlOrganizationsRepository,
+} from '../shared/oparl/oparl-organizations-repository.ts';
+import { OparlPapersInMemoryRepository, type OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
 import type {
   PaperAssetDto,
   PaperConsultationDto,
@@ -6,27 +24,10 @@ import type {
   PaperGraphAssetDto,
   PaperGraphDto,
 } from './model.ts';
-import type { PaperFilesStore } from './paper-files-store.ts';
-import {
-  OparlMeetingsInMemoryRepository,
-  type OparlMeetingsRepository,
-} from '../shared/oparl/oparl-meetings-repository.ts';
-import { OparlPapersInMemoryRepository, type OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
-import { OparlFilesInMemoryRepository, type OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
-import {
-  OparlOrganizationsInMemoryRepository,
-  type OparlOrganizationsRepository,
-} from '../shared/oparl/oparl-organizations-repository.ts';
-import {
-  OparlAgendaItemsInMemoryRepository,
-  type OparlAgendaItemsRepository,
-} from '../shared/oparl/oparl-agenda-items-repository.ts';
-import type { OparlMeeting, OparlPaper } from '@srw-astro/models/oparl';
-import { toPaperBatchNo } from '@srw-astro/models/paper-batch';
-import { createInMemoryPaperGraph } from './paper-graph.ts';
-import type { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
 import type { PaperAssetsWriter } from './paper-assets-writer.ts';
+import type { PaperFilesStore } from './paper-files-store.ts';
 import type { PaperGraphAssetsWriter } from './paper-graph-assets-writer.ts';
+import { createInMemoryPaperGraph } from './paper-graph.ts';
 import type { SessionIndex, SessionIndexStore, SessionLocation } from './session-index.ts';
 
 export class PaperAssetsGenerator {
@@ -57,8 +58,10 @@ export class PaperAssetsGenerator {
 
     const extractPaperId = (oparlPaperId: string) => +oparlPaperId.split('/').pop()!;
 
-    const papers = this.papersRepository.getAllPapers().filter((paper) => !paper.deleted).map<PaperDto>(
-      (paper) => {
+    const papers = this.papersRepository
+      .getAllPapers()
+      .filter((paper) => !paper.deleted)
+      .map<PaperDto>((paper) => {
         console.log(`Processing paper ${paper.id} with reference ${paper.reference}`);
         const consultations = this.getConsultations(paper, sessionIndex);
         const files = this.getFiles(paper);
@@ -79,51 +82,50 @@ export class PaperAssetsGenerator {
           subordinatedPaperIds,
           superOrdinatedPaperIds,
         };
-      },
-    );
+      });
     const paperAssetsGroups = papers
       .sort((a, b) => a.id - b.id)
-      .reduce((acc, paper) => {
-        const batchNo = toPaperBatchNo(paper.id);
-        if (!acc[batchNo]) {
-          acc[batchNo] = [];
-        }
-        acc[batchNo].push(paper);
-        return acc;
-      }, {} as { [batchNo: string]: PaperDto[] });
-    const paperAssets = Object.entries(paperAssetsGroups).map<PaperAssetDto>(
-      ([batchNo, papers]) => ({
-        batchNo,
-        papers,
-      }),
-    );
+      .reduce(
+        (acc, paper) => {
+          const batchNo = toPaperBatchNo(paper.id);
+          if (!acc[batchNo]) {
+            acc[batchNo] = [];
+          }
+          acc[batchNo].push(paper);
+          return acc;
+        },
+        {} as { [batchNo: string]: PaperDto[] },
+      );
+    const paperAssets = Object.entries(paperAssetsGroups).map<PaperAssetDto>(([batchNo, papers]) => ({
+      batchNo,
+      papers,
+    }));
     await this.paperAssetsWriter.writePaperAssets(paperAssets);
 
-    const paperGraphs = onePaperGraph
-      .getAllRootPapers()
-      .map<PaperGraphDto>((rootPaperId) => {
-        const graphPapers = onePaperGraph
-          .getConnectedPapers(rootPaperId)
-          .map<PaperDto | undefined>((paperId) => papers.find((p) => p.id === paperId))
-          .filter((paper) => paper !== undefined);
-        return { rootPaperId, papers: graphPapers };
-      });
+    const paperGraphs = onePaperGraph.getAllRootPapers().map<PaperGraphDto>((rootPaperId) => {
+      const graphPapers = onePaperGraph
+        .getConnectedPapers(rootPaperId)
+        .map<PaperDto | undefined>((paperId) => papers.find((p) => p.id === paperId))
+        .filter((paper) => paper !== undefined);
+      return { rootPaperId, papers: graphPapers };
+    });
     const paperGraphGroups = paperGraphs
       .sort((a, b) => a.rootPaperId - b.rootPaperId)
-      .reduce((acc, paperGraph) => {
-        const batchNo = toPaperBatchNo(paperGraph.rootPaperId);
-        if (!acc[batchNo]) {
-          acc[batchNo] = [];
-        }
-        acc[batchNo].push(paperGraph);
-        return acc;
-      }, {} as { [batchNo: string]: PaperGraphDto[] });
-    const paperGraphAssets = Object.entries(paperGraphGroups).map<PaperGraphAssetDto>(
-      ([batchNo, paperGraphs]) => ({
-        batchNo,
-        paperGraphs,
-      }),
-    );
+      .reduce(
+        (acc, paperGraph) => {
+          const batchNo = toPaperBatchNo(paperGraph.rootPaperId);
+          if (!acc[batchNo]) {
+            acc[batchNo] = [];
+          }
+          acc[batchNo].push(paperGraph);
+          return acc;
+        },
+        {} as { [batchNo: string]: PaperGraphDto[] },
+      );
+    const paperGraphAssets = Object.entries(paperGraphGroups).map<PaperGraphAssetDto>(([batchNo, paperGraphs]) => ({
+      batchNo,
+      paperGraphs,
+    }));
 
     await this.paperGraphAssetsWriter.writePaperGraphAssets(paperGraphAssets);
   }
@@ -132,7 +134,9 @@ export class PaperAssetsGenerator {
     return (paper.consultation || [])
       .map<PaperConsultationDto | null>((consultation) => {
         if (
-          !consultation.meeting || !consultation.organization || consultation.organization.length === 0 ||
+          !consultation.meeting ||
+          !consultation.organization ||
+          consultation.organization.length === 0 ||
           !consultation.agendaItem
         ) {
           return null;

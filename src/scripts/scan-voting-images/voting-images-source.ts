@@ -1,5 +1,6 @@
-import * as path from 'node:path';
 import { readdirSync, readFileSync } from 'node:fs';
+import * as path from 'node:path';
+
 import { decode } from 'fast-png';
 
 export type PixelMatrix = {
@@ -15,8 +16,7 @@ export interface IVotingImagesSource {
 }
 
 export class VotingImagesSource implements IVotingImagesSource {
-  constructor(private readonly directory: string) {
-  }
+  constructor(private readonly directory: string) {}
 
   public getVotingImagesFilenames(): string[] {
     return readdirSync(this.directory, { withFileTypes: true })

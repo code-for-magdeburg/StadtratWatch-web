@@ -1,5 +1,6 @@
-import * as path from 'node:path';
 import { mkdir } from 'node:fs/promises';
+import * as path from 'node:path';
+
 import type { GeneratedVotingImage } from './images-generator.ts';
 
 export class ImageAssetsWriter {

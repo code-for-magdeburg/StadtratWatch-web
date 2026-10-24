@@ -1,7 +1,9 @@
-import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
 import { createHash } from 'node:crypto';
 import { readdir, readFile } from 'node:fs/promises';
 import * as path from 'node:path';
+
+import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
+
 import type { PushEnv } from './push-env.ts';
 
 /**
@@ -172,7 +174,9 @@ export async function verifyWebAssets(
   const problems = [
     missing.length > 0 ? `missing uploads: ${missing.join(', ')}` : '',
     orphaned.length > 0 ? `unpruned orphans: ${orphaned.join(', ')}` : '',
-  ].filter(Boolean).join('; ');
+  ]
+    .filter(Boolean)
+    .join('; ');
   throw new Error(`Web asset verification failed for ${target.bucket}/${target.prefix}: ${problems}`);
 }
 
@@ -199,9 +203,7 @@ export async function collectWebAssets(directory: string, prefix: string): Promi
  * free and unit tests can inject fakes without ever loading them.
  */
 export async function createAwsOperations(env: PushEnv): Promise<WebAssetOperations> {
-  const { DeleteObjectsCommand, ListObjectsV2Command, PutObjectCommand, S3Client } = await import(
-    '@aws-sdk/client-s3'
-  );
+  const { DeleteObjectsCommand, ListObjectsV2Command, PutObjectCommand, S3Client } = await import('@aws-sdk/client-s3');
   const { CloudFrontClient, CreateInvalidationCommand } = await import('@aws-sdk/client-cloudfront');
 
   const credentials = { accessKeyId: env.accessKeyId, secretAccessKey: env.secretAccessKey };
@@ -237,7 +239,7 @@ export async function createAwsOperations(env: PushEnv): Promise<WebAssetOperati
         );
         if (response.Errors?.length) {
           const details = response.Errors.map((error) =>
-            [error.Key ?? '<unknown key>', error.Code, error.Message].filter(Boolean).join(': ')
+            [error.Key ?? '<unknown key>', error.Code, error.Message].filter(Boolean).join(': '),
           ).join('; ');
           throw new Error(`Failed to delete S3 objects from ${bucket}: ${details}`);
         }

@@ -6,8 +6,7 @@ export interface IScraperMetadataStore {
 }
 
 export class ScraperMetadataFileStore implements IScraperMetadataStore {
-  constructor(private readonly directory: string) {
-  }
+  constructor(private readonly directory: string) {}
 
   public async getLastSuccessfulRunDate(): Promise<string | null> {
     const metadataFile = Bun.file(this.getMetadataFilePath());

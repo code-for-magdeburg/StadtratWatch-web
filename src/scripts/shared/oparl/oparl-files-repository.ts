@@ -1,5 +1,6 @@
-import type { OparlPapersRepository } from './oparl-papers-repository.ts';
 import type { OparlFile } from '@srw-astro/models/oparl';
+
+import type { OparlPapersRepository } from './oparl-papers-repository.ts';
 
 export interface OparlFilesRepository {
   getFilesByPaper(paperId: string): OparlFile[];
@@ -7,22 +8,18 @@ export interface OparlFilesRepository {
 }
 
 export class OparlFilesInMemoryRepository implements OparlFilesRepository {
-  constructor(private readonly files: OparlFile[], private readonly papersRepository: OparlPapersRepository) {
-  }
+  constructor(
+    private readonly files: OparlFile[],
+    private readonly papersRepository: OparlPapersRepository,
+  ) {}
 
   public getFilesByPaper(paperId: string): OparlFile[] {
     return this.files.filter((file) => file.paper && file.paper.includes(paperId));
   }
 
   public getFilesByMeeting(meetingId: string): OparlFile[] {
-    const paperIds = new Set(
-      this.papersRepository
-        .getPapersByMeeting(meetingId)
-        .map((paper) => paper.id),
-    );
+    const paperIds = new Set(this.papersRepository.getPapersByMeeting(meetingId).map((paper) => paper.id));
 
-    return this.files.filter(
-      (file) => (file.paper || []).some((paperId) => paperIds.has(paperId)),
-    );
+    return this.files.filter((file) => (file.paper || []).some((paperId) => paperIds.has(paperId)));
   }
 }

@@ -1,6 +1,8 @@
 import { afterEach, describe, expect, it, mock, spyOn } from 'bun:test';
+
 import { hashTranscript } from '@srw-astro/models/ai-text-assessment';
 import type { SessionSpeech } from '@srw-astro/models/session-speech';
+
 import { executeDetectAiTextRun, planDetectAiTextRun } from './detect-ai-text-processor.ts';
 import type { PangramAssessmentOutcome, PangramClient, PangramTaskResult } from './pangram-client.ts';
 

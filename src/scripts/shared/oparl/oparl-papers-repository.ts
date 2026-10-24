@@ -6,19 +6,15 @@ export interface OparlPapersRepository {
 }
 
 export class OparlPapersInMemoryRepository implements OparlPapersRepository {
-  constructor(private readonly papers: OparlPaper[]) {
-  }
+  constructor(private readonly papers: OparlPaper[]) {}
 
   public getAllPapers(): OparlPaper[] {
     return this.papers;
   }
 
   public getPapersByMeeting(meetingId: string): OparlPaper[] {
-    return this.papers.filter(
-      (paper) =>
-        (paper.consultation || []).some(
-          (consultation) => consultation.meeting === meetingId,
-        ),
+    return this.papers.filter((paper) =>
+      (paper.consultation || []).some((consultation) => consultation.meeting === meetingId),
     );
   }
 }

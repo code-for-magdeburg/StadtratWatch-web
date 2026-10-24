@@ -1,5 +1,6 @@
-import { ImagesGenerator } from './images-generator.ts';
 import { describe, expect, it } from 'bun:test';
+
+import { ImagesGenerator } from './images-generator.ts';
 
 function fontsWith(...installedFamilies: string[]) {
   return { has: (family: string) => installedFamilies.includes(family) };

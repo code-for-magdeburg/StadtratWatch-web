@@ -6,8 +6,7 @@ export interface OparlMeetingsRepository {
 }
 
 export class OparlMeetingsInMemoryRepository implements OparlMeetingsRepository {
-  constructor(private readonly meetings: OparlMeeting[]) {
-  }
+  constructor(private readonly meetings: OparlMeeting[]) {}
 
   public getMeetingById(meetingId: string): OparlMeeting | null {
     return this.meetings.find((meeting) => meeting.id === meetingId) || null;

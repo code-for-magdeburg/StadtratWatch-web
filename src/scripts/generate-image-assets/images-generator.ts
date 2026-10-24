@@ -1,4 +1,5 @@
 import { type Canvas, createCanvas, GlobalFonts, type SKRSContext2D } from '@napi-rs/canvas';
+
 import type { Voting } from './model.ts';
 
 const TOTAL_WIDTH = 1200;
@@ -109,10 +110,11 @@ export class ImagesGenerator {
 
     context.font = '14pt Verdana';
     context.fillStyle = TEXT_COLOR;
-    const formattedDate = new Date(voting.date).toLocaleDateString(
-      'de-DE',
-      { year: 'numeric', month: '2-digit', day: '2-digit' },
-    );
+    const formattedDate = new Date(voting.date).toLocaleDateString('de-DE', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    });
     context.fillText(`Abstimmung am ${formattedDate}`, 0, 20);
 
     return canvas;
@@ -200,13 +202,7 @@ export class ImagesGenerator {
     return canvas;
   }
 
-  private drawVotesSummary(
-    context: SKRSContext2D,
-    votes: number,
-    text: string,
-    xCenter: number,
-    fillColor: string,
-  ) {
+  private drawVotesSummary(context: SKRSContext2D, votes: number, text: string, xCenter: number, fillColor: string) {
     const RECT_WIDTH = 160;
     const RECT_HEIGHT = 40;
 

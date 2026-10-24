@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'bun:test';
-import { OparlMeetingsInMemoryRepository } from './oparl-meetings-repository.ts';
+
 import type { OparlMeeting } from '@srw-astro/models/oparl';
+
+import { OparlMeetingsInMemoryRepository } from './oparl-meetings-repository.ts';
 
 describe('OparlMeetingsInMemoryRepository', () => {
   describe('getMeetingById', () => {

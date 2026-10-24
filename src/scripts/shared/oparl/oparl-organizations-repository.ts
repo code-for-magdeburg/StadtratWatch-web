@@ -5,8 +5,7 @@ export interface OparlOrganizationsRepository {
 }
 
 export class OparlOrganizationsInMemoryRepository implements OparlOrganizationsRepository {
-  constructor(private readonly organizations: OparlOrganization[]) {
-  }
+  constructor(private readonly organizations: OparlOrganization[]) {}
 
   public getOrganizationById(organizationId: string): OparlOrganization | null {
     return this.organizations.find((organization) => organization.id === organizationId) || null;

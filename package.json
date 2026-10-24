@@ -1,13 +1,15 @@
 {
   "private": true,
   "type": "module",
-  "packageManager": "bun@1.4.3",
+  "packageManager": "bun@1.4.4",
   "workspaces": [
     "src/deps/astro"
   ],
   "scripts": {
     "typecheck": "bun check",
-    "test": "bun test"
+    "test": "bun test",
+    "format": "bun fmt src",
+    "format:check": "bun fmt --check src"
   },
   "dependencies": {
     "@aws-sdk/client-cloudfront": "^3.1155.0",
@@ -19,7 +21,7 @@
     "tesseract.js": "7.0.0"
   },
   "devDependencies": {
-    "@types/bun": "1.4.3",
+    "@types/bun": "1.4.4",
     "typescript": "7.0.2"
   }
 }

@@ -71,8 +71,12 @@ export type OparlManifest = {
 
 /** Narrows an untrusted (network) value to a manifest shape the rest of the pipeline can rely on. */
 export function isOparlManifest(value: unknown): value is OparlManifest {
-  return typeof value === 'object' && value !== null &&
-    typeof (value as OparlManifest).files === 'object' && (value as OparlManifest).files !== null;
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    typeof (value as OparlManifest).files === 'object' &&
+    (value as OparlManifest).files !== null
+  );
 }
 
 /**

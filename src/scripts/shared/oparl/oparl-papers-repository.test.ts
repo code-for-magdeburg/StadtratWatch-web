@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'bun:test';
-import { OparlPapersInMemoryRepository } from './oparl-papers-repository.ts';
+
 import type { OparlPaper } from '@srw-astro/models/oparl';
+
+import { OparlPapersInMemoryRepository } from './oparl-papers-repository.ts';
 
 describe('OparlPapersInMemoryRepository', () => {
   describe('getAllPapers', () => {

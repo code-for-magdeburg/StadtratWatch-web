@@ -1,8 +1,7 @@
-import type { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
-import {
-  OparlMeetingsInMemoryRepository,
-  type OparlMeetingsRepository,
-} from '../shared/oparl/oparl-meetings-repository.ts';
+import type { OparlMeeting } from '@srw-astro/models/oparl';
+import type { PaperIndex, PaperIndexEntry, VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
+import type { Registry } from '@srw-astro/models/registry';
+
 import {
   OparlAgendaItemsInMemoryRepository,
   type OparlAgendaItemsRepository,
@@ -11,12 +10,14 @@ import {
   OparlConsultationsInMemoryRepository,
   type OparlConsultationsRepository,
 } from '../shared/oparl/oparl-consultations-repository.ts';
+import {
+  OparlMeetingsInMemoryRepository,
+  type OparlMeetingsRepository,
+} from '../shared/oparl/oparl-meetings-repository.ts';
+import type { OparlObjectsStore } from '../shared/oparl/oparl-objects-store.ts';
 import { OparlPapersInMemoryRepository, type OparlPapersRepository } from '../shared/oparl/oparl-papers-repository.ts';
-import type { PaperIndex, PaperIndexEntry, VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
-import type { OparlMeeting } from '@srw-astro/models/oparl';
-import type { Registry } from '@srw-astro/models/registry';
-import type { RegistryStore } from './registry-store.ts';
 import type { DerivativesWriter } from './derivatives-writer.ts';
+import type { RegistryStore } from './registry-store.ts';
 
 export class OparlDerivativesGenerator {
   private readonly meetingsRepository: OparlMeetingsRepository;
@@ -70,10 +71,7 @@ export class OparlDerivativesGenerator {
     return meetingsByDate;
   }
 
-  private buildVotingPaperMap(
-    registry: Registry,
-    councilMeetingsByDate: Map<string, OparlMeeting>,
-  ): VotingPaperMap {
+  private buildVotingPaperMap(registry: Registry, councilMeetingsByDate: Map<string, OparlMeeting>): VotingPaperMap {
     const votingPaperMap: VotingPaperMap = {};
 
     const sessions = registry.sessions.toSorted((a, b) => a.date.localeCompare(b.date));

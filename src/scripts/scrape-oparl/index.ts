@@ -1,10 +1,10 @@
 import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
 import { tryGetScrapeOparlEnv, tryGetScrapeOparlPushEnv } from './env.ts';
-import { publishOparlSnapshot } from './oparl-s3-publisher.ts';
-import { ScraperMetadataFileStore } from './scraper-metadata-store.ts';
-import { OparlScraper } from './oparl-scraper.ts';
 import { OparlClient } from './oparl-client.ts';
 import { OparlObjectsFileStore } from './oparl-file-store.ts';
+import { publishOparlSnapshot } from './oparl-s3-publisher.ts';
+import { OparlScraper } from './oparl-scraper.ts';
+import { ScraperMetadataFileStore } from './scraper-metadata-store.ts';
 
 const args = parseCliArgs(Bun.argv.slice(2));
 

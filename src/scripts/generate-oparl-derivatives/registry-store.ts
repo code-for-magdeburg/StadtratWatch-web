@@ -1,5 +1,6 @@
-import * as path from 'node:path';
 import { readdir } from 'node:fs/promises';
+import * as path from 'node:path';
+
 import type { Registry } from '@srw-astro/models/registry';
 
 export interface RegistryStore {
@@ -7,8 +8,7 @@ export interface RegistryStore {
 }
 
 export class RegistryFileStore implements RegistryStore {
-  constructor(private readonly dataDir: string) {
-  }
+  constructor(private readonly dataDir: string) {}
 
   public async loadRegistries(): Promise<Registry[]> {
     const registries: Registry[] = [];
@@ -23,7 +23,7 @@ export class RegistryFileStore implements RegistryStore {
         continue;
       }
 
-      registries.push(await registryFile.json() as Registry);
+      registries.push((await registryFile.json()) as Registry);
     }
 
     // Sorted by the canonical registry id for a deterministic processing order across runs.

@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'bun:test';
-import { PaperAssetsGenerator } from '../paper-assets-generator.ts';
-import type { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
+
 import type {
   OparlAgendaItem,
   OparlConsultation,
@@ -9,9 +8,12 @@ import type {
   OparlOrganization,
   OparlPaper,
 } from '@srw-astro/models/oparl';
+
+import type { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
 import type { PaperAssetDto, PaperConsultationDto, PaperGraphAssetDto } from '../model.ts';
-import type { PaperFilesStore } from '../paper-files-store.ts';
+import { PaperAssetsGenerator } from '../paper-assets-generator.ts';
 import type { PaperAssetsWriter } from '../paper-assets-writer.ts';
+import type { PaperFilesStore } from '../paper-files-store.ts';
 import type { PaperGraphAssetsWriter } from '../paper-graph-assets-writer.ts';
 import type { SessionIndex, SessionIndexStore } from '../session-index.ts';
 
@@ -90,8 +92,7 @@ class MockOparlObjectsStore implements OparlObjectsStore {
 }
 
 class MockSessionIndexStore implements SessionIndexStore {
-  constructor(private readonly sessionIndex: SessionIndex) {
-  }
+  constructor(private readonly sessionIndex: SessionIndex) {}
 
   loadSessionIndex = (): Promise<SessionIndex> => Promise.resolve(this.sessionIndex);
 }
@@ -125,8 +126,8 @@ describe('Linking consultations to session pages', () => {
   });
 
   it('does not link non-council meetings that merely share a session date', async () => {
-    const mayorConsultation = (await generateConsultations()).find((consultation) =>
-      consultation.agendaItem === '5.3'
+    const mayorConsultation = (await generateConsultations()).find(
+      (consultation) => consultation.agendaItem === '5.3',
     )!;
     expect(mayorConsultation.parliamentPeriodId).toEqual(undefined);
     expect(mayorConsultation.sessionId).toEqual(undefined);

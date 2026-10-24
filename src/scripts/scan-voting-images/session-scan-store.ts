@@ -1,4 +1,5 @@
 import * as path from 'node:path';
+
 import type { SessionScan } from '@srw-astro/models/session-scan';
 
 export interface ISessionScanStore {
@@ -6,13 +7,9 @@ export interface ISessionScanStore {
 }
 
 export class SessionScanStore implements ISessionScanStore {
-  constructor(private readonly directory: string) {
-  }
+  constructor(private readonly directory: string) {}
 
   async writeSessionScan(session: string, summary: SessionScan): Promise<void> {
-    await Bun.write(
-      path.join(this.directory, `session-scan-${session}.json`),
-      JSON.stringify(summary, null, 4),
-    );
+    await Bun.write(path.join(this.directory, `session-scan-${session}.json`), JSON.stringify(summary, null, 4));
   }
 }

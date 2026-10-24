@@ -1,4 +1,5 @@
 import * as path from 'node:path';
+
 import type { SpeakerWithSegments } from './types.ts';
 
 export interface IParsedFilesStore {
@@ -6,14 +7,10 @@ export interface IParsedFilesStore {
 }
 
 export class ParsedFilesStore implements IParsedFilesStore {
-  constructor(private readonly directory: string) {
-  }
+  constructor(private readonly directory: string) {}
 
   async writeSpeakerFile(session: string, speakers: SpeakerWithSegments[]): Promise<void> {
     console.log(`Writing session-speakers-${session}.json`);
-    await Bun.write(
-      path.join(this.directory, `session-speakers-${session}.json`),
-      JSON.stringify(speakers, null, 4),
-    );
+    await Bun.write(path.join(this.directory, `session-speakers-${session}.json`), JSON.stringify(speakers, null, 4));
   }
 }

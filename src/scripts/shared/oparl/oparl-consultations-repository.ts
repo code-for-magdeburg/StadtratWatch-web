@@ -5,8 +5,7 @@ export interface OparlConsultationsRepository {
 }
 
 export class OparlConsultationsInMemoryRepository implements OparlConsultationsRepository {
-  constructor(private readonly consultations: OparlConsultation[]) {
-  }
+  constructor(private readonly consultations: OparlConsultation[]) {}
 
   public getConsultationById(consultationId: string): OparlConsultation | null {
     return this.consultations.find((c) => c.id === consultationId) || null;

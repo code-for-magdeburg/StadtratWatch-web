@@ -39,7 +39,7 @@ For detailed instructions on running data processing scripts (OParl scraping, pa
 
 For code quality:
 ```bash
-deno fmt                # Format code
+bun run format          # Format code (all of src/, see Bun Scripts)
 deno lint               # Lint code
 deno test --permit-no-files  # Run tests
 deno check src/         # Type-check code
@@ -47,10 +47,11 @@ deno check src/         # Type-check code
 
 ### Bun Scripts
 
-The scripts in `src/` are moving from Deno to Bun one by one (see ADR-0007). Folders already on Bun are listed in `tsconfig.json` `include`; `deno fmt`/`deno lint` still cover them, `deno check`/`deno test` skip them. Exception: `src/scripts/shared/` runs on both runtimes until the last script that uses it is on Bun, so `deno check` still covers its code and only its tests are skipped.
+The scripts in `src/` are moving from Deno to Bun one by one (see ADR-0007). Folders already on Bun are listed in `tsconfig.json` `include`; `deno lint` still covers them, `deno check`/`deno test` skip them. Exception: `src/scripts/shared/` runs on both runtimes until the last script that uses it is on Bun, so `deno check` still covers its code and only its tests are skipped. `bun run format` covers all of `src/`, whatever the runtime.
 
 ```bash
 bun install             # Install dependencies
+bun run format          # Format src/ (bun fmt; format:check to check only)
 bun run typecheck       # Type-check migrated folders (bun check)
 bun run test            # Run tests of migrated folders (never pass paths)
 ```
@@ -214,7 +215,7 @@ Index is rebuilt with index-search script (see src/scripts/index-search/README.m
 ## Code Conventions
 
 - **Shared models**: Define canonical model changes in `astro/src/models/`. A new model file also needs a one-line re-export in `src/deps/astro/` and an entry in the `exports` map of both `src/deps/astro/package.json` and `src/deps/astro/deno.json`
-- **Deno formatting**: Uses single quotes, 120 char line width (see deno.json)
+- **`src/` formatting**: `bun fmt`, single quotes, 120 char line width (see `bunfig.toml`)
 - **Astro formatting**: Uses Prettier with .prettierrc
 - **File naming**: Use kebab-case for directories and TypeScript files. Existing camelCase and PascalCase files keep their names
 - **Session IDs**: Always use ISO date format YYYY-MM-DD

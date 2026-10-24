@@ -1,10 +1,11 @@
-import type { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-importer.ts';
-import type { IPapersContentSource } from './papers-content-source.ts';
-import type { ISpeechesSource } from './speeches-source.ts';
 import type { Registry, RegistryFaction, RegistryPerson, RegistrySession } from '@srw-astro/models/registry';
-import type { OparlPapersInMemoryRepository } from '../shared/oparl/oparl-papers-repository.ts';
+
 import type { OparlFilesInMemoryRepository } from '../shared/oparl/oparl-files-repository.ts';
 import type { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
+import type { OparlPapersInMemoryRepository } from '../shared/oparl/oparl-papers-repository.ts';
+import type { IPapersContentSource } from './papers-content-source.ts';
+import type { ISpeechesSource } from './speeches-source.ts';
+import type { IDocumentsImporter, IndexedPaper, IndexedSpeech } from './typesense-importer.ts';
 
 function isPersonInSession(person: RegistryPerson, session: RegistrySession): boolean {
   const sessionDate = session.date;
@@ -28,9 +29,11 @@ function getFactionOfPerson(
   session: RegistrySession,
   person: RegistryPerson,
 ): RegistryFaction | null {
-  return parliamentPeriod.factions.find(
-    (faction) => faction.id === person.factionId && isPersonInSession(person, session),
-  ) || null;
+  return (
+    parliamentPeriod.factions.find(
+      (faction) => faction.id === person.factionId && isPersonInSession(person, session),
+    ) || null
+  );
 }
 
 function getPartyOfPerson(
@@ -38,9 +41,9 @@ function getPartyOfPerson(
   session: RegistrySession,
   person: RegistryPerson,
 ): RegistryFaction | null {
-  return parliamentPeriod.parties.find(
-    (party) => party.id === person.partyId && isPersonInSession(person, session),
-  ) || null;
+  return (
+    parliamentPeriod.parties.find((party) => party.id === person.partyId && isPersonInSession(person, session)) || null
+  );
 }
 
 export class SearchIndexer {
@@ -50,8 +53,7 @@ export class SearchIndexer {
     private readonly papersRepository: OparlPapersInMemoryRepository,
     private readonly filesRepository: OparlFilesInMemoryRepository,
     private readonly organizationId: string,
-  ) {
-  }
+  ) {}
 
   public async indexPapers(contentSource: IPapersContentSource) {
     console.log('Importing papers...');
@@ -90,7 +92,7 @@ export class SearchIndexer {
       processedPaperIds.push(...meetingPapers.map((paper) => paper.id));
     }
 
-    if (!await this.importer.importPapers(papers)) {
+    if (!(await this.importer.importPapers(papers))) {
       console.error('Failed to import papers.');
     }
   }
@@ -120,7 +122,7 @@ export class SearchIndexer {
         };
       });
 
-    if (!await this.importer.importSpeeches(speechesWithTranscriptions)) {
+    if (!(await this.importer.importSpeeches(speechesWithTranscriptions))) {
       console.error('Failed to import speeches.');
     }
   }

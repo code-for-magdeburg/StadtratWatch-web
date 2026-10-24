@@ -1,4 +1,5 @@
 import * as path from 'node:path';
+
 import type { PaperIndex, VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
 
 export interface DerivativesWriter {
@@ -7,8 +8,7 @@ export interface DerivativesWriter {
 }
 
 export class DerivativesFileWriter implements DerivativesWriter {
-  constructor(private readonly dataDir: string) {
-  }
+  constructor(private readonly dataDir: string) {}
 
   public async writeVotingPaperMap(periodId: string, votingPaperMap: VotingPaperMap): Promise<void> {
     await writeJsonFile(path.join(this.dataDir, periodId, 'voting-paper-map.json'), votingPaperMap);

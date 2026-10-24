@@ -1,7 +1,7 @@
 import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
-import { PeriodDataFileStore } from './period-data-store.ts';
 import { PaperVotingsGenerator } from './paper-votings-generator.ts';
 import { PaperVotingsFileWriter } from './paper-votings-writer.ts';
+import { PeriodDataFileStore } from './period-data-store.ts';
 import { pushPaperVotingsFromEnv } from './push.ts';
 
 const args = parseCliArgs(Bun.argv.slice(2));

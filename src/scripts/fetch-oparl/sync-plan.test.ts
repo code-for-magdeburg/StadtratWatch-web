@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'bun:test';
+
 import { OPARL_SNAPSHOT_FILENAMES, type OparlManifest } from '../shared/oparl/oparl-snapshot.ts';
 import type { ManifestFetch } from './snapshot-source.ts';
 import type { LocalShas } from './snapshot-store.ts';

@@ -5,8 +5,7 @@ export interface IPapersContentSource {
 }
 
 export class PapersContentSource implements IPapersContentSource {
-  constructor(private readonly directory: string) {
-  }
+  constructor(private readonly directory: string) {}
 
   public async getContent(fileId: number): Promise<string> {
     const filename = `${fileId}.pdf.txt`;

@@ -1,13 +1,14 @@
-import type { SessionInput } from '@srw-astro/models/session-input';
 import type { Registry, RegistryFaction, RegistryPerson } from '@srw-astro/models/registry';
-import type { Voting, VotingPerFaction } from './model.ts';
 import { type Vote, VoteResult } from '@srw-astro/models/session';
+import type { SessionInput } from '@srw-astro/models/session-input';
 import type { SessionScanVote } from '@srw-astro/models/session-scan';
 
+import type { Voting, VotingPerFaction } from './model.ts';
+
 function getPersonsOfSession(persons: RegistryPerson[], sessionDate: string): RegistryPerson[] {
-  return persons.filter((person) =>
-    (person.start === null || person.start <= sessionDate) &&
-    (person.end === null || person.end >= sessionDate)
+  return persons.filter(
+    (person) =>
+      (person.start === null || person.start <= sessionDate) && (person.end === null || person.end >= sessionDate),
   );
 }
 

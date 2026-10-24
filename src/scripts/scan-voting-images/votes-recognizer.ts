@@ -1,7 +1,8 @@
+import { VoteResult } from '@srw-astro/models/session';
+import type { SessionScanVote } from '@srw-astro/models/session-scan';
+
 import type { ScanConfig, ScanConfigLayout, ScanConfigPerson } from './scan-config.ts';
 import type { IVotingImagesSource, PixelMatrix } from './voting-images-source.ts';
-import type { SessionScanVote } from '@srw-astro/models/session-scan';
-import { VoteResult } from '@srw-astro/models/session';
 
 type CategorizedColor = 'red' | 'green' | 'yellow' | 'white' | 'unknown';
 type VoteCode = VoteResult.VOTE_FOR | VoteResult.VOTE_AGAINST | VoteResult.VOTE_ABSTENTION | VoteResult.DID_NOT_VOTE;
@@ -11,19 +12,14 @@ export interface IVotesRecognizer {
 }
 
 export class VotesRecognizer implements IVotesRecognizer {
-  constructor(private readonly imagesSource: IVotingImagesSource) {
-  }
+  constructor(private readonly imagesSource: IVotingImagesSource) {}
 
   public getVotesForNames(votingFilepath: string, config: ScanConfig): SessionScanVote[] {
     const image = this.imagesSource.loadVotingImage(votingFilepath);
     return config.names.map((name) => this.getVoteForName(image, name, config.layout));
   }
 
-  private getVoteForName(
-    image: PixelMatrix,
-    name: ScanConfigPerson,
-    layout: ScanConfigLayout,
-  ): SessionScanVote {
+  private getVoteForName(image: PixelMatrix, name: ScanConfigPerson, layout: ScanConfigLayout): SessionScanVote {
     const position = this.getTestPositionForName(name, layout);
     const color = this.getColorAtPosition(image, position.x, position.y);
     const categorizedColor = this.categorizeColor(color);
@@ -36,7 +32,7 @@ export class VotesRecognizer implements IVotesRecognizer {
     const nameColumn = layout.namesColumns[name.columnIndex];
     return {
       x: nameColumn.left + nameColumn.testPixelXOffset,
-      y: nameColumn.top + nameColumn.testPixelYOffset + (name.rowIndex * layout.namesRowHeight),
+      y: nameColumn.top + nameColumn.testPixelYOffset + name.rowIndex * layout.namesRowHeight,
     };
   }
 

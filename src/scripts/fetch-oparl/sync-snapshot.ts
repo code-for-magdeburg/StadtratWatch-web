@@ -1,6 +1,6 @@
-import { createSyncPlan, type SyncPlan } from './sync-plan.ts';
 import type { SnapshotSource } from './snapshot-source.ts';
 import type { SnapshotStore } from './snapshot-store.ts';
+import { createSyncPlan, type SyncPlan } from './sync-plan.ts';
 
 export type SyncLogger = {
   info(message: string): void;

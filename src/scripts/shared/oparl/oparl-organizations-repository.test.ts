@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'bun:test';
-import { OparlOrganizationsInMemoryRepository } from './oparl-organizations-repository.ts';
+
 import type { OparlOrganization } from '@srw-astro/models/oparl';
+
+import { OparlOrganizationsInMemoryRepository } from './oparl-organizations-repository.ts';
 
 describe('OparlOrganizationsInMemoryRepository', () => {
   describe('getOrganizationById', () => {

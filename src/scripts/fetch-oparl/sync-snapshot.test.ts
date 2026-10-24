@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'bun:test';
+
 import { OPARL_SNAPSHOT_FILENAMES, type OparlManifest, shortSnapshotSha } from '../shared/oparl/oparl-snapshot.ts';
 import type { SnapshotSource } from './snapshot-source.ts';
 import type { LocalShas, SnapshotStore } from './snapshot-store.ts';
@@ -85,7 +86,7 @@ async function inMemorySource(content: Record<string, string>, { lastSync, failM
 
   const source: SnapshotSource = {
     tryFetchManifest: () =>
-      Promise.resolve(failManifest ? { ok: false, reason: 'boom' } as const : { ok: true, manifest } as const),
+      Promise.resolve(failManifest ? ({ ok: false, reason: 'boom' } as const) : ({ ok: true, manifest } as const)),
     fetchBlob(blob) {
       blobRequests.push(blob);
       const data = blobs.get(blob);

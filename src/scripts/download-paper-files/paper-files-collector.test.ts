@@ -1,9 +1,11 @@
-import { PaperFilesCollector } from './paper-files-collector.ts';
-import type { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
-import type { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
-import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
-import type { OparlFile, OparlMeeting } from '@srw-astro/models/oparl';
 import { afterEach, describe, expect, it, mock, spyOn } from 'bun:test';
+
+import type { OparlFile, OparlMeeting } from '@srw-astro/models/oparl';
+
+import type { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
+import type { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
+import { PaperFilesCollector } from './paper-files-collector.ts';
+import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
 
 const mockMeetings: OparlMeeting[] = [
   {

@@ -1,11 +1,13 @@
 import { describe, expect, it } from 'bun:test';
-import { PaperVotingsGenerator } from '../paper-votings-generator.ts';
-import type { PeriodData, PeriodDataStore } from '../period-data-store.ts';
-import type { PaperVotingsWriter } from '../paper-votings-writer.ts';
-import type { PaperVotingsAssetDto } from '../model.ts';
+
+import type { PaperVotingsDto } from '@srw-astro/models/paper-votings';
 import type { Registry, RegistryFaction, RegistryPerson } from '@srw-astro/models/registry';
 import type { SessionScan, SessionScanItem, SessionScanVote } from '@srw-astro/models/session-scan';
-import type { PaperVotingsDto } from '@srw-astro/models/paper-votings';
+
+import type { PaperVotingsAssetDto } from '../model.ts';
+import { PaperVotingsGenerator } from '../paper-votings-generator.ts';
+import type { PaperVotingsWriter } from '../paper-votings-writer.ts';
+import type { PeriodData, PeriodDataStore } from '../period-data-store.ts';
 
 const PERIOD_7 = 'example-7';
 const PERIOD_8 = 'example-8';
@@ -17,8 +19,7 @@ const MULTI_SCAN_PAPER = 243686;
 const LOW_ID_PAPER = 42;
 
 class MockPeriodDataStore implements PeriodDataStore {
-  constructor(private readonly periods: PeriodData[]) {
-  }
+  constructor(private readonly periods: PeriodData[]) {}
 
   loadPeriods = (): Promise<PeriodData[]> => Promise.resolve(this.periods);
 }
@@ -67,10 +68,7 @@ describe('Generating paper votings', () => {
       period(PERIOD_8, {
         votingPaperMap: { '2024-07-08': { '12.6': MULTI_SCAN_PAPER } },
         sessionScansByDate: {
-          '2024-07-08': [
-            scan('2024-07-08-012.png', '12.6'),
-            scan('2024-07-08-014.png', '12.6'),
-          ],
+          '2024-07-08': [scan('2024-07-08-012.png', '12.6'), scan('2024-07-08-014.png', '12.6')],
         },
       }),
     ]);
