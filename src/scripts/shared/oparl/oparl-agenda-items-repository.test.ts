@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'bun:test';
+
 import type { OparlAgendaItem } from '@srw-astro/models/oparl';
+
 import {
   OparlAgendaItemsInMemoryRepository,
   type OparlAgendaItemsRepository,
@@ -40,9 +42,7 @@ describe('OparlAgendaItemsInMemoryRepository', () => {
   ];
 
   it('should implement OparlAgendaItemsRepository interface', () => {
-    const repository: OparlAgendaItemsRepository = new OparlAgendaItemsInMemoryRepository(
-      mockAgendaItems,
-    );
+    const repository: OparlAgendaItemsRepository = new OparlAgendaItemsInMemoryRepository(mockAgendaItems);
     expect(typeof repository.getAgendaItemById).toEqual('function');
   });
 

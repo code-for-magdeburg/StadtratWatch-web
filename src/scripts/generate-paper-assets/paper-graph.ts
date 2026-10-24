@@ -22,10 +22,7 @@ export class PaperInMemoryGraph implements PaperGraph {
       throw new Error(`Paper with ID ${paperId} already exists in the graph.`);
     }
 
-    this.nodes.set(
-      paperId,
-      { id: paperId, superordinateIds: [], subordinateIds: [] },
-    );
+    this.nodes.set(paperId, { id: paperId, superordinateIds: [], subordinateIds: [] });
   }
 
   public addSubordinateRelationship(superordinatedPaperId: number, subordinatedPaperId: number): void {
@@ -140,16 +137,21 @@ export class PaperInMemoryGraph implements PaperGraph {
 export function createInMemoryPaperGraph(papersRepository: OparlPapersRepository): PaperGraph {
   const graph = new PaperInMemoryGraph();
 
-  const allPapers = papersRepository.getAllPapers().filter((paper) => !paper.deleted).map((paper) => ({
-    paperId: +paper.id.split('/').pop()!,
-    subordinatedPaperIds: (paper.superordinatedPaper || []).map((relatedPaperId) => +relatedPaperId.split('/').pop()!),
-  }));
+  const allPapers = papersRepository
+    .getAllPapers()
+    .filter((paper) => !paper.deleted)
+    .map((paper) => ({
+      paperId: +paper.id.split('/').pop()!,
+      subordinatedPaperIds: (paper.superordinatedPaper || []).map(
+        (relatedPaperId) => +relatedPaperId.split('/').pop()!,
+      ),
+    }));
 
   allPapers.forEach((paper) => graph.addPaper(paper.paperId));
 
   for (const paper of allPapers) {
     paper.subordinatedPaperIds.forEach((subordinatedPaperId) =>
-      graph.addSubordinateRelationship(paper.paperId, subordinatedPaperId)
+      graph.addSubordinateRelationship(paper.paperId, subordinatedPaperId),
     );
   }
 

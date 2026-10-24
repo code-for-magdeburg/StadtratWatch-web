@@ -1,10 +1,14 @@
 import type { OparlBody, OparlObject } from '@srw-astro/models/oparl';
+
+import { OPARL_FILENAME_BY_TYPE, OparlObjectType } from '../shared/oparl/oparl-snapshot.ts';
 import type { OparlClient } from './oparl-client.ts';
 import type { IOparlObjectFileStore } from './oparl-file-store.ts';
-import { OPARL_FILENAME_BY_TYPE, OparlObjectType } from '../shared/oparl/oparl-snapshot.ts';
 
 export class OparlScraper {
-  constructor(private readonly client: OparlClient, private readonly oparlObjectsStore: IOparlObjectFileStore) {}
+  constructor(
+    private readonly client: OparlClient,
+    private readonly oparlObjectsStore: IOparlObjectFileStore,
+  ) {}
 
   public async fetchFull(oparlBodyUrl: string, createdSince: string): Promise<void> {
     console.log(`Fetching all data created since ${createdSince}...`);

@@ -7,8 +7,7 @@ export interface IRttmFilesStore {
 }
 
 export class RttmFilesStore implements IRttmFilesStore {
-  constructor(private readonly directory: string) {
-  }
+  constructor(private readonly directory: string) {}
 
   public async getRttmFiles(): Promise<string[]> {
     const entries = await readdir(this.directory, { withFileTypes: true });

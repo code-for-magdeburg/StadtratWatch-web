@@ -1,4 +1,5 @@
 import type { SessionSpeech } from '@srw-astro/models/session-speech';
+
 import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
 import { executeDetectAiTextRun, planDetectAiTextRun } from './detect-ai-text-processor.ts';
 import { tryGetDetectAiTextEnv } from './env.ts';

@@ -1,18 +1,18 @@
-import { getVoteCounts, getVotesByFactions, getVotingId, votingAccepted } from '@srw-astro/models/voting-breakdown';
 import { toPaperBatchNo } from '@srw-astro/models/paper-batch';
-import type { SessionScanItem } from '@srw-astro/models/session-scan';
-import type { Registry } from '@srw-astro/models/registry';
-import type { PeriodData, PeriodDataStore } from './period-data-store.ts';
-import type { PaperVotingsWriter } from './paper-votings-writer.ts';
-import type { PaperVotingsAssetDto } from './model.ts';
 import type { PaperVotingItem, PaperVotingsDto } from '@srw-astro/models/paper-votings';
+import type { Registry } from '@srw-astro/models/registry';
+import type { SessionScanItem } from '@srw-astro/models/session-scan';
+import { getVoteCounts, getVotesByFactions, getVotingId, votingAccepted } from '@srw-astro/models/voting-breakdown';
+
+import type { PaperVotingsAssetDto } from './model.ts';
+import type { PaperVotingsWriter } from './paper-votings-writer.ts';
+import type { PeriodData, PeriodDataStore } from './period-data-store.ts';
 
 export class PaperVotingsGenerator {
   constructor(
     private readonly periodDataStore: PeriodDataStore,
     private readonly writer: PaperVotingsWriter,
-  ) {
-  }
+  ) {}
 
   public async generatePaperVotings(): Promise<void> {
     const votingsByPaperId = new Map<number, PaperVotingItem[]>();

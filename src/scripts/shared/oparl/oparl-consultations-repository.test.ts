@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'bun:test';
+
 import type { OparlConsultation } from '@srw-astro/models/oparl';
+
 import {
   OparlConsultationsInMemoryRepository,
   type OparlConsultationsRepository,

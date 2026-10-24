@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs';
+import * as path from 'node:path';
+
 import type {
   OparlAgendaItem,
   OparlConsultation,
@@ -6,8 +9,6 @@ import type {
   OparlOrganization,
   OparlPaper,
 } from '@srw-astro/models/oparl';
-import { readFileSync } from 'node:fs';
-import * as path from 'node:path';
 
 export interface OparlObjectsStore {
   loadMeetings(): OparlMeeting[];
@@ -19,8 +20,7 @@ export interface OparlObjectsStore {
 }
 
 export class OparlObjectsFileStore implements OparlObjectsStore {
-  constructor(private readonly directory: string) {
-  }
+  constructor(private readonly directory: string) {}
 
   public loadMeetings(): OparlMeeting[] {
     return JSON.parse(readFileSync(path.join(this.directory, 'meetings.json'), 'utf-8')) as OparlMeeting[];

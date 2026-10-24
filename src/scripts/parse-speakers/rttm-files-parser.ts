@@ -3,8 +3,10 @@ import type { IRttmFilesStore } from './rttm-files-store.ts';
 import type { Segment, SpeakerSegment, SpeakerWithSegments } from './types.ts';
 
 export class RttmFilesParser {
-  constructor(private readonly rttmFilesStore: IRttmFilesStore, private readonly parsedFilesStore: IParsedFilesStore) {
-  }
+  constructor(
+    private readonly rttmFilesStore: IRttmFilesStore,
+    private readonly parsedFilesStore: IParsedFilesStore,
+  ) {}
 
   public async process(session: string) {
     const rttmFiles = await this.rttmFilesStore.getRttmFiles();
@@ -30,17 +32,18 @@ export class RttmFilesParser {
       })
       .sort((a, b) => a.speaker.localeCompare(b.speaker));
 
-    const bySpeaker = speakerSegments.reduce((acc, line) => {
-      if (!acc[line.speaker]) {
-        acc[line.speaker] = [];
-      }
-      acc[line.speaker].push({ start: line.start, duration: line.duration });
-      return acc;
-    }, {} as Record<string, Segment[]>);
+    const bySpeaker = speakerSegments.reduce(
+      (acc, line) => {
+        if (!acc[line.speaker]) {
+          acc[line.speaker] = [];
+        }
+        acc[line.speaker].push({ start: line.start, duration: line.duration });
+        return acc;
+      },
+      {} as Record<string, Segment[]>,
+    );
 
-    return Object
-      .keys(bySpeaker)
-      .map((speaker) => ({ speaker, segments: bySpeaker[speaker] }));
+    return Object.keys(bySpeaker).map((speaker) => ({ speaker, segments: bySpeaker[speaker] }));
   }
 }
 

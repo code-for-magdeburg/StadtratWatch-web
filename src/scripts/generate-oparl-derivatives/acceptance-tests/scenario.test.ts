@@ -1,9 +1,5 @@
 import { describe, expect, it } from 'bun:test';
-import { OparlDerivativesGenerator } from '../oparl-derivatives-generator.ts';
-import type { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
-import type { RegistryStore } from '../registry-store.ts';
-import type { DerivativesWriter } from '../derivatives-writer.ts';
-import type { Registry } from '@srw-astro/models/registry';
+
 import type {
   OparlAgendaItem,
   OparlConsultation,
@@ -13,6 +9,12 @@ import type {
   OparlPaper,
 } from '@srw-astro/models/oparl';
 import type { PaperIndex, VotingPaperMap } from '@srw-astro/models/oparl-derivatives';
+import type { Registry } from '@srw-astro/models/registry';
+
+import type { OparlObjectsStore } from '../../shared/oparl/oparl-objects-store.ts';
+import type { DerivativesWriter } from '../derivatives-writer.ts';
+import { OparlDerivativesGenerator } from '../oparl-derivatives-generator.ts';
+import type { RegistryStore } from '../registry-store.ts';
 
 const COUNCIL_ORG = 'https://example.org/oparl/organizations/gr/1';
 const OTHER_ORG = 'https://example.org/oparl/organizations/committee/1';

@@ -1,7 +1,8 @@
-import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
 import type { OparlMeeting } from '@srw-astro/models/oparl';
+
 import type { OparlFilesRepository } from '../shared/oparl/oparl-files-repository.ts';
 import type { OparlMeetingsRepository } from '../shared/oparl/oparl-meetings-repository.ts';
+import type { IPaperFilesDownloader } from './paper-files-downloader.ts';
 
 export class PaperFilesCollector {
   constructor(
@@ -9,8 +10,7 @@ export class PaperFilesCollector {
     private readonly filesRepository: OparlFilesRepository,
     private readonly downloader: IPaperFilesDownloader,
     private readonly organizationId: string,
-  ) {
-  }
+  ) {}
 
   public async collectFiles(year: string): Promise<void> {
     const meetings = this.meetingsRepository

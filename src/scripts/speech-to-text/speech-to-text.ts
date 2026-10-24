@@ -1,4 +1,5 @@
 import * as path from 'node:path';
+
 import { OpenAI } from 'openai';
 
 export type SpeechTranscriberConfig = {
@@ -24,7 +25,7 @@ export class SpeechToText {
     );
     const sessionSpeechesFileName = path.join(outputDir, `session-speeches-${session}.json`);
     const sessionSpeechesWithTranscriptionsFile = Bun.file(sessionSpeechesWithTranscriptionsFilename);
-    const sessionSpeeches = await sessionSpeechesWithTranscriptionsFile.exists()
+    const sessionSpeeches = (await sessionSpeechesWithTranscriptionsFile.exists())
       ? await sessionSpeechesWithTranscriptionsFile.json()
       : await Bun.file(sessionSpeechesFileName).json();
     for (const speech of sessionSpeeches) {

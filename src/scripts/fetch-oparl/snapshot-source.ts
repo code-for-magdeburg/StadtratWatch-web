@@ -5,9 +5,7 @@ export type FetchFn = (url: string) => Promise<Response>;
 
 /** Outcome of a manifest fetch. Network/HTTP failures are values, not exceptions, so the sync
  * planner can fall back to the local snapshot instead of the whole run aborting. */
-export type ManifestFetch =
-  | { ok: true; manifest: OparlManifest }
-  | { ok: false; reason: string };
+export type ManifestFetch = { ok: true; manifest: OparlManifest } | { ok: false; reason: string };
 
 /** Reads the published snapshot (manifest + blobs) from a remote base URL under a prefix. */
 export type SnapshotSource = {

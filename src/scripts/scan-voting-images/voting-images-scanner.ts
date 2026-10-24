@@ -1,9 +1,10 @@
-import type { ScanConfig } from './scan-config.ts';
-import type { IVotingImagesSource } from './voting-images-source.ts';
 import type { SessionScan } from '@srw-astro/models/session-scan';
+
+import type { ScanConfig } from './scan-config.ts';
 import type { ISessionScanStore } from './session-scan-store.ts';
 import type { ITextRecognizer } from './text-recognizer.ts';
 import type { IVotesRecognizer } from './votes-recognizer.ts';
+import type { IVotingImagesSource } from './voting-images-source.ts';
 
 export class VotingImagesScanner {
   constructor(
@@ -11,8 +12,7 @@ export class VotingImagesScanner {
     private readonly sessionScanStore: ISessionScanStore,
     private readonly textRecognizer: ITextRecognizer,
     private readonly votesRecognizer: IVotesRecognizer,
-  ) {
-  }
+  ) {}
 
   public async processSession(session: string, config: ScanConfig): Promise<void> {
     const summary: SessionScan = [];

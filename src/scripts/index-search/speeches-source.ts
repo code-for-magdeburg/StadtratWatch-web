@@ -1,5 +1,6 @@
-import * as path from 'node:path';
 import { readdir } from 'node:fs/promises';
+import * as path from 'node:path';
+
 import type { Registry, RegistrySession } from '@srw-astro/models/registry';
 import type { SessionSpeech } from '@srw-astro/models/session-speech';
 
@@ -14,8 +15,7 @@ export interface ISpeechesSource {
 }
 
 export class SpeechesSource implements ISpeechesSource {
-  constructor(private readonly parliamentPeriodsBaseDir: string) {
-  }
+  constructor(private readonly parliamentPeriodsBaseDir: string) {}
 
   public async getSpeeches(): Promise<IndexableSpeech[]> {
     const speeches: IndexableSpeech[] = [];
@@ -39,19 +39,16 @@ export class SpeechesSource implements ISpeechesSource {
         continue;
       }
 
-      registries.push(await registryFile.json() as Registry);
+      registries.push((await registryFile.json()) as Registry);
     }
 
     return registries;
   }
 
   private async getSessionSpeeches(parliamentPeriod: Registry, session: RegistrySession): Promise<SessionSpeech[]> {
-    const sessionSpeechesFile = Bun.file(path.join(
-      this.parliamentPeriodsBaseDir,
-      parliamentPeriod.id,
-      session.id,
-      `session-speeches-${session.id}.json`,
-    ));
-    return await sessionSpeechesFile.exists() ? await sessionSpeechesFile.json() as SessionSpeech[] : [];
+    const sessionSpeechesFile = Bun.file(
+      path.join(this.parliamentPeriodsBaseDir, parliamentPeriod.id, session.id, `session-speeches-${session.id}.json`),
+    );
+    return (await sessionSpeechesFile.exists()) ? ((await sessionSpeechesFile.json()) as SessionSpeech[]) : [];
   }
 }

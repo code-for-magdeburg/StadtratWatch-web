@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'bun:test';
+
 import { serializeSpeeches } from './speeches-file.ts';
 
 describe('serializeSpeeches', () => {

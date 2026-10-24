@@ -29,8 +29,7 @@ export type PangramTaskResult = {
 };
 
 export type PangramAssessmentOutcome =
-  | { kind: 'assessed'; result: PangramTaskResult }
-  | { kind: 'skipped-too-short'; wordCount: number };
+  { kind: 'assessed'; result: PangramTaskResult } | { kind: 'skipped-too-short'; wordCount: number };
 
 export interface PangramClient {
   assessText(text: string): Promise<PangramAssessmentOutcome>;

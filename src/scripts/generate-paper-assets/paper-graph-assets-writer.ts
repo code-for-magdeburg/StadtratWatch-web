@@ -1,5 +1,6 @@
-import * as path from 'node:path';
 import { mkdir, readdir } from 'node:fs/promises';
+import * as path from 'node:path';
+
 import type { PaperGraphAssetDto } from './model.ts';
 
 export interface PaperGraphAssetsWriter {
@@ -7,8 +8,7 @@ export interface PaperGraphAssetsWriter {
 }
 
 export class PaperGraphAssetsFileWriter implements PaperGraphAssetsWriter {
-  constructor(private readonly paperAssetsDir: string) {
-  }
+  constructor(private readonly paperAssetsDir: string) {}
 
   async writePaperGraphAssets(assets: PaperGraphAssetDto[]): Promise<void> {
     await mkdir(this.paperAssetsDir, { recursive: true });
@@ -30,9 +30,8 @@ export class PaperGraphAssetsFileWriter implements PaperGraphAssetsWriter {
 
   private async removeStalePaperGraphAssetFiles(generatedFilenames: Set<string>): Promise<void> {
     for (const entry of await readdir(this.paperAssetsDir, { withFileTypes: true })) {
-      const isStalePaperGraphAssetFile = entry.isFile() &&
-        /^paper-graphs-.*\.json$/.test(entry.name) &&
-        !generatedFilenames.has(entry.name);
+      const isStalePaperGraphAssetFile =
+        entry.isFile() && /^paper-graphs-.*\.json$/.test(entry.name) && !generatedFilenames.has(entry.name);
       if (isStalePaperGraphAssetFile) {
         await Bun.file(path.join(this.paperAssetsDir, entry.name)).delete();
       }

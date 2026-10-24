@@ -1,6 +1,7 @@
-import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
 import * as path from 'node:path';
-import type { ScrapeOparlPushEnv } from './env.ts';
+
+import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
+
 import {
   MANIFEST_FILENAME,
   OPARL_SNAPSHOT_FILENAMES,
@@ -9,6 +10,7 @@ import {
   SCRAPER_METADATA_FILENAME,
   shortSnapshotSha,
 } from '../shared/oparl/oparl-snapshot.ts';
+import type { ScrapeOparlPushEnv } from './env.ts';
 
 const BLOB_CACHE_CONTROL = 'public, max-age=31536000, immutable';
 const MANIFEST_CACHE_CONTROL = 'public, max-age=60';
@@ -63,9 +65,7 @@ export async function uploadOparlSnapshot(
     ContentType: 'application/json',
     CacheControl: MANIFEST_CACHE_CONTROL,
   });
-  console.log(
-    `Uploaded ${manifestKey} (${OPARL_SNAPSHOT_FILENAMES.length} entries, lastSync ${lastSync ?? 'none'}).`,
-  );
+  console.log(`Uploaded ${manifestKey} (${OPARL_SNAPSHOT_FILENAMES.length} entries, lastSync ${lastSync ?? 'none'}).`);
 
   return manifest;
 }

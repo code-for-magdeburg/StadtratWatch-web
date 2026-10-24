@@ -1,3 +1,8 @@
+import { describe, expect, it } from 'bun:test';
+import { createHash } from 'node:crypto';
+
+import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
+
 import {
   type LocalAsset,
   publishWebAssets,
@@ -7,9 +12,6 @@ import {
   type WebAssetOperations,
   type WebAssetTarget,
 } from './web-asset-publisher.ts';
-import type { PutObjectCommandInput } from '@aws-sdk/client-s3';
-import { describe, expect, it } from 'bun:test';
-import { createHash } from 'node:crypto';
 
 const TARGET: WebAssetTarget = {
   bucket: 'test-bucket',

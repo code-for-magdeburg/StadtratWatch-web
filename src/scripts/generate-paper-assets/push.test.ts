@@ -1,6 +1,7 @@
-import { publishAndVerifyPaperAssets } from './push.ts';
-import type { LocalAsset, RemoteObject, WebAssetOperations, WebAssetTarget } from '../shared/web-asset-publisher.ts';
 import { afterEach, describe, expect, it, mock, spyOn } from 'bun:test';
+
+import type { LocalAsset, RemoteObject, WebAssetOperations, WebAssetTarget } from '../shared/web-asset-publisher.ts';
+import { publishAndVerifyPaperAssets } from './push.ts';
 
 const TARGET: WebAssetTarget = {
   bucket: 'test-bucket',

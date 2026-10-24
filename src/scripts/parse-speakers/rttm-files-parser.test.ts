@@ -1,8 +1,9 @@
+import { afterEach, describe, expect, it, mock, spyOn } from 'bun:test';
+
+import type { IParsedFilesStore } from './parsed-files-store.ts';
 import { RttmFilesParser } from './rttm-files-parser.ts';
 import type { IRttmFilesStore } from './rttm-files-store.ts';
-import type { IParsedFilesStore } from './parsed-files-store.ts';
 import type { SpeakerWithSegments } from './types.ts';
-import { afterEach, describe, expect, it, mock, spyOn } from 'bun:test';
 
 const mockRttmFilesStore: IRttmFilesStore = {
   getRttmFiles(): Promise<string[]> {
@@ -45,43 +46,39 @@ describe('RttmFilesParser', () => {
       await parser.process('2024-01-01');
 
       expect(writeSpeakerFileSpy).toHaveBeenCalledTimes(1);
-      expect(writeSpeakerFileSpy).toHaveBeenNthCalledWith(
-        1,
-        '2024-01-01',
-        [
-          {
-            'speaker': '00_SPEAKER_01',
-            'segments': [
-              {
-                'start': 456.528,
-                'duration': 10.119,
-              },
-            ],
-          },
-          {
-            'speaker': '01_SPEAKER_02',
-            'segments': [
-              {
-                'start': 14867.462,
-                'duration': 2.424,
-              },
-              {
-                'start': 14868.345,
-                'duration': 3.917,
-              },
-            ],
-          },
-          {
-            'speaker': '02_SPEAKER_01',
-            'segments': [
-              {
-                'start': 29280.462,
-                'duration': 1.234,
-              },
-            ],
-          },
-        ],
-      );
+      expect(writeSpeakerFileSpy).toHaveBeenNthCalledWith(1, '2024-01-01', [
+        {
+          speaker: '00_SPEAKER_01',
+          segments: [
+            {
+              start: 456.528,
+              duration: 10.119,
+            },
+          ],
+        },
+        {
+          speaker: '01_SPEAKER_02',
+          segments: [
+            {
+              start: 14867.462,
+              duration: 2.424,
+            },
+            {
+              start: 14868.345,
+              duration: 3.917,
+            },
+          ],
+        },
+        {
+          speaker: '02_SPEAKER_01',
+          segments: [
+            {
+              start: 29280.462,
+              duration: 1.234,
+            },
+          ],
+        },
+      ]);
     });
   });
 });

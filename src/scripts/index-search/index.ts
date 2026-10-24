@@ -1,14 +1,14 @@
-import { type IndexSearchEnv, tryGetIndexSearchEnv } from './env.ts';
-import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
-import { SearchIndexer } from './search-indexer.ts';
-import { type IDocumentsImporter, TypesenseImporter } from './typesense-importer.ts';
-import { BatchedDocumentsImporter } from './batched-documents-importer.ts';
-import { PapersContentSource } from './papers-content-source.ts';
-import { SpeechesSource } from './speeches-source.ts';
-import { OparlObjectsFileStore } from '../shared/oparl/oparl-objects-store.ts';
-import { OparlMeetingsInMemoryRepository } from '../shared/oparl/oparl-meetings-repository.ts';
-import { OparlPapersInMemoryRepository } from '../shared/oparl/oparl-papers-repository.ts';
 import { OparlFilesInMemoryRepository } from '../shared/oparl/oparl-files-repository.ts';
+import { OparlMeetingsInMemoryRepository } from '../shared/oparl/oparl-meetings-repository.ts';
+import { OparlObjectsFileStore } from '../shared/oparl/oparl-objects-store.ts';
+import { OparlPapersInMemoryRepository } from '../shared/oparl/oparl-papers-repository.ts';
+import { BatchedDocumentsImporter } from './batched-documents-importer.ts';
+import { checkArgs, parseCliArgs, printHelpText } from './cli.ts';
+import { type IndexSearchEnv, tryGetIndexSearchEnv } from './env.ts';
+import { PapersContentSource } from './papers-content-source.ts';
+import { SearchIndexer } from './search-indexer.ts';
+import { SpeechesSource } from './speeches-source.ts';
+import { type IDocumentsImporter, TypesenseImporter } from './typesense-importer.ts';
 
 const args = parseCliArgs(Bun.argv.slice(2));
 

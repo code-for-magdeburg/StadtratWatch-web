@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'bun:test';
+
 import { buildAiTextAssessment } from './ai-text-assessment-mapper.ts';
 import type { PangramLabel, PangramTaskResult, PangramWindow } from './pangram-client.ts';
 
