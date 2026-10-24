@@ -53,30 +53,6 @@
       "include": ["verbatim-module-syntax"]
     }
   },
-  "fmt": {
-    "lineWidth": 120,
-    "indentWidth": 2,
-    "singleQuote": true,
-    "include": [
-      "src/"
-    ],
-    "exclude": [
-      "**/*.md",
-      "!src/scripts/detect-ai-text/",
-      "!src/scripts/download-paper-files/",
-      "!src/scripts/fetch-oparl/",
-      "!src/scripts/generate-image-assets/",
-      "!src/scripts/generate-oparl-derivatives/",
-      "!src/scripts/generate-paper-assets/",
-      "!src/scripts/generate-paper-votings/",
-      "!src/scripts/index-search/",
-      "!src/scripts/parse-speakers/",
-      "!src/scripts/scan-voting-images/",
-      "!src/scripts/scrape-oparl/",
-      "!src/scripts/shared/**/*.test.ts",
-      "!src/scripts/speech-to-text/"
-    ]
-  },
   "test": {
     "include": ["src/"],
     "exclude": ["src/deps/astro/"]
